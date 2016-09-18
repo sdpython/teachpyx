@@ -22,8 +22,8 @@ install:
   - "%PYTHON%\\Scripts\\pymy_install3 --set=pyquickhelper"
   - "%PYTHON%\\Scripts\\pip install pycodestyle prompt_toolkit"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"
-  - "set PATH=%PATH%;C:\\projects\\mlstatpy\\build\\update_modules\\Graphviz\\bin"
-  - "dir C:\\projects\\mlstatpy\\build\\update_modules\\Graphviz\\bin"
+  - "set PATH=%PATH%;C:\\projects\\teachpyx\\build\\update_modules\\Graphviz\\bin"
+  - "dir C:\\projects\\teachpyx\\build\\update_modules\\Graphviz\\bin"
 build: off
 
 test_script:

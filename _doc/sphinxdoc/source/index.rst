@@ -13,20 +13,12 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
 (format brut de fonderie) et sur 
 `GitHub/teachpyx <https://github.com/sdpython/teachpyx>`_ |gitlogo|.
 
-.. only:: html
-
-    .. toctree::
-        :maxdepth: 2
-        
-        introduction
 
 
-.. only:: latex
-
-    .. toctree::
-        :maxdepth: 3
-        
-        introduction
+.. toctree::
+    :maxdepth: 2
+    
+    introduction
         
 .. toctree::
     :maxdepth: 1
@@ -46,7 +38,7 @@ Xavier Dupré
     :target: https://travis-ci.org/sdpython/teachpyx
     :alt: Build status
     
-.. image:: https://ci.appveyor.com/api/projects/status/j5poldtnij0a3ac0?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/hsrhrnb5r3tlpb8a?svg=true
     :target: https://ci.appveyor.com/project/sdpython/teachpyx
     :alt: Build Status Windows
     

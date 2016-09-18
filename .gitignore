@@ -258,3 +258,5 @@ _doc/notebooks/nlp/profile.png
 _doc/notebooks/nlp/completion.dot
 _doc/notebooks/nlp/completion.png
 _doc/notebooks/nlp/completion.pstat
+_unittests/run_unittests.py.out
+*.err

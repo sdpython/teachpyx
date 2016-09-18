@@ -3,9 +3,7 @@ import sys
 import os
 import datetime
 import re
-import sphinx_theme_pd as sphtheme
-# import sphinx_clatex
-# import hbp_sphinx_theme as sphtheme
+import sphinx_bootstrap_theme
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.split(__file__)[0])))
 sys.path.insert(
@@ -25,17 +23,44 @@ local_template = os.path.join(os.path.abspath(
 
 from pyquickhelper.helpgen.default_conf import set_sphinx_variables
 set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2016,
-                     sphtheme.__name__, [
-                         sphtheme.get_html_theme_path()], locals(),
-                     extlinks=dict(
+                     "bootstrap", sphinx_bootstrap_theme.get_html_theme_path(), 
+                     locals(), extlinks=dict(
                          issue=('https://github.com/sdpython/teachpyx/issues/%s', 'issue')),
-                     title="Machine Learning, Statistiques et Programmation", book=True)
+                     title="Programmation avec le langage Python", book=True)
 
 blog_root = "http://www.xavierdupre.fr/app/teachpyx/helpsphinx/"
 
 html_context = {
     'css_files': ['_static/my-styles.css'],
 }
+
+html_logo = "project_ico_small.png"
+
+html_sidebars = {}
+
+if html_theme == "bootstrap":
+    html_theme_options = {
+        'navbar_title': "home",
+        'navbar_site_name': "Site",
+        'navbar_links': [
+            ("XD", "http://www.xavierdupre.fr", True),
+            ("blog site", "blog/main_0000.html", True),
+            ("index", "genindex"),
+        ],
+        'navbar_sidebarrel': False,
+        'navbar_pagenav': True,
+        'navbar_pagenav_name': "Page",
+        'globaltoc_depth': 3,
+        'globaltoc_includehidden': "true",
+        'navbar_class': "navbar navbar-inverse",
+        'navbar_fixed_top': "true",
+        'source_link_position': "nav",
+        'bootswatch_theme': "readable",
+        # united = weird colors, sandstone=green, simplex=red, paper=trop bleu
+        # lumen: OK
+        # to try, yeti, flatly, paper
+        'bootstrap_version': "3",
+    }
 
 language = "fr"
 custom_preamble = """\n
