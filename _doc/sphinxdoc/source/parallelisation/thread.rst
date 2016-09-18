@@ -647,17 +647,17 @@ sont appelées par des threads étrangers.
         le supprime si elle en trouve un. Si ``timeout`` est renseigné, 
         la fonction attend au plus ``timeout`` secondes, sinon, 
         elle déclenche l'exception `Empty`_.        
-    * - ``get\_nowait()``
+    * - ``get_nowait()``
       - Retourne un élément de la liste s'il y a en un, dans ce cas, 
         cet élément est supprimé. Dans le cas contraire, la méthode déclenche 
         l'exception `Empty`_.
-    * - ``put (e[,timeout=...])``
+    * - ``put(e[,timeout=...])``
       - Ajoute l'élément ``e`` à la liste ou attend qu'une place se 
         libère si la liste est pleine. Si ``timeout`` est renseigné, 
         la fonction attend au plus ``timeout`` secondes, sinon, 
         elle déclenche l'exception 
         `Full`_.
-    * - ``put\_nowait(e)``
+    * - ``put_nowait(e)``
       - Ajoute l'élément ``e`` à la liste ou déclenche l'exception 
         `Full`_ si la liste est pleine.
     * - ``qsize()`` 
