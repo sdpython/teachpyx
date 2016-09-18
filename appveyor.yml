@@ -23,9 +23,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install pycodestyle prompt_toolkit"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"
   - "set PATH=%PATH%;C:\\projects\\teachpyx\\build\\update_modules\\Graphviz\\bin"
-  - "dir ."
 build: off
 
 test_script:
-  - "%PYTHON%\\python -u setup.py build_script"
   - "%PYTHON%\\python -u setup.py unittests"
