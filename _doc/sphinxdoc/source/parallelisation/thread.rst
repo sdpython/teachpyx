@@ -6,6 +6,7 @@
 Threads
 =======
 
+.. index:: thread, synchronisation, parallélisation
 
 Jusqu'aux années 2003-2004, l'évolution des microprocesseurs 
 était une course vers une augmentation de la puissance, autant en terme 
@@ -140,6 +141,7 @@ par rapport au programme précédent sont commentées.
         print("programme ", i)
         time.sleep (0.1)
 
+.. index:: sleep
 
 .. _sleep: https://docs.python.org/3/library/time.html#time.sleep
 
@@ -222,6 +224,8 @@ tous les 100 millisecondes. Cette durée dépend de ce que fait le thread second
     
 .. _Event: https://docs.python.org/3/library/threading.html?highlight=event#threading.Event
 
+.. index:: Event
+
 Ce mécanisme d'attente peut également être codé en utilisation les 
 objets `Condition <https://docs.python.org/3/library/threading.html?highlight=condition#threading.Condition>`_
 et `Event`_. 
@@ -287,6 +291,8 @@ Le second cas de synchronisation est l'ajout de verrous qui permettent
 de protéger une partie du code d'un programme contre plusieurs accès 
 simultanés.\indexfrr{thread}{verrou} Ce verrou est également un objet du module 
 ``threading`` : `Lock`_.
+
+.. index:: Lock, verrou
 
 .. _Lock: https://docs.python.org/3/library/threading.html?highlight=condition#threading.Lock
 
@@ -657,6 +663,8 @@ sont appelées par des threads étrangers.
     * - ``qsize()`` 
       - Retourne la taille de la pile.
       
+.. index:: queue
+      
 Cette pile est utilisée dans l'exemple qui suit pour simuler deux joueurs 
 qui essaye de découvrir le nombre que l'autre joueur a tiré au hasard. 
 A chaque essai, un joueur envoie un message de type ``("essai", n)`` 
@@ -763,17 +771,21 @@ l'affichage à l'aide d'un verrou.
 
 
 .. todoext::
-    :tag: enhancement
+    :tag: plus
     :title: aborder async, await
     
     Python 3.5 a introduit les mots clés 
     `async, await <https://docs.python.org/3/whatsnew/3.5.html?highlight=async#whatsnew-pep-492>`_.
         
 .. todoext::
-    :tag: enhancement
+    :tag: plus
     :title: librairies de synchronisation
 
     Tel que joblib...
 
-    
+.. todoext::
+    :tag: plus
+    :title: schéma classique de parallélisation
+
+    s'inspirer de joblib
     
