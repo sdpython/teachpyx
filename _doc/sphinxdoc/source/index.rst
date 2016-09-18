@@ -4,8 +4,8 @@
 .. |gitlogo| image:: _static/git_logo.png
              :height: 20
 
-Contenu
-=======
+Apprendre la programmation avec Python
+======================================
 
 Le site `Python dans tous ses états <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/>`_
 est un peu bordélique même si j'essaye d'y apporter un peu d'ordre. Il s'étale. Il déborde un peu ici.
