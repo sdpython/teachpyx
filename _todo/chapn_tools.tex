@@ -1,0 +1,2174 @@
+\input{../../common/livre_begin.tex}%
+\firstpassagedo{\input{python_cours_titre.tex}}
+\input{../../common/livre_table_begin.tex}%
+%\firstpassagedo{\input{python_cours_chapter.tex}}
+
+
+
+
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------
+\chapter{Outils d'aide au développement}
+\label{chap_tools}
+%-------------------------------------------------------------------------------------------------------------
+
+
+Ce chapitre présente différents outils qui accompagnent la création d'une application dans quelque langage de programmation que ce soit. Les premiers outils présentés sont des modules du langage \pythons qui permettent de fiabiliser un programme malgré de nombreuses modifications ou de mesurer le temps passé dans chaque fonction.
+
+Les autres outils sont des applications facilitant le développement etle partage d'information. Le premier, \emph{Tortoise SVN}, est un logiciel de suivi de version~: il permet de conserver l'historique de vos modifications. Le second, \emph{HTML Help Workshop}, permet de construire des fichiers d'aide au format \emph{chm}. Le troisième, \emph{InnoSetup}, permet de construire un installateur, un programme qui installera votre application sur une autre machine. Le dernier outil, \emph{MoinMoin} est ce qu'on appelle un \textit{Wiki}, il permet facilement de partager l'information au sein d'une entreprise en offrant à chacun la possibilité de modifier des pages internet et d'y effectuer des recherches.\indexoutil{Wiki}
+
+\begin{xremark}{instructions d'installation et de configuration}
+Les instructions qui permettent d'installer et de configurer les applications \textit{Apache}, \textit{SVN}, \textit{MoinMoin}, ... sont extraites des sites internet de chaque applications. Elles sont valides pour les numéros de version cités dans ce document mais il est possible qu'elles évoluent dans le futur. Pour des versions plus récentes, il est probable que ces installations se modifient\footnote{Les versions testées lors de l'écriture de ce document sont \textit{Apache 2.2.8}, \textit{SVN 1.4.6}, \textit{MoinMoin 1.6.3}, \textit{InnoSetup 5.2.3}, \textit{Tortoise SVN 1.4.8}, \textit{HTML Help Workshop 4.74}, \textit{MySQL 5.0.51}.} .
+\end{xremark}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+
+\section{Modules d'aide au développement}
+
+L'intérêt de la programmation réside rarement dans le programme construit mais plutôt dans ce qu'il permet de faire. Les outils qui suivent permettent de gagner du temps pas forcément lors de la conception mais plutôt lors de la finalisation d'une application\footnote{Certains site comme celui-ci \httpstyle{http://sebsauvage.net/python/snyppets/index.html} sont plus utiles lors de la conception, ils recensent de nombreux usages du langages toujours illustrés d'un exemple.} 
+
+
+
+\subsection{Temps d'exécution} \indexfrr{temps}{exécution}\indexfrr{temps}{mesure}
+
+Le coût d'un algorithme définit sa complexité en fonction de la taille des données qu'il manipule mais cette information est rarement disponible. Lorsqu'un programme est trop long, avant de pouvoir le modifier, il faut savoir quels sont les éléments consommateurs de temps, c'est ce que permettent de faire les modules \codes{profile} et \codes{pstats}.\indexmoduleint{profile}\indexmoduleint{pstats} Le code suivant a été ajouté au programme \codes{genchm.py} définit au paragraphe~\ref{section_chm_programme}, page~\pageref{section_chm_programme}.
+\indexexemples{génération automatique de l'aide}{}
+\begin{verbatimx}
+def run () :
+    files = [".\\genchm.py", ".\\genhelp.py", "os", "sys"]
+    res   = genhelp.genhelp (files)
+    print res  # ['genchm.html', 'genhelp.html', 'os.html', 'sys.html']   
+    genchm (res, "GenHelp")
+    
+if __name__ == "__main__" :
+    # écrit des informations relatives à l'exécution de la fonction
+    # run () dans le fichier profile.txt
+    import profile
+    profile.run ('run()', "profile.txt")  
+ 
+    # récupère les informations stockées dans profile.txt
+    # et construit le nombre de passages dans chaque
+    # fonction et les temps d'exécution moyen                                      
+    import pstats
+    p = pstats.Stats('profile.txt')
+    p.strip_dirs().sort_stats(-1).print_stats()
+\end{verbatimx}
+Le résultat est le suivant~:    
+\begin{verbatimx}
+Mon May 12 22:38:02 2008    profile.txt
+
+         77 function calls in 5.557 CPU seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        5    0.000    0.000    0.000    0.000 :0(append)
+        4    0.000    0.000    0.000    0.000 :0(close)
+        2    0.000    0.000    0.000    0.000 :0(len)
+        4    0.003    0.001    0.003    0.001 :0(open)
+       16    0.000    0.000    0.000    0.000 :0(replace)
+        1    0.001    0.001    0.001    0.001 :0(setprofile)
+        2    0.000    0.000    0.000    0.000 :0(split)
+        5    5.551    1.110    5.551    1.110 :0(system)
+        4    0.000    0.000    0.000    0.000 :0(write)
+        1    0.000    0.000    5.556    5.556 <string>:1(<module>)
+        1    0.000    0.000    2.562    2.562 genchm.py:102(genchm)
+        1    0.000    0.000    0.001    0.001 genchm.py:11(genhhp)
+        1    0.000    0.000    5.556    5.556 genchm.py:113(run)
+        1    0.000    0.000    0.001    0.001 genchm.py:42(gen_premierepage)
+       13    0.000    0.000    0.000    0.000 genchm.py:54(genhh_input)
+        1    0.000    0.000    0.001    0.001 genchm.py:61(genhhc)
+        8    0.000    0.000    0.000    0.000 genchm.py:7(g)
+        1    0.000    0.000    0.001    0.001 genchm.py:83(genhhk)
+        4    0.000    0.000    2.993    0.748 genhelp.py:17(generate_help_file)
+        1    0.000    0.000    2.994    2.994 genhelp.py:26(genhelp)
+        0    0.000             0.000          profile:0(profiler)
+        1    0.000    0.000    5.557    5.557 profile:0(run())
+\end{verbatimx}
+Ces informations nous révèle que la fonction la plus souvent appelée \codes{replace} ne consomme presque pas de temps d'exécution. La fonction \codes{generate\_help\_file} dure près de trois quarts de seconde à chaque appel. La fonction \codes{run} est la plus longue car elle cumule le temps passé dans toutes les autres.
+
+
+\subsection{Tests systématiques avec \codes{doctest}} \indexfrr{test}{systématique}
+
+Lorsqu'il s'agit d'un programme court, il n'est pas nécessaire de bien réfléchir à la structure d'un programme ni à vérifier de temps en temps que ce qu'on a écrit auparavant continue de fonctionner malgré toutes les modifications apportées au programme. Car il existe certains pièges récurrents en informatique inhérents à toutes les applications conséquentes. Le schéma suivant retrace l'historique de la création de trois fonctions.
+\begin{center}\begin{tabular}{lll}
+\codes{fonction\;A} & écrite en janvier & \\ \hline
+\codes{fonction\;B} & écrite en janvier & utilise \codes{fonction\;A} \\ \hline
+\codes{fonction\;C} & écrite en juin & utilise \codes{fonction\;A} 
+\end{tabular}\end{center}
+En juillet, on s'aperçoit qu'il faut modifier \codes{fonction\;C}, cette modification implique la modification de \codes{fonction\;A}. Quel est l'impact sur \codes{fonction\;B} qui est une vieille fonction mais dont le comportement ne doit absolument pas changer~? Ce cas de figure se produit fréquemment lors de la conception d'une application et il n'est pas toujours facile de prévoir les conséquences d'une modifications d'une fonction lorsque celle-ci est appelée d'un peu partout dans le code.
+
+Une des solutions proposées par le langage \python est le module \codes{doctest}.\indexmoduleint{doctest} Il permet de simplifier le travail de vérification pour des fonctions qui retourne un résultat. Plus précisément, il est possible de spécifier une liste d'appels à une fonction et de comparer le résultat avec un résultat attendu ou souhaité.
+
+L'exemple suivant utilise une fonction d'addition de deux listes. Elle retourne une liste de même taille contenant la somme membre à membre des deux listes. On souhaite vérifier que cette fonction retourne les bonnes valeurs pour certaines valeurs d'entrées connues. Dans ce cas, on souhaite s'assurer que la fonction retourne bien~:
+\begin{center}\begin{tabular}{|l|l|l|} \hline
+\codes{l1} & \codes{l2} & résultat \\ \hline
+\codes{[]} & \codes{[]} & \codes{[]} \\
+\codes{[1,2]} & \codes{[3,-1]} & \codes{[4, 1]}  \\ \hline
+\end{tabular}\end{center}
+
+La première étape est d'ajouter ces résultats dans le commentaire associé à la fonction. On fait précéder l'appel de \codes{>>>} et on écrit le résultat sur la ligne suivante.
+
+\begin{verbatimx}
+>>> addition ( [1,2], [3,-1])
+[4, 1]
+\end{verbatimx}
+
+Il suffit ensuite d'ajouter une fonction appelant ces tests pour le module en question~:
+\indexexemples{\codesindex{doctest}}{}
+\begin{verbatimx}
+def _test():
+    import doctest
+    print doctest.testmod()
+\end{verbatimx}
+Si le test est validé, il ne se passe rien lorsqu'on appelle la fonction \codes{\_test}, sinon le message suivant apparaît~:
+\begin{verbatimx}
+File "testdoc1.py", line 6, in __main__.addition
+Failed example:
+    addition ( [1,2], [3,-1])
+Expected:
+    [4,  1]
+Got:
+    [4, 1]
+**********************************************************************
+1 items had failures:
+   1 of   2 in __main__.addition
+***Test Failed*** 1 failures.
+\end{verbatimx}
+Dans ce cas précis, une erreur se déclenche car un espace de trop a été ajouté au résultat attendu. Il suffit d'appeler régulièrement ou à chaque modification du programme la fonction \codes{_test} de tous les modules d'un programme pour s'assurer que les résultats sont toujours ceux attendus. On peut mettre plusieurs tests bout à bout, le programme complet donne~:
+
+\inputcode{../python_cours/programme/testdoc1.py}{exemple de test avec \codesindex{doctest}}
+
+Il reste à gérer le cas où la fonction retourne une exception. Il suffit d'inclure le texte suivant dans le commentaires\footnote{Il faut faire attention aux espaces résiduels en fin de ligne, ceux-ci doivent être supprimés dans le commentaires}. Les deux premières lignes sont identiques à chaque fois, la dernière est l'exception lancée par la fonction.
+\begin{verbatimx}
+    Traceback (most recent call last):
+        ...
+    Exception: listes de tailles différentes
+\end{verbatimx}
+
+Le programme complet suit~:
+
+\inputcode{../python_cours/programme/testdoc2.py}{exemple de test plus complet avec \codesindex{doctest}}
+
+Le module \codes{doctest} reste cependant très limité puisqu'il ne permet que de tester le résultat d'une fonction et non un paramètre modifié comme une liste. C'est une manière de faire simple et vite pour des fonctions courtes et retournant des résultats principalement numériques. Ce module permet néanmoins d'introduire le concept de tests automatiques d'une application ou tests unitaires développés par le paragraphe suivant.
+
+
+\subsection{Tests unitaires avec \codes{unittest}} \indexfrr{test}{unitaire} \indexmoduleint{unittest}
+
+Les tests unitaires sont avant tout un concept, ils permettent de fiabiliser une application en répétant les mêmes tests à chaque modification du programme et chaque fois qu'une application doit être transmise aux utilisateurs finaux\footnote{C'est ce qu'on appelle une mise en production.\indexfr{mise en production}} Le module \codes{unittest} facilite la mise en place de ces tests mais ils pourraient tout-à-fait être implémentés sans l'utiliser.
+
+L'objectif reste identique à celui visé par le module \codes{doctest}, il est simplement plus ambitieux. Cette fois-ci, le code correspondant aux tests sera séparé du code de l'application elle-même. Les tests inclus dont de deux types~:
+\begin{enumerate}
+\item vérifier que la fonction fait bien ce pour quoi elle a été créé y compris dans les cas limites, on vérifiera par exemple qu'une fonction de tri retourne bien un tableau trié, qu'une fonction retourne bien le bon code d'erreur dans un cas précis
+\item vérifier que la correction apportée suite à la découverte d'un bug continue bien de corriger ce bug
+\end{enumerate}
+
+Ce paragraphe n'abordera pas en détail toutes les possibilités du module \codes{unittest}, ils ne sont pas indispensables au travail d'un ingénieur à moins que son travail n'évolue vers la création d'une application qui dépasse son propre usage ou d'une application destinée à durer. Le programme dont on souhaite vérifier la fiabilité est celui du paragraphe précédent~:
+
+\inputcode{../python_cours/programme/testunit1.py}{module à tester}
+
+On écrit maintenant un autre fichier contenant les trois tests implémentés avec le module \codes{doctest}. Deux concernaient des résultats retournés par la fonction \codes{addition} et le dernier un cas générant une exception. Pour définir un test, le principe est le suivant~:
+\begin{enumerate}
+\item créer une classe héritant de \codes{unittest.TestCase}
+\item ajouter une méthode dont le nom commence par \codes{test}
+\item dans le corps de cette méthode, écrire le code du test, ce dernier est validé si une série de conditions est vérifiée, pour chaque condition, on ajoutera l'instruction \codes{assert \; condition}
+\end{enumerate}
+\indexkeyword{assert}
+Le test est passé avec succès si les conditions précédées du mot-clé \codes{assert} sont vraies. Si l'une d'elle est fausse, le test a échoué et signifie que le programme est buggé. Pour lancer les tests, il faut appeler la fonction \codes{unittest.main ()}. Cela donne le programme suivant~:
+
+\inputcode{../python_cours/programme/testunit2.py}{liste de tests avec \codesindex{unittest}}
+
+Après avoir modifiée la fonction \codes{addition} de façon à faire échouer le second test \codes{test\_addition}, le message retourné par \pythons est~:
+\begin{verbatimx}
+======================================================================
+ERROR: test_addition : test de [1,2] + [3,-1] != [4,1]
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "testunit2.py", line 16, in test_addition
+    assert l [0] == 4 and l [1] == 1
+IndexError: list index out of range
+\end{verbatimx}
+Les premières lignes reprennent le commentaires associées à la méthode de test. Les lignes suivantes permettent de comprendre où l'erreur est apparue et quelle condition a fait échouer le test. La fonction \codes{addition} a égalément été intentionnellement modifiée pour ne pas générer d'exception lorsque les tailles de listes sont différentes. Le message suivant apparaît~:
+\begin{verbatimx}
+======================================================================
+FAIL: on vérifie que l'addition de deux listes de tailles différentes génère une exception
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "testunit2.py", line 27, in test_exception
+    assert str (e.__class__ .__name__) != "AssertionError"
+AssertionError
+\end{verbatimx}
+Le module \codes{unittest} indique également le temps passé à effectuer ces tests et le nombre de tests lancés. Lorsqu'il existe une multitude de tests, il est sans doute préférable de les répartir sur plusieurs fichiers à la fois. Il faut pouvoir les lancer depuis un seul fichier qui passera tous les tests unitaires en séries. C'est l'objectif du programme suivant qui récupère tous les fichiers \codes{test_*.py} du répertoire, les importe puis crée des suites de tests unitaires pour les méthodes \codes{test...} des classes intitulées \codes{Test...}.
+%
+\inputcode{../python_cours/programme/alltest.py}{exécution de tests unitaires répartis sur plusieurs fichiers}
+
+
+
+\subsection{Ecrire des fichiers de log} \indexfr{logs}
+
+module \codes{logging} \indexmoduleint{logging}
+
+
+
+\subsection{Lancer un programme \pythons en ligne de commande} \indexfr{ligne de commande}\indexfr{commande}
+
+Certains développements nécessitent de pouvoir exécuter un programme \pythons en ligne de commande sans intervention extérieure. Ce peut être un programme de synchronisation de deux répertoires ou la récupération du contenu de pages HTML, des tâches souvent exécutées la nuit à une heure où personne n'est présent pour le faire. Prenons par exemple le cas d'un programme très simple de synchronisation qui recopie tous les fichiers d'un répertoire vers un autre. La fonctionne \codes{copie\_repertoire} effectue cette tâche. \indexmoduleint{glob}\indexmoduleint{shutil}
+\begin{verbatimx}
+# coding: cp1252
+import glob
+import shutil
+def copie_repertoire (rep1, rep2) :
+    """copie tous les fichiers d'un répertoire rep1 vers un autre rep2"""
+    li = glob.glob (rep1 + "/*.*")
+    for l in li :
+        to = l.replace (rep1, rep2)  # nom du fichier copié (on remplace rep1 par rep2)
+        shutil.copy (l, to)
+copie_repertoire ("c:/original", "c:/backup")
+\end{verbatimx}
+%
+Cette tâche est en plus exécuté sur deux répertoires et on ne voudrait pas avoir deux programmes différents alors que la tâche est la même. On souhaite pouvoir lancer le programme \pythons et lui spécifier les deux répertoires, c'est-à-dire être capable de lancer le programme comme suit (voir également figure~\ref{poyton__cmd_synchor})~:
+\begin{verbatimx}
+c:\python25\python.exe synchro.py c:/original c:/backup
+\end{verbatimx}
+
+        		\begin{figure}[ht]
+            \figureoneimageusual{ \caption{Un programme \pythons lancé en ligne de commande.} }
+            { \includegraphics[width=13cm]{\filextellipse{../python_cours/image/cmds}{../python_cours/image/cmds}} }
+            { \label{poyton__cmd_synchor}}
+            \end{figure}
+            
+\indexmoduleint{sys}
+Pour lancer un programme \pythons en ligne de commande, il faut écrire dans une fenêtre de commande ou un programme d'extension \textit{bat}\indexfrr{extension}{bat} les instructions suivantes séparées par des espaces~:
+\begin{verbatimx}
+interpréteur_python programme_python argument1 argument2 ...
+\end{verbatimx}
+%
+Il faut maintenant récupérer ces paramètres au sein du programme \pythons grâce au module \codes{sys} qui contient une variable \codes{argv} contenant la liste des paramètres de la ligne de commande. S'il y a deux paramètres, cette liste \codes{argv} contiendra trois éléments~:
+\begin{enumerate}
+\item nom du programme
+\item paramètre 1
+\item paramètre 2
+\end{enumerate}
+%
+Le programme suivante utilise ce mécanisme avec le programme \codes{synchro} contenant la fonction \codes{copie\_repertoire}~:
+%            
+\inputcode{../python_cours/programme/synchro.py}{lancer un programme \pythons en ligne de commande}            
+%
+
+\begin{xremark}{paramètres contenant des espaces}
+Lorsque les paramètres écrits sur la ligne de commande contiennent eux-mêmes des espaces, il faut les entourer avec des guillemets.
+\begin{verbatimx}
+c:\python25\python.exe c:\batch\synchro.py "c:\Program Files\source" "c:\Program Files\backup"
+\end{verbatimx}
+\end{xremark}
+
+Pour des besoins plus complexes, le module \codes{getopt} propose des fonctions plus élaborées pour traiter les paramètres de la ligne de commande.\indexmoduleint{getopt}
+
+\subsection{Lancer un programme \pythons en ligne de commande depuis un programme \python} \indexfr{ligne de commande}\indexfr{commande}
+
+Il est parfois utile de lancer un programme exécutable en ligne de commande depuis un programme \python. C'est assez pratique pour ouvrir automatiquement un éditeur de texte ou lancer un navigateur affichant directement une page internet précise. Il existe plusieurs façons de faire cela. La première est l'utilisation de la fonction \codes{system}\indexfonction{system} du module \codes{os}.\indexmoduleint{os} L'exemple suivant ouvre automatiquement l'éditeur de texte \textit{SciTe}\indexoutil{SciTe} sur le fichier \codes{fichier.txt}. 
+\indexexemples{ligne de commande \textit{SciTe}}{}
+\begin{verbatimx}
+os.system ("scite -open:fichier.txt")
+\end{verbatimx}
+%
+Un autre moyen est l'utilisation du module \codes{subprocess}.\indexmoduleint{subprocess} Il permet d'attendre ou non la fin de l'exécution de la ligne de commande.
+\indexexemples{\codesindex{subprocess}}{}
+\begin{verbatimx}
+import subprocess
+args = ["scite.exe", "-open:fichier.txt"]
+proc = subprocess.Popen(args)
+retcode = proc.wait()            # on attend la fin de l'exécution
+if retcode!=0:
+    # ici, traiter les erreurs
+\end{verbatimx}
+%
+Certains programmes en ligne de commande écrivent des informations dans la fenêtre d'exécution. C'est le cas par exemple d'une instruction \codes{print} dans un programme \python. lorsqu'on exécute un programme en ligne de commande, ces informations sont perdues à moins de les récupérées. La première solution consiste à ajouter \codes{>>output.txt} en fin de ligne de commande de sorte que ces informations seront stockées dans le fichier \codes{output.txt}. 
+\indexexemples{\codesindex{subprocess}}{}
+\begin{verbatimx}
+import subprocess
+args = ["scite.exe", "-open:fichier.txt", ">>output.txt"]
+proc = subprocess.Popen(args)
+\end{verbatimx}
+%
+La seconde option consiste à rediriger la sortie vers le programme appelant toujours avec la fonction \codes{Popen}.\indexfonction{Popen}
+%
+
+(à venir)
+
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+
+
+\section{Tortoise SVN : suivi de version}  \indexoutil{Tortoise SVN}
+
+Le premier des outils est sans doute à installer avant de commencer à programmer. \emph{Tortoise SVN}\footnote{\httpstyle{http://tortoisesvn.tigris.org/}}\footnote{\textit{Tortoise SVN} comprend en fait deux composants, le premier \textit{SVN} est le logiciel proprement dit, il existe sur tout type de plateforme. \textit{Tortoise} est l'interface graphique qui permet d'utiliser \textit{SVN} plus simplement mais elle est spécifique à \textit{Windows}.} permet de conserver l'historique des modifications d'un fichier, d'une arborescence de fichiers. Le logiciel peut gérer tout type de fichiers, toutefois, il est particulier indiqué pour les fichiers textes. C'est un outil également qui facilite grandement le travail à plusieurs sur les mêmes fichiers.
+
+Le principe est d'avoir un répertoire où sont stockées l'ensemble des fichiers et toutes les modifications qui y ont été apportées. Ce répertoire principal porte souvent le nom de \emph{repository} (voir figure~\ref{fig_svn_1}).\indexfr{repository} Cette copie principale n'est pas modifiable directement. Il faut en faire autant de copies qu'il y a d'intervenants sur le projet.
+
+            \begin{figure}[ht]
+            \figureoneimage {  \caption{SVN conserve une copie principale que personne ne peut modifier directement. 
+            								On peut en fait autant de copies
+            				 qu'il y a de programmeurs. Chacun d'entre eux peut modifier sa copie sans interférer sur celle des autres.	} }	
+								{  \includegraphics[height=2.5cm, width=7cm]{\filextel{../python_cours/image/svn1}} }
+            { \label{fig_svn_1}}
+            \end{figure}
+
+\subsection{Utilisation personnelle}
+
+Cet outil est également utile pour ses propres fichiers, pour conserver l'historique des modifications apportées à un ensemble de fichiers. La première étape est l'installation.
+
+\subsubsection{Installation et création d'un repository}  \label{troitoise_installation}  \indexoutilz{TortoiseSVN}{installation}
+
+L'installation commence par l'exécution d'un installateur \textit{Windows}\footnote{L'installation à usage personnel est simple, l'utilisation pour un usage multiple permet une utilisation personnelle mais nécessite des étapes de configurations plus importantes et l'installation de trois logiciels (voir paragraphe~\ref{svn_installation_multiple}).}. Celle-ci ne pose pas de problème particulier. Une fois celle-ci terminée, de nouveaux menus apparaissent dans l'explorateur \textit{Windows} lorsqu'on clique sur le bouton droit de la souris sur un répertoire (voir figure~\ref{fig_svn_2ex}). La création d'un repository consiste tout d'abord à créer un répertoire que SVN utilisera comme répertoire principal. C'est un répertoire que seul \textit{SVN} modifiera, le modifier soi-même n'est pas conseillé même si certains fichiers de configuration peuvent l'être mais cela sort du cadre de ce livre.\indexoutilz{SVN}{repository}
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[height=5cm, width=6cm]{\filextel{../python_cours/image/svn2ex}} &
+            \includegraphics[height=3cm, width=5cm]{\filextel{../python_cours/image/svn3r}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{ Après l'installation de SVN, de nouveaux menus apparaissent lors d'un clic droit de la souris au-dessus 
+            					d'un répertoire. La seconde image intervient lorsqu'on cherche à construire un repository, \textit{SVN} demande
+            					quel type d'archivage il doit choisir. Il est préférable de choisir le premier.}
+            \label{fig_svn_2ex}
+            \end{figure}
+
+L'étape suivante consiste à créer un répertoire dans le repository. Il faut encore cliquer sur le clic droit de la souris à l'endroit où a été créé le repository et choisir \textit{RepoBrowser}. Ensuite, un nouveau clic droit de la souris dans la fenêtre qui s'ouvre permet de créer un nouveau répertoire (choisir \textit{Add Folder}). Ce premier répertoire porte souvent le nom de \textit{racine} ou \textit{root} ou encore \textit{trunk}.\indexoutilz{SVN}{création d'un répertoire}
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[width=3.4cm]{\filextel{../python_cours/image/svn5f}} &
+            \includegraphics[width=9cm]{\filextel{../python_cours/image/svn4f}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{ Création du premier répertoire du repository. }
+            \label{fig_svn_3f}
+            \end{figure}
+
+\subsubsection{Utilisation}
+
+Le principe de \textit{SVN} est de faire correspondre un répertoire du disque dur au premier répertoire du repository. Ce sera le répertoire de travail. Le nom de l'opération est \textit{CheckOut} (voir figure~\ref{fig_svn_4s}).\indexoutilz{SVN}{CheckOut} \textit{SVN} crée un répertoire si celui-ci n'existe pas et y insère également un répertoire caché \textit{.svn}.\indexoutilz{SVN}{.svn} Il contient des informations interne à \textit{SVN}. Il ne faut ni le supprimer ni le modifier.
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[width=3.4cm]{\filextel{../python_cours/image/svn61}} &
+            \includegraphics[width=10cm]{\filextel{../python_cours/image/svn72}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{ Création d'une correspondance entre un répertoire du disque dur et un répertoire du repository. }
+            \label{fig_svn_4s}
+            \end{figure}
+            
+Ajouter un fichier au répertoire \textit{racine} du disque dur n'a pas d'effet sur le repository. Pour l'y inclure, il faut utiliser l'opération \textit{Commit} (voir la figure~\ref{fig_svn_5n}).\indexoutilz{SVN}{Commit} Il faut cocher la case associée au fichier créé, ajouter un commentaire et cliquer sur \textit{Ok}.
+
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[width=3cm]{\filextel{../python_cours/image/svn8nn}} &
+            \includegraphics[width=10.4cm]{\filextel{../python_cours/image/svn8n}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{ Ajout d'un fichier texte au repository.}
+            \label{fig_svn_5n}
+            \end{figure}
+
+Un icône vert apparaît adossé au fichier créé (voir figure~\ref{fig_svn_6i}), il signifie que le fichier est identique dans le repository et dans le répertoire associé. Sa modification entraîne l'apparition d'un icône rouge qui signifie que la copie du disque dur a été modifiée. La répétition de l'opération \textit{Commit} permet de basculer les modifications dans le repository et de faire apparaître l'icône vert.         
+            
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[height=1cm, width=3cm]{\filextel{../python_cours/image/svn9a}} &
+            \includegraphics[height=1cm, width=3cm]{\filextel{../python_cours/image/svn9b}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{ Icônes \textit{SVN}.}
+            \label{fig_svn_6i}
+            \end{figure}
+            
+Un nouveau clic droit sur le fichier modifié et la sélection du sous-menu \textit{Log} permet d'afficher l'ensemble des modifications intervenues sur ce fichier (voir figure~\ref{fig_svn_7l}).\indexoutilz{SVN}{Log} Un double-clic sur le fichier en question permet de comparer deux versions consécutives, de voir les lignes ajoutées, supprimées et modifiées. Cette fonctionnalité ne concerne que les fichiers textes.
+            
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[height=10cm, width=6cm]{\filextel{../python_cours/image/svn10a}} &
+            \includegraphics[height=7cm, width=11cm]{\filextel{../python_cours/image/svn10b}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{ Historique des modifications d'un fichier.}
+            \label{fig_svn_7l}
+            \end{figure}
+
+Les autres menus ne seront pas détaillés, leur exploration est laissée au soin du lecteur. Toutefois, l'un d'entre deux permet de récupérer une vieille version d'un fichier, antérieure aux dernières modifications. De la même manière, si un fichier est supprimée par mégarde, celui-ci, à jamais présent dans le repository, peut être récupéré à tout moment.            
+
+
+            
+\subsubsection{Configuration}
+
+Un clic droit sur le répertoire repository permet d'accéder à la partie \textit{Settings}.\indexoutilz{SVN}{Settings} Le seul paramètre décrit dans ce paragraphe est celui intitulé \textit{Global ignore patterns} de la section \textit{General} (voir figure~\ref{fig_svn_8s}). Il permet que certains fichiers ne soient pas pris en compte par \textit{SVN}. Par exemple, lorsqu'on programme en \python, de nombreux fichiers d'extension \textit{pyc} sont générés. Il ne sert à rien de les conserver dans le repository puisque ceux-ci seront de toutes façons recréés par \pythons si ceux-ci ont été supprimés ou si le fichier source à leur origine a été modifié~: ce sont des fichiers temporaires. Pour éviter que \textit{SVN} n'en tienne compte, il suffit d'ajouter l'expression \textit{*.pyc} dans le champ \textit{Global ignore patterns}.
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[height=5cm, width=5cm]{\filextel{../python_cours/image/svn11a}} &
+            \includegraphics[height=7cm, width=11cm]{\filextel{../python_cours/image/svn11b}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{ Configuration de \textit{SVN}, il est possible de faire en sorte que \textit{SVN} ne tienne pas compte
+            					de certains fichiers dans le champ \textit{Global ignore patterns}. S'il y a plusieurs filtres,
+            					ils doivent être séparés par des espaces.}
+            \label{fig_svn_8s}
+            \end{figure}
+
+\subsubsection{Plusieurs copies du repository}
+
+Même si ce n'est pas souvent utile, il est possible de travailler avec plusieurs copies du repository. Chaque copie doit être construite avec la fonctionnalité \textit{CheckOut}. Une fois ces deux copies créés, il faut pouvoir propager les modifcations d'une copie à l'autre. La fonctionnalité \textit{Commit} appliquée à la copie modifiée permet de transmettre des modifications au repository qui contient l'unique version officielle. Ensuite, la fonctionnalité \textit{Update}\indexoutilz{SVN}{Update} permet de mettre à jour en chargeant depuis le repository les dernières modifications. Ce principe est illustré par le schéma de la figure~\ref{fig_svn_sevcopie}.
+
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=3cm, width=10cm]{\filextel{../python_cours/image/svn12_}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{ Lorsqu'on travaille avec plusieurs copies, la fonctionnalité \textit{Update} fait les modifications depuis
+            					le repository jusqu'à une copie (celle sur laquelle on applique l'opération \textit{Update}. La fonctionnalité
+            					\textit{Commit} est le chemin inverse~: on transmet les modifications depuis une copie vers le repository.}
+            \label{fig_svn_sevcopie}
+            \end{figure}
+            
+Certains problèmes peuvent survenir lorsqu'on travaille sur les mêmes fichiers depuis les deux copies. Il faut toujours rappatrier les dernières modifications enregistrées dans le repository~: un \textit{Commit} est toujours précédé d'un \textit{Update}. \textit{SVN} est capable dans la plupart des cas de gérer les conflits. Seuls restent les cas où les mêmes lignes du même fichier sont modifiées. Lors d'un \textit{Update}, on peut récupérer une modification qui rentre en conflit sur la version en cours. Il faut alors résoudre ce conflit puis indiquer à \textit{SVN} que le conflit est résolu (par l'intermédiaire des sous-menu accessibles avec la souris). \textit{SVN} n'autorisera pas de \textit{Commit} sur un fichier pour lequel il subsiste un conflit irrésolu.\indexoutilz{SVN}{Resolve}
+
+
+
+\subsection{Utilisation à plusieurs} 
+
+Une utilisation à plusieurs requiert une machine accessible par tous sur laquelle sera installé le repository. La communication entre cette machine et celles des autres utilisateurs se fera par l'intermédiaire d'un serveur. Le plus couramment utilisé est le serveur \textit{Apache}. C'est une application qui va fonctionner en permanence sur l'ordinateur et qui permettra les échanges d'informations.
+
+\subsubsection{Installation sur la machine contenant le repository} \label{svn_installation_multiple} 
+
+\textbf{Installation de \textit{SVN}}  \indexoutilz{SVN}{installation}
+
+L'installation est différente car l'application \textit{SVN} utilisée est légèrement différente et il faut faire attention que \textit{SVN} et \textit{Apache} ont des numéros de versions cohérents. On commence donc par l'installation de \textit{SVN}. Il faut tout d'abord télécharger une version \textit{SVN} pour une version \textit{Apache} spécifique \footnote{Au moment où est écrit ce livre, la version \textit{SVN} est 1.4.6 pour \textit{Apache 2.2}, \textit{SVN} est téléchargeable à l'adresse \httpstyle{http://subversion.tigris.org/project\_packages.html} et apparaît sous l'intitulé \textit{Win32 packages built against Apache 2.2} pour \textit{Windows}.}
+
+Ensuite, on va créer un repository. Pour cela, il faut ouvrir une fenêtre de commande \textit{Windows} et écrire les instructions suivantes pour créer un repository à l'emplacement \codes{c:\backslash svnrepository}~:
+\begin{verbatimx}
+cd "répertoire d'installation de SVN\bin"
+svnadmin create c:\svnrepository
+\end{verbatimx}
+
+\textbf{Installation de \textit{Apache}} 
+Voir paragraphe~\ref{apache_paragraphe_section} page~\pageref{apache_paragraphe_section}.
+
+\subsubsection{Installation sur les autres machines}
+
+L'installation est beaucoup plus simple puisqu'il suffit d'installer \textit{Tortoire SVN} (voir paragraphe~\ref{troitoise_installation}, page~\pageref{troitoise_installation}). Il suffira de faire une opération \codes{checkout} depuis le repository \httpstyle{http://localhost/svn/} \httpstyle{http://127.0.0.1/svn/} où \codes{127.0.0.1} est l'adresse~IP de la machine où est installée le repository.
+
+\begin{xremark}{connexion sur \textit{Apache} impossible depuis une autre machine du réseau} \label{remark_firewall}
+Il est possible que l'accès à la machine où est installé \textit{Apache} soit impossible depuis une autre machine. Il y a deux causes possibles, la première est que les deux machines ne peuvent pas communiquer ensemble. Pour vérifier cela, il suffit d'ouvrir une fenêtre de commande \textit{Windows} et d'écrire depuis la machine distante~:
+\indexexemples{\codesindex{ping}}{}
+\begin{verbatimx}
+ping 127.0.0.1
+\end{verbatimx}
+On suppose que \codes{127.0.0.1} est l'adresse IP de la machine où figure \textit{Apache}. Si le résultat est négatif, il faut d'abord résoudre ce problème là. La seconde cause est le \textit{firewall}\indexfr{firewall} (ou \textit{pare-feu})\indexfr{pare-feu} qui empêche les connexions entrantes. Il est possible que ce soit le \textit{firewall} de \textit{Windows} qui soit utilisé, il est possible de le désactiver depuis le panneau de contrôle ou le laisser activer mais autoriser une exception concernant le port qu'écoute le serveur \textit{Apache}.
+\end{xremark}
+
+\begin{xremark}{\textit{Apache} écoute un autre port que le port 80}\label{remark_port_81}
+Au cas où \textit{Apache} écoute un autre port que le port 80, il faut le préciser lorsqu'on se connecte depuis une machine distante. Si le port écouté est le port~81, il faudra écrire dans la barre d'adresse~:
+\begin{verbatimx}
+http://127.0.0.1:81/
+\end{verbatimx}
+\end{xremark}
+
+\subsubsection{Backup}   \indexfr{backup}\indexoutilz{SVN}{backup}
+
+Il peut être intéressant de sauvergarder régulièrement le repository au cas où la machine qui le contiendrait tombe en panne. Cette option ne sera pas détaillée ici mais elle est disponible avec \codes{Apache} qui autorise l'exécution de tâches à intervalles réguliers.
+            
+\subsubsection{Via internet}
+
+\textit{SVN} est plus souvent installé pour être utilisé à l'intérieur d'une entreprise et n'est accessible que depuis son réseau local. Néanmoins, il n'est pas exclu de travailler depuis des postes distants via Internet. Comme pour une utilisation interne, cela suppose qu'un ordinateur servira de repository, la différence viendra de l'URL permettant de se connecter au seveur \textit{SVN} qui pointera vers l'extérieur. Toutefois, cette configuration soulève des problèmes de sécurité. Il faut que le serveur soit bien configuré pour ne laisser l'accès aux fichiers partagés qu'à ceux qui y sont autorisés.
+
+\subsubsection{Limitations}
+
+Travailleur à plus d'une dizaine de personnes sur les mêmes fichiers peut parfois poser des problèmes. Comme un \textit{Update} précède toujours un \textit{Commit}, il arrive, en période de travail intense, qu'un autre programmeur réussisse à faire passer ses modifications entre la succession \textit{Update}-\textit{Commit} d'un autre programmeur.
+
+\indexfrr{gestion}{centralisée}\indexfr{open source}\indexfrr{gestion}{décentralisée}
+La gestion des fichiers \textit{SVN} est dite centralisée car il existe une seule version officielle de tous les fichiers. Cette configuration n'est pas toujours appropriée à la gestion du code source de projets open source auxquels participent un grand nombre de programmeurs. La configuration employée est dite décentralisée, ceci signifie qu'il n'existe plus de version officielle mais que chacun possède une version unique et identifiée. Il n'y a plus d'opération \textit{Commit} ou \textit{Update} mais simplement l'opération \textit{Merge} qui consiste à fusionner les fichiers de deux versions. Avec ce schéma, le problème évoqué au paragraphe précédent n'existe plus.
+
+\subsubsection{Module \codes{pysvn}}  \indexmoduleext{pysvn}
+
+Un module \codes{pysvn}\footnote{téléchargeable depuis l'adresse \httpstyle{http://pysvn.tigris.org/}}\indexmoduleext{pysvn} permet de récupérer des informations sur un repository et de faire des modifications par l'intermédiaire du langage \python. Grâce à cela, on pourrait plus facilement piloter \textit{SVN} et faciliter l'exécution de tâches récurrentes comme la mise à jour chaque nuit de tous les machines de chaque utilisateur. Il faut vérifier lors de l'installation que le module \codes{pysvan} installé est cohérent à la fois avec la version de \pythons et la version de \textit{SVN} installée.
+
+
+
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+
+\section{HTML Help Workshop : construction d'un fichier d'aide} \indexoutil{HTML Help Workshop}  \indexoutilz{HTML Help Workshop}{installation}
+
+La rédaction d'une documentation devrait accompagner toute application destinée à tout autre utilisateur que le concepteur lui-même. Un moyen simple est la rédaction de pages HTML. Ces pages peuvent ensuite compilées pour ne former qu'un seul fichier. A cet ensemble est adjoint une table des matières, un indexe, et un moteur de recherche simple. La première partie du travail est assurée par \pythons lui-même avec le module \codes{pydoc}.\indexmoduleint{pydoc}. La seconde partie est assurée par le logiciel \textit{HTML Help Workshop}\footnote{\httpstyle{http://msdn.microsoft.com/en-us/library/ms669985.aspx}}. 
+
+\subsection{Création automatique d'une documentation avec \codes{pydoc}}
+
+Le module \codes{pydoc} ne s'utilise pas directement à l'intérieur d'un programme \pythons mais en ligne de commande. L'exemple suivant génère l'aide associée au module \codes{random} et celle du programme \codes{mon\_programme.py} dans le répertoire courant. 
+\begin{verbatimx}
+c:\python25\python c:\python25\lib\pydoc.py random
+c:\python25\python c:\python25\lib\pydoc.py .\mon_programme.py
+\end{verbatimx}
+Pour l'inclure dans un programme \python, il faut reproduire un appel en ligne de commande grâce à la fonction \codes{system} du module \codes{os}~:\indexmoduleint{os}\indexfonction{system}
+\begin{verbatimx}
+import os
+os.system (r"c:\python25\python c:\python25\lib\pydoc.py .\mon_programme.py")
+\end{verbatimx}
+Le nom d'un module standard doit apparaître sans extension, le nom d'un fichier peut apparaître sans extension s'il se trouve dans le répertoire depuis lequel est lancé l'appel à \codes{pydoc}, sinon, il faut mettre son chemin complet avec au moins un symbol~$\backslash$. Le programme suivant crée automatique l'aide associée à une liste de fichiers ou de modules, le résultat est illustré par la figure~\ref{fig_pydoc_sample}.
+
+
+\indexmoduleint{pydoc}
+\inputcode{../python_cours/programme/genhelp.py}{génération automatique de l'aide}
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[width=10.4cm]{\filextel{../python_cours/image/pydoch}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Exemple généré avec \codescaption{pydoc}.}
+            \label{fig_pydoc_sample}
+            \end{figure}
+            
+
+\subsection{Compilation des pages HTML avec \textit{HTML Help Workshop}}
+
+Les pages générées par l'exemple précédents vont être reprise par l'application \textit{HTML Help Workshop} pour générer un fichier d'aide de type \textit{chm}.\indexfrr{extension}{chm} Il est possible d'utiliser cette application de façon classique (voir figure~\ref{fig_hhw}) mais l'objectif de cette section sera de générer ce fichier de façon automatique grâce à un script \python.
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=8cm, width=8cm]{\filextel{../python_cours/image/hhw}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Fenêtre de l'application \textit{HTML Help Workshop}.}
+            \label{fig_hhw}
+            \end{figure}
+            
+Pour cela, il faut construire trois fichiers~:
+\begin{enumerate}
+\item help.hhp : le fichier de configuration de l'aide\indexfrr{extension}{hhp}
+\item help.hhc : le fichier contenant la table des matières (format HTML)\indexfrr{extension}{hhc}
+\item help.hhk : le fichier contenant l'indexe (format HTML)\indexfrr{extension}{hhk}
+\end{enumerate}
+
+L'utilisation de ce genre d'outils comme \textit{HTML Help Workshop} est parfois laborieuse, apprendre à s'en servir n'a en soi pas beaucoup d'intérêt et une fois que la génération des fichiers \textit{chm} est automatisée, il n'est pas rare qu'on oublie leur mode d'emploi. Les paragraphes qui suivent décrivent sommairement l'application et vous permettront de ne pas lui consacrer trop de temps. Le premier fichier d'extension \textit{hhp} définit le projet, un exemple suit, seules les lignes commentées sont importantes.
+
+\inputcode{../python_cours/programme/exhelp.hhp}{exemple de fichier \textit{hpp} pour \textit{HTML Help Workshop}}
+
+\indexfr{HTML}
+Les fichiers \textit{hhc} et \textit{hhk} sont définis avec la même syntaxe HTML et leur structure est une arborescence. Ces deux fichiers commencent par l'en-tête suivant~:
+\begin{verbatimx}
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN"><HTML><HEAD></HEAD><BODY>
+\end{verbatimx}
+Et se concluent par le pied de tête~:
+\begin{verbatimx}
+</BODY></HTML>
+\end{verbatimx}
+Chaque élément est composé d'un intitulé et d'une page HTML correspondante qui est facultative, ces deux informations vont être insérés dans le code HTML qui suit~:
+\begin{verbatimx}
+<LI><OBJECT type="text/sitemap">
+<param name="Name" value="intitule">
+<param name="Local" value="page HTML correspondante">
+<param name="ImageNumber" value="11"></OBJECT>
+\end{verbatimx}
+Les niveaux et sous-niveaux sont définis par l'instruction \codes{<UL>} qui permet d'ouvrir une section de niveau inférieure et \codes{</UL>} de la fermer.\indexhtml{<UL>}\indexhtml{</UL>} Appliqué à un exemple d'indexe, cela donne~:
+
+\inputcode{../python_cours/programme/exhelp.hhk}{exemple de fichier \textit{hhk}}
+
+La dernière étape est de construire un programme \pythons qui construit automatiquement les trois fichiers nécessaires à \textit{HTML Help Workshop}. L'exemple suivant est assez simple, il pourrait être étoffé notamment en ajoutant à l'indexe le nom des classes et de leur méthodes ce qu'il ne fait pas.
+
+\label{section_chm_programme}
+\inputcode{../python_cours/programme/genchm.py}{génération automatique d'un fichier \textit{chm}}
+
+\begin{xremark}{problèmes de compilation}
+Il arrive que les messages d'erreurs de ce logiciel ne soient pas très explicites. Lors de la compilation du fichier \textit{chm}, il s'intéresse aussi à toutes les pages dont l'hyperlien dans une des pages incluses dans le fichier \textit{hpp}, c'est pourquoi le nombre de pages final peut être plus élevé que celui des pages recensées.
+\end{xremark}
+
+
+
+\subsection{Prolongements}
+
+\indexmoduleext{epydoc}\indexoutil{Graphviz}\indexoutil{Latex}\indexoutil{Miktex}\indexmoduleext{doxypy}
+La documentation générée par le module \codes{pydoc} n'est pas très agréable à lire. D'autres outils permettent d'améliorer la qualité des pages automatiquement générées et de générer d'autres formats que des pages HTML. Le premier est \textit{epydoc}\footnote{\httpstyle{http://epydoc.sourceforge.net/}} qui fonctionne de façon similaire à \codes{pydoc} mais déjà plus agréable. Le plus répandu est \textit{Doxygen}\footnote{\httpstyle{http://www.stack.nl/~dimitri/doxygen/}} car il traite la plupart des langages informatique.\indexoutil{Doxygen} Son utilisation fait appel à d'autres outils tels que \textit{Graphviz}\footnote{\httpstyle{http://www.graphviz.org/}, cet outil sert à représenter des graphes.}, \textit{Latex}\footnote{\textit{Latex} n'est pas un outil en soi, c'est un langage permettant de créer des documents à usage le plus souvent scientifique. \textit{Miktex} fournit un compilateur sur \textit{Windows} (\httpstyle{http://miktex.org/}).}, ou encore le module \codes{doxypy}\footnote{\httpstyle{http://code.foosel.org/doxypy}}.
+
+
+
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+
+\section{InnoSetup : installateur} \indexoutil{InnoSetup}  \indexoutilz{InnoSetup}{installation}
+
+Un installateur répond au problème~: comment permettre à d'autres d'utiliser votre travail en peu de temps~? Une application a souvent besoin de plusieurs fichiers pour fonctionner et ceux-ci doivent respecter une certaine arborescence. \textit{InnoSetup}\footnote{\httpstyle{http://www.jrsoftware.org/isinfo.php}} est une application qui répond simplement à ce problème. Il permet de concevoir un programme exécutable (d'extension \textit{exe}) qui recopie aux bons endroits les bons fichiers. Il permet plus précisément de~:
+\begin{enumerate}
+\item grouper plusieurs fichiers ensemble en un seul, ces fichiers peuvent provenir de différents répertoires depuis la machine du concepteur
+\item recopier ces fichiers à des endroits spécifiques sur la machine de l'utilisateur
+\item exécuter certaines tâches avant la première utilisation
+\item construire un sous-menu dans le menu \textit{Démarrer / Tous les programmes} de \textit{Windows}
+\end{enumerate}
+
+\subsection{Sections \textit{InnoSetup}}
+
+\subsubsection{section \codes{[Setup]}}
+
+Toutes ces actions sont définies par un fichier texte d'extension \textit{iss}.\indexfrr{extension}{iss} Celui-ci commence par un en-tête définissant les options générales.
+\indexexemples{\textit{InnoSetup}}{}
+
+\begin{verbatimx}
+[Setup]                                    ; nom de la section 
+AppName=HalPython                          ; nom de l'application à installer
+AppVerName=HalPython 1.5.1162              ; numéro de version
+AppPublisher=Xavier Dupré                  ; auteur
+AppPublisherURL=http://www.xavierdupre.fr/ ; site web
+AppSupportURL=http://www.xavierdupre.fr/   ; site web, support
+AppUpdatesURL=http://www.xavierdupre.fr/   ; site web, mise à jour
+DefaultDirName={pf}/HalPython              ; emplacement par défaut sur la machine utilisateur
+                                           ; le code {pf} signife le répertoire \textit{Program Files}
+DefaultGroupName=HalPython                 ; nom par défaut du sous menu dans 
+                                           ;                            Démarrer / Tous les programmes
+OutputDir=c:                               ; répertoire où sera écrit l'installateur
+OutputBaseFilename=setup_HalPython_py25    ; nom de l'installateur ou setup
+Compression=lzma                           ; type de compression, ne pas changer 
+SolidCompression=yes                       ; type de compression, ne pas changer
+VersionInfoVersion=1.0.0                   ; version, ne pas changer
+\end{verbatimx}
+
+\subsubsection{section \codes{[Files]}}
+
+Ensuite, il faut définir les quatre étapes définies précédemment. Les deux premières seront regroupées en une seule section \codes{[Files]} qui indiquera en même temps l'emplacement d'un fichier chez le concepteur et sa destination chez l'utilisateur. 
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+[Files]
+Source: "chemin_concepteur"; DestDir: "chemin_utilisateur"  ;
+Source: "..\hal_dll.dll"; DestDir: "{app}\hal_python"       ; autre exemple
+\end{verbatimx}
+
+L'installateur construit par \textit{InnoSetup} demande à l'utilisateur de spécifier un chemin d'installation. Le code \textit{app} fait référence à celui-ci lorsqu'il est utilisé dans la définition du chemin de destination.
+
+\subsubsection{section \codes{[Run]}}
+
+La partie exécution permet d'exécuter certaines opérations comme des opérations sur les fichiers en lignes de commande, la compilation de fichiers, l'installation d'un module \pythons ou encore l'installation d'autres applications. Par exemple, les lignes suivantes permettent de lancer l'installation du langage \pythons puis de le supprimer (suppression du fichier \textit{python-2.5.2.msi}).
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+[Run]
+Filename: "{win}\system32\msiexec.exe"; Parameters: "/i ""{app}\python-2.5.2.msi"" /qr ALLUSERS=1"; 
+Filename: "{cmd}"; Parameters: "/c del python-2.5.2.msi"; WorkingDir: "{app}";
+\end{verbatimx}
+
+    		
+\subsubsection{section \codes{[Icons]}}
+
+La section \codes{[Icons]} permet d'ajouter un sous-menu dans le menu \textit{Démarrer / Tous les programmes}. Le nom de ce sous-menu est précisé dans la section \codes{[Setup]}.
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+[Icons]
+; liens vers diverses applications
+Name: "{group}\PyScripter"; Filename: "{app}\PyScripter.exe"; WorkingDir: "{app}"
+Name: "{group}\PyScripter Help"; Filename: "{app}\pyscripter.chm"; WorkingDir: "{app}"
+Name: "{group}\Help"; Filename: "{app}\hal_python.chm"; WorkingDir: "{app}"
+Name: "{group}\smallest sample with PyScripter"; Filename: "{app}\small_sample.bat"; WorkingDir: "{app}"
+
+; hyperlien ou url vers un site
+Name: "{group}\Website"; Filename: "{app}\hal_python.url"
+
+; lien vers le désinstalleur créé automatiquement par InnoSetup
+Name: "{group}\uninstall"; Filename: "{uninstallexe}"; WorkingDir: "{app}"  
+\end{verbatimx}
+
+Le fichier \codes{hal\_python.url} contient le texte suivant~:
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+[InternetShortcut]
+URL=http://www.xavierdupre.fr/hal_python/hal_python_help_html/index.html
+\end{verbatimx}
+
+La section \codes{[Tasks]} permet de créer un icône sur le bureau relié au sous-menu définit auparavant.
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+[Tasks]
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; 
+    Flags: checkedonce
+\end{verbatimx}
+
+
+\subsubsection{section \codes{[Registry]}}
+Cette section permet de modifier les clés de registres de \textit{Windows}. Cela permet de mémoriser le numéro de version ou encore le chemin utilisé lors d'une installation précédente.
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+[Registry]
+Root: HKLM; Subkey: "SOFTWARE\HalPython\InstallPath"; ValueType: string; ValueName: ""; 
+      ValueData: "{app}"; Flags: uninsdeletekey
+Root: HKLM; Subkey: "SOFTWARE\HalPython\Version"; ValueType: string; 
+     ValueName: ""; ValueData: "1.5.1162"; Flags: uninsdeletekey
+\end{verbatimx}
+
+
+\subsubsection{section \codes{[Code]}}
+
+Enfin, si certaines opérations à effectuer sont trop complexes pour être décrites par ces sections, il est possible de coder des fonctions, d'ajouter des boîtes de dialogues permettant de choisir des options. Cette dernière possibilité ne sera pas décrite ici.
+
+\subsection{Examples}
+
+\subsubsection{Exemple 1 : installateur pour un module \python}
+    
+L'exemple suivant définit un installateur pour un module \pythons construit avec \textit{Boost Python}. Il inclut également l'installateur de \pythons 2.5 ainsi qu'un éditeur de texte. De ce fait, cet unique installateur inclut tout ce qu'il faut pour pouvoir se servir du module. Le résultat sera un sous-menu dans le menu \textit{Démarrer / Tous les programmes} incluant différents liens dont un ouvrant l'éditeur de texte sur un exemple de programme \pythons utilisant le module installé. Certaines fonctions ont été ajoutés afin que le langage \pythons 2.5 ne soit pas installé si celui-ci l'a déjà été.
+
+Tout texte après un point virgule est considéré comme un commentaire, les instructions des sections \codes{[Run]}, \codes{[Tasks]}, \codes{[Registry]} sont écrites sur deux lignes pour des raisons de présentation mais doivent l'être sur une seule.
+    		
+\inputcode{../python_cours/programme/hal_python.iss}{construction d'un installateur}
+
+Le fichier \codes{sample.bat} contient la ligne suivante~:
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+PyScripter.exe sample.py
+\end{verbatimx}
+
+\subsubsection{Exemple 2 : mise à jour du module}
+
+L'installateur suivant assure la mise à jour du module. Il évite ainsi d'inclure dans le setup de gros fichiers comme l'installateur de \python ou l'éditeur de texte. Ce fichier de description est presque identique au précédent, les parties ne concernant pas le module ont été supprimées et une fonction \codes{InitalizeSetup} a été ajoutée. Cette dernière est appelée au démarrage de l'installateur, elle vérifie que tous les éléments sont nécessaires au bon fonctionnament du module. En particulier, si \pythons 2.5 n'est pas installé, l'installateur affiche un message puis abandonne.
+    
+\inputcode{../python_cours/programme/hal_python_update.iss}{construction d'un installateur de mise à jour}
+
+
+\subsection{Quelques trucs en plus}
+
+\subsubsection{Créer un raccourci}
+
+Le code suivant permet d'insérer un raccourci dans le sous-menu inséré dans \textit{Démarrer / Tous les programmes}. La première partie appelle la fonction \codes{GetLnkSciTE} qui crée un raccourci \codes{scite.exe \; sample.y}. La seconde partie consiste à insérer une ligne permettant d'ajouter le raccourci au sous-menu.
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+[Code]
+function GetLnkSciTE(Param:String): String;
+begin
+    Result := CreateShellLink(ExpandConstant('{app}\SciTE sample.lnk'), 
+                              'Opens SciTE with a sample', 
+                              ExpandConstant('{app}\wscite\scite.exe'), 
+                              ExpandConstant('"{app}\sample.py"'), 
+                              ExpandConstant('{app}'),
+                              '', 
+                              0, 
+                              SW_SHOWNORMAL);
+end;
+
+[Icons]
+Name: "{group}\smallest sample with SciTE"; Filename: "{code:GetLnkSciTE}"; WorkingDir: "{app}"
+\end{verbatimx}
+
+\subsubsection{Executer des tâches plus compliquées}
+
+Il n'est pas évident d'apprendre encore un nouveau langage tel que celui utilisé par \textit{InnoSetup}. Pour des tâches plus compliquées rien n'empêche d'exécuter un programme \pythons récupérant les paramètres dont il a besoin sur sa ligne de commande. L'exemple suivant permet de remplacer dans un fichier installé une chaîne de caractères par une autre. Le programme prend trois paramètres sur sa ligne de commande~: le fichier à modifier, la chaîne de caractères à remplacer et la chaînes qui la remplace.
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}
+def replace_string (file, s1, s2) :
+    f = open (file, "r")
+    li = f.readlines ()
+    f.close ()
+    f = open (file, "w")
+    for l in li :
+        s = l.replace (s1, s2)
+        f.write (s)
+    f.close ()
+
+if __name__ == "__main__" :
+    import sys
+    file = sys.argv [1]  # fichier à modifier
+    s1   = sys.argv [2]  # chaîne à remplacer
+    s2   = sys.argv [3]  # nouvelle chaîne
+    replace_string (file, s1, s2)
+\end{verbatimx}    
+%
+On cherche à remplacer dans le cas présent la chaîne \codes{"=pythonw"} par \codes{"=c:\backslash python25\backslash pythonw"}.
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx}    
+[Code]
+; retourne le chemin du programme pythonw.exe
+function GetPythonPathW(Param: String): String;
+begin
+  Result := '';
+  Result := ExpandConstant('{reg:HKLM\Software\Python\PythonCore\2.5\InstallPath,|}');
+  if Result <> '' then
+    Result := Result + '\pythonw';
+end;
+
+; construit les paramètres de la ligne de commande
+; "c:\Program Files\HalPython\replace_conf.py" "=pythonw" "=c:\python25\pythonw"
+function GetReplaceConf(Param:String):String;
+begin
+    Result := ExpandConstant ('"{app}\replace_conf.py"')
+    Result := Result + ' ' + ExpandConstant ('"{app}\wscite\python.properties"')
+    Result := Result + ' "=pythonw"'
+    Result := Result + ' "=' + GetPythonPathW ('') + '"' ;
+end;
+
+[Run]
+; exécution de la ligne de commande
+Filename: "{code:GetPythonPath}"; Parameters:"{code:GetReplaceConf}"; WorkingDir: "{app}"; 
+\end{verbatimx}    
+%
+Au final, la ligne de commande exécutée est la suivante~:
+\indexexemples{\textit{InnoSetup}}{}
+\begin{verbatimx} 
+c:\python25\pythonw "c:\Program Files\HalPython\replace_conf.py" "=pythonw" "=c:\python25\pythonw"
+\end{verbatimx}
+
+\begin{xremark}{\codes{pythonw.exe} et \codes{python.exe}}
+Dans ce cas, c'est le programme exécutable \codes{pythonw.exe} et non \codes{python.exe} qui a été utilisé. Ceci évite l'apparition la fenêtre de la ligne de commande. \indexoutil{pythonw}
+\end{xremark}
+
+
+
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+
+\section{MoinMoin : wiki} \indexoutil{MoinMoin}\indexoutil{wiki}  \label{cgi_definition}
+
+Un \textit{Wiki} est un outil permettant d'échanger facilement de l'information au sein d'une entreprise ou via Internet. Le \textit{Wiki} le plus connu est sans doute \textit{Wikipedia}.\indexfr{Wikipedia} Ce site a pour objectif de créer une encyclopédie que chacun peut modifier. L'intérêt d'un \textit{Wiki} dans une entreprise est de pouvoir créer une sorte d'encyclopédie à usage interne. A cela s'ajoute la possibilité d'inclure des pièces jointes, de garder une trace des différentes modifications apportées, ou de gérer les droits de chaque utilisateur, tout le monde ne pourra pas lire ou écrire ou créer des pages ou certaines pages. L'outil proposé ici est \textit{MoinMoin}, c'est un \textit{Wiki} écrit en langage \python.
+
+Un autre avantage d'un \textit{Wiki} est la possibilité d'effectuer une recherche au sein des pages créées dans le \textit{Wiki}. A cette recherche s'ajoute aussi des statistiques comme le nombres de pages créées, le compte de visites de chaque pages, la possibilité d'être informé d'un changement sur une page. Un \textit{Wiki} a pour objectif de faciliter l'accès à l'information d'une entreprise. Pour donner un exemple d'utilisation de \textit{MoinMoin}, je citerai le site \textit{WikiPython}\footnote{\httpstyle{http://wikipython.flibuste.net/}}\indexfr{WikiPython} qui propose de nombreux exemples en français sur de nombreux sujets.
+
+Les différentes étapes d'installation et de configuration sont extraites de \httpstyle{http://moinmo.in/HelpOnInstalling/ApacheOnWin32} (en anglais). Il est sans doute utile de préciser ce qu'est un script CGI\footnote{CGI : Common Gateway Interface}.\indexfrr{script}{CGI} Ces scripts sont en fait des programmes exécutés par un serveur, ils peuvent exécuter certaines tâches sur le serveur et construire des pages HTML à la volée. Typiquement, lorsque le texte d'une page HTML varie (elle affiche l'heure par exemple), cela signifie qu'elle inclut un script CGI qui insère dans la page l'heure actuelle, c'est-à-dire l'heure à laquelle la page a été demandée. Concrètement, lorsqu'un internaute se connecte à une page HTML~:
+\begin{enumerate}
+\item Le serveur reçoit la requête.
+\item Le serveur examine le code de la page HTML.
+\item Il commence à retourner la page HTML à l'internaute.
+\item Lors de ce processus, s'il détecte la présente d'un script, il l'exécute et envoie à l'internaute tout ce que le script produit en terme d'affichage.
+\item Le serveur a terminé sa tâche lorsque tous les scripts sont exécutés.
+\end{enumerate}
+Les scripts CGI peuvent être écrit en de nombreux langages, les plus courants sont \textit{PHP} et \textit{JavaScript}. \pythons fait partie également de la liste des langages utilisés. C'est le cas de \textit{Ruby} aussi. \indexlangage{Ruby}
+
+\subsection{Installation}  \indexoutilz{MoinMoin}{installation}
+
+La première étape consiste à installer un serveur comme le serveur \textit{Apache},\indexoutil{Apache} cette installation est identique à celle du paragraphe~\ref{apache_installation_par} (page~\pageref{apache_installation_par}). L'étape de configuration d'\textit{Apache} requise pour \textit{MoinMoin} pourra s'ajouter à celle effectuée pour \textit{SVN}.
+
+La seconde étape consiste à installer \textit{MoinMoin}\footnote{Il est disponible à l'adresse~: \httpstyle{http://moinmo.in/}}. Une fois téléchargé puis décompressé le fichier \codes{MoinMoin 1.6.3\; tar.gz}\footnote{Le site de \textit{MoinMoin} déconseille l'utilisation de \textit{WinZip} pour décompresser le fichier téléchargé mais plutôt \textit{WinRar} ou \textit{7-Zip}.}, il reste à l'installer comme un module \pythons en tapant les instructions suivantes en ligne de commande~:
+%
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+C:
+cd c:\TEMP\moin-1.6.3
+C:\Python25\python setup.py install --record=install.log
+\end{verbatimx}
+%
+La dernière étape de l'installation consiste à créer un répertoire dans lequel seront placés toutes les informations relatives au \textit{Wiki}. Cela signifie qu'il est possible de créer plusieurs \textit{Wiki}. Les instructions qui suivent sont à exécuter en ligne de commande, elles supposent que le \textit{Wiki} devra être créer dans le répertoire \codes{c:\backslash Moin} et que \pythons a été installé dans le répertoire \codes{c:\backslash Python25}. Dans le cas contraire, il suffit de les adapter.
+%
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+cd C:\
+md Moin
+md Moin\mywiki
+md Moin\mywiki\data
+md Moin\mywiki\underlay
+cd c:\Python25\share\moin
+xcopy data       C:\Moin\mywiki\data /E
+xcopy underlay   C:\Moin\mywiki\underlay /E
+copy  config\*.* C:\Moin\mywiki\*.*
+copy  server\*.* C:\Moin\mywiki\*.*
+\end{verbatimx}
+%
+Il reste à configurer \textit{Apache} et \textit{MoinMoin} pour que les deux applications communiquent. Par la suite, on supposera que le \textit{Wiki} est créé dans le répertoire \codes{c:\backslash Moin} et que \pythons a été installé dans le répertoire \codes{c:\backslash Python25}. Dans le cas contraire, il suffit d'adapter ces lignes.
+
+\subsection{Configuration d'\textit{Apache}}  \label{configuration_apache_sql_plus0}  \indexoutilz{Apache}{installation}
+Voir paragraphe~\ref{configuration_apache_moinmoin} page~\pageref{configuration_apache_moinmoin}.
+
+\subsection{Configuration de \textit{MoinMoin}}
+
+Les indications suivantes sont tirées du site officiel de \textit{MoinMoin}\footnote{plus précisément de \httpstyle{http://moinmo.in/HelpOnConfiguration}}. Il y a principalement deux fichiers à modifier, le premier gère l'exécution du code \pythons au sein de \textit{Apache}, le second gère l'apparence de \textit{MoinMoin}.
+
+
+
+\subsubsection{Fichier \codes{moin.cgi}}
+
+Ce fichier est disponible dans le répertoire \codes{C:/Moin/mywiki}. Il faut remplacer la ligne~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+#!/usr/env/bin python
+\end{verbatimx}
+par la ligne~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+#!c:/Python25/python.exe
+\end{verbatimx}
+%
+Cette ligne spécifie om l'interpréteur \pythons est disponible sur la machine du serveur.
+
+\begin{xremark}{pour aller plus loin}
+Il est possible, si vous êtes courageux, d'optimiser \textit{MoinMoin} en utilisant d'autres types de CGI\footnote{Le rôle des CGI est brièvement expliqué au paragraphe~\ref{cgi_definition}.}, notamment les \textit{FastCGI} dont l'exécution est plus rapide qu'un CGI classique. \indexfr{CGI}\indexfr{FastCGI} Dans ce cas, il faudra penser à répéter cette man\oe uvre pour les fichiers du type \codes{moin.*}.
+\end{xremark}
+
+
+\subsubsection{Fichier \codes{wikiconfig.py}}
+
+Ce fichier définit l'apparence et les droits d'accès de \textit{MoinMoin}. Après l'installation, ce fichier contient de nombreuses lignes commentées concernant les options principales. Tout d'abord, deux options qui permettent à \textit{MoinMoin} de définir l'emplacement du \textit{Wiki}~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+data_dir = r'C:\Moin\mywiki\data'
+data_underlay_dir = r'C:\Moin\mywiki\underlay'
+\end{verbatimx}
+%
+Ensuite, il est préférable qu'une personne non identifiée ne puisse pas défaut ni attacher une pièce jointe, ni détruire ou renommer une page, pour cela il faut ajouter la ligne~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+actions_excluded = ['DeletePage', 'RenamePage', ]
+\end{verbatimx}
+%
+On définit ensuite un "superuser", le seul ayant tous les droits sur \textit{MoinMoin}, le nom d'\textit{admim}\footnote{pour \textit{administrator}} lui est donné (ce n'est pas une obligation)~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+superuser = [u"admin", ]
+\end{verbatimx}
+%
+Les droits utilisateurs sont définis par défaut par la ligne suivante. Par défaut, le "superuser" peut tout faire~: \label{acl_rights_before_wiki}
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+acl_rights_before = u"admin:read,write,delete,revert,admin"
+\end{verbatimx}
+%
+
+
+
+Il reste à définir le nom du site et le nom de la première page~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+sitename = u'NomSite'
+page_front_page = u"FirstPage"
+\end{verbatimx}
+
+\begin{xremark}{\codes{wikiconfig.py}, paramètre \codes{url\_prefix\_static} et langue par défaut}
+Il est préférable de ne pas toucher au paramètre \codes{url\_prefix\_static}, celui-ci ne semble pas fonctionner complètement. Il est préférable d'utiliser les alias avec \textit{Apache}. Si les termes anglais vous rebutent, il est possible de faire passer une partie des intitulés en français en modifiant le paramètre suivant~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+language_default = 'fr'
+\end{verbatimx}
+\end{xremark}
+
+
+
+Le \textit{Wiki} est maintenant en état de fonctionner et vous devriez avoir une page correspondant à celle de la figure~\ref{wiki_first_page}.
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=6cm, width=16cm]{\filextel{../python_cours/image/wiki1}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Première page du \textit{Wiki} une fois configuré. Son contenu est vide car ce dernier n'a pas encore été précisé. 
+                     C'est aussi ce qui s'affiche lorsqu'une page n'existe pas encore mais que le \textit{Wiki} y fait référence.}
+            \label{wiki_first_page}
+            \end{figure}
+
+\subsubsection{Sécurité, création d'utilisateurs}
+
+Il est utile de restreindre maintenant les droits de chaque utilisateurs. La première chose à faire est de créer un utilisateurs administrateurs. Pour cela il faut cliquer sur \textit{Connexion} pour atteindre la page de la figure~\ref{wiki_first_page_connexion}. 
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=4cm, width=12cm]{\filextel{../python_cours/image/wiki2}}
+            \\ \hline
+            \includegraphics[height=3.5cm, width=10cm]{\filextel{../python_cours/image/wiki3}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Page de connexion, il faut rentrer un login et un mot de passe ou définir un nouvel utilisateur en cliquant 
+            				 sur \textit{UserPreferences} si vous n'avez pas encore de compte. Il est déconseillé d'utiliser des accents, 
+            				 ils peuvent provoquer certains comportements erratiques.}
+            \label{wiki_first_page_connexion}
+            \end{figure}
+            
+Une fois qu'un utilisateur administrateur est créé, il faut insérer la ligne suivante dans le fichier \codes{wikiconfig.py}. Elle permet de spécifier que seul l'administrateur (ici dupre) a tous les droits, tout autre utilisateur n'a que le droit de lire les pages sans pouvoir les modifier. Au cas om cet utilisateur essaierait, il tomberait sur la page de la figure~\ref{wiki_first_page_noright}.
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+acl_rights_default = u"dupre:read,write,delete,revert,admin All:read"            
+\end{verbatimx}
+
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=3.5cm, width=16cm]{\filextel{../python_cours/image/wiki4}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Page qui apparaît lorsqu'un utilisateur essaye de modifier une page mais qu'il n'en a pas le droit.}
+            \label{wiki_first_page_noright}
+            \end{figure}
+            
+\textit{MoinMoin} offre la possibilité de créer des groupes d'utilisateurs, de se connecter à un annuaire de type \textit{LDAP} ou \textit{ActiveDirectory}. Le site de \textit{MoinMoin} est assez complet et décrit tout ce qu'il est possible de faire avec ce \textit{Wiki}\footnote{Tout est y est écrit en anglais exclusivement.} Les étapes de configuration présentées dans ce livre sont assez sommaires et conviennent pour une utilisation au sein d'une entreprise de quelques dizaines d'employés tout au plus et sur un réseau interne. Pour des réseaux de plus en grandes envergures, il est conseillé de consulter le site de \textit{MoinMoin}, voire d'opter pour un \codes{Wiki} différent.
+
+
+
+\subsubsection{Apparence}
+
+Il est possible de modifier l'apparence du site \textit{Wiki}, la variable \codes{theme\_default} permet de définir l'aspect général. Il existe trois thèmes prédéfinis \codes{'classic'}, \codes{'modern'} et \codes{'rightsidebar'}.
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+theme_default = 'modern'
+\end{verbatimx}
+%
+Il est aussi possible de développer son propre thème\footnote{voir à l'adresse \httpstyle{http://moinmo.in/MoinDev/ThemeDevelopment}} mais cela requiert un peu de temps ou aller télécharger un thème existant\footnote{voir à l'adresse \httpstyle{http://moinmoin.wikiwikiweb.de/ThemeMarket}} en prenant toutefois soin de vérifier que ce thème fonctionne avec la version de \textit{MoinMoin} installée.
+
+\subsection{Utilisation sur un réseau d'entreprise}
+
+Aucune autre configuration n'est a priori nécessaire pour utiliser ce \textit{Wiki} sur le réseau d'une entreprise. La donnée de l'adresse IP suffit à se connecter au \textit{Wiki} installé sur une autre machine. Si cela ne fonctionnait pas, les deux remarques~\ref{remark_firewall} et~ \ref{remark_port_81} page~\ref{remark_port_81} devraient vous résoudre à résoudre ce problème.
+
+
+\subsection{Ecrire des pages}
+
+\subsubsection{Création d'une page}
+
+Le \textit{Wiki} est maintenant configuré, il reste encore savoir comment écrire quelques pages à commencer par la première qui est à pour le moment l'allure de celle de la figure~\ref{wiki_first_page}. Il suffit de cliquer sur \textit{Create an empty page} pour afficher l'écran de la figure~\ref{wiki_first_page_creation_first}. Le \textit{Wiki} ne manipule que du texte, toute image doit être traitée comme une pièce jointe. La syntaxe \textit{Wiki}, simple, permet tout de même d'afficher des titres, des tableaux, des listes, une table des matières\footnote{voir un résumé en français de la syntaxe à l'adresse \httpstyle{http://moinmo.in/HelpOnMoinWikiSyntax}.}. La figure~\ref{wiki_first_page_creation_first_syntax} donne un court exemple de qu'il est possible de faire avec \textit{MoinMoin}.
+
+
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=3.5cm, width=16cm]{\filextel{../python_cours/image/wiki5}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Page qui apparaît lorsqu'un utilisateur essaye de modifie une page.}
+            \label{wiki_first_page_creation_first}
+            \end{figure}
+            
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+\begin{minipage}{8cm}
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}            
+<<TableOfContents(2)>>
+
+= Titre 1 =
+
+http://www.xavierdupre.fr/mywiki/XavierDupre
+
+== Titre 1 niveau 2 ==
+= Titre 2 =
+  
+Affichage d'une liste :
+  * élément 1
+  * élément 2
+  * élement 3 : sous liste
+     * sous élément 1
+     * sous élément 2
+  * dernier élément de la première liste
+
+''italique''    '''gras''' __souligné__
+
+une ligne
+
+----            
+\end{verbatimx}    
+\end{minipage}
+&        
+            \includegraphics[height=6.5cm, width=7cm]{\filextel{../python_cours/image/wiki6}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{D'un côté, la syntaxe \textit{MoinMoin}, de l'autre le rendu dans un navigateur.}
+            \label{wiki_first_page_creation_first_syntax}
+            \end{figure}
+
+
+
+\subsubsection{Ajouter des liens}
+
+On peut considérer deux types de liens à l'intérieur d'un \textit{Wiki}~: les liens externes qui sont une simple adresse internet et les liens internes qui font référence à une page du \textit{Wiki}. Pour ajouter un lien externe à une page, il suffit de l'incoroporer au texte de la page ou entre double crochets si on veut que ce lien apparaisse avec un autre texte.
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+http://www.xavierdupre.fr/mywiki/XavierDupre
+[[http://www.xavierdupre.fr/mywiki/XavierDupre|wiki de Xavier Dupré]]
+\end{verbatimx}
+
+Les liens internes sont des références à des pages déjà écrites ou des pages à créer si le \textit{Wiki} détecte que ce lien interne n'existe pas. Un lien interne est un mot contenant deux ou plusieurs majuscule comme \codes{LienInterne} ou une phrase entre crochets comme \codes{[[lien \; interne]]}. 
+
+
+\subsubsection{Ajouter des pièces jointes}
+
+L'ajout d'une pièce jointe\indexfr{pièce jointe} s'effectue en cliquant sur l'intitulé \textit{Pièce jointe}. Il suffit ensuite d'ajouter le texte \codes{attachment:nom\_de\_la\_piece\_jointe} pour y donner accès à tous les lecteurs de la page.
+
+\subsubsection{Droits spécifiques à une page}
+
+Il est possible d'attribuer des droits spécifiques à une page. Le paramètre \codes{acl\_rights\_before} de \codes{wikiconfig.py} (voir paragraphe~\ref{acl_rights_before_wiki}) définit les droits par défaut de chaque page du \textit{Wiki}. Il est néanmoins possible de restreindre l'accès à certaines pages du \textit{Wiki}. Par exemple, par défaut, tout le monde peut lire chaque page mais on voudrait que chaque utilisateurs est un espace réservé inaccessible à quiconque autre que lui. Dans ce cas, on ajoutera au début du texte de cette page le texte suivant~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+#acl dupre:read,write
+\end{verbatimx}
+%
+Dans ce cas, personne d'autre que l'utilisateur \codes{dupre} ne pourra avoir accès ni en lecture ni en écriture à la page où est insérée cette ligne. Cette ligne écrase les droits par défaut. Le texte de la page peut ensuite être écrit comme n'importe quelle autre page.
+
+
+
+\subsection{Script CGI}
+
+\subsubsection{Script simple}
+\indexfr{CGI}\indexfrr{script}{CGI} \indexoutilz{Apache}{configuration CGI}
+\textit{MoinMoin} fonctionne à base de script CGI~: ce sont des pages HTML entièrement produites par des scripts écrits en \python. Exécuté par le ssrveur \textit{Apache}, tout instruction \codes{print} d'un script CGI sera automatiquement envoyé au navigateur. Les lignes qui suivent donne un exemple d'introduction à cette technique. Il commence par la configuration du serveur \textit{Apache} auquel on indique un nouveau répertoire dans lequel seront placés des script CGI écrits en \python.
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+<Directory "C:/Program Files/Apache Software Foundation/Apache2.2/python_cgi">
+    Options FollowSymLinks
+    AllowOverride None
+    Order deny,allow
+    Allow from all
+</Directory>
+
+Alias /pycgih "C:/Program Files/Apache Software Foundation/Apache2.2/python_cgi"   
+ScriptAlias /pycgi "C:/Program Files/Apache Software Foundation/Apache2.2/python_cgi"   
+\end{verbatimx}
+%
+Dans ce répertoire, on placera des pages HTML et des scripts CGI. Pour éviter de longues adresses URL, on définit deux alias différents mais dont la cible est le même répertoire \codes{python\_cgi}. \textit{Apache} n'accepte pas que deux directives \codes{Alias} et \codes{ScriptAlias} portent le même nom.
+%
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+#!c:/Python25/python.exe
+# ligne 1 : emplacement de python (obligatoire)
+# ligne 2 : la page ne contiendra que du texte
+print "Content-Type: text/plain\n\n"
+# premier message au navigateur
+print "premier message\n"
+\end{verbatimx}
+%
+Il faut maintenant créer une page HTML qui pointe vers ce script~:
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+<html><body>
+<h1> Lien vers un script CGI écrit en Python </h1>
+<a href="/pycgi/hello.cgi">hello.cgi</a>
+</body></html>
+\end{verbatimx}
+%
+Il ne reste plus qu'à écrire l'adresse de cette page dans le navigateur~:
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+http://localhost/pycgih/index.html
+\end{verbatimx}
+%
+La page affichée fait apparaître un titre suivi d'un unique lien vers le script CGI. Cliquer dessus affiche le message souhaité.
+
+
+\begin{xremark}{erreur, première ligne \codes{\#!c:/Python25/python.exe}}
+Il ne faut pas oublier cette première ligne qui indique à \textit{Apache} où trouver l'interpréteur \pythons qui lui permettra de comprendre le script. Dans le cas contraire, la page aboutit à une erreur. Si cette erreur subsiste toujours même après l'ajout de cette ligne, cela signifie que l'interpréteur \pythons n'est pas installé à cet endroit où que le script a produit une erreur. Dans ce cas, il peut être utile de remplacer l'extension \codes{cgi} par \codes{py} puis d'exécuter le script CGI comme s'il était un programe \python.
+\end{xremark}
+
+\subsubsection{Script HTML}  \indexfr{HTML}\indexcgi{CGI}{plain}\indexcgi{html}
+
+Le paragraphe précédent a présenté un script CGI permettant d'afficher du texte générée par un script \python. Pour mettre en forme ce texte, il faut utiliser la syntaxe HTML et préciser depuis le script que le format de sortie du script est bien du HTML. Pour cela, il faut modifier une ligne du script CGI, \codes{html} remplace \codes{plain}~:
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+print "Content-Type: text/html\n\n"
+\end{verbatimx}
+%
+Par exemple~:
+%
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+#!c:/Python25/python.exe
+# coding: cp1252
+print "Content-Type: text/html\n\n"
+# premier message au navigateur,
+# les passages à la ligne \n sont sans effet à l'affichage
+print "<html><body>\n"
+print "<b>premier message en gras</b>\n"
+print "</body></html>"
+\end{verbatimx}
+%
+\begin{xremark}{les accents dans un script CGI}
+L'instruction \codes{\#\; \; coding:\; latin-1\; } est toujours nécessaire lorsque le script CGI contient des accents. Dans le cas contraire, l'interpréteur \pythons déclenche une exception et le serveur affiche un message d'erreur.
+\end{xremark}
+
+
+\subsubsection{Attraper les exceptions} 
+
+Lorsqu'une erreur survient, le texte affiché correspond au traitement effectué par le script CGI jusqu'à ce que l'erreur se soit produite. Pour pouvoir remonter jusqu'à la cause de l'erreur, il est possible d'attraper l'exception engendré par le script et d'afficher les informations relatives à cette erreur. Le script suivant génère volontairement une erreur en exécutant une instruction inconnue \codes{stop}. L'exception est alors attrapée puis on utilise le module \codes{traceback} pour afficher la ligne et le type d'erreur généré. \indexmoduleint{traceback}
+%
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+#!c:/Python25/python.exe
+# coding: cp1252
+print "Content-Type: text/html\n\n"
+print "<html><body>\n"
+try:
+    print "<b>premier message en gras</b>\n"
+    print "<br>déclenchement d'une erreur (instruction inconnue)<br>"
+    stop
+except:
+    import sys
+    import traceback
+    print "<pre>"
+    traceback.print_exc(file=sys.stdout)
+    print "</pre>"
+print "</body></html>"
+\end{verbatimx}
+%
+Le navigateur affiche le message suivant~:
+%
+\begin{verbatimx}
+Traceback (most recent call last):
+  File "C:/Program Files/Apache Software Foundation/Apache2.2/python_cgi/hello4.cgi", line 8, in 
+    stop
+NameError: name 'stop' is not defined
+\end{verbatimx}
+%
+\begin{xremark}{module \codes{traceback} et erreur de syntaxe}
+Ce procédé ne protège pas le script contre les erreurs de syntaxe, un guillement manquant, une mauvaise indentation ou une parenthèse mal fermée.
+\end{xremark}
+
+\subsubsection{Résumé de la syntaxe HTML} \indexfrr{HTML}{syntaxe}
+
+Il peut être utile de décrire très succintement la syntaxe HTML. Ce langage est un langage à balise, c'est-à-dire que toute information est insérée au sein d'une syntaxe qui ressemble à~:
+\begin{verbatimx}
+<balise>  ....  </balise>
+\end{verbatimx}
+%
+\indexfrr{HTML}{balise}
+Les balises peuvent être écrites avec des minuscules ou des majuscules, le langage HTML ne fait pas la différence. Toute page HTML s'écrit de la forme~:
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+<html>
+<head>
+.... entête de la page, n'est pas affiché, il est possible d'y définir
+.... des feuilles de styles pour un affichage amélioré
+.... ou la définition de nouvelles balises
+.... la ligne 
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+.... permet de définir un jeu de caractères incluant les accents français
+</head>
+<body>
+.... contenu de la page
+</body>
+</html>
+\end{verbatimx}
+%
+Le contenu de la page doit figurer entre les balises \codes{<body>} et \codes{</body>}. La table~\ref{balises_html_table} regroupe les balises de style les plus utilisées et la table~\ref{balises_html_table2} des balises courantes de présentations. Les balises citées dans ces tables permettent de présenter des résultats au format HTML. Pour des présentations plus sophistiquées, une recherche sur Internet donnera la plupart du temps une réponse\footnote{voir également \httpstyle{http://fr.wikipedia.org/wiki/HTML}}. Le langage étant en perpétuelle évolution, les possibilités offertes ne cessent de s'étendre. \indexhtml{<b>}\indexhtml{<br>}\indexhtml{<hr>}\indexhtml{<i>}\indexhtml{<ins>}\indexhtml{<del>}\indexhtml{<p>}\indexhtml{<h1>}\indexhtml{<h2>}
+
+
+\begin{table}[ht] 
+\begin{center}\begin{tabular}{|l|p{8cm}|} \hline
+\textbf{balises} & \textbf{effet} \\ \hline
+\codes{<!-- \quad -->} & commentaires, ces informations ne sont pas affichées par le navigateur\\ \hline
+\codes{<h1> </h1>} & titre de premier niveau \\ \hline
+\codes{<h2> </h2>} & titre de second niveau \\ \hline
+... & ... \\ \hline
+\codes{<br>} & aller à la ligne \\ \hline
+\codes{<hr>} & tracer une ligne horizontale\\ \hline
+\codes{<b> </b>} & gras \\ \hline
+\codes{<i> </i>} & italique \\ \hline
+\codes{<ins> </ins>} & souligné \\ \hline
+\codes{<del> </del>} & barré \\ \hline
+\end{tabular}\end{center}
+\caption{Balises HTML relatives à la mise en forme de caractères.}
+\label{balises_html_table}
+\end{table}
+
+
+\indexhtml{<a>}\indexhtml{<img>}\indexhtml{name=}\indexhtml{src=}\indexhtml{href=}\indexhtml{<p>}\indexhtml{<table>}\indexhtml{<tr>}
+\indexhtml{<td>}\indexfrr{HTML}{attribut}\indexhtml{border=}
+
+\begin{table}[ht] 
+\begin{center}\begin{tabular}{|l|p{8cm}|} \hline
+\textbf{balises} & \textbf{effet} \\ \hline
+\codes{<a href="url">} texte  \codes{</a>} & lien, url désigne l'hyperlien, le texte à afficher par le navigateur est situé entre les balises\\ \hline
+\codes{<a name="ancre"></a>} & poser une ancre\\ \hline
+\codes{<a href="\#ancre">} texte  \codes{</a>} & lien vers une ancre à l'intérieur d'une page\\ \hline
+\codes{<img src="image name"> </img>} & lien vers une image, les attributs \codes{width} et \codes{height} pour modifier la taille de l'image
+																				lorsqu'elle est affichée. \\ \hline
+\codes{<p> </p>} & paragraphe \\ \hline
+\codes{<table> </table>} & insertion d'un tableau, l'attribut \codes{border} permet de préciser l'épaisseur des bords.
+													 \codes{<table border="1">} \\ \hline
+\codes{<tr> </tr>} & insertion d'une ligne dans un tableau \\ \hline
+\codes{<td> </td>} & insertion d'une case dans un tableau \\ \hline
+\codes{<td> </td>} & insertion d'une case dans un tableau \\ \hline
+\codes{<ul> </ul>} & création d'une liste \\ \hline
+\codes{<li> } & insertion d'un intitulé au sein d'une liste\\ \hline
+\end{tabular}\end{center}
+\caption{Balises HTML relatives à la mise en page. Le nom du fichier suit le mot \codescaption{src} 
+					dans la syntaxe, \codescaption{<img src="..."></img>}, 
+				 \codescaption{src} est appelé un attribut. les valeurs associées aux attributs sont toujours entourées de guillemets. 
+				 Lorsqu'il n'y a rien entre deux balises, l'écriture peut être écourtée en \codescaption{<img src="..."/>}.
+				 }
+\label{balises_html_table2}
+\end{table}
+
+
+
+\subsubsection{Appeler une page avec des paramètres}
+
+Les programmes \pythons sont capables d'accepter des paramètres lorsqu'ils sont exécutés en ligne de commande. Ce mécanisme existe également en ce qui concernent les pages HTML. Cela consiste à faire un URL d'un point d'interrogation puis d'une suite de couple \codes{param=valeur} séparé par le symbole~$\&$.
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+http://URL?param1=valeur1&param2=valeur2&...
+\end{verbatimx}
+%
+Le programme suivant récupère la valeur de ces paramètres.
+%
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+#!c:/Python25/python.exe
+# coding: cp1252
+print "Content-Type: text/html\n\n"
+print "<html><body>\n"
+import cgi
+par = cgi.FieldStorage()
+if len (par) == 0 :
+    print "<b> aucun paramètre à cette page </b>"
+else :
+    print "<b>liste des paramètres </b><br>"
+    print """<table border="1">"""
+    for p in par :
+        print "<tr>"
+        name  = str (p)
+        value = par.getvalue (name)
+        print "<td>", name, "</td><td>", value, "</td>"
+        print "</tr>"
+    print "</table>"
+print "</body></html>"
+\end{verbatimx}
+
+\subsubsection{Formulaires} \indexfrr{HTML}{formulaire}
+
+Le langages HTML donne la possibilité de construire des formulaires puis de récupérer les données saisies par l'internaute. Bien souvent, la page qui affiche le formulaire est un script CGI capable de traiter les données qu'il s'envoie lui-même. L'utilisateur sélectionne l'adresse~:
+\begin{verbatimx}
+http://localhost/pycgi/pyform.cgi
+\end{verbatimx}
+Puis le formulaire, lorsque l'utilisateur appuie sur \textit{Envoyer}, appelle l'URL suivant~:
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+http://localhost/pycgi/pyform.cgi?nom=dupre&prenom=xavier
+\end{verbatimx}
+C'est ce que fait le script CGI suivant. Il affiche d'abord le formulaire de la figure~\ref{forulaire_python_html}.
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=2cm, width=5cm]{\filextel{../python_cours/image/pyform1}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Exemple de formulaire au format HTML engendré par un script CGI écrit en \python.}
+            \label{forulaire_python_html}
+            \end{figure}
+\indexexemples{\textit{Apache}, CGI}{}
+\begin{verbatimx}
+#!c:/Python25/python.exe
+# coding: cp1252
+print "Content-Type: text/html\n\n"
+print "<html><body>\n"
+def print_form () :
+    # création du formulaire avec deux champs nom et et prenom
+    print """
+    <FORM action="/pycgi/pyform.cgi" method=post>
+    <P>
+    <LABEL for="nom">Nom : </LABEL> <INPUT type="text" name="nom"><BR>
+    <LABEL for="prenom">Prénom : </LABEL> <INPUT type="text" name="prenom"><BR>
+    <INPUT type=submit value="Envoyer"> <INPUT type=reset value="Annuler">
+    </P>
+    </FORM>
+    """
+    
+import cgi
+par = cgi.FieldStorage ()
+if len (par) == 0 :
+    # s'il n'y a aucun paramètre, on affiche le formulaire
+    print_form ()
+else :
+    # sinon, cela signifie que le formulaire a rappelé le script CGI
+    # avec des paramètres et le traitement suit une direction différente
+    # ici, cela consiste à afficher les informations reçues en gras
+    nom = par.getvalue ("nom")
+    prenom = par.getvalue ("prenom")
+    print "Votre nom est <b>", nom, "</b> et votre prénom <b>", prenom, "</b>"
+print "</html></body>\n"
+\end{verbatimx}
+
+
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+
+\section{SQL} \indexlangage{SQL}\indexoutil{SQL} \indexfr{SQL}
+
+Le langage SQL est devenu incontournable pour quiconque souhaite stocker, consulter de grandes quantité de données. Les paragraphes qui suivent ne feront que présenter sommairement le langage SQL, il s'agit ici de l'utiliser via un programme \pythons plutôt que de le maîtriser.
+
+\subsection{Les bases de données}
+
+Le langage SQL est lié à ce qu'on appelle les \emph{bases de données}.\indexfr{base de données} C'est simplement un ensemble de tableaux ou plutôt \emph{table}.\indexfr{table} Une table est définie par un nombre de colonnes, chacune porte un nom et ne contient qu'un type donné d'information. Par exemple, lorsqu'on décrit un élève dans le système informatique d'une école, on retiendra par exemple~: \indexfrr{SQL}{table}
+\begin{footnotesize}\begin{center}\begin{tabular}{l|l|l}
+information 						&  nom     & type \\ \hline
+un numéro 							&  num     & nombre entier \\
+son nom 								&  nom 		 & chaîne de caractères (30 maximum)  \\ 
+son prénom							&  prenom  & chaîne de caractères (30 maximum) \\ 
+sa date de naissance		&  date    & date \\ 
+son adresse							&  adresse & chaîne de caractères (100 maximum) \\ 
+son genre								&  genre   & booléen \\ 
+sa nationalité          &  codepays    & un nombre entier \\
+sa classe								&  classe  & nombre entier 
+\end{tabular}\end{center}\end{footnotesize}
+%
+Cette table, qu'on appelle \codes{ELEVE}, sera représentée sous la forme d'un tableau. Le numéro permet de désigner chaque élève plus facilement dans le système informatique que par son nom et son prénom, il permet aussi de distinguer portant même nom et prénom. Ce numéro porte souvent le nom d'\emph{index}.
+\begin{footnotesize}\begin{center}\begin{tabular}{|l|l|l|l|l|l|l|l|} \hline
+num & nom & prenom & date & adresse & genre & codepays & classe \\ \hline
+1 & dupre & xavier & 11/08/1975 & ... paris & True & 33 & 19 \\ \hline
+2 & dupre & gilles & 24/12/1946 & ... charleville & True & 33 & 56 \\ \hline
+\end{tabular}\end{center}\end{footnotesize}
+%
+Le pays est entier, on aurait pu choisir une chaîne de caractères également. Toutefois, il est possible de définir une seconde table qu'on appelle \codes{PAYS} avec la liste des pays et le numéro qui leur sont attribués.
+\begin{footnotesize}\begin{center}\begin{tabular}{|l|l|} \hline
+pays & codepays \\ \hline
+France & 33 \\ \hline
+Royaume-Uni & 44 \\ \hline
+\end{tabular}\end{center}\end{footnotesize}
+%
+Lorsqu'on cherche des élèves d'une certaine nationalité sans connaître son code, il suffit de chercher d'abord le code dans la table \codes{PAYS} puis de chercher les élèves ayant ce code dans la table \codes{ELEVE}. En langage SQL\footnote{Il n'est pas tenu compte des passages à la ligne, ils apportent plus de lisibilité.}, la première requête s'ecrit~: \indexfrr{SQL}{requête}
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+SELECT codepays
+FROM PAYS 
+WHERE pays = 'France'
+\end{verbatimx}
+%
+La seconde requête utilise les résultats de la première, en lanage SQL, cela donne~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+SELECT num,nom,prenom
+FROM ELEVE
+WHERE codepays IN ( 
+                    SELECT codepays
+                    FROM PAYS 
+                    WHERE pays = 'France'
+                  )
+\end{verbatimx}
+%
+A ces deux tables, on ajoute une table des matières enseignées~:
+\begin{footnotesize}\begin{center}\begin{tabular}{l|l|l}
+information 						&  nom     & type \\ \hline
+numéro    							&  num     & nombre entier \\ 
+matière 								&  matiere & chaîne de caractères (30 maximum)  \\ 
+niveau                  &  niveau  & nombre entier 
+\end{tabular}\end{center}\end{footnotesize}
+%
+Puis une table des notes attribuées~:
+\begin{footnotesize}\begin{center}\begin{tabular}{l|l|l}
+information 						&  nom     & type \\ \hline
+numéro élève 						&  nume    & nombre entier \\ 
+numéro matière          &  numm    & nombre entier \\ 
+note                    &  note    & nombre réel
+\end{tabular}\end{center}\end{footnotesize}
+%
+Si on relie les colonnes portant la même information, on aboutit au graphe de la figure~\ref{graphe_figure_sql_}. Ces liens illustrent le concept de \emph{base de données relationnelle}.\indexfrr{base de données}{relationnelle} Il serait possible de représenter toutes ces données sous la forme d'un unique tableau mais il aurait beaucoup de colonnes et autant de lignes que de notes. Autrement dit, les mêmes informations sont présentes en de nombreux endroits. Pour éviter la redondance d'un tel système, il faut scinder ce tableau en autant de tables que nécessaire pour faire disparaître la la redondance. 
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=3cm, width=12cm]{\filextel{../python_cours/image/sql1}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Graphe illustrant les bases de données relationnelles,
+                      les champs reliés entre eux ont le même sens. Un numéro d'élève 
+            				 désigne aussi bien un élève dans la table \codescaption{ELEVE}
+            				   que dans la table \codescaption{NOTE}. Si on connaît le numéro d'un élève,
+            				 on connaît également toutes les autres informations le concernant, c'est pourquoi, 
+            				 dans la table \codescaption{NOTE}, on
+            				 inscrit que son numéro. Toute autre information serait superflue.}
+            \label{graphe_figure_sql_}
+            \end{figure}
+            
+Le langage SQL permet de recherche des informations dans cet ensemble de tables. Par exemple, la requête suivante permet de construire la liste des élèves suivi de la moyenne de leurs note en français~: 
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+SELECT nom,prenom,AVG(note) FROM ELEVE,NOTE
+WHERE num = nume and 
+      numm IN ( SELECT num FROM MATIERES WHERE matiere = 'français' ) 
+GROUP BY nume
+\end{verbatimx}
+
+
+Le chapitre suivant montrera comment créer ces différentes tables, y insérer des lignes (ou enregistrements), lancer des requêtes.
+
+\subsection{Utiliser une base de données}  \label{sql_sqlite3_parag}
+
+La façon la plus simple d'utiliser une base de données est d'utiliser l'application \textit{SQLite}\footnote{\httpstyle{http://www.sqlite.org/}}.\indexoutil{SQLite} C'est d'autant plus avantageux que ce module est fourni avec l'installation standard de \python. La base de données, qui est un ensemble de plusieurs tables, est en fait stockés dans un unique fichier. On lit et on écrit dans ce fichier grâce au module \codes{sqlite3}.\indexmoduleint{sqlite3} Et l'unique moyen d'écrire, de lire, de consulter est d'utiliser des requêtes~SQL. Par exemple, la création de la table \codes{ELEVE} se fait grâce à la requête suivante~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+CREATE TABLE ELEVE (
+     num integer primary key,
+     nom varchar (30),
+     prenom varchar (30),
+     date date,
+     adresse varchar (100),
+     codepays integer,
+     classe integer)
+\end{verbatimx}
+%
+\indexsql{CREATE}\indexsql{TABLE}
+Le mot-clé \codes{primary\; key}\indexsql{primary\; key} permet d'indiquer au langage SQL qu'il peut utiliser ce champ comme un index~: il n'y aura jamais deux élèves avec des numéros identiques. C'est aussi une clé qui est attribuée automatiquement par le langage SQL. Si une table contient un tel champ, sa consultation est plus rapide. Il ne reste plus qu'à exécuter cette requête grâce au module \codes{sqlite3}~:
+%
+\inputcode{../python_cours/programme/sql_1.py}{création d'une table avec \codesindex{sqlite3}}
+%
+La première instruction permet d'ouvrir une connexion à la base de données, d'indiquer qu'on s'en sert. La seconde instruction permet de créer ce qu'on appelle un curseur.\indexfrr{SQL}{curseur} Cela permet d'avoir un accès à la base qui autorise des accès simultanés en nombre limité. La troisième instruction exécute la requête proprement dite.
+%
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+cur.execute ("CREATE TABLE NOTE (nume integer, numm integer, note double)")
+cur.execute ("CREATE TABLE MATIERES (num integer, matiere varchar (30))")
+cur.execute ("CREATE TABLE PAYS (codepays integer, pays varchar (30))")
+\end{verbatimx}
+%
+Il faut maintenant insérer des valeurs dans chacune des tables~:
+\inputcode{../python_cours/programme/sql_1.py}{insertion de valeurs dans une table \codesindex{sqlite3}}
+%
+Il ne faut pas oublier l'instruction \codes{cx.commit ()} qui met à jour la base de données. Sans cette instruction, les tables ne sont pas modifiées et pendant l'exécution de cette instruction, toutes les autres requêtes sont momentanément interrompues le temps que la modifications de la base soit effective. Le programme suivant permet de vérifier que les modifications ont bien été prises en compte~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+import sqlite3 as SQL
+cx = SQL.connect("madatabase.db3")
+cur = cx.cursor()
+cur.execute("select * from ELEVE")
+for row in cur.fetchall(): print row
+\end{verbatimx}
+Il affiche\footnote{Le symbol \codesnote{u} devant les chaînes de caractères indique qu'elles sont codées au format unicode\indexfr{unicode}\indexfrr{SQL}{unicode} et que les accents sont pris en compte.}~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+(1, u'dupre', u'xavier', u'11/08/1975', u'---- paris', 33, 19)
+(2, u'dupre', u'gilles', u'24/12/1946', u'---- charleville', 33, 56)
+\end{verbatimx}
+%
+Il reste à insérer d'autres valeurs dans ces tables\footnote{En langage SQL, le mot-clé \codesnote{UPDATE} sert à modifier un enregistrement.\indexsql{UPDATE}}~:\indexsql{SELECT}\indexsql{INSERT}\indexsql{INTO}\indexsql{VALUES}\indexsql{FROM}
+%
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+cur.execute ("INSERT INTO PAYS (codepays, pays) VALUES (33, 'France')")
+cur.execute ("INSERT INTO PAYS (codepays, pays) VALUES (44, 'Royaume-Uni')")
+cur.execute ("INSERT INTO MATIERES (matiere, num) VALUES ('français', 1)")
+cur.execute ("INSERT INTO MATIERES (matiere, num) VALUES ('mathématiques', 2)")
+cx.commit ()
+\end{verbatimx}
+%
+Il ne reste plus qu'à ajouter des notes~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+note = [(1, 1, 12), (1, 1, 14), (1, 2, 16), (1, 2, 8), (1, 2, 12), \
+        (2, 1, 8),  (2, 1, 9),  (2, 2, 11), (2, 2, 8), (2, 2, 12)]
+for n in note :
+    req = "INSERT INTO NOTE (nume,numm,note) VALUES " + str (n)
+	  cur.execute (req)
+cx.commit ()
+\end{verbatimx}
+%
+Le programme suivant permet de déterminer la liste des prénoms des élèves suivi de la moyenne de leurs notes~: \indexsql{GROUP \; BY}\indexsql{AVG}
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+req = """
+SELECT nom,prenom,AVG(note) FROM ELEVE,NOTE
+WHERE num = nume and 
+      numm IN ( SELECT num FROM MATIERES WHERE matiere = 'français' ) 
+GROUP BY nume
+"""
+cur.execute (req)
+for row in cur.fetchall(): print row
+\end{verbatimx}
+Le résultat de la requête donne pour notre exemple~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+(u'dupre', u'xavier', 13.0)
+(u'dupre', u'gilles', 8.5)
+\end{verbatimx}
+%
+En ajoutant une condition avec le mot-clé \codes{HAVING}, il est possible de ne retourner que la liste des élèves ayant la moyenne~: \indexsql{HAVING}
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+req = """
+SELECT nom,prenom,AVG(note) FROM ELEVE,NOTE
+WHERE num = nume and 
+      numm IN ( SELECT num FROM MATIERES WHERE matiere = 'français' ) 
+GROUP BY nume
+HAVING AVG(note) >= 10
+"""
+cur.execute (req)
+for row in cur.fetchall(): print row
+\end{verbatimx}
+
+
+
+\subsection{Utiliser un serveur de base de données}
+
+
+Le module \codes{sqlite3} propose en quelque sorte de stocker des informations de façon plus intelligente qu'un simple fichier texte puisqu'il met à disposition des outils permettant de consulter rapidement ces informations sans avoir à lire intégralement les données pour les mettre dans la mémoire de l'ordinateur au travers de listes par exemple. Toutefois, les informations sont localisées dans un unique fichier et elles ne sont pas faciles à partagées à travers un réseau.
+
+Un serveur de bases de données offre les mêmes services au niveau du stockage et de la consultation des données mais il permet de partager ces informations avec quiconque a accès à ce serveur. Le serveur de base de données organise la mise en commun de grandes volumes d'informations. Un serveur de bases de données est un serveur au même titre que l'application \textit{Apache}~: c'est une application qui tourne en permanence, de préférence sur un ordinateur entièrement dédié à ce service, et qui attend les requêtes des utilisateurs provenant de tous les utilisateurs ayant la possiblité de se connecter à ce serveur.
+
+
+\subsubsection{Installer un serveur de base de données sous \textit{Windows}} \indexoutilz{MySQL}{installation}
+
+Les paragraphes qui suivent décrivent l'installation de serveur \textit{MySQL}. Il est parfois plus simple d'utiliser l'application \textit{EasyPHP}\footnote{\httpstyle{http://www.easyphp.org/}}\indexoutil{EasyPHP} qui en simplifie l'installation lorsqu'elle est couplé avec le serveur \textit{Apache} (voir également le paragraphe~\ref{apache_installation_par}).
+
+Il existe de nombreux serveurs de base de données. Les plus connus sont \textit{Microsoft SQL Server},\indexoutil{Microsoft SQL Server} \textit{Oracle},\indexoutil{Oracle} \textit{Sybase}.\indexoutil{Sybase} Parmi les serveurs gratuits, on trouve \textit{MySQL},\indexoutil{MySQL} ou encore \textit{PostGreSQL}.\indexoutil{PostGreSQL} Ces applications sont souvent regroupées sous le terme de \textit{SGBD}\indexfr{SGBD} ou encore \textit{Système de gestions de base de données}. 
+
+L'installation de \textit{MySQL}.\indexoutil{MySQL} n'est pas très compliquée. Il faut dans un premier temps téléchercher \textit{MySQL}\footnote{\httpstyle{http://dev.mysql.com/downloads/mysql/5.0.html\#downloads}} puis suivre les instructions de la figure~\ref{mysql_installation_figure}. Il est tout de même possible de changer les paramètres de la configuration sans avoir à refaire l'installation, il suffit d'aller dans le sous-menu ajouter par \textit{MySQL} dans le menu \textit{Démarrer / Tous les programmes}.
+
+        		\begin{figure}[H]
+            \begin{center}\begin{tabular}{|c|c|c|}\hline
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysql1}} &
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysql2}} &
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysql3}} \\ \hline
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysql4}} &
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysql5}} &
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysql6}} \\ \hline
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysql7}} &
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysql8}} & \\ \hline
+            \end{tabular}\end{center}
+            \caption{L'installation de \textit{MySQL} fait intervenir une petite dizaine d'écrans qui se succèdent. 
+            					Chacun d'eux propose quelques 
+            				 options d'installation que l'utilisateur doit choisir. Voici les 
+            				 choix pour une utilisation sur une machine de bureau qui n'est
+            				 pas exclusivement réservé à \textit{MySQL} et qui autorise une dizaine
+            				  de connexion simultanée. Cette base n'est donc pas
+            				 configurée pour un usage intense. Les derniers écrans font référence à la sécurité. 
+            				 Il est conseillé de définir un mot de passe
+            				 \textit{root} ou administrateur. C'est le seul utilisateur ayant tout pouvoir sur la gestion du système.}
+            \label{mysql_installation_figure}
+            \end{figure}
+
+Il faut maintenant installer un second morceau qui est le pilote \textit{ODBC} pour \textit{MySQL}\footnote{Il est téléchargeable à l'adresse \httpstyle{http://dev.mysql.com/doc/refman/5.0/fr/myodbc-windows-binary-installation.html}.}. Il n'y a cette fois-ci rien à configurer et tout se passe presque sans intervention. Cette seconde étape est facultative mais elle rend l'écriture de programmes plus facile et surtout indépendante du serveur de base de données choisie.
+
+Avant d'utiliser \pythons pour lancer des requêtes, le serveur nouvellement installé est entièrement vide et il faut d'abord créer ce qu'on appelle une \emph{database}.\indexfr{database} C'est principalement un ensemble de tables. Pour cela, il faut cliquer sur l'intitulé \textit{MySQL Command Line client} du menu \textit{Démarrer / Tous les programmes / MySQL / MySQL Server 5.0}. Il vous est d'abord demandé un mot de passe, celui renseigné lors de l'installation. Ensuite il faut taper la ligne suivante~:  \label{creation_database_paragraphe}
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+CREATE DATABASE datatest ;
+\end{verbatimx}
+L'instruction ne devrait pas retourner d'erreur et à partir de ce moment, la database \codes{datatest} est créée. Il sera alors possible d'y connecter un pilote ODBC pour s'en servir dans un programme \python.
+
+Il reste une dernière installation à effectuer, celle du module \codes{pywin32}\footnote{\httpstyle{https://sourceforge.net/projects/pywin32/}}\indexmoduleext{pywin32} qui permet d'utiliser une connexion ODBC. Son installation utilise un programme exécutable et ne requiert aucune intervention.
+
+
+
+\subsubsection{Configurer une connexion ODBC sous \textit{Windows}}
+
+\indexfr{ODBC}\indexfr{Object Database Connectivity}
+Il existe de nombreux modules \pythons qui permet de se connecter directement à un serveur de base de données particulier comme le module \codes{MySQLdb}\footnote{\httpstyle{http://sourceforge.net/projects/mysql-python}}\indexmoduleext{MySQLdb} qui accède au serveur \textit{MySQL}. Même si cet accès est le plus rapide, l'inconvénient de ce système est qu'il faut utiliser un module différent pour chaque serveur de bases de données\footnote{On trouve à l'adresse \httpstyle{http://www.pygresql.org/} le module pour le serveur \textit{PostGreSQL}.}. 
+
+Il existe un moyen d'homogénéiser les accès aux serveurs en ajoutant une couche intermédiaire appelée \textit{ODBC} ou \textit{Object Database Connectivity}. Grâce à ce système, le code nécessaire à l'utilisation d'un serveur ne dépend plus du système de base de données utilisés. Celui-ci peut être \textit{MySQL} ou \textit{Microsoft SQL Server} ou encore un fichier texte, \textit{Excel}, une base de données \textit{Access}. Il suffit pour cela de déclarer ce pilote ODBC au système d'exploitation \textit{Windows}. Il faut pour cela aller dans le panneau de configuration, icône \textit{Outils d'administration} puis choisir \textit{Database ODBC}. On tombe alors sur une fenêtre du type de celle présentée à la figure~\ref{ODBC_window_foigure}. La configuration du pilot ODBC suit les instructions de la figure~\ref{ODBC_window_foigure_config}.
+            
+
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=4cm, width=5cm]{\filextel{../python_cours/image/odbc}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Fenêtre gérant les accès ODBC sous \textit{Windows}. 
+            				La fenêtre montre quatre connexions ODBC disponibles de types différents.
+            				Il suffit de cliquer sur le bouton \textit{Add} pour ajouter une connexion ODBC et ouvrir
+            					 un accès à une nouvelle source,
+            				que ce soit un fichier texte, un fichier \textit{Excel}, un serveur,~...}
+            \label{ODBC_window_foigure}
+            \end{figure}
+            
+
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[height=5cm, width=11cm]{\filextel{../python_cours/image/mysqlodbc}} &
+            \includegraphics[height=5cm, width=5.5cm]{\filextel{../python_cours/image/mysqlodbc2}} \\ \hline
+             \multicolumn{2}{|c|}{ \begin{minipage}{16cm} Concernant la connexion ODBC~:
+            \begin{itemize}
+\item Son nom est \textit{mysqlperso}, il est possible de le changer.
+\item Le server est \textit{localhost}, c'est la machine locale, si c'est une machine distante mais connectée au réseau
+			interne, il faut ici préciser son adresse~IP.
+\item Le port est par défaut 3306, dans un cas classique, ce paramètre est déjà renseigné.
+\item Le nom d'utilisateur et le mot de passe sont un de ceux définis sur le serveur de base de données, 
+      si aucun utilisateur n'a été ajouté, alors, il faut choisir l'utilisateur \textit{root} et le mot de passe
+      renseigné lors de l'installation (dans ce cas \textit{admin}).
+\item Enfin, il faut indiquer un nom de database qui existe sur le serveur de base de données. (Pour la créer, voir le 
+		 paragraphe~\ref{creation_database_paragraphe} (page~\pageref{creation_database_paragraphe}).
+\end{itemize}\end{minipage} }
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{La configuration d'une connexion ODBC se passe en
+            				 deux étapes, la première consiste à ajouter une connexion en cliquant sur 
+            					le bouton \textit{Add} de la première fenêtre. La seconde fenêtre
+            					 permet de choisir le type de connexion, dans le cas de
+            					\textit{MySQL}, il faut choisir \textit{MySQL ODBC 5.1 Driver}.
+            					 La troisième fenêtre définit les paramètres de la connexion~:
+            					Le bouton \textit{Test} permet de s'assurer que ces paramètres sont bien valides.
+            					}
+            \label{ODBC_window_foigure_config}
+            \end{figure}
+
+\subsubsection{Utilisation d'un serveur de base de données}
+
+En utilisant une connexion ODBC, les lignes écrites au paragraphe~\ref{sql_sqlite3_parag} ne diffèrent excepté celle qui ouvre la connexion ODBC qui s'effectue avec un module différent. Le module à utliser devient \codes{odbc}.\indexmoduleint{odbc} La création d'une table fait appel au script suivant~:
+%
+\inputcode{../python_cours/programme/odbc_1.py}{connexion ODBC, création d'une table}
+%
+L'ajout de données diffère un peu de \codes{sqlite3} car le serveur SQL requiert une valeur par défaut pour la colonne \codes{num} alors qu'elle était renseigné automatiquement par \codes{sqlite3}. Le langage SQL est en principe le même d'un serveur SQL à l'autre mais il arrive parfois que certains logiciels proposent des spécificités non compréhensibles par un autre SGBD. Par exemple, le format des dates par défaut n'est pas le même sur \textit{MySQL}~:
+%
+\inputcode{../python_cours/programme/odbc_2.py}{connexion ODBC, ajout de données}
+%
+Pour lancer une requête, le code reste le même~:
+%
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+import odbc 
+cx = odbc.odbc("mysqlperso")
+cur = cx.cursor()
+cur.execute ("SELECT * from ELEVE") 
+for row in cur.fetchall () :
+    print row
+\end{verbatimx}
+%
+\begin{xremark}{SGBD et les dates}
+La gestion des dates peut être différente d'un SGBD à l'autre, avec \textit{MySQL}, elles apparaissent sous forme d'objets. Pour pouvoir l'afficher, il faut remplacer la dernière du programme précédent par~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+    print [ str (r) for r in row ]
+\end{verbatimx}
+\end{xremark}
+%
+Mise à part la connexion, les autres requêtes et le code \pythons les exécutant extraits des exemples développés au paragraphe~\ref{sql_sqlite3_parag} seront identiques avec \textit{MySQL}.
+
+
+\subsubsection{ODBC et script CGI}
+
+\textbf{Problème de mot de passe}
+
+\indexfrr{ODBC}{mot de passe}\indexfrr{ODBC}{login}\indexfrr{ODBC}{password}
+
+Lorsqu'on cherche à se connecter à une connexion ODBC, celle-ci requiert parfois un login et un mot de passe. Par exemple, les deux lignes qui suivent permettent d'ouvrir une connexion ODBC vers un serveur de type \textit{SQL Server} de \textit{Microsoft}. \indexfr{\textit{Microsoft}}\indexoutil{Microsoft SQL Server}
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+import odbc
+cx = odbc.odbc("odbc_sql_server")
+\end{verbatimx}
+%
+L'exécution du programme retourne le message suivant annonçant l'impossibilité de l'ouverture de la connexion~:
+%
+\begin{verbatimx}
+dbi.operation-error: [Microsoft][ODBC SQL Server Driver][SQL Server]Login failed for user ''. 
+The user is not associated with a trusted SQL Server connection. in LOGIN
+\end{verbatimx}
+%
+Dans le cas, il faut répéter le login et le mot de passe utilisé lors de la configuration de la connexion ODBC comme ceci~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+import odbc
+cx = odbc.odbc("odbc_sql_server/login/password")
+\end{verbatimx}
+Une autre syntaxe comme celle qui suit est également correcte~:
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+cx = odbc.odbc("DSN=odbc_sql_server;UID=login;PWD=password")
+\end{verbatimx}
+
+\textbf{Service \textit{Apache}}  \indexfrr{service}{Windows}\indexfrr{Windows}{service}\indexoutilz{Apache}{service} \label{configuration_apache_sql_plus}
+\indexoutilz{Apache}{installation}
+
+Il arrive aussi que la connexion ODBC ne fonctionne pas car la table ou le serveur SQL n'est pas trouvé. Lorsqu'on exécute le script CGI comme un programme \python, celui-ci fonctionne parfaitement. Ceci s'explique par le fait que le serveur \textit{Apache} fonctionne avec un nom d'utilisateur qui ne lui permet pas de créer une connexion ODBC. Il existe deux façons de résoudre ce problème. La première consiste à configurer le service \textit{Apache} et à le relancer avec le bon login et le bon mot de passe. La seconde option consiste à ne plus lancer le serveur \textit{Apache} comme un service \textit{Windows} mais comme un programme depuis une fenêtre de commande. Il faut donc exécuter les trois lignes qui suivent~:
+\indexexemples{\textit{Apache}}{}
+\begin{verbatimx}
+cd c:\Program Files\Apache Software Foundation\Apache2.2\bin
+httpd -k stop
+httpd
+\end{verbatimx}
+La première ligne permet de se placer dans le répertoire d'\textit{Apache}. La seconde arrête l'exécution du serveur \textit{Apache} en tant que service, la dernière ligne redémarre le serveur \textit{Apache} en tant que programme indépendant. En contrepartie, il ne faut pas fermer la fenêtre de commande \textit{Windows} à moins de vouloir arrêter le serveur \textit{Apache}. Cette solution fonctionne localement, il est possible que le serveur ne soit plus accessible depuis une autre machine connectée sur le même réseau interne.
+
+Une autre option consiste à donner au service \textit{Apache} l'accès au serveur de base de données. Pour cela, il faut associer à au serveur \textit{Apache} un utilisateur et donner à cet utilisateur les droits nécessaires à une bonne utilisateur de \textit{Apache}. La première consiste à créer cet utilisateur (voir figure~\ref{user_creation_with_windows_nt}) puis à lui conférer les bons droits. 
+
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=4cm, width=10cm]{\filextel{../python_cours/image/apant0}} \\ \hline
+            \includegraphics[height=6cm, width=10cm]{\filextel{../python_cours/image/apant1}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Pour ajouter un utilisateur, il faut aller 
+            dans le \textit{Panneau de Contrôle}, choisir \textit{Outils d'administration} puis
+            				 choisir \textit{Computer Management}. La seconde image indique comment ajouter un utilisateur en cliquant
+            				 avec le bouton droit sur le répertoire  \textit{Users} ou \textit{Utilisateurs}.}
+            \label{user_creation_with_windows_nt}
+            \end{figure}
+
+L'étape suivante consiste à donner à cet utilisateur nouvellement créé les droits nécessaires à la modification des répertoires d'\textit{Apache} (voir la figure~\ref{user_creation_with_windows_nt_folder}). L'étape suivante est l'attribution de droits administrateur à l'utiliseur \codes{apache} (figure~\ref{user_creation_with_windows_nt_folder_rights}). La dernière étape est la configuration du service \textit{Apache} ce qu'illustre la figure~\ref{user_creation_with_windows_nt_folder_service}.         
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|c|}\hline
+            \includegraphics[height=6cm, width=4.5cm]{\filextel{../python_cours/image/apant2}} &
+            \includegraphics[height=6cm, width=4.5cm]{\filextel{../python_cours/image/apant3}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{L'utilisateur \codescaption{apache} créé par les étapes 
+            				illustrées la figure~\ref{user_creation_with_windows_nt} doit avoir les droits
+            				 d'accès en lecture et exécution pour le répertoire d'installation d'\textit{Apache}. Il doit aussi avoir les 
+            				 droits en écriture pour le répertoire \textit{logs}. Si \textit{Apache} utilise des extensions comme \textit{SVN} ou
+            				 des répertoires de pages ou de scripts situés ailleurs, il faudra également ajouter l'utilisateur
+            				  \codescaption{apache} à la liste
+            				 des utilisateurs autorisés à lire ou écrire ces emplacements.}
+            \label{user_creation_with_windows_nt_folder}
+            \end{figure}
+            
+            
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=10cm, width=18cm]{\filextel{../python_cours/image/apant4}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Il faut donner à l'utilisateur \codescaption{apache} des droits d'administrateurs. Il faut pour cela aller dans le 
+            				 \textit{Panneau de configuration}, sur \textit{Outils d'Administration} puis sur \textit{Local Secruity Policy}. 
+            				 On termine par l'ajout de l'utilisateur \codescaption{apache} 
+            				 au droit \textit{Act a part of the operating system}.  }
+            \label{user_creation_with_windows_nt_folder_rights}
+            \end{figure}
+            
+            
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=10cm, width=18cm]{\filextel{../python_cours/image/apant5}} 
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Il faut maintenant préciser au service
+             \textit{Apache} qu'il doit utiliser les droits de l'utilisateur \codescaption{apache}. 
+                     Il faudra redémarrer pour prendre en compte les modifications.}
+            \label{user_creation_with_windows_nt_folder_service}
+            \end{figure}            
+            
+            
+\subsubsection{Sans ODBC} \label{conexxion_directe_mysql}
+
+Il arrive que sur certains systèmes, la configuration d'\textit{Apache} en tant que service soit difficile pour un non expert bien que cela soit rendu nécessaire par l'utilisation de pilotes ODBC dans de scripts CGI écrits en \python. Il existe une alternative qui est de se connecter directement au serveur \textit{MySQL}. Il faut pour cela utiliser le module \codes{MySQLdb}\footnote{\httpstyle{http://sourceforge.net/projects/mysql-python}}.\indexmoduleext{MySQLdb} Le code permettant de lancer une requête diffère peu de celui utiliser pour une connexion ODBC comme le montre les deux exemples suivant.
+%
+\begin{center}\begin{tabular}{cc}
+\begin{minipage}{8cm}
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+import odbc 
+cx = odbc.odbc("mysqlperso")
+
+cur = cx.cursor()
+cur.execute ("SELECT * from ELEVE") 
+for row in cur.fetchall () :
+    print row
+cur.close ()
+
+\end{verbatimx}
+\end{minipage}
+&
+\begin{minipage}{8cm}
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+import MySQLdb
+cx  = MySQLdb.connect('localhost','root', \
+        'admin', 'datatest')
+cur = cx.cursor()
+cur.execute ("select * from ELEVE" )
+for row in cur.fetchall() :
+    print row
+cur.close()
+cx.close() 
+\end{verbatimx}
+\end{minipage}
+\end{tabular}\end{center}
+%
+Il faut toutefois penser à fermer la connexion vers le serveur \textit{MySQL}, tâche que le pilote ODBC gère seul. Le serveur \textit{MySQL} ne peut supporter trop de connexions ouvertes au même moment\footnote{Ceci dépend de la configuration du serveur et de la puissance de l'ordinateur sur lequel il est installé.}.      
+
+Si le serveur de base de données est différent de \textit{MySQL}, il suffit de taper \textit{python + <nom du serveur>} dans un moteur de recherche pour trouver le module qui permet de communiquer avec ce serveur. Par exemple, pour \textit{Oracle}, on trouve le module \codes{cx-oracle}\footnote{\httpstyle{http://cx-oracle.sourceforge.net/}}.\indexmoduleext{cx-oracle} La syntaxe permettant de lancer une requête est sensiblement la même. Un serveur déroge à cette règle, il s'agit de \textit{MSSQL Server} de \textit{Microsoft} qui utilise le module \codes{win32com}\footnote{\httpstyle{http://python.net/crew/mhammond/win32/Downloads.html}}\indexmoduleext{win32com} dont voici un exemple d'utilisation.
+%
+\indexexemples{\textit{SQL}}{}
+\begin{verbatimx}
+import win32com.client
+connexion = win32com.client.gencache.EnsureDispatch('ADODB.Connection')
+connexion.Open("Provider='SQLOLEDB';Data Source='localhost';Initial Catalog='datatest';User ID='root';Password='admin';")
+recordset = connexion.Execute('select * from client')[0]
+while not recordset.EOF:
+    for i in recordset.Fields : print i,
+    print "<br>\n"
+    recordset.MoveNext()
+connexion.Close()      
+\end{verbatimx}
+%
+ODBC fournit une interface de connexion qui ne change pas quelque soit le serveur SQL utilisé, c'est tout l'avantage d'un tel système. Accéder directement au serveur est plus rapide mais plus contraignant si la base de données est transférée sur un serveur différent. C'est pourquoi il est recommandé de regrouper le code qui a trait aux bases de données. Ceci peut être fait manuellement ou en utilisant un module qui propose une unique interface quelque soit le serveur de base de données utilisé.
+
+\codes{SQLObject}\footnote{\httpstyle{http://www.sqlobject.org/}}\indexmoduleext{SQLObject} s'appuie sur les classes pour représenter les tables d'une base de données. Une table est considérée comme une liste d'instances d'un même objet dont les attributs sont stockés dans la table. Cette conception objet remplace en partie le langage SQL et est bien adapté aux bases de données relationnelles\indexfr{base de données relationnelle} qui permettent de lier des attributs de plusieurs tables.
+
+\section{Modules divers}
+
+\subsection{PDF}
+
+De même que \pythons propose des outils pour écrire et lire des fichiers \textit{zip}, il existe des modules permettant de constuire des fichiers \textit{pdf}\indexfr{pdf} et d'extraire des informations depuis des documents de ce format. Le module \codes{reportLab}\footnote{\httpstyle{http://www.reportlab.org/rl\_toolkit.html}}\indexmoduleext{reportLab} permet de construire automatique des fichiers au format \textit{pdf}. Ceci évite par exemple l'utilisation d'application intermédiaire comme \textit{Latex} par exemple. \indexfrr{pdf}{\codes{reportLab}}\indexfrr{pdf}{écrire}
+
+Un autre module permet d'extraire des informations textuelles depuis un fichier \textit{pdf} à condition que celui-ci ne soit pas crypté~: \codes{pdftools}\footnote{\httpstyle{http://www.boddie.org.uk/david/Projects/Python/pdftools/}}\indexmoduleext{pdftools}. Le programme suivant permet d'extraire tout le texte d'un document \textit{pdf}. \indexfrr{pdf}{lire}\indexfrr{pdf}{\codes{pdftools}}\indexfrr{fichier}{pdf}
+%
+\inputcode{../python_cours/programme/extrpdf.py}{extraction du texte d'un fichier \textit{pdf}}
+
+Le module \codes{pyPDF}\footnote{\httpstyle{http://pybrary.net/pyPdf/}} propose des fonctionnalités équivalentes. Le module le plus récemment mis à jour est souvent le meilleur choix.
+
+\subsection{Tesseract} \indexoutil{Tesseract}
+
+\textit{Tesseract} est un outil gratuit de reconnaissance de l'écriture imprimée (OCR)\indexfr{OCR} qui est capable de transcrire le texte depuis une page imprimée puis scannée. Il s'utilise depuis le module \codes{pytesser}\footnote{\httpstyle{http://code.google.com/p/pytesser/}}\indexmoduleext{pytesser} Il fonctionne assez simplement et il suffit d'exécuter le programme \codes{pytesser.py} pour le faire fonctionner.
+            
+            
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+
+\section{Graphisme} \indexfr{graphisme}
+
+\subsection{GNUPlot} \indexoutil{GNUPlot}
+
+\textit{GNUPlot}\footnote{\httpstyle{http://www.gnuplot.info/}} est un logiciel permettant de tracer des graphes. Il a son propre langage de programmation et dispose d'une large panoplie de types de graphismes.\indexfr{graphe} Il existe à la fois sous \textit{Windows} et \textit{Linux}. Le programme suivant construit un script GNUPlot et l'exécute de façon à construire automatiquement l'image du graphique.
+%
+\inputcode{../python_cours/programme/graphplot.py}{graphiques avec GNUPlot}
+
+\subsection{MatPlotLib} \indexoutil{MatPlotLib}\indexmoduleext{matplotlib}
+
+Ce module imite la syntaxe de \textit{Matlab} en ce qui concerne la création de graphe. Il propose les mêmes fonctionnalités. Le programme suivant montre comment tracer une série financière.
+%
+\inputcode{../python_cours_exemple/programme/graphohlc.py}{graphiques avec MatPlotLib}
+
+
+
+
+
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------------------------------
+
+\section{Apache : serveur} \indexoutil{Apache}  \indexoutilz{Apache}{installation} \label{apache_paragraphe_section} \label{apache_installation_par}  
+ 
+Les paragraphes qui suivent décrivent l'installation et la configuration du serveur \textit{Apache}. Celui est utilisé par des applications comme\textit{SVN}, \textit{MoinMoin} ou tout simplement, il offre la possibilité d'écrire des applications Internet comme des script CGI en langage \python. Il est parfois plus simple d'utiliser l'application \textit{EasyPHP}\footnote{\httpstyle{http://www.easyphp.org/}}\indexoutil{EasyPHP} qui en simplifie l'installation surtout s'il faut installer ensuite le serveur de base de données \textit{MySQL}. La suite vient avec l'installation d'\textit{Apache} version 2.2\footnote{Lors de l'écriture du livre, la version était 2.2.8 et téléchargeable à l'adresse \httpstyle{http://httpd.apache.org/}.}
+
+\subsection{Installation}
+
+
+\indexoutil{Apache} 
+L'installation commence par un premier écran qu'il faut remplir en suivant les instructions de la figure~\ref{fig_aoache_inst}. Pour vérifier que l'installation a fonctionné, il suffit d'ouvrir un navigateur comme \textit{Firefox}. Après avoir rentré \httpstyle{http://localhost/} dans la barre d'adresse, le message \textit{It works~!} apparaît si \textit{Apache} fonctionne.
+
+        		\begin{figure}[ht]
+            \begin{center}\begin{tabular}{|c|}\hline
+            \includegraphics[height=6cm, width=7cm]{\filextel{../python_cours/image/apachein}}
+            \\ \hline
+            \end{tabular}\end{center}
+            \caption{Installation de \textit{Apache}, \codescaption{DomainName} est un nom de domaine, dans un réseau local, 
+            				cela correspond à l'adresse IP de l'ordinateur. (écrire \codescaption{ipconfig \; /all} en ligne de commande
+            			  pour l'obtenir. \codescaption{ServerName} est le nom du serveur, le plus souvent \codescaption{localhost} qui désigne
+            			  l'ordinateur local. L'adresse email peut être n'importe quel email.}
+            \label{fig_aoache_inst}
+            \end{figure}
+            
+\begin{xremark}{changement de port pour \textit{Apache}}
+Il est possible de le port par défaut 80 soit déjà utilisé par d'autres services. Le port se résume à un numéro, un emplacement, où le serveur \textit{Apache} va écouter et envoyer des informations. Toute application qui veut envoyer des informations à \textit{Apache} doit spécifier le nom de la machine sur laquelle est installée \textit{Apache} ainsi que le port sur lequel il écoute. Si deux serveurs écoutent le port~80, lequel va recevoir un message, il ne sera pas non plus possible de les distinguer puisqu'ils écoutent à la même entrée. Pour le changer, il faut aller dans le fichier \codes{httpd.conf} et changer la ligne \codes{Listen\;80} par~: \indexfr{port}\indexoutilz{Apache}{port}
+\begin{verbatimx}
+Listen 81
+\end{verbatimx}
+Ensuite, dans l'exporateur internet, il faut préciser ce port qui n'est plus le port par défaut 80 et entrer l'adresse suivante~: \httpstyle{http://localhost:81/} ou ajouter \codes{http://nom\_de\_machine:81} si le serveur \textit{Apache} est appelée depuis une autre machine du réseau.
+\end{xremark}
+            
+            
+\subsection{Configuration de \textit{Apache} pour \textit{MoinMoin}} \label{configuration_apache_moinmoin}
+
+            
+Il reste à configurer \textit{Apache} pour évoluer de paire avec \textit{SVN}. Il y a quatre étapes~:
+\begin{enumerate}
+\item Copier les fichiers \codes{mod\_dav\_svn.so} et \codes{mod\_authz\_svn.so} depuis le répertoire d'installation de \textit{SVN} (sous-répertoire \textit{bin}) dans le répertoire d'installation de \codes{Apache} (sous-répertoire \textit{module}).
+\item Ouvrir le fichier de configuration de \textit{Apache} depuis le menu \textit{Démarrer} de \textit{Windows} et insérer les lignes suivantes~:
+\indexexemples{\textit{Apache}}{}
+\begin{verbatimx}
+LoadModule dav_module modules/mod_dav.so
+LoadModule dav_svn_module modules/mod_dav_svn.so
+LoadModule authz_svn_module modules/mod_authz_svn.so
+
+<Location /svn/>
+    DAV svn
+    SVNListParentPath on 
+    SVNParentPath "c:/svnrepository/"
+    SVNPathAuthz on
+    #AuthzSVNAccessFile "C:/Program Files/Apache Software Foundation/Apache2.2/bin/apachesvnauth 
+    AuthName "Subversion Repositories" 
+    AuthType Basic
+    AuthBasicProvider file
+    AuthUserFile "C:/Program Files/Apache Software Foundation/Apache2.2/bin/apachesvnpasswd"
+    require valid-user
+</Location>
+\end{verbatimx}
+Il faut remplacer \codes{c:/svnrepository/} par le répertoire du repository créé et \codes{C:/Program\; Files/Apache\; Software Foundation/Apache2.2} par le répertoire d'installation de \textit{Apache}.
+\item Il reste à insérer des utilisateurs authorisés à utiliser \codes{SVN}. Pour cela il faut ouvrir une fenêtre de commande \textit{Windows}~:
+\begin{verbatimx}
+cd C:\Program Files\Apache Software Foundation\Apache2.2\bin
+htpasswd.exe -c apachesvnpasswd utilisateur
+\end{verbatimx}
+Il vous sera demandé de rentrer un mot de passe pour chaque utilisateur.
+\item Il reste à redémarrer le serveur \codes{Apache} afin qu'il prenne en compte ces modifications. Ce peut être fait depuis le sous-menu \textit{Apache} du menu \textit{Démarrer / Tous les programmes}.
+\end{enumerate}
+%
+Pour vérifier que cela fonctionne, il faut ouvrir un navigateur et écrire \httpstyle{http://localhost/svn/}. L'explorateur vous demandera de vous identifier, il suffira de rentrer un des utilisateurs et son mot de passe définis en étape~3.
+
+\begin{xremark}{problème de chargement du module \codes{mod\_dav\_svn.so}}
+Il arrive parfois que le serveur n'arrive pas à redémarrer après avoir modifié le fichier \codes{httpd.conf} car le module \codes{mod\_dav\_svn.so} ne peut être chargé\footnote{Cette information est présente dans le fichier \codesnote{logs/error.log} dans le répertoire d'installation d'\textit{Apache}.}. Cette erreur peut survenir si la version de \textit{Windows} n'est pas récente où sur laquelle n'a pas été installée la dernière ou les dernières mises à jour de \textit{Windows}.
+\end{xremark}
+
+D'autres précisions concernant la configuration d'\textit{Apache} sont décrites aux paragraphes~\ref{configuration_apache_sql_plus} et~\ref{configuration_apache_sql_plus}. \indexoutilz{Apache}{installation}
+
+
+La configuration d'\textit{Apache} fait intervenir deux éléments. Le premier est la définition d'alias.\indexoutilz{Apache}{alias} Il s'agit de dire à \textit{Apache} que tous les adresses URL contenant la même racine (ici \httpstyle{http://localhost/mywiki}) font partie du \textit{Wiki} et contiennent des scripts \python. Il faut ajouter les lignes suivantes dans le fichier \codes{httpd.conf}. 
+%
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+ScriptAlias /mywiki "C:/Moin/mywiki/moin.cgi"    
+Alias /moin_static163 "C:/Python25/share/moin/htdocs"
+\end{verbatimx}
+%
+La seconde étape est l'attribution de droits au répertoire contenant plusieurs répertoires essentiels au \codes{Wiki} mais qui sont situés en dehors du chemin \codes{DocumentRoot}. Toujours dans le fichier \codes{httpd.conf}, il faut ajouter les lignes en fin de fichier~:
+\indexexemples{\textit{MoinMoin}}{}
+\begin{verbatimx}
+<Directory "C:/Python25/share/moin/htdocs">
+    Order deny,allow
+    Allow from all
+</Directory>
+<Directory "C:/Moin/mywiki">
+    Options FollowSymLinks
+    AllowOverride None
+    Order deny,allow
+    Allow from all
+</Directory>
+\end{verbatimx}
+%
+Il ne faut pas oublier de redémarrer le serveur pour que ces modifications soient bien prises en compte. Avec cette configuration, il suffit que chaque script \pythons commence par une ligne indiquant l'emplacement de l'interpréteur \python. 
+\begin{verbatimx}
+#!c:/python25/python.exe
+\end{verbatimx}
+Ou sous Linux :
+\begin{verbatimx}
+#!/usr/bin/python
+\end{verbatimx}
+Cette première ligne est appelée par \textit{Apache} un \textit{shebang}.\indexfr{shebang} Si un script CGI doit être exécuté sur des serverus \textit{Apache} installés sur deux systèmes d'exploitation différent, cette ligne empêche le passage de l'un à l'autre. \textit{Apache} peut être configurer de façon à ce qu'il sache automatiquement quoi faire lors de l'exécution d'un script CGI d'extension \codes{.py}.
+
+\begin{verbatimx}
+ScriptInterpreterSource registry
+<Directory "C:/Python25">            # il faut également une section
+    AllowOverride None               # comme celle-ci définie
+    Options ExecCGI                  # pour le répertoire contenant
+    Order allow,deny                 # le script CGI
+    Allow from all                   #
+</Directory>
+AddType application/x-httpd-py .py
+AddHandler cgi-script .py
+Action application/x-httpd-py "C:/python25/python.exe"
+\end{verbatimx}
+
+\begin{xremark}{\codes{Alias}, \textit{Apache} et \textit{MoinMoin}}
+Les alias sous \textit{Apache} permettent de remplacer une chemin donné par un autre dans tous les hyperliens. Ici \codes{/moin\_static163/} sera remplacé par \codes{C:/Python25/share/moin/htdocs/}. Un dernier détail, pour une version ultérieure de \textit{MoinMoin}, il est possible que l'alias défini pour \codes{moin\_static163} diffère, 163 est en effet la liste des chiffres du numéro de version. Pour en être sûr, il suffit d'afficher le \textit{source} d'une page du \codes{Wiki} depuis l'navigateur. Toutefois, il est possible de modifier ce chemin depuis \textit{MoinMoin}.
+\end{xremark}
+
+\begin{xremark}{\textit{Apache}, comprendre une erreur}
+Dans le répertoire d'installation de \textit{Apache}, on trouve le sous-répertoire \codes{logs} et le fichier \codes{error.log} dans lequel figurent des informations concernant l'exécution du serveur. Si une page HTML ou un script ne s'exécute pas comme il le devrait, un message d'erreur est inséré dans ce fichier si l'erreur se situe au niveau de \textit{Apache}. Les exceptions \pythons sont également présentes dans ce fichier lorsqu'un script CGI\footnote{Le rôle des CGI est brièvement expliqué au paragraphe~\ref{cgi_definition}.} provoque une erreur d'exécution.
+\end{xremark}
+
+D'autres remarques concernant des problèmes éventuels survenant lors de l'installation d'\textit{Apache} sont décrites au paragraphe~\ref{configuration_apache_sql_plus}. \indexoutilz{Apache}{installation}
+
+\subsection{Pour aller plus loin}
+
+Pour savoir quels ports sont disponibles lors de l'installation d'\textit{Apache} sous \textit{Windows}. Il suffit d'exécuter la commande~:
+
+\begin{verbatimx}
+netstat -ao
+\end{verbatimx}
+
+Il est possible de configurer un second serveur \textit{Apache}, c'est-à-dire un nouveau service, un second port, un second fichier de configuration.
+
+\begin{verbatimx}
+httpd -k uninstall -n ApacheSecond                  # on désinstalle le service s'il existait
+httpd -f "new_conf.conf" -n ApacheSecond -k install # on installe à nouveau le service
+httpd -n ApacheSecond -k start                      # on démarre Apache
+\end{verbatimx}
+
+Cette modification est parfois nécessaire car pour installer un serveur SVN, il existe deux solutions~:
+\begin{enumerate}
+\item La solution présentée précédemment, qu'il est possible de simplifier en utilisant la distribution \textit{CollabNet}\footnote{\httpstyle{http://www.collab.net/}, cette distribution n'aime pas trop les login avec un symbol "-".} qui installe tout automatiquement excepté qu'il faut faire attention si un autre serveur \textit{Apache} existe (cette distribution utilise Python 2.5 et il vaut mieux ne pas mélanger les différentes versions de Python.)
+\item Lancer le serveur SVN (svnserve.exe) disponible lors de l'installation de SVN.
+\end{enumerate}
+
+Lors de l'installation du serveur \textit{Apache}, il est possible de rencontrer cette erreur~:
+
+\begin{verbatimx}
+(OS 10048)Only one usage of each socket address (protocol/network address/port) is normally permitted.  : make_sock: could not bind to address 0.0.0.0:8084
+no listening sockets available, shutting down
+Unable to open logs
+\end{verbatimx}
+
+J'ai rencontrée cette erreur alors le fichier de configuration contenait deux fois l'instruction \codes{Listen} pour deux ports différents. Autre détail, il est possible de restreindre l'accès au serveur en créant une règle au niveau de Firewall de Windows. 
+
+
+
+
+
+\subsection{Configuration pour des applications CGI}
+
+
+La configuration du serveur \textit{Apache} pour l'exécution de script CGI en langage \pythons passe toujours par la précision des bons droits pour le répertoire contenant le langage \pythons et celui contenant le script CGI.
+
+\begin{verbatimx}
+<Directory "C:/Python25">
+    AllowOverride None
+    Options ExecCGI
+    Order allow,deny
+    Allow from all
+</Directory>
+<Directory "C:/_home/query-intent/projects/common_tools/cgi/">
+    AllowOverride None
+    Options FollowSymLinks ExecCGI
+    Order allow,deny
+    Allow from all
+</Directory>
+\end{verbatimx}
+
+Il faut préciser ensuite que l'extension \textit{.py} est celle d'un script CGI et qu'il doit s'exécuter avec l'interpréteur \python~:
+
+\begin{verbatimx}
+<IfModule mime_module>
+    TypesConfig conf/mime.types
+    AddType application/x-httpd-py .py
+    AddHandler cgi-script .py
+</IfModule>
+Action application/x-httpd-py "C:/python25/python.exe"
+\end{verbatimx}
+
+Il ne reste plus qu'à donner un alias au répertoire contenant le script CGI~:
+
+\begin{verbatimx}
+ScriptAlias /py/ "C:/script_cgi_python/"
+\end{verbatimx}
+
+Par exemple, le fichier suivant nommé \codes{script.py} est placé dans le répertoire précédent.
+
+\begin{verbatimx}
+header = """Content-type: text/html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>"""
+
+footer = """</body></html>"""
+
+print header
+print "<b>Script CGI</b><br>\n"
+print footer
+\end{verbatimx}
+
+Pour l'exécuter via un navigateur, il suffit alors de taper l'adresse~:
+
+\begin{verbatimx}
+http://localhost:80/py/script.py
+\end{verbatimx}
+
+
+
+\firstpassagedo{
+	\begin{thebibliography}{99}
+	\input{python_cours_biblio.tex}
+	\end{thebibliography}
+}
+
+\input{../../common/livre_table_end.tex}%
+\input{../../common/livre_end.tex}%

@@ -1,0 +1,911 @@
+\input{../../common/livre_begin.tex}%
+\firstpassagedo{\input{python_cours_titre.tex}}
+\input{../../common/livre_table_begin.tex}%
+%\firstpassagedo{\input{python_cours_chapter.tex}}
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------
+\chapter{Modules}
+\label{chap_module}
+%-------------------------------------------------------------------------------------------------------------
+
+Il est souvent préférable de répartir le code d'un grand programme sur plusieurs fichiers. Parmi tous ces fichiers, un seul est considéré comme fichier principal, il contient son point d'entrée, les premières instructions exécutées. Les autres fichiers sont considérés comme des modules, en quelque sorte, des annexes qui contiennent tout ce dont le fichier principal a besoin.
+
+
+\section{Modules et fichiers} 
+
+\subsection{Exemple}
+
+\indexfr{module}\indexfr{point d'entrée}
+Cet exemple montre comment répartir un programme sur deux fichiers. Le premier est appelé \textit{module} car il n'inclut pas le point d'entrée du programme. 
+
+		\begin{xdefinition}{point d'entrée du programme}
+		Le point d'entrée d'un programme est la première instruction exécutée par l'ordinateur lors de l'exécution
+		de ce programme.
+		\end{xdefinition}
+
+\indexkeyword{import}\indexmoduleund{import}
+Cet exemple de module contient une fonction, une classe et une variable. Ces trois éléments peuvent être utilisés par n'importe quel fichier qui importe ce module. Le nom d'un module correspond au nom du fichier sans son extension.
+\indexfrr{module}{nom}
+
+\begin{center}\begin{tabular}{@{}lr@{}}
+\textbf{Fichier~: \codes{module\_exemple.py}}  & \textbf{Fichier~: \codes{exemple.py}}  \\
+\begin{minipage}{6.7cm}
+\inputcodes{../python_cours/programme/module_exemple.py}{exemple de module}{}
+\end{minipage}
+&
+\begin{minipage}{6.7cm}
+\inputcodes{../python_cours/programme/exemple.py}{import de module}{ (1)}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+
+Pour importer un module, il suffit d'insérer l'instruction \codes{import \; nom\_module} avant d'utiliser une des choses qu'il définit. Ces importations sont souvent regroupées au début du programme, elles sont de cette façon mises en évidence même s'il est possible de les faire n'importe où. L'exemple ci-dessus à droite importe le module défini à gauche. Les modules commencent le plus souvent par une chaîne de caractères comme dans l'exemple précédent, celle-ci contient l'aide associée à ce module. Elle apparaît avec l'instruction \codes{help(module\_exemple)}.
+
+%
+Rien ne différencie les deux fichiers \codes{module\_exemple.py} et \codes{exemple.py} excepté le fait que le second utilise des éléments définis par le premier. Dans un programme composé de plusieurs fichiers, un seul contient le point d'entrée et tous les autres sont des modules.
+
+La syntaxe d'appel d'un élément d'un module est identique à celle d'une classe. On peut considérer un module comme une classe avec ses méthodes et ses attributs à la seule différence qu'il ne peut y avoir qu'une seule instance d'un même module. La répétition de l'instruction \codes{import \; module\_exemple} n'aura aucun effet~: un module n'est importé que lors de la première instruction \codes{import \; nom\_module} rencontré lors de l'exécution du programme.
+
+\begin{xremark}{fichier \codes{*.pyc}}
+L'utilisation d'un module qu'on a soi-même conçu provoque l'apparition d'un fichier d'extension~\codes{pyc}.\ifnotellipse{\indexfrr{extension de fichier}{pyc}}\indexfr{pyc}\indexfr{bytecode}Il correspond à la traduction du module en \textit{bytecode} plus rapidement exploitable par l'interpréteur \python. Ce fichier est généré à chaque modification du module. Lorsqu'un module est importé, \pythons vérifie la date des deux fichiers d'extension \codes{py} et \codes{pyc}. Si le premier est plus récent, le second est recréé. Cela permet un gain de temps lorsqu'il y a un grand nombre de modules. Il faut faire attention lorsque le fichier source d'extension \codes{py} est supprimé, il est alors encore possible de l'importer tant que sa version d'extension \codes{pyc} est présente.\indexext{pyc}\indexext{py}
+\end{xremark}
+
+\begin{xremark}{recharger un module}
+Le module \codes{module\_exemple} contient une variable \codes{exemple\_variable} peut être modifiée au cours de l'exécution du programme. Il est possible de revenir à sa valeur initiale en forçant \pythons à recharger le module grâce à la fonction \codes{reload}.\indexfonction{reload}\vspaceneg\indexexemples{\codesindex{reload}}{}
+\begin{verbatimx}
+import module_exemple
+module_exemple.exemple_variable = 10
+reload (module_exemple)
+print module_exemple.exemple_variable   # affiche 3
+\end{verbatimx}
+\end{xremark}
+
+
+\subsection{Autres syntaxes}
+
+Il existe trois syntaxes différentes pour importer un module. La première est décrite au paragraphe précédent. Il en existe une autre qui permet d'affecter à un module un identificateur différent du nom du fichier dans lequel il est décrit. En ajoutant l'instruction \codes{as} suivi d'un autre nom \codes{alias}, le module sera désigné par la suite par l'identificateur \codes{alias} comme le montre l'exemple suivant.
+
+\textbf{Fichier~: \codes{exemple2.py}} \vspace{-0.3cm}
+\inputcodes{../python_cours/programme/exemple2.py}{import de module}{ (2)}
+
+\indexkeyword{import}\indexkeyword{from}\indexkeyword{as}\indexfrr{module}{identificateur}
+Une autre syntaxe permet de se passer d'identificateur pour un module en utilisant le mot-clé \codes{from}. En utilisant la syntaxe \codes{from \; module \; import \; *}, tous les identificateurs (fonctions, classes, variables) sont directement accessibles sans les faire précéder d'un identificateur de module ainsi que le montre l'exemple suivant.
+
+\textbf{Fichier~: \codes{exemple3.py}} \vspace{-0.3cm}
+\inputcodes{../python_cours/programme/exemple3.py}{import de module}{ (3)}
+%
+La partie \codes{import \; *} permet d'importer toutes les classes, attributs ou fonctions d'un module mais il est possible d'écrire \codes{from \; module\_exemple \; import \; exemple\_class} pour n'importer que cette classe. La fonction \codes{exemple\_fonction} ne sera pas accessible. Toutefois, cette syntaxe est déconseillée. Elle réduit la longueur de certaines fonctions ou classes puisqu'il n'est plus besoin de faire apparaître le module d'où elle proviennent et cela ne permet plus de distinguer une classe ou une fonction définie dans ce fichier de celles définies dans un autre module importé.
+
+Il existe une dernière syntaxe d'importation d'un module qui est utile quand on ne sait pas encore au moment d'écriture du programme le nom du module à importer. Celui-ci sera précisé à l'aide d'une chaîne de caractères au moyen de la fonction \codes{\_\_import\_\_}.\indexfonction{\_\_import\_\_} 
+
+\textbf{Fichier~: \codes{exemple4.py}} \vspace{-0.3cm}
+\inputcodes{../python_cours/programme/exemple4.py}{import de module}{ (4)}
+
+
+
+\subsection{Nom d'un module}
+\indexfrr{module}{nom}
+Le nom d'un module est défini par le nom du fichier sous lequel il est enregistré. Dans l'exemple du paragraphe précédent, le module avait pour nom de fichier \codes{module\_exemple.py}, le nom de ce module est donc \codes{module\_exemple}.
+
+Néanmoins, ce module peut également être exécuté comme un programme normal. Si tel est le cas, son nom devient \codes{\_\_main\_\_}. C'est pourquoi, les quelques lignes qui suivent apparaissent souvent. Elles ne sont exécutées que si ce fichier a pour nom \codes{\_\_main\_\_}. Un seul fichier peut porter ce nom~: celui qui contient le point d'entrée.
+\indexfr{point d'entrée}
+\indexoperateur{\_\_name\_\_}\indexfr{\codesindex{\_\_main\_\_}}
+%
+\indexexemples{\codesindex{\_\_name\_\_}}{}
+\vspaceneg
+\begin{verbatimx}
+if __name__ == "__main__" :
+    print "ce fichier est le programme principal"
+\end{verbatimx}
+\vspaceneg
+%
+Cette astuce est régulièrement utilisée pour tester les fonctions et classes définies dans un module. Etant donné que cette partie n'est exécutée que si ce fichier est le programme principal, ajouter du code après le test \codes{if \;\_\_name\_\_ == "\_\_main\_\_" :} n'a aucune incidence sur tout programme incluant ce fichier comme module.
+
+\subsection{Emplacement d'un module}
+\indexfrr{module}{emplacement}\indexfrr{module}{répertoire}
+Lorsque le module est placé dans le même répertoire que le programme qui l'utilise, l'instruction \codes{import \; nom\_module\_sans\_extension} suffit. Cette instruction suffit également si ce module est placé dans le répertoire \codes{site-packages} présent dans le répertoire d'installation de \python. Si ce n'est pas le cas, il faut préciser à l'interpréteur \pythons où il doit chercher ce module~:
+%
+\vspaceneg
+\indexexemples{\codesindex{sys.path}}{}
+\begin{verbatimx}
+import sys
+sys.path.append (sys.path [0] + "/../common")  
+################ sys.path [0] = répertoire de ce programme
+import nom_module
+\end{verbatimx}
+\vspaceneg
+%
+La variable \codes{sys.path} contient les répertoires où \pythons va chercher les modules. Le premier d'entre eux est le répertoire du programme. Il suffit d'ajouter à cette liste le répertoire désiré, ici, un répertoire appelé \codes{common} situé au même niveau que le répertoire du programme. A ce sujet, il est conseillé d'utiliser le plus souvent possible des chemins relatifs et non absolus\footnote{Depuis un répertoire courant, les chemins relatifs permettent de faire référence à d'autres répertoires sans avoir à prendre en compte leur emplacement sur le disque dur contrairement aux chemins absolus comme \httpstyle{C:/Python26/python.exe}.}. De cette façon, on peut recopier le programme et ses modules à un autre endroit du disque dur sans altérer leur fonctionnement. \indexfr{chemin relatif, absolu}\indexfrr{module}{chemin relatif}
+
+
+\subsection{Ajouter un module en cours d'exécution}
+
+De la même façon que \pythons est capable d'inclure de nouvelles portions de code en cours d'exécution\footnote{grâce à la fonction \codesnote{exec}}, il est également capable d'inclure en cours d'exécution des modules dont on ne connaît pas le nom au début de l'exécution. Cela s'effectue grâce à la fonction \codes{\_\_import\_\_}\indexfonction{\_\_import\_\_} déjà présentée ci-dessus. Néanmoins, cette fonction ne peut pas importer un module si celui-ci est désigné par un nom de fichier incluant son répertoire. Il faut d'abord déterminer le répertoire où est le module grâce à la fonction \codes{split}\indexfonction{split} du module \codes{os.path}.\indexmoduleint{os.path} Le programme suivant illustre cette possibilité en proposant une fonction qui importe un module connaissant le nom du fichier qui le contient.
+%
+\vspaceneg
+\inputcode{../python_cours/programme/exemple_import.py}{import dynamique de module}
+
+
+\subsection{Liste des modules importés}
+
+Le dictionnaire \codes{modules} du module \codes{sys}\indexmoduleint{sys} contient l'ensemble des modules importés. Le programme suivant affiche cette liste.
+\vspaceneg
+\indexexemples{liste des modules}{}
+\begin{verbatimx}
+import sys
+for m in sys.modules :
+    print m, " " * (14 - len(str(m))), sys.modules [m]
+\end{verbatimx}
+\vspaceneg
+%
+\begin{verbatimx}
+os              <module 'os' from 'c:\python26\lib\os.pyc'>
+os.path         <module 'ntpath' from 'c:\python26\lib\ntpath.pyc'>
+re              <module 're' from 'c:\python26\lib\re.pyc'>
+site            <module 'site' from 'c:\python26\lib\site.pyc'>
+sys             <module 'sys' (built-in)>
+types           <module 'types' from 'c:\python26\lib\types.pyc'>
+...
+\end{verbatimx}
+\vspaceneg
+%
+Lorsque le programme stipule l'import d'un module, \pythons vérifie s'il n'est pas déjà présent dans cette liste. Dans le cas contraire, il l'importe. Chaque module n'est importé qu'une seule fois. La première instruction \codes{import \; module\_exemple} rencontrée introduit une nouvelle entrée dans le dictionnaire \codes{sys.modules}~:
+%
+\vspaceneg
+\begin{verbatimx}
+module_exemple  <module 'module_exemple' from 'D:\python_cours\module_exemple.py'>
+\end{verbatimx}
+\vspaceneg
+%
+Le dictionnaire \codes{sys.modules} peut être utilisé pour vérifier la présence d'un module ou lui assigner un autre identificateur. Un module est un objet qui n'autorise qu'une seule instance.
+%
+\vspaceneg
+\indexexemples{existence d'un module}{}
+\begin{verbatimx}
+if "module_exemple" in sys.modules :
+    m = sys.modules ["module_exemple"]
+    m.exemple_fonction ()
+\end{verbatimx}
+    
+
+\subsection{Attributs communs à tout module}
+
+Une fois importés, tous les modules possèdent cinq attributs qui contiennent des informations comme leur nom, le chemin du fichier correspondant, l'aide associée.
+
+\begin{center}\begin{tabularx}{\textwidth}{|lX|} \hline
+\codes{\_\_all\_\_} 			& Contient toutes les variables, fonctions, classes du module.\\ \hline
+\codes{\_\_builtins\_\_} 	& Ce dictionnaire contient toutes les fonctions et classes inhérentes au langage \pythons 
+														utilisées par le module.\\ \hline
+\codes{\_\_doc\_\_} 			& Contient l'aide associée au module.\\ \hline
+\codes{\_\_file\_\_} 			& Contient le nom du fichier qui définit le module. Son extension est \codes{pyc}).\\ \hline
+\codes{\_\_name\_\_} 			& Cette variable contient a priori le nom du module sauf si le module
+														est le point d'entrée du programme auquel cas cette variable contient \codes{"\_\_main\_\_"}.\\ \hline
+\end{tabularx}\end{center}
+%
+Ces attributs sont accessibles si le nom du module est utilisé comme préfixe. Sans préfixe, ce sont ceux du module lui-même.
+%
+\vspaceneg
+\begin{verbatimx}
+import os
+print os.__name__, os.__doc__
+if __name__ == "__main__" : print "ce fichier est le point d'entrée"
+else : print "ce fichier est importé"
+\end{verbatimx}
+
+\subsection{Arborescence de modules, paquetage}\indexfrr{module}{arborescence}\indexfr{paquetage}\indexfrr{module}{paquetage}
+
+Lorsque le nombre de modules devient conséquent, il est parfois souhaitable de répartir tous ces fichiers dans plusieurs répertoires. Il faudrait alors inclure tous ces répertoires dans la liste \codes{sys.path} du module \codes{sys} ce qui paraît fastidieux. \pythons propose la définition de paquetage, ce dernier englobe tous les fichiers \pythons d'un répertoire à condition que celui-ci contienne un fichier \codes{\_\_init\_\_.py} qui peut être vide.\indexfr{\codesindex{\_\_init\_\_.py}}\indexmoduleund{\_\_init\_\_.py} La figure~\ref{pydoc_exemple_module_init_arbo} présente une telle organisation et l'exemple suivant explicite comment importer chacun de ces fichiers sans avoir à modifier les chemins d'importation.
+%
+				\begin{figure}[ht]
+				\figureoneimage{ \caption{Arborescence de modules, un paquetage est défini par un ensemble de fichiers
+																 \pythons et d'un fichier \codescaption{\_\_init\_\_.py}. Les répertoires sont grisées tandis que les 
+																 fichiers apparaissent avec leur extension.} }
+    		{\includegraphics[width=4.5cm]{\filextellipse{../python_cours/image/arbo}{../python_cours/image_ellipse/arbo}}}
+    		{\label{pydoc_exemple_module_init_arbo}}
+    		\end{figure}
+%
+\vspaceneg
+\begin{verbatimx}
+import mesmodules.extension
+import mesmodules.part1.niveaudeux
+import mesmodules.part2.niveaudeuxbis
+\end{verbatimx}
+\vspaceneg
+%
+Lors de la première instruction \codes{import \; mesmodules.extension}, le langage \pythons ne s'intéresse pas qu'au seul fichier \codes{extension.py}, il exécute également le contenu du fichier \codes{\_\_init\_\_.py}. Si cela est nécessaire, c'est ici qu'il faut insérer les instructions à exécuter avant l'import de n'importe quel module du paquetage.
+
+
+
+
+\section{Modules internes}
+
+\pythons dispose de nombreux modules préinstallés\footnote{La page \httpstyle{http://docs.python.org/modindex.html} recense tous les modules disponibles avec \python.}. Cette liste est trop longue pour figurer dans ce document, elle est aussi susceptible de s'allonger au fur et à mesure du développement du langage \python. La table~\ref{module_utilise_table} (page~\pageref{module_utilise_table}) regroupe les modules les plus utilisés.
+
+\begin{table}[ht]
+\begin{center}\begin{tabularx}{\textwidth}{|l|X|}\hline
+\codes{calendar}   &  Gérer les calendriers, les dates (voir chapitre~\ref{chap_fichier}). \ifnotellipse{\indexmoduleint{calendar}}\\ \hline
+\codes{cgi}        &  Utilisé dans les scripts CGI (programmation Internet) \ifnotellipse{\indexmoduleint{cgi}}\\ \hline
+\codes{cmath}      &  Fonctions mathématiques complexes. \ifnotellipse{\indexmoduleint{cmath}}\\ \hline
+\codes{codecs}     &  Jeux de caractères (voir paragraphe~\ref{para_cosedescodes}) \ifnotellipse{\indexmoduleint{codecs}}\\ \hline
+\codes{copy}       &  Copies d'instances de classes. \ifnotellipse{\indexmoduleint{copy}}\\ \hline
+\codes{csv}        &  Gestion des fichiers au format CSV (utilisés par \textit{Microsoft Excel}).\ifnotellipse{\indexoutil{Microsoft Excel}} \ifnotellipse{\indexmoduleint{csv}}\\ \hline
+\codes{datetime}   &  Calculs sur les dates et heures (voir chapitre~\ref{chap_fichier}). \indexmoduleint{datetime}\\ \hline
+\codes{gc}         &  Gestion du garbage collector. \ifnotellipse{\indexmoduleint{gc}}\\ \hline
+\codes{getopt}     &  Lire les options des paramètres passés en arguments d'un programme \python. \ifnotellipse{\indexmoduleint{getopt}}\\ \hline
+\codes{glob}       &  Chercher des fichiers (voir chapitre~\ref{chap_fichier}). \ifnotellipse{\indexmoduleint{glob}}\\ \hline
+\codes{hashlib}    &  Fonctions de cryptage. \ifnotellipse{\indexmoduleint{hashlib}}\\ \hline
+\codes{htmllib}    &  Lire le format HTML. \ifnotellipse{\indexmoduleint{htmllib}}\\ \hline
+\codes{math}       &  Fonctions mathématiques standard telles que \codes{cos}, \codes{sin}, \codes{exp}, \codes{log}... \ifnotellipse{\indexmoduleint{math}}\indexfonction{cos}\indexfonction{sin}\indexfonction{log}\indexfonction{exp}\\ \hline
+\codes{os}         &  Fonctions systèmes dont certaines fonctions permettant de gérer les fichiers (voir chapitre~\ref{chap_fichier}). \ifnotellipse{\indexmoduleint{os}}\\ \hline
+\codes{os.path}    &  Manipulations de noms de fichiers (voir chapitre~\ref{chap_fichier}). \ifnotellipse{\indexmoduleint{os.path}}\\ \hline
+\codes{pickle}     &  Sérialisation d'objets, la sérialisation consiste à convertir des données structurées de façon complexe en une structure linéaire facilement enregistrable dans un fichier (voir chapitre~\ref{chap_fichier}). \indexmoduleint{pickle}\indexfr{sérialisation}\\ \hline
+\codes{profile}    &  Etudier le temps passé dans les fonctions d'un programme. \ifnotellipse{\indexmoduleint{profile}}\\ \hline
+%\codes{pydoc}      &  Génération de pages HTML contenant l'aide associée aux classes et aux fonctions d'un fichier. \indexmoduleint{pydoc}\\ \hline
+\codes{random}     &  Génération de nombres aléatoires. \ifnotellipse{\indexmoduleint{random}}\\ \hline
+\codes{re}         &  Expressions régulières (voir paragraphe~\ref{regex_label_chap}). \ifnotellipse{\indexmoduleint{re}}\\ \hline
+%\codes{sets}       &  Union, intersection d'ensembles. \indexmoduleint{sets}\\ \hline
+\codes{shutil}     &  Copie de fichiers (voir chapitre~\ref{chap_fichier}). \ifnotellipse{\indexmoduleint{shutil}}\\ \hline
+\codes{sqlite3}    &  Accès aux fonctionnalités du gestionnaire de base de données SQLite3. \ifnotellipse{\indexmoduleint{sqlite3}}\ifnotellipse{\indexoutil{SQLite3}}\\ \hline
+\codes{string}     &  Manipulations des chaînes de caractères. \ifnotellipse{\indexmoduleint{string}}\\ \hline
+\codes{sys}        &  Fonctions systèmes, fonctions liées au langage \pythons (voir chapitre~\ref{chap_fichier}). \ifnotellipse{\indexmoduleint{sys}}\\ \hline
+\codes{threading}  &  Utilisation de threads (voir chapitre~\ref{chap_thread}). \ifnotellipse{\indexmoduleint{threading}}\\ \hline
+\codes{time}       &  Accès à l'heure, l'heure système, l'heure d'une fichier. \ifnotellipse{\indexmoduleint{time}}\\ \hline
+\codes{Tkinter}    &  Interface graphique (voir chapitre~\ref{chap_interface}). \ifnotellipse{\indexmoduleint{Tkinter}}\\ \hline
+\codes{unittest}   &  Tests unitaires (ou comment améliorer la fiabilité d'un programme).\ifnotellipse{\indexmoduleint{unittest}}\\ \hline
+\codes{urllib}     &  Pour lire le contenu de page HTML sans utiliser un navigateur. \ifnotellipse{\indexmoduleint{urllib}}\\ \hline
+\codes{urllib2}    &  Module plus complet que \codes{urllib}. \ifnotellipse{\indexmoduleint{urllib2}}\\ \hline
+\codes{xml.dom}    &  Lecture du format XML. \ifnotellipse{\indexmoduleint{xml.dom}}\\ \hline
+\codes{xml.sax}    &  Lecture du format XML. \ifnotellipse{\indexmoduleint{xml.sax}}\\ \hline
+\codes{zipfile}    &  Lecture de fichiers ZIP (voir chapitre~\ref{chap_fichier}). \ifnotellipse{\indexmoduleint{zipfile}}\\ \hline
+\end{tabularx}\end{center}
+\label{module_utilise_table}
+\caption{Liste de modules souvent utilisés. La liste exhaustive est disponible à l'adresse 
+         \httpstyle{http://docs.python.org/modindex.html}. Les moteurs de recherche sur Internet retournent
+         des résultats assez pertinents sur des requêtes du type \textit{python + le nom du module}. 
+         Les résultats sont principalement en langue anglaise.}
+\end{table}
+
+\ifnotellipse{
+Certains de ces modules sont présentés dans les chapitres qui suivent. Le programme suivant par exemple utilise les modules \codes{random} et \codes{math} pour estimer le nombre \codes{pi}. Pour cela, on tire aléatoirement deux nombres $\pa{x,y}$ dans l'intervalle $\cro{0,1}$, si $\sqrt{x^2+y^2} \infegal 1$, on compte~1 sinon~0. Au final, $\hat{\pi} = \esp{\indicatrice{\sqrt{x^2+y^2} \infegal 1}}$.
+%
+\inputcode{../python_cours/programme/pi.py}{estimation du nombre $\pi$}
+}
+
+Le programme suivant calcule l'intégrale de Monte Carlo\indexfr{Monte Carlo} de la fonction $f(x)=\sqrt{x}$ qui consiste à tirer des nombres aléatoires dans l'intervalle \codes{a,b} puis à faire la moyenne des $\sqrt{x}$ obtenu.
+%
+\inputcode{../python_cours/programme/integrale.py}{intégrale de Monte Carlo}
+%
+Le programme suivant utilise le module \codes{urllib}\indexmoduleint{urllib} pour télécharger le contenu d'une page et l'afficher.
+\vspaceneg
+\indexexemples{lecture d'une page HTML}{}
+\begin{verbatimx}
+def get_page_html (url):
+    import urllib
+    d = urllib.urlopen(url)
+    res = d.read ()
+    d.close ()
+    return res
+
+url = "http://www.lemonde.fr"
+print get_page_html (url)
+\end{verbatimx}
+\vspaceneg
+
+\if 0
+
+\section{Génération automatique de la documentation} \label{generation_autoamtidqsdlfqlsd_fgqsdfq}
+
+Le langage \pythons permet d'associer de la documentation à chaque élément du programme (fonction, classe, méthode, modules). Elle est accessible en tapant l'instruction \codes{help (...)} avec comme argument l'élément dont on veut lire la documentation. Cette lecture n'est pas forcément facile, c'est pourquoi il peut être utile de générer une page HTML avec le contenu de cette aide. Il suffit pour cela d'écrire dans une fenêtre commande en remplaçant \codes{nom\_de\_fichier} par le nom d'un programme \pythons sans son extension. \indexoutil{pydoc}
+\vspaceneg
+\indexexemples{ligne de commande}{}
+\begin{verbatimx}
+c:\python26\python c:\python26\lib\pydoc.py -w nom_de_fichier
+\end{verbatimx}
+\vspaceneg
+%
+L'autre solution est d'utiliser la fonction \codes{pydoc\_generation} définie dans l'exemple suivant. Cette fonction génère l'aide depuis un programme \pythons en exécutant une instruction en ligne de commande grâce à la fonction \codes{system} du module \codes{os}.\indexmoduleint{os}\indexfonction{system} Le résultat obtenu est présenté par la figure~\ref{pydoc_exemple_module_ref}.
+%
+\label{exemple_programme_pydoc_module}
+\inputcode{../python_cours/programme/exemple_pydoc.py}{génération automatique de l'aide avec \codesindex{pydoc}}
+%
+				\begin{figure}[ht]
+				\figureoneimage{ \caption{Page HTML générée par l'outil \codescaption{pydoc}, cette page correspond 
+    		         au programme de la page~\pageref{exemple_programme_pydoc_module}. Elle est divisée en trois parties,
+    		         la première fait référence aux modules inclus, la seconde aux classes qui y sont définies, la troisième
+    		         aux fonctions.} }
+    		{\includegraphics[width=6.5cm]{\filextellipse{../python_cours/image/pydoc_image}
+    															{../python_cours/image_ellipse/pydoc_image}}  }
+    		\label{pydoc_exemple_module_ref}
+    		\end{figure}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modules externes}
+\indexfrr{module}{externe}
+
+Les modules externes ne sont pas fournis avec \python, ils nécessitent une installation supplémentaire. Il serait impossible de couvrir tous les thèmes abordés par ces extensions. La simplicité d'utilisation du langage \pythons et son interfaçage facile avec le langage~\textit{C} contribue à sa popularité. Il permet de relier entre eux des projets conçus dans des environnements différents, dans des langages différents. Depuis les versions 2.3, 2.4 du langage \python, la plupart des modules externes sont faciles à installer, faciles à utiliser d'après les exemples que fournissent de plus en plus les sites Internet qui les hébergent. De plus, il s'écoule peu de temps entre la mise à disposition d'une nouvelle version du langage \pythons et la mise à jour du module pour cette version\footnote{Ceci n'est pas tout-à-fait vrai pour la version~3.0 du langage dont les changements sont trop conséquents. Un changement du premier numéro de version indique souvent des changements majeurs.}. Le paragraphe~\ref{mosule_dexifsqlliste} (page~\pageref{mosule_dexifsqlliste}) donne une liste de modules utiles du point de vue d'un ingénieur généraliste.
+
+Néanmoins, de nombreux modules ont été conçus pour un besoin spécifique et ne sont plus maintenus. Cela convient lors de l'écriture d'un programme qui remplit un besoin ponctuel. Pour une application plus ambitieuse, il est nécessaire de vérifier quelques informations comme la date de création, celle de la dernière mise à jour, la présence d'une documentation, une prévision pour la sortie de la future version, si c'est une personne lambda qui l'a conçu ou si c'est une organisation comme celle qui fournit le module \codes{pygoogledesktop}\footnote{\httpstyle{http://code.google.com/p/pythongoogledesktop/}}.\ifnotellipse{\indexmoduleext{pygoogledesktop}} C'est le cas de tous les modules présentés au pragraphe~\ref{mosule_dexifsqlliste}.
+
+Concernant leur installation, certains modules externes comme \codes{SciPy} peuvent être installés à l'aide d'un fichier exécutable sous \textit{Windows}. Il suffit d'exécuter ce fichier pour pouvoir se servir du module par la suite dans un programme \python. Ce mode d'installation est disponible pour la plupart des modules de taille conséquente. 
+
+D'autres modules apparaissent compressés dans un fichier. Une fois décompressés, ils incluent un fichier \codes{setup.py}. Le langage \pythons fournit une procédure d'installation standard~: il suffit d'écrire quelques lignes dans une fenêtre de commande ouverte dans le répertoire où a été décompressé le fichier contenant le module à installer.
+%
+\vspaceneg
+\indexexemples{installation d'un module}{}
+\begin{verbatimx}
+c:\python26\python setup.py install
+\end{verbatimx}
+\vspaceneg
+%
+Sous \textit{Linux} et \textit{Mac~OS~X}, cette ligne devient~:
+\vspaceneg
+\begin{verbatimx}
+python setup.py install
+\end{verbatimx}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\Pythons et les autres langages}
+
+Il est impossible d'obtenir avec le même langage à la fois une grande vitesse de développement et une grande vitesse d'exécution. La façon dont est gérée la mémoire est un élément important qui explique l'appartenance d'un langage à l'une ou l'autre des deux catégories. \pythons inclut une fonctionnalité qu'on appelle le \emph{garbage collector}. \indexfr{garbage collector} A chaque objet créé correspond un emplacement mémoire. Celui-ci peut être créé et détruit de façon explicite ou être totalement géré par le langage, ce que fait \python. Il est inutile de se soucier d'un objet dont on ne sert plus, il sera détruit automatiquement et la place mémoire qu'il utilisait sera de nouveau exploitable. Cette aisance de programmation suppose que le langage sache déterminer avec exactitude quand une variable n'est plus utilisée. Ceci signifie que \pythons mémorise des informations supplémentaires sur tous les objets créés en cours d'exécution pour assurer leur référencement. \pythons est à tout moment en mesure de connaître l'ensemble des noms de variables utilisés pour désigner le même objet. Le \emph{garbage collector} alourdit un programme de façon cachée, il le ralentit tout en facilitant la conception des programmes.
+
+\indexfr{vitesse d'exécution}
+C'est pour accélérer l'exécution que le langage \pythons est parfois associé à d'autres langages. Le programme final écrit en \pythons utilise des fonctionnalités haut niveau codées dans un autre langage plus rapide. 
+
+
+
+\subsection{Langage \textit{Java}}\indexlangage{Java}
+
+Il est possible d'utiliser des classes \textit{Java} en \python. Cette possibilité ne sera pas plus détaillée ici car le langage \textit{Java} est également un langage interprété même s'il est nettement plus rapide. Pour cela, il faut utiliser une version de l'interpréteur \pythons codée lui-même en \textit{Java} ce qui est le cas de la version \textit{Java} de \python~: \emph{Jython}\footnote{\httpstyle{http://www.jython.org/Project/}}.\indexoutil{Jython}\indexfr{Java}
+
+
+\subsection{Langage \textit{C}}\indexfr{\textit{C, C++}}\indexlangage{C, C++}
+
+Il existe deux façons de construire un programme mêlant \pythons et langage~\textit{C}. La première méthode est la réalisation de modules \pythons écrits en~\textit{C} ou~\textit{C++}. A moins de devoir construire un module le plus efficace possible, il est peu conseillé de le faire directement car cela implique de gérer soi-même le référencement des variables créées en~\textit{C} ou~\textit{C++} et exportées vers \python\footnote{Il faut tenir compte dans le module en \textit{C} des opérations nécessaires au garbage collector.}. Il est préférable d'utiliser des outils comme la librairie \textit{SWIG}\footnote{\httpstyle{http://www.swig.org/}},\ifnotellipse{\indexoutil{SWIG}}ou encore la librairie \textit{Boost Python}\footnote{\httpstyle{http://www.boost.org/doc/libs/1\_36\_0/libs/python/doc/index.html}} qui simplifie le travail d'intégration.\indexoutil{Boost Python} C'est cette dernière option qui est détaillée dans ce livre. 
+
+L'utilisation d'un autre langage est en effet indispensable lorsque l'exigence de rapidité est trop grande. Les modules scientifiques tels que \codes{scipy} ou \codes{numpy} ne répondent pas à tous les besoins. Il faut parfois développer soi-même des outils numériques en \textit{C++}\footnote{en finance par exemple} même si la partie interface est assurée par \python. 
+
+L'autre façon de mélanger les deux langages est l'inclusion de petites parties~\textit{C} dans un programme \python. Ce point a déjà été évoqué au paragraphe~\ref{accelation_pyrex_weave} (page~\pageref{accelation_pyrex_weave}). Cela permet une optimisation essentiellement locale et numérique mais pas l'utilisation sous \pythons d'un projet existant programmé en~\textit{C++} ou~\textit{C}. Sous \textit{Microsoft Windows}, il existe également une version du langage \textit{IronPython}\footnote{\httpstyle{http://ironpython.net/}} développée pour ce système d'exploitation. L'intégration des DLL y est plus facile.
+
+D'une manière générale, il est préférable de scinder nettement les parties d'un même programme qui s'occupent de calculs numériques de celles qui prennent en charge l'interface graphique. Construire un module écrit en \textit{C++} pour gérer les calculs numériques est une façon drastique et efficace d'opérer cette scission.
+
+
+%------------------------------------------------------------------------------------------
+\ifnotellipse{
+
+\section{Ecrire un module en langage~\textit{C++}}
+\indexlangage{C++}\indexfr{garbage collector}
+
+Avant de décrire la librairie \textit{Boost Python} qui facilite l'écriture d'extension en langage~\textit{C++}, il peut être utile de voir un exemple d'un module écrit dans ce langage. L'inconvénient majeur est le comptage des références~: le garbage collector du langage \python détruit automatique toute variable qui n'est plus utilisée. Cette information est gérée automatiquement par le langage \python mais doit l'être manuellement au sein des extensions écrites en langage~\textit{C++}.
+
+Un préalable est cependant nécessaire pour les utilisateurs du système d'exploitation \textit{Windows}. Il faut que le compilateur \textit{MinGW}\footnote{\httpstyle{http://www.mingw.org/}}\indexoutil{MinGW} soit installé. C'est l'adaptation du compilateur~\textit{C++} \textit{gcc}\indexoutil{gcc} qui est présent sur tout système d'exploitation \textit{Linux}.
+
+L'exemple suivant~:
+
+\inputcode{../python_cours/programme/sample_module.cpp}{un module en C++}
+
+Le module suivant évite l'installation manuelle d'un module écrit en \textit{C++}. Il détecte que le module a été modifié et qu'il doit être recompilé. Toutefois, il ne gère qu'un seul fichier.
+
+\inputcode{../python_cours/programme/import_c_module.py}{importer un module en C++}
+
+}  % ifnotellipse
+
+%------------------------------------------------------------------------------------------
+
+\section{\textit{Boost Python}} \label{boost_python_section_ok}\indexoutil{Boost Python}
+
+La librairie \emph{Boost}\footnote{\httpstyle{http://www.boost.org/}}\indexoutil{Boost} est une librairie écrite en C++ qui a l'avantage d'être portable~: elle est utilisable sur les systèmes d'exploitation les plus courants. \indexfr{portable} Régulièrement mise à jour, elle propose une extension de la librairie \emph{Standard Template Library (STL)} incluant notamment les expressions régulières, les graphes, les threads,~...\indexoutil{Standard Template Library (STL)} \textit{Boost Python} est une partie de cette librairie qui se présente également sous forme de \emph{template}\footnote{Les \textit{template} ou \textit{patron de classe}\indexfr{patron de classe} sont un concept de métaprogrammation.\ifnotellipse{\indexfr{métaprogrammation}}Lorsque deux classes sont presque identiques à l'exception d'un type, le langage \textit{C++} autorise la création d'un patron unique pour ces deux classes. Le \textit{C++} est à typage statique~: il faut écrire deux classes pour créer un tableau d'entiers et un tableau de réels même si le code est le même. Les \textit{template} permettent de factoriser le code de ces deux classes.}.\indexfr{template} 
+
+Il est préférable d'avoir programmé en \textit{C++} et en \pythons pour pouvoir mettre en \oe uvre les exemples proposés ci-dessous.
+La prise en main nécessite un investissement, une certaine habitude des longs messages d'erreurs issus des \emph{template} mais une fois que cela est fait, la librairie accélère notablement l'écriture d'un module. Il n'est plus utile de se soucier de l'interfaçage avec \pythons et notamment du référencement déréférencement des objets pour le \emph{garbage collector}\footnote{Le langage \pythons détruit automatique les objets qui ne sont plus utilisés. Cette fonctionnalité s'appuie sur un référencement de tous les objets créés. Alors qu'il est implicite en \python, il est explicite dans un module \pythons écrit en langage~\textit{C} à moins d'utiliser une librairie comme \textit{Boost Python} qui prend en charge une partie de cette tâche (voir la page \httpstyle{http://docs.python.org/c-api/intro.html\#objects-types-and-reference-counts}).}. \indexfr{garbage collector}
+
+\begin{xremark}{utilisation d'un logiciel de suivi de source}
+Le nombre de fichiers est assez important, il est conseillé de conserver l'historique des modifications grâce à un logiciel de suivi de source tels que \textit{TortoiseSVN}\footnote{\httpstyle{http://tortoisesvn.tigris.org/}}. Cela évite de perdre parfois une demi-journée de travail.
+\end{xremark}
+
+\subsection{Exemple}\label{python_boost_exemple}
+
+Vous pourrez trouver à l'adresse suivante\footnote{\httpstyle{http://www.xavierdupre.fr/}} l'ensemble des sources nécessaires à la réalisation d'un module avec \textit{Boost Python}\footnote{L'adresse suivante fournit une aide plus complète que ce document~: \httpstyle{http://www.boost.org/libs/python/doc/tutorial/doc/html/index.html}.}. Ce projet est configuré pour \emph{Microsoft Visual Studio C++} \indexoutil{Microsoft Visual Studio C++} et définit un premier module appelé \emph{PythonSample} qui contient quelques fonctions et une classe. Le résultat est une DLL (Dynamic Link Library)\indexfr{Dynamic Link Library (DLL)} qui sera appelée par le langage \python. Cet exemple est conçu pour \textit{Windows}.
+
+Un point important est l'utilisation de la librairie \codes{c:\backslash python26\backslash python26.lib} qui explique qu'un module compilé pour une version donnée de \pythons ne puisse être utilisé avec une autre version~: un module compilé avec la version~2.4 ne fonctionnera pas avec la version~2.6. 
+
+L'exemple proposé contient également différentes fonctions de conversion des structures \pythons vers des containers de la \textit{STL} ou \textit{Standard Template Library}. Il suffit d'ouvrir le fichier \codes{pythonsample.sln} avec \textit{Microsoft Visual~C++} pour avoir accès au code source, c'est ce que montre la figure~\ref{boost_scheme_module_visual}. Le fichier \codes{exesample.sln} définit un programme exécutable permettant de tester le module sans \pythons (voir figure~\ref{boost_scheme_module}). Les paragraphes qui suivent présentent quelques éléments de syntaxe et se concluent par un exercice qui consiste à ajouter une fonction au module.
+
+
+				\begin{figure}[ht]
+				\figureoneimage{ \caption{Copie d'écran du projet ouvert avec \textit{Microsoft Visual~C++}. Les deux projets
+													\codescaption{dllc \; boost\_python} et \codescaption{lib\_in\_dll \; boost} contiennent les sources
+													\textit{Boost Python}. Le projet \codescaption{lib\_in\_dll \; libsample} contient le code d'une librairie 
+													qui est écrite sans tenir compte du fait que celle-ci sera utilisée sous forme de module \python.
+													Le dernier projet \codescaption{dllc \; pythonsample} ajoute la couche qui fera le pont entre la librairie 
+													\codescaption{libsample} et le langage \python. Les fichiers \codescaption{conversion.*}
+													contiennent des fonctions de conversion des types \pythons vers des types \textit{C++} ou plus
+													précisément de la STL (Standard Template Library). Le fichier \codescaption{definition.cpp}
+													contient le point d'entrée du module~: la macro \codescaption{BOOST\_PYTHON\_MODULE} qui
+													déclare à \pythons les fonctions et classes du module. \vspace{-1cm} } }
+    		{\includegraphics[width=6cm]{\filextellipse{../python_cours/image/boost}    		
+    				{../python_cours/image_ellipse/boost}} }
+    		{\label{boost_scheme_module_visual}}
+    		\ifnotellipse{\indexfr{STL}\indexfr{Standard Template Library}}
+    		\end{figure}
+
+
+
+\subsection{Les grandes lignes}
+
+Un module construit avec \textit{Boost Python} se compose de trois éléments, une inamovible DLL \codes{boost\_python.dll}, un fichier \texttt{<module>.py} portant le nom du module, une DLL \texttt{<module>.dll}. Les deux premiers fichiers ne changent pas, le dernier contient les classes et fonctions proposées par le module. L'organisation proposée dans l'exemple du paragraphe~\ref{python_boost_exemple} suit le schéma de la figure~\ref{boost_scheme_module}. L'utilisation d'un programme exécutable n'est pas indispensable. Toutefois, cela permet de tester le module sans \pythons et ainsi de faciliter sa conception.
+
+
+
+				\begin{figure}[ht]
+				\figureoneimage{ \caption{Schéma général de l'exemple introduit au paragraphe~\ref{python_boost_exemple}.
+    						 Le code de la librairie est utilisé selon deux façons, à l'intérieur d'un module \pythons 
+    						 ce qui est l'objectif recherché et à l'intérieur d'un programme exécutable utilisé
+    						 pour tester cette librairie sans passer par \python.} \vspace{-1cm} }
+    		{\includegraphics[width=7cm]{\filextellipse{../python_cours/image/boostp}    		
+    				{../python_cours/image_ellipse/boostp}} }
+    		{\label{boost_scheme_module}}
+    		\end{figure}
+    		
+Une fois le module prêt, il est utilisable dans tout programme \python. Il suffit de l'importer. Lors de cette étape, une fonction va être exécutée pour indiquer au langage \pythons l'ensemble des classes et des fonctions présentes dans le module.
+
+
+\subsubsection{Initialiser le module}
+
+L'initialisation d'un module correspond à la déclaration au langage \pythons de l'ensemble des classes et des fonctions à exporter. Cette partie peut contenir des tâches qui doivent être faites la première fois que \pythons importe le module (initialisation de variables globales par exemple, chargement de données,~...). L'objectif de cette initialisation est de construire pour chaque fonction ou classe ou méthode un objet \pythons correspondant. \indexboost{BOOST\_PYTHON\_MODULE}
+\vspaceneg
+\begin{verbatimx}
+BOOST_PYTHON_MODULE(PythonSample)
+{ 
+  // étapes d'initialisation
+} ;
+\end{verbatimx}
+
+
+\subsubsection{Ajout d'une fonction}
+\indexboost{boost::python::def}
+La fonction \codes{boost::python::def} permet de déclarer une fonction. On peut y préciser les arguments, des valeurs par défaut, un message d'aide retourné par l'instruction \pythons \codes{help}.
+\vspaceneg
+\begin{verbatimx}
+int fonction (int r, const char * s, double x = 4) ;
+BOOST_PYTHON_MODULE(PythonSample)
+{ 
+  boost::python::def ("fonction", fonction, 
+                        (boost::python::arg ("r"), 
+                         boost::python::arg ("s"), 
+                         boost::python::arg ("x") = 4),
+                         "aide associée à la fonction") ;
+} ;
+\end{verbatimx}
+\vspaceneg
+Les arguments de \codes{boost::python::def} sont les suivants~:
+
+\begin{small}
+\begin{enumerate}
+\item Le premier argument est le nom de la fonction exportée en \python. Ce nom peut tout à fait être différent de celui de la fonction \textit{C++}.
+\item Le second argument est la fonction elle-même.
+\item Le troisième argument est la liste des arguments suivis ou non d'une valeur par défaut.
+\item Le dernier argument est l'aide associée à la fonction.
+\end{enumerate}
+\end{small}
+
+Côté \python, cela donne~:
+\vspaceneg
+\begin{verbatimx}
+import PythonSample
+print PythonSample.fonction (4, "second")
+print PythonSample.fonction (4, "second", 5)
+\end{verbatimx}
+\vspaceneg
+
+La surcharge de fonction est possible avec \textit{Boost Python} mais elle ne sera pas détaillée ici. Le langage \pythons n'autorise pas la surcharge, la rendre possible revient à créer une fonction qui appellera telle ou telle autre fonction selon le type et le nombre des paramètres qu'elle aura reçus.
+
+
+
+
+\subsubsection{Ajout d'une classe}
+
+La déclaration d'une classe suit le même schéma que pour une fonction mais avec le template \codes{boost::python::class\_}. \indexboost{boost::python::class\_} Lorsque le constructeur n'a pas d'argument, la déclaration suit le schéma suivant~:
+\vspaceneg
+\begin{verbatimx}
+   boost::python::class_<PythonClassSample> obj (
+             "ClassSample", 
+             "help on PythonClassSample") ) ;
+\end{verbatimx}
+\vspaceneg
+%
+Le template \codes{class\_} est instancié sur la classe à exporter, ici \codes{PythonClassSample}. On crée un objet \codes{obj} de type \codes{boost::python::class\_<PythonClassSample>}. Son constructeur prend comme arguments~:
+
+\begin{small}
+\begin{enumerate}
+\item Le nom de la classe en \python.
+\item L'aide qui lui est associée. Ce second paramètre est facultatif mais il est conseillé de le renseigner.
+\end{enumerate}
+\end{small}
+%
+Au cas où la classe aurait un constructeur avec des paramètres, il faudrait ajouter le code suivant~: \indexboost{boost::python::init}
+\vspaceneg
+\begin{verbatimx}   
+    boost::python::class_<PythonClassSample> obj (
+            "ClassSample", 
+            "help on PythonClassSample",
+            boost::python::init<int,const char*> (                     // ajout
+                 (boost::python::arg ("a"),                            // ajout
+                  boost::python::arg ("s") = "default value for s"),   // ajout
+                  "help on PythonClassSample constructor" )            // ajout
+            ) ;
+\end{verbatimx}
+\vspaceneg
+C'est-à-dire un autre template \codes{boost::python::init<...>} dont les arguments sont les types des paramètres du constructeur, c'est-à-dire entier et chaîne de caractères dans l'exemple précédent. La suite est identique à la déclaration d'une fonction. Il est également possible de définir un héritage de la manière qui suit~:
+\vspaceneg
+\begin{verbatimx}   
+    boost::python::class_<PythonClassSample,  
+                          boost::python::bases<ClassBase> > obj (
+                               "ClassSample", 
+                               "help on PythonClassSample") ;
+\end{verbatimx}
+\vspaceneg
+Le template \codes{class\_}\indexboost{boost::python::bases} peut recevoir un autre argument qui est \codes{boost::python::bases<ClassBase>} avec \codes{ClassBase} désignant la classe mère de la classe déclarée. Cette dernière doit avoir été déclarée au préalable avec cette même syntaxe \codes{boost::python::class\_}.
+\vspaceneg
+\begin{verbatimx}
+    boost::python::class_<PythonClassSample, 
+               boost::python::bases<ClassBase> > obj (
+             // ...
+\end{verbatimx}
+\vspaceneg
+%
+\begin{xremark}{template \textit{C++}}
+Lorsqu'un template est un argument d'un autre template, il faut insérer un espace entre deux symboles \codes{<} ou \codes{>} consécutifs pour éviter la confusion avec les opérateurs~\texttt{<}\texttt{<} ou~\texttt{>}\texttt{>} qui existent en \textit{C++}.
+\end{xremark}
+
+\subsubsection{Ajout d'une méthode}
+
+La déclaration d'une classe passe par la déclaration d'une instance du template \codes{class\_}. Dans les exemples utilisés, cette instance porte le nom \codes{obj}. C'est cette instance qui va permettre de déclarer une méthode exactement de la même manière qu'une fonction~:
+\vspaceneg
+\begin{verbatimx}   
+    obj.def (   "Random",                      
+                &PythonClassSample::Random, 
+                (boost::python::arg ("pos")),  
+                "help on the method") ;
+\end{verbatimx}  
+\vspaceneg 
+Cette même méthode \codes{def} permet également de surcharge le constructeur au cas où la classe pourrait être initialisée de différentes manières. Cela donne~: \indexboost{def}
+\vspaceneg
+\begin{verbatimx}   
+    boost::python::class_<MyVector> obj ("Vector", "help on vector",
+            boost::python::init<int> (
+            (PY_ARG ("n")),
+            "crée un vecteur de dimension n")) ;
+    // ajout d'un constructeur sans paramètre
+    obj.def (boost::python::init<MyVector> ()) ;
+\end{verbatimx}  
+\vspaceneg 
+La classe \pythons \codes{Vector} peut être créée avec un ou aucun paramètre~:
+\vspaceneg
+\begin{verbatimx}   
+v  = PythonSample.Vector ()
+v2 = PythonSample.Vector (10)
+\end{verbatimx}   
+
+\subsubsection{Ajout d'un attribut}
+
+La déclaration \indexboost{def\_readwrite} d'un attribut s'effectue avec la méthode \codes{def\_readwrite}~:
+\vspaceneg
+\begin{verbatimx}   
+    obj.def_readwrite ("a", &PythonClassSample::_a, "retourne un accès à a") ;
+\end{verbatimx}   
+\vspaceneg
+Le premier paramètre sera son nom sous \python, le second le paramètre lui-même, le troisième l'aide associée. La méthode \codes{def\_readwrite} permet d'exporter un attribut de sorte qu'il soit lisible et modifiable.
+
+
+
+
+
+\subsection{Exemple concret~: ajout d'une fonction}
+
+L'objectif est d'ajouter une fonction au module. La première étape consiste à décompresser le fichier téléchargé\footnote{depuis l'adresse \httpstyle{http://www.xavierdupre.fr/}}, à compiler l'ensemble des fichiers sous \textit{Microsoft Visual~C++} en version \textit{release} et \textit{debug}. L'exécution du programme \codes{PythonSample/test/test.py} doit s'effectuer sans problème. Ajouter une fonction revient ensuite à suivre les étapes suivantes~:
+
+\begin{small}
+\begin{enumerate}
+\item Déclarer la fonction dans le fichier \codesmall{libSample/mafonction.h} qu'on crée.
+\item Implémenter la fonction dans le fichier \codesmall{libSample/mafonction.cpp} qu'on crée également.
+\end{enumerate}
+\end{small}
+
+La partie purement \textit{C++} est terminée\footnote{C'est facultatif mais il est également conseillé d'écrire d'écrire un code pour tester cette fonction dans le fichier \codesnote{exeSample/source/main.cpp}. Cela réduit le risque d'erreurs d'exécution dans cette partie.}, il faut maintenant définir la transition \textit{C++}$\rightarrow$\pythons grâce aux étapes suivantes~:
+
+\begin{small}
+\begin{enumerate}
+\item On déclare une fonction dans un fichier \codesmall{PythonSample/mafonction.h} qu'on crée. Elle peut par exemple porter le même nom que la précédente mais préfixé par \codesmall{python\_}.
+\item On peut passer à l'implémentation de la fonction \pythons dans un fichier \codesmall{PythonSample/mafonction.cpp} qu'on crée aussi. Le code est sensiblement le même pour chaque fonction ajoutée~: il faut convertir les paramètres depuis des structures \pythons en type \textit{C++}, appeler la fonction \textit{C++} puis effectuer la conversion inverse. On pourra s'aider des fonctions contenues dans le fichier \codesmall{PythonSample/python/conversion.h}.
+\item Il suffit de déclarer la fonction au sein de la macro \codesmall{BOOST\_PYTHON\_MODULE} dans le fichier \codesmall{PythonSample/python/definition.cpp}.
+\end{enumerate}
+\end{small}
+
+Il ne reste plus qu'à tester la fonction nouvellement incluse depuis le programme \codes{PythonSample/test/test.py}. Le contenu de chaque fichier modifié lors de ces étapes est présenté par la figure~\ref{boost_python_sample_concert} page~\pageref{boost_python_sample_concert}.
+
+\begin{figure}[ht]
+\indexexemples{\textit{Boost Python}}{}
+\begin{center}\begin{tabular}{@{}lr@{}}
+Fichier \codes{libSample/mafonction.h} & Fichier \codes{libSample/mafonction.cpp} \\
+\indexexemples{\textit{Boost Python}}{, mafonction.h}
+\begin{minipage}{6.7cm}
+\begin{verbatimx}
+#ifndef LIB_MAFONCTION_H
+#define LIB_MAFONCTION_H
+
+#include <vector>
+
+void somme_vecteur (
+  const std::vector<double> &v1,
+  const std::vector<double> &v2,
+  std::vector<double> &res) ;
+
+#endif
+
+
+
+
+
+
+
+
+
+\end{verbatimx}
+\end{minipage}
+& \indexexemples{\textit{Boost Python}}{, mafonction.cpp}
+\begin{minipage}{6.7cm}
+\begin{verbatimx}
+#include "mafonction.h"
+void somme_vecteur (
+  const std::vector<double> &v1,
+  const std::vector<double> &v2,
+  std::vector<double> &res)
+{
+  if (v1.size () != v2.size ())
+    throw std::runtime_error (
+         "dimensions différentes") ;
+  res.resize (v1.size ()) ;
+  std::vector<double>::
+          const_iterator it1,it2 ;
+  std::vector<double>::iterator it3 ;
+  for (it1 = v1.begin (), 
+       it2 = v2.begin (),
+       it3 = res.begin () ; 
+       it1 != v1.end () ;
+       ++it1, ++it2, ++it3) 
+       *it3 = *it1 + *it2 ;
+}	
+\end{verbatimx}
+\end{minipage}
+\\
+Fichier \codes{PythonSample/mafonction.h} & Fichier \codes{PythonSample/mafonction.cpp} \\
+\indexexemples{\textit{Boost Python}}{, mafonction.h}
+\begin{minipage}{6.7cm}
+\begin{verbatimx}
+#ifndef PYTHON_MAFONCTION_H
+#define PYTHON_MAFONCTION_H
+
+#include "python/definition.h"
+
+boost::python::list
+     python_somme_vecteur (
+        boost::python::list v1,
+        boost::python::list v2) ;
+        
+#endif        
+        
+        
+        
+        
+        
+        
+        
+\end{verbatimx}
+\end{minipage}
+&
+\indexexemples{\textit{Boost Python}}{, mafonction.cpp}
+\begin{minipage}{6.7cm}
+\begin{verbatimx}
+#include "python/definition.h"
+#include "mafonction.h"
+#include "../libsample/mafonction.h"
+#include "python/conversion.h"
+#include "python/conversion.hpp"
+boost::python::list 
+     python_somme_vecteur (
+        boost::python::list v1,
+        boost::python::list v2)
+{
+  std::vector<double> cv1,cv2,cres ;
+  PythonConvert (v1, cv1) ;
+  PythonConvert (v2, cv2) ;
+  somme_vecteur (cv1, cv2, cres) ;
+  boost::python::list res ;
+  PythonConvert (cres, res) ;
+  return res ;
+}        
+\end{verbatimx}
+\end{minipage}
+\\
+Fichier \codes{PythonSample/python/main.cpp} & Fichier \codes{PythonSample/test/test.py} \\
+\indexexemples{\textit{Boost Python}}{, main.cpp}
+\begin{minipage}{6.7cm}
+\begin{verbatimx}
+// ...
+#include "../mafonction.h"
+BOOST_PYTHON_MODULE(PythonSample)
+{
+  // ...
+  def ("somme_vecteur", 
+        &python_somme_vecteur,
+        (boost::python::arg ("v1"),
+         boost::python::arg ("v2")),
+ "retourne la somme de deux vecteurs");
+  // ...
+} ;
+\end{verbatimx}
+\end{minipage}
+&
+\indexexemples{\textit{Boost Python}}{, test.py}
+\begin{minipage}{6.7cm}
+\begin{verbatimx}
+import PythonSample as PS
+v1 = [1.0, 2.0]
+v2 = [6.5, 7.8]
+v3 = PS.somme_vecteur (v1, v2) 
+
+
+
+
+
+
+
+
+\end{verbatimx}
+\end{minipage}
+
+\end{tabular}\end{center}
+\caption{Six fichiers modifiés pour ajouter une fonction dans un module  \pythons écrit en \textit{C++} à partir de l'exemple
+accessible depuis l'adresse \httpstyle{http://www.xavierdupre.fr/}.}
+\label{boost_python_sample_concert}
+\end{figure}
+
+
+
+
+
+
+
+
+\subsection{Garbage collector et pointeur}
+
+Le langage \pythons gère lui-même la destruction des objets au travers d'un \emph{garbage collector}.\indexfr{garbage collector} Cela signifie qu'un objet créé en \pythons provenant d'un module défini dans module en~\textit{C++} sera lui aussi détruit par \python. A partir du moment où le destructeur d'un objet libère les pointeurs qu'il a alloué, la mémoire ne sera pas corrompue. Ce schéma ne permet pas de prévoir quand l'objet sera détruit. 
+
+Pour parer aux problèmes éventuels qui pourraient survenir notamment lorsqu'un objet contient des pointeurs sur des données détenues par un autre objet, il est possible de spécifier à \textit{Boost Python}\indexfr{pointeur} qu'un résultat est une référence~: son identificateur \pythons peut être détruit mais pas l'objet qu'il désigne. C'est l'objet du template \codes{boost::python::return\_internal\_reference<>()}. \indexboost{return\_internal\_reference} Il est utilisé pour spécifier qu'une fonction retourne un résultat qui ne doit pas être détruit. 
+
+Par exemple, on utilise cette fonctionnalité pour définir un opérateur d'affectation comme l'opérateur~\texttt{+=}. La fonction suivante a la même signature \textit{C++} que l'opérateur~\texttt{+=}.
+\vspaceneg
+\begin{verbatimx}
+class PythonClassSample 
+{
+    ...
+    PythonClassSample & __iadd__ (const PythonClassSample &a) ;
+    ...
+} ;
+\end{verbatimx}
+\vspaceneg
+Son résultat est une référence sur un objet existant. Si aucune mention spécifique n'est précisée lors de l'export de la méthode (avec \codes{def}), lors d'un appel à l'opérateur~\texttt{+=}, \pythons va considérer que le résultat est un objet différent alors qu'il s'agit de deux identificateurs \pythons faisant référence au même objet~\textit{C++}. C'est pour cela qu'on ajoute l'argument suivant à la méthode \codes{def}~:
+\vspaceneg
+\begin{verbatimx}
+    x.def ("__iadd__", 
+           &PythonClassSample::__iadd__, 
+           boost::python::return_internal_reference<>(), 
+           "addition") ;
+\end{verbatimx}
+\vspaceneg
+De cette façon, il y aura bien deux identificateurs \pythons faisant référence au même objet~\textit{C++}. C'est aussi cette syntaxe qui permet de déclarer une fonction retournant un pointeur sur un objet~\textit{C++}.
+
+
+\subsection{Utilisation, installation}
+
+Le module terminé se compose de trois fichiers~:
+
+\begin{small}
+\begin{enumerate}
+\item la DLL compilée avec le code C++ du module,
+\item un fichier portant le même nom que la DLL mais d'extension \codesmall{.py}~: \codesmall{PythonSample.py},
+\item un fichier \codesmall{\_\_init\_\_.py}\indexfr{\codesindex{\_\_init\_\_.py}}\indexmoduleund{\_\_init\_\_.py}.
+\end{enumerate}
+\end{small}
+
+Voici ce fichier pour l'exemple présenté au paragraphe~\ref{python_boost_exemple}. La fonction importante de ce fichier est \codes{load\_dynamic} qui charge la DLL en mémoire au cas où elle n'aurait jamais été chargée.\indexfonction{load\_dynamic}\indexmoduleint{imp} 
+\vspaceneg
+\inputcode{../python_cours/programme/PythonSample.py}{import d'une DLL}
+
+
+
+
+
+\subsection{Détails sur l'exemple du paragraphe~\ref{python_boost_exemple}}
+\indexfr{version, debug, release}
+Certains fichiers exposés ici ont été simplifiés par rapport à l'exemple téléchargeable. Celui-ci a été configuré de manière à produire deux DLL, une autre pour la version \textit{release} \codes{PythonSample.dll} et une pour la version \textit{debug} \codes{PythonSampled.dll}. Ceci permet d'utiliser l'une ou l'autre des versions dans le même programme. La version \textit{debug} facilite la correction des erreurs qui pourraient survenir lors de l'utilisation du module sous \python (voir le paragraphe~\ref{debuggage_cplusplus_boust_python}). Il suffit alors d'écrire~:
+\vspaceneg
+\begin{verbatimx}
+import PythonSampled as PythonSample
+# au lieu de import PythonSample
+\end{verbatimx}
+\vspaceneg
+De cette façon, passer d'une DLL à l'autre est simple et permet de débugger, tâche qu'introduit le paragraphe suivant. Si le programme \pythons s'étale sur plusieurs fichiers, il est plus pratique d'ajouter au début de chacun fichier qui utilise le module~\textit{C++}~:
+\vspaceneg
+\begin{verbatimx}
+import sys
+if "PythonSampled" in sys.modules : PythonSample = sys.modules ["PythonSampled"]
+else : import PythonSample
+\end{verbatimx}
+
+
+
+
+\subsection{Debuggage}\indexfr{débugger}\label{debuggage_cplusplus_boust_python}\indexfr{version, debug, release}
+
+Il ne serait pas pensable de développer des outils sans pouvoir utiliser un débuggeur. Dans l'exemple présenté au paragraphe~\ref{python_boost_exemple}, le fichier \codes{testd.py} n'utilise pas le module compilé dans sa version \textit{release} mais dans sa version \textbf{\textit{debug}}. L'exécution est plus lente mais permet de faire appel au débuggeur pour corriger une éventuelle erreur d'exécution. \indexfr{débugger}\indexfr{version, debug, release}\indexfr{debug}
+
+Une manière de débugger consiste à momentanément arrêter l'exécution du programme \pythons (à l'aide de la fonction \codes{raw\_input}\indexfonction{raw\_input} par exemple), le temps d'attacher le débuggeur de \textit{Microsoft Visual~C++} au processus dont le nom est \textit{python.exe} ou \textit{pythonw.exe}. Il ne reste plus qu'à placer des pointeurs d'arrêt\indexfr{pointeur d'arrêt} puis à continuer l'exécution du programme \pythons jusqu'à ce que ces pointeurs d'arrêt soient atteints.\indexfr{pointeur d'arrêt}
+
+Une seconde méthode consiste à volontairement insérer dans le code~\textit{C++} du module l'instruction \codes{\_\_debugbreak ()}. Lorsque le module est exécuté via un programme \pythons et qu'il arrive sur cette ligne, il vous demande l'autorisation de continuer l'exécution via un débuggeur. Il faudra penser à enlever la ligne une fois le module corrigé.\ifnotellipse{\indexfr{\codesindex{\_\_debugbreak}}}\indexboost{\_\_debugbreak}
+
+Il reste toutefois une dernière façon plus classique de débugger qui est l'ajout dans le code d'instructions écrivant des messages dans un fichier texte. On écrit des \textit{logs} ou des \textit{traces}.\indexfr{logs}\ifnotellipse{\indexfr{traces}} De cette façon, lorsque le programme provoque une erreur, on connaît la séquence de messages générés par le programme. S'ils sont suffisamment explicites, cela permet de corriger l'erreur. Sinon, l'ajout de messages supplémentaires puis une nouvelle exécution du programme permettront d'être plus précis quant à la cause de l'erreur.
+
+Outre ces trois méthodes de débuggage, il est possible qu'un module doivent retourner un code d'erreur ou générer une exception\indexfr{exception} qui soit attrapée par l'interpréteur \pythons puis afficher. C'est l'objet des lignes qui suivent~:
+\vspaceneg
+\begin{verbatimx}
+if (<condition>)
+    throw std::runtime_error ("message d'erreur") ;
+\end{verbatimx}
+\vspaceneg
+Toute exception dérivant de \codes{runtime\_error} sera interceptée par l'interpréteur \python. La librairie \textit{Boost Python} génère également des exceptions notamment lorsque les paramètres envoyés à une fonction du module ne correspondent pas avec sa signature.
+
+En terme d'architecture, \indexfr{architecture} il est conseillé de bien scinder la partie utilisant \textit{Boost Python} des algorithmes. \textit{Boost Python} n'est qu'une passerelle vers \python. Il pourrait être nécessaire de construire une autre passerelle vers d'autres langages tel que le \textit{Visual Basic pour Applications (VBA)}.\indexlangage{VBA} De même, outre la passerelle vers \python, il est utile de construire un programme exécutable permettant de tester les algorithmes écrits en~\textit{C++} avant de les exporter. Cela réduit beaucoup le temps de débuggage qui peut alors gérer séparément la partie \textit{C++} de la partie interfaçage entre \pythons et \textit{C++}.
+
+
+%------------------------------------------------------------------------------------------
+
+\subsection{Pour aller plus loin}\label{boost_python_aller_plus_loin}
+
+La librairie \textit{Boost Python}\footnote{\httpstyle{http://www.boost.org/libs/python/doc/}} permet de faire beaucoup plus de choses que ce qui est présenté dans ces paragraphes. Ceux-ci contiennent néanmoins l'essentiel pour exporter vers \pythons les objets les plus simples. Il est également possible de~:
+
+\begin{small}
+\begin{itemize}
+\item surcharger une méthode~\textit{C++} dans un programme \python,
+\item exécuter un programme écrit en \pythons depuis un programme~\textit{C++}.
+\end{itemize}
+\end{small}
+
+
+Il faut parfois une certaine dose de volonté et de ténacité pour parvenir à maîtriser un outil tel que \textit{Boost Python}, surtout lorsqu'une erreur se déclare dans le code de librairie après une modification en dehors de cette même librairie.
+
+
+
+
+\firstpassagedo{
+	\begin{thebibliography}{99}
+	\input{python_cours_biblio.tex}
+	\end{thebibliography}
+}
+
+
+
+\input{../../common/livre_table_end.tex}%
+\input{../../common/livre_end.tex}%

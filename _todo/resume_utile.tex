@@ -1,0 +1,1492 @@
+
+\input{../../common/paper_begin.tex}%
+
+\firstpassagedo{
+\title{Résumé de la syntaxe Python}
+\author{Xavier Dupré \\ \httpstyle{http://www.xavierdupre.fr/}}
+\maketitle
+\begin{abstract}
+\noindent Ce document résume en quelques pages les éléments essentiels de la syntaxe du langage \python, variables, boucles, test, fonctions.
+\end{abstract}
+%\shorttableofcontents{Table des matières}{2}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\hypersetup{
+    pdftitle={Résumé de la syntaxe Python}
+    pdfauthor={Xavier Dupré}
+    pdfsubject={Résumé de la syntaxe Python}
+    pdfkeywords={Python résumé}
+}
+}
+
+
+
+Ce document résume en quelques pages les éléments essentiels de la syntaxe du langage \python. L'installation est simple. Le langage est présent sur les ordinateurs Mac et Linux. Sur Windows, il suffit de l'installer avec un installateur comme la plupart des programmes. Il suffit de faire attention à la version installée sur ces les lignes suivantes permettront de découvrir~:
+
+\begin{verbatimx}
+import sys
+print (sys.version)
+\end{verbatimx}
+
+Tous les modules additionnels (\codes{numpy}, \codes{matplotlib}, ...) doivent être installés pour cette version. Avec la version~3.x, le langage a introduit quelques changements importants qui seront signalés.
+
+
+\section{Le langage}
+
+Quelques rappels sur le langage~:
+
+\begin{enumerate}
+\item Il n'y a pas de séparateur d'instructions, il faut écrire une instruction par ligne et décaler les lignes dans une boucle, un test, une fonction, une classe. Pour écrire une instruction sur plusieurs lignes, il faut utiliser le caractères \codes{\backslash} sur toutes les lignes de l'instruction sauf la dernière. Il ne doit rien y avoir derrière ce caractère, ni espace, ni commentaires. Cette règle n'est nécessaire s'il s'agit d'une liste d'éléments séparés par des virgules.
+\item On peut mettre autant d'espaces qu'on veut. Il peut n'y en avoir aucun sauf derrière une instruction \codes{for}, \codes{if}, ... 
+\item Les commentaires dans un programme commencent par le symbole \codes{\#} et vont jusqu'à la fin de la ligne.
+\item L'instruction \codes{print} permet d'afficher n'importe quelle information. Elle affiche le résultat de la méthode \codes{\_\_str\_\_} pour les classes. \textbf{Version~3.x:} \codes{print} est une fonction, tout ce qui doit être affiché doit l'être entre parenthèses.
+\item L'instruction \codes{help} affiche l'aide associée à une variable, une fonction, une classe, une méthode, un module. Pour une fonction, une classe, une méthode du programme, cette aide correspond à une chaîne de caractères encadrée par trois ". Ce message d'aide peut s'étaler sur plusieurs lignes.
+\begin{verbatimx}
+def fonction () :
+     """fonction de 
+     démonstration"""
+     return 0
+help (fonction)    # affiche fonction de 
+                   # démonstration 
+\end{verbatimx}
+\end{enumerate} 
+
+
+\textbf{2 astuces en cas de problème}
+
+En cas de doute sur une partie de code, un calcul, une priorité entre opérateurs, le résultat d'une fonction, il est possible d'utiliser la fonction \codes{print} pour afficher une valeur intermédiaire pendant un calcul. Il ne faut pas non plus hésiter à vérifier sur un petit exemple dans un petit programme que des lignes douteuses font exactement ce pour quoi elles ont été écrites.
+
+Il est souvent utile de chercher sur Internet des exemples de programmes pour corriger une syntaxe incorrecte, utiliser Google en ajoutant une requête commençant par le mot \python. Pour les erreurs, il est parfois intéressant de recopier intégralement le message d'erreur sous Google, les réponses obtenues sont souvent assez claires.
+
+
+
+\section{Les variables}
+
+Le nom d'une variable commence par une lettre ou un blanc souligné, il peut également inclure par la suite des chiffres. \pythons distingue les minuscules des majuscules. La portée d'une variable, c'est-à-dire la portion de code où elle définie, s'étend depuis sa déclaration (première affectation) jusqu'à la fin du programme ou de la fonction où elle est définie. Pour déclarer une variable portant le nom \codes{va}, il suffit d'écrire~:
+%
+\begin{verbatimx}
+va = <valeur>
+\end{verbatimx}
+%
+Le type de \codes{<valeur>} détermine le type de la variable \codes{va}. Si une variable de même portée portait déjà ce nom-là, son contenu est écrasé (perdu aussi). L'instruction \codes{type(x)} retourne le type de la variable \codes{x}. \textbf{Un identificateur ne peut être utilisé qu'une seule fois, qu'il désigne une variable, une fonction, une classe ou un module.}
+
+\subsection{Les types immuables}
+
+Les variables de type immuable ne peuvent pas être modifiées. \indexfrr{type}{None}\indexfrr{type}{bool}\indexfrr{type}{int}\indexfrr{type}{float}\indexfrr{type}{complex}\indexfrr{type}{str}\indexfrr{type}{unicode}\indexfrr{type}{tuple}
+\begin{enumerate}
+\item \codes{None}, ce type veut dire rien, il est utilisé comme convention de programmation pour dire qu'un algorithme, un calcul ne s'est pas terminé correctement ou une valeur n'a pas encore été calculée.
+\item \codes{bool} : un booléen (résultat d'un test)
+\item \codes{int} : un entier
+\item \codes{float} : un réel
+\item \codes{complex} : un complexe
+\item \codes{str} : une chaîne de caractères ou string, elle apparaît entre guillemets, entre apostrophes, entre trois guillements (""") si elle s'étend sur plusieurs lignes. \codes{s = "exemple"}. \textbf{Version 2.7~:} il existe un autre type \codes{unicode} utilisé pour représenter des chaînes de caractères non latines (en chinois par exemple).
+\item \codes{tuple} : un vecteur d'éléments de types identiques ou différents, il apparaît entre parenthèses, on accède à un de ses éléments à l'aide de crochets. Les éléments d'un t-uple \codes{t} sont indicés de 0 à \codes{len(t)-1} inclus.
+\begin{verbatimx}
+t = ()        # tuple vide
+t = (2, "e")  # tuple de deux éléments
+print (t[0])  # affiche le premier élément
+\end{verbatimx}
+\end{enumerate}
+%
+L'affectation d'une valeur de type immuable à une variable est une copie. On peut appliquer sur les types numériques les opérations usuelles (+ * - / \% ** += *= -= /= \%= **=)\footnote{** est le symbole pour puissance~: \codesnote{3 ** 4} = $3^4$}. On rappelle que \codes{a += 10} est équivalent à \codes{a = a + 10}, ceci signifie que la valeur de \codes{a} avant le calcul n'a plus besoin d'exister. Le \textit{et} logique et le \textit{ou} logique sont notés \codes{and} et \codes{or}. Les priorités sont celles usuellement utilisées en mathématique, en cas de doute, il faut utiliser des parenthèses.
+
+Les opérateurs de comparaison (< > == <= >=) s'appliquent sur tous les types numériques ainsi que sur les chaînes de caractères. Rappel~: les minuscules sont classées après les majuscules.
+
+
+\textbf{Fréquente source de bug~:}
+\begin{itemize}
+\item \textbf{Version 2.7~:} une division entière a pour résultat le quotient et non un nombre décimal. Autrement dit~: \codes{1/2 = 0} et non \codes{0.5}.
+\item \textbf{Version 3.x~:} une division entière a pour résultat un réel.Autrement dit~: \codes{1/2 = 0.5}. Pour une division entière, il faut utiliser \codes{//}~: \codes{1//2 = 0}.
+\end{itemize}
+
+Pour convertir une information d'un type à un autre, il suffit d'utiliser le nom de ce type suivi de la valeur à convertir entre parenthèses~: \codes{b = float ("2.145")} équivaut à la conversion d'une chaîne de caractères en réel.
+
+L'addition d'un t-uple et d'une valeur retourne un t-uple incluant cette valeur à la fin (plus long d'un élément). L'addition de deux t-uples concatène les deux t-uples. L'addition de deux chaînes de caractères retourne leur concaténation.
+
+Pour savoir si un élément \codes{x} fait partie d'un t-uple \codes{t}, il faut utiliser la syntaxe \codes{x \; in \; t} dont la réciproque est \codes{x \; not \; in \; t}.
+
+La fonction \codes{len} retourne la longueur d'un tuple ou d'une chaîne de caractères. Les éléments ou les caractères d'un tuple ou d'une chaîne de caractères \codes{t} sont indicés de 0 à \codes{len (t)-1} inclus.
+\begin{verbatimx}
+t [i:j]  # correspond à un sous-ensemble allant des indices i à j exclu
+t [:j]   #  = t[0:j]
+t [i:]   # = t [i: len (t)]
+\end{verbatimx}
+%
+Pour les chaînes de caractères, on utilise fréquemment les méthodes de la table~\ref{string_method-sum}, exemple~:
+%
+\begin{verbatimx}
+st = "langage python"
+st = 'langage python'           # idem
+st = 'un guillement "'          # chaîne contenant un guillement
+st = "un guillement \""         # chaîne contenant un guillement, il faut ajouter \
+                                #     pour ne pas confondre avec l'autre guillement
+st = st.upper ()                # mise en lettres majuscules
+i  = st.find ("PYTHON")         # on cherche "PYTHON" dans st
+print (i)                       # affiche 8  Version 3.x, écrire print (i),
+                                #    pour la version 2.x, écrire print i
+print (st.count ("PYTHON"))     # affiche 1  Version 3.x : idem print (...)
+print (st.count ("PYTHON", 9))  # affiche 0  Version 3.x : idem print (...)
+\end{verbatimx}
+%
+%
+		\begin{table}[ht]
+		\begin{center}\begin{tabular}{|lp{12cm}|} \hline
+		\codes{count( sub[, start[, end]])} &	
+													%\begin{minipage}{12cm}
+	Retourne le nombre d'occurences de la chaîne de caractères \codes{sub},
+	les paramètres par défaut \codes{start} et \codes{end} permettent de réduire la
+	recherche entre les caractères d'indice \codes{start} et \codes{end} exclu. Par défaut,
+	\codes{start} est nul tandis que \codes{end} correspond à la fin de la chaîne
+	de caractères.
+	%\end{minipage} 
+	\\ \hline
+		\codes{find( sub[, start[, end]])} & 
+	%\begin{minipage}{12cm}
+	Recherche une chaîne de caractères \codes{sub},
+	les paramètres par défaut \codes{start} et \codes{end} ont la même signification
+	que ceux de la fonction \codes{count}. Cette fonction retourne -1 si 
+	la recherche n'a pas abouti.
+	%\end{minipage} 
+	\\ \hline
+		\codes{isalpha ()}	& 
+	%\begin{minipage}{12cm}
+	Retourne \codes{True} si tous les caractères sont des lettres, \codes{False} sinon.
+	%\end{minipage} 
+	\\ \hline
+		\codes{isdigit ()}	&
+	%\begin{minipage}{12cm}
+	Retourne \codes{True} si tous les caractères sont des chiffres, \codes{False} sinon.
+	%\end{minipage}
+	 \\ \hline
+		\codes{replace( old, new[, count])} &
+	%\begin{minipage}{12cm}
+	Retourne une copie de la chaîne de caractères en remplaçant toutes les
+	occurrences de la chaîne \codes{old} par \codes{new}. Si le paramètre optionnel 
+	\codes{count} est renseigné, alors seules les \codes{count} premières occurrences
+	seront remplacées.
+	%\end{minipage} 
+	\\ \hline
+		\codes{split( [sep [,maxsplit]])} &  
+	%\begin{minipage}{12cm}
+	Découpe la chaîne de caractères en se servant de la chaîne \codes{sep} comme
+	délimiteur. Si le paramètre \codes{maxsplit} est renseigné, au plus \codes{maxsplit}
+	coupures seront effectuées.
+  												%\end{minipage} 
+  												\\ \hline
+		\codes{upper ()}	& Remplace les minuscules par des majuscules. \\ \hline
+		\codes{lower ()}	& Remplace les majuscules par des minuscules. \\ \hline
+		\codes{join ( li )}	& \codes{li} est une liste,  
+														  cette fonction agglutine tous les éléments d'une liste séparés par \codes{sep} 
+															dans l'expression \codes{sep.join ( ["un", "deux"])}. \\ \hline
+		\end{tabular}\end{center}
+		\caption{	Quelques fonctions s'appliquant aux chaînes de caractères, l'aide associée au langage \pythons 
+							fournira la liste complète. Certains des paramètres sont encadrés par des crochets,
+							ceci signifie qu'ils sont facultatifs.\indexfrr{type}{str}}
+		\label{string_method-sum}
+		\end{table}							
+
+L'affichage de réels nécessite parfois de tronquer la partie décimale ce qui est fait grâce à la syntaxe suivante~:
+%
+\begin{verbatimx}
+x = 0.123456789
+print ("%1.2f" % x)    # donne 0.12
+s = "%2.2e %s" % (3.14159, "est une approximation de pi")
+print (s)              # Version 2.x : print s
+\end{verbatimx}
+
+
+
+
+\subsection{Les types modifiables}
+
+\pythons fournit deux types modifiables~: les listes et les dictionnaires. Pour ces deux types, \textbf{il faut faire attention à chaque affectation}.
+%
+\begin{verbatimx}
+a = [1,2]
+b = a
+\end{verbatimx}
+%
+La seconde ligne ne fait pas une copie de la première liste, elle ne fait que créer un second nom pour nommer la même liste. Pour copier une liste ou un dictionnaire, il faut utiliser~:
+%
+\begin{verbatimx}
+a = [1,2]
+import copy
+b = copy.copy (a)
+\end{verbatimx}
+%
+ou, si la liste inclut également d'autres listes ou dictionnaires~:
+%
+\begin{verbatimx}
+a = [1,2]
+import copy
+b = copy.deepcopy (a)
+\end{verbatimx}
+%
+Cette remarque s'applique à tout type modifiable, liste, dictionnaire ou tout autre classe. La suppression d'une variable n'implique pas la suppression de toutes les variables se référant à une seule et même instance de classe.
+
+
+\subsubsection{Liste}\indexfrr{type}{list}
+
+Une liste est une sorte de tableau qui permet de mémoriser un ensemble d'éléments de types variés. C'est une sorte de t-uple modifiable. La table~\ref{operation_liste_resume} regroupe les opérations qu'une liste supporte et la table~\ref{operation_liste2_resume} les méthodes dont elle dispose.
+%
+\begin{verbatimx}
+x = [4,5]               # création d'une liste composée de deux entiers
+x = ["un",1,"deux",2]   # création d'une liste composée deux chaînes de caractères
+                        # et de deux entiers, l'ordre d'écriture est important
+x = [3,]                # création d'une liste d'un élément, sans la virgule, 
+                        # le résultat reste une liste
+x = [ ]                 # crée une liste vide
+x = list ()             # crée une liste vide
+\end{verbatimx}                         
+
+
+
+		\begin{table}[ht]
+		\begin{center}\begin{tabular}{|lp{12cm}|} \hline
+		\codes{x \; in \; s}				& vrai si \codes{x} est un des éléments de \codes{l} \\  \hline
+		\codes{x \; not \; in \; s}	& réciproque de la ligne précédente \\  \hline
+		\codes{l + t}								& concaténation de \codes{l} et \codes{t}   \\  \hline
+		\codes{l * n}	& concatène \codes{n} copies de \codes{l} les unes à la suite des autres   \\  \hline
+		\codes{l[i]}								& %\begin{minipage}{12cm}
+																	retourne le i$^\text{ème}$ élément de \codes{l},
+																	à la différence des T-uples, l'instruction \codes{l [i] = "3"}
+																	est valide, elle remplace l'élément \codes{i} par 3. 
+																	%\end{minipage} 
+																	 \\  \hline
+		\codes{l[i:j]}							& %\begin{minipage}{12cm} 
+																	retourne une liste contenant les éléments de \codes{l} d'indices $i$ à 
+																	$j$ exclu. Il est possible de remplacer cette sous-liste par une autre en 
+																	utilisant l'affectation \codes{ l[i:j] = l2 } où \codes{l2}
+																	est une autre liste (ou un T-uple) de dimension différente ou égale.
+																	%\end{minipage} 
+																	\\ \hline
+		\codes{l[i:j:k]}						& %\begin{minipage}{12cm} 
+																	retourne une liste contenant les éléments de \codes{l} dont les 
+																	indices sont compris entre $i$ et $j$ exclu, ces indices sont espacés de $k$~:
+																	$i, i+k, i+2k, i+3k, ...$ Ici encore, il est possible d'écrire l'affectation
+																	suivante~: \codes{ l[i:j:k] = l2 } mais \codes{l2} doit être une liste 
+																	(ou un T-uple) de même dimension que \codes{ l[i:j:k]}.
+																	%\end{minipage}
+																	 \\ \hline
+		\codes{len(l)}							& nombre d'éléments de \codes{l} \\ \hline
+		\codes{min(l)}							& %\begin{minipage}{12cm}
+																	plus petit élément de \codes{l}, résultat difficile à prévoir 
+																	lorsque les types des éléments sont différents
+																	 %\end{minipage}
+																	  \\ \hline
+		\codes{max(l)}							& %\begin{minipage}{12cm}
+																	plus grand élément de \codes{l}, résultat difficile à prévoir 
+																	lorsque les types des éléments sont différents
+																	 %\end{minipage}
+																	  \\ \hline
+		\codes{sum(l)}							& %\begin{minipage}{12cm}
+																	retourne la somme de tous les éléments 
+																	%\end{minipage} 
+																	\\ \hline
+		\codes{del \;l [i:j]}				&	 %\begin{minipage}{12cm}
+													  			 supprime les éléments d'indices entre \codes{i} et \codes{j} exclu.
+														  		 Cette instruction est équivalente à \codes{ l [i:j] = [] }.
+															  	 %\end{minipage} 
+															  	 \\ \hline
+		\codes{list (x)}			     	&	 %\begin{minipage}{12cm}
+													  			 convertit \codes{x} en une liste quand cela est possible
+															  	 %\end{minipage} 
+															  	 \\ \hline
+		\end{tabular}\end{center}
+		\caption{ Opérations disponibles sur les listes, identiques à celles des T-uples, 
+							on suppose que \codescaption{l} et \codescaption{t} sont des listes, \codescaption{i} et \codescaption{j} sont
+							des entiers.
+							\codescaption{x} est quant à lui quelconque.}
+		\label{operation_liste_resume}
+		\end{table}							
+
+
+
+		\begin{table}[ht]
+		\begin{center}\begin{tabular}{|lp{12cm}|} \hline
+		\codes{l.count (x)}				& %\begin{minipage}{12cm}
+																Retourne le nombre d'occurrences de l'élément \codes{x}.
+																\codes{count} est une méthode de la classe \codes{list}.
+																%\end{minipage}  
+																\\  \hline
+		\codes{l.index (x)}				& %\begin{minipage}{12cm}
+																Retourne l'indice de la première occurrence de l'élément \codes{x}
+																dans la liste \codes{l}. Si celle-ci n'existe, une exception est 
+																déclenchée. \indexfr{exception}
+																%\end{minipage}  
+																\\  \hline
+		\codes{l.append (x)}		  & %\begin{minipage}{12cm}
+																Ajoute l'élément \codes{x} à la fin de la liste \codes{l}. Si \codes{x}
+																est une liste, cette fonction ajoute la liste \codes{x} en tant qu'élément,
+																au final, la liste \codes{l} ne contiendra qu'un élément de plus.
+																%\end{minipage}  
+																\\  \hline
+		\codes{l.extend (k)}			& %\begin{minipage}{12cm}
+																Ajoute tous les éléments de la liste \codes{k} à la liste \codes{l}.
+																La liste \codes{l} aura autant d'éléments supplémentaires qu'il y en a
+																dans la liste \codes{k}.
+																%\end{minipage}  
+																\\  \hline
+		\codes{l.insert(i,x)}			& %\begin{minipage}{12cm}
+																Insère l'élément \codes{x} à la position \codes{i} dans la liste \codes{l}.
+																%\end{minipage} 
+																 \\  \hline
+		\codes{l.remove (x)}			& %\begin{minipage}{12cm}
+																Supprime la première occurence de l'élément \codes{x} dans la liste \codes{l}.
+																S'il n'y a aucune occurrence de \codes{x}, cette méthode déclenche
+																une exception.
+																%\end{minipage} 
+																 \\  \hline
+		\codes{l.pop ([i])}				& %\begin{minipage}{12cm}
+																Retourne l'élément \codes{l[i]} et le supprime de la liste. Le
+																paramètre \codes{i} est facultatif, s'il n'est pas précisé, c'est le dernier
+																élément dont la valeur est d'abord retournée puis il est supprimé de la liste.
+																%\end{minipage} 
+																 \\  \hline
+		\codes{l.reverse (x)}			& %\begin{minipage}{12cm}
+																Retourne la liste, le premier et dernier élément échangent leurs places,
+																le second et l'avant dernier, et ainsi de suite.
+																%\end{minipage} 
+																 \\  \hline
+		\codes{l.sort ([f])}			& %\begin{minipage}{12cm}
+																Cette fonction trie la liste par ordre croissant. Le paramètre \codes{f}
+																est facultatif, il permet de préciser la fonction de comparaison qui doit
+																être utilisée lors du tri. Cette fonction prend comme paramètre 
+																deux éléments \codes{x} et \codes{y} de la liste et retourne les valeurs -1,0,1 
+																selon que \codes{x < y}, \codes{x == y} ou \codes{x > y} 
+																(voir paragraphe~\ref{chap_fonction}).
+																%\end{minipage} 
+																 \\  \hline
+		\end{tabular}\end{center}
+		\caption{ Opérations permettant de modifier une liste
+							on suppose que \codescaption{l} est une liste, 
+							\codescaption{x} est quant à lui quelconque.}
+		\label{operation_liste2_resume}
+		\end{table}							
+
+Les listes peuvent aussi être définies à partir d'une écriture abrégée~:
+%
+\begin{verbatimx}
+x = range(0,5)                      # liste des entiers de 0 à 5 exclu
+                                    # Version 3.x : range retourne un itérateur, il faut écrire
+                                    #     x = list(range(0,5))
+y = [ i for i in x if i % 2 == 0]   # sélection des éléments pairs
+print (y)                           # affiche [0,2,4]		  Version 2.x : écrire print y
+z = [ i+j for i in x for j in x]    # construit tous les nombres i+j possibles
+print (z)                           # affiche [0, 1, 2, 3, 4, 1, 2, 3, 4, 5, 2, 3, 
+                                    # 4, 5, 6, 3, 4, 5, 6, 7, 4, 5, 6, 7, 8]
+\end{verbatimx}    
+
+
+
+\subsubsection{Dictionnaire}\indexfrr{type}{dict}
+
+Un dictionnaire est un tableau pour lequel les indices ou clés ne sont pas uniquement des entiers mais tout type non modifiable (le plus souvent un entier, un réel, une chaîne de caractères, un t-uple).
+%
+\begin{verbatimx}
+x = { "cle1":"valeur1", "cle2":"valeur2" }
+print (x ["cle1"])        # affiche valeur1  Version 2.x : écrire print ...
+x [(0,1)]  = "clé tuple"  # ajoute une nouvelle valeur dont la clé est (0,1)
+                          #   les parenthèses sont superflues
+y = { }                   # crée un dictionnaire vide
+z = dict ()               # crée aussi un dictionnaire vide
+\end{verbatimx}
+%
+La table~\ref{operation_dict_resume} regroupe les opérations qu'un dictionnaire supporte. La table~\ref{operation_dict2_resume} regroupe les méthodes d'un dictionnaire.
+
+		\begin{table}[ht]
+		\begin{center}\begin{tabular}{|lp{12cm}|} \hline
+		\codes{x \; in \; d}				& vrai si \codes{x} est une des clés de \codes{d} \\  \hline
+		\codes{x \; not \; in \; d}	& réciproque de la ligne précédente \\  \hline
+		\codes{l[i]}								& %\begin{minipage}{12cm}
+																	retourne l'élément associé à la clé \codes{i}
+																	%\end{minipage} 
+																	 \\  \hline
+		\codes{len(d)}							& nombre d'éléments de \codes{d} \\ \hline
+		\codes{min(d)}							& %\begin{minipage}{12cm}
+																	plus petite clé 
+																	%\end{minipage}
+																	 \\ \hline
+		\codes{max(d)}							& %\begin{minipage}{12cm}
+																	plus grande clé 
+																	%\end{minipage}
+																	 \\ \hline
+		\codes{del \;l [i]}				&	 %\begin{minipage}{12cm}
+													  			 supprime l'élément associé à la clé \codes{i}
+															  	 %\end{minipage} 
+															  	 \\ \hline
+		\codes{list (d)}			     	&	 %\begin{minipage}{12cm}
+													  			 retourne une liste contenant toutes les clés du dictionnaire \codes{d}.
+															  	 %\end{minipage} 
+															  	 \\ \hline
+		\codes{dict (x)}			     	&	 %\begin{minipage}{12cm}
+													  			 convertit \codes{x} en un dictionnaire si cela est possible, 
+													  			 en particulier, \codes{d} est égal à \codes{ dict ( d.items () ) }
+															  	 %\end{minipage} 
+															  	 \\ \hline
+		\end{tabular}\end{center}
+		\caption{ Opérations disponibles sur les dictionnaires, \codescaption{d} est un dictionnaire,
+							\codescaption{x} est quant à lui quelconque.}
+		\label{operation_dict_resume}
+		\end{table}							
+
+
+		\begin{table}[ht]
+		\begin{center}\begin{tabular}{|lp{12cm}|} \hline
+		\codes{d.copy ()}				& Retourne une copie de \codes{d}. \\  \hline
+		\codes{d.has\_key (x)}	  & Retourne \codes{True} si \codes{x} est une clé de \codes{d}. 
+																\textbf{Version~3.x~:} la fonction n'existe plus, il faut écrire \codes{x \; in \; d}.
+																\\  \hline
+		\codes{d.items ()}			& %\begin{minipage}{12cm}
+															Retourne un itérateur parcourant contenant tous les couples (clé, valeur)
+  														inclus dans le dictionnaire. Pour obtenir une liste, il faut écrire 
+															\codes{list ( d.items() ) }.
+															\textbf{Version~2.x~:} retourne une liste.
+															%\end{minipage}  
+															\\  \hline
+		\codes{d.keys ()}			& %\begin{minipage}{12cm}
+														Retourne un itérateur parcourant toutes les clés du dictionnaire \codes{d}. 
+														\textbf{Version 2.x~:} retourne une liste.
+														%\end{minipage} 
+														 \\  \hline
+		\codes{d.values ()}			& %\begin{minipage}{12cm}
+														Retourne un itérateur parcourant toutes les valeurs du dictionnaire \codes{d}.
+														\textbf{Version 2.x~:} retourne une liste.
+														%\end{minipage}  
+														\\  \hline
+		\codes{d.get (k[,x])}	& %\begin{minipage}{12cm}
+														Retourne \codes{d [k]}, si la clé \codes{k} est manquante, alors
+														la valeur \codes{None} est retournée à moins que le paramètre optionnel \codes{x}
+														soit renseigné, auquel cas, ce sera ce paramètre qui sera retourné.
+														%\end{minipage}  
+														\\  \hline
+		\codes{d.clear ()}	& %\begin{minipage}{12cm}
+													Supprime tous les éléments du dictionnaire.
+														%\end{minipage} 
+														 \\  \hline
+		\codes{d.update (d2)}	& %\begin{minipage}{12cm}
+														Pour chaque clé de \codes{d1}, \codes{d[k] = d1 [k]}
+														%\end{minipage} 
+														 \\  \hline
+		\codes{d.setdefault(k[,x])}	& %\begin{minipage}{12cm}
+		                        Retourne \codes{d [k]} si la clé \codes{k} existe, sinon, affecte \codes{x}
+		                        à \codes{d[k]}.
+														%\end{minipage} 
+														 \\  \hline
+		\codes{d.popitem ()}	& %\begin{minipage}{12cm}
+														Retourne un élément et le supprime du dictionnaire.
+														%\end{minipage} 
+														 \\  \hline
+		\end{tabular}\end{center}
+		\caption{ Méthodes associées aux dictionnaires, \codescaption{d}, \codescaption{d2} sont des dictionnaires,
+							\codescaption{x} est quant à lui quelconque.}
+		\label{operation_dict2_resume}
+		\end{table}							
+
+
+\subsubsection{Tableaux numériques}
+
+Ce type ne fait pas partie du langage \pythons standard mais il est couramment utilisé.
+%
+\begin{verbatimx}
+import numpy
+a = numpy.array ( [0,1] )
+\end{verbatimx}
+%
+Il permet de convertir des listes en une structure plus appropriée au calcul qui sont nettement plus rapides. En contrepartie, il n'est pas aussi rapide d'ajouter ou supprimer des éléments. 
+
+
+\section{Tests et boucles}
+
+\subsection{Tests}\indexfr{test}
+Les tests permettent d'exécuter telle ou telle instruction selon la valeur d'une condition. Le test est suivi de \codes{:} et les instructions dépendant de ce test sont indentées (décalées vers la droite).
+%
+\begin{verbatimx}
+if x < 5 :
+    x = x*2
+    ...
+\end{verbatimx}
+%
+Il peut y avoir une contrepartie~:
+%
+\begin{verbatimx}
+if x < 5 :
+    x = x*2
+    ...
+else :
+    x = x*3
+    ...
+\end{verbatimx}
+%
+S'il n'y a qu'une seule instruction, elle peut s'écrire en bout de ligne~:
+%
+\begin{verbatimx}
+if x < 5 :  x=x*2
+else :      x=x*3
+\end{verbatimx}
+%
+Il peut y avoir plusieurs conditions qui s'enchaînent~:
+%
+\begin{verbatimx}
+if   x < 5 :  x = x*2
+elif x > 5 :  x = x*3
+else       :  x = x*6
+\end{verbatimx}
+
+Il existe un raccourci pour les intervalles~:
+
+\begin{verbatimx}
+if 5 < x and x < 10 :     # peut être écrit : if 5 < x < 10 :
+    ...
+\end{verbatimx}
+
+\subsection{Boucles}
+
+Il y a deux types de boucles, la boucle \codes{for} parcourt un ensemble, la boucle \codes{while} continue tant qu'une condition est vraie. Comme pour les tests, une boucle est suivie du syumbol \codes{:}, les lignes incluses dans cette boucle sont indentées à moins qu'il n'y en ait qu'une seule, auquel cas elle peut être écrite après le symbole \codes{:} sur la même ligne. \indexfrr{boucle}{while}
+%
+\begin{verbatimx}
+while condition :
+    # lignes décalées
+    # contenu de la boucle
+\end{verbatimx}
+%
+Quelques exemples de boucles \codes{for}~: \indexfrr{boucle}{for}
+%
+\begin{verbatimx}
+for i in range(0,n) :             # parcourt tous les entiers de 0 à n-1 inclus   
+for i in xrange(0,n) :            # même chose mais en plus rapide  
+                                  # Version 3.x : la fonction xrange n'existe plus, 
+                                  #               et range équivaut à xrange
+for i in range(n,0,-1) :          # parcourt tous les entiers de n à 1 inclus 
+                                  #                  dans le sens décroissant   
+for i in range(2,1000,3) :        # parcourt tous les entiers de 2 à 1000 de 3 en 3
+                                  #                                     (2,5,8,...)
+for e in li :                     # parcourt tous les éléments de la liste li
+for cle,valeur in di.items () :   # parcourt tous les éléments du dictionnaire di
+\end{verbatimx}
+%
+Pour toutes les boucles, l'instruction \codes{break} permet de sortir de la boucle, l'instruction \codes{continue} passe directement à l'itération suivante sans exécuter les instructions qui suivent l'instruction \codes{continue}.
+ 
+
+\subsection{Fonction \codes{enumerate}}\indexfr{enumerate}
+
+On peut écrire~:
+\begin{verbatimx}
+l = [ 4, 5, 6 ]
+s = 0
+for i in range(0,len(l)) : 
+    s += l[i]
+\end{verbatimx}
+
+Ou utiliser la fonction \codes{enumerate} qui retourne chaque élément et sa position dans l'ensemble~:
+\begin{verbatimx}
+l = [ 4, 5, 6 ]
+s = 0
+for i,x in enumerate(l) :
+    s += x
+\end{verbatimx}
+
+\subsection{Fonction \codes{zip}}\indexfr{zip}
+
+Pour faire la somme de deux listes terme à terme, on peut écrire~:
+\begin{verbatimx}
+l = [ 4, 5, 6 ]
+g = [ 3,10,11 ]
+s = 0
+for i in range(0,len(l)) : 
+    s += l[i] + g[i]
+\end{verbatimx}
+
+Ou utiliser la fonction \codes{zip}~:
+\begin{verbatimx}
+l = [ 4, 5, 6 ]
+g = [ 3,10,11 ]
+s = 0
+for x,y in zip(l,g) :
+    s += x + y
+\end{verbatimx}
+
+
+
+\subsection{Fonction \codes{map}}\indexfr{map}
+
+Il est possible d'éviter une fonction pour éviter d'écrire une boucle avec la fonction \codes{map}. Elle applique une fonction à chaque élément d'un ensemble.
+
+\begin{verbatimx}
+def fonction (x) : return x % 2
+li  = [ 3,4,5]
+li2 = map (fonction, li)
+print (list(li2))           # affiche [ 1, 0, 1 ]
+\end{verbatimx}
+
+A priori, l'ensemble qui en résulte contient autant d'éléments sauf si on utilise le mot-clé \codes{yield}.\indexfr{yield} L'exemple suivant affiche tous les nombres pairs.
+
+\begin{verbatimx}
+def fonction (x) :
+    if x % 2 == 0 : yield x
+li  = [ 3,4,5]
+li2 = map (fonction, li)
+print (list(li2))           # affiche [ 4 ]
+\end{verbatimx}
+
+
+\subsection{Autres mot-clés}\indexfr{keywords}\indexfr{mot-clés}
+
+Le mot-clé \codes{with}\indexfr{with} est utile lorsqu'on une utilise une variable pour une portion réduite de code. Cette notation cache deux appels implicites à deux méthodes comme indiqué ci-dessous.
+
+\begin{verbatimx}
+with random_matrix(1000,1000) as mat :
+    #   appelle mat.__enter__()
+    ...
+    #   appelle mat.__exit__()
+\end{verbatimx}
+
+Lorsque ces méthodes sont surchargées, l'utilisation de cette syntaxe réduit la taille du code. C'est le cas des fichiers (voir paragraphe~\ref{section_res_fichier}).
+ 
+ 
+\section{Fonctions}\indexfr{fonction}
+
+\subsection{Définition, paramètres}
+
+Les fonctions ou sous-programmes permettent de faire la même chose sans avoir à recopier le code informatique plusieurs fois dans le programme. Elles acceptent plusieurs paramètres ou aucun, elles peuvent retourner plusieurs résultats ou aucun. Leur déclaration suit le schéma suivant~:
+%
+\begin{verbatimx}
+def exemple_fonction (p1, p2, p3) :
+    # code de la fonction
+    return r1, r2
+
+a,b = exemple_fonction (1,2,3)   # exemple d'appel de la fonction
+\end{verbatimx}
+%
+L'instruction \codes{return} n'est pas obligatoire mais si elle est présente à un ou plusieurs endroits, aucune autre instruction de la fonction ne sera exécutée après l'exécution de la première instruction \codes{return} rencontrée lors de l'exécution de la fonction. Les fonctions peuvent être récursives et inclure des paramètres par défaut~: ces paramètres reçoivent une valeur même si celle-ci n'est pas précisée lors de l'appel.
+%
+\begin{verbatimx}
+def exemple_fonction (p1, p2 = 4, p3 = 7) :
+    # code de la fonction
+    return r1, r2
+
+a,b = exemple_fonction (1)         # = exemple_fonction (1,4,7)
+a,b = exemple_fonction (1,2,3)     # = exemple_fonction (1,2,3)
+a,b = exemple_fonction (1,2)       # = exemple_fonction (1,2,7)
+a,b = exemple_fonction (1,p3 = 2)  # = exemple_fonction (1,4,2)
+\end{verbatimx}
+%
+Les paramètres par défaut doivent tous être mis en fin de déclaration, l'exemple suivant n'est pas correct~:
+%
+\begin{verbatimx}
+def exemple_fonction (p1, p2 = 4, p3) :
+    # code de la fonction
+    return r1, r2
+# affiche le message d'erreur : SyntaxError: non-default argument follows default argument
+\end{verbatimx}
+%
+En ce qui concerne les paramètres, les paramètres de type non modifiable sont passés par valeur (une modification à l'intérieur de la fonction n'a pas de répercution à l'extérieur). 
+%
+\begin{verbatimx}
+def exemple_fonction (p1) :
+    p1 = 3
+a = 1
+exemple_fonction (a)
+print (a)  # affiche 1
+\end{verbatimx}
+%
+Les paramètres de type modifiable sont passés par référence (une modification à l'intérieur de la fonction a des répercutions à l'extérieur).
+%
+\begin{verbatimx}
+def exemple_fonction (p1) :
+    p1[0] = 3
+a = [1]
+exemple_fonction (a)
+print (a)  # affiche [3]    Version 2.x : print ...
+\end{verbatimx}
+
+
+\subsection{mot-clé \codes{lambda}}
+
+Le mot-clé \codes{lambda} permet de définir des fonctions au sein d'une expression.
+
+\begin{verbatimx}
+def fonction (x) : return x % 2
+li  = [ 3,4,5]
+li2 = map (fonction, li)
+print (list(li2))           # affiche [ 1, 0, 1 ]
+\end{verbatimx}
+
+Peut-être écrit comme~:
+
+\begin{verbatimx}
+li  = [ 3,4,5]
+li2 = map (lambda x : x%2, li)
+print (list(li2))                 # affiche [ 1, 0, 1 ]
+\end{verbatimx}
+
+Et si on veut ajouter un paramètre à la fonction \codes{lambda}~:
+
+\begin{verbatimx}
+li  = [ 3,4,5]
+k   = 2
+li2 = map (lambda x,y=k : x%k, li)
+print (list(li2))                 # affiche [ 1, 0, 1 ]
+\end{verbatimx}
+
+
+\subsection{mot-clé \codes{yield}}
+
+La programmation fonctionnelle est de plus en plus utilisée. En \python, elle se décline sous la forme d'itérateur.
+
+\begin{verbatimx}
+def iterate_double_on_list(l) :
+    for x in l :
+        yield x*2
+print (iterate_double_on_list( [4,5,6]))
+     # affiche <generator object iterate_double_on_list at 0x025196C0>
+\end{verbatimx}
+
+La fonction itère sur un ensemble mais ne fait rien tant qu'on ne parcourt pas l'ensemble qu'elle génère~:
+
+\begin{verbatimx}
+for x in iterate_double_on_list( [4,5,6]) :
+    print (x)
+\end{verbatimx}
+
+La version~3 du langage \pythons a changé des fonctions pour qu'elle retourne un itérateur sur un ensemble et non l'ensemble lui-même.
+
+
+\section{Classes}\indexfr{class}
+
+Les classes sont un moyen de définir de nouveaux types modifiables de variables. Peu de programmes ne les utilisent pas. Une classe  est un ensemble d'attributs (ou variables) et de méthodes (ou fonctions). Un programme utilisant les classes est orienté objet. Il est possible de faire les mêmes choses avec ou sans classes mais leur utilisation rend d'ordinaire les grands programmes plus facile à comprendre et à construire.
+
+\subsection{Déclaration d'une classe}
+
+Pour déclarer une classe, on procède comme suit~:
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1, att2, att3) :
+        self.att1 = att1
+        self.att2 = att2
+        self.att3 = att3
+        self.att4 = att1 * att2 * att3
+        
+a = ma_classe (-1,1,2) # déclare une variable de type ma_classe
+print (a.att1)  # affiche -1       
+print (a.att2)  # affiche 3        Version 2.x : print ...
+print (a.att3)  # affiche 4
+print (a.att4)  # affiche -12
+\end{verbatimx} 
+%
+Lors de la déclaration de la variable \codes{a}, le langage \pythons exécute la méthode \codes{\_\_init\_\_} aussi appelée constructeur. Elle permet de définir les attributs de la classe directement à partir des paramètres ou comme le résultat d'un calcul ou d'une fonction. Le constructeur comme toutes les autres méthodes possède comme premier paramètre \codes{self} qui permet d'accéder aux attributs et aux méthodes de la classe. Le programme suivant est équivalent au premier.
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1, att2, att3) :
+        self.att1 = att1
+        self.att2 = att2
+        self.att3 = att3
+        self.att4 = self.calcule4 ()
+        
+    def calcule4 (self) :
+        return self.att1 * self.att2 * self.att3
+        
+a = ma_classe (-1,1,2) # déclare une variable de type ma_classe
+print (a.att1)           # affiche -1
+print (a.att2)           # affiche 3
+print (a.att3)           # affiche 4
+print (a.att4)           # affiche -12
+\end{verbatimx} 
+
+
+\subsection{Attributs et méthodes}\indexfr{attribut}\indexfr{méthode}
+
+Les attributs sont déclarés le plus souvent à l'intérieur du constructeur, plus généralement à l'intérieur de toute méthode, voire à l'extérieure de la classe. Pour y faire référence à l'intérieur d'une méthode on fait précéder le nom de l'attribut de \codes{self.}, à l'extérieur de la classe, c'est le nom de l'instance suivi d'un point \codes{.} qui précède le nom de l'attribut comme le montre le précédent exemple. 
+
+Une méthode est déclarée à l'intérieur de la classe. Elle accepte invariablement au moins un paramètre qui est \codes{self} comme dans le précédent exemple. Les règles d'accès sont les mêmes que pour les attributs. Elles acceptent également la récursivité et les paramètres par défaut à l'exception du premier. Chaque instance de classe est également munie d'un dictionnaire \codes{\_\_dict\_\_} qui recense tous les attributs. 
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1, att2, att3) :
+        self.att1 = att1                    # attribut
+        self.att2 = att2                    # attribut
+        self.att3 = att3                    # attribut
+        self.att4 = att1 * att2 * att3      # attribut
+
+    def calcule (self,x) :                   # méthode
+        return self.att1 * self.att2 * self.att3 * x
+				
+a = ma_classe (1,2,3)
+print (a.att1)                 # affiche 1 
+print (a.__dict__ ["att1"])    # affiche aussi 1, ligne équivalente à la précédente
+print (a.calcule(2))           # appel d'une méthode
+\end{verbatimx}
+
+
+\subsection{Méthodes statiques}\indexfr{méthode statique}
+
+Les méthodes statiques sont comme des fonctions~: elle ne nécessite pas d'instance d'un object pour être appelée.
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1, att2, att3) :
+		    # ...
+
+    @staticmethod
+    def calcule_static (x,y) :         # méthode statique
+        return x * y
+				
+print (ma_classe.calcule_static(2,3))  # appel d'une méthode statique
+\end{verbatimx}
+
+
+
+\subsection{Opérateurs}\indexfr{opérateur}
+
+Les opérateurs sont des méthodes qui permettent une manipulation plus simple des objets. Leur nom est fixé par convention par le langage \python, ils commencent et terminent par \codes{\_\_}. 
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1, att2, att3) :
+        self.att1 = att1
+        self.att2 = att2
+        self.att3 = att3
+        self.att4 = att1 * att2 * att3
+        
+    def __add__ (self, a) :
+         return ma_classe (self.att1 + a.att1, self.att2 + a.att2, \
+                       self.att3 + a.att3, self.att4 + a.att4)
+
+a = ma_classe (1,2,3)
+b = ma_classe (4,5,6)
+c = a + b              # n'a de sens que si l'opérateur __add__ a été redéfini
+\end{verbatimx}
+%
+Il existe un opérateur spécifique pour chaque opération, cet opérateur permet de donner un sens à une addition, une soustraction, ...,  de deux instances d'une classe. L'opérateur \codes{\_\_str\_\_} retourne une chaîne de caractères et est appelé par l'instruction \codes{print}. L'opérateur \codes{\_\_cmp\_\_} retourne un entier permettant à des instances de la classe d'être comparées et triées par une liste.
+
+
+\subsection{Copie d'instances}\indexfr{copie}
+
+Les instances de classes sont des objets modifiables, comme pour les listes, une simple affectation ne signifie pas une copie mais un second nom pour désigner le même objet.
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1, att2, att3) :
+        self.att1 = att1
+        self.att2 = att2
+        self.att3 = att3
+        self.att4 = att1 * att2 * att3
+
+a = ma_classe (1,2,3)
+b = a
+b.att1 = -16
+print (a.att1)  # affiche -16
+print (b.att1)  # affiche -16
+\end{verbatimx}
+%
+Il faut donc copier explicitement l'instance pour obtenir le résultat souhaité.
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1, att2, att3) :
+        self.att1 = att1
+        self.att2 = att2
+        self.att3 = att3
+        self.att4 = att1 * att2 * att3
+
+a = ma_classe (1,2,3)
+import copy
+b = copy.copy (a)
+b.att1 = -16
+print (a.att1)  # affiche 1
+print (b.att1)  # affiche -16
+\end{verbatimx}
+
+
+Lorsque une classe inclut une variable de type classe, il faut utiliser la fonction \codes{deepcopy} et non \codes{copy}.
+
+
+
+\subsection{Héritage}\indexfr{héritage}
+
+L'héritage est l'intérêt majeur des classes et de la programmation orientée objet. Lorsqu'une classe hérite d'une autre, elle hérite de ses attributs et de ses méthodes. Le simple fait d'hériter crée donc une classe équivalente. 
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1, att2, att3) :
+        self.att1 = att1
+        self.att2 = att2
+        self.att3 = att3
+        self.att4 = att1 * att2 * att3
+
+class ma_classe2 (ma_classe) :      # héritage simple
+    pass                            # pour dire que la classe est vide
+\end{verbatimx}
+%
+Mais hériter permet de faire deux choses :
+\begin{enumerate}
+\item ajouter des attributs et ajouter des méthodes
+\item modifier le comportement d'une méthode existante
+\end{enumerate}
+%
+\begin{verbatimx}
+class ma_classe :
+    def __init__ (self, att1) :
+        self.att1 = att1
+        self.att2 = self.calcul ()
+
+    def calcul (self) :
+        return self.att1 ** 2
+
+class ma_classe2 (ma_classe) :
+    def calcul (self) :
+        # dans cette méthode, on change le comportement
+        # de la méthode calcul tout en se servant de celui 
+        # de la classe mère
+        return ma_classe.calcul (self) * self.att1
+
+a = ma_classe (2)
+b = ma_classe2 (2)
+print (a.att2)   # affiche 4  = 2 * 2
+print (b.att2)   # affiche 8  = (2*2) * 2
+\end{verbatimx}
+
+
+\subsection{Décorateur}\indexfr{décorateur}
+
+Le langage \pythons permet quelques simplifications de code avec les décorateurs comme dans l'exemple suivant~:
+
+\begin{verbatimx}
+def makebold(fn):
+    def wrapped():
+        return "<b>" + fn() + "</b>"
+    return wrapped
+
+def makeitalic(fn):
+    def wrapped():
+        return "<i>" + fn() + "</i>"
+    return wrapped
+
+@makebold
+@makeitalic
+def hello():
+    return "hello world"
+
+print (hello()) ## returns <b><i>hello world</i></b>
+\end{verbatimx}
+
+Il est possible aussi de définir des propriétés ou \textit{properties}. Cela permet de séparer l'affectation de l'accès à un membre d'une classe sans changer la notation~:\indexfr{propriété}\indexfr{property}
+
+\begin{verbatimx}
+class C(object):
+    def __init__ (self) :
+        self._p = 1
+    @property
+    def p(self):
+        return self._p
+    @p.setter
+    def p(self, val):
+        self._p = val * 2
+        
+obj = C()
+print (obj.p)  # utilise p_get, affiche 1
+obj.p = 5      # utilise p_set
+print (obj.p)  # utilise p_get affiche 10
+\end{verbatimx}
+				
+
+\section{Fichiers}\indexfr{fichier}
+
+L'écriture et la lecture dans un fichier s'effectuent toujours de la même manière. On ouvre le fichier en mode écriture ou lecture, on écrit ou on lit, puis on ferme le fichier, le laissant disponible pour une utilisation ultérieure. Ce paragraphe ne présente pas l'écriture ou la lecture dans un format binaire car celle-ci est peu utilisée dans ce langage.
+
+
+\subsection{Ecriture dans un fichier texte}
+
+L'écriture dans un fichier texte s'effectue toujours selon le même schéma~:
+%
+\begin{verbatimx}
+f = open ("nom-fichier", "w") # ouverture en mode écriture "w" ou écriture ajout "a"
+
+f.write (  s )                # écriture de la chaîne de caractères  s 
+f.write (  s2 )               # écriture de la chaîne de caractères  s2
+...
+
+f.close ()  # fermeture
+\end{verbatimx}
+%
+Certains codes sont fort utiles lors de l'écriture de fichiers texte~:
+\begin{center}
+\begin{tabular}{ll}
+\codes{\backslash n}  & passage à la ligne \\
+\codes{\backslash t}  & insertion d'une tabulation, indique un passage à la colonne suivante dans le logiciel Excel 
+\end{tabular}
+\end{center}
+
+\textbf{Version 3.x :} une autre écriture est possible qui permet d'éviter l'appel à la méthode \codes{close}.\label{section_res_fichier}
+\begin{verbatimx}
+with open ("nom-fichier", "w") as f : 
+    f.write (  s )                
+    f.write (  s2 )               
+\end{verbatimx}
+
+L'usage d'un encoding est fréquent lorsqu'on manipule des fichiers issus d'Internet. Le plus répandu est \codes{utf8}. Il est spécifié en-tête des pages web téléchargées. L'exemple qui suit n'est valable qu'avec la version~3. Il est recommandé de l'utiliser dès qu'on manipule les encodings.
+\begin{verbatimx}
+with open ("nom-fichier", "w", encoding = "utf8") as f : 
+    f.write (  s )                
+    f.write (  s2 )               
+\end{verbatimx}
+
+\subsection{Lecture dans un fichier texte}
+
+La lecture est le symétrique de l'écriture. En voici un exemple, la seule chose qui change d'un programme à l'autre est ce qu'on fait des lignes extraites.
+%
+\begin{verbatimx}
+f = open ("essai.txt", "r")   # ouverture du fichier en mode lecture
+l = f.readlines ()            # lecture de toutes les lignes, 
+                              #   elles sont placées dans une liste
+f.close ()                    # fermeture du fichier
+
+for s in l : print (s)        # on affiche les lignes à l'écran
+\end{verbatimx}
+
+\textbf{Version 3.x :} la même syntaxe avec le mot-clé \codes{with} et l'encoding existe.
+
+\begin{xremark}{code de fin de ligne}
+Lors le programme précédent lit une ligne dans un fichier, le résultat lu inclut le ou les caractères (\codes{\backslash n \; \backslash r} qui marquent la fin d'une ligne. C'est pour cela que la lecture est parfois suivie d'une étape de nettoyage. \indexfrr{fichier}{fin de ligne}
+%
+\begin{verbatimx}
+f = open ("essai.txt", "r")     # ouverture du fichier en mode lecture
+l = f.readlines ()              # lecture de toutes les lignes, 
+                                #   elles sont placées dans une liste placées dans une liste
+f.close ()                      # fermeture du fichier
+
+l_net = []                      # contiendra la liste nettoyée des lignes du fichier
+for s in l : 
+    s2 = s.replace ("\n", "")   # on supprime le code de fin de ligne \n 
+    s2 = s2.replace ("\r", "")  # on supprime le code de fin de ligne \r 
+                                #                   (Windows uniquement)
+	  s2 = s2.strip("\r\n")       # cette ligne est équivalente aux deux précédentes
+    l_net.append (s2)           # on ajoute le résultat à la liste nettoyée
+\end{verbatimx}
+\end{xremark}
+
+\begin{xremark}{fichier formaté}
+Les fichiers textes ont de nombreux formats, on peut citer HTML ou XML qui sont des formats à balises. Leur lecture utilise des modules comme \codes{HTMLParser} ou \codes{xml.sax} dont la description sort du cadre de ce document.\indexfrr{HTML}{lecture}\indexfrr{XML}{lecture}\indexfrr{fichier}{HTML}\indexfrr{fichier}{XML} Un autre format est souvent utilisé avec le logiciel \textit{Excel}\indexoutil{Excel} ou tout autre tableur. Lorsqu'on enregistre une feuille de calcul sous format texte, le fichier obtenu est organisé en colonnes~: sur une même ligne, les informations sont disposées en colonnes délimitées par un séparateur qui est souvent une tabulation (\codes{\backslash t}) ou un point virgule.
+%
+\begin{verbatimx}
+nom  ; prénom ; livre
+Hugo  ; Victor  ; Les misérables
+Kessel ; Joseph  ; Le lion
+Woolf ; Virginia  ; Mrs Dalloway
+Calvino ; Italo  ; Le baron perché
+\end{verbatimx}
+%
+Pour lire ce fichier, il est nécessaire de scinder chaque ligne en une liste de chaînes de caractères. On utilise pour cela la méthode \codes{split} des chaînes de caractères.
+%
+\begin{verbatimx}
+f = open ("essai.txt", "r")     # ouverture du fichier en mode lecture
+l = f.readlines ()              # lecture de toutes les lignes, placées dans une liste
+f.close ()                      # fermeture du fichier
+
+for s in l : 
+    s2 = s.replace ("\n", "")   # on supprime le code de fin de ligne \n 
+    s2 = s2.replace ("\r", "")  # on supprime le code de fin de ligne \r (Windows uniquement)
+    case = s2.split (";")
+    if len (case) >= 3 :
+        print (case [1], " ", case [0], " a écrit ", case [2])
+				      # Version 2.x : print ...
+\end{verbatimx}
+\end{xremark}
+
+
+\section{Modules}\indexfr{module}
+
+Le concept de module permet de répartir différentes parties d'un programme sur plusieurs fichiers. Il existe deux types de modules~: ceux disponibles sur Internet (programmés par d'autres) et ceux que l'on programme soi-même. Les premiers sont souvent fournis avec un programme d'installation automatique ou dans le cas où ils sont manquants, des instructions permettant de l'installer. Les seconds sont écrits dans le même répertoire que le fichier principal. On enregistre le module suivant sous le nom \codes{geometrie.py}.
+%
+\begin{verbatimx}
+# définition du module geometrie.py
+
+def carre (x) :
+    return x ** 2
+    
+class point :
+    def __init__ (self,x,y) :
+        self.x, self.y = x,y
+        
+    def norme (self) :
+        return (self.x ** 2 + self.y ** 2) ** 0.5
+\end{verbatimx}        
+%
+Pour utiliser une fonction ou une classe du module \codes{geometrie.py}, on utilise une des syntaxes suivantes~:
+%
+\begin{enumerate}
+\item Première syntaxe~:
+\begin{verbatimx}
+import geometrie
+print (geometrie.carre (1.5))
+p = geometrie.point (1,2)
+\end{verbatimx}
+%
+\item Deuxième syntaxe~:
+\begin{verbatimx}
+import geometrie as GEO  # on donne un pseudonyme au module geometrie
+print (GEO.carre (1.5))
+p = GEO.point (1,2)
+\end{verbatimx}
+%
+\item Troisième syntaxe~: le module est utilisé très souvent, même un pseudonyme est trop long, il faut néanmoins s'assurer que les modules importés de cette même manière n'incluent pas des fonctions ou classes portant des noms identiques. Dans ce cas, c'est toujours le dernier qui gagne.
+\begin{verbatimx}
+from  geometrie import * 
+print (carre (1.5))
+p = point (1,2)
+\end{verbatimx}
+%
+\end{enumerate}
+%
+Dans le cas des modules installés, les trois syntaxes d'utilisation sont aussi valables. On voit aussi souvent apparaître dans un module la condition~:
+%
+\begin{verbatimx}
+if __name__ == "__main__" :
+    # quelques instructions ici
+\end{verbatimx}
+%
+Ces instructions ne sont exécutées que si le module est utilisé en tant que programme principal. Lorsque ce fichier est importé, elles ne sont jamais exécutées. Cela permet d'écrire des instructions qui permettent de vérifier si le module ne contient pas d'erreurs. Une fois cette étape effectuée, il ne sert à rien de la répéter à chaque fois que le module est importé. C'est pourquoi elles ne sont exécutées que si la condition \codes{if \;\_\_name\_\_ == "\_\_main\_\_" :} est vérifiée, c'est-à-dire si le module est le programme principal et non un module.
+
+
+
+
+
+\section{Exceptions}\indexfr{exception}
+
+
+Le petit programme suivant déclenche une erreur parce qu'il effectue une division par zéro.
+%
+\begin{verbatimx}
+def inverse (x):
+    y = 1.0 / x
+    return y
+b = inverse (0)
+print (b)
+\end{verbatimx}
+%
+Il déclenche une erreur ou ce qu'on appelle une \emph{exception}.
+%
+\begin{verbatimx}
+Traceback (most recent call last):
+  File "cours.py", line 2, in ?
+    y = 1.0 / x
+ZeroDivisionError: float division
+\end{verbatimx}
+%
+Le mécanisme des exceptions permet au programme de "rattraper" les erreurs, de détecter qu'une erreur s'est produite et d'agir en conséquence afin que le programme ne s'arrête pas~:
+%
+\begin{verbatimx}
+def inverse (x):
+    y = 1.0 / x
+    return y
+try :
+    b = inverse (0)  # déclenche une exception
+    print (b)
+except :
+    print ("le programme a déclenché une erreur")
+\end{verbatimx}
+%
+On protège la partie du code à l'aide des mots-clés \codes{try} et \codes{except}. Entre ces deux instructions, s'il se produit une erreur, le programme passe immédiatement à ce qui suit l'instruction \codes{except}. On peut même récupérer le message d'erreur correspondant~:
+%
+\begin{verbatimx}
+def inverse (x):
+    y = 1.0 / x
+    return y
+try :
+    print (inverse (2))
+    print (inverse (0))
+except Exception as exc:
+    print ("exception de type ", exc.__class__)
+         # affiche exception de type  exceptions.ZeroDivisionError
+    print ("message ", exc)
+         # affiche le message associé à l'exception
+\end{verbatimx}
+%
+On peut aussi décider que le programme agira différemment selon l'erreur produite. Dans l'exemple suivant, le programme teste d'abord si l'erreur est de type \codes{ZeroDivisionError} auquel cas il affiche le message \textit{division par zéro}. Pour un autre type d'erreur, il regarde s'il y a d'autres instructions \codes{except} qui s'y rapportent. S'il y en a une, il exécute les lignes qui la suivent, sinon, le programme s'arrête et déclenche une erreur.
+%
+\begin{verbatimx}
+def inverse (x):
+    y = 1.0 / x
+    return y
+try :
+    print ((-2.1) ** 3.1)
+    print (inverse (2))
+    print (inverse (0))
+except ZeroDivisionError:
+    print ("division par zéro")
+except Exception as exc:
+    print ("erreur insoupçonnée : ", exc.__class__)
+    print ("message ", exc)
+\end{verbatimx}
+%
+Les instructions \codes{try} et \codes{except} peuvent apparaître dans le programme principal, dans une boucle, un test, une fonction, s'imbriquer les unes dans les autres. Il est possible de déclencher soi-même une exception avec l'instruction \codes{raise} et ou de définir ses propres exceptions en créant une classe héritant d'une classe d'exception. L'exemple suivant regroupe tous ces cas.
+%
+\begin{verbatimx}
+class AucunChiffre (Exception) :
+    """chaîne de caractères contenant
+    aussi autre chose que des chiffres"""
+
+    def __init__(self, s, f = "") :
+        Exception.__init__(self, s)
+        self.s = s
+        self.f = f
+
+    def __str__(self) :
+        return """exception AucunChiffre, lancée depuis la fonction """ + self.f + \
+        " avec le paramètre " + self.s
+
+def conversion (s) :
+    """conversion d'une chaîne de caractères en entier"""
+    if not s.isdigit () :
+        raise AucunChiffre, (s, "conversion")
+    return int (s)
+
+try :
+    s = "123a"
+    i = conversion (s)
+    print (s, " = ", i)
+except AucunChiffre as exc :
+    print (AucunChiffre.__doc__, " : ", exc)
+    print ("fonction : ", exc.f)
+\end{verbatimx}
+
+
+\section{Erreurs, confusions fréquentes}
+
+\subsection{Variables}
+
+\subsubsection{Chaîne de caractères = tableau de caractères}
+\indexfrr{confusion}{chaîne = tableau}
+
+Une chaîne de caractères est un tableau de caractères~: pour accéder à un caractère, on procède comme pour une liste.
+%
+\begin{verbatimx}
+s = "abcdefghijklmnopqrstuvwxyz"
+print (s [4])    # affiche "e"
+print (s [4:6])  # affiche "ef"
+\end{verbatimx}
+
+
+
+\subsubsection{Guillemets ou pas}
+\indexfr{guillemet}
+Doit-on mettre des guillemets ou non~? 
+%
+\begin{verbatimx}
+l  = [ un, deux, trois, quatre ]
+up = []
+for i in range (0, len (l)) :
+    up.append ( l [i].upper () )
+\end{verbatimx}
+%
+Le code précédent ne fonctionne pas car il n'y a pas de guillemets autour de \codes{un}, \codes{deux}, \codes{trois}, \codes{quatre}. Le langage considère alors ces quatre mots comme des variables~: un identificateur qui désigne une information. Mais comme ces variables n'existent pas, ces identifiants ne sont reliés à aucun contenu et l'interpréteur \pythons ne comprend pas.
+
+Un mot entouré de guillemets (ou d'apostrophes) définit un contenu. Sans guillemet (ou apostrophe), il définit une variable qui permet de manipuler un contenu tout simplement en donnant la possibilité au programmeur de le nommer. Autrement dit, pour manipuler une chaîne de caractères, il faut affecter ce contenu à une variable. Les guillemets n'apparaissent plus par la suite car on doit utiliser la variable pour la manipuler.
+
+
+\subsection{Boucles}
+
+\subsubsection{\codes{range} ou pas \codes{range} }
+\indexfrr{boucle}{for}\indexfrr{boucle}{while}
+%
+Les deux programmes suivant sont équivalents. La seule différence réside dans l'écriture dans la boucle \codes{for} qui utilise dans le premier cas la fonction \codes{range} et dans l'autre non.
+%
+\begin{verbatimx}
+l  = [ "un", "deux", "trois", "quatre" ]
+up = []
+for i in range (0, len (l)) :
+    up.append ( l [i].upper () )
+\end{verbatimx}
+%
+Lorsqu'on utilise la fonction \codes{range}, on dispose lors de la boucle de deux informations, l'indice \codes{i} et l'élément \codes{l [i]}. Si l'indice n'est pas utile, il est possible de simplifier la boucle comme suit.
+%    
+\begin{verbatimx}
+l  = [ "un", "deux", "trois", "quatre" ]
+up = []
+for m in l :
+    up.append ( m.upper () )
+\end{verbatimx}
+%
+En général, on se sert de la boucle qui utilise la fonction \codes{range} dans deux cas~:
+\begin{enumerate}
+\item On souhaite faire des opérations sur les éléments qui précèdent ou suivent l'élément en question, ce qui nécessite de connaître l'indice.
+\item On parcourt deux listes de même taille à la fois~: l'indice désigne la position de deux éléments, un dans chaque liste.
+\end{enumerate}
+
+\subsubsection{Initialisation}
+\indexfrr{confusion}{initialisation d'une boucle}
+
+Une boucle est souvent utilisée pour faire une somme, calculer un maximum~: garder un unique résultat en parcourant une liste. Une boucle de ce type est toujours précédée d'une étape d'initialisation qui consiste à donner une valeur au résultat~: celle qu'il aurait si la liste était vide.
+%
+\begin{verbatimx}
+l = [ "un", "deux", "trois", "quatre" ]
+s = ""
+for m in l :
+    s += m # concaténation des mots en une seule chaîne de caractères
+\end{verbatimx}
+
+
+\subsection{Fonctions}
+
+\subsubsection{Différence entre \codes{print} et \codes{return}}
+\indexfrr{confusion}{différence entre \codes{print} et \codes{return}}
+
+A la fin d'un calcul, afin de voir son résultat, on utilise souvent l'instruction \codes{print}. On peut se demander alors si à la fin de chaque fonction, il ne faudrait pas utiliser l'instruction \codes{print}. A quoi servirait alors l'instruction \codes{return}~? On suppose qu'un calcul est en fait le résultat de trois calculs à la suite~:
+\begin{verbatimx}
+a = calcul1 (3)
+b = calcul2 (a)
+c = calcul3 (b) # c résultat souhaité et affiché
+\end{verbatimx}
+%
+Chaque terme \codes{calculx} cache une fonction or seul le résultat de la dernière nous intéresse et doit être affiché. Pour les deux premières, la seule chose importante est que leur résultat soit transmis à la fonction suivante et ceci ne peut se faire que grâce à l'instruction \codes{return}. L'instruction \codes{print} insérée dans le code de la fonction \codes{calcul1} ou \codes{calcul2} permettra d'afficher le résultat mais ne le transmettra pas~: l'instruction \codes{return} est donc indispensable, \codes{print} facultative.
+
+En revanche, dans la dernière fonction \codes{calcul3}, il est possible de se passer de \codes{return} et de se contenter uniquement d'un \codes{print}. Cependant, il est conseillé d'utiliser quand même \codes{return} au cas où le résultat de la fonction \codes{calcul3} serait utilisé par une autre fonction, \codes{calcul4} par exemple.
+
+\begin{verbatimx}
+def calcul1(x) :
+    return x+3
+y = calcul1(4)
+print (y)            # affiche None
+                     # car la fonction calcul1 ne retourne pas de résultat, elle l'affiche
+\end{verbatimx}
+
+Cela peut provoquer des erreurs lorsqu'on essaye d'utiliser ce résultat dans un calcul par la suite.
+
+\begin{verbatimx}
+def calcul1(x) : print (x+3)
+def calcul2(x) : return calcul1(x) + 5
+y = calcul2(4)     # affiche l'erreur
+                   # ported operand type(s) for +: 'NoneType' and 'int'
+\end{verbatimx}
+
+
+
+
+
+\section{Trois conseils pour écrire un programme}
+
+\subsection{Des petites fonctions}
+
+Pour plusieurs raisons~:
+\begin{enumerate}
+\item Il est plus facile de corriger un programme qui est constitué de petites fonctions plutôt que de quelques grandes. Chaque fonction peut être vérifiée séparément.
+\item Il est plus facile de réutiliser des petites fonctions.
+\item Il est plus facile de répartir le travail sur plusieurs personnes.
+\end{enumerate}
+
+\begin{xremark}{variables globales}
+Il vaut mieux éviter les variables globales qui sont considérées que comme des paramètres cachés.
+\end{xremark}
+
+
+
+\subsection{Séparer les calculs, le chargement des données, l'interface graphique}
+
+Pour plusieurs raisons~:
+\begin{enumerate}
+\item Il est plus facile de vérifier un calcul s'il est dans une fonction indépendante plutôt que caché dans le code d'une interface graphique.
+\item C'est facile de faire un calcul une fois lorsqu'un utilisateur appuie sur un bouton, si on veut faire ce calcul cent fois, on ne peut pas lui demander d'appuyer cent fois sur le même bouton.
+\item Les calculs ou le chargement des données peuvent être utilisés dans d'autres programmes.
+\end{enumerate}
+
+\subsection{Utiliser des fonctions de tests}
+
+Ces fonctions peuvent être exécutées au début du programme pour vérifier que certaines parties du programme fonctionnent toujours même après les avoir modifiées.
+
+L'exemple suivant considère une fonction qui doit retourner une somme réelle même si les éléments de la liste sont entiers. On écrit la fonction qui vérifie cela.
+
+\begin{verbatimx}    
+def somme_double (liste) :
+    return 1.0 * sum(liste)
+
+def test_somme_double () :
+    y = somme_double([ 1 ]) / 2
+    if y == 0 : raise Exception ("valeur > 0 attendue")
+        
+if __name__ == "__main__" :
+    test_somme_double()
+\end{verbatimx}    
+
+Si plus tard, quelqu'un modifie la fonction \codes{somme\_double} en enlevant la multiplication parce qu'il considère cela inutile. La fonction de test provoquera une erreur. Elle est là pour rappeler que la fonction a été programmée pour retourner un nombre réel et que quiconque l'utilise s'attend à ce qu'elle retourne ce type de résultat.
+
+\begin{verbatimx}    
+Traceback (most recent call last):
+  File "conseil.py", line 10, in <module>
+    test_somme_double()
+  File "conseil.py", line 7, in test_somme_double
+    if y == 0 : raise Exception ("valeur > 0 attendue")
+Exception: valeur > 0 attendue
+\end{verbatimx}    
+
+\section{Trucs et astuces}
+
+
+\subsection{Partager du code}
+
+Il existe aujourd'hui des solutions qui permettent d'éviter les envois de programme par email. Des outil comme \textit{DropBox}, \textit{SkyDrive}, \textit{GoogleDrive} permettent de partager un répertoire. Un même répertoire peut être partagé sur plusieurs ordinateurs et plusieurs personnes. Une modification (y compris une suppression) sur l'une des répliques sera propagée sur tous les ordinateurs dès qu'ils sont connectés à Internet.
+
+Il est possible de coupler cette solution avec \textit{SVN} ou \textit{TortoiseSVN} qui sont des logiciels de suivis de source. On garde à la fois la dernière version et l'historique des modifications\footnote{\httpstyle{http://mlevit.wordpress.com/2009/11/18/how-to-use-subversion-dropbox-to-create-an-effective-work-managementbackup-system/}}.  
+
+
+\subsection{Moteurs de recherche}
+
+Lorsqu'on ne comprend un message d'erreur, il est souvent utile de recopier le texte dans un moteur de recherche (Google, Bing, ...). Il est très rare de ne pas réussir à trouver d'indices.
+
+
+
+
+
+
+\section{Références}
+
+\subsection{Quelques sites}
+
+\begin{itemize}
+\item \httpstyle{http://www.siteduzero.com/informatique/tutoriels/apprenez-a-programmer-en-python}
+\item \httpstyle{https://www.khanacademy.org/science/computer-science/v/introduction-to-programs-data-types-and-variables}
+\end{itemize}
+
+
+\subsection{Quelques modules}
+
+\begin{itemize}
+\item \codes{numpy}~: calcul matriciel.
+\item \codes{scipy}~: calcul scientifique.
+\item \codes{matplotlib}~: graphique.
+\item \codes{pygame}~: jeux.
+\item \codes{PyQt}~: interface graphique.
+\item \codes{NetworkX}~: dessiner des graphes.
+\end{itemize}
+
+
+\subsection{Quelques livres}
+
+\begin{itemize}
+\item \citeindex{Pilgrim2011}~: livre très détaillé sur le langage et ses modules.
+\item \citeindex{Swinnen2012}~: initiation au langage.
+\item \citeindex{Dupré2011}~: initiation au langage et exercices.
+\item \citeindex{Ziadé2011}~: aborde le langage et différent aspects de l'utilisation du langage pour construire une application robuste (tests unitaires...)
+\item \citeindex{Dayley2007}~: résumé du langage, peu d'explications, beaucoup d'exemples, aborde beaucoup de sujets (envoyer un email, internet, ...). 
+																Bonne source pour u copier/coller.
+\item \citeindex{Brucher2008}, \citeindex{Bailly2008}~: pour les experts qui souhaitent écrire des programmes en \pythons et \textit{C++}.
+\item \citeindex{McKinney2012}~: pour faire de l'analyse des données avec \python.
+\end{itemize}
+
+
+\firstpassagedo{
+	\subsection{Bibliographie}
+	\begin{thebibliography}{99}
+	\input{python_cours_biblio.tex}
+	\end{thebibliography}
+	%\section{Index}
+	\begin{flushleft}
+	\printindex
+	\end{flushleft}
+}
+    		
+
+
+\input{../../common/paper_end.tex}%
+

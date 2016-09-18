@@ -1,0 +1,2603 @@
+\input{../../common/livre_begin.tex}%
+\firstpassagedo{\input{python_cours_titre.tex}}
+\input{../../common/livre_table_begin.tex}%
+%\firstpassagedo{\input{python_cours_chapter.tex}}
+
+
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------
+\chapter{Classes}
+\label{chap_classe}
+%-------------------------------------------------------------------------------------------------------------
+
+Imaginons qu'une banque détienne un fichier contenant des informations sur ses clients et qu'il soit impossible pour un client d'avoir accès directement à ces informations. Toutefois, il lui est en théorie possible de demander à son banquier quelles sont les informations le concernant détenues par sa banque. Il est en théorie également possible de les rectifier s'il estime qu'elles sont incorrectes.\ifnotellipse{\footnote{Tout fichier contenant des données à caractère personnel doit être recensé auprès de la Commission nationale de l'informatique et des libertés (CNIL). Cet organisme facilite l'accès à ces informations.}}.
+
+On peut comparer cette banque à un objet qui possède des informations et des moyens permettant de lire ces informations et de les modifier. Vu de l'extérieur, cette banque cache son fonctionnement interne et les informations dont elle dispose, mais propose des services à ses utilisateurs.
+
+\indexfr{objet}\indexfr{programmation objet}\indexfr{classe}\indexfrr{classe}{attribut}\indexfrr{classe}{méthode}
+On peut considérer la banque comme un \emph{objet} au sens informatique. Ce terme désigne une entité possédant des données et des méthodes permettant de les manipuler. Plus concrètement, une classe est un assemblage de variables appelées \emph{attributs} et de fonctions appelées \emph{méthodes}. L'ensemble des propriétés associées aux classes est regroupé sous la désignation de \emph{programmation objet}.
+
+\vspaceneg
+
+\section{Présentation des classes~: méthodes et attributs}
+\vspaceneg
+
+\subsection{Définition, déclaration}
+\label{par_classe_un}
+\vspaceneg \vspaceneg
+
+		\begin{xdefinition}{classe}\indexfrr{type}{modifiable}
+		Une classe est un ensemble incluant des variables ou \emph{attributs} et des fonctions ou \emph{méthodes}.
+		Les attributs sont des variables accessibles depuis toute méthode de la classe où elles sont définies. En \python, 
+		les classes sont des types modifiables.
+		\end{xdefinition} \vspace{-0.5cm}
+
+\begin{xsyntax}{classe, définition}
+\begin{verbatimno}
+class nom_classe :
+    # corps de la classe
+    # ...
+\end{verbatimno}
+\negvspace
+Le corps d'une classe peut être vide, inclure des variables ou attributs, des fonctions ou méthodes. Il est en tout cas indenté de façon à indiquer à l'interpréteur \pythons les lignes qui forment le corps de la classe. \indexsymbole{:}\indexkeyword{class}
+\end{xsyntax}
+
+\vspaceneg
+
+Les classes sont l'unique moyen en langage \pythons de définir de nouveaux types propres à celui qui programme. Il n'existe pas de type "matrice" ou de type "graphe" en langage \pythons qui soit prédéfini\footnote{Les matrices sont définies dans une extension \textbf{externe} \codes{numpy} (voir le chapitre~\ref{chap_module}).}. Il est néanmoins possible de les définir au moyen des classes. Une matrice est par exemple un objet qui inclut les attributs suivant~: le nombre de lignes, le nombre de colonnes, les coefficients de la matrice. Cette matrice inclut aussi des méthodes comme des opérations entre deux matrices telles que l'addition, la soustraction, la multiplication ou des opérations sur elle-même comme l'inversion, la transposition, la diagonalisation.
+		
+Cette liste n'est pas exhaustive, elle illustre ce que peut être une classe "matrice" -~représentation informatique d'un objet "matrice"~-, un type complexe incluant des informations de types variés (entier pour les dimensions, réels pour les coefficients), et des méthodes propres à cet objet, capables de manipuler ces informations.
+
+Il est tout-à-fait possible de se passer des classes pour rédiger un programme informatique. Leur utilisation améliore néanmoins sa présentation et la compréhension qu'on peut en avoir. Bien souvent, ceux qui passent d'un langage uniquement fonctionnel à un langage objet ne font pas marche arrière.
+
+\vspaceneg
+
+\begin{xsyntax}{classe, création d'une variable de type objet}
+\begin{verbatimno}
+
+cl = nom_classe ()
+\end{verbatimno}
+\negvspace
+La création d'une variable de type objet est identique à celle des types standards du langage \python~: elle passe par une simple affectation. On appelle aussi \codes{cl} une \emph{instance} de la classe \codes{nom\_classe}.
+\end{xsyntax}
+
+\vspaceneg
+Cette syntaxe est identique à la syntaxe d'appel d'une fonction. La création d'une instance peut également faire intervenir des paramètres (voir paragraphe~\ref{par_constructeur_operateur}). Le terme \textit{instance} va de paire avec le terme \textit{classe}~:
+
+\vspaceneg
+				\begin{xdefinition}{instance}\indexfrr{classe}{instance}\indexfrr{type}{objet}
+				Une instance d'une classe \codes{C} désigne une variable de type \codes{C}. 
+				Le terme instance ne s'applique qu'aux variables dont le type est une classe.
+				\end{xdefinition}
+
+\vspaceneg
+\indexkeyword{pass}
+L'exemple suivant permet de définir une classe vide. Le mot-clé \codes{pass} permet de préciser que le corps de la classe ne contient rien. \vspaceneg
+%
+\begin{verbatimx}
+class classe_vide:
+    pass
+\end{verbatimx}    
+%
+\vspaceneg
+Il est tout de même possible de définir une instance de la classe \codes{classe\_vide} simplement par l'instruction suivante~:
+\vspaceneg \indexfrr{instance}{création}
+%
+\begin{verbatimx}
+class classe_vide:
+    pass
+cl = classe_vide ()
+\end{verbatimx}    
+\vspaceneg
+%
+\begin{xremark}{type d'une instance}
+Dans l'exemple précédent, la variable \codes{cl} n'est pas de type \codes{exemple\_classe} mais de type \codes{instance} comme le montre la ligne suivante~:
+%
+\vspaceneg
+\begin{verbatimx}
+print type (cl)   # affiche <type 'instance'>
+\end{verbatimx}
+\vspaceneg
+%
+Pour savoir si une variable est une instance d'une classe donnée, il faut utiliser la fonction \codes{isinstance}~:\indexfonction{isinstance}
+%
+\vspaceneg
+\begin{verbatimx}
+isinstance (cl,classe_vide)   # affiche True
+\end{verbatimx}
+\end{xremark}
+
+
+
+\subsection{Méthodes}
+\indexsymbole{.}\indexsymbole{:}\indexkeyword{def}\indexkeyword{self}
+
+
+				\begin{xdefinition}{méthode}\indexfrr{classe}{méthode}\indexfrr{variable}{globale}
+				Les méthodes sont des fonctions qui sont associées de manière explicite à une classe. 
+				Elles ont comme particularité un accès privilégié aux données de la classe elle-même. 
+				\end{xdefinition}
+
+Ces données	ou \textit{attributs} sont définis plus loin. Les méthodes sont en fait des fonctions pour lesquelles la liste des paramètres contient obligatoirement un paramètre explicite qui est l'instance de la classe à laquelle cette méthode est associée. Ce paramètre est le moyen d'accéder aux données de la classe.
+
+\begin{xsyntax}{classe, méthode, définition}
+\begin{verbatimno}
+
+class nom_classe :
+    def nom_methode (self, param_1, ..., param_n) :
+        # corps de la méthode...
+\end{verbatimno}
+\negvspace
+A part le premier paramètre qui doit de préférence s'appeler \codes{self}, la syntaxe de définition d'une méthode ressemble en tout point à celle d'une fonction. Le corps de la méthode est indenté par rapport à la déclaration de la méthode, elle-même indentée par rapport à la déclaration de la classe. \indexkeyword{def}
+\end{xsyntax}
+
+\vspaceneg
+L'appel à cette méthode obéit à la syntaxe qui suit~:
+
+\begin{xsyntax}{classe, méthode, appel}
+\begin{verbatimno}
+
+cl = nom_classe ()    # variable de type nom_classe
+t  = cl.nom_methode (valeur_1, ..., valeur_n)
+\end{verbatimno}
+\negvspace
+L'appel d'une méthode nécessite tout d'abord la création d'une variable. Une fois cette variable créée, il suffit d'ajouter le symbole "\codes{.}" pour exécuter la méthode. Le paramètre \codes{self} est ici implicitement remplacé par \codes{cl} lors de l'appel. \indexsymbole{.}
+\end{xsyntax}
+
+L'exemple suivant simule le tirage de nombres aléatoires à partir d'une suite définie par récurrence $u_{n+1} = (u_n * A) \; mod \; B$ où $A$ et $B$ sont des entiers très grands. Cette suite n'est pas aléatoire mais son comportement imite celui d'une suite aléatoire. Le terme $u_n$ est dans cet exemple contenu dans la variable globale \codes{rnd}.
+%
+\vspaceneg
+\begin{verbatimx}
+rnd = 42
+
+class exemple_classe:
+    def methode1(self,n):
+        """simule la génération d'un nombre aléatoire 
+           compris entre 0 et n-1 inclus"""
+        global rnd
+        rnd = 397204094 * rnd % 2147483647
+        return int (rnd % n)
+
+nb  = exemple_classe ()
+l   = [ nb.methode1(100) for i in range(0,10) ]
+print l   # affiche [19, 46, 26, 88, 44, 56, 56, 26, 0, 8]
+
+nb2 = exemple_classe ()
+l2  = [ nb2.methode1(100) for i in range(0,10) ]
+print l2   # affiche [46, 42, 89, 66, 48, 12, 61, 84, 71, 41]
+\end{verbatimx}
+\vspaceneg
+%
+Deux instances \codes{nb} et \codes{nb2} de la classe \codes{exemple\_classe} sont créées, chacune d'elles est utilisée pour générer aléatoirement dix nombres entiers compris entre 0 et 99 inclus. Les deux listes sont différentes puisque l'instance \codes{nb2} utilise la variable globale \codes{rnd} précédemment modifiée par l'appel \codes{nb.methode1 (100)}.
+
+
+\begin{xremark}{méthodes et fonctions}
+Les méthodes sont des fonctions insérées à l'intérieur d'une classe. La syntaxe de la déclaration d'une méthode est identique à celle d'une fonction en tenant compte du premier paramètre qui doit impérativement être \codes{self}. Les paramètres par défaut, l'ordre des paramètres, les nombres variables de paramètres présentés au paragraphe~\ref{chap_fonction} sont des extensions tout autant applicables aux méthodes qu'aux fonctions.
+\end{xremark}
+
+
+
+\subsection{Attributs}
+\indexsymbole{.}\indexkeyword{self}
+
+
+				\begin{xdefinition}{attribut}\indexfrr{classe}{attribut}\indexfrr{variable}{globale}
+				Les attributs sont des variables qui sont associées de manière explicite à une classe. 
+				Les attributs de la classe se comportent comme des variables globales pour 
+				toutes les méthodes de cette classe.
+				\end{xdefinition}
+
+Une classe permet en quelque sorte de regrouper ensemble des informations liées. Elles n'ont de sens qu'ensemble et les méthodes manipulent ces données liées. C'est le cas pour un segment qui est toujours défini par ces deux extrémités qui ne vont pas l'une sans l'autre.
+
+\begin{xsyntax}{classe, attribut, définition}
+\begin{verbatimno}
+
+class nom_classe :
+    def nom_methode (self, param_1, ..., param_n) :
+        self.nom_attribut = valeur
+\end{verbatimno}
+\negvspace        
+Le paramètre \codes{self} n'est pas un mot-clé même si le premier paramètre est le plus souvent appelé \codes{self}. Il désigne l'instance de la classe sur laquelle va s'appliquer la méthode. La déclaration d'une méthode inclut toujours un paramètre \codes{self} de sorte que \codes{self.nom\_attribut} désigne un attribut de la classe. \codes{nom\_attribut} seul désignerait une variable locale sans aucun rapport avec un attribut portant le même nom. Les attributs peuvent être déclarés à l'intérieur de n'importe quelle méthode, voire à l'extérieur de la classe elle-même.
+\end{xsyntax}
+
+%
+L'endroit où est déclaré un attribut a peu d'importance pourvu qu'il le soit avant sa première utilisation. Dans l'exemple qui suit, la méthode \codes{methode1} utilise l'attribut \codes{rnd} sans qu'il ait été créé.
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe:
+    def methode1(self,n):
+        """simule la génération d'un nombre aléatoire 
+           compris entre 0 et n-1 inclus"""
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+
+nb = exemple_classe ()
+l  = [ nb.methode1(100) for i in range(0,10) ]
+print l
+\end{verbatimx}
+%
+\vspaceneg
+Cet exemple déclenche donc une erreur (ou exception) signifiant que l'attribut \codes{rnd} n'a pas été créé.
+\vspaceneg
+%
+\begin{verbatimx}
+Traceback (most recent call last):
+  File "cours.py", line 8, in -toplevel-
+    l = [ nb.methode1(100) for i in range(0,10) ]
+  File "cours.py", line 4, in methode1
+    self.rnd = 397204094 * self.rnd % 2147483647
+AttributeError: exemple_classe instance has no attribute 'rnd'
+\end{verbatimx}
+%
+\vspaceneg
+Pour remédier à ce problème, il existe plusieurs endroits où il est possible de créer l'attribut \codes{rnd}.
+Il est possible de créer l'attribut à l'intérieur de la méthode \codes{methode1}. Mais le programme n'a plus le même sens puisqu'à chaque appel de la méthode \codes{methode1}, l'attribut \codes{rnd} reçoit la valeur~42. La liste de nombres aléatoires contient dix fois la même valeur.
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe:
+    def methode1(self,n):
+        """simule la génération d'un nombre aléatoire 
+           compris entre 0 et n-1 inclus"""
+        self.rnd = 42  # déclaration à l'intérieur de la méthode, 
+                       # doit être précédé du mot-clé self
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+
+nb = exemple_classe ()
+l  = [ nb.methode1(100) for i in range(0,10) ]
+print l  # affiche [19, 19, 19, 19, 19, 19, 19, 19, 19, 19]
+\end{verbatimx}
+%
+\vspaceneg
+Il est possible de créer l'attribut \codes{rnd} à l'extérieur de la classe. Cette écriture devrait toutefois être évitée puisque la méthode \codes{methode1} ne peut pas être appelée sans que l'attribut \codes{rnd} ait été ajouté. 
+\vspaceneg
+%
+\begin{verbatimx}
+class exemple_classe:
+    def methode1(self,n):
+        """simule la génération d'un nombre aléatoire 
+           compris entre 0 et n-1 inclus"""
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+
+nb     = exemple_classe ()
+nb.rnd = 42              # déclaration à l'extérieur de la classe, 
+                         # indispensable pour utiliser la méthode methode1
+l = [ nb.methode1(100) for i in range(0,10) ]
+print l  # affiche [19, 46, 26, 88, 44, 56, 56, 26, 0, 8]
+\end{verbatimx}
+
+
+\section{Constructeur} \indexclassnoc{constructeur}\indexfr{constructeur}\indexfrr{méthode}{constructeur}
+\label{par_classe_constructeur}
+
+
+L'endroit le plus approprié pour déclarer un attribut est à l'intérieur d'une méthode appelée le \textit{constructeur}. S'il est défini, il est implicitement exécuté lors de la création de chaque instance. Le constructeur d'une classe se présente comme une méthode et suit la même syntaxe à ceci près que son nom est imposé~: \codes{\_\_init\_\_}. Hormis le premier paramètre, invariablement \codes{self}, il n'existe pas de contrainte concernant la liste des paramètres excepté que le constructeur ne doit pas retourner de résultat.
+
+
+\begin{xsyntax}{classe, constructeur}
+\begin{verbatimno}
+
+class nom_classe :
+    def __init__(self, param_1, ..., param_n):
+        # code du constructeur
+\end{verbatimno}
+\negvspace
+\codes{nom\_classe} est une classe, \codes{\_\_init\_\_} est son constructeur, sa syntaxe est la même que celle d'une méthode sauf que le constructeur ne peut employer l'instruction \codes{return}. \indexsyntaxenoc{constructeur}\indexsyntaxecod{\_\_init\_\_}\indexoperator{\_\_init\_\_}
+\end{xsyntax}
+				
+La modification des paramètres du constructeur implique également la modification de la syntaxe de création d'une instance de cette classe.
+
+\begin{xsyntax}{classe, instance}
+\begin{verbatimno}
+
+x = nom_classe (valeur_1,...,valeur_n)
+\end{verbatimno}
+\negvspace
+\codes{nom\_classe} est une classe, \codes{valeur\_1} à \codes{valeur\_n} sont les valeurs associées aux paramètres \codes{param\_1} à \codes{param\_n} du constructeur. \indexsyntaxenoc{instance}
+\end{xsyntax}
+
+L'exemple suivant montre deux classes pour lesquelles un constructeur a été défini. La première n'ajoute aucun paramètre, la création d'une instance ne nécessite pas de paramètre supplémentaire. La seconde classe ajoute deux paramètres \codes{a} et \codes{b}. Lors de la création d'une instance de la classe \codes{classe2}, il faut ajouter deux valeurs.
+%
+\vspaceneg
+\begin{verbatimx}
+class classe1:
+    def __init__(self):
+        # pas de paramètre supplémentaire
+        print "constructeur de la classe classe1"
+        self.n = 1 # ajout de l'attribut n
+
+x = classe1 ()     # affiche constructeur de la classe classe1
+print x.n          # affiche 1
+        
+class classe2:
+    def __init__(self,a,b):
+        # deux paramètres supplémentaires
+        print "constructeur de la classe classe2"
+        self.n = (a+b)/2  # ajout de l'attribut n
+
+x = classe2 (5,9)  # affiche constructeur de la classe classe2
+print x.n          # affiche 7
+\end{verbatimx}
+\vspaceneg
+%
+\begin{xremark}{constructeur et fonction}
+Le constructeur autorise autant de paramètres qu'on souhaite lors de la création d'une instance et celle-ci suit la même syntaxe qu'une fonction. La création d'une instance pourrait être considérée comme l'appel à une fonction à ceci près que le type du résultat est une instance de classe.
+\end{xremark}
+
+En utilisant un constructeur, l'exemple du paragraphe précédent simulant une suite de variable aléatoire permet d'obtenir une classe autonome qui ne fait pas appel à une variable globale ni à une déclaration d'attribut extérieur à la classe.\indexexemples{séquence aléatoire}{}
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe:
+    def __init__ (self) : # constructeur
+        self.rnd = 42     # on crée l'attribut rnd, identique pour chaque instance
+                          # --> les suites générées auront toutes le même début
+    def methode1(self,n):
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+
+nb  = exemple_classe ()
+l   = [ nb.methode1(100) for i in range(0,10) ]
+print l   # affiche [19, 46, 26, 88, 44, 56, 56, 26, 0, 8]
+
+nb2 = exemple_classe ()
+l2  = [ nb2.methode1(100) for i in range(0,10) ]
+print l2   # affiche [19, 46, 26, 88, 44, 56, 56, 26, 0, 8]
+\end{verbatimx}
+
+\vspaceneg
+De la même manière qu'il existe un constructeur exécuté à chaque création d'instance, il existe un destructeur exécuté à chaque destruction d'instance. Il suffit pour cela de redéfinir la méthode \codes{\_\_del\_\_}.\indexoperateur{\_\_del\_\_}\indexclassnoc{destructeur}\indexsyntaxenoc{destructeur}\indexmethodnoc{destructeur} A l'inverse d'autres langages comme le \textit{C++}, cet opérateur est peu utilisé car le \pythons nettoie automatiquement les objets qui ne sont plus utilisés ou plus référencés par une variable. Un exemple est donné page~\pageref{exemple_del_operateur_desctuer_}.
+
+
+\section{Apport du langage \python}
+
+\subsection{Liste des attributs}\label{par_class_liste_attribut}
+\indexfrr{classe}{liste des attributs}
+\indexattribut{\_\_dict\_\_}
+
+Chaque attribut d'une instance de classe est inséré dans un dictionnaire appelé \codes{\_\_dict\_\_}, attribut implicitement présent dès la création d'une instance.
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe:
+    def __init__ (self) :
+        self.rnd = 42
+    def methode1(self,n):
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+
+nb = exemple_classe ()
+print nb.__dict__        # affiche {'rnd': 42}
+\end{verbatimx}
+%
+\vspaceneg
+Ce dictionnaire offre aussi la possibilité de tester si un attribut existe ou non. Dans un des exemples du paragraphe précédent, l'attribut \codes{rnd} était créé dans la méthode \codes{methode1}, sa valeur était alors initialisée à chaque appel et la fonction retournait sans cesse la même valeur. En testant l'existence de l'attribut \codes{rnd}, il est possible de le créer dans la méthode \codes{methode1} au premier appel sans que les appels suivants ne réinitialisent sa valeur à~42. \label{programme_in_dict_rnd}
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe:
+    def methode1(self,n):
+        if "rnd" not in self.__dict__ :  # l'attribut existe-t-il ? 
+            self.rnd = 42                # création de l'attribut
+            self.__dict__ ["rnd"] = 42   # autre écriture possible
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+
+nb = exemple_classe ()
+l  = [ nb.methode1(100) for i in range(0,10) ]
+print l  # affiche [19, 46, 26, 88, 44, 56, 56, 26, 0, 8]
+\end{verbatimx}
+
+
+
+\subsection{Attributs implicites}\label{attribut_implicite_par}
+\indexfrr{classe}{attribut implicite}
+\indexattribut{\_\_module\_\_}
+\indexattribut{\_\_class\_\_}
+\indexattribut{\_\_dict\_\_}
+\indexattribut{\_\_doc\_\_}
+\indexattribut{\_\_name\_\_}
+\indexattribut{\_\_bases\_\_}
+
+
+Certains attributs sont créés de manière implicite lors de la création d'une instance. Ils contiennent des informations sur l'instance.
+
+		\begin{center}\begin{tabularx}{\textwidth}{|lX|} \hline
+		\codes{\_\_module\_\_} & %\begin{minipage}{10cm}
+												Contient le nom du module dans lequel est incluse la classe (voir chapitre~\ref{chap_module}).
+												%\end{minipage} 
+												\\ \hline
+		\codes{\_\_class\_\_} & %\begin{minipage}{10cm} 
+												Contient le nom de la classe de l'instance. 
+												Ce nom est précédé du nom du module suivi d'un point.
+												%\end{minipage} 
+												\\ \hline
+		\codes{\_\_dict\_\_} & %\begin{minipage}{10cm}
+													Contient la liste des attributs de l'instance 
+													(voir paragraphe~\ref{par_class_liste_attribut}).
+												%\end{minipage} 
+												\\ \hline
+		\codes{\_\_doc\_\_} &  %\begin{minipage}{10cm}
+														Contient un commentaire associé à la classe (voir paragraphe~\ref{par_class_commentaire}).
+												%\end{minipage} 
+												\\ \hline
+		\end{tabularx}\end{center}												
+		
+L'attribut \codes{\_\_class\_\_} contient lui même d'autres d'attributs~:
+		
+		\begin{center}\begin{tabularx}{\textwidth}{|lX|} \hline
+		\codes{\_\_doc\_\_} &  %\begin{minipage}{10cm}
+											Contient un commentaire associé à la classe (voir paragraphe~\ref{par_class_commentaire}).
+												%\end{minipage} 
+												\\ \hline
+		\codes{\_\_dict\_\_} &  %\begin{minipage}{10cm}
+											Contient la liste des attributs statiques (définis hors d'une méthode) et des méthodes (voir
+											paragraphe~\ref{classe_attribut_statique}).
+												%\end{minipage} 
+												\\ \hline
+		\codes{\_\_name\_\_} &  %\begin{minipage}{10cm}
+														Contient le nom de l'instance.
+												%\end{minipage}
+												 \\ \hline
+		\codes{\_\_bases\_\_} & % \begin{minipage}{10cm}
+														Contient les classes dont la classe de l'instance hérite (voir
+														paragraphe~\ref{par_classe_heritage}).
+												%\end{minipage} 
+												\\ \hline
+		\end{tabularx}\end{center}												
+
+\vspaceneg
+\begin{verbatimx}
+class classe_vide:
+    pass
+cl = classe_vide ()
+print cl.__module__             # affiche __main__
+print cl.__class__              # affiche __main__.classe_vide ()
+print cl.__dict__               # affiche {}
+print cl.__doc__                # affiche None  (voir paragraphe suivant)
+print cl.__class__.__doc__      # affiche None  
+print cl.__class__.__dict__     # affiche {'__module__': '__main__', 
+                                #          '__doc__': None}
+print cl.__class__.__name__     # affiche classe_vide
+print cl.__class__.__bases__    # affiche ()
+\end{verbatimx}    
+
+
+
+
+
+
+
+
+
+\subsection{Commentaires, aide}
+\label{par_class_commentaire}
+\indexfrr{classe}{commentaire}\indexfrr{méthode}{commentaire}\indexfr{commentaire}\indexfr{aide}
+\indexfonction{help}
+
+Comme les fonctions et les méthodes, des commentaires peuvent être associés à une classe, ils sont affichés grâce à la fonction \codes{help}. Cette dernière présente le commentaire associé à la classe, la liste des méthodes ainsi que chacun des commentaires qui leur sont associés. Ce commentaire est affecté à l'attribut implicite \codes{\_\_doc\_\_}. L'appel à la fonction \codes{help} rassemble le commentaire de toutes les méthodes, le résultat suit le programme ci-dessous.
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe:
+    """simule une suite de nombres aléatoires"""
+    def __init__ (self) :
+        """constructeur : initialisation de la première valeur"""
+        self.rnd = 42
+    def methode1(self,n):
+        """simule la génération d'un nombre aléatoire 
+        compris entre 0 et n-1 inclus"""
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+nb = exemple_classe ()
+help (exemple_classe)     # appelle l'aide associée à la classe
+\end{verbatimx}
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe
+ |  simule une suite de nombres aléatoires
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self)
+ |      constructeur : initialisation de la première valeur
+ |  
+ |  methode1(self, n)
+ |      simule la génération d'un nombre aléatoire 
+ |      compris entre 0 et n-1 inclus
+\end{verbatimx}
+%
+\vspaceneg
+Pour obtenir seulement le commentaire associé à la classe, il suffit d'écrire l'une des trois lignes suivantes~: 
+\vspaceneg
+%
+\begin{verbatimx}
+print exemple_classe.__doc__  # affiche simule une suite de nombres aléatoires
+print nb.__doc__              # affiche simule une suite de nombres aléatoires
+print nb.__class__.__doc__    # affiche simule une suite de nombres aléatoires
+\end{verbatimx}
+%
+\vspaceneg
+La fonction \codes{help}\indexfonction{help} permet d'accéder à l'aide associée à une fonction, une classe. Il existe des outils qui permettent de collecter tous ces commentaires pour construire une documentation au format \textit{HTML}\ifnotellipse{\indexfrr{aide}{HTML}} à l'aide d'outils comme \textit{pydoc}\footnote{voir \httpstyle{http://pydoc.org/} ou \httpstyle{http://docs.python.org/library/pydoc.html}} ou \textit{Doxygen}\footnote{\httpstyle{http://www.stack.nl/~dimitri/doxygen/} associé à \textit{doxypy} (\httpstyle{http://code.foosel.org/doxypy}).}. Ces outils sont souvent assez simples d'utilisation.
+
+
+\indexfonction{dir}
+La fonction \codes{dir} permet aussi d'obtenir des informations sur la classe. Cette fonction appliquée à la classe ou à une instance retourne l'ensemble de la liste des attributs et des méthodes. L'exemple suivant utilise la fonction \codes{dir} avant et après l'appel de la méthode \codes{meth}. Etant donné que cette méthode ajoute un attribut, la fonction \codes{dir} retourne une liste plus longue après l'appel. \vspaceneg
+%
+\begin{verbatimx}
+class essai_class:
+    def meth(self):
+        x      = 6
+        self.y = 7
+
+a = essai_class()
+print dir (a)             # affiche ['__doc__', '__module__', 'meth']
+a.meth ()
+print dir (a)             # affiche ['__doc__', '__module__', 'meth', 'y']
+print dir (essai_class)   # affiche ['__doc__', '__module__', 'meth']
+\end{verbatimx}
+%
+\vspaceneg
+La fonction \codes{dir} appliquée à la classe elle-même retourne une liste qui inclut les méthodes et les attributs déjà déclarés. Elle n'inclut pas ceux qui sont déclarés dans une méthode jamais exécutée jusqu'à présent.
+
+
+\subsection{Classe incluse}
+\label{par_class_incluse}
+\indexfrr{classe}{classe incluse}\indexfrr{classe}{sous-classe}
+
+Parfois, il arrive qu'une classe soit exclusivement utilisée en couple avec une autre, c'est par exemple le cas des itérateurs (voir paragraphe~\ref{chap_iterateur}). Il est alors possible d'inclure dans la déclaration d'une classe celle d'une sous-classe.
+
+L'exemple qui suit contient la classe \codes{ensemble\_element}. C'est un ensemble de points en trois dimensions (classe \codes{element}) qui n'est utilisé que par cette classe. Déclarer la classe \codes{element} à l'intérieur de la classe \codes{ensemble\_element} est un moyen de signifier ce lien.\indexexemples{barycentre}{}
+%
+\vspaceneg
+\begin{verbatimx}
+class ensemble_element :
+    
+    class element :
+        def __init__ (self) :
+            self.x, self.y, self.z = 0,0,0
+    
+    def __init__ (self) :
+        self.all = [ ensemble_element.element () for i in xrange (0,3) ]
+                     
+    def barycentre (self) :
+        b = ensemble_element.element ()
+        for el in self.all :
+            b.x += el.x
+            b.y += el.y
+            b.z += el.z
+        b.x /= len (self.all)
+        b.y /= len (self.all)
+        b.z /= len (self.all)
+        return b
+    
+f = ensemble_element ()
+f.all [0].x, f.all [0].y, f.all [0].z = 4.5,1.5,1.5
+b = f.barycentre ()
+print b.x,b.y,b.z # affiche 1.5 0.5 0.5
+\end{verbatimx}
+%
+\vspaceneg
+Pour créer une instance de la classe \codes{element}, il faut faire précéder son nom de la classe où elle est déclarée~: \codes{b = ensemble\_element.element ()} comme c'est le cas dans la méthode \codes{barycentre} par exemple.
+
+
+
+
+\section{Opérateurs, itérateurs}
+\label{par_constructeur_operateur}
+
+Les opérateurs sont des symboles du langages comme \texttt{+}, \texttt{-}, \texttt{+=}, ... Au travers des opérateurs, il est possible de donner un sens à une syntaxe comme celle de l'exemple suivant~:
+%
+\vspaceneg
+\begin{verbatimx}
+class nouvelle_classe:
+    pass
+x = nouvelle_classe () + nouvelle_classe ()
+\end{verbatimx}
+\vspaceneg
+%
+L'addition n'est pas le seul symbole concerné, le langage \pythons permet de donner un sens à tous les opérateurs numériques et d'autres reliés à des fonctions du langage comme \codes{len} ou \codes{max}. 
+
+\subsection{Opérateurs}
+\indexfrr{classe}{opérateur}
+
+Le programme suivant contient une classe définissant un nombre complexe. La méthode \codes{ajoute} définit ce qu'est une addition entre nombres complexes.
+%
+\vspaceneg
+\begin{verbatimx}
+class nombre_complexe:
+    def __init__ (self, a = 0, b= 0) : self.a, self.b = a,b
+    def get_module (self) :  return math.sqrt (self.a * self.a + self.b * self.b)
+
+    def ajoute (self,c):
+        return nombre_complexe (self.a + c.a, self.b + c.b)
+    
+c1 = nombre_complexe (0,1)    
+c2 = nombre_complexe (1,0)    
+c  = c1.ajoute (c2)         # c = c1 + c2
+print c.a, c.b
+\end{verbatimx}
+\vspaceneg
+%
+\indexfrr{classe}{opérateur}\indexsymbole{\_}
+Toutefois, on aimerait bien écrire simplement \codes{c = c1 + c2} au lieu de \codes{c = c1.ajoute (c2)} car cette syntaxe est plus facile à lire et surtout plus intuitive. Le langage \pythons offre cette possibilité. Il existe en effet des méthodes \emph{clés} dont l'implémentation définit ce qui doit être fait dans le cas d'une addition, d'une comparaison, d'un affichage, ... A l'instar du constructeur, toutes ces méthodes clés, qu'on appelle des \emph{opérateurs}, sont encadrées par deux blancs soulignés, leur déclaration suit invariablement le même schéma. Voici celui de l'opérateur \codes{\_\_add\_\_} qui décrit ce qu'il faut faire pour une addition.
+
+
+\begin{xsyntax}{classe, opérateur \codes{\_\_add\_\_}}
+\begin{verbatimno}
+
+class nom_class :
+    def __add__ (self, autre) :
+        # corps de l'opérateur
+        return ...   # nom_classe
+\end{verbatimno}
+\negvspace       
+\codes{nom\_classe} est une classe. L'opérateur \codes{\_\_add\_\_} définit l'addition entre l'instance \codes{self} et l'instance \codes{autre} et retourne une instance de la classe  \codes{nom\_classe}.\indexsyntaxecod{\_\_add\_\_}\indexoperateur{\_\_add\_\_}
+\end{xsyntax}
+
+Le programme suivant reprend le précédent de manière à ce que l'addition de deux nombres complexes soit dorénavant une syntaxe correcte.
+\vspaceneg\indexexemples{opérateur addition}{}
+%
+\begin{verbatimx}
+class nombre_complexe:
+    def __init__ (self, a = 0, b= 0) : self.a, self.b = a,b
+    def get_module (self) : return math.sqrt (self.a * self.a + self.b * self.b)
+        
+    def __add__(self, c):
+        return nombre_complexe (self.a + c.a, self.b + c.b)
+    
+c1 = nombre_complexe (0,1)    
+c2 = nombre_complexe (1,0)    
+c  = c1 + c2          # cette expression est maintenant syntaxiquement correcte
+c  = c1.__add__ (c2)  # même ligne que la précédente mais écrite explicitement
+print c.a, c.b
+\end{verbatimx}
+\vspaceneg
+%
+L'avant dernière ligne appelant la méthode \codes{\_\_add\_\_} transcrit de façon explicite ce que le langage \pythons fait lorsqu'il rencontre un opérateur \codes{+} qui s'applique à des classes. Plus précisément, \codes{c1} et \codes{c2} pourraient être de classes différentes, l'expression serait encore valide du moment que la classe dont dépend \codes{c1} a redéfini la méthode \codes{\_\_add\_\_}.
+Chaque opérateur possède sa méthode-clé associée. L'opérateur \texttt{+=}, différent de \codes{+} est associé à la méthode-clé \codes{\_\_iadd\_\_}.
+
+\begin{xsyntax}{classe, opérateur \codes{\_\_iadd\_\_}}
+\begin{verbatimno}
+
+class nom_class :
+    def __iadd__ (self, autre) :
+        # corps de l'opérateur
+        return self
+\end{verbatimno}
+\negvspace        
+\codes{nom\_classe} est une classe. L'opérateur \codes{\_\_iadd\_\_} définit l'addition entre l'instance \codes{self} et l'instance \codes{autre}. L'instance \codes{self} est modifiée pour recevoir le résultat. L'opérateur retourne invariablement l'instance modifiée \codes{self}.\indexsyntaxecod{\_\_iadd\_\_}\indexoperateur{\_\_iadd\_\_}
+\end{xsyntax}
+
+\vspace{-0.1cm}
+On étoffe la classe \codes{nombre\_complexe} à l'aide de l'opérateur \codes{\_\_iadd\_\_}. 
+\vspaceneg\indexexemples{opérateur addition}{}
+%
+\begin{verbatimx}
+class nombre_complexe:
+    def __init__ (self, a = 0, b= 0) : self.a, self.b = a,b
+    def get_module (self) : return math.sqrt (self.a * self.a + self.b * self.b)
+    def __add__(self, c)  : return nombre_complexe (self.a + c.a, self.b + c.b)
+    
+    def __iadd__(self, c) :
+        self.a += c.a
+        self.b += c.b
+        return self
+        
+c1  = nombre_complexe (0,1)    
+c2  = nombre_complexe (1,0)    
+c1 += c2           # utilisation de l'opérateur +=
+c1.__iadd__ (c2)   # c'est la transcription explicite de la ligne précédente
+print c1.a, c1.b
+\end{verbatimx}
+%
+\indexfonction{print}\indexkeyword{print}
+\vspaceneg
+Un autre opérateur souvent utilisé est \codes{\_\_str\_\_} qui permet de redéfinir l'affichage d'un objet lors d'un appel à l'instruction \codes{print}. 
+\vspaceneg
+
+\begin{xsyntax}{classe, opérateur \codes{\_\_str\_\_}}
+\begin{verbatimno}
+
+class nom_class :
+    def __str__ (self) :
+        # corps de l'opérateur
+        return...
+\end{verbatimno}
+\negvspace        
+\codes{nom\_classe} est une classe. L'opérateur \codes{\_\_str\_\_} construit une chaîne de caractères qu'il retourne comme résultat de façon à être affiché. \indexsyntaxecod{\_\_str\_\_}\indexoperateur{\_\_str\_\_}
+\end{xsyntax}
+
+\vspaceneg
+L'exemple suivant reprend la classe \codes{nombre\_complexe} pour que l'instruction \codes{print} affiche un nombre complexe sous la forme $a+ i b$.
+\vspaceneg
+%
+\begin{verbatimx}
+class nombre_complexe:
+    def __init__ (self, a = 0, b= 0) : self.a, self.b = a,b
+    def __add__(self, c) : return nombre_complexe (self.a + c.a, self.b + c.b)
+    
+    def __str__ (self) :
+        if   self.b == 0 : return "%f" % (self.a)
+        elif self.b >  0 : return "%f + %f i" % (self.a, self.b) 
+        else             : return "%f - %f i" % (self.a, -self.b) 
+
+c1 = nombre_complexe (0,1)    
+c2 = nombre_complexe (1,0)    
+c3 = c1 + c2
+print c3       # affiche 1.000000 + 1.000000 i
+\end{verbatimx}
+%
+\indexsymbole{[]}
+\vspaceneg
+Il existe de nombreux opérateurs qu'il est possible de définir. La table~\ref{operateur_classe} (page~\pageref{operateur_classe}) présente les plus utilisés. Parmi ceux-là, on peut s'attarder sur les opérateurs \codes{\_\_getitem\_\_} et \codes{\_\_setitem\_\_}, ils redéfinissent l'opérateur \texttt{[]} permettant d'accéder à un élément d'une liste ou d'un dictionnaire. Le premier, \codes{\_\_getitem\_\_} est utilisé lors d'un calcul, un affichage. Le second, \codes{\_\_setitem\_\_}, est utilisé pour affecter une valeur.
+
+L'exemple suivant définit un point de l'espace avec trois coordonnées. Il redéfinit ou \textit{surcharge}\indexfr{surcharge}\indexclassnoc{surcharge}\indexfrr{surcharge}{opérateur} les opérateurs \codes{\_\_getitem\_\_} et \codes{\_\_setitem\_\_} de manière à pouvoir accéder aux coordonnées de la classe \codes{point\_espace} qui définit un point dans l'espace. En règle générale, lorsque les indices ne sont pas corrects, ces deux opérateurs lèvent l'exception \codes{IndexError} (voir le chapitre~\ref{chap_exception}).\indexexemples{opérateur}{}
+%
+\label{point_espace_class}
+\vspaceneg
+\begin{verbatimx}
+class point_espace:
+    def __init__ (self, x,y,z): self._x, self._y, self._z = x,y,z
+
+    def __getitem__(self,i):
+        if i == 0 : return self._x
+        if i == 1 : return self._y
+        if i == 2 : return self._z
+        # pour tous les autres cas --> erreur
+        raise IndexError ("indice impossible, 0,1,2 autorisés")
+
+    def __setitem__(self,i,x):
+        if   i == 0 : self._x = x
+        elif i == 1 : self._y = y
+        elif i == 2 : self._z = z
+        # pour tous les autres cas --> erreur
+        raise IndexError ("indice impossible, 0,1,2 autorisés")
+        
+    def __str__(self):
+        return "(%f,%f,%f)" % (self._x, self._y, self._z)
+        
+a = point_espace (1,-2,3)
+
+print a                      # affiche (1.000000,-2.000000,3.000000)
+a [1] = -3                   # (__setitem__) affecte -3 à a.y
+print "abscisse : ", a [0]   # (__getitem__) affiche abscisse :  1  
+print "ordonnée : ", a [1]   # (__getitem__) affiche ordonnée :  -3
+print "altitude : ", a [2]   # (__getitem__) affiche altitude :  3
+\end{verbatimx}
+%
+\vspaceneg
+Par le biais de l'exception \codes{IndexError}, les expressions \codes{a [i]} avec \codes{i \neq 0,1,2} sont impossibles et arrêtent le programme par un message comme celui qui suit obtenu après l'interprétation de \codes{print \; a \;[4]}~:
+\vspaceneg
+%
+\begin{verbatimx}
+Traceback (most recent call last):
+  File "point_espace.py", line 31, in ?
+    print a [4]
+  File "point_espace.py", line 13, in __getitem__
+    raise IndexError, "indice impossible, 0,1,2 autorisés"
+IndexError: indice impossible, 0,1,2 autorisés
+\end{verbatimx}
+\vspaceneg
+
+
+
+		\begin{table}[t]
+		\begin{center}\begin{tabularx}{\textwidth}{|lX|} \hline
+		\codes{\_\_cmp\_\_(self,x)}		& 	%\begin{minipage}{10cm}
+																			Retourne un entier égale à -1, 0, 1, chacune de ces valeurs
+																			étant associés respectivement à~:
+																			\codes{self < x}, \codes{self == x}, \codes{self > x}.
+																			Cet opérateur est appelé par la fonction \codes{cmp}.
+																			%\end{minipage}  
+																			\\  \hline
+		\codes{\_\_str\_\_(self)}		& 	%\begin{minipage}{10cm}
+																			Convertit un objet en une chaîne de caractère qui sera 
+																			affichée par la fonction \codes{print} ou obtenu avec
+																			la fonction \codes{str}.
+																			%\end{minipage}  
+																			\\  \hline
+		\codes{\_\_contains\_\_(self,x)}	& 	%\begin{minipage}{10cm}
+																			Retourne \codes{True} ou \codes{False} selon que \codes{x}
+																			appartient à \codes{self}. Le mot-clé \codes{in} renvoie
+																			à cet opérateur. En d'autres termes, 
+																			\codes{if \;\; x \;\; in \;\; obj :} appelle
+																			\codes{obj.\_\_contains\_\_(x)}.
+																			%\end{minipage}  
+																			\\  \hline
+		\codes{\_\_len\_\_(self)}	& 	%\begin{minipage}{10cm}
+																			Retourne le nombre d'élément de \codes{self}. Cet opérateur
+																			est appelé par la fonction \codes{len}.
+																			%\end{minipage}  
+																			\\  \hline
+		\codes{\_\_abs\_\_(self)}	& 	%\begin{minipage}{10cm}
+																			Cet opérateur	est appelé par la fonction \codes{abs}.
+																			%\end{minipage}  
+																			\\  \hline
+		%\codes{\_\_divmod\_\_(self,x)}	& %	\begin{minipage}{10cm}
+		%																	Cet opérateur	est appelé par la fonction \codes{divmod}.
+		%																	%\end{minipage}  
+		%																	\\  \hline
+		\codes{\_\_getitem\_\_(self,i)}	& 	% \begin{minipage}{10cm}
+																			Cet opérateur	est appelé lorsqu'on cherche à accéder à un élément
+																		  de l'objet \codes{self} d'indice~\codes{i} comme si c'était une liste.
+																		  Si l'indice~\codes{i} est incorrect, l'exception \codes{IndexError}
+																		  doit être levée.
+																			%\end{minipage}
+																			  \\  \hline
+		\codes{\_\_setitem\_\_(self,i,v)}	& 	%\begin{minipage}{10cm}
+																			Cet opérateur	est appelé lorsqu'on cherche à affecter une valeur~\codes{v}
+																			à un élément de l'objet \codes{self} d'indice~\codes{i} 
+																			comme si c'était une liste ou un dictionnaire.
+																		  Si l'indice~\codes{i} est incorrect, l'exception \codes{IndexError}
+																		  doit être levée.
+																			%\end{minipage}  
+																			\\  \hline
+		\codes{\_\_delitem\_\_(self,i)}	& 	%\begin{minipage}{10cm}
+																			Cet opérateur	est appelé lorsqu'on cherche à supprimer l'élément 
+																			de l'objet \codes{self} d'indice~\codes{i} 
+																			comme si c'était une liste ou un dictionnaire.
+																		  Si l'indice~\codes{i} est incorrect, l'exception \codes{IndexError}
+																		  doit être levée.
+																			%\end{minipage}  
+																			\\  \hline
+		\begin{tabular}{l}
+		\codes{\_\_int\_\_(self)}	\\
+		\codes{\_\_float\_\_(self)}	\\
+		\codes{\_\_complex\_\_(self)}	
+		\end{tabular}
+																	& 	%\begin{minipage}{10cm}
+																			Ces opérateurs implémente la conversion de l'instance
+																			\codes{self} en entier, réel ou complexe.
+																			%\end{minipage}  
+																			\\  \hline
+		\begin{tabular}{l}
+		\codes{\_\_add\_\_(self,x)}	\\
+		\codes{\_\_div\_\_(self,x)}	\\
+		\codes{\_\_mul\_\_(self,x)}	\\
+		\codes{\_\_sub\_\_(self,x)}	\\
+		\codes{\_\_pow\_\_(self,x)}	\\
+		\codes{\_\_lshift\_\_(self, x)}	\\
+		\codes{\_\_rshift\_\_(	self, x)}	
+		\end{tabular}
+																	& 	%\begin{minipage}{10cm}
+																			Opérateurs appelés pour les opérations 
+																			\texttt{+}, \texttt{/}, \texttt{*}, \texttt{-}, \texttt{**}, \texttt{<}\texttt{<}, 
+																			\texttt{>}\texttt{>}
+																			%\end{minipage}  
+																			\\  \hline
+		\begin{tabular}{l}
+		\codes{\_\_iadd\_\_(self,x)}	\\
+		\codes{\_\_idiv\_\_(self,x)}	\\
+		\codes{\_\_imul\_\_(self,x)}	\\
+		\codes{\_\_isub\_\_(self,x)}	\\
+		\codes{\_\_ipow\_\_(self,x)}	\\
+		\codes{\_\_ilshift\_\_(self, x)}	\\
+		\codes{\_\_irshift\_\_(	self, x)}	
+		\end{tabular}
+																	& 	%\begin{minipage}{10cm}
+																			Opérateurs appelés pour les opérations 
+																			\texttt{+=}, \texttt{/=},
+																			\texttt{*=}, \texttt{-=}, \texttt{**=}, \texttt{<<=}, \texttt{>>=}
+																			%\end{minipage}  
+																			\\  \hline
+		\end{tabularx}\end{center}
+		\caption{ Opérateurs ou fonctions spéciales les plus utilisées. La page
+		             \httpstyle{http://docs.python.org/reference/datamodel.html\#special-method-names}
+                (voir également \httpstyle{http://docs.python.org/library/operator.html\#mapping-operators-to-functions})
+							 recense toutes les fonctions spéciales\indexfonctionnoc{spéciale} qu'il est possible
+							de redéfinir pour une classe.}
+		\indexexception{IndexError}
+		\indexoperateur{\_\_iadd\_\_}\indexoperateur{\_\_cmp\_\_}\indexoperateur{\_\_str\_\_}\indexoperateur{\_\_contains\_\_}
+		\indexoperateur{\_\_len\_\_}\indexoperateur{\_\_abs\_\_}\indexoperateur{\_\_getitem\_\_}\indexoperateur{\_\_setitem\_\_}
+		\indexoperateur{\_\_delitem\_\_}\indexoperateur{\_\_int\_\_}\indexoperateur{\_\_float\_\_}\indexoperateur{\_\_complex\_\_}
+		\indexoperateur{\_\_add\_\_}\indexoperateur{\_\_mul\_\_}\indexoperateur{\_\_div\_\_}\indexoperateur{\_\_sub\_\_}
+		\indexoperateur{\_\_pow\_\_}
+		\indexoperateur{\_\_iadd\_\_}\indexoperateur{\_\_imul\_\_}\indexoperateur{\_\_idiv\_\_}\indexoperateur{\_\_isub\_\_}
+		\indexoperateur{\_\_ipow\_\_}
+		\label{operateur_classe}
+		\end{table}							
+
+
+
+
+
+
+%
+
+\subsection{Itérateurs}
+\label{chap_iterateur}
+\indexfonction{iter}\indexoperateur{\_\_iter\_\_}\indexfrr{classe}{itérateur}
+\indexfr{itérateur}\indexmethod{next}\indexkeyword{for}
+
+L'opérateur \codes{\_\_iter\_\_} permet de définir ce qu'on appelle un itérateur. C'est un objet qui permet d'en explorer un autre, comme une liste ou un dictionnaire. Un itérateur est un objet qui désigne un élément d'un ensemble à parcourir et qui connaît l'élément suivant à visiter. Il doit pour cela contenir une référence à l'objet qu'il doit explorer et inclure une méthode \codes{next} qui retourne l'élément suivant ou lève une exception si l'élément actuel est le dernier.
+
+Par exemple, on cherche à explorer tous les éléments d'un objet de type \codes{point\_espace} défini au paragraphe précédent. Cette exploration doit s'effectuer au moyen d'une boucle \codes{for}. \vspaceneg
+%
+\begin{verbatimx}
+a = point_espace (1,-2,3)
+for x in a:   
+    print x      # affiche successivement 1,-2,3
+\end{verbatimx}
+%
+\vspaceneg
+Cette boucle cache en fait l'utilisation d'un itérateur qui apparaît explicitement dans l'exemple suivant équivalent au précédent (voir paragraphe~\ref{paragraphe_tterafsd_syntaxe}, page~\pageref{paragraphe_tterafsd_syntaxe}). 
+\vspaceneg\indexexemples{itérateur}{}
+%
+\begin{verbatimx}
+a = point_espace (1,-2,3)
+it = iter (a)
+while True:
+    try : print it.next ()
+    except StopIteration : break
+\end{verbatimx}
+%
+\vspaceneg 
+Afin que cet extrait de programme fonctionne, il faut définir un itérateur pour la classe \codes{point\_espace}. Cet itérateur doit inclure la méthode \codes{next}. La classe \codes{point\_espace} doit quant à elle définir l'opérateur \codes{\_\_iter\_\_} pour retourner l'itérateur qui permettra de l'explorer. \indexexemples{itérateur}{}
+\vspaceneg
+\begin{verbatimx}
+class point_espace:
+    def __init__ (self, x,y,z):
+        self._x, self._y, self._z = x,y,z
+    def __str__(self):
+        return "(%f,%f,%f)" % (self._x, self._y, self._z)
+    def __getitem__(self,i):
+        if i == 0 : return self._x
+        if i == 1 : return self._y
+        if i == 2 : return self._z
+        # pour tous les autres cas --> erreur
+        raise IndexError ("indice impossible, 0,1,2 autorisés")
+        
+    class class_iter:
+        """cette classe définit un itérateur pour point_espace"""
+        def __init__ (self,ins):
+            """initialisation, self._ins permet de savoir quelle 
+               instance de point_espace on explore, 
+               self._n mémorise l'indice de l'élément exploré"""
+            self._n   = 0
+            self._ins = ins
+            
+        def __iter__ (self) :   # le langage impose cette méthode 
+           return self          # dans certaines configurations
+           
+        def next (self):
+            """retourne l'élément d'indice self._n et passe à l'élément suivant"""
+            if self._n <= 2:
+                v = self._ins [self._n]
+                self._n += 1
+                return v
+            else :
+                # si cet élément n'existe pas, lève une exception
+                raise StopIteration
+    
+    def __iter__(self):
+        """opérateur de la classe point_espace, retourne un itérateur
+           permettant de l'explorer"""
+        return point_espace.class_iter (self)
+
+a = point_espace (1,-2,3)
+for x in a:   
+    print x      # affiche successivement 1,-2,3
+\end{verbatimx}
+%
+\vspaceneg
+Cette syntaxe peut paraître fastidieuse mais elle montre de manière explicite le fonctionnement des itérateurs. Cette construction est plus proche de ce que d'autres langages objets proposent. \pythons offre néanmoins une syntaxe plus courte avec le mot-clé \codes{yield}\indexkeyword{yield} qui permet d'éviter la création de la classe \codes{class\_iter}. Le code de la méthode \codes{\_\_iter\_\_} change mais les dernières lignes du programme précédent qui affichent successivement les éléments de \codes{point\_espace} sont toujours valides.\indexexemples{\codesindex{yield}}{}
+\vspaceneg
+%
+\begin{verbatimx}
+class point_espace:
+    def __init__ (self, x,y,z):
+        self._x, self._y, self._z = x,y,z
+    def __str__(self):
+        return "(%f,%f,%f)" % (self._x, self._y, self._z)
+    def __getitem__(self,i):
+        if i == 0 : return self._x
+        if i == 1 : return self._y
+        if i == 2 : return self._z
+        # pour tous les autres cas --> erreur
+        raise IndexError ("indice impossible, 0,1,2 autorisés")
+        
+    def __iter__(self):
+        """itérateur avec yield (ou générateur)"""
+        _n = 0
+        while _n <= 2 : 
+            yield self.__getitem__ (_n)
+            _n += 1
+            
+a = point_espace (1,-2,3)
+for x in a:   
+    print x      # affiche successivement 1,-2,3
+\end{verbatimx}
+
+
+
+
+
+
+
+
+
+\section{Méthodes, attributs statiques et ajout de méthodes}
+\label{par_methode_statique}
+
+\subsection{Méthode statique}
+\indexfrr{méthode}{statique}
+
+			\begin{xdefinition}{méthode statique}
+			Les méthodes statiques sont des méthodes qui peuvent être appelées même si aucune 
+			instance de la classe où elles sont définies n'a été créée.
+			\end{xdefinition}
+
+L'exemple suivant définit une classe avec une seule méthode. Comme toutes les méthodes présentées jusqu'à présent, elle inclut le paramètre \codes{self} qui correspond à l'instance pour laquelle elle est appelée.
+%
+\vspaceneg
+\begin{verbatimx}			
+class essai_class:
+    def methode (self):
+        print "méthode non statique"
+
+x = essai_class ()
+x.methode ()
+\end{verbatimx}		
+\vspaceneg	
+%
+Une méthode statique ne nécessite pas qu'une instance soit créée pour être appelée. C'est donc une méthode n'ayant pas besoin du paramètre \codes{self}.
+
+\begin{xsyntax}{classe, méthode statique}
+\begin{verbatimno}
+
+class nom_class :
+    def nom_methode(params, ...) : 
+        # corps de la méthode
+        ...
+    nom_methode = staticmethod (nom_methode)
+\end{verbatimno}
+\negvspace
+\codes{nom\_classe} est une classe, \codes{nom\_methode} est une méthode statique. Il faut pourtant ajouter la ligne suivante pour indiquer à la classe que cette méthode est bien statique à l'aide du mot-clé \codes{staticmethod}. \indexsyntaxenoc{méthode statique}\indexkeyword{staticmethod}\indexsyntaxecod{staticmethod}
+\end{xsyntax}
+
+Le programme précédent est modifié pour inclure une méthode statique. La méthode \codes{methode} ne nécessite aucune création d'instance pour être appelée.\indexexemples{méthode statique}{}
+\vspaceneg
+%
+\begin{verbatimx}
+class essai_class:
+    def methode ():
+        print "méthode statique"
+    methode = staticmethod(methode)
+
+essai_class.methode ()
+\end{verbatimx}
+%
+\vspaceneg
+\begin{xremark}{déclaration d'une méthode statique}
+Il est également possible de déclarer une fonction statique à l'extérieur d'une classe puis de l'ajouter en tant que méthode statique à cette classe. Le programme suivant déclare une fonction \codes{methode} puis indique à la classe \codes{essai\_class} que la fonction est aussi une méthode statique de sa classe (avant-dernière ligne de l'exemple).
+\begin{verbatimx}
+def methode ():
+    print "méthode statique"
+    
+class essai_class:
+    pass
+
+essai_class.methode = staticmethod(methode)
+essai_class.methode ()
+\end{verbatimx}
+\vspaceneg
+%
+Toutefois, il est conseillé de placer l'instruction qui contient \codes{staticmethod} à l'intérieur de la classe. Elle n'y sera exécutée qu'une seule fois comme le montre l'exemple suivant~:\label{class_remarque_constructeur_non}
+\vspaceneg
+\begin{verbatimx}
+class essai_class:
+    print "création d'une instance de la classe essai_class"
+    methode = staticmethod(methode)
+cl = classe_vide () # affiche création d'une instance de la classe essai_class
+ck = classe_vide () # n'affiche rien
+\end{verbatimx}    
+\end{xremark}
+
+
+Les méthodes statiques sont souvent employées pour créer des instances spécifiques d'une classe. 
+\vspaceneg\indexexemples{méthode statique}{}
+\begin{verbatimx}
+class Couleur :
+    def __init__ (self, r, v, b) : self.r, self.v, self.b =  r, v, b
+    def __str__ (self) : return str ( (self.r,self.v,self.b))
+    def blanc () : return Couleur (255,255,255)
+    def noir  () : return Couleur (0,0,0)
+    blanc = staticmethod (blanc)
+    noir  = staticmethod (noir)
+    
+c = Couleur.blanc ()
+print c               # affiche (255, 255, 255)
+c = Couleur.noir ()
+print c               # affiche (0, 0, 0)
+\end{verbatimx}
+
+
+
+
+
+\subsection{Attributs statiques} \label{classe_attribut_statique}
+\indexfrr{attribut}{statique}
+
+
+			\begin{xdefinition}{attribut statique}
+			Les attributs statiques sont des attributs qui peuvent être utilisés même si aucune 
+			instance de la classe où ils sont définis n'a été créée. Ces attributs sont partagés par toutes les instances.
+			\end{xdefinition}
+
+\begin{xsyntax}{classe, attribut statique}
+\begin{verbatimno}
+
+class nom_class :
+    attribut_statique = valeur
+    def nom_methode (self,params, ...):
+        nom_class.attribut_statique2 = valeur2 
+    def nom_methode_st (params, ...) : 
+        nom_class.attribut_statique3 = valeur3 
+    nom_methode_st = staticmethod (nom_methode_st)
+\end{verbatimno}
+\negvspace
+\codes{nom\_classe} est une classe, \codes{nom\_methode} est une méthode non statique, \codes{nom\_methode\_st} est une méthode statique. Les trois paramètres \codes{attribut\_statique}, \codes{attribut\_statique2}, \codes{attribut\_statique3} sont statiques, soit parce qu'ils sont déclarés en dehors d'une méthode, soit parce que leur déclaration fait intervenir le nom de la classe. \indexsyntaxenoc{attribut statique}
+\end{xsyntax}
+
+
+Pour le programme suivant, la méthode \codes{meth} n'utilise pas \codes{self.x} mais \codes{essai\_class.x}. L'attribut \codes{x} est alors un attribut statique, partagé par toutes les instances. C'est pourquoi dans l'exemple qui suit l'instruction \codes{z.meth()} affiche la valeur~6 puisque l'appel \codes{y.meth()} a incrémenté la variable statique \codes{x}.
+\vspaceneg
+%
+\begin{verbatimx}
+class essai_class:
+    x = 5
+    def meth(self):
+        print essai_class.x
+        essai_class.x += 1
+
+y = essai_class ()
+z = essai_class ()
+y.meth()    # affiche 5
+z.meth()    # affiche 6
+\end{verbatimx}
+\vspaceneg
+
+
+\begin{xremark}{ambiguïté}
+Même si un attribut est statique, il peut être utilisé avec la syntaxe \codes{self.attribut\_statique} dans une méthode non statique à condition qu'un attribut non statique ne porte pas le même nom. Si tel est pourtant le cas, certaines confusions peuvent apparaître~:
+\vspaceneg
+%
+\begin{verbatimx}
+class exemple_classe:
+    rnd = 42
+    def incremente_rnd (self):
+        self.rnd += 1
+        return self.rnd
+
+cl = exemple_classe()
+
+print cl.__dict__                    # affiche {}
+print cl.__class__.__dict__ ["rnd"]  # affiche 42
+cl.incremente_rnd ()
+print cl.__dict__                    # affiche {'rnd': 43}
+print cl.__class__.__dict__ ["rnd"]  # affiche 42
+\end{verbatimx}
+\vspaceneg
+%
+Dans ce cas, ce sont en fait deux attributs qui sont créés. Le premier est un attribut statique créé avec la seconde ligne de l'exemple \codes{rnd=42}. Le second attribut n'est pas statique et apparaît dès la première exécution de l'instruction \texttt{self.rnd+=1} comme le montre son apparition dans l'attribut \codes{\_\_dict\_\_} qui ne recense pas les attributs statiques.
+\end{xremark}
+
+
+
+
+\subsection{Ajout de méthodes}
+\indexfrr{méthode}{ajout}
+
+Ce point décrit une fonctionnalité du langage \pythons rarement utilisée. Il offre la possibilité d'ajouter une méthode à une classe alors même que cette fonction est définie à l'extérieur de la déclaration de la classe. Cette fonction doit obligatoirement accepter un premier paramètre qui recevra l'instance de la classe. La syntaxe utilise le mot-clé \codes{classmethod}.
+
+
+\begin{xsyntax}{classe, \codes{classmethod}}
+\begin{verbatimno}
+
+def nom_methode (cls) :
+    # code de la fonction}
+    
+class nom_classe :
+    # code de la classe
+    nom_methode = classmethod (nom_methode)        # syntaxe 1
+    
+nom_classe.nom_methode = classmethod (nom_methode) # syntaxe 2
+\end{verbatimno}
+\negvspace
+\codes{nom\_classe} est une classe, \codes{nom\_methode} est une méthode, \codes{nom\_methode} est une fonction qui est par la suite considérée comme une méthode de la classe \codes{nom\_methode} grâce à l'une ou l'autre des deux instructions incluant le mot-clé 
+\codes{classmethod}. \indexsyntaxenoc{ajout de méthode}\indexkeyword{classmethod}
+\end{xsyntax}
+
+
+Dans l'exemple qui suit, cette syntaxe est utilisée pour inclure trois méthodes à la classe \codes{essai\_class} selon que la méthode est déclarée et affectée à cette classe à l'intérieur ou à l'extérieur du corps de \codes{essai\_class}.
+%
+\vspaceneg
+\begin{verbatimx}
+def meth3 (cls): print "ok meth3", cls.x
+def meth4 (cls): print "ok meth4", cls.x
+    
+class essai_classe:
+    x = 5
+    def meth(self): print "ok meth", self.x
+    def meth2(cls): print "ok meth2", cls.x
+
+    meth3 = classmethod (meth3)
+
+x = essai_classe ()
+x.meth ()                                 # affiche ok meth 5
+x.meth2 ()                                # affiche ok meth2 5
+x.meth3 ()                                # affiche ok meth3 5
+
+essai_classe.meth4 = classmethod (meth4)
+x.meth4 ()                                # affiche ok meth4 5
+\end{verbatimx}
+
+
+
+
+\subsection{Propriétés}\label{classe_proprietes_par}
+\indexfr{propriété}\indexfrr{classe}{propriété}
+
+Cette fonctionnalité est également peu utilisée, elle permet des raccourcis d'écriture. Les propriétés permettent de faire croire à l'utilisateur d'une instance de classe qu'il utilise une variable alors qu'il utilise en réalité une ou plusieurs méthodes. A chaque fois que le programmeur utilise ce faux attribut, il appelle une méthode qui calcule sa valeur. A chaque fois que le programmeur cherche à modifier la valeur de ce faux attribut, il appelle une autre méthode qui modifie l'instance.\indexexemples{propriété}{}
+
+
+\begin{xsyntax}{classe, propriété}
+\begin{verbatimno}
+
+class nom_classe :
+    # code de la classe
+    nom_propriete = property (fget, fset, fdel, doc)
+\end{verbatimno}
+\negvspace    
+Au sein de ces trois lignes, \codes{nom\_classe} est une classe, \codes{nom\_propriete} est le nom de la propriété, \codes{fget} est la méthode qui doit retourner la valeur du pseudo-attribut \codes{nom\_propriete}, \codes{fset} est la méthode qui doit modifier la valeur du pseudo-attribut \codes{nom\_propriete}, \codes{fdel} est la méthode qui doit détruire le pseudo-attribut \codes{nom\_propriete}, \codes{doc} est un commentaire qui apparaîtra lors de l'appel de la fonction \codes{help(nom\_class)} ou \codes{help(nom\_class.nom\_propriete)}.\indexsyntaxenoc{propriété}\indexkeyword{property}
+\end{xsyntax}
+
+Pour illustrer l'utilisation des propriétés, on part d'une classe \codes{nombre\_complexe} qui ne contient que les parties réelle et imaginaire. Lorsqu'on cherche à obtenir le module\footnote{Le module désigne ici le module d'un nombre complexe qui est égal à sa norme. On le note $\abs{a+ib} = \sqrt{a^2 + b^2}$.}, on fait appel à une méthode qui calcule ce module. Lorsqu'on cherche à modifier ce module, on fait appel à une autre méthode qui multiplie les parties réelle et imaginaire par un nombre réel positif de manière à ce que le nombre complexe ait le module demandé. On procède de même pour la propriété \codes{arg}.
+
+La propriété \codes{conj} retourne quant à elle le conjugué du nombre complexe mais la réciproque n'est pas prévue. On ne peut affecter une valeur à \codes{conj}.
+\vspaceneg\indexexemples{propriété}{}
+%
+\label{exemple_point_xyz}
+\begin{verbatimx}
+import math
+
+class nombre_complexe(object):           # voir remarque après l'exemple
+    def __init__ (self, a = 0, b= 0):
+        self.a = a
+        self.b = b
+        
+    def __str__ (self) :
+        if   self.b == 0 : return "%f" % (self.a)
+        elif self.b >  0 : return "%f + %f i" % (self.a, self.b) 
+        else             : return "%f - %f i" % (self.a, -self.b) 
+        
+    def get_module (self): 
+        return math.sqrt (self.a * self.a + self.b * self.b)
+
+    def set_module (self,m):
+        r = self.get_module ()
+        if r == 0:
+            self.a = m
+            self.b = 0
+        else :
+            d       = m / r
+            self.a *= d
+            self.b *= d
+            
+    def get_argument (self) : 
+        r = self.get_module ()
+        if r == 0 : return 0
+        else      : return math.atan2 (self.b / r, self.a / r)
+            
+    def set_argument (self,arg) :
+        m       = self.get_module ()
+        self.a  = m * math.cos (arg)
+        self.b  = m * math.sin (arg)
+        
+    def get_conjugue (self):
+        return nombre_complexe (self.a,-self.b)
+        
+    module = property (fget = get_module,   fset = set_module,   doc = "module")
+    arg    = property (fget = get_argument, fset = set_argument, doc = "argument")
+    conj   = property (fget = get_conjugue,                      doc = "conjugué")
+    
+c = nombre_complexe (0.5,math.sqrt (3)/2)
+print "c = ",         c          # affiche c =  0.500000 + 0.866025 i
+print "module = ",    c.module   # affiche module =  1.0
+print "argument = ",  c.arg      # affiche argument =  1.0471975512                    
+
+c           = nombre_complexe ()
+c.module    = 1
+c.arg       = math.pi * 2 / 3
+print "c = ",         c          # affiche c =  -0.500000 + 0.866025 i
+print "module = ",    c.module   # affiche module =  1.0  
+print "argument = ",  c.arg      # affiche argument =  2.09439510239
+print "conjugué = ",  c.conj     # affiche conjugué =  -0.500000 - 0.866025 i
+\end{verbatimx}
+\vspaceneg
+%
+La propriété \codes{conj} ne possède pas de fonction qui permet de la modifier. Par conséquent, l'instruction \codes{c.conj = nombre\_complexe (0,0) } produit l'erreur suivante~:
+%
+\vspaceneg
+\begin{verbatimx}
+Traceback (most recent call last):
+  File "cour2.py", line 53, in ?
+    c.conj = nombre_complexe (0,0)
+AttributeError: can't set attribute
+\end{verbatimx}
+\vspaceneg
+%
+Etant donné qu'une propriété porte déjà le nom de \codes{conj}, aucun attribut du même nom ne peut être ajouté à la classe \codes{nombre\_complexe}.
+
+
+
+\begin{xremark}{propriété et héritage}
+Afin que la propriété fonctionne correctement, il est nécessaire que la classe hérite de la classe \codes{object} ou une de ses descendantes (voir également paragraphe~\ref{par_classe_heritage}).\indexfr{propriété}
+\end{xremark}
+
+
+
+
+\section{Copie d'instances}
+\label{par_copie_objet}
+\subsection{Copie d'instance de classe simple}
+\indexmoduleint{copy}\indexfrr{classe}{copie}\indexsymbole{=}
+
+Aussi étrange que cela puisse paraître, le signe \codes{=} ne permet pas de recopier une instance de classe. Il permet d'obtenir deux noms différents pour désigner le même objet. Dans l'exemple qui suit, la ligne \codes{nb2 = nb} ne fait pas de copie de l'instance \codes{nb}, elle permet d'obtenir un second nom \codes{nb2} pour l'instance \codes{nb}. Vu de l'extérieur, la ligne \codes{nb2.rnd = 0} paraît modifier à la fois les objets \codes{nb} et \codes{nb2} puisque les lignes \codes{print \; nb.rnd} et \codes{print \; nb2.rnd} affichent la même chose. En réalité, \codes{nb} et \codes{nb2} désignent le même objet.
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe:
+    def __init__ (self) : self.rnd = 42
+    def methode1(self,n):
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+
+nb  = exemple_classe ()
+nb2 = nb
+print nb.rnd        # affiche 42
+print nb2.rnd       # affiche 42
+
+nb2.rnd = 0
+
+print nb2.rnd       # affiche 0, comme prévu
+print nb.rnd        # affiche 0, si nb et nb2 étaient des objets différents, 
+                    # cette ligne devrait afficher 42
+\end{verbatimx}
+\vspaceneg
+%
+Pour créer une copie de l'instance \codes{nb}, il faut le dire explicitement en utilisant la fonction \codes{copy} du module \codes{copy} (voir le chapitre~\ref{chap_module}).
+
+\begin{xsyntax}{fonction \codes{copy}}
+\begin{verbatimno}
+
+import copy
+nom_copy = copy.copy (nom_instance)
+\end{verbatimno}
+\negvspace
+\codes{nom\_instance} est une instance à copier, \codes{nom\_copy} est le nom désignant la copie. \indexmoduleint{copy}\indexfonction{copy}\indexsyntaxecod{copy}
+\end{xsyntax}
+
+\vspaceneg
+L'exemple suivant applique cette copie sur la classe \codes{exemple\_classe} générant des nombres aléatoires.\indexexemples{copie}{}
+%
+\vspaceneg
+\begin{verbatimx}
+class exemple_classe:
+    def __init__ (self) : self.rnd = 42
+    def methode1(self,n):
+        self.rnd = 397204094 * self.rnd % 2147483647
+        return int (self.rnd % n)
+
+nb = exemple_classe ()
+
+import copy           # pour utiliser le module copy
+nb2 = copy.copy (nb)  # copie explicite
+
+print nb.rnd    # affiche 42
+print nb2.rnd   # affiche 42
+
+nb2.rnd = 0
+
+print nb2.rnd   # affiche 0
+print nb.rnd    # affiche 42
+\end{verbatimx}
+\vspaceneg
+%
+\indexfrr{instance}{suppression}\indexkeyword{del}
+\begin{xremark}{suppression de variables associées à la même instance}
+Le symbole égalité ne fait donc pas de copie, ceci signifie qu'une même instance de classe peut porter plusieurs noms. 
+\vspaceneg
+%
+\indexexemples{destructeur}{}
+\begin{verbatimx}
+m  = [ 0, 1 ]
+m2 = m
+del m2   # supprime l'identificateur mais pas la liste
+print m  # affiche [0, 1]
+\end{verbatimx}
+%
+\vspaceneg
+La suppression d'un objet n'est effective que s'il ne reste aucune variable le référençant. L'exemple suivant le montre.
+\indexoperateur{\_\_del\_\_}\indexoperateur{\_\_new\_\_}\indexclassnoc{destructeur}\indexclassnoc{constructeur} \label{exemple_del_operateur_desctuer_}
+\vspaceneg
+\inputcode{../python_cours/programme/new_delete.py}{référencement d'objets}
+\vspaceneg
+La sortie de ce programme est la suivante~:
+\vspaceneg
+%
+\begin{verbatimx}
+a
+__new__
+constructeur
+b
+c
+d
+__del__
+e
+\end{verbatimx}
+\vspaceneg
+%
+Le destructeur est appelé autant de fois que le constructeur. Il est appelé lorsque plus aucun identificateur n'est relié à l'objet. Cette configuration survient lors de l'exemple précédent car le mot-clé \codes{del}\indexkeyword{del}\indexclassnoc{destructeur} a détruit tous les identificateurs \codes{m} et \codes{m2} qui étaient reliés au même objet.
+\end{xremark}
+
+
+\subsection{Copie d'instance de classes incluant d'autres classes}\label{par_copie_copie}
+\indexmoduleint{copy}\indexfrr{classe}{copie}\indexsymbole{=}
+
+La fonction \codes{copy} n'est pas suffisante lorsqu'une classe inclut des attributs qui sont eux-mêmes des classes incluant des attributs. Dans l'exemple qui suit, la classe \codes{exemple\_classe} inclut un attribut de type \codes{classe\_incluse} qui contient un attribut \codes{attr}. Lors de la copie à l'aide de l'instruction \codes{nb2 = copy.copy(nb)}, l'attribut \codes{inclus} n'est pas copié, c'est l'instruction \codes{nb2.inclus = nb.inclus} qui est exécutée. On se retrouve donc avec deux noms qui désignent encore le même objet. \vspaceneg
+%
+\begin{verbatimx}
+class classe_incluse:
+    def __init__ (self) : self.attr = 3
+
+class exemple_classe:
+    def __init__ (self) : 
+        self.inclus = classe_incluse ()
+        self.rnd    = 42
+
+nb = exemple_classe ()
+
+import copy            # pour utiliser le module copy
+nb2 = copy.copy (nb)   # copie explicite
+
+print nb.inclus.attr   # affiche 3
+print nb2.inclus.attr  # affiche 3
+
+nb2.inclus.attr = 0
+
+print nb.inclus.attr   # affiche 0 (on voudrait 3 ici)
+print nb2.inclus.attr  # affiche 0
+\end{verbatimx}
+\vspaceneg
+%
+Pour effectivement copier les attributs dont le type est une classe, la première option -~la plus simple~- est de remplacer la fonction \codes{copy} par la fonction \codes{deepcopy}. Le comportement de cette fonction dans le cas des classes est le même que dans le cas des listes comme l'explique la remarque~\ref{copy_deepopy_remarque_} page~\pageref{copy_deepopy_remarque_}. La seconde solution, rarement utilisée, est d'utiliser l'opérateur \codes{\_\_copy\_\_} et ainsi écrire le code associé à la copie des attributs de la classe. 
+\vspaceneg
+
+\begin{xsyntax}{classe, opérateur \codes{\_\_copy\_\_}}
+\begin{verbatimno}
+
+class nom_classe :
+    def __copy__ () :
+        copie = nom_classe (...)
+        # ...
+        return copie
+\end{verbatimno}
+\negvspace        
+\codes{nom\_classe} est le nom d'une classe. La méthode \codes{\_\_copy\_\_} doit retourner une instance de la classe \codes{nom\_classe}, dans cet exemple, cette instance a pour nom \codes{copie}. 
+\indexoperateur{\_\_copy\_\_}\indexsyntaxecod{\_\_copy\_\_}
+\end{xsyntax}
+
+\indexfonction{copy}\indexmoduleint{copy}
+\vspaceneg
+L'exemple suivant montre un exemple d'implémentation de la classe \codes{\_\_copy\_\_}. Cette méthode crée d'abord une autre instance \codes{copie} de la classe \codes{exemple\_classe} puis initialise un par un ses membres. L'attribut \codes{rnd} est recopié grâce à une affectation car c'est un nombre. L'attribut \codes{inclus} est recopié grâce à la fonction \codes{copy} du module \codes{copy} car c'est une instance de classe. Après la copie, on vérifie bien que modifier l'attribut \codes{inclus.attr} de l'instance \codes{nb} ne modifie pas l'attribut \codes{inclus.attr} de l'instance \codes{nb2}. \indexexemples{copie}{}
+\vspaceneg
+%
+\begin{verbatimx}
+import copy
+
+class classe_incluse:
+    def __init__ (self) : self.attr = 3
+
+class exemple_classe:
+    def __init__ (self) : 
+        self.inclus  = classe_incluse ()
+        self.rnd     = 42
+    def __copy__ (self):
+        copie        = exemple_classe ()
+        copie.rnd    = self.rnd
+        copie.inclus = copy.copy (self.inclus)
+        return copie
+
+nb  = exemple_classe ()
+
+nb2 = copy.copy (nb)   # copie explicite,
+                       # utilise l'opérateur __copy__,
+                       # cette ligne est équivalente à
+                       # nb2 = nb.__copy__()
+
+print nb.rnd           # affiche 42
+print nb2.rnd          # affiche 42
+print nb.inclus.attr   # affiche 3
+print nb2.inclus.attr  # affiche 3
+
+nb.inclus.attr = 0
+nb.rnd         = 1
+
+print nb.rnd           # affiche 1
+print nb2.rnd          # affiche 42
+print nb.inclus.attr   # affiche 0
+print nb2.inclus.attr  # affiche 3 (c'est le résultat souhaité)
+\end{verbatimx}
+%
+\vspaceneg
+\indexfr{affectation}\indexfr{copie}
+\begin{xremark}{affectation et copie}
+On peut se demander pourquoi l'affectation n'est pas équivalente à une copie. Cela tient au fait que l'affectation en langage \pythons est sans cesse utilisée pour affecter le résultat d'une fonction à une variable. Lorsque ce résultat est de taille conséquente, une copie peut prendre du temps. Il est préférable que le résultat de la fonction reçoive le nom prévu pour le résultat. 
+\vspaceneg
+%
+\begin{verbatimx}
+def fonction_liste ():
+    return range (4,7) # retourne la liste [4,5,6]
+l = fonction_liste ()  # la liste [4,5,6] n'est pas recopiée,
+                       # l'identificateur l lui est affecté
+\end{verbatimx}
+%
+\indexfr{garbage collector}
+\vspaceneg
+Lorsqu'une fonction retourne un résultat mais que celui-ci n'est pas attribué à un nom de variable. Le langage \pythons détecte automatiquement que ce résultat n'est plus lié à aucune variable. Il est détruit automatiquement. 
+\vspaceneg
+%
+\begin{verbatimx}
+def fonction_liste ():
+    return range (4,7)
+fonction_liste () # la liste [4,5,6] n'est pas recopiée,
+                  # elle n'est pas non plus attribuée à une variable,
+                  # elle est alors détruite automatiquement par le langage Python
+\end{verbatimx}
+\end{xremark}
+
+
+
+
+
+\subsection{Listes et dictionnaires}  \label{classe_list_dict_ref_par}
+Les listes et les dictionnaires sont des types modifiables et aussi des classes. Par conséquent, l'affectation et la copie ont un comportement identique à celui des classes.
+\indexfrr{type}{dictionnaire}\indexfrr{type}{liste}\indextype{dict}\indextype{list}
+\vspaceneg
+\begin{verbatimx}
+l  = [4,5,6]
+l2 = l
+print l       # affiche [4, 5, 6]
+print l2      # affiche [4, 5, 6]
+l2 [1] = 10
+print l       # affiche [4, 10, 6]
+print l2      # affiche [4, 10, 6]
+\end{verbatimx}
+%
+\vspaceneg
+Pour effectuer une copie, il faut écrire le code suivant~:
+\vspaceneg
+%
+\begin{verbatimx}
+l  = [4,5,6]
+import copy
+l2 = copy.copy (l)
+print l       # affiche [4, 5, 6]
+print l2      # affiche [4, 5, 6]
+l2 [1] = 10
+print l       # affiche [4, 5, 6]
+print l2      # affiche [4, 10, 6]
+\end{verbatimx}
+%
+\vspaceneg
+La fonction \codes{copy} ne suffit pourtant pas lorsque l'objet à copier est par exemple une liste incluant d'autres objets. Elle copiera la liste et ne fera pas de copie des objets eux-mêmes.
+\vspaceneg
+%
+\begin{verbatimx}
+import copy
+l  = [ [i] for i in range(0,3)]
+ll = copy.copy (l)
+print l, "  -  ", ll    # affiche [[0], [1], [2]]   -   [[0], [1], [2]]
+ll [0][0] = 6
+print l, "  -  ", ll    # affiche [[6], [1], [2]]   -   [[6], [1], [2]]
+\end{verbatimx}
+%
+\vspaceneg
+Il n'est pas possible de modifier la méthode \codes{\_\_copy\_\_} d'un objet de type liste. Il existe néanmoins la fonction \codes{deepcopy} qui permet de faire une copie à la fois de la liste et des objets qu'elle contient.
+\vspaceneg\indexexemples{copie}{}
+
+%
+\indexfonction{deepcopy}
+\begin{verbatimx}
+import copy
+l  = [ [i] for i in range(0,3)]
+ll = copy.deepcopy (l)
+print l, "  -  ", ll    # affiche [[0], [1], [2]]   -   [[0], [1], [2]]
+ll [0][0] = 6
+print l, "  -  ", ll    # affiche [[0], [1], [2]]   -   [[6], [1], [2]]
+\end{verbatimx}
+
+
+\subsection{\codes{copy} et \codes{deepcopy}}  \label{paragraphe_classe_deep_deepcopy_ref}
+\indexfr{copie}\indexfr{copie profonde}\indexfrr{classe}{copie}\indexfrr{classe}{copie profonde}
+
+La fonction \codes{copy} effectue une copie d'un objet, la fonction \codes{deepcopy} effectue une copie d'un objet et de ceux qu'il contient. La fonction \codes{copy} est associée à la méthode \codes{\_\_copy\_\_} tandis que la fonction \codes{deepcopy} est associée à la méthode \codes{\_\_deepcopy\_\_}. Il est rare que l'une de ces deux méthodes doivent être redéfinies. L'intérêt de ce paragraphe est plus de montrer le mécanisme que cache la fonction \codes{deepcopy} qui est la raison pour laquelle il existe deux fonctions de copie et non une seule.
+
+\begin{xsyntax}{fonction \codes{deepcopy}}
+\begin{verbatimno}
+
+import copy
+memo = { } 
+nom_copy = copy.deepcopy (nom_instance [,memo])
+\end{verbatimno}
+\negvspace
+\codes{nom\_instance} est une instance à copier, \codes{nom\_copy} est le nom désignant la copie. \codes{memo} est un paramètre facultatif~: s'il est envoyé à la fonction \codes{deepcopy}, il contiendra alors la liste de toutes les copies d'objet effectuées lors de cet appel. \indexmoduleint{copy}\indexfonction{deepcopy}\indexsyntaxecod{deepcopy}
+\end{xsyntax}
+
+\vspaceneg
+
+\begin{xsyntax}{classe, opérateur \codes{\_\_deepcopy\_\_}}
+\begin{verbatimno}
+
+class nom_classe :
+    def __deepcopy__ (self,memo) :
+        copie = copy.copy (self)
+        # ...
+        return copie
+\end{verbatimno}
+\negvspace
+\codes{nom\_classe} est le nom d'une classe. La méthode \codes{\_\_deepcopy\_\_} doit retourner une instance de la classe \codes{nom\_classe}, dans cet exemple, cette instance a pour nom \codes{copie}. Le paramètre \codes{memo} permet de conserver la liste des copies effectuées à condition d'appeler \codes{deepcopy} avec un dictionnaire en paramètre.
+\indexoperator{\_\_deepcopy\_\_}\indexsyntaxecod{\_\_deepcopy\_\_}
+\end{xsyntax}
+
+
+Le programme suivant reprend le second programme du paragraphe~\ref{par_copie_copie} et modifie la classe \codes{classe\_incluse} pour distinguer copie et copie profonde. Il peut être utile de lire le paragraphe~\ref{cle_dict_modificalbe_apr} (page~\pageref{cle_dict_modificalbe_apr}) pour comprendre pourquoi un dictionnaire utilisant comme clé une instance de classe est possible.
+%
+\vspaceneg
+\begin{verbatimx}
+import copy
+
+class classe_incluse:
+    def __init__ (self) : self.attr = 3
+
+class exemple_classe:
+    def __init__ (self) :
+        self.inclus = classe_incluse ()
+        self.rnd    = 42
+    def __copy__ (self):
+        copie       = exemple_classe ()
+        copie.rnd   = self.rnd
+        return copie
+    def __deepcopy__ (self,memo):
+        if self in memo : return memo [self]
+        copie        = copy.copy (self)
+        memo [self]  = copie    # mémorise la copie de self qui est copie
+        copie.inclus = copy.deepcopy (self.inclus,memo)
+        return copie
+
+nb = exemple_classe ()
+
+nb2 = copy.deepcopy (nb)   # copie explicite à tous niveaux,
+                           # utilise l'opérateur __copy__,
+                           # cette ligne est équivalente à
+                           # nb2 = nb.__deepcopy__()
+
+print nb.rnd           # affiche 42
+print nb2.rnd          # affiche 42
+print nb.inclus.attr   # affiche 3
+print nb2.inclus.attr  # affiche 3
+
+nb.inclus.attr = 0
+nb.rnd = 1
+
+print nb.rnd           # affiche 1
+print nb2.rnd          # affiche 42
+print nb.inclus.attr   # affiche 0
+print nb2.inclus.attr  # affiche 3  # résultat souhaité
+\end{verbatimx}
+\vspaceneg
+
+On peut se demander quel est l'intérêt de la méthode \codes{\_\_deepcopy\_\_} et surtout du paramètre \codes{memo} modifié par la ligne \codes{memo [self]  = copie}. Ce détail est important lorsqu'un objet inclut un attribut égal à lui-même ou inclut un objet qui fait référence à l'objet de départ comme dans l'exemple qui suit.\indexexemples{copie}{}
+%
+\vspaceneg
+\begin{verbatimx}
+import copy
+
+class Objet1 :
+    def __init__ (self, i) : self.i = i
+    def __str__ (self) : 
+        return "o1 " + str (self.i) + " : " + str (self.o2.i)
+
+class Objet2 :
+    def __init__ (self, i, o) :
+        self.i  = i
+        self.o1 = o
+        o.o2    = self
+    def __str__ (self) : 
+        return "o2 " + str (self.i) + " : " + str (self.o1.i)
+        
+    def __deepcopy__ (self,memo) : return Objet2 (self.i, self.o1)
+        
+o1 = Objet1 (1)
+o2 = Objet2 (2, o1)
+print o1  # affiche o1 1 : 2
+print o2  # affiche o2 2 : 1
+
+o3   = copy.deepcopy (o2)
+o3.i = 4
+print o1  # affiche o1 1 : 4    --> on voudrait 2
+print o2  # affiche o2 2 : 1
+print o3  # affiche o2 4 : 1      
+\end{verbatimx}
+\vspaceneg
+%
+On modifie le programme comme suit pour obtenir une recopie d'instances de classes qui pointent les unes sur vers les autres. Le paramètre \codes{memo} sert à savoir si la copie de l'objet a déjà été effectuée ou non. Si non, on fait une copie, si oui, on retourne la copie précédemment effectuée et conservée dans \codes{memo}.
+%
+\vspaceneg
+\begin{verbatimx}
+import copy
+
+class Objet1 :
+    def __init__ (self, i) : self.i = i
+    def __str__ (self) : 
+        return "o1 " + str (self.i) + " : " + str (self.o2.i)
+    def __deepcopy__ (self,memo={}) :
+        if self in memo : return memo [self]
+        r           = Objet1 (self.i)
+        memo [self] = r
+        r.o2        = copy.deepcopy (self.o2, memo)
+        return r
+
+class Objet2 :
+    def __init__ (self, i, o) :
+        self.i  = i
+        self.o1 = o
+        o.o2    = self
+    def __str__ (self) : 
+        return "o2 " + str (self.i) + " : " + str (self.o1.i)
+        
+    def __deepcopy__ (self,memo = {}) :
+        if self in memo : return memo [self]
+        r           = Objet2 (self.i, self.o1)
+        memo [self] = r
+        r.o1        = copy.deepcopy (self.o1, memo)
+        return r
+        
+o1 = Objet1 (1)
+o2 = Objet2 (2, o1)
+
+print o1  # affiche o1 1 : 2
+print o2  # affiche o2 2 : 1
+
+o3   = copy.deepcopy (o2)
+o3.i = 4
+print o1  # affiche o1 1 : 2    --> on a 2 cette fois-ci
+print o2  # affiche o2 2 : 1
+print o3  # affiche o2 4 : 1      
+\end{verbatimx}
+\vspaceneg
+%
+Ces problématiques se rencontrent souvent lorsqu'on aborde le problème de la sérialisation\indexfr{sérialisation} d'un objet qui consiste à enregistrer tout objet dans un fichier, même si cet objet inclut des références à des objets qui font référence à lui-même. C'est ce qu'on appelle des références circulaires.\indexfr{référence circulaire} L'enregistrement d'un tel objet avec des références circulaires et sa relecture depuis un fichier se résolvent avec les mêmes artifices que ceux proposés ici pour la copie. L'utilisation des opérateurs \codes{\_\_copy\_\_} et \codes{\_\_deepcopy\_\_} est peu fréquente. Les fonctions \codes{copy} et \codes{deepcopy} du module \codes{copy} suffisent dans la plupart des cas.\indexmoduleint{copy}
+
+
+\section{Attributs figés}\label{classe_attribut_non_lie} \indexattribut{\_\_dict\_\_}\label{classe_slots_att}
+
+Il arrive parfois qu'une classe contienne peu d'informations et soit utilisée pour créer un très grand nombre d'instances. Les paragraphes précédents ont montré que l'utilisation des attributs était assez souple. Il est toujours possible d'ajouter un attribut à n'importe quelle instance. En contrepartie, chaque instance conserve en mémoire un dictionnaire \codes{\_\_dict\_\_} qui recense tous les attributs qui lui sont associés. Pour une classe susceptible d'être fréquemment instanciée comme un point dans l'espace (voir paragraphe~\ref{exemple_point_xyz}), chaque instance n'a pas besoin d'avoir une liste variable d'attributs. Le langage \pythons offre la possibilité de figer cette liste.
+
+\begin{xsyntax}{classe, \codes{\_\_slots\_\_}}
+\begin{verbatimno}
+
+class nom_classe (object) :
+    __slots__ = "attribut_1", ..., "attribut_n"
+\end{verbatimno}    
+\codes{nom\_classe} est le nom de la classe, elle doit hériter de \codes{object} ou d'une classe qui en hérite elle-même (voir paragraphe~\ref{par_classe_heritage}). Il faut ensuite ajouter au début du corps de la classe la ligne \codes{\_\_slots\_\_= "attribut\_1", ..., "attribut\_n"} où  \codes{attribut\_1} à \codes{attribut\_n} sont les noms des attributs de la classe. Aucun autre ne sera accepté. \indexsyntaxenoc{attribut figé}\indexattribut{\_\_slots\_\_}
+\end{xsyntax}
+
+L'exemple suivant utilise cette syntaxe pour définir un point avec seulement trois attributs \codes{\_x}, \codes{\_y}, \codes{\_z}.
+%
+\vspaceneg\indexexemples{\codesindex{\_\_slots\_\_}}{}
+\begin{verbatimx}
+class point_espace(object):
+    __slots__ = "_x", "_y", "_z"
+    
+    def __init__ (self, x,y,z): self._x, self._y, self._z = x,y,z
+    def __str__(self): return "(%f,%f,%f)" % (self._x, self._y, self._z)
+        
+a = point_espace (1,-2,3)
+print a
+\end{verbatimx}
+\vspaceneg
+%
+Etant donné que la liste des attributs est figée, l'instruction \codes{a.j = 6} qui ajoute un attribut \codes{j} à l'instance \codes{a} déclenche une exception (voir paragraphe~\ref{chap_exception}). La même erreur se déclenche si on cherche à ajouter cet attribut depuis une méthode (\codes{self.j=6}).
+%
+\vspaceneg
+\begin{verbatimx}
+Traceback (most recent call last):
+  File "cours4.py", line 15, in ?
+    a.j = 6
+AttributeError: 'point_espace' object has no attribute 'j'
+\end{verbatimx}
+\vspaceneg
+%
+L'attribut \codes{\_\_dict\_\_} n'existe pas non plus, par conséquent, l'expression \codes{a.\_\_dict\_\_} génère la même exception. La présence de l'instruction \codes{\_\_slots\_\_ = ...} n'a aucun incidence sur les attributs statiques.\indexfrr{attribut}{statique}
+
+
+
+
+
+
+\section{Héritage}
+\label{par_classe_heritage}
+\indexfr{héritage}\indexfrr{classe}{héritage}
+
+L'héritage est un des grands avantages de la programmation objet. Il permet de créer une classe à partir d'une autre en ajoutant des attributs, en modifiant ou en ajoutant des méthodes. En quelque sorte, on peut modifier des méthodes d'une classe tout en conservant la possibilité d'utiliser les anciennes versions.
+
+\subsection{Exemple autour de pièces de monnaie}\label{exemple_heriagte_piece_ser}
+
+\indexfrr{pièce}{normale}
+On désire réaliser une expérience à l'aide d'une pièce de monnaie. On effectue cent tirages successifs et on compte le nombre de fois où la face pile tombe. Le programme suivant implémente cette expérience sans utiliser la programmation objet.
+%
+\vspaceneg
+\begin{verbatimx}
+import random  # extension interne incluant des fonctions
+               # simulant des nombres aléatoires,
+               # random.randint (a,b) --> retourne un nombre entier entre a et b
+               # cette ligne doit être ajoutée à tous les exemples suivant
+               # même si elle n'y figure plus
+
+def cent_tirages () :
+    s = 0
+    for i in range (0,100) : s += random.randint (0,1)
+    return s
+    
+print cent_tirages ()
+\end{verbatimx}
+\vspaceneg
+%
+\indexfrr{pièce}{truquée}
+On désire maintenant réaliser cette même expérience pour une pièce truquée pour laquelle la face pile sort avec une probabilité de $0,7$. Une solution consiste à réécrire la fonction \codes{cent\_tirages} pour la pièce truquée.
+%
+\vspaceneg
+\begin{verbatimx}
+def cent_tirages () :
+    s = 0
+    for i in range (0,100) :
+        t = random.randint (0,10)
+        if t >= 3 : s += 1
+    return s
+    
+print cent_tirages ()
+\end{verbatimx}
+\vspaceneg
+%
+Toutefois cette solution n'est pas satisfaisante car il faudrait réécrire cette fonction pour chaque pièce différente pour laquelle on voudrait réaliser cette expérience. Une autre solution consiste donc à passer en paramètre de la fonction \codes{cent\_tirages} une fonction qui reproduit le comportement d'une pièce, qu'elle soit normale ou truquée.\indexexemples{pièce}{}
+%
+\vspaceneg
+\begin{verbatimx}
+def piece_normale () :
+    return random.randint (0,1)
+    
+def piece_truquee () :
+    t = random.randint (0,10)
+    if t >= 3 : return 1
+    else : return 0
+    
+def cent_tirages (piece) :
+    s = 0
+    for i in range (0,100) : s += piece ()
+    return s
+    
+print cent_tirages (piece_normale)
+print cent_tirages (piece_truquee)
+\end{verbatimx}
+\vspaceneg
+%
+Mais cette solution possède toujours un inconvénient car les fonctions associées à chaque pièce n'acceptent aucun paramètre. Il n'est pas possible de définir une pièce qui est normale si la face \textit{pile} vient de sortir et qui devient truquée si la face \textit{face} vient de sortir\footnote{Il faudrait pour cela créer une variable globale. \\
+\begin{tabular}{l}
+\codesnote{avant = 0} \\
+\codesnote{def \; piece\_tres\_truquee () :} \\
+\codesnote{\quad\quad    global \; avant} \\
+\codesnote{\quad\quad    if \; avant == 0 : avant = piece\_truquee ()} \\
+\codesnote{\quad\quad    else : avant = piece\_normale ()} \\
+\codesnote{\quad\quad    return \; avant} 
+\end{tabular} \\
+C'est comme si la fonction \codesnote{piece\_tres\_truquee} avait un paramètre caché. Cette solution n'est pas conseillée car c'est le genre de détail qu'on oublie par la suite.}. On choisit alors de représenter une pièce normale par une classe.
+%
+\vspaceneg
+\begin{verbatimx}
+class piece_normale :
+    def tirage (self) :
+        return random.randint (0,1)
+        
+    def cent_tirages (self) :
+        s = 0
+        for i in range (0,100) : s += self.tirage ()
+        return s
+
+p = piece_normale ()
+print p.cent_tirages ()
+\end{verbatimx}
+%
+\vspaceneg
+On peut aisément recopier et adapter ce code pour la pièce truquée.  
+\vspaceneg
+%
+\begin{verbatimx}
+class piece_normale :
+    def tirage (self) :
+        return random.randint (0,1)
+        
+    def cent_tirages (self) :
+        s = 0
+        for i in range (0,100) : s += self.tirage ()
+        return s
+
+class piece_truquee :
+    def tirage (self) :
+        t = random.randint (0,10)
+        if t >= 3 : return 1
+        else : return 0
+        
+    def cent_tirages (self) :
+        s = 0
+        for i in range (0,100) : s += self.tirage ()
+        return s
+        
+p  = piece_normale ()
+print p.cent_tirages ()
+p2 = piece_truquee ()
+print p2.cent_tirages ()
+\end{verbatimx}
+\vspaceneg
+%
+Toutefois, pour les deux classes \codes{piece\_normale} et \codes{piece\_truquee}, la méthode \codes{cent\_tirage} est exactement la même. Il serait préférable de ne pas répéter ce code puisque si nous devions modifier la première -~un nombre de tirages différent par exemple~-, il faudrait également modifier la seconde. La solution passe par l'héritage. On va définir la classe \codes{piece\_truquee} à partir de la classe \codes{piece\_normale} en remplaçant seulement la méthode \codes{tirage} puisqu'elle est la seule à changer.
+
+\indexfr{dériver}\indexfrr{classe}{dériver}
+On indique à la classe \codes{piece\_truquee} qu'elle hérite -~ou dérive~- de la classe \codes{piece\_normale} en mettant \codes{piece\_normale} entre parenthèses sur la ligne de la déclaration de la classe \codes{piece\_truquee}. Comme la méthode \codes{cent\_tirages} ne change pas, elle n'a pas besoin d'apparaître dans la définition de la nouvelle classe même si cette méthode est aussi applicable à une instance de la classe \codes{piece\_truquee}.\indexexemples{pièce}{}
+%
+\vspaceneg
+\begin{verbatimx}
+class piece_normale :
+    def tirage (self) :
+        return random.randint (0,1)
+        
+    def cent_tirages (self) :
+        s = 0
+        for i in range (0,100) : s += self.tirage ()
+        return s
+
+class piece_truquee (piece_normale) :
+    def tirage (self) :
+        t = random.randint (0,10)
+        if t >= 3 : return 1
+        else : return 0
+        
+p  = piece_normale ()
+print p.cent_tirages ()
+p2 = piece_truquee ()
+print p2.cent_tirages ()
+\end{verbatimx}
+\vspaceneg
+%
+Enfin, on peut définir une pièce très truquée qui devient truquée si \textit{face} vient de sortir et qui redevient normale si \textit{pile} vient de sortir. Cette pièce très truquée sera implémentée par la classe \codes{piece\_tres\_truquee}. Elle doit contenir un attribut \codes{avant} qui conserve la valeur du précédent tirage. Elle doit redéfinir la méthode \codes{tirage} pour être une pièce normale ou truquée selon la valeur de l'attribut \codes{avant}. Pour éviter de réécrire des méthodes déjà écrites, la méthode \codes{tirage} de la classe \codes{piece\_tres\_truquee} doit appeler la méthode \codes{tirage} de la classe \codes{piece\_truquee} ou celle de la classe \codes{piece\_normale} selon la valeur de l'attribut \codes{avant}.\indexexemples{pièce}{}
+%
+\vspaceneg
+\indexfrr{pièce}{très truquée}
+\begin{verbatimx}
+class piece_normale :
+    def tirage (self) :
+        return random.randint (0,1)
+        
+    def cent_tirages (self) :
+        s = 0
+        for i in range (0,100) : s += self.tirage ()
+        return s
+
+class piece_truquee (piece_normale) :
+    def tirage (self) :
+        t = random.randint (0,10)
+        if t >= 3 : return 1
+        else : return 0
+        
+class piece_tres_truquee (piece_truquee) :
+    def __init__(self) :
+        # création de l'attribut avant
+        self.avant = 0 
+        
+    def tirage (self) :
+        if self.avant == 0 :
+            # appel de la méthode tirage de la classe piece_truquee
+            self.avant = piece_truquee.tirage (self)
+        else :
+            # appel de la méthode tirage de la classe piece_normale
+            self.avant = piece_normale.tirage (self)
+        return self.avant
+        
+p = piece_normale ()
+print "normale ", p.cent_tirages ()
+p2 = piece_truquee ()
+print "truquee ", p2.cent_tirages ()
+p3 = piece_tres_truquee ()
+print "tres truquee ", p3.cent_tirages ()
+\end{verbatimx}
+\vspaceneg
+%
+\indexfrr{classe}{surcharge}\indexfr{surcharge}
+L'héritage propose donc une manière élégante d'organiser un programme. Il rend possible la modification des classes d'un programme sans pour autant les altérer.
+
+				\vspaceneg
+				\begin{xdefinition}{héritage}
+				On dit qu'une classe $B$ hérite d'une autre classe $A$ si la déclaration de $B$
+				inclut les attributs et les méthodes de la classe $A$. 
+				\end{xdefinition}
+				\vspaceneg
+				
+La surcharge est un autre concept qui va de pair avec l'héritage. Elle consiste à redéfinir des méthodes déjà définies chez l'ancêtre. Cela permet de modifier le comportement de méthodes bien que celles-ci soient utilisées par d'autres méthodes dont la définition reste inchangée.\indexfrr{surcharge}{fonction}\indexfrr{méthode}{surcharge}
+
+				\vspaceneg
+				\begin{xdefinition}{surcharge}
+				Lorsqu'une classe $B$ hérite de la classe $A$ et redéfinit une méthode de la classe $A$ portant
+				le même nom, on dit qu'elle surcharge cette méthode. S'il n'est pas explicitement précisé 
+				qu'on fait appel à une méthode d'une classe donnée, c'est toujours la méthode surchargée qui est exécutée.
+				\end{xdefinition}
+				\vspaceneg
+				
+				
+
+
+
+\subsection{Syntaxe}
+\indexfrr{surcharge}{fonction}
+
+%L'héritage obéit à la syntaxe suivante.
+\vspaceneg
+\begin{xsyntax}{classe, héritage}
+\begin{verbatimno}
+
+class nom_classe (nom_ancetre) :
+    # corps de la classe
+    # ...
+\end{verbatimno}
+\negvspace    
+\codes{nom\_classe} désigne le nom d'une classe qui hérite ou dérive d'une autre classe \codes{nom\_ancetre}. Celle-ci \codes{nom\_ancetre} doit être une classe déjà définie.
+\indexsyntaxenoc{héritage}
+\end{xsyntax}
+
+\indexfonction{help}
+L'utilisation de la fonction \codes{help} permet de connaître tous les ancêtres d'une classe. On applique cette fonction à la classe \codes{piece\_tres\_truquee} définie au paragraphe précédent.
+%
+\vspaceneg
+\begin{verbatimx}
+help (piece_tres_truquee)
+\end{verbatimx}
+%
+\vspaceneg
+On obtient le résultat suivant~:
+\vspaceneg
+%
+\begin{verbatimx}
+Help on class piece_tres_truquee in module __main__:
+
+class piece_tres_truquee(piece_truquee)
+ |  Method resolution order:
+ |      piece_tres_truquee
+ |      piece_truquee
+ |      piece_normale
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self)
+ |  
+ |  tirage(self)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from piece_normale:
+ |  
+ |  cent_tirages(self)
+\end{verbatimx}
+\vspaceneg
+%
+\begin{xremark}{Method resolution order}
+La rubrique \codes{Method \; resolution \; order} indique la liste des héritages successifs qui ont mené à la classe \codes{piece\_tres\_truquee}. Cette rubrique indique aussi que, lorsqu'on appelle une méthode de la classe \codes{piece\_tres\_truquee}, si elle n'est pas redéfinie dans cette classe, le langage \pythons la cherchera chez l'ancêtre direct, ici, la classe \codes{piece\_truquee}. Si elle ne s'y trouve toujours pas, \pythons ira la chercher aux niveaux précédents jusqu'à ce qu'il la trouve. \indexfr{ancêtre}\indexfrr{classe}{ancêtre}\label{remarque_method_resolution_order}
+\end{xremark}
+
+\indexattribut{\_\_bases\_\_}
+L'attribut \codes{\_\_bases\_\_} d'une classe (voir paragraphe~\ref{attribut_implicite_par}) contient le (ou les ancêtres, voir paragraphe~\ref{heritage_pultiuple_par}). Il suffit d'interroger cet attribut pour savoir si une classe hérite d'une autre comme le montre l'exemple suivant.
+%
+\vspaceneg
+\begin{verbatimx}
+for l in piece_tres_truquee.__bases__ : 
+    print l   # affiche __main__.piece_truquee
+print piece_normale in piece_tres_truquee.__bases__  # affiche False
+print piece_truquee in piece_tres_truquee.__bases__  # affiche True
+\end{verbatimx}
+\vspaceneg
+%
+La fonction \codes{issubclass}\indexfonction{issubclass} permet d'obtenir un résultat équivalent. \codes{issubclass(A,B)} indique si la classe~\codes{A} hérite directement ou indirectement de la classe~\codes{B}. Le paragraphe~\ref{fonction_issubclass_paragraphe} revient sur cette fonction.
+\vspaceneg
+\begin{verbatimx}
+print issubclass (piece_tres_truquee, piece_normale)  # affiche True
+print issubclass (piece_truquee, piece_normale)       # affiche True
+\end{verbatimx}
+\vspaceneg
+%
+\indexclass{object}
+Dans les exemples précédents, \codes{piece\_normale} ne dérive d'aucune autre classe. Toutefois, le langage \pythons propose une classe d'objets dont héritent toutes les autres classes définies par le langage~: c'est la classe \codes{object}. Les paragraphes précédents ont montré qu'elle offrait certains avantages (voir paragraphe~\ref{classe_proprietes_par} sur les propriétés ou encore paragraphe~\ref{classe_attribut_non_lie} sur les attributs non liés). 
+
+
+Le paragraphe précédent a montré qu'il était parfois utile d'appeler dans une méthode une autre méthode appartenant explicitement à l'ancêtre direct de cette classe ou à un de ses ancêtres. La syntaxe est la suivante.
+
+
+\begin{xsyntax}{classe, appel d'une méthode de l'ancêtre}
+\begin{verbatimno}
+
+class nom_classe (nom_ancetre) :
+    def nom_autre_methode (self, ...) :
+        # ...
+    def nom_methode (self, ...) :
+        nom_ancetre.nom_methode (self, ...)
+            # appel de la méthode définie chez l'ancêtre
+        nom_ancetre.nom_autre_methode (self, ...)
+            # appel d'une autre méthode définie chez l'ancêtre
+        self.nom_autre_methode (...)
+            # appel d'une méthode surchargée
+\end{verbatimno}
+\negvspace            
+\codes{nom\_classe} désigne le nom d'une classe, \codes{nom\_ancetre} est le nom de la classe dont \codes{nom\_classe} hérite ou dérive. \codes{nom\_methode} est une méthode surchargée qui appelle la méthode portant le même nom mais définie dans la classe \codes{nom\_ancetre} ou un de ses ancêtres. \codes{nom\_autre\_methode} est une autre méthode. La méthode \codes{nom\_methode} de la classe \codes{nom\_classe} peut faire explicitement appel à une méthode définie chez l'ancêtre \codes{nom\_ancetre} même si elle est également surchargée ou faire appel à la méthode surchargée. \indexsyntaxenoc{appel à une méthode de l'ancêtre}
+\end{xsyntax}
+
+Ces appels sont très fréquents en ce qui concerne les constructeurs qui appellent le constructeur de l'ancêtre. Il est même conseillé de le faire à chaque fois.
+\vspaceneg
+\begin{verbatimx}
+class A :
+    def __init__ (self) :
+        self.x = 0
+class B (A) :
+    def __init__ (self) :
+        A.__init__ (self)
+        self.y = 0
+\end{verbatimx}        
+
+
+\indexfrr{surcharge}{attribut}\indexfrr{classe}{attribut}
+\begin{xremark}{surcharge d'attributs}
+Contrairement aux méthodes, la surcharge d'attributs n'est pas possible. Si un ancêtre possède un attribut d'identificateur \codes{a}, les classes dérivées le possèdent aussi et ne peuvent en déclarer un autre du même nom. Cela tient au fait que quelque soit la méthode utilisée, celle de l'ancêtre ou celle d'une classe dérivée, c'est le même dictionnaire d'attributs \codes{\_\_dict\_\_} qui est utilisé. En revanche, si la classe ancêtre déclare un attribut dans son constructeur, il ne faut pas oublier de l'appeler dans le constructeur de la classe fille afin que cette attribut existe pour la classe fille. \indexattribut{\_\_dict\_\_}
+%
+\vspaceneg
+\begin{verbatimx}
+class ancetre :
+    def __init__(self) :
+        self.a = 5
+    def __str__ (self) :
+        return "a = " + str (self.a)
+
+class fille (ancetre) :
+    def __init__(self) :
+        ancetre.__init__(self)     # cette ligne est importante
+                                   # car sans elle, l'attribut a n'existe pas
+        self.a += 1
+    def __str__ (self) :
+        s = "a = " + str (self.a)
+        return s
+
+x = ancetre ()  
+print x         # affiche a = 5
+y = fille ()
+print y         # affiche a = 6
+\end{verbatimx}
+%
+\end{xremark}
+
+
+
+
+
+
+\subsection{Sens de l'héritage}\label{heritage_classe_sens_par}
+\indexfrr{héritage}{sens}
+Il n'est pas toujours évident de concevoir le sens d'un héritage. En mathématique, le carré est un rectangle dont les côtés sont égaux. A priori, une classe \codes{carre} doit dériver d'une classe \codes{rectangle}.
+%
+\vspaceneg
+\begin{verbatimx}
+class rectangle :
+    def __init__(self,a,b) :
+        self.a,self.b = a,b
+    def __str__ (self) :
+        return "rectangle " + str (self.a) +  " x " +  str (self.b)
+        
+class carre (rectangle) :
+    def __init__( self, a) :
+        rectangle.__init__ (self, a,a)
+        
+r = rectangle (3,4)
+print r  # affiche rectangle 3 x 4
+c = carre (5)
+print c  # affiche rectangle 5 x 5
+\end{verbatimx}
+\vspaceneg
+%
+Toutefois, on peut aussi considérer que la classe \codes{carre} contient une information redondante puisqu'elle possède deux attributs qui seront toujours égaux. On peut se demander s'il n'est pas préférable que la classe \codes{rectangle} hérite de la classe \codes{carre}.
+%
+\vspaceneg
+\begin{verbatimx}
+class carre :
+    def __init__( self, a) :
+        self.a = a
+    def __str__ (self) :
+        return "carre " + str (self.a) 
+        
+class rectangle (carre):
+    def __init__(self,a,b) :
+        carre.__init__(self, a)
+        self.b = b
+    def __str__ (self) :
+        return "rectangle " + str (self.a) +  " x " +  str (self.b)
+        
+r = rectangle (3,4)
+print r  # affiche rectangle 3 x 4
+c = carre (5)
+print c  # affiche carre 5
+\end{verbatimx}
+\vspaceneg
+%
+Cette seconde version minimise l'information à mémoriser puisque la classe \codes{carre} ne contient qu'un seul attribut et non deux comme dans l'exemple précédent. Néanmoins, il a fallu surcharger l'opérateur \codes{\_\_str\_\_} afin d'afficher la nouvelle information. 
+
+\indexfr{propriétés croissantes}\indexfr{attributs croissants}
+Il n'y a pas de meilleur choix parmi ces deux solutions proposées. La première solution va dans le sens des propriétés croissantes, les méthodes implémentées pour les classes de bases restent vraies pour les suivantes. La seconde solution va dans le sens des attributs croissants, des méthodes implémentées pour les classes de bases doivent souvent être adaptées pour les héritiers. En contrepartie, il n'y a pas d'information redondante.
+
+Ce problème d'héritage ne se pose pas à chaque fois. Dans l'exemple du paragraphe~\ref{exemple_heriagte_piece_ser} autour des pièces truquées, il y a moins d'ambiguïté sur le sens de l'héritage. Celui-ci est guidé par le problème à résoudre qui s'avère plus simple à concevoir dans le sens d'un héritage d'une pièce normale vers une pièce truquée.
+
+\indexfr{vecteur}\indexfr{matrice}
+Dans le cas des classes \codes{carre} et \codes{rectangle}, il n'est pas possible de déterminer la meilleure solution tant que leur usage ultérieur n'est pas connu. Ce problème revient également lorsqu'on définit des matrices et des vecteurs. Un vecteur est une matrice d'une seul colonne, il ne possède qu'une seule dimension au lieu de deux pour une matrice. L'exercice~\ref{exeercie_heritage_multiple} page~\pageref{exeercie_heritage_multiple} revient sur ce dilemme.
+
+
+
+
+
+\subsection{Héritage multiple}
+\label{heritage_pultiuple_par}
+\indexfrr{classe}{ancêtre}\indexfrr{héritage}{multiple}
+\indexfrr{classe}{héritage multiple}
+
+Jusqu'à présent, tous les exemples d'héritages entre classes n'ont fait intervenir que deux classes, la classe ancêtre dont hérite la classe descendante. L'héritage multiple part du principe qu'il peut y avoir plusieurs ancêtres pour une même classe. La classe descendante hérite dans ce cas de tous les attributs et méthodes de tous ses ancêtres.
+
+Dans l'exemple qui suit, la classe \codes{C} hérite des classes \codes{A} et \codes{B}. Elle hérite donc des méthodes de \codes{carre} et \codes{cube}. Chacune des classes \codes{A} et \codes{B} contient un constructeur qui initialise l'attribut \codes{a}. Le constructeur de la classe \codes{C} appelle le constructeur de la classe \codes{A} pour initialiser cet attribut.
+%
+\vspaceneg
+\begin{verbatimx}
+class A :
+    def __init__ (self) : self.a = 5
+    def carre (self) : return self.a ** 2
+
+class B :
+    def __init__ (self) : self.a = 6
+    def cube (self) : return self.a ** 3
+
+class C (A,B) :
+    def __init__ (self):
+        A.__init__ (self)
+
+x = C ()
+print x.carre ()    # affiche 25
+print x.cube ()     # affiche 125
+\end{verbatimx}
+\vspaceneg
+%
+Mais ces héritages multiples peuvent parfois apporter quelques ambiguïtés comme le cas où au moins deux ancêtres possèdent une méthode du même nom. Dans l'exemple qui suit, la classe \codes{C} hérite toujours des classes \codes{A} et \codes{B}. Ces deux classes possèdent une méthode \codes{calcul}. La classe \codes{C}, qui hérite des deux, possède aussi une méthode \codes{calcul} qui, par défaut, sera celle de la classe \codes{A}.
+%
+\vspaceneg
+\begin{verbatimx}
+class A :
+    def __init__ (self) : self.a = 5
+    def calcul (self) : return self.a ** 2
+
+class B :
+    def __init__ (self) : self.a = 6
+    def calcul (self) : return self.a ** 3
+
+class C (A,B) :
+    def __init__ (self):
+        A.__init__ (self)
+
+x = C ()
+print x.calcul ()  # affiche 25
+\end{verbatimx}
+\vspaceneg
+%
+Cette information est disponible via la fonction \codes{help}\indexfonction{help} appliquée à la classe \codes{C}. C'est dans ce genre de situations que l'information apportée par la section \codes{Method \; resolution \;order} est importante (voir remarque~\ref{remarque_method_resolution_order} page~\pageref{remarque_method_resolution_order}).
+\vspaceneg
+\begin{verbatimx}
+class C(A, B)
+ |  Method resolution order:
+ |      C
+ |      A
+ |      B
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self)
+ |  
+ |  calcul(self)
+\end{verbatimx}
+\vspaceneg
+%
+Pour préciser que la méthode \codes{calcul} de la classe \codes{C} doit appeler la méthode \codes{calcul} de la classe \codes{B} et non \codes{A}, il faut l'écrire explicitement en surchargeant cette méthode.\indexexemples{héritage multiple}{}
+%
+\vspaceneg
+\begin{verbatimx}
+class A :
+    def __init__ (self) : self.a = 5
+    def calcul (self) : return self.a ** 2
+
+class B :
+    def __init__ (self) : self.a = 6
+    def calcul (self) : return self.a ** 3
+
+class C (A,B) :
+    def __init__ (self):
+        A.__init__ (self)
+        
+    def calcul (self) :
+        return B.calcul (self)
+
+x = C ()
+print x.calcul ()  # affiche 125
+\end{verbatimx}
+\vspaceneg
+
+\begin{xremark}{héritage multiple et constructeur}
+L'exemple précédent est un cas particulier où il n'est pas utile d'appeler les constructeurs des deux classes dont la classe~\codes{C} hérite mais c'est un cas particulier. Le constructeur de la classe~\codes{C} devrait être ainsi~:\indexexemples{constructeur}{}
+\vspaceneg
+\begin{verbatimx}
+class C (A,B) :
+    def __init__ (self):
+        A.__init__ (self)
+        B.__init__ (self)
+\end{verbatimx}
+\end{xremark}
+
+
+
+\subsection{Fonctions \codes{issubclass} et \codes{isinstance}}  \label{fonction_issubclass_paragraphe}
+
+La fonction \codes{issubclass} permet de savoir si une classe hérite d'une autre. 
+
+\begin{xsyntax}{fonction \codes{isubclass}}
+\begin{verbatimno}
+
+issubclass (B,A)
+\end{verbatimno}
+\negvspace
+Le résultat de cette fonction est vrai si la classe \codes{B} hérite de la classe \codes{A}, le résultat est faux dans tous les autres cas. La fonction prend comme argument des classes et non des instances de classes. \indexsyntaxecod{issubclass}\indexfonction{issubclass}
+\end{xsyntax}
+
+L'exemple qui suit utilise cette fonction dont le résultat est vrai même pour des classes qui n'héritent pas directement l'une de l'autre.
+%
+\vspaceneg
+\begin{verbatimx}
+class A (object) : pass
+class B (A)      : pass
+class C (B)      : pass
+    
+print issubclass (A, B)     # affiche False
+print issubclass (B, A)     # affiche True
+print issubclass (A, C)     # affiche False
+print issubclass (C, A)     # affiche True
+\end{verbatimx}
+\vspaceneg
+%
+Lorsqu'on souhaite appliquer la fonction à une instance de classe, il faut faire appel à l'attribut \codes{\_\_class\_\_}.\indexfr{\codesindex{\_\_class\_\_}} En reprenant les classes définies par l'exemple précédant cela donne~:
+\begin{verbatimx}
+a = A ()
+b = B ()
+print issubclass (a.__class__, B)     # affiche False
+print issubclass (b.__class__, A)     # affiche True
+print issubclass (a.__class__, A)     # affiche True
+\end{verbatimx}
+\vspaceneg
+%
+La fonction \codes{isinstance}\indexfonction{isinstance} permet de savoir si une instance de classe est d'une type donné. Elle est équivalente à la fonction \codes{issubclass} à ceci près qu'elle prend comme argument une instance et une classe. L'exemple précédent devient avec la fonction \codes{isinstance}~:
+\vspaceneg
+\begin{verbatimx}
+a = A ()
+b = B ()
+print isinstance (a, B)     # affiche False
+print isinstance (b, A)     # affiche True
+print isinstance (a, A)     # affiche True
+\end{verbatimx}
+\vspaceneg
+
+L'utilisation des fonctions \codes{issubclass} et \codes{isinstance} n'est pas très fréquente mais elle permet par exemple d'écrire une fonction qui peut prendre en entrée des types variables.
+%
+\vspaceneg
+\inputcode{../python_cours/programme/sample_isinstance.py}{fonction \codesindex{isinstance}}
+\vspaceneg
+%
+L'avantage est d'avoir une seule fonction capable de s'adapter à différents type de variables, y compris des types créés par un programmeur en utilisant les classes.
+
+
+
+\section{Compilation de classes}
+\indexfr{compilation}\indexfrr{classe}{compilation}\indexfonction{compile}\indexfonction{exec}
+
+La compilation de classe fonctionne de manière similaire à celle de la compilation de fonctions (voir paragraphe~\ref{par_compilation_fonction}, page~\pageref{par_compilation_fonction}). Il s'agit de définir une classe sous forme de chaîne de caractères puis d'appeler la fonction \codes{compile} pour ajouter cette classe au programme et s'en servir. L'exemple suivant reprend deux classes décrites au paragraphe~\ref{heritage_classe_sens_par}. Elles sont incluses dans une chaîne de caractères, compilées puis incluses au programme (fonction \codes{exec}). \indexexemples{\codesindex{compile}}{}
+%
+\vspaceneg
+\begin{verbatimx}
+s = """class carre :
+    def __init__( self, a) : self.a = a
+    def __str__ (self)     : return "carre " + str (self.a) 
+        
+class rectangle (carre):
+    def __init__(self,a,b) :
+        carre.__init__(self, a)
+        self.b = b
+    def __str__ (self) :
+        return "rectangle " + str (self.a) +  " x " +  str (self.b)"""
+
+obj = compile(s,"","exec")       # code à compiler
+exec (obj)                       # classes incorporées au programme
+       
+r = rectangle (3,4)
+print r  # affiche rectangle 3 x 4
+c = carre (5)
+print c  # affiche carre 5
+\end{verbatimx}
+\vspaceneg
+%
+Comme toute fonction, la fonction \codes{compile} génère une exception lorsque la chaîne de caractères contient une erreur. Le programme qui suit essaye de compiler une chaîne de caractères confondant \codes{self} et \codes{seilf}. 
+%
+\vspaceneg
+\begin{verbatimx}
+# coding: latin-1
+"""erreur de compilation incluses dans le code inséré dans la
+chaîne de caractère s"""
+s = """class carre :
+    def __init__( self, a) :
+        seilf.a = a   # erreur de compilation
+    def __str__ (self) :
+        return "carre " + str (self.a) """
+        
+obj = compile(s,"variable s","exec")   # code à compiler
+exec (obj)                             # classes incorporées au programme
+       
+c = carre (5)
+print c  # affiche carre 5
+\end{verbatimx}
+%
+\vspaceneg
+L'exécution de ce programme affiche le message suivant~: 
+\vspaceneg
+%
+\begin{verbatimx}
+Traceback (most recent call last):
+  File "C:\temp\cours.py", line 14, in -toplevel-
+    c = carre (5)
+  File "variable s", line 3, in __init__
+NameError: global name 'seilf' is not defined
+\end{verbatimx}
+\vspaceneg
+
+Le message d'erreur est le même que pour un programme ne faisant pas appel à la fonction \codes{compile} à ceci près que le fichier où a lieu l'erreur est \codes{variable \; s} qui est le second paramètre envoyé à la fonction \codes{compile}. Le numéro de ligne fait référence à la troisième ligne de la chaîne de caractères \codes{s} et non à la troisième ligne du programme.
+%
+
+\if 0
+\section{Exemple plus complet}
+
+
+\inputcode{../python_cours/programme/classe_exemple.py}{exemple de classe}
+\fi
+
+\section{Constructions classiques}
+
+\subsection{Héritage} \label{paragraphe_fonction_variable_classe}
+
+Le premier exemple est classique puisqu'il reprend le programme du paragraphe~\ref{paragraphe_fonction_variable} de la page~\pageref{paragraphe_fonction_variable} pour le réécrire avec des classes et éviter de passer des fonctions comme paramètre d'une autre fonction. La première classe définit le module des suivantes. La méthode \codes{calcul} n'accepte qu'un seul paramètre~\codes{x} mais pourrait également prendre en compte des constantes si celles-ci sont renseignées via le constructeur de la classe. C'est l'avantage de cette solution déjà illustrée par les pièces normales et truquées.
+\vspaceneg
+\inputcode{../python_cours/programme/cube_class.py}{héritage}
+\vspaceneg
+La version suivante mélange héritage et méthodes envoyées comme paramètre à une fonction. Il est préférable d'éviter cette construction même si elle est très utilisée par les interfaces graphiques. Elle n'est pas toujours transposable dans tous les langages de programmation tandis que le programme précédent aura un équivalent dans tous les langages objet.
+\vspaceneg
+\inputcode{../python_cours/programme/cube_class2.py}{méthode paramètre d'une fonction}
+
+
+
+\subsection{Deux lignées d'héritages}
+
+C'est une configuration qui arrive fréquemment lorsqu'on a d'un côté différentes structures pour les mêmes données et de l'autre différents algorithmes pour le même objectif. Par exemple, une matrice peut être définie comme une liste de listes ou un dictionnaire de 2-uples\footnote{voir exercice~\ref{exercice_dame_dico_matrice}, page~\pageref{exercice_dame_dico_matrice}}. La multiplication de deux matrices peut être une multiplication classique ou celle de \textit{Strassen}\footnote{L'algorithme de multiplication de deux matrices de \textit{Strassen} est plus rapide qu'une multiplication classique pour de grandes matrices. Son coût est en $O(n^{\frac{\ln 7}{\ln 2}}) \sim O(n^{2,807})$ au lieu de $O(n^3)$.}.\indexfr{Strassen}\indexfrr{matrice}{Strassen}
+
+La question est comment modéliser ces deux structures et ces deux multiplications sachant que les quatre paires \textit{structure~-~algorithme} doivent fonctionner. On pourrait simplement créer deux classes faisant référence aux deux structures différentes et à l'intérieur de chacune d'entre elles, avoir deux méthodes de multiplication. Néanmoins, si une nouvelle structure ou un nouvel algorithme apparaît, la mise à jour peut être fastidieuse.
+
+Il est conseillé dans ce cas d'avoir quatre classes et de définir une interface d'échanges communes. L'algorithme de multiplication ne doit pas savoir quelle structure il manipule~: il doit y accéder par des méthodes. De cette manière, c'est la classe qui indique l'algorithme choisi et non une méthode. Ajouter un troisième algorithme ou une troisième structure revient à ajouter une classe~: l'interface d'échange ne change pas. Le programme pourrait suivre le schéma qui suit.\indexexemples{matrice}{}
+
+\begin{center}\begin{tabular}{@{}ll@{}}
+\begin{minipage}{7.4cm}
+\begin{verbatimx}
+class Matrice :
+    def __init__ (self,lin,col,coef):
+        self.lin, self.col = lin, col
+        
+    # interface d'échange
+    def get_lin () : return self.lin
+    def get_col () : return self.col
+    def __getitem__(self,i,j): pass
+    def __setitem__(self,i,j,v): pass
+    def get_submat(self, i1,j1,i2,j2): pass
+    def set_submat(self, i1,j1,mat): pass 
+    # fin de l'interface d'échange
+    
+    def trace (self) :
+        t = 0
+        for i in xrange (0, self.lin):
+            t += self (i,i)
+        return t
+        
+class MatriceList (Matrice) :
+    def __init__ (self,lin,col,coef):
+        Matrice.__init__ (self, \
+                      lin, col, coef)
+        #...
+
+    def __getitem__ (self, i,j) : #...
+    def __setitem__ (self, i,j, v) : #...
+    def get_submat(self, i1,j1,i2,j2): #...
+    def set_submat(self, i1,j1,mat): #...
+    
+class MatriceDict (Matrice) :
+    def __init__ (self,lin,col,coef):
+        Matrice.__init__ (self, \
+                       lin, col, coef)
+        #...
+        
+    def __getitem__ (self, i,j) : #...
+    def __setitem__ (self, i,j, v) : #...
+    def get_submat(self, i1,j1,i2,j2): #...
+    def set_submat(self, i1,j1,mat): #...
+\end{verbatimx}
+\end{minipage}
+&
+\begin{minipage}{6.0cm}
+\begin{verbatimx}
+class Produit :
+    def calcul (self, mat1, mat2):
+        pass
+
+class ProduitClassique (Produit) :
+    def calcul (self, mat1, mat2):
+        #...
+        return 
+        
+class ProduitStrassen (Produit) :
+    def calcul (self, mat1,mat2):
+        #...
+        return 
+\end{verbatimx}
+\end{minipage}
+\end{tabular}
+\end{center}
+
+Cette construction autorise même la multiplication de matrices de structures différentes. Très répandue, cette architecture est souvent plus coûteuse au moment de la conception car il faut bien penser l'interface d'échange mais elle l'est beaucoup moins par la suite. Il existe d'autres assemblages de classes assez fréquents, regroupés sous le terme de \textit{Design Patterns}.\indexfr{Design Patterns} Pour peu que ceux-ci soient connus de celui qui conçoit un programme, sa relecture et sa compréhension en sont facilitées si les commentaires font mention du \textit{pattern} utilisé.
+
+
+
+\FloatBarrier
+
+\firstpassagedo{
+	\begin{thebibliography}{99}
+	\input{python_cours_biblio.tex}
+	\end{thebibliography}
+}
+
+
+
+\input{../../common/livre_table_end.tex}%
+\input{../../common/livre_end.tex}%

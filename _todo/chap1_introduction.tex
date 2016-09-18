@@ -1,0 +1,700 @@
+\input{../../common/livre_begin.tex}%
+\firstpassagedo{\input{python_cours_titre.tex}}
+\input{../../common/livre_table_begin.tex}%
+%\firstpassagedo{\input{python_cours_chapter.tex}}
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------
+\chapter{Introduction}\label{chapitre_intro_ref}
+%-------------------------------------------------------------------------------------------------------------
+
+Ce chapitre s'intéresse tout d'abord à l'installation du langage \pythons et à la réalisation d'un premier programme avec des instructions dont le sens est intuitif. Les derniers paragraphes présentent de nombreuses extensions disponibles sur Internet. Elles rendent le langage \pythons très attractif dans des domaines variés. Ces extensions témoignent que ce langage emporte l'adhésion de nombreux informaticiens qui en retour assurent sa pérennité. Il permet de relier facilement différents éléments, différentes applications. C'est une des raisons de son succès. 
+
+
+
+\section{Ordinateur et langages}
+
+Il est rare aujourd'hui de ne pas avoir déjà entendu ou lu les termes informatiques définis ci-dessous. C'est un rapide rappel.
+
+\subsection{L'ordinateur}
+\indexfr{ordinateur}
+%
+On peut considérer simplement qu'un ordinateur est composé de trois ensembles~: le microprocesseur, la mémoire, les périphériques. Cette description n'a pas varié en cinquante ans depuis qu'un scientifique du nom de von Neumann l'a imaginée. 
+
+Le microprocesseur est le c\oe ur de l'ordinateur, il suit les instructions qu'on lui donne et ne peut travailler qu'avec un très petit nombre d'informations. Sa vitesse se mesure en GigaHertz (GHz) qui correspondent au nombre d'opérations qu'il est capable d'effectuer en une seconde et en nombre de c\oe urs qui détermine le nombre d'opérations en parallèle qu'il est capable d'exécuter. On lui adjoint une mémoire avec laquelle il échange sans arrêt des données. Sa capacité se mesure en octets (kilo-octets, mégaoctets, gigaoctets ou leurs abréviations Ko, Mo, Go\footnote{Un kilo-octets équivaut à $1024 = 2^{10}$ octets, un Mo à 1024 Ko et un Go à 1024 Mo.}). Ces échanges entre processeur et mémoire sont rapides.
+
+Les périphériques regroupent tout le reste (écran, clavier, souris, disque dur, imprimante...). Ils sont principalement de deux types~: les périphériques de stockages (disque dur, DVD) et ceux qui nous permettent de dialoguer avec l'ordinateur, que ce soit pour afficher, sonoriser (écran, enceintes) ou pour recevoir (souris, clavier, webcam, micro...).
+% 
+\subsection{Termes informatiques}
+% 
+Certains termes reviendront fréquemment dans le livre. Ils sont souvent utilisés comme si tout le monde les connaissait comme la notion d'algorithme qui paraît plutôt abstraite si on se réfère à sa définition dans le dictionnaire. Dans la pratique, on confond souvent algorithme avec programme informatique. 
+ 
+\begin{xdefinition}{algorithme}
+Un algorithme est une suite finie de règles à appliquer dans un ordre déterminé à un nombre fini de données pour arriver avec certitude, en un nombre fini d'étapes, à un certain résultat et cela, indépendamment des données. 
+\indexfr{algorithme}
+\end{xdefinition}
+
+Leur écriture est indépendante du langage choisi, qu'il soit écrit en \textit{Basic}, en \textit{Pascal}, en \textit{C}, en \textit{Perl}, en \textit{PHP}, en \python, en français, un algorithme reste le même. Pour les algorithmes simples (un tri par exemple), le passage d'un langage à l'autre consiste souvent à traduire mot-à-mot, ce qui favorise l'apprentissage d'un nouveau langage informatique lorsqu'on en connaît déjà un. Les différences entre ces langages résident dans leur spécialisation, le \textit{Visual Basic} permet de piloter les applications \textit{Microsoft Office}, le \textit{PHP}, le \textit{JavaScript} sont dédiés à la programmation Internet. Le langage \pythons n'est pas spécialisé. Il est souvent moins efficace que chaque langage appliqué à son domaine de prédilection mais il peut éviter l'apprentissage d'une syntaxe différente.
+
+\begin{xdefinition}{programme}
+Un programme informatique est une suite d'instructions ou séquence d'instructions. C'est la réalisation informatique d'un ou plusieurs algorithmes. Il dépend du langage.
+\end{xdefinition}
+\vspace{-0.5cm}
+
+\begin{xdefinition}{compilateur et compilation}
+Le compilateur est un programme qui traduit un code écrit dans un langage de programmation en langage dit "machine", compréhensible par l'ordinateur. La compilation est le fait de traduire un programme afin que l'ordinateur le comprenne.
+\end{xdefinition}
+\vspace{-0.5cm}
+
+\begin{xdefinition}{langage interprété}
+Un langage interprété est converti en instructions propres à la machine au fur et à mesure de son exécution.
+\end{xdefinition}
+
+Le langage \pythons n'est pas un langage compilé car un programme \pythons n'est pas traduit en langage machine, il est un langage interprété. Entre son écriture et son exécution, il n'y a pas d'étape intermédiaire telle que la compilation et on peut ainsi tester un programme plus rapidement même si son exécution est alors plus lente.
+
+\begin{xdefinition}{mot-clé}
+Un mot-clé est une composante du langage et fait partie de sa grammaire qui comprend également les opérateurs numériques.
+\end{xdefinition}
+
+La table~\ref{mot_cle} (page~\pageref{mot_cle}) regroupe les mots-clés du langage \python. Elle contient peu de mots-clés~: son concepteur s'est attaché à créer un langage objet avec la grammaire la plus simple possible.
+
+\begin{xdefinition}{instruction}
+Ce terme est assez vague et dépend en général du langage. On peut considérer qu'une instruction est une expression syntaxiquement correcte pour un langage donné.
+\end{xdefinition}
+
+Les instructions sont très courtes et tiennent sur une ligne mais si on n'en prend qu'une partie, elle perd son sens. Ce serait comme considérer une phrase avec un verbe transitif mais sans son complément d'objet direct.
+
+
+
+
+
+
+
+\section{Présentation du langage \python}
+
+\subsection{Histoire résumée}
+
+\pythons est un langage objet interprété de haut niveau, il a été créé au début des années quatre-vingt-dix par Guido van Rossum. \indexfr{van Rossum, Guido} Entre 1995 et 2001, Rossum a changé plusieurs fois de travail tout en continuant l'élaboration du langage \python. En 2001, la PSF (Python Software Foundation) est créée. Il s'agit d'une organisation à but non lucratif détenant les droits de propriété intellectuelle de \Python. Il est depuis distribué sous forme de logiciel libre. \pythons est couvert par sa propre licence\footnote{Voir le site \httpstyle{http://www.python.org/psf/license/}, cette licence autorise les usages commerciaux.}. Toutes les versions depuis la 2.0.1 sont compatibles avec la licence GPL\footnote{Ou GNU Public Licence (voir le site \httpstyle{http://www.gnu.org/copyleft/gpl.html}).}.\ifnotellipse{\indexfr{GPL}} Selon Wikipedia\footnote{\httpstyle{http://fr.wikipedia.org/wiki/Python\_(langage)}}, Rossum travaillerait maintenant pour l'entreprise \textit{Google} qui propose une plate-forme de développement de sites web en \python\footnote{\httpstyle{http://code.google.com/appengine/}} et qui héberge de nombreux projets en langage \pythons via son projet \textit{Google Code}\footnote{\httpstyle{http://code.google.com/}}.\ifnotellipse{\indexfr{\textit{Google Code}}}
+
+
+
+\subsection{Le langage en quelques points}
+
+On distingue plusieurs classes parmi les langages informatiques selon la syntaxe qu'ils proposent ou les possibilités qu'ils offrent. \pythons est un langage~: interprété, orienté objet, de haut niveau, modulaire, à syntaxe positionnelle, au typage dynamique.
+
+\indexfr{interprété}\indexfr{orienté objet}\indexfr{interprété}\ifnotellipse{\indexfrr{langage}{interprété}}
+Le langage \pythons est dit \emph{interprété} car il est directement exécuté sans passer par une phase de compilation qui traduit le programme en langage machine, comme c'est le cas pour le langage~\textit{C}. En quelque sorte, il fonctionne autant comme une calculatrice que comme un langage de programmation. Afin d'accélérer l'exécution d'un programme \python, il est traduit dans un langage intermédiaire\footnote{Celui-ci est appelé \textit{bytecode}.\indexfr{bytecode} Ce mot ne signifie pas grand chose excepté que ce \textit{bytecode} est seulement compréhensible par la machine virtuelle \python.} qui est ensuite interprété par une machine virtuelle \python. Ce mécanisme est semblable à celui propre au langage \textit{Java}.
+
+\indexfr{orienté objet}\ifnotellipse{\indexfrr{langage}{orienté objet}}
+Le langage est orienté objet car il intègre le concept de classe ou d'objet.\indexfr{classes}\indexfr{objet} Un objet regroupe un ensemble de données et un ensemble de fonctionnalités attachées à ces données. Ce concept relie la description des données et les algorithmes qui leur sont appliqués comme un tout indissociable. Un objet est en quelque sorte une entité autonome avec laquelle on peut communiquer via une interface.
+
+\ifnotellipse{\indexfrr{langage}{haut niveau}}
+On considère que le langage \pythons est de haut niveau car il propose des fonctionnalités avancées et automatiques comme le \textit{garbage collecting}. Cette tâche correspond à la destruction automatique des objets lorsqu'ils ne sont plus utilisés. Cette fonctionnalité est proposée par la plupart des langages interprétés ou encore \textit{Java} mais pas \textit{C++}. Il propose également des structures de données complexes éloignées des types numériques standards telles que des dictionnaires.\indexlangage{C, C++}\indexlangage{Java}
+
+\ifnotellipse{\indexfrr{langage}{modulaire}}
+Le langage \pythons est modulaire. La définition du langage est très succincte et autour de ce noyau concis, de nombreuses librairies ou modules ont été développées. \pythons est assez intuitif. Etre à l'aise avec ce langage revient à connaître tout autant sa syntaxe que les nombreux modules disponibles. Comme il est assez simple de construire un pont entre \pythons et \textit{C++}, de nombreux projets open source antérieurs à \pythons sont maintenant accessibles dans ce langage et sous toutes les plateformes.
+
+\indexfr{indentation}\ifnotellipse{\indexfrr{langage}{indentation}}
+Le langage \pythons est à syntaxe positionnelle en ce sens que l'indentation\indexfr{indentation} fait partie du langage. Le point virgule permet de séparer les instructions en langage~\textit{C}, l'accolade permet de commencer un bloc d'instructions. En \python, seule l'indentation permet de marquer le début et la fin d'un tel bloc, ce procédé consiste à décaler les lignes vers la droite pour signifier qu'elles appartiennent au même bloc d'instructions et qu'elles doivent être exécutées ensemble. Cette contrainte rend les programmes \pythons souvent plus faciles à lire.
+
+Le langage \pythons est à typage dynamique.\ifnotellipse{\indexfrr{langage}{typage dynamique}}\indexfr{typage dynamique} Le type d'une variable, d'une donnée est définie lors de l'exécution du programme. Chaque information est désignée par un identificateur qui est manipulé tout au long du programme. Le fait que telle ou telle opération soit valide est vérifiée au moment où elle doit être réalisée et non au moment où le programme est traduit en langage machine, c'est-à-dire compilé.
+
+
+\subsection{Avantages et inconvénients du langage \python}
+
+
+Alors qu'il y a quelques années, le langage~\textit{C} puis~\textit{C++} s'imposaient souvent comme langage de programmation, il existe dorénavant une profusion de langages (\textit{Java}, \textit{JavaScript}, \textit{PHP}, \textit{Visual Basic}, \textit{C\#}, \textit{Perl}, \textit{PHP},~...). Il est souvent possible de transposer les mêmes algorithmes d'un langage à un autre. Le choix approprié est bien souvent celui qui offre la plus grande simplicité lors de la mise en \oe uvre d'un programme même si cette simplicité s'acquiert au détriment de la vitesse d'exécution. Le langage \textit{PHP} est par exemple très utilisé pour la conception de sites Internet car il propose beaucoup de fonctions très utiles dans ce contexte. Dans ce domaine, le langage \pythons est une solution alternative intéressante.
+
+Comme la plupart des langages, le langage \pythons est tout d'abord portable puisqu'un même programme peut être exécuté sur un grand nombre de systèmes d'exploitation comme \textit{Linux}, \textit{Microsoft Windows}, \textit{Mac~OS~X}... \pythons possède également l'avantage d'être entièrement gratuit tout en proposant la possibilité de pouvoir réaliser des applications commerciales à l'aide de ce langage.
+
+Si le langage~\textit{C} reste le langage de prédilection pour l'implémentation d'algorithmes complexes et gourmands en temps de calcul ou en capacités de stockage, un langage tel que \pythons suffit dans la plupart des cas. De plus, lorsque ce dernier ne convient pas, il offre toujours la possibilité, pour une grande exigence de rapidité, d'intégrer un code écrit dans un autre langage tel que le~\textit{C/C++}\footnote{Ce point est d'ailleurs abordé au paragraphe~\ref{boost_python_section_ok}, page~\pageref{boost_python_section_ok}.} ou \textit{Java}, et ce, d'une manière assez simple. La question du choix du langage pour l'ensemble d'un projet est souvent superflue, il est courant aujourd'hui d'utiliser plusieurs langages et de les assembler. Le langage~\textit{C} reste incontournable pour concevoir des applications rapides, en revanche, il est de plus en plus fréquent d'"habiller" un programme avec une interface graphique programmée dans un langage tel que \python. 
+
+En résumé, l'utilisation du langage \pythons n'est pas restreinte à un domaine~: elle comprend le calcul scientifique, les interfaces graphiques, la programmation Internet. Sa gratuité, la richesse des extensions disponibles sur Internet le rendent séduisant dans des environnements universitaire et professionnel. Le langage est vivant et l'intérêt qu'on lui porte ne décroît pas. C'est un critère important lorsqu'on choisit un outil parmi la myriade de projets open source. De plus, il existe différentes solutions pour améliorer son principal point faible qui est la vitesse d'exécution.
+
+
+
+\section{Installation du langage \python}
+
+\subsection{Installation du langage \python}
+
+\pythons a l'avantage d'être disponible sur de nombreuses plates-formes comme \textit{Microsoft Windows}, \textit{Linux} ou \textit{Mac~OS~X}. L'installation sous \textit{Windows} est simple. Le langage \pythons est déjà intégré aux systèmes d'exploitation \textit{Linux} et \textit{Mac~OS~X}. 
+
+Sous \textit{Microsoft Windows}, il suffit d'exécuter le fichier \textit{python-2.6.5.msi}\footnote{Cette version est disponible à l'adresse \httpstyle{http://www.python.org/download/}. C'est la version utilisée pour développer les exemples présents dans ce livre.} ou tout autre version plus récente. En règle générale, il est conseillé de télécharger la dernière version stable du langage, celle avec laquelle le plus grande nombre d'extensions seront compatibles, en particulier toutes celles dont vous avez besoin. Les options d'installation choisies sont celles par défaut, le répertoire d'installation est par défaut \httpstyle{C:/Python26}. A la fin de cette installation apparaît un menu supplémentaire dans le menu \textit{Démarrer} (ou \textit{Start}) de \textit{Microsoft Windows} comme le montre la figure~\ref{python_installation}. Ce menu contient les intitulés suivant~:
+            \begin{center}\begin{tabular}{lp{8cm}}
+            IDLE (Python GUI) 		& éditeur de texte, pour programmer \\
+            Module Docs  					& pour rechercher des informations dans la documentation \\
+            Python (command line) & ligne de commande \python \\
+            Python Manuals 				& documentation à propos du langage \python \\
+            Uninstall Python 			& pour désinstaller \python
+            \end{tabular}\end{center}
+
+        \begin{figure}[ht]
+        \figureoneimage
+        {\caption{Menu ajouté à \textit{Microsoft Windows}.}}
+        { \includegraphics[width=5cm]{\filextellipse{../python_cours/image/reper26}
+        {../python_cours/image_ellipse/reper26}} }
+        {\label{python_installation}}
+        \end{figure}
+
+
+
+La documentation (de langue anglaise\footnote{\httpstyle{http://www.python.org/doc/}}) décrit en détail le langage \python, elle inclut également un tutoriel\footnote{La requête \textit{python français} de nombreux sites de documentation sur \pythons en français.} qui permet de le découvrir. La ligne de commande (voir figure~\ref{python_cmd}) permet d'exécuter des instructions en langage \python. Elle est pratique pour effectuer des calculs mais il est nécessaire d'utiliser un éditeur de texte pour écrire un programme, de le sauvegarder, et de ne l'exécuter qu'une fois terminé au lieu que chaque ligne de celui-ci ne soit interprétée immédiatement après qu'elle a été écrite comme c'est le cas pour une ligne de commande.
+
+            \begin{figure}[ht]
+            \begin{center}\begin{tabularx}{\textwidth}{|X|}\hline
+            \includegraphics[width=13.4cm]{\filextellipse{../python_cours/image/ligne26}
+                                                           {../python_cours/image_ellipse/ligne26}} 
+            \\ \hline
+            \end{tabularx}\end{center}
+            \caption{ Ligne de commande, la première ligne affecte la valeur 3 à la variable \codescaption{x}, 
+                                la seconde ligne l'affiche.}
+            \label{python_cmd}
+            \end{figure}
+
+
+\subsection{Particularité de \textit{Mac~OS~X} et \textit{Linux}}
+
+Le langage \pythons est déjà présent sur les ordinateurs d'\textit{Apple} si ceux-ci sont équipés du système d'exploitation \textit{Mac~OS~X}. Il est également présent dans les distributions \textit{Linux}. L'installation de \Pythons est parfois rendue nécessaire si on désire utiliser la dernière version du langage. L'installation des extensions du langage est similaire à celle d'autres extensions \textit{Linux}.
+
+Il ne faut pas oublier de vérifier la version du langage \pythons installée sur l'ordinateur \textit{Linux} et \textit{Mac~OS~X}. Il suffit pour cela de taper la ligne \codes{help()} pour en prendre connaissance. Cela signifie que toutes les extensions qui doivent être installées doivent l'être pour cette version qu'il est néanmoins possible de mettre à jour\footnote{voir la page \httpstyle{http://www.python.org/download/mac/} ou \httpstyle{http://www.python.org/download/linux/}}. 
+
+
+\subsection{Utilisation de l'éditeur de texte}
+%\indexfr{éditeur de texte}
+
+            \begin{figure}[ht]
+            \begin{center}\begin{tabularx}{\textwidth}{|X|}\hline
+            \includegraphics[width=13.4cm]{\filextellipse{../python_cours/image/pcmd26}
+                                                           {../python_cours/image_ellipse/pcmd26}} \\ \hline
+            \end{tabularx}\end{center}
+            \caption{ Fenêtre de commande fournie avec le langage \python.}
+            \label{python_idle}
+            \end{figure}
+
+
+		        %\begin{figure}[ht]
+		        %\figureoneimage{ \caption{ Fenêtre de commande fournie avec le langage \python.} }
+		        %{ \includegraphics[width=10cm]{\filextellipse{../python_cours/image/pcmd}
+		        %{../python_cours/image_ellipse/pcmd}} }
+		        %{\label{python_idle}}
+		        %\end{figure}
+
+La figure~\ref{python_installation} montre le menu installé par \pythons dans le menu "Démarrer" de \textit{Microsoft Windows}. En choisissant l'intitulé "IDLE (Python GUI)", on active la fenêtre de commande de \python (voir figure~\ref{python_idle}). Les instructions sont interprétées au fur et à mesure qu'elles sont tapées au clavier. Après chaque ligne, cette fenêtre de commande conserve la mémoire de tout ce qui a été exécuté. Par exemple~:
+%
+\begin{verbatimx}
+>>> x = 3
+>>> y = 6 
+>>> z = x * y
+>>> print z
+18
+>>>
+\end{verbatimx}
+%
+Après l'exécution de ces quelques lignes, les variables\footnote{Les variables sont définies au chapitre~\ref{chapter_variables_refo}. En résumé, on peut considérer une variable comme une lettre, un mot qui désigne une information. Dans cet exemple, les trois variables désignent des informations numériques qu'on peut manipuler comme si elles étaient effectivement des nombres. Les variables supprimées, les informations qu'elles désignaient ne plus accessibles et sont perdues également.} \codes{x}, \codes{y}, \codes{z} existent toujours. La ligne de commande ressemble à une calculatrice améliorée. Pour effacer toutes les variables créées, il suffit de redémarrer l'interpréteur par l'intermédiaire du menu \codes{Shell \text{-->} Restart\; Shell}. Les trois variables précédentes auront disparu.
+
+Il n'est pas possible de conserver le texte qui a été saisi au clavier, il est seulement possible de rappeler une instruction déjà exécutée par l'intermédiaire de la combinaison de touches \codes{ALT+p}, pressée une ou plusieurs fois. La combinaison \codes{ALT+n} permet de revenir à l'instruction suivante. Pour écrire un programme et ainsi conserver toutes les instructions, il faut d'actionner le menu \codes{File \text{-->} New \; Window} qui ouvre une seconde fenêtre qui fonctionne comme un éditeur de texte (voir figure~\ref{python_cmd_prog}).
+
+
+        \begin{figure}[ht]
+        \figureoneimage{  \caption{ Fenêtre de programme, le menu \codescaption{Run \text{$\rightarrow$} Run \; Module} 
+        									permet de lancer l'exécution
+                            du programme. L'interpréteur \pythons est réinitialisé au début de l'exécution
+                            et ne conserve aucune trace des travaux précédents.} }
+        { \includegraphics[width=8cm]{\filextellipse{../python_cours/image/pcmd2}
+        {../python_cours/image_ellipse/pcmd2}}  }
+        {\label{python_cmd_prog}}
+        \end{figure}
+
+Après que le programme a été saisi, le menu \codes{Run \text{$\rightarrow$} Run \; Module} exécute le programme. Il demande au préalable s'il faut enregistrer le programme et réinitialise l'interpréteur \pythons pour effacer les traces des exécutions précédentes. Le résultat apparaît dans la première fenêtre (celle de la figure~\ref{python_idle}). La pression des touches "Ctrl + C" permet d'arrêter le programme avant qu'il n'arrive à sa fin.
+
+\begin{xremark}{fenêtre intempestive}
+Si on veut se débarrasser de cette fenêtre intempestive qui demande confirmation pour enregistrer les dernières modifications, il suffit d'aller dans le menu \codes{Options \text{-->} Configure \; IDLE} et de choisir \codes{No\; prompt} sur la quatrième ligne dans la rubrique \codes{General} (voir figure~\ref{python_cmd_prog_opt_fig}). Ce désagrément apparaît sur la plupart des éditeurs de texte et se résout de la même manière.
+\end{xremark}
+
+Cette description succincte permet néanmoins de réaliser puis d'exécuter des programmes. Les autres fonctionnalités sont celles d'un éditeur de texte classique, notamment la touche \codes{F1} qui débouche sur l'aide associée au langage \python. Il est possible d'ouvrir autant de fenêtres qu'il y a de fichiers à modifier simultanément. 
+
+Néanmoins, il est préférable d'utiliser d'autres éditeurs plus riches comme celui proposé au paragraphe~\ref{python_cmd_prog_opt_scite}. Ils proposent des fonctions d'édition plus évoluées que l'éditeur installé avec \python.
+
+
+
+            \begin{figure}[ht]
+            \figureoneimage{  \caption{ Cliquer sur \codescaption{General} puis sur \codescaption{No prompt} pour se débarrasser 
+                                de la fenêtre intempestive qui demande à l'utilisateur de confirmer la
+                                sauvegarde des dernières modifications. 
+                                D'autres éditeurs de texte se comportent de la même manière et disposent d'une option similaire.} }
+            { \includegraphics[width=8.5cm]{\filextellipse{../python_cours/image/popt}
+            {../python_cours/image_ellipse/popt}} }
+            {\label{python_cmd_prog_opt_fig}}
+            \end{figure}
+
+
+
+
+\section{Installation d'un éditeur de texte}
+
+
+\subsection{Editeur SciTe}
+%\indexfr{éditeur de texte}
+\indexediteur{SciTe}
+\indexfr{\textit{SciTe}}\label{python_cmd_prog_opt}\label{python_cmd_prog_opt_scite}
+
+Il existe de nombreux éditeurs de texte, payants ou gratuits. Le premier proposé dans ce livre est \textit{SciTe}, il est gratuit et fonctionne avec de nombreux compilateurs de langages différents (voir figure~\ref{python_scite_option}). L'éditeur \textit{SciTe}\footnote{Cet éditeur est accessible depuis l'adresse \httpstyle{http://www.scintilla.org/SciTE.html} et téléchargeable depuis l'adresse \httpstyle{http://scintilla.sourceforge.net/SciTEDownload.html}.} est léger et son utilisation ne nécessite pas de droits spécifiques\footnote{Il arrive fréquemment que des universités, des sociétés interdisent à leurs utilisateurs l'installation de nouveaux logiciels sur leurs machines pour des raisons de sécurité. Il faut des droits spécifiques pour contourner cette interdiction.}. La gestion des erreurs est également plus pratique puisqu'il suffit de cliquer sur une erreur pour que l'éditeur positionne automatiquement le curseur sur la ligne ayant généré cette erreur.
+
+Une fois installé, il faut configurer l'éditeur de manière à ce qu'il puisse utiliser le compilateur \python. Il faut cliquer sur le menu \codes{Option} et choisir la rubrique \codes{Open \; python.properties} (voir figure~\ref{python_scite_option}).
+
+
+            \begin{figure}[ht]
+            \figureoneimage{             \caption{ Configuration de l'éditeur de texte \textit{SciTe}. Il faut cliquer sur le menu
+                                \codescaption{Option}, puis sur \codescaption{Open \; python.properties} pour ouvrir 
+                                les paramètres de configuration associées au langage \python.} }
+						{ \includegraphics[width=7cm]{\filextellipse{../python_cours/image/scite1}
+            {../python_cours/image_ellipse/scite1}} }
+            {\label{python_scite_option}}
+            \end{figure}
+
+Après avoir sélectionné ce menu, un fichier texte s'ouvre. Vers la fin, on trouve les lignes suivantes qui contiennent la ligne de commande qui permet d'exécuter un programme \python~:
+%
+\begin{verbatimx}
+if PLAT_WIN
+    command.go.*.py=python -u "$(FileNameExt)"
+    command.go.subsystem.*.py=0
+    command.go.*.pyw=pythonw -u "$(FileNameExt)"
+    command.go.subsystem.*.pyw=1
+\end{verbatimx}
+Il suffit de préciser le répertoire où se trouve l'interpréteur qui devrait être \codes{c:/python26} sur \textit{Microsoft Windows} si le répertoire d'installation par défaut du langage \pythons n'a pas été modifié.
+\begin{verbatimx}
+if PLAT_WIN
+    command.go.*.py=c:\Python26\python -u "$(FileNameExt)"
+    command.go.subsystem.*.py=0
+    command.go.*.pyw=c:\Python26\pythonw -u "$(FileNameExt)"
+    command.go.subsystem.*.pyw=1
+\end{verbatimx}
+
+Une fois ce fichier enregistré, il ne reste plus qu'à écrire un programme \python. Une fois terminé, la touche \codes{F5} lance son exécution. L'exemple de la figure~\ref{python_scite_compile} montre un cas où l'exécution a été interrompue par une erreur.
+            \begin{figure}[ht]
+            \figureoneimage{              \caption{ Exécution d'un programme interrompue par une erreur. Pour cet éditeur, il suffit
+                                de cliquer sur le message d'erreur pour placer le curseur sur la ligne erronée.} }
+						{ \includegraphics[width=8cm]{\filextellipse{../python_cours/image/scite226}
+            {../python_cours/image_ellipse/scite226}} }
+            {\label{python_scite_compile}}
+            \end{figure}
+            
+Le site Internet de \textit{SciTe} propose quelques trucs et astuces pour configurer l'éditeur à votre convenance. Comme à peu près tous les logiciels, il dispose d'une rubrique FAQ\footnote{\httpstyle{http://scintilla.sourceforge.net/SciTEFAQ.html}}\indexfr{FAQ} (Frequently Asked Questions) qui recense les questions et les réponses les plus couramment posées. Cette rubrique existe pour la plupart des éditeurs et plus généralement pour la plupart des applications disponibles sur Internet.
+
+
+\subsection{Python Scripter}
+
+%\indexfr{éditeur de texte}
+\ifnotellipse{\indexfr{\textit{Python Scripter}}}
+\indexediteur{Python Scripter}
+\label{python_scripter}\label{python_cmd_prog_python_scripter}
+
+
+Le second éditeur proposé dans ce livre est \textit{Python Scripter}\footnote{\httpstyle{http://mmm-experts.com/}} (voir figure~\ref{python_python_scripter}). Il est plus lourd mais offre plus de fonctionnalités notamment un débugger\indexfr{débugger} qui permet d'exécuter pas à pas un programme afin de vérifier chaque ligne de son exécution. Lorsqu'un programme produit de mauvais résultats, la première solution consiste à afficher de nombreux résultats intermédiaires mais cela nécessite d'ajouter des instructions un peu partout dans le programme. La seconde méthode est l'utilisation du débugger.\indexfr{débugger} Sans modifier le code informatique, il est possible d'arrêter temporairement l'exécution à une ligne donnée pour inspecter le contenu des variables à cet instant de l'exécution. Ce logiciel fonctionne sans autre manipulation supplémentaire autre que son installation.
+
+
+            \begin{figure}[ht]
+            \figureoneimagebo{   \caption{Copie d'écran de l'éditeur \textit{Python Scripter}. } }
+            { \includegraphics[width=13.4cm]{\filextellipse{../python_cours/image/pyscripter}
+            {../python_cours/image_ellipse/pyscripter}} }
+            {\label{python_python_scripter}}
+            \end{figure}
+            
+Cet éditeur, contrairement à \textit{SciTe}, ne fonctionne qu'avec \pythons et ne peut être utilisé avec d'autres langages. Son apparence est adaptée au développement. Il permet également de voir la liste des variables, fonctions, classes, présentes dans un programme.
+
+
+\subsection{Eclipse et PyDev}
+
+%\indexfr{éditeur de texte}
+\indexediteur{Eclipse}
+\label{python_Eclipse}
+
+\textit{Eclipse}\footnote{\httpstyle{http://www.eclipse.org/}} est un environnement complet de développement adapté à une multitude de langages dont \Pythons via une extension appelé \textit{PyDev}\footnote{\httpstyle{http://pydev.sourceforge.net/}}. Cette solution s'adresse plus à des gens ayant déjà une expérience en informatique ou souhaitant construire un projet conséquent. En constante évolution, \textit{Eclipse} est un éditeur très complet mais son utilisation nécessite un apprentissage non négligeable qui n'est pas indispensable pour des projets de petite taille.
+
+
+\subsection{Côté \textit{Mac~OS~X} : \textit{TextWrangler}}
+
+Un éditeur possible est \emph{TextWrangler}\footnote{\httpstyle{http://www.barebones.com/products/textwrangler/}} qui est gratuit. \indexediteur{TextWrangler} Lorsqu'on programme à la fois sous \textit{Microsoft Windows} et \textit{Linux} ou \textit{Mac~OS~X}, les fichiers contiennent des codes de fins de lignes différents et l'éditeur vous le fait remarquer à chaque exécution. Pour éviter ce désagrément, il convient d'écraser le fichier contenant le programme en le sauvegardant à nouveau en prenant soin de choisir des fins de lignes identiques à celles du monde \textit{Linux}. \textit{Linux} fait également la différence entre les minuscules et les majuscules en ce qui concerne les noms de fichiers contrairement à \textit{Microsoft Windows}\footnote{L'usage de la commande \codes{dos2unix} peut se révéler utile.}. L'environnement de développement \codes{XCode} est aussi une solution.
+
+\subsection{Autres éditeurs}
+
+Certains éditeurs de texte sont eux-mêmes écrits en \python, ce qui leur permet de fonctionner sur toutes les plates-formes. Trois sont assez connues, \textit{DrPython}\footnote{\httpstyle{http://drpython.sourceforge.net/}},\indexediteur{DrPython} \textit{Boa Constructor}\footnote{\httpstyle{http://boa-constructor.sourceforge.net/}},\indexediteur{Boa Constructor} \textit{The Eric Python IDE}\footnote{\httpstyle{http://www.die-offenbachs.de/eric/index.html}}.\indexediteur{The Eric Python IDE} Ce dernier s'appuie sur une interface graphique de type \codes{pyQt}\footnote{Voir le paragraphe~\ref{par_intro_interface_g} sur les interfaces graphiques.}, son interface est riche, presque trop lorsqu'on commence à programmer. \textit{Boa Constructor} s'appuie sur \codes{wxPython} et offre des outils permettant de dessiner des interfaces graphiques. \textit{DrPython} est le plus simple des trois.
+
+Certains éditeurs connus du monde \textit{Linux} ont été déclinés pour le monde \textit{Windows}, c'est le cas de \textit{Emacs}\footnote{\httpstyle{http://www.gnu.org/software/emacs/windows/}}.\indexediteur{Emacs} \textit{SciTe} est souvent utilisé car c'est le plus simple. Les autres offrent des fonctionnalités variées dont l'utilité n'apparaît que pour des programmes conséquents. Le site officiel\footnote{plus précisément à l'adresse \httpstyle{http://wiki.python.org/moin/PythonEditors} ou encore à l'adresse \httpstyle{http://wiki.python.org/moin/IntegratedDevelopmentEnvironments}} répertorie d'autres éditeurs de texte dont certains sont de véritables environnements de développements. Il n'est pas aberrant d'en utiliser plus d'un car chacun d'eux est plus approprié dans telle situation ou pour tel type de programme.
+
+
+\subsection{Tabulations}
+\indexfr{tabulations}\indexfr{indentation}
+De nombreux éditeurs utilisent les tabulations pour mettre en forme un programme et tenir compte des décalages (indentation) d'un bloc par rapport à un autre. Il est conseillé de remplacer ces tabulations par des espaces, cela évite les confusions et les mauvaises interprétations lorsque tabulations et espaces sont mélangés. La taille d'une tabulation peut varier d'un éditeur à l'autre contrairement aux espaces.
+
+
+
+\section{Premier programme}
+
+Après avoir installé le langage \pythons ainsi qu'un éditeur, il suffit d'écrire quelques lignes pour vérifier que cette première étape s'est achevée correctement. Tous les programmes \pythons porte l'extension \codes{.py}.\indexfr{py}\indexext{py}
+
+\subsection{Afficher le résultat d'un calcul}
+
+Le programme suivant, qu'on peut appeler \codes{premier.py}, affiche le message \codes{premier\; message} une fois qu'il est exécuté. Le mot-clé \codes{print} précédant le message -~toujours entre guillemets ou entre apostrophes sauf si ce sont des nombres~- stipule qu'il faut afficher quelque chose.
+\begin{verbatimx}
+print "premier message"
+\end{verbatimx}
+Un programme ne barbouille pas l'écran de texte indésirable, il n'affiche que ce que le programmeur lui demande d'afficher et cette intention se matérialise grâce à l'instruction \codes{print}.\indexkeyword{print} On peut ensuite écrire quelques lignes qu'on pourrait également taper sur une calculatrice~:
+\begin{verbatimx}
+print 3.141592 * 5*5
+print 3.141592 * 5**2
+\end{verbatimx}
+Ces deux lignes affichent $78.5398$ qui est la surface d'un cercle de 5~mètres de côté. Le symbole \codes{**} correspond à l'opération puissance. Il existe une constante PI ou $\pi$ mais qui ne fait pas partie du langage lui-même~: elle est définie dans une extension interne\footnote{Cette extension est installée automatiquement avec \pythons contrairement à une extension externe.} du langage qui contient bon nombre de fonctions mathématiques telles que les cosinus, sinus...
+\begin{verbatimx}
+from math import *  # permet d'utiliser les extensions mathématiques de Python
+print pi * 5**2
+\end{verbatimx}
+
+\begin{xremark}{\codes{print} \pythons 3.0}
+A partir de la version 3.0 du langage \python, la syntaxe de \codes{print} change et il faudra dorénavant utiliser des parenthèses. Il est suggéré d'utiliser cette syntaxe qui est valide quelque soit la version du lanage.
+\begin{verbatimx}
+print (3.141592 * 5*5)
+\end{verbatimx}
+\end{xremark}
+
+
+\subsection{Les accents}\indexfr{accent}\label{par_intro_accent_code}
+
+Le langage \pythons est conçu pour le monde anglophone et l'utilisation des accents ne va pas de soi. Le programme suivant qui demande d'afficher un message contenant un accent provoque l'apparition d'une erreur~:
+\vspaceneg
+\begin{verbatimx}
+print "accentué"
+\end{verbatimx}
+\vspaceneg
+L'erreur est la suivante~:
+\vspaceneg
+\begin{verbatimx}
+  File "essai.py", line 1
+SyntaxError: Non-ASCII character '\xe9' in file i.py on line 1, 
+             but no encoding declared; 
+             see http://www.python.org/peps/pep-0263.html for details
+\end{verbatimx}
+\vspaceneg
+Dans ce cas, il faut ajouter une ligne placée en première position qui précise que des accents pourront être utilisés. L'exécution du programme qui suit ne soulève aucune erreur.\indexfrr{jeu de caractères}{latin-1}\indexfrr{jeu de caractères}{accents}
+\vspaceneg
+\begin{verbatimx}
+# coding: latin-1
+print "accentué"
+\end{verbatimx}
+\vspaceneg
+Cette ligne précise en fait que l'interpréteur \pythons doit utiliser un jeu de caractères spécial. Ces jeux de caractères ont parfois leur importance, les navigateurs n'aiment pas trop les accents au sein des adresses Internet~: il est parfois préférable de ne pas utiliser d'accents sur les sites de réservations d'hôtels, de trains ou d'avions. 
+
+Par défaut, l'interpréteur \pythons utilise le jeu de caractères le plus réduit, il faut lui préciser qu'il doit en utiliser un plus étendu incluant les accents. On trouve également sous \textit{Microsoft Windows} la syntaxe équivalente suivante~:\indexfrr{jeu de caractères}{cp1252}
+\vspaceneg
+\begin{verbatimx}
+# coding: cp1252
+print "accentué"
+\end{verbatimx}
+\vspaceneg
+%
+Enfin, s'il fallait utiliser des caractères autres que latins, il faudrait alors choisir le jeu de caractères \codes{utf-8}\indexfr{utf-8} qui s'appliquent aussi aux langues orientales.\indexfrr{jeu de caractères}{utf-8}
+\vspaceneg
+%
+\begin{verbatimx}
+# coding: utf-8
+print "accentué"
+\end{verbatimx}
+\vspaceneg
+%
+A cause des accents, la plupart des exemples cités dans ce livre ne fonctionnent pas sans cette première ligne qui a parfois été enlevée lors de l'impression pour des questions de lisibilité. Il faut penser à l'ajouter pour reproduire les exemples. Le paragraphe~\ref{para_cosedescodes} page~\pageref{para_cosedescodes} est plus complet à ce sujet.
+
+
+\begin{xremark}{\codes{\#!/usr/local/bin/python}}
+Sur Internet, on trouve de nombreux exemples commençant par la ligne suivante~:
+\vspaceneg
+\begin{verbatimx}
+#!/usr/local/bin/python
+\end{verbatimx}
+\vspaceneg
+On rencontre souvent cette ligne pour un programme écrit sur une machine \textit{Linux}, elle indique l'emplacement de l'interpréteur \pythons à utiliser. Cette ligne s'appelle un \textit{shebang}.
+\end{xremark}
+
+
+
+
+\section{Installation d'extensions (ou modules externes)}
+
+Les extensions ou modules ou packages sont des bibliothèques de fonctions non standard. Ce sont souvent des programmes existant conçus dans un autre langage tel que \textit{C++} et qui ont été "coiffés" d'une interface permettant de les utiliser sous \python. Les paragraphes qui suivent décrivent quelques extensions couramment utilisées. Certains besoins reviennent fréquemment comme dessiner un graphe, charger une image, faire du calcul matriciel et \pythons seul ne permet pas de répondre à ce problème. 
+
+La première information à connaître avant d'installer un package est la version du langage \pythons installée sur votre ordinateur. Il faut impérativement utiliser la version du module élaborée pour la même version\footnote{L'instruction \codesnote{help()} saisie sur la ligne de commande \pythons retourne entre autres le numéro de version.}. Il est nécessaire de connaître également le système d'exploitation de votre ordinateur. 
+
+Par conséquent, il ne faut pas installer le module \codes{scipy} (calcul scientifique) élaboré pour \python~2.5 alors que sur votre ordinateur est installée la version~2.4, il y a de fortes chances que cela ne fonctionne pas. Certains modules dépendent d'autres, lors de leur installation, il faut vérifier que les modules dont ils dépendent ont été préalablement installés. 
+
+Le site officiel\footnote{\httpstyle{http://pypi.python.org/pypi}} recense une longue liste de modules existants (plusieurs centaines). Il recense également les dernières mises à jour. Avant de commencer à programmer, il est conseillé d'aller chercher sur ce site ou d'utiliser un moteur de recherche pour savoir si un module ne ferait pas déjà une partie du travail.
+
+Il est parfois intéressant de consulter des forums d'échanges entre programmeurs autour de \python. Il est parfois plus intéressant de jeter un \oe il sur de tels sites\footnote{On peut citer \httpstyle{http://wikipython.flibuste.net/} ou \httpstyle{http://www.afpy.org/}, deux sites français qui regroupent des informations intéressantes sur de nouveaux modules ou des exemples d'utilisation de modules courants.} avant de se lancer dans la recherche d'un module spécifique. Internet fournit également de nombreux exemples de programmes dont on peut s'inspirer.
+
+
+ \label{mosule_dexifsqlliste}
+
+Les modules cités dans ce paragraphe ne sont pas installés automatiquement avec le langage \pythons mais sont parfois très utiles dans le cadre d'un travail d'ingénieur. Ils existent depuis plusieurs années et sont pour la plupart régulièrement maintenus à jour. Ils sont tous facilement accessibles depuis un moteur de recherche.
+
+\subsection{Graphes}
+
+\codes{matplotlib}\footnote{\httpstyle{http://matplotlib.sourceforge.net/}} : ce module reprend la même logique que le logiciel \textit{MatLab} ou \textit{Octave}.\ifnotellipse{\indexoutil{Matlab}}\ifnotellipse{\indexoutil{Octave}} Pour ceux que la finance intéresse, il comporte également des fonctions qui permettent de récupérer des historiques quotidiens de cours d'actions depuis le site \textit{Yahoo~! Finance}\footnote{Avec la fonction \codesnote{fetch\_historical\_yahoo}.}. \ifnotellipse{\indexmoduleext{matplotlib}}\ifnotellipse{\indexfr{Yahoo Finance}}\indexfr{finance}
+
+\codes{biggles}\footnote{\httpstyle{http://biggles.sourceforge.net/}} : ce module permet de dessiner des courbes (2D,~3D) et de convertir des graphiques sous forme d'images de tout format. Ce module nécessite l'installation de fichiers supplémentaires (libpng, zlib, plotutils)\footnote{Accessibles depuis l'adresse \httpstyle{http://www.gnu.org/software/plotutils/}, ces informations sont disponibles depuis la page de téléchargement de \codes{biggles}.}.\ifnotellipse{\indexmoduleext{biggles}}
+
+\ifnotellipse{\codes{chartdirector}\footnote{\httpstyle{http://www.advsofteng.com/}} : beaucoup plus rapide que MatPlotLib, ce module est gratuit à condition d'accepter un bandeau jaune en bas de chaque graphique. \indexmoduleext{ChartDirector}}
+
+\codes{pydot}\footnote{\httpstyle{http://code.google.com/p/pydot/}} : ce module propose le dessin de graphes dans une image (arbre généalogique, réseau de distribution, ...). Le module \codes{pydot} permet de dessiner tout type de graphe. Ce module nécessite un autre module \codes{pyparsing}\footnote{\httpstyle{http://pyparsing.wikispaces.com/}} et une application \textit{Graphviz}\footnote{\httpstyle{http://www.graphviz.org/}}.\ifnotellipse{\indexmoduleext{pydot}\indexmoduleext{pyparsing}}\ifnotellipse{\indexoutil{Graphviz}} Avec cet outil, on peut réaliser des graphes comme celui de la figure~\ref{figure_graphviz}. Ce module est utilisé lors de l'exercice~\ref{quickost_exo_label} page~\pageref{quickost_exo_label}.
+
+
+
+            \begin{figure}[ht]
+            \figureoneimage{ 
+            \caption{Image d'un graphe, extraite du site \textit{http://www.graphviz.org/} où est disponible l'outil \textit{Graphviz}.
+            				 Il permet de représenter des graphes sur une page en minimisant les croisements d'arcs ce qui est un problème
+            				 complexe. } }
+            { \includegraphics[width=8.5cm]{\filextellipse{../python_cours/image/graphviz}
+            													{../python_cours/image_ellipse/graphviz}} }
+            {\label{figure_graphviz}}
+            \end{figure}
+
+\codes{pyx}\footnote{\httpstyle{http://pyx.sourceforge.net/}} : ce module est aussi une librairie qui permet de tracer des graphes avec la possibilité de convertir directement ceux-ci en fichiers PDF ou EPS.
+
+Sans utiliser nécessairement une extension, il existe des outils comme \textit{GNUPlot}\footnote{\httpstyle{http://www.gnuplot.info/}} venu du monde \textit{Linux} qui s'exécutent facilement en ligne de commande. Cet outil propose son propre langage de programmation dédié à la création de graphiques. Une fois ce langage maîtrisé, il est facile de construire un programme qui permet de l'exécuter en ligne de commande pour récupérer l'image du graphique.
+
+\begin{xremark}{sortie texte et graphique}
+Un des moyens simples de construire un rapport mélangeant résultats numériques et graphiques est de construire un fichier au format HTML\footnote{Il est facile de trouver des pages Internet décrivant cette syntaxe via un moteur de recherche. L'exercice~\ref{html_exo_exemple_pdf_latex}, page~\pageref{html_exo_exemple_pdf_latex} en dira plus à ce sujet.} puis de l'afficher grâce à un navigateur Internet.\indexfr{HTML}\indexfr{sortie graphique}\indexfr{rapport} Il est même possible de construire un fichier au format \textit{PDF} en utilisant l'outil \textit{Latex}\footnote{voir l'exercice~\ref{exeplpe_fichier_pdf_latec_acrobat}, page~\pageref{exeplpe_fichier_pdf_latec_acrobat}}.\indexfr{Latex}\indexext{PDF}\ifnotellipse{\indexoutil{Latex}}
+\end{xremark}
+
+\subsection{Calculs scientifiques}
+
+\codes{numpy}\footnote{\httpstyle{http://numpy.scipy.org/}} : ce module manipule efficacement les tableaux de grandes dimensions, intègre le calcul matriciel, la transformée de Fourier.  \ifnotellipse{\indexmoduleext{numpy}}
+
+\codes{scipy}\footnote{\httpstyle{http://www.scipy.org/}} : ce module propose de nombreux algorithmes, algorithmes de classification, intégration, optimisation, génération de nombres aléatoires, traitement du signal, interpolation, algorithmes génétiques, algèbre linéaire, transformée de Fourier, dessin de courbes 2D, 3D. Son installation requiert d'abord celle du module \codes{numpy}.\ifnotellipse{\indexmoduleext{scipy}}
+
+\codes{orange}\footnote{\httpstyle{http://www.ailab.si/orange/}} : c'est un module qui permet de faire ce qu'on appelle du \textit{datamining}\indexfr{datamining} ou fouille de données. Il propose de nombreux algorithmes de classifications, d'analyse des données qui ont trait au \textit{machine learning}.\indexfr{machine learning}\ifnotellipse{\indexmoduleext{orange}}
+
+\codes{Rpy}\footnote{\httpstyle{http://rpy.sourceforge.net/}} : le langage \textit{R}\footnote{\httpstyle{http://www.r-project.org/}}\indexlangage{R}\ifnotellipse{\indexfr{\textit{R}}}\ifnotellipse{\indexmoduleext{Rpy}} est un langage dédié aux calculs statistiques. Il est optimisé pour la manipulation de grandes matrices et des calculs statistiques et matriciels rapides. Il dispose également de nombreux graphiques. Il faut au préalable installer \pythons et \textit{R} puis le module \codes{Rpy} fera la liaison entre les deux.
+
+On pourrait également citer le module \codes{mdp}\footnote{\httpstyle{http://mdp-toolkit.sourceforge.net/}} qui offre quelques fonctionnalités relatives à l'analyse des données tels que l'analyse en composante principale (ACP)\ifnotellipse{\indexmoduleext{mdp}} ou encore le module \codes{cvxopt}\footnote{\httpstyle{http://abel.ee.ucla.edu/cvxopt/}} qui propose des algorithmes d'optimisation quadratique sous contraintes.\ifnotellipse{\indexmoduleext{cvxopt}}
+
+
+
+\subsection{Images}
+
+\codes{Python Image Library (PIL)}\footnote{\httpstyle{http://www.pythonware.com/products/pil/}} : ce module permet d'utiliser les images, quelque soit leur format. Elle propose également quelques traitements d'images simples, rotation, zoom, histogrammes. \ifnotellipse{\indexmoduleext{PIL}}
+
+\subsection{Base de données}
+
+\textbf{SQLObject}\footnote{\httpstyle{http://www.sqlobject.org/}} : ce module offre la possibilité de se connecter à la plupart des serveurs de bases de données et d'y accéder via une syntaxe objet plutôt qu'au travers de requêtes \textit{SQL}.\ifnotellipse{\indexmoduleext{SQLObject}}
+
+\textbf{SQLAlchemy}\footnote{\httpstyle{http://www.sqlalchemy.org/}} : ce module propose les mêmes fonctionnalités que le précédent. C'est le plus riche des deux.\ifnotellipse{\indexmoduleext{SQLAlchemy}} Il est souvent utilisé en association avec le module \codes{elixir}\footnote{\httpstyle{http://elixir.ematia.de/trac/}}.\ifnotellipse{\indexmoduleext{elixir}}
+
+
+
+
+\subsection{Interfaces graphiques} \label{par_intro_interface_g}
+
+Le langage \pythons propose un module interne permettant de réaliser des interfaces graphiques~: \codes{Tkinter}.\indexmoduleint{Tkinter} Il suffit pour des applications simples qui ne nécessitent que quelques fenêtres. Pour des applications plus ambitieuses qui doivent afficher des données sous forme de matrices par exemple ou pour obtenir un aspect plus professionnel, il est impératif d'utiliser un module externe. Il est néanmoins conseillé de savoir utiliser \codes{Tkinter} et de comprendre la programmation événementielle avant de se lancer dans l'apprentissage de \codes{wxPython}, \codes{pyQt} ou \codes{pyGTK}. Ces trois modules proposent des fonctionnalités équivalentes, le choix porte surtout sur des besoins précis qu'un module couvre et sur des questions d'esthétisme.
+
+\codes{wxPython}\footnote{\httpstyle{http://www.wxpython.org/}} : il propose des interfaces graphiques plus complètes que le module standard \codes{Tkinter} comme une fenêtre tableur. Utilisé par de nombreuses applications, il est régulièrement mis à jour. Il est entièrement gratuit et peut servir à des applications commerciales. Il s'inspire des \textit{MFC} ou \textit{Microsoft Fundation Class} issues de \textit{Microsoft} mais a l'avantage d'être portable. Aujourd'hui, c'est avant tout un projet open source en constante évolution. \ifnotellipse{\indexmoduleext{wxPython}}
+
+\codes{pyQt}\footnote{\httpstyle{http://www.riverbankcomputing.co.uk/software/pyqt/intro}} : il est moins répandu que \codes{wxPython} sans doute car il est produit par une société et n'est pas open source. Il est réputé pour être mieux structuré. Il existe des restrictions pour la conception d'applications commerciales. \ifnotellipse{\indexmoduleext{pyQt}}
+
+\codes{pyGTK}\footnote{\httpstyle{http://www.pygtk.org/}} : il est plus proche de \codes{Tkinter} que les deux autres modules. Venu du monde \textit{Linux}, l'aspect de l'interface lui est plus ressemblant qu'à celui du monde \textit{Windows}. \ifnotellipse{\indexmoduleext{pyGTK}}
+
+Lorsqu'on souhaite réaliser un jeu, il est nécessaire d'avoir une interface graphique plus conciliante avec la gestion des images, des dessins, des sons voire des vidéos. C'est le cas du module qui suit.
+
+\codes{pygame}\footnote{\httpstyle{http://www.pygame.org/}} : ce module est prévu pour concevoir des jeux en \Python. Il permet entre autres d'écouter les morceaux enregistrés sur un CD, d'afficher un film et également d'afficher des images, de récupérer les touches pressées au clavier, les mouvements de la souris, ceux de la manette de jeux. Il suffit d'une heure ou deux pour écrire ses premiers programmes avec \codes{pygame}. Il n'est pas prévu pour réaliser des jeux en 3D mais suffit pour bon nombre de jeux de plateau, jeux de réflexion. \ifnotellipse{\indexmoduleext{PyGame}}
+
+Pour la réalisation d'images et d'animations 3D, on peut utiliser le module \codes{pyOpenGL}\footnote{\httpstyle{http://pyopengl.sourceforge.net/}} qui s'interface avec \codes{pygame}, \codes{wxPython} ou \codes{pyQt}. C'est un module dont la maîtrise ne se compte plus en heures mais en dizaine d'heures tout comme le module \codes{directpython}\footnote{\httpstyle{http://sourceforge.net/projects/directpython/}} qui est l'équivalent de \codes{pyOpenGL} mais uniquement sous \textit{Microsoft Windows}.
+
+
+\subsection{\textit{Microsoft Windows}, \textit{Microsoft Excel}, PDF}  \label{module_win32co_label}
+
+\codes{win32com}\footnote{\httpstyle{http://python.net/crew/mhammond/win32/Downloads.html}} : ce module permet de communiquer avec les applications \textit{Microsoft Windows} tels que \textit{Microsoft Excel}. Il est ainsi possible de créer une feuille \textit{Excel} depuis un programme \python, de l'imprimer, de la sauvegarder sans avoir à ouvrir \textit{Excel}. Un moteur de recherche permettra de trouver de nombreux petits exemples utilisant ce module\footnote{comme \httpstyle{http://wikipython.flibuste.net/CodeWindows\#ExempleavecExcel}}.
+
+\codes{reportlab}\footnote{\httpstyle{http://www.reportlab.com/software/opensource/rl-toolkit/}} : ce module permet de manipuler les fichiers PDF, autant pour lire les informations qu'il contient que pour les modifier.
+
+
+\subsection{Accélération de \Python}  \label{accelation_pyrex_weave}
+
+\pythons est un langage interprété et pour cette raison, il est lent ce qui ne veut pas dire qu'il n'existe pas des solutions pour contourner ce problème.
+
+\codes{psyco} : ce module permet de multiplier la vitesse d'exécution d'un programme par trois ou quatre. Il suffit d'ajouter au programme les instructions suivantes~: \indexmoduleext{psyco}
+\begin{verbatimx}
+import psyco
+psyco.full ()
+\end{verbatimx}
+%
+Dans les faits, le programme s'exécute plus vite mais pas uniformément plus vite~: les calculs sont le plus favorisés. Toutefois, même avec ce module, le langage \pythons reste très lent par rapport à un langage compilé comme le \textit{C++}. L'outil \textit{Pyrex}\footnote{\httpstyle{http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/}} propose une solution en permettant l'insertion de code \textit{C++} au sein d'un programme \python. \textit{Pyrex}\ifnotellipse{\indexoutil{Pyrex}} n'est pas un module, c'est un interpréteur \pythons modifié pour prendre en compte ces insertions \textit{C++}. Il est essentiel de connaître la syntaxe du langage \textit{C++}. \textit{Pyrex} propose des temps d'exécution tout à fait acceptable par rapport à ceux du \textit{C++} et il accroît fortement la vitesse d'écriture des programmes. Son installation n'est pas toujours évidente car il faut le relier au compilateur \textit{C++} \textit{GCC}\footnote{\httpstyle{http://gcc.gnu.org/}, ce compilateur présent sur toute machine \textit{Linux} est porté également sur \textit{Microsoft Windows} (voir le site \httpstyle{http://www.mingw.org/}).}.\ifnotellipse{\indexoutil{GCC}} Une approche semblable est développée par l'extension \codes{Weave}\footnote{\httpstyle{http://www.scipy.org/Weave}} du module \codes{scipy}\footnote{\httpstyle{http://www.scipy.org/}}. \textit{Pyrex} et \textit{Weave} offre des performances bien supérieures à \pythons seul, proches de celle du langage~\textit{C}. \textit{Weave} conviendra sans doute mieux à ceux qui ont déjà programmé en~\textit{C}.
+
+L'accélération de l'exécution d'un programme \pythons suscite l'intérêt de nombreux informaticiens, c'est aussi l'objectif de l'outil \textit{PyPy}\footnote{\httpstyle{http://codespeak.net/pypy/dist/pypy/doc/home.html}}\ifnotellipse{\indexoutil{PyPy}} qui réécrit automatiquement certaines partie du code en langage \textit{C} et l'intègre au programme existant.
+
+
+      
+\if 0
+
+\subsection{Installation de packages~: cas \textit{Mac~OS~X} et \textit{Linux}} \label{inlstation_package_linux_max}
+
+Moins de novices en informatique gravitent autour du monde \textit{Linux} (ou \textit{Mac~OS~X} qui est bâti sur un noyau \textit{Linux}), ce système est aussi moins répandu que \textit{Microsoft Windows}. C'est pourquoi, l'installation d'un package n'est pas toujours aussi simple sur \textit{Linux} ou \textit{Mac~OS~X}. Dans tous les cas, il faut se reporter au site qui fournit le module, il contient presque toujours toutes les informations nécessaires à son installation. Il ne faut pas hésiter non plus à aller sur un moteur de recherche, il existe toujours quelqu'un avant vous qui a déjà essayé d'installer ce package. 
+\fi 
+
+\if 0
+\subsection{Restriction \textit{Mac OS X}}
+
+De nombreux modules externes sont en fait écrit en langage \textit{C++} et leur utilisation sur plusieurs systèmes d'exploitation implique une version du module par système. Tous les sites proposant des modules \pythons offrent très souvent une version \textit{Windows}. Une version \textit{Mac~OS~X} est parfois proposée mais ce n'est pas toujours le cas. Certains sites\footnote{comme \httpstyle{http://pythonmac.org/packages/}} référencent les versions \textit{Mac~OS~X} des modules. Ensuite, après avoir téléchargé le fichier pkg ou mpkg, il suffit de l'exécuter. Lorsque cette version n'existent pas comme c'est le cas sous \textit{Linux}, il faut se servir d'une ligne de commande.
+
+En général, cette étape suffit pour que le module puisse être utilisé par la suite dans un programme \python. Toutefois, il arrive que cela ne fonctionne pas dans certains cas. Il est alors conseillé d'aller sur le site du package concerné ou alors de reprendre l'intégralité ou une partie du message d'erreur et de regarder ce qu'un moteur de recherche comme Google trouve à son propos. Il est fort probable qu'une personne ait déjà été confronté à ce genre de problème et la recherche est rarement vaine. Elle aboutit souvent à plusieurs pages qu'il faut parcourir pour trouver une réponse (en anglais très souvent) qui soit compréhensible. Une erreur fréquente provient des dépendances entre packages comme pour le package PyGame.
+\fi
+
+\if 0
+\subsection{Installation manuelle d'un package}
+\label{installation_compilation}
+
+L'installation d'un package sous \textit{Linux} ou \textit{Mac~OS~X} nécessite le plus souvent de taper quelques instructions à la main mais ce sont toujours les mêmes quelque soit le module à installer.
+%
+
+\begin{small}
+\begin{enumerate}
+\item télécharger le package et le décompresser
+\item d'ouvrir une fenêtre Terminal ou une fenêtre de commande
+\item de se placer dans le répertoire où ont été décompressés les fichiers (utiliser les commandes \emph{ls} et \emph{cd})
+\item de taper la commande \emph{sudo su} qui donne tous les droits d'installation (cette commande demande le mot de passe de l'ordinateur et vous donne le droit de modifier le système)
+\item de taper la commande \emph{python setup.py build} s'il y a des fichiers \textit{C} à compiler (module \codesmall{scipy} par exemple)
+\item puis de taper la commande \emph{python setup.py install}
+\end{enumerate}
+\end{small}
+
+%
+Le module est alors installé, il suffit d'écrire un programme contenant comme seule ligne \codes{import \; module} pour vérifier que l'installation s'est bien déroulée.
+\fi
+
+\if 0
+\ifnotellipse{
+\subsubsection{Pour les connaisseurs}
+\indexfr{\textit{gcc}}
+Il est conseillé au préalable de modifier la version de votre compilateur. Sur la dernière version de \textit{Mac~OS~X}, c'est le compilateur gcc 4.0 qui est utilisé or tous les packages que vous téléchargez sont bien souvent compilés avec la version 3.3. Il est préférable de la changer~:
+
+\begin{small}
+\begin{enumerate}
+\item ouvrir une fenêtre Terminal
+\item de taper la commande \emph{sudo su} qui donne tous les droits d'installation 
+\item de taper \emph{gcc$\_$select 3.3}
+\end{enumerate}
+\end{small}
+
+}
+
+\subsubsection{NumPy}
+\indexmoduleext{Numeric}\indexmoduleext{Numarray}\indexmoduleext{NumPy}\label{module_numeric_munerray}
+De nombreux modules ont besoin de l'un ou de ses trois modules. Ils implémentent tous trois des vecteurs plus appropriés pour faire du calcul numérique. Il est conseillé d'installer les deux ou trois modules même si un autre module ne prétend avoir besoin que de l'un des trois (comme le module SciPy).
+
+\subsubsection{MatPlotLib}
+%
+L'utilisation de MatPlotLib diffère de celle sous \textit{Microsoft Windows}. Alors qu'il est simplement nécessaire d'écrire la ligne~:
+%
+\begin{verbatimx}
+import matplotlib.pylab as pylab
+\end{verbatimx}
+%
+\indexmoduleext{matplotlib}\indexmoduleext{wxPython}
+Avec la version Mac, il faut installer le package \textit{wxPython} et spécifier que MatPlotLib doit utiliser cette interface au début du programme~:
+%
+\begin{verbatimx}
+#!/usr/bin/env pythonw2.6
+import matplotlib
+matplotlib.use("WXAgg")
+import matplotlib.pylab as pylab
+\end{verbatimx}
+\fi
+
+
+\if 0
+
+\subsubsection{module \codes{pygame} et \textit{Mac~OS~X}}
+%
+Le package \codes{pygame} ne fonctionne que si le package \emph{PyObjC} est aussi installé, ce qui est le cas à partir de la version \textit{Mac~OS~X~10.5}.\indexmoduleext{pygame}\indexmoduleext{PyObjC} Seul, l'utilisation de \codes{pygame} aboutit à une erreur difficilement compréhensible excepté par des moteurs de recherche qui retournent quelques messages échangés par des programmateurs ayant déjà rencontré le problème~:
+%
+\begin{verbatimx}
+2004-08-07 21:08:15.153 Python[695] *** _NSAutoreleaseNoPool(): Object
+0x30ead0 of class NSCFArray autoreleased with no pool in place - just
+leaking
+\end{verbatimx}
+%
+
+Ce package est référencé à l'adresse \httpstyle{http://pythonmac.org/packages/} et s'installe automatiquement. Comme \pythons devient de plus en plus courant, il est probable que ce type d'exception disparaisse pour aboutir à une installation simple pour les modules externes les plus courants.
+\fi
+
+
+\section{Outils connexes}
+
+Ce paragraphe sort du cadre de ce livre. Néanmoins, on ne conçoit pas un programme d'envergure sans outil autre que \python. Lorsqu'on travaille à plusieurs, il faut pouvoir conserver les différentes versions d'un programme, être capable de fusionner des modifications effectuées par deux personnes, échanger de l'information. Ce sont ces tâches auxquelles les applications qui suivent tentent d'apporter des réponses. La liste des outils présentés dans ce livre est loin d'être exhaustive. Il existe de nombreuses applications \textit{open source} qui améliorent l'usage qu'on peut avoir des ordinateurs. De nombreux internautes échangent autour de problèmes rencontrées, comparent différents logiciels. On fait parfoirs quelques trouvailles en y jetant un coup d'\oe il régulièrement.
+
+
+
+\subsection{Outils quotidiens}
+
+\textbf{SVN}\footnote{\httpstyle{http://subversion.tigris.org/}} : c'est un logiciel de suivi de source, il permet de conserver différentes versions d'une arborescence de fichiers, de fusionner des modifications faites par plusieurs personnes. C'est très pratique pour travailler à plusieurs. Une interface graphique est également disponible : \textbf{TortoiseSVN}\footnote{\httpstyle{http://tortoisesvn.tigris.org/}}. \ifnotellipse{Pour travailler à plusieurs en réseau, il faudra également installer un serveur tel que \textbf{Apache}\footnote{\httpstyle{http://httpd.apache.org/}}. \ifnotellipse{\indexoutil{Apache}}}\ifnotellipse{\indexoutil{SVN}}\ifnotellipse{\indexoutil{TortoiseSVN}}
+
+\textbf{MoinMoin}\footnote{\httpstyle{http://moinmo.in/}} : les wikis sont devenus des outils presque incontournables qui permettent de conserver tout type d'information. \textit{Wikipedia} est le wiki le plus célèbre. Ces outils sont très utiles pour partager l'information au sein d'une entreprise, pour archiver les rapports de réunions par exemple. Ils intègrent souvent un moteur de recherche.\ifnotellipse{\indexoutil{MoinMoin}}\indexoutil{wiki}\indexfr{wiki}
+
+
+
+\subsection{Outils occasionnels}
+
+\ifnotellipse{
+\textbf{BeyondCompare}\footnote{\httpstyle{http://www.scootersoftware.com/}} : ce logiciel permet de comparer des fichiers textes entre eux pour voir les différences, il compare également les arborescences de fichiers. Il n'est pas gratuit. L'outil \textit{SVN} permet déjà de voir les différences entre deux versions d'un même fichier mais celui-ci est plus complet en ce qui concernent les fonctionnalités de comparaison.\ifnotellipse{\indexoutil{BeyondCompare}}
+}
+
+\textbf{doxygen}\footnote{\httpstyle{http://www.stack.nl/~dimitri/doxygen/}}~: associé au module \codes{doxypy}\footnote{\httpstyle{http://code.foosel.org/doxypy}}, cet outil offre une alternative plus riche que \textit{epydoc}, il peut utiliser également \textit{Graphviz}\footnote{\httpstyle{http://www.graphviz.org/}} pour produire des graphes. \ifnotellipse{\indexoutil{doxygen}\indexoutil{doxypy}}
+
+\textbf{Sphinx}\footnote{\httpstyle{http://sphinx.pocoo.org/}}~: c'est l'outil qui génère l'aide associée au langage \pythons telle qu'elle apparaît à l'adresse \httpstyle{http://docs.python.org/}. Il crée des pages HTML et des documents au format PDF pour tout projet \python.\ifnotellipse{\indexoutil{Sphinx}}
+
+\textbf{HTML Help Workshop}\footnote{\httpstyle{http://www.microsoft.com/downloads/} puis saisir \textit{HTML Help Workshop} dans la barre de recherche} : cet outil permet de convertir une documentation au format HTML en un format CHM propre à \textit{Microsoft Windows}.\indexext{chm}\ifnotellipse{\indexoutil{HTML Help Workshop}} L'outil \textit{doxygen} propose une option qui facilite cette conversion via ce logiciel.
+
+\textbf{InnoSetup}\footnote{\httpstyle{http://www.innosetup.com/}} : cette application permet de construire un installateur qui s'exécute automatiquement. Lorsque vous souhaitez transmettre votre travail sous \Pythons à quelqu'un d'autre, celui-ci doit récupérer le langage, un éditeur, les fichiers \Python, d'éventuelles données. L'installation permettra de regrouper l'ensemble de ces opérations sans que l'utilisateur final n'ait à se soucier de quoi que ce soit. Cette application ne fonctionne que sous \textit{Microsoft Windows}.\ifnotellipse{\indexoutil{InnoSetup}}
+
+
+
+
+\subsection{Outils pour des besoins spécifiques}
+
+Le langage \pythons s'interface avec de nombreuses applications, les outils qui suivent peuvent aider des programmeurs confirmés à automatiser certaines tâches fastidieuses.
+
+\textbf{BuildBot}\footnote{\httpstyle{http://buildbot.net/trac}} : cet utilitaire est écrit en \Python, lorsqu'il est couplé avec \textit{SVN}, il facilite la conception d'applications informatiques à plusieurs. A chaque mise à jour du code source, \textit{BuildBot} recompile les sources, passe les tests de non-régression\footnote{Les tests de non-régression ont pour objectif de limiter le nombre d'erreurs dans un programme. Pour une fonction retournant le résultat d'un calcul scientifique, un test de non-régression consiste à vérifier que ce calcul, pour des données bien précises, aboutit toujours au même résultat malgré les modifications apportées au programme. La détection d'une erreur débouche souvent sur un test de non-régression afin de s'assurer qu'elle ne se reproduira pas.}\indexfr{test de non-régression}, avertit le ou les programmeurs concernés par des erreurs éventuellement introduites lors d'une mise à jour. Il permet de suivre en temps réel la stabilité d'une application.\ifnotellipse{\indexoutil{BuildBot}} Le projet \textit{PyBots}\footnote{\httpstyle{http://www.pybots.org/}} regroupe plusieurs outils d'automatisation intéressants.
+
+\textbf{MySQL}\footnote{\httpstyle{http://www.mysql.fr/}} : c'est un serveur de base de données. Les bases de données sont devenus incontournables, elles permettent de stocker et de consulter un grand nombre d'informations de façon beaucoup plus efficace que des fichiers quels qu'ils soient. Le langage \pythons permet facilement de dialoguer directement avec les logiciels de bases de données les plus connus dont \textit{MySQL}.\ifnotellipse{\indexoutil{MySQL}} Le module \codes{MySQLdb}\footnote{\httpstyle{http://sourceforge.net/projects/mysql-python}} permet de s'y connecter depuis \python.\ifnotellipse{\indexmoduleext{mysqldb}}
+
+\textbf{SQLite}\footnote{\httpstyle{http://www.sqlite.org/}} : cette application traite également les bases de données mais sans le côté serveur. Les bases de données sont stockées sous forme de fichiers. Cet outil est intégré à la version 2.5 du langage \python. L'application \textit{SQLiteSpy}\footnote{\httpstyle{http://www.yunqa.de/delphi/doku.php/products/sqlitespy/index}} permet sous \textit{Microsoft Windows} de visualiser le contenu de ces fichiers et de lancer des requêtes \textit{SQL}.\ifnotellipse{\indexoutil{SQLite}}\ifnotellipse{\indexoutil{SQLiteSpy}} 
+
+\textbf{Remote Python Call (RPyC)}\footnote{\httpstyle{http://rpyc.wikispaces.com/}} : ce module facilite l'écriture de programmes \pythons qui doivent s'exécuter sur plusieurs machines avec tous les problèmes que cela comporte~: synchronisation, partage d'informations,~... \ifnotellipse{\indexoutil{RPyC}}\ifnotellipse{\indexmoduleext{rpyc}}
+
+\textbf{Mercurial}\footnote{\httpstyle{http://www.selenic.com/mercurial/wiki/}} : c'est un autre logiciel de suivi de source écrit en \Python, son mode de fonctionnement -~décentralisé~- est différent de celui de \textit{SVN}. Avec \textit{Mercurial}, il n'y a plus une référence des fichiers sources d'un programme, \textit{Mercurial} est capable d'assembler des versions d'où qu'elles viennent. \ifnotellipse{\indexoutil{Mercurial}}
+
+\textbf{Bazaar}\footnote{\httpstyle{http://bazaar.canonical.com/}} : encore un logiciel de suivi de source créé plus récemment qui paraît plus convivial.\ifnotellipse{\indexoutil{Bazaar}} 
+
+
+\subsection{Outils Internet}
+
+\textbf{django}\footnote{\httpstyle{http://www.django-fr.org/}} : cet outil facilite la conception de sites Internet qui ne sont pas réduits à de simples pages HTML mais incluent des parties écrites en \python. Il propose des exemples de pages, des accès à des bases de données. Il est souvent utilisé en combinaison avec l'outil suivant.\ifnotellipse{\indexoutil{django}}
+
+\textbf{CherryPy}\footnote{\httpstyle{http://www.cherrypy.org/}} : il permet de réaliser des applications Internet. Il est suffisamment robuste pour être utilisé par de nombreux sites Internet. Il peut paraître fastidieux de s'y plonger mais ce genre d'outil offre un réel gain de temps lors de la conception de sites qui incluent de nombreux échanges avec les utilisateurs.\ifnotellipse{\indexoutil{CherryPy}}
+
+\textbf{TurboGears}\footnote{\httpstyle{http://turbogears.org/}} : cet outil en regroupe plusieurs dont \textit{CherryPy}, c'est un environement complet pour créer des sites Internet.\ifnotellipse{\indexoutil{TurboGears}}
+
+\textbf{Zope}\footnote{\httpstyle{http://www.zope.org/}} : c'est encore un outil pour concevoir des sites Internet, il est plus vieux et beaucoup plus riche. Il est également plus complexe à appréhender. Il est plutôt destiné au développement de sites conséquents.\ifnotellipse{\indexoutil{Zope}}
+
+
+
+
+\firstpassagedo{
+    \begin{thebibliography}{99}
+    \input{python_cours_biblio.tex}
+    \end{thebibliography}
+}
+
+
+
+\input{../../common/livre_table_end.tex}%
+\input{../../common/livre_end.tex}%
