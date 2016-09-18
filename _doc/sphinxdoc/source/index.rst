@@ -19,6 +19,7 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
     :maxdepth: 2
     
     introduction
+    parallelisation/index
         
 .. toctree::
     :maxdepth: 1
