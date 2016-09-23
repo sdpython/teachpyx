@@ -169,7 +169,8 @@ except :
 \subsection{Obtenir le type d'erreur, attraper un type d'exception}
 \indextype{Exception}
 
-Parfois, plusieurs types d'erreurs peuvent être déclenchés à l'intérieur d'une portion de code protégée. Pour avoir une information sur ce type, il est possible de récupérer une variable de type \codes{Exception}.
+Parfois, plusieurs types d'erreurs peuvent être déclenchés à l'intérieur d'une portion de code protégée. Pour avoir une information sur ce type, 
+il est possible de récupérer une variable de type \codes{Exception}.
 %
 \vspaceneg\indexexemples{exception}{}
 \begin{verbatimx}
@@ -188,7 +189,9 @@ except Exception, exc:
 \end{verbatimx}
 \vspaceneg
 %
-Le programme précédent récupère une exception sous la forme d'une variable appelée \codes{exc}. Cette variable est en fait une instance d'une classe d'erreur, \codes{exc.\_\_class\_\_} correspond au nom de cette classe. A l'aide de la fonction \codes{isinstance}, il est possible d'exécuter des traitements différents selon le type d'erreur.
+Le programme précédent récupère une exception sous la forme d'une variable appelée \codes{exc}. Cette variable est en fait une instance 
+d'une classe d'erreur, \codes{exc.\_\_class\_\_} correspond au nom de cette classe. A l'aide de la fonction \codes{isinstance}, 
+il est possible d'exécuter des traitements différents selon le type d'erreur.
 %
 \vspaceneg
 \indexfonction{isinstance}
@@ -218,7 +221,8 @@ erreur insoupçonnée :  exceptions.ValueError
 \end{verbatimx}
 \vspaceneg
 %
-Une autre syntaxe plus simple permet d'attraper un type d'exception donné en accolant au mot-clé \codes{except} le type de l'exception qu'on désire attraper. L'exemple précédent est équivalent au suivant mais syntaxiquement différent.
+Une autre syntaxe plus simple permet d'attraper un type d'exception donné en accolant au mot-clé \codes{except} le type de l'exception qu'on désire attraper. 
+L'exemple précédent est équivalent au suivant mais syntaxiquement différent.
 %
 \vspaceneg\indexexemples{exception}{}
 \begin{verbatimx}
@@ -262,7 +266,8 @@ Toute erreur déclenchée alors que le programme exécute les instructions qui suiv
 \indexsymbole{:}\indexkeyword{try}\indexkeyword{except}\indexkeyword{else}\indexsyntaxenoc{exception d'un type donné}
 \end{xsyntax}
 
-Le langage \pythons propose une liste d'exceptions standards (voir table~\ref{exception_table_liste}, page~\pageref{exception_table_liste}). Lorsqu'une erreur ne correspond pas à l'une de ces exceptions, il est possible de créer une exception propre à un certain type d'erreur (voir paragraphe~\ref{exception_chap_define}). Lorsqu'une fonction ou une méthode déclenche une exception non standard, généralement, le commentaire qui lui est associé l'indique.
+Le langage \pythons propose une liste d'exceptions standards (voir table~\ref{exception_table_liste}, page~\pageref{exception_table_liste}). Lorsqu'une erreur ne correspond pas à l'une de ces exceptions, il est possible de créer une exception propre à un certain type d'erreur (voir paragraphe~\ref{exception_chap_define}). Lorsqu'une fonction ou une méthode déclenche une exception non standard, généralement, 
+le commentaire qui lui est associé l'indique.
 
 
 
@@ -376,7 +381,9 @@ Le langage \pythons propose une liste d'exceptions standards (voir table~\ref{ex
 \subsection{Lancer une exception}
 \indexfrr{exception}{message}\indexkeyword{raise}
 
-Lorsqu'une fonction détecte une erreur, il lui est possible de déclencher une exception par l'intermédiaire du mot-clé \codes{raise}. La fonction \codes{inverse} compare \codes{x} à \codes{0} et déclenche l'exception \codes{ValueError} si \codes{x} est nul. Cette exception est attrapée plus bas.
+Lorsqu'une fonction détecte une erreur, il lui est possible de déclencher une exception par l'intermédiaire du mot-clé 
+\codes{raise}. La fonction \codes{inverse} compare \codes{x} à \codes{0} et déclenche l'exception 
+\codes{ValueError} si \codes{x} est nul. Cette exception est attrapée plus bas.
 %
 \vspaceneg
 \begin{verbatimx}
@@ -393,7 +400,9 @@ except ValueError:
 \end{verbatimx}
 \vspaceneg
 %
-Il est parfois utile d'associer un message à une exception afin que l'utilisateur ne soit pas perdu. Le programme qui suit est identique au précédent à ceci près qu'il associe à l'exception \codes{ValueError} qui précise l'erreur et mentionne la fonction où elle s'est produite. Le message est ensuite intercepté plus bas.
+Il est parfois utile d'associer un message à une exception afin que l'utilisateur ne soit pas perdu. 
+Le programme qui suit est identique au précédent à ceci près qu'il associe à l'exception \codes{ValueError} 
+qui précise l'erreur et mentionne la fonction où elle s'est produite. Le message est ensuite intercepté plus bas.
 \indexfrr{exception}{message}
 %
 \vspaceneg
@@ -420,7 +429,8 @@ Le déclenchement d'une exception suit la syntaxe suivante.
 raise exception_type (message) :
 \end{verbatimno}
 \negvspace
-Cette instruction lance l'exception \codes{exception\_type} associée au message \codes{message}. Le message est facultatif, lorsqu'il n'y en a pas, la syntaxe se résume à \codes{raise \; exception\_type}. \indexkeyword{raise}\indexsyntaxenoc{exception, lancement}
+Cette instruction lance l'exception \codes{exception\_type} associée au message \codes{message}. 
+Le message est facultatif, lorsqu'il n'y en a pas, la syntaxe se résume à \codes{raise \; exception\_type}. \indexkeyword{raise}\indexsyntaxenoc{exception, lancement}
 \end{xsyntax}
 
 Et pour attraper cette exception et le message qui lui est associé, il faut utiliser la syntaxe~\ref{syntax_exception_except} décrite au paragraphe précédent.
@@ -432,7 +442,9 @@ Et pour attraper cette exception et le message qui lui est associé, il faut util
 \subsection{Héritage et exception}  \label{exception_chap_heritage}
 \indexfrr{exception}{héritage}
 
-L'instruction \codes{help (ZeroDivisionError)} retourne l'aide associée à l'exception \codes{ZeroDivisionError}. Celle-ci indique que l'exception \codes{ZeroDivisionError} est en fait un cas particulier de l'exception \codes{ArithmeticError}, elle-même un cas particulier de \codes{StandardError}. 
+L'instruction \codes{help (ZeroDivisionError)} retourne l'aide associée à l'exception \codes{ZeroDivisionError}. 
+Celle-ci indique que l'exception \codes{ZeroDivisionError} est en fait un cas particulier de l'exception \codes{ArithmeticError},
+elle-même un cas particulier de \codes{StandardError}. 
 %
 \vspaceneg
 \begin{verbatimx}

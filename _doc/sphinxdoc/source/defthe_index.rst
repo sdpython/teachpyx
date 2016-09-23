@@ -28,6 +28,13 @@ Problèmes
 
 .. mathdeflist::
     :tag: Problème
+    
+Syntaxe
++++++++
+
+.. mathdeflist::
+    :tag: Syntaxe
+    
 
 
 Tables
