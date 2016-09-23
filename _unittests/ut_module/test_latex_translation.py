@@ -5,7 +5,7 @@
 import sys
 import os
 import unittest
-import re
+import warnings
 
 
 try:
@@ -20,7 +20,7 @@ except ImportError:
     if path not in sys.path:
         sys.path.append(path)
     import src
-    
+
 try:
     import pyquickhelper as skip_
 except ImportError:
@@ -35,10 +35,10 @@ except ImportError:
                 "src",)))
     if path not in sys.path:
         sys.path.append(path)
-    import pyquickhelper as skip_    
+    import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder
+from pyquickhelper.pycode import get_temp_folder, is_travis_or_appveyor
 from pyquickhelper.helpgen import latex2rst
 
 
@@ -49,7 +49,10 @@ class TestLatexTranslation(unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-        
+
+        if is_travis_or_appveyor():
+            warnings.warn("no pandoc")
+            return
         temp = get_temp_folder(__file__, "temp_translation")
         tex = os.path.join(temp, "..", "..", "..", "_todo")
         for t in os.listdir(tex):

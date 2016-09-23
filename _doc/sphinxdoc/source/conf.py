@@ -23,7 +23,7 @@ local_template = os.path.join(os.path.abspath(
 
 from pyquickhelper.helpgen.default_conf import set_sphinx_variables
 set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2016,
-                     "bootstrap", sphinx_bootstrap_theme.get_html_theme_path(), 
+                     "bootstrap", sphinx_bootstrap_theme.get_html_theme_path(),
                      locals(), extlinks=dict(
                          issue=('https://github.com/sdpython/teachpyx/issues/%s', 'issue')),
                      title="Programmation avec le langage Python", book=True)
