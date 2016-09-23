@@ -344,7 +344,7 @@ intercepté plus bas.
 
     try:
         print(inverse(0))  # erreur
-    except ValueError as exc):
+    except ValueError as exc:
         print("erreur, message :", exc)
 
 
@@ -496,6 +496,7 @@ convertir ne contient pas que des chiffres.
 
 .. runpython::
     :showcode:
+    :process:
 
     class AucunChiffre(Exception): 
         """
@@ -554,6 +555,7 @@ exemple affiche un message plus complet.
 
 .. runpython::
     :showcode:
+    :process:
 
     class AucunChiffre(Exception):
         """
