@@ -1,10 +1,11 @@
 
 
-###############
-Parallélisation
-###############
+##########
+Exceptions
+##########
 
 .. toctree::
     :maxdepth: 1
     
-    thread
+    exception
+
