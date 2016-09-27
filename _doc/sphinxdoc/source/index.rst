@@ -19,8 +19,11 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
     :maxdepth: 2
     
     introduction
-    exception/index
-    parallelisation/index
+    c_exception/index
+    c_classes/index
+    c_modules/index
+    c_regex/index
+    c_parallelisation/index
         
 .. toctree::
     :maxdepth: 1

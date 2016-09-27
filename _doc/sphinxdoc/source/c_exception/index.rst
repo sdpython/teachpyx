@@ -8,4 +8,5 @@ Exceptions
     :maxdepth: 1
     
     exception
+    exception_ext
 
