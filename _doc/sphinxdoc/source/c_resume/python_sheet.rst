@@ -801,7 +801,11 @@ La fonction itère sur un ensemble mais ne fait rien tant qu'on ne parcourt pas 
 
 .. runpython::
     :showcode:
-    
+
+    def iterate_double_on_list(l) :
+        for x in l :
+            yield x*2
+
     for x in iterate_double_on_list( [4,5,6]) :
         print (x)
 
