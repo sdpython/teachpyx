@@ -29,7 +29,13 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
     c_modules/index
     c_regex/index
     c_parallelisation/index
-        
+
+.. toctree::
+    :maxdepth: 2
+    
+    c_data/index
+    
+
 .. toctree::
     :maxdepth: 2
     

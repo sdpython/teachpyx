@@ -194,16 +194,16 @@ méthodes suivantes :
    
     * - ``count( sub[, start[, end]])``
       - Retourne le nombre d'occurences de la chaîne de caractères ``sub``,
-	    les paramètres par défaut ``start`` et ``end`` permettent de réduire la
-	    recherche entre les caractères d'indice ``start`` et ``end`` exclu. Par défaut,
+        les paramètres par défaut ``start`` et ``end`` permettent de réduire la
+        recherche entre les caractères d'indice ``start`` et ``end`` exclu. Par défaut,
         ``start`` est nul tandis que ``end`` correspond à la fin de la chaîne de caractères.
     * - ``find( sub[, start[, end]])``
         Recherche une chaîne de caractères ``sub``,
-	    les paramètres par défaut ``start`` et ``end`` ont la même signification
-	    que ceux de la fonction ``count``. Cette fonction retourne -1 si 
-	    la recherche n'a pas abouti.
+        les paramètres par défaut ``start`` et ``end`` ont la même signification
+        que ceux de la fonction ``count``. Cette fonction retourne -1 si 
+        la recherche n'a pas abouti.
     * - ``isalpha()``
-	  - Retourne ``True`` si tous les caractères sont des lettres, ``False`` sinon.
+      - Retourne ``True`` si tous les caractères sont des lettres, ``False`` sinon.
     * - ``isdigit()
       -  Retourne ``True`` si tous les caractères sont des chiffres, ``False`` sinon.
     * - ``replace( old, new[, count])``
@@ -213,7 +213,7 @@ méthodes suivantes :
         seront remplacées.
     * - ``split( [sep [,maxsplit]])``
       - Découpe la chaîne de caractères en se servant de la chaîne ``sep`` comme
-	    délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit}
+        délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit}
         coupures seront effectuées.
     * - ``upper()``
       - Remplace les minuscules par des majuscules.
@@ -305,7 +305,7 @@ Opérations qu'une liste supporte.
       - réciproque de la ligne précédente
     * - ``l + t``
       - concaténation de ``l`` et ``t``
-    * - ``l * n``	
+    * - ``l * n``    
       - concatène ``n`` copies de ``l`` les unes à la suite des autres
     * - ``l[i]``
       - retourne le ième élément de ``l``,
@@ -435,7 +435,7 @@ Opérations qu'un dictionnaire supporte.
       - plus grande clé
     * - ``del l [i]``
       - supprime l'élément associé à la clé ``i``
-    * - ``list (d)``	
+    * - ``list (d)``    
       - retourne une liste contenant toutes les clés du dictionnaire ``d``.
     * - ``dict (x)``
       - convertit ``x`` en un dictionnaire si cela est possible, 
@@ -920,12 +920,13 @@ pas d'instance d'un object pour être appelée.
     
     class ma_classe :
         def __init__ (self, att1, att2, att3) :
-                # ...
+            # ...
+            pass
 
         @staticmethod
         def calcule_static (x,y) :         # méthode statique
             return x * y
-				
+                
     print (ma_classe.calcule_static(2,3))  # appel d'une méthode statique
     
 Opérateurs
