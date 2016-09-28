@@ -5,6 +5,9 @@
 Cheat sheet: Python
 ===================
 
+.. contents::
+    :local:
+
 
 
 Ce document résume en quelques pages les éléments essentiels de la syntaxe du langage python. 

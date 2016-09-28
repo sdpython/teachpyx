@@ -16,12 +16,12 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
 
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     
     introduction
     
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     
     c_lang/index
     c_exception/index
@@ -31,13 +31,13 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
     c_parallelisation/index
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     
     c_data/index
     
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     
     c_resume/index
         
