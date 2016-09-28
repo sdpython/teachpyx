@@ -831,6 +831,7 @@ Pour déclarer une classe, on procède comme suit :
 
 .. runpython::
     :showocde:
+    :process:
 
     class ma_classe :
         def __init__ (self, att1, att2, att3) :
@@ -855,6 +856,7 @@ et aux méthodes de la classe. Le programme suivant est équivalent au premier.
 
 .. runpython::
     :showcode:
+    :process:
     
     class ma_classe :
         def __init__ (self, att1, att2, att3) :
@@ -892,6 +894,7 @@ par défaut à l'exception du premier. Chaque instance de classe est
 
 .. runpython::
     :showcode:
+    :process:
 
     class ma_classe :
         def __init__ (self, att1, att2, att3) :
@@ -917,6 +920,7 @@ pas d'instance d'un object pour être appelée.
 
 .. runpython::
     :showcode:
+    :process:
     
     class ma_classe :
         def __init__ (self, att1, att2, att3) :
@@ -970,6 +974,7 @@ désigner le même objet.
 
 .. runpython::
     :showcode:
+    :process:
     
     class ma_classe :
         def __init__ (self, att1, att2, att3) :
@@ -988,6 +993,7 @@ Il faut donc copier explicitement l'instance pour obtenir le résultat souhaité
 
 .. runpython::
     :showcode:
+    :process:
     
     class ma_classe :
         def __init__ (self, att1, att2, att3) :
@@ -1036,6 +1042,7 @@ Mais hériter permet de faire deux choses :
 
 .. runpython::
     :showcode:
+    :process:
     
     class ma_classe :
         def __init__ (self, att1) :
@@ -1065,6 +1072,7 @@ les décorateurs comme dans l'exemple suivant :
 
 .. runpython::
     :showcode:
+    :process:
         
     def makebold(fn):
         def wrapped():
@@ -1090,6 +1098,7 @@ classe sans changer la notation :
 
 .. runpython::
     :showcode:
+    :process:
     
     class C(object):
         def __init__ (self) :
@@ -1257,6 +1266,7 @@ Pour utiliser une fonction ou une classe du module
 ``geometrie.py``, on utilise une des syntaxes suivantes :
 
 * Première syntaxe :
+
   ::
   
       import geometrie
@@ -1395,6 +1405,7 @@ L'exemple suivant regroupe tous ces cas.
 
 .. runpython::
     :showcode:
+    :process:
 
     class AucunChiffre (Exception) :
         """chaîne de caractères contenant
@@ -1487,8 +1498,8 @@ qui utilise dans le premier cas la fonction ``range`` et dans l'autre non.
 ::
     l  = [ "un", "deux", "trois", "quatre" ]
     up = []
-    for i in range (0, len (l)) :
-        up.append ( l [i].upper () )
+    for i in range (0, len(l)) :
+        up.append ( l [i].upper() )
 
 Lorsqu'on utilise la fonction ``range``, on dispose lors 
 de la boucle de deux informations, l'indice ``i`` et l'élément ``l [i]``. 
@@ -1499,7 +1510,7 @@ Si l'indice n'est pas utile, il est possible de simplifier la boucle comme suit.
     l  = [ "un", "deux", "trois", "quatre" ]
     up = []
     for m in l :
-        up.append ( m.upper () )
+        up.append ( m.upper() )
 
 En général, on se sert de la boucle qui utilise la fonction ``range`` dans deux cas :
 
