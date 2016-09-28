@@ -389,6 +389,7 @@ Les listes peuvent aussi être définies à partir d'une écriture abrégée :
 
 .. runpython::
     :showcode:
+    :process:
 
     li = list(range(0,5))                # liste des entiers de 0 à 5 exclu
     y = [i for i in li if i % 2 == 0]    # sélection des éléments pairs
