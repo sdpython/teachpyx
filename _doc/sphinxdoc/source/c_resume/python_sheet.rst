@@ -780,8 +780,8 @@ Et si on veut ajouter un paramètre à la fonction ``lambda`` :
     
     li  = [ 3,4,5]
     k   = 2
-    li2 = map (lambda x,y=k : x%k, li)
-    print (list(li2))
+    li2 = map (lambda x, y=k: x % y, li)
+    print(list(li2))
 
 mot-clé ``yield``
 +++++++++++++++++
