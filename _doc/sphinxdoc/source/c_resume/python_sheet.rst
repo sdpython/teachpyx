@@ -390,15 +390,11 @@ Les listes peuvent aussi être définies à partir d'une écriture abrégée :
 .. runpython::
     :showcode:
 
-    x = range(0,5)                      # liste des entiers de 0 à 5 exclu
-                                        # Version 3.x : range retourne un itérateur, il faut écrire
-                                        #     x = list(range(0,5))
-    y = [ i for i in x if i % 2 == 0]   # sélection des éléments pairs
-    print (y)                           # affiche [0,2,4]		  Version 2.x : écrire print y
-    z = [ i+j for i in x for j in x]    # construit tous les nombres i+j possibles
-    print (z)                           # affiche [0, 1, 2, 3, 4, 1, 2, 3, 4, 5, 2, 3, 
-                                        # 4, 5, 6, 3, 4, 5, 6, 7, 4, 5, 6, 7, 8]
-
+    li = list(range(0,5))                # liste des entiers de 0 à 5 exclu
+    y = [i for i in li if i % 2 == 0]    # sélection des éléments pairs
+    print(y)
+    z = [i+j for i in li for j in li]    # construit tous les nombres i+j possibles
+    print(z)
 
 Dictionnaire
 ^^^^^^^^^^^^
@@ -407,12 +403,14 @@ Un dictionnaire est un tableau pour lequel les indices ou clés
 ne sont pas uniquement des entiers mais tout type non modifiable 
 (le plus souvent un entier, un réel, une chaîne de caractères, un t-uple).
 
-::
+.. runpython::
+    :showcode:
 
     x = { "cle1": "valeur1", "cle2": "valeur2" }
-    print (x ["cle1"])        # affiche valeur1  Version 2.x : écrire print ...
-    x [(0,1)]  = "clé tuple"  # ajoute une nouvelle valeur dont la clé est (0,1)
+    print(x ["cle1"])
+    x [(0,1)] = "clé tuple"   # ajoute une nouvelle valeur dont la clé est (0,1)
                               #   les parenthèses sont superflues
+    print(x)
     y = { }                   # crée un dictionnaire vide
     z = dict ()               # crée aussi un dictionnaire vide
 
@@ -838,7 +836,7 @@ Pour déclarer une classe, on procède comme suit :
             
     a = ma_classe (-1,1,2) # déclare une variable de type ma_classe
     print (a.att1)  # affiche -1       
-    print (a.att2)  # affiche 3        Version 2.x : print ...
+    print (a.att2)  # affiche 3
     print (a.att3)  # affiche 4
     print (a.att4)  # affiche -12
 
@@ -1050,8 +1048,8 @@ Mais hériter permet de faire deux choses :
 
     a = ma_classe (2)
     b = ma_classe2 (2)
-    print (a.att2)   # affiche 4  = 2 * 2
-    print (b.att2)   # affiche 8  = (2*2) * 2
+    print (a.att2)   # affiche 4 = 2 * 2
+    print (b.att2)   # affiche 8 = (2*2) * 2
 
 Décorateur
 ++++++++++
@@ -1255,17 +1253,17 @@ Pour utiliser une fonction ou une classe du module
 * Première syntaxe :
   ::
   
-    import geometrie
-    print (geometrie.carre (1.5))
-    p = geometrie.point (1,2)
+      import geometrie
+      print (geometrie.carre (1.5))
+      p = geometrie.point (1,2)
 
 * Deuxième syntaxe :
 
   ::
   
-    import geometrie as GEO  # on donne un pseudonyme au module geometrie
-    print (GEO.carre (1.5))
-    p = GEO.point (1,2)
+      import geometrie as GEO  # on donne un pseudonyme au module geometrie
+      print (GEO.carre (1.5))
+      p = GEO.point (1,2)
 
 * Troisième syntaxe : le module est utilisé très souvent, même un pseudonyme 
   est trop long, il faut néanmoins s'assurer que les modules importés 
@@ -1274,9 +1272,9 @@ Pour utiliser une fonction ou une classe du module
  
   ::
   
-    from  geometrie import * 
-    print (carre (1.5))
-    p = point (1,2)
+      from  geometrie import * 
+      print (carre (1.5))
+      p = point (1,2)
 
 Dans le cas des modules installés, les trois syntaxes d'utilisation 
 sont aussi valables. On voit aussi souvent apparaître dans un module la condition :
@@ -1328,7 +1326,8 @@ Le mécanisme des exceptions permet au programme de "rattraper"
 les erreurs, de détecter qu'une erreur s'est produite et d'agir 
 en conséquence afin que le programme ne s'arrête pas :
 
-::
+.. runpython::
+    :showcode:
 
     def inverse (x):
         y = 1.0 / x
@@ -1344,7 +1343,8 @@ et ``except``. Entre ces deux instructions, s'il se produit
 une erreur, le programme passe immédiatement à ce qui suit l'instruction 
 ``except``. On peut même récupérer le message d'erreur correspondant :
 
-::
+.. runpython::
+    :showcode:
 
     def inverse (x):
         y = 1.0 / x
@@ -1387,7 +1387,8 @@ avec l'instruction ``raise`` et ou de définir ses propres exceptions
 en créant une classe héritant d'une classe d'exception.
 L'exemple suivant regroupe tous ces cas.
 
-::
+.. runpython::
+    :showcode:
 
     class AucunChiffre (Exception) :
         """chaîne de caractères contenant
@@ -1429,7 +1430,8 @@ Chaîne de caractères = tableau de caractères
 Une chaîne de caractères est un tableau de caractères : 
 pour accéder à un caractère, on procède comme pour une liste.
 
-::
+.. runpython::
+    :showcode:
 
     s = "abcdefghijklmnopqrstuvwxyz"
     print (s [4])    # affiche "e"
@@ -1551,7 +1553,8 @@ d'utiliser quand même ``return`` au cas où le résultat
 de la fonction ``calcul3`` serait utilisé par une autre 
 fonction, ``calcul4`` par exemple.
 
-::
+.. runpython::
+    :showcode:
 
     def calcul1(x) :
         return x+3
@@ -1563,11 +1566,15 @@ Cela peut provoquer des erreurs lorsqu'on essaye d'utiliser ce résultat dans un
 
 ::
 
-
-    def calcul1(x) : print (x+3)
-    def calcul2(x) : return calcul1(x) + 5
+    def calcul1(x): 
+        print (x+3)
+    def calcul2(x): 
+        return calcul1(x) + 5
     y = calcul2(4)     # affiche l'erreur
-                       # ported operand type(s) for +: 'NoneType' and 'int'
+
+::
+
+    ported operand type(s) for +: 'NoneType' and 'int'
 
 Il faut retenir que l'instruction ``print`` n'a aucun impact sur le résultat
 d'un programme.
@@ -1616,12 +1623,13 @@ entiers. On écrit la fonction qui vérifie cela.
 
 ::
 
-    def somme_double (liste) :
+    def somme_double(liste):
         return 1.0 * sum(liste)
 
-    def test_somme_double () :
+    def test_somme_double():
         y = somme_double([ 1 ]) / 2
-        if y == 0 : raise Exception ("valeur > 0 attendue")
+        if y == 0:
+            raise Exception ("valeur > 0 attendue")
             
     if __name__ == "__main__" :
         test_somme_double()
