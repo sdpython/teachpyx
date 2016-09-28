@@ -20,13 +20,6 @@ FAQ
 Exemples
 ========
 
-Langage Python
-++++++++++++++
-
-.. exreflist::
-    :tag: python
-    :contents:
-
 Construction classiques
 +++++++++++++++++++++++
 
