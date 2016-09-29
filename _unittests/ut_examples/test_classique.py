@@ -9,12 +9,11 @@ will sort all test files by increasing time and run them.
 import sys
 import os
 import unittest
-import itertools
+from datetime import datetime
 
 
 try:
     import src
-    import pyquickhelper as skip_
 except ImportError:
     path = os.path.normpath(
         os.path.abspath(
@@ -24,6 +23,11 @@ except ImportError:
                 "..")))
     if path not in sys.path:
         sys.path.append(path)
+    import src
+
+try:
+    import pyquickhelper as skip_
+except ImportError:
     path = os.path.normpath(
         os.path.abspath(
             os.path.join(
@@ -35,34 +39,32 @@ except ImportError:
                 "src")))
     if path not in sys.path:
         sys.path.append(path)
-    import src
     import pyquickhelper as skip_
 
+
 from pyquickhelper.loghelper import fLOG
-from src.teachpyx.examples.construction_classique import enumerate_permutations_recursive, enumerate_permutations
+from src.teachpyx.examples.classiques import commentaire_accentues, dix_entiers_carre, repetition_a_eviter, dictionnaire_modifie_dans_la_boucle
+from src.teachpyx.examples.classiques import str2date
 
 
-class TestClassiquesPermutation (unittest.TestCase):
+class TestClassiques(unittest.TestCase):
 
-    def test_permutation(self):
+    def test_fonctions(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        self.maxDiff = None
-        ens = list(range(5))
-        l = list(tuple(p) for p in enumerate_permutations_recursive(ens))
-        self.assertEqual(len(l), 120)
-        res = list(tuple(p) for p in itertools.permutations(ens))
-        self.assertEqual(len(res), 120)
-        self.assertEqual(set(res), set(l))
-        res = list(tuple(p) for p in enumerate_permutations(ens))
-        self.assertEqual(len(res), 120)
-        self.assertEqual(set(res), set(l))
-
-        res = list(tuple(p) for p in enumerate_permutations([1]))
-        self.assertEqual(res, [(1,)])
+        commentaire_accentues()
+        r = dix_entiers_carre()
+        self.assertEqual(r, 385)
+        r = repetition_a_eviter([4, 5])
+        self.assertEqual(r, 0.25)
+        r = dictionnaire_modifie_dans_la_boucle()
+        self.assertEqual(
+            r, ([0, 1, 2, 4, 5, 6], {0: 0, 1: 1, 2: 2, 5: 5, 6: 6}))
+        r = str2date("11/8/1975")
+        self.assertEqual(r, datetime(1975, 8, 11))
 
 if __name__ == "__main__":
     unittest.main()

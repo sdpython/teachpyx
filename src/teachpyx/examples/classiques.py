@@ -141,8 +141,6 @@ def repetition_a_eviter(serie):
         meilleur = major(data)[0]  # retourne ("quelque chose", True)
         if major(data)[1]:
             return {"leaf":guess}
-
-    @endexample
     """
 
     def moyenne(serie):
