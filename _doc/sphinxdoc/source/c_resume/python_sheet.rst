@@ -600,7 +600,9 @@ On peut écrire :
     for i in range(0,len(l)) : 
         s += l[i]
 
-Ou utiliser la fonction ``enumerate`` qui retourne chaque élément et sa position dans l'ensemble :
+Ou utiliser la fonction 
+`enumerate <https://docs.python.org/3/library/functions.html#enumerate>`_
+qui retourne chaque élément et sa position dans l'ensemble :
 
 ::
 
@@ -622,7 +624,7 @@ Pour faire la somme de deux listes terme à terme, on peut écrire :
     for i in range(0,len(l)) : 
         s += l[i] + g[i]
 
-Ou utiliser la fonction ``zip`` :
+Ou utiliser la fonction `zip <https://docs.python.org/3/library/functions.html#zip>`_ :
 
 ::
 
@@ -636,8 +638,8 @@ Fonction ``map``
 ++++++++++++++++
 
 Il est possible d'éviter une fonction pour éviter d'écrire une 
-boucle avec la fonction ``map``. Elle applique une fonction à 
-chaque élément d'un ensemble.
+boucle avec la fonction `map <https://docs.python.org/3/library/functions.html#map>`_. 
+Elle applique une fonction à chaque élément d'un ensemble.
 
 .. runpython::
     :showcode:
@@ -650,18 +652,20 @@ chaque élément d'un ensemble.
     print(list(li2))
     
 A priori, l'ensemble qui en résulte contient autant d'éléments 
-sauf si on utilise le mot-clé ``yield``.
+sauf si on utilise la fonction `filter <https://docs.python.org/3/library/functions.html#filter>`_.
 L'exemple suivant affiche tous les nombres pairs.
 
 .. runpython::
     :showcode:
     
-    def fonction (x) :
-        if x % 2 == 0 : yield x
-    li  = [ 3,4,5]
-    li2 = map (fonction, li)
+    def fonction(x):
+        if x % 2 == 0: 
+            return True
+            
+    li  = [3, 4, 5]
+    li2 = filter(fonction, li)
     print(list(li2))
-
+    
 Autres mot-clés
 +++++++++++++++
 
