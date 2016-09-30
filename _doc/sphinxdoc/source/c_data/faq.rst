@@ -8,6 +8,14 @@ FAQ / Exemples
 
 .. contents::
     :local:
+    
+FAQ
+===
+
+.. faqreflist::
+    :tag: pandas
+    :contents:
+    
 
 Exemples
 ========

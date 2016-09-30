@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 @file
-@brief Quelques constructions classiques pour éviter de recoder des variantes d'algorithmes.
-classiques.
+@brief Quelques exemples autour de `numpy <http://www.numpy.org/>`_.
 """
+import numpy
 
 
 def numpy_matrix2list(mat):
@@ -50,3 +50,47 @@ def numpy_matrix2list(mat):
             print (iv)  # ...
     """
     return mat.tolist()
+
+
+def numpy_types():
+    """
+    return the list of numpy available types
+
+    @return     list of types
+
+    .. faqref::
+        :title: Quels sont les types que numpy supporte ?
+        :tag: numpy
+
+        Lire `basic types <http://docs.scipy.org/doc/numpy/user/basics.types.html>`_.
+        numpy propose plus de types que Python, les mêmes que le langage C
+        (langage de son implémentation). Les programmeurs cherchent toujours
+        le plus petit type possible pour représenter un nombre.
+        Si une matrice ne possède que des entiers entre 0 et 255,
+        on peut utiliser le type *numpy.uint8* qui est codé sur un octet.
+        Cela explique pourquoi beaucoup de libraires de machine learning sont codées
+        des *numpy.float32*, soit 4 octets plutôt que *numpy.float64* ou *double*.
+        Deux raisons à cela, les *numpy.float32* prennent deux fois moins de mémoire.
+        Le coût des calculs avec des *double* est plus coûteux avec les GPU.
+        `Explaining FP64 performance on GPUs <http://arrayfire.com/explaining-fp64-performance-on-gpus/>`_.
+    """
+
+    return [numpy.bool_,
+            numpy.int_,
+            numpy.intc,
+            numpy.intp,
+            numpy.int8,
+            numpy.int16,
+            numpy.int32,
+            numpy.int64,
+            numpy.uint8,
+            numpy.uint16,
+            numpy.uint32,
+            numpy.uint64,
+            numpy.float_,
+            numpy.float16,
+            numpy.float32,
+            numpy.float64,
+            numpy.complex_,
+            numpy.complex64,
+            numpy.complex128 	]

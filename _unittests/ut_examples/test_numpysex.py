@@ -42,7 +42,7 @@ except ImportError:
 
 
 from pyquickhelper.loghelper import fLOG
-from src.teachpyx.examples.numpys import numpy_matrix2list
+from src.teachpyx.examples.numpysex import numpy_matrix2list, numpy_types
 
 
 class TestNumpys(unittest.TestCase):
@@ -58,6 +58,16 @@ class TestNumpys(unittest.TestCase):
         mat = numpy.array(exp)
         l = numpy_matrix2list(mat)
         self.assertEqual(l, exp)
+
+    def test_numpys_types(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        dt = numpy_types()
+        self.assertEqual(len(dt), 19)
+
 
 if __name__ == "__main__":
     unittest.main()
