@@ -201,7 +201,7 @@ méthodes suivantes :
         recherche entre les caractères d'indice ``start`` et ``end`` exclu. Par défaut,
         ``start`` est nul tandis que ``end`` correspond à la fin de la chaîne de caractères.
     * - ``find( sub[, start[, end]])``
-        Recherche une chaîne de caractères ``sub``,
+      - Recherche une chaîne de caractères ``sub``,
         les paramètres par défaut ``start`` et ``end`` ont la même signification
         que ceux de la fonction ``count``. Cette fonction retourne -1 si 
         la recherche n'a pas abouti.
@@ -280,7 +280,7 @@ même instance de classe.
 
 
 Liste
-^^^^^
+-----
 
 Une liste est une sorte de tableau qui permet de mémoriser 
 un ensemble d'éléments de types variés. C'est une sorte de t-uple modifiable. 
@@ -401,7 +401,7 @@ Les listes peuvent aussi être définies à partir d'une écriture abrégée :
     print(z)
 
 Dictionnaire
-^^^^^^^^^^^^
+------------
 
 Un dictionnaire est un tableau pour lequel les indices ou clés 
 ne sont pas uniquement des entiers mais tout type non modifiable 
@@ -483,7 +483,7 @@ Méthodes associées aux dictionnaires, ``d``, ``d2`` sont des dictionnaires,
 ``x`` est quant à lui quelconque.
 
 Tableaux numériques
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 Ce type ne fait pas partie du langage python standard mais il est couramment utilisé.
 
@@ -837,7 +837,7 @@ Déclaration d'une classe
 Pour déclarer une classe, on procède comme suit :
 
 .. runpython::
-    :showocde:
+    :showcode:
     :process:
 
     class ma_classe :

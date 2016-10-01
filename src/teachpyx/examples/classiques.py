@@ -187,33 +187,31 @@ def dictionnaire_modifie_dans_la_boucle():
         pas (C++) et cela aboutit à une erreur qui intervient plus tard dans le code
         (comme une valeur numérique inattendue).
 
-    ::
+        ::
 
-        Traceback (most recent call last):
-        File "session1.py", line 176, in <module>
-            l = liste_modifie_dans_la_boucle()
-        File "session1.py", line 169, in liste_modifie_dans_la_boucle
+            Traceback (most recent call last):
+            File "session1.py", line 176, in <module>
+                l = liste_modifie_dans_la_boucle()
+            File "session1.py", line 169, in liste_modifie_dans_la_boucle
+                for k,v in d.items():
+            RuntimeError: dictionary changed size during iteration
+
+        Il faut pour éviter cela stocker les éléments qu'on veut modifier pour les supprimer
+        ensuite.
+
+        ::
+
+            d = { k:k for k in l }
+            rem = [ ]
             for k,v in d.items():
-        RuntimeError: dictionary changed size during iteration
+                if k == 4 :
+                    rem.append(k)
+            for r in rem :
+                del d[r]
 
-    Il faut pour éviter cela stocker les éléments qu'on veut modifier pour les supprimer
-    ensuite.
-
-    ::
-
-        d = { k:k for k in l }
-        rem = [ ]
-        for k,v in d.items():
-            if k == 4 :
-                rem.append(k)
-        for r in rem :
-            del d[r]
-
-    Même si Python autorise cela pour les listes,
-    il est conseillé de s'en abstenir ainsi que pour tout type d'objets qui en contient d'autres.
-    C'est une habitude qui vous servira pour la plupart des autres langages.
-
-    @endexample
+        Même si Python autorise cela pour les listes,
+        il est conseillé de s'en abstenir ainsi que pour tout type d'objets qui en contient d'autres.
+        C'est une habitude qui vous servira pour la plupart des autres langages.
     """
     l = [0, 1, 2, 3, 4, 5, 6]
     for i in l:

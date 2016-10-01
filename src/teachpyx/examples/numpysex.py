@@ -58,21 +58,24 @@ def numpy_types():
 
     @return     list of types
 
+    To know a little bit more about those types.
+
     .. faqref::
         :title: Quels sont les types que numpy supporte ?
         :tag: numpy
 
         Lire `basic types <http://docs.scipy.org/doc/numpy/user/basics.types.html>`_.
-        numpy propose plus de types que Python, les mêmes que le langage C
+        `numpy <http://docs.scipy.org/doc/numpy/>`_
+        propose plus de types que Python, les mêmes que le langage C
         (langage de son implémentation). Les programmeurs cherchent toujours
         le plus petit type possible pour représenter un nombre.
         Si une matrice ne possède que des entiers entre 0 et 255,
         on peut utiliser le type *numpy.uint8* qui est codé sur un octet.
         Cela explique pourquoi beaucoup de libraires de machine learning sont codées
         des *numpy.float32*, soit 4 octets plutôt que *numpy.float64* ou *double*.
-        Deux raisons à cela, les *numpy.float32* prennent deux fois moins de mémoire.
+        Deux raisons à cela, les *numpy.float32* prennent deux fois moins de place en mémoire.
         Le coût des calculs avec des *double* est plus coûteux avec les GPU.
-        `Explaining FP64 performance on GPUs <http://arrayfire.com/explaining-fp64-performance-on-gpus/>`_.
+        Lire `Explaining FP64 performance on GPUs <http://arrayfire.com/explaining-fp64-performance-on-gpus/>`_.
     """
 
     return [numpy.bool_,
@@ -93,4 +96,4 @@ def numpy_types():
             numpy.float64,
             numpy.complex_,
             numpy.complex64,
-            numpy.complex128 	]
+            numpy.complex128]
