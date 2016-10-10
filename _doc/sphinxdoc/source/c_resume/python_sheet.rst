@@ -1503,6 +1503,7 @@ différence réside dans l'écriture dans la boucle ``for``
 qui utilise dans le premier cas la fonction ``range`` et dans l'autre non.
 
 ::
+
     l  = [ "un", "deux", "trois", "quatre" ]
     up = []
     for i in range (0, len(l)) :
