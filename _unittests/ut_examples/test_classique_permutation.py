@@ -52,17 +52,18 @@ class TestClassiquesPermutation (unittest.TestCase):
 
         self.maxDiff = None
         ens = list(range(5))
-        l = list(tuple(p) for p in enumerate_permutations_recursive(ens))
-        self.assertEqual(len(l), 120)
+        lt = list(tuple(p) for p in enumerate_permutations_recursive(ens))
+        self.assertEqual(len(lt), 120)
         res = list(tuple(p) for p in itertools.permutations(ens))
         self.assertEqual(len(res), 120)
-        self.assertEqual(set(res), set(l))
+        self.assertEqual(set(res), set(lt))
         res = list(tuple(p) for p in enumerate_permutations(ens))
         self.assertEqual(len(res), 120)
-        self.assertEqual(set(res), set(l))
+        self.assertEqual(set(res), set(lt))
 
         res = list(tuple(p) for p in enumerate_permutations([1]))
         self.assertEqual(res, [(1,)])
+
 
 if __name__ == "__main__":
     unittest.main()

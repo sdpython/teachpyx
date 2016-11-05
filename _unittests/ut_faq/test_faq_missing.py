@@ -65,5 +65,6 @@ class TestFaqMissing (unittest.TestCase):
         self.assertEqual(get_month_name(datetime(2016, 4, 5)), 'April')
         self.assertEqual(get_day_name(datetime(2016, 4, 17)), 'Sunday')
 
+
 if __name__ == "__main__":
     unittest.main()

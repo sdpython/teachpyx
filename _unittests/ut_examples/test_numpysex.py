@@ -56,8 +56,8 @@ class TestNumpys(unittest.TestCase):
         import numpy
         exp = [[0, 1, 2], [4, 5, 6]]
         mat = numpy.array(exp)
-        l = numpy_matrix2list(mat)
-        self.assertEqual(l, exp)
+        lm = numpy_matrix2list(mat)
+        self.assertEqual(lm, exp)
 
     def test_numpys_types(self):
         fLOG(

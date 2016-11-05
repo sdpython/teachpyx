@@ -213,12 +213,12 @@ def dictionnaire_modifie_dans_la_boucle():
         il est conseillé de s'en abstenir ainsi que pour tout type d'objets qui en contient d'autres.
         C'est une habitude qui vous servira pour la plupart des autres langages.
     """
-    l = [0, 1, 2, 3, 4, 5, 6]
-    for i in l:
+    li = [0, 1, 2, 3, 4, 5, 6]
+    for i in li:
         if i == 2:
-            l.remove(3)
+            li.remove(3)
 
-    d = {k: k for k in l}
+    d = {k: k for k in li}
     rem = []
     for k, v in d.items():
         if k == 4:
@@ -226,7 +226,7 @@ def dictionnaire_modifie_dans_la_boucle():
     for r in rem:
         del d[r]
 
-    return l, d
+    return li, d
 
 
 def str2date(s, format="%d/%m/%Y"):

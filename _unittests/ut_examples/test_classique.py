@@ -66,5 +66,6 @@ class TestClassiques(unittest.TestCase):
         r = str2date("11/8/1975")
         self.assertEqual(r, datetime(1975, 8, 11))
 
+
 if __name__ == "__main__":
     unittest.main()

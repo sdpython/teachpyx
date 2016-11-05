@@ -83,5 +83,6 @@ class TestConstructionClassique(unittest.TestCase):
         assert len(mat) == 10
         assert len(mat[0]) == 10
 
+
 if __name__ == "__main__":
     unittest.main()

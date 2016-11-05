@@ -53,5 +53,6 @@ class TestInit(unittest.TestCase):
         assert check()
         _setup_hook()
 
+
 if __name__ == "__main__":
     unittest.main()

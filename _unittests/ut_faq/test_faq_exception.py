@@ -68,5 +68,6 @@ class TestFaqException(unittest.TestCase):
         self.assertEqual(len(cb), 1)
         assert 'raise Exception("an error was raised")' in sb
 
+
 if __name__ == "__main__":
     unittest.main()
