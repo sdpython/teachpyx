@@ -51,7 +51,7 @@ def pandas_fillna(df, by, hasna=None):
 
 def pandas_groupby_nan(df, by, axis=0, as_index=False, **kwargs):
     """
-    Does a groupby by keeping missing values.
+    Does a groupby including missing values.
 
     @param      df          dataframe
     @param      by          column or list of columns
