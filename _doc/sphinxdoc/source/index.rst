@@ -94,11 +94,7 @@ Xavier Dupré
     :target: https://waffle.io/sdpython/teachpyx
 
    
-**Links:** `github <https://github.com/sdpython/teachpyx/>`_,
-`documentation <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/index.html>`_,
-:ref:`l-README`,
-:ref:`blog <ap-main-0>`,
-:ref:`l-issues-todolist`
+
 
 
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
@@ -110,5 +106,9 @@ Xavier Dupré
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
 
 
-
+**Links:** `github <https://github.com/sdpython/teachpyx/>`_,
+`documentation <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/index.html>`_,
+:ref:`l-README`,
+:ref:`blog <ap-main-0>`,
+:ref:`l-issues-todolist`
 
