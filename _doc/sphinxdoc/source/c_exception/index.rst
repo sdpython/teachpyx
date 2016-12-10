@@ -5,7 +5,7 @@ Exceptions
 ##########
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     
     exception
     exception_ext
