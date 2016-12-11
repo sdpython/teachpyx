@@ -7,90 +7,90 @@ Types et variables du langage python
 Variables
 =========
 
-Il est impossible d'écrire un programme sans utiliser de variable. 
-Ce terme désigne le fait d'attribuer un nom ou identificateur à des informations : 
+Il est impossible d'Ã©crire un programme sans utiliser de variable. 
+Ce terme dÃ©signe le fait d'attribuer un nom ou identificateur Ã  des informations : 
 en les nommant, on peut manipuler ces informations beaucoup plus facilement. 
-L'autre avantage est de pouvoir écrire des programmes valables pour des valeurs 
-qui varient : on peut changer la valeur des variables, le programme s'exécutera 
-toujours de la même manière et fera les mêmes types de calculs quelles que soient 
-les valeurs manipulées. Les variables jouent un rôle semblable aux inconnues 
-dans une équation mathématique. 
+L'autre avantage est de pouvoir Ã©crire des programmes valables pour des valeurs 
+qui varient : on peut changer la valeur des variables, le programme s'exÃ©cutera 
+toujours de la mÃªme maniÃ¨re et fera les mÃªmes types de calculs quelles que soient 
+les valeurs manipulÃ©es. Les variables jouent un rÃ´le semblable aux inconnues 
+dans une Ã©quation mathÃ©matique. 
 
 L'ordinateur ne sait pas faire l'addition de plus de deux nombres mais cela 
-suffit à calculer la somme de :math:`n` premiers nombres entiers. 
-Pour cela, il est nécessaire de créer une variable intermédiaire qu'on appellera 
-par exemple ``somme`` de manière à conserver le résultat des sommes intermédiaires.
+suffit Ã  calculer la somme de :math:`n` premiers nombres entiers. 
+Pour cela, il est nÃ©cessaire de crÃ©er une variable intermÃ©diaire qu'on appellera 
+par exemple ``somme`` de maniÃ¨re Ã  conserver le rÃ©sultat des sommes intermÃ©diaires.
 
 .. runpython::
     :showcode:
 
     n = 11
     somme = 0                   # initialisation : la somme est nulle 
-    for i in range(1, n):       # pour tous les indices de 1 à n exclu
-        somme = somme + i       # on ajoute le i ème élément à somme
+    for i in range(1, n):       # pour tous les indices de 1 Ã  n exclu
+        somme = somme + i       # on ajoute le i Ã¨me Ã©lÃ©ment Ã  somme
     print(somme)
 
 
 .. mathdef::
     :title: variable
-    :tag: Définition
+    :tag: DÃ©finition
 
-    Une variable est caractérisée par :
+    Une variable est caractÃ©risÃ©e par :
     
-    * **un identificateur :** il peut contenir des lettres, des chiffres, des blancs soulignés 
+    * **un identificateur :** il peut contenir des lettres, des chiffres, des blancs soulignÃ©s 
       mais il ne peut commencer par un chiffre. Minuscules et majuscules
-      sont différenciées. Il est aussi unique.
+      sont diffÃ©renciÃ©es. Il est aussi unique.
     * **un type :** c'est une information sur le contenu de la variable
-      qui indique à l'interpréteur *python*, la manière de manipuler cette information.
+      qui indique Ã  l'interprÃ©teur *python*, la maniÃ¨re de manipuler cette information.
 
-Comme le typage est dynamique en *python*, le type n'est pas précisé explicitement, 
-il est implicitement liée à l'information manipulée. Par exemple, en écrivant, 
-``x = 3.4``, on ne précise pas le type de la variable ``x`` 
-mais il est implicite car :math:`x` reçoit une valeur réelle : 
-``x`` est de type réel ou `float` en *python*. Pour leur première initialisation, 
-une variable reçoit dans la plupart des cas une constante :
+Comme le typage est dynamique en *python*, le type n'est pas prÃ©cisÃ© explicitement, 
+il est implicitement liÃ©e Ã  l'information manipulÃ©e. Par exemple, en Ã©crivant, 
+``x = 3.4``, on ne prÃ©cise pas le type de la variable ``x`` 
+mais il est implicite car :math:`x` reÃ§oit une valeur rÃ©elle : 
+``x`` est de type rÃ©el ou `float` en *python*. Pour leur premiÃ¨re initialisation, 
+une variable reÃ§oit dans la plupart des cas une constante :
 
 .. mathdef::
     :title: constante
-    :tag: Définition
+    :tag: DÃ©finition
 
-    Les constantes sont le contraire des variables, ce sont toutes les valeurs numériques, 
-    chaînes de caractères, ..., tout ce qui n'est pas désigné par un nom. Les constantes possèdent un type
+    Les constantes sont le contraire des variables, ce sont toutes les valeurs numÃ©riques, 
+    chaÃ®nes de caractÃ¨res, ..., tout ce qui n'est pas dÃ©signÃ© par un nom. Les constantes possÃ¨dent un type
     mais pas d'identificateur.
 		
 
-Le langage *python* possède un certain nombre de types de variables déjà 
-définis ou types fondamentaux à partir desquels il sera possible de 
-définir ses propres types (voir chapitre :ref:`chap_classe`). 
-Au contraire de langages tels que le *C*, il n'est pas besoin de déclarer une 
+Le langage *python* possÃ¨de un certain nombre de types de variables dÃ©jÃ  
+dÃ©finis ou types fondamentaux Ã  partir desquels il sera possible de 
+dÃ©finir ses propres types (voir chapitre :ref:`chap_classe`). 
+Au contraire de langages tels que le *C*, il n'est pas besoin de dÃ©clarer une 
 variable pour signifier qu'elle existe, il suffit de lui affecter une valeur. 
-Le type de la variable sera défini par le type de la constante qui lui est affectée. 
-Le type d'une variable peut changer, il correspond toujours au type de la dernière affectation.
+Le type de la variable sera dÃ©fini par le type de la constante qui lui est affectÃ©e. 
+Le type d'une variable peut changer, il correspond toujours au type de la derniÃ¨re affectation.
 
 ::
 
-    x   = 3.5      # création d'une variable nombre réel appelée x initialisée à 3.5
-                   # 3.5 est un réel, la variable est de type "float"
-    sc = "chaîne"  # création d'une variable chaîne de caractères appelée str 
-                   # initialisée à "chaîne", sc est de type "str"
+    x   = 3.5      # crÃ©ation d'une variable nombre rÃ©el appelÃ©e x initialisÃ©e Ã  3.5
+                   # 3.5 est un rÃ©el, la variable est de type "float"
+    sc = "chaÃ®ne"  # crÃ©ation d'une variable chaÃ®ne de caractÃ¨res appelÃ©e str 
+                   # initialisÃ©e Ã  "chaÃ®ne", sc est de type "str"
 
 .. index:: commentaire
 
-Pour tous les exemples qui suivront, le symbole ``#`` apparaîtra à maintes reprises. 
-Il marque le début d'un commentaire que la fin de la ligne termine. 
-Autrement dit, un commentaire est une information aidant à la compréhension 
+Pour tous les exemples qui suivront, le symbole ``#`` apparaÃ®tra Ã  maintes reprises. 
+Il marque le dÃ©but d'un commentaire que la fin de la ligne termine. 
+Autrement dit, un commentaire est une information aidant Ã  la comprÃ©hension 
 du programme mais n'en faisant pas partie comme dans l'exemple qui suit.
 
 ::
 
-    x = 3          # affectation de la valeur entière 3 à la variable x
-    y = 3.0        # affectation de la valeur réelle 3.0 à la variable y
+    x = 3          # affectation de la valeur entiÃ¨re 3 Ã  la variable x
+    y = 3.0        # affectation de la valeur rÃ©elle 3.0 Ã  la variable y
 
 .. index:: backslash
 
 Le *python* impose une instruction par ligne. Il n'est pas possible d'utiliser 
-deux lignes pour écrire une affectation à moins de conclure chaque ligne qui 
-n'est pas la dernière par le symbole ``\``
+deux lignes pour Ã©crire une affectation Ã  moins de conclure chaque ligne qui 
+n'est pas la derniÃ¨re par le symbole ``\``
 L'exemple suivant est impossible.
 
 ::
@@ -98,22 +98,22 @@ L'exemple suivant est impossible.
     x = 
         5.5
 
-Il devrait être rédigé comme suit :
+Il devrait Ãªtre rÃ©digÃ© comme suit :
 
 ::
 
     x =  \
         5.5
 
-Avec ce symbole, les longues instructions peuvent être écrites sur plusieurs 
-lignes de manière plus lisibles, de sorte qu'elles apparaissent en entier à l'écran. 
-Si le dernier caractère est une virgule, il est implicite.
+Avec ce symbole, les longues instructions peuvent Ãªtre Ã©crites sur plusieurs 
+lignes de maniÃ¨re plus lisibles, de sorte qu'elles apparaissent en entier Ã  l'Ã©cran. 
+Si le dernier caractÃ¨re est une virgule, il est implicite.
 
-Les paragraphes suivant énumèrent les types incontournables en *python*. 
-Ils sont classés le plus souvent en deux catégories : types 
-*immuables* ou *modifiables*. Tous les types du langage *python* sont également 
+Les paragraphes suivant Ã©numÃ¨rent les types incontournables en *python*. 
+Ils sont classÃ©s le plus souvent en deux catÃ©gories : types 
+*immuables* ou *modifiables*. Tous les types du langage *python* sont Ã©galement 
 des objets, c'est pourquoi on retrouve dans ce chapitre certaines 
-formes d'écriture similaires à celles présentées plus tard dans 
+formes d'Ã©criture similaires Ã  celles prÃ©sentÃ©es plus tard dans 
 le chapitre concernant les classes (:ref:`chap_classe`).
 
 
@@ -123,20 +123,20 @@ Types immuables (ou immutable)
 ==============================
 
 .. mathdef::
-    :tag: Définition
+    :tag: DÃ©finition
     :title: type immuable (ou immutable)
 
-    Une variable de type immuable ne peut être modifiée. Une opération
-    sur une variable de ce type entraîne nécessairement la création d'une autre 
-    variable du même type, même si cette dernière est temporaire.
+    Une variable de type immuable ne peut Ãªtre modifiÃ©e. Une opÃ©ration
+    sur une variable de ce type entraÃ®ne nÃ©cessairement la crÃ©ation d'une autre 
+    variable du mÃªme type, mÃªme si cette derniÃ¨re est temporaire.
 			
-Autrement dit, la simple instruction ``x+=3`` qui consiste à ajouter à la 
-variable ``x`` la valeur ``3`` crée une seconde variable dont la valeur 
-est celle de ``x`` augmentée de ``3`` puis à en recopier le contenu dans celui 
+Autrement dit, la simple instruction ``x+=3`` qui consiste Ã  ajouter Ã  la 
+variable ``x`` la valeur ``3`` crÃ©e une seconde variable dont la valeur 
+est celle de ``x`` augmentÃ©e de ``3`` puis Ã  en recopier le contenu dans celui 
 de la variable ``x``. Les nombres sont des types immuables tout comme les 
-chaînes de caractères et les ``tuple`` qui sont des tableaux d'objets. 
+chaÃ®nes de caractÃ¨res et les ``tuple`` qui sont des tableaux d'objets. 
 Il n'est pas possible de modifier une variable de ce type, il faut en 
-recréer une autre du même type qui intègrera la modification.
+recrÃ©er une autre du mÃªme type qui intÃ¨grera la modification.
 			
 
 Type "rien" ou None
@@ -145,7 +145,7 @@ Type "rien" ou None
 .. index:: None
 
 *python* propose un type ``None`` pour signifier qu'une variable ne contient rien. 
-La variable est de type ``None`` et est égale à ``None``.
+La variable est de type ``None`` et est Ã©gale Ã  ``None``.
 
 ::
 
@@ -153,33 +153,32 @@ La variable est de type ``None`` et est égale à ``None``.
     print(s)    # affiche None
 
 Certaines fonctions utilisent cette convention lorsqu'il leur est impossible 
-de retourner un résultat. Ce n'est pas la seule option pour gérer cette 
-impossibilité : il est possible de générer une :ref:`exception <chap_exception>`, 
-de retourner une valeur par défaut ou encore de retourner ``None``. 
-Il n'y a pas de choix meilleur, il suffit juste de préciser la convention choisie.
+de retourner un rÃ©sultat. Ce n'est pas la seule option pour gÃ©rer cette 
+impossibilitÃ© : il est possible de gÃ©nÃ©rer une :ref:`exception <chap_exception>`, 
+de retourner une valeur par dÃ©faut ou encore de retourner ``None``. 
+Il n'y a pas de choix meilleur, il suffit juste de prÃ©ciser la convention choisie.
 
-Les fonctions sont définies au paragraphe :ref:`par_fonction`, 
-plus simplement, ce sont des mini-programmes : elles permettent de découper 
-un programme long en tâches plus petites. On les distingue des variables 
+Les fonctions sont dÃ©finies au paragraphe :ref:`par_fonction`, 
+plus simplement, ce sont des mini-programmes : elles permettent de dÃ©couper 
+un programme long en tÃ¢ches plus petites. On les distingue des variables 
 car leur nom est suivi d'une liste de constantes ou variables comprises 
-entre parenthèses et séparées par une virgule.
+entre parenthÃ¨ses et sÃ©parÃ©es par une virgule.
 
+.. _pyintfloat:
 
-
-
-
-
-Nombres réels et entiers
+Nombres rÃ©els et entiers
 ========================
 
-.. index:: float, int, réel, entier
+Documentation : `Numeric Types â€” int, float, complex <https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex>`_.
 
-Il existe deux types de nombres en *python*, les nombres réels 
-``float`` et les nombres entiers ``int``. L'instruction ``x=3`` crée une variable 
-de type ``int`` initialisée à ``3`` tandis que ``y=3.0`` crée une variable de type 
-``float`` initialisée à ``3.0``. Le programme suivant permet de vérifier cela en 
+.. index:: float, int, rÃ©el, entier
+
+Il existe deux types de nombres en *python*, les nombres rÃ©els 
+``float`` et les nombres entiers ``int``. L'instruction ``x=3`` crÃ©e une variable 
+de type ``int`` initialisÃ©e Ã  ``3`` tandis que ``y=3.0`` crÃ©e une variable de type 
+``float`` initialisÃ©e Ã  ``3.0``. Le programme suivant permet de vÃ©rifier cela en 
 affichant pour les variables ``x`` et ``y``, leurs valeurs et leurs 
-types respectifs grâce à la fonction ``type``.
+types respectifs grÃ¢ce Ã  la fonction ``type``.
 
 
 .. runpython::
@@ -190,14 +189,14 @@ types respectifs grâce à la fonction ``type``.
     print("x =", x, type(x))
     print("y =", y, type(y))
 
-La liste des opérateurs qui s'appliquent aux nombres réels et 
-entiers suit. Les trois premiers résultats s'expliquent 
-en utilisant la représentation en base deux. ``8 << 1`` s'écrit en base deux 
-``100 << 1 = 1000``, ce qui vaut 16 en base décimale : 
-les bits sont décalés vers la droite ce qui équivaut à multiplier 
-par deux. De même, ``7 & 2`` s'écrit ``1011 & 10 = 10``, qui vaut 2 en base décimale. 
-Les opérateurs ``<<``, ``>>``, ``|``, ``&`` sont des opérateurs bit à bit, 
-ils se comprennent à partir de la représentation binaire des nombres entiers.
+La liste des opÃ©rateurs qui s'appliquent aux nombres rÃ©els et 
+entiers suit. Les trois premiers rÃ©sultats s'expliquent 
+en utilisant la reprÃ©sentation en base deux. ``8 << 1`` s'Ã©crit en base deux 
+``100 << 1 = 1000``, ce qui vaut 16 en base dÃ©cimale : 
+les bits sont dÃ©calÃ©s vers la droite ce qui Ã©quivaut Ã  multiplier 
+par deux. De mÃªme, ``7 & 2`` s'Ã©crit ``1011 & 10 = 10``, qui vaut 2 en base dÃ©cimale. 
+Les opÃ©rateurs ``<<``, ``>>``, ``|``, ``&`` sont des opÃ©rateurs bit Ã  bit, 
+ils se comprennent Ã  partir de la reprÃ©sentation binaire des nombres entiers.
 
 .. index:: <<, >>, |, &, +, -, +=, -=, *, /, *=, /=, **, %
 
@@ -205,17 +204,17 @@ ils se comprennent à partir de la représentation binaire des nombres entiers.
     :widths: 3 10 5
     :header-rows: 1
 
-    * - opérateur
+    * - opÃ©rateur
       - signification
       - exemple
     * - ``<<`` ``>>``
-      - décalage à gauche, à droite
+      - dÃ©calage Ã  gauche, Ã  droite
       - ``x = 8 << 1`` 
     * - ``|``
-      - opérateur logique ``ou`` bit à bit
+      - opÃ©rateur logique ``ou`` bit Ã  bit
       - ``x = 8 | 1`` 
     * - ``&``
-      - opérateur logique ``et`` bit à bit
+      - opÃ©rateur logique ``et`` bit Ã  bit
       - ``x = 11 & 2`` 
     * - ``+ -``
       - addition, soustraction 											
@@ -227,22 +226,22 @@ ils se comprennent à partir de la représentation binaire des nombres entiers.
       - multiplication, division
       - ``x = y * z``
     * - ``//``
-      - division entière, le résultat est de type réel si l'un des nombres est réel
+      - division entiÃ¨re, le rÃ©sultat est de type rÃ©el si l'un des nombres est rÃ©el
       - ``x = y // 3``
     * - ``%``
-      - reste d'une division entière (modulo)
+      - reste d'une division entiÃ¨re (modulo)
       - ``x = y % 3``
     * - ``*= /=``
       - multiplication ou division puis affectation
       - ``x *= 3``
     * - ``**``
-      - puissance (entière ou non, racine carrée = ** 0.5)
+      - puissance (entiÃ¨re ou non, racine carrÃ©e = ** 0.5)
       - ``x = y ** 3``
 
 .. index:: arrondi, conversion
 
 Les fonctions ``int`` et ``float`` permettent de convertir un nombre quelconque 
-ou une chaîne de caractères respectivement en un entier (arrondi) et en un nombre réel.
+ou une chaÃ®ne de caractÃ¨res respectivement en un entier (arrondi) et en un nombre rÃ©el.
 
 .. runpython::
     :showcode:
@@ -253,10 +252,10 @@ ou une chaîne de caractères respectivement en un entier (arrondi) et en un nombr
     print("x:", type(x), "   y:", type(y), "   z:", type(z))
 
 Il peut arriver que la conversion en un nombre entier ne soit pas directe. 
-Dans l'exemple qui suit, on cherche à convertir une chaîne de caractères 
-(voir :ref:`string_paragraphe_chaine`) en entier mais cette chaîne 
-représente un réel. Il faut d'abord la convertir en réel puis en entier, 
-c'est à ce moment que l'arrondi sera effectué.
+Dans l'exemple qui suit, on cherche Ã  convertir une chaÃ®ne de caractÃ¨res 
+(voir :ref:`string_paragraphe_chaine`) en entier mais cette chaÃ®ne 
+reprÃ©sente un rÃ©el. Il faut d'abord la convertir en rÃ©el puis en entier, 
+c'est Ã  ce moment que l'arrondi sera effectuÃ©.
 
 ::
 
@@ -264,61 +263,62 @@ c'est à ce moment que l'arrondi sera effectué.
     i = int (float ("3.5"))  # fonctionne
 
 
-.. index:: priorité des opérateurs
+.. index:: prioritÃ© des opÃ©rateurs
 
-Les opérateurs listés par le tableau ci-dessus ont des priorités 
-différentes, triés par ordre croissant.
-Toutefois, il est conseillé d'avoir recours aux parenthèses pour 
+Les opÃ©rateurs listÃ©s par le tableau ci-dessus ont des prioritÃ©s 
+diffÃ©rentes, triÃ©s par ordre croissant.
+Toutefois, il est conseillÃ© d'avoir recours aux parenthÃ¨ses pour 
 enlever les doutes : ``3 * 2 ** 4 = 3 * (2 ** 4)``.
 La page `Opertor Precedence <https://docs.python.org/3/reference/expressions.html#operator-precedence>`_
-est plus complète à ce sujet.
+est plus complÃ¨te Ã  ce sujet.
 
-.. index:: division entière
+.. index:: division entiÃ¨re
 
-*python* propose l'opérateur ``//`` pour les divisions entières
+*python* propose l'opÃ©rateur ``//`` pour les divisions entiÃ¨res
 et c'est une rare exception parmi les languages
-qui ne possèdent qu'un seul opérateur ``/`` qui retourne 
-un entier pour une division entière excepté en *python* :
+qui ne possÃ¨dent qu'un seul opÃ©rateur ``/`` qui retourne 
+un entier pour une division entiÃ¨re exceptÃ© en *python* :
 
 .. runpython::
     :showcode:
 
     x = 11
     y = 2
-    z = x // y      # le résultat est 5 et non 5.5 car la division est entière
-    zz = x / y      # le résultat est 5.5 
+    z = x // y      # le rÃ©sultat est 5 et non 5.5 car la division est entiÃ¨re
+    zz = x / y      # le rÃ©sultat est 5.5 
     
     print(z, zz)
     
 
-Pour éviter d'écrire le type ``float``, on peut également écrire ``11.0`` 
-de façon à spécifier explicitement que la valeur ``11.0`` est réelle et non entière. 
-L'opérateur ``//`` permet d'effectuer une division entière lorsque 
-les deux nombres à diviser sont réels, le résultat est un entier mais la 
-variable est de type réel si l'un des nombres est de type réel. 
+Pour Ã©viter d'Ã©crire le type ``float``, on peut Ã©galement Ã©crire ``11.0`` 
+de faÃ§on Ã  spÃ©cifier explicitement que la valeur ``11.0`` est rÃ©elle et non entiÃ¨re. 
+L'opÃ©rateur ``//`` permet d'effectuer une division entiÃ¨re lorsque 
+les deux nombres Ã  diviser sont rÃ©els, le rÃ©sultat est un entier mais la 
+variable est de type rÃ©el si l'un des nombres est de type rÃ©el. 
 
 
-Booléen
+BoolÃ©en
 +++++++
 
 .. index:: bool, True, False
 
-Les booléens sont le résultat d'opérations logiques et ont deux 
+Les boolÃ©ens sont le rÃ©sultat d'opÃ©rations logiques et ont deux 
 valeurs possibles : ``True`` ou ``False``. 
-Voici la liste des opérateurs qui s'appliquent aux booléens.
+Voici la liste des `opÃ©rateurs <https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not>`_ 
+qui s'appliquent aux boolÃ©ens.
 
 .. list-table::
     :widths: 3 10 5
     :header-rows: 1
 
-    * - opérateur
+    * - opÃ©rateur
       - signification
       - exemple
-    * - ``and or
+    * - ``and or``
       - et, ou logique
-      - ``x = True or False`` (résultat = True)
+      - ``x = True or False`` (rÃ©sultat = True)
     * - ``not``
-      - négation logique
+      - nÃ©gation logique
       - ``x = not x``
 
 .. runpython::
@@ -328,10 +328,10 @@ Voici la liste des opérateurs qui s'appliquent aux booléens.
     print(x)         # affiche True
     print(not x)     # affiche False
 
-Voici la liste des opérateurs de comparaisons qui retournent 
-des booléens. Ceux-ci s'applique à tout type, aux entiers, 
-réels, chaînes de caractères, t-uples... Une comparaison entre un entier 
-et une chaîne de caractères est syntaxiquement correcte même si le résultat a peu d'intérêt.
+Voici la liste des opÃ©rateurs de `comparaisons <https://docs.python.org/3/library/stdtypes.html#comparisons>`_
+qui retournent des boolÃ©ens. Ceux-ci s'applique Ã  tout type, aux entiers, 
+rÃ©els, chaÃ®nes de caractÃ¨res, t-uples... Une comparaison entre un entier 
+et une chaÃ®ne de caractÃ¨res est syntaxiquement correcte mÃªme si le rÃ©sultat a peu d'intÃ©rÃªt.
 
 
 .. index:: <, >, <=, >=, !=, ==, comparaison
@@ -341,32 +341,32 @@ et une chaîne de caractères est syntaxiquement correcte même si le résultat a pe
     :widths: 3 10 5
     :header-rows: 1
 
-    * - opérateur
+    * - opÃ©rateur
       - signification
       - exemple
     * - ``< >
-      - inférieur, supérieur
+      - infÃ©rieur, supÃ©rieur
       - ``x = 5  < 5``
     * - ``<= >=``
-      - inférieur ou égal, supérieur ou égal
+      - infÃ©rieur ou Ã©gal, supÃ©rieur ou Ã©gal
       - ``x = 5 <= 5``
     * - ``== !=``
-      - égal, différent
+      - Ã©gal, diffÃ©rent
       - ``x = 5 == 5``
 
-A l'instar des nombres réels, il est préférable d'utiliser les 
-parenthèses pour éviter les problèmes de priorités d'opérateurs 
+A l'instar des nombres rÃ©els, il est prÃ©fÃ©rable d'utiliser les 
+parenthÃ¨ses pour Ã©viter les problÃ¨mes de prioritÃ©s d'opÃ©rateurs 
 dans des expressions comme : ``3 < x and x < 7``. 
-Toutefois, pour cet exemple, *python* accepte l'écriture résumée 
-qui enchaîne des comparaisons : ``3 < x and x < 7`` est 
-équivalent à ``3 < x < 7``. Il existe deux autres mots-clés 
-qui retournent un résultat de type booléen :
+Toutefois, pour cet exemple, *python* accepte l'Ã©criture rÃ©sumÃ©e 
+qui enchaÃ®ne des comparaisons : ``3 < x and x < 7`` est 
+Ã©quivalent Ã  ``3 < x < 7``. Il existe deux autres mots-clÃ©s 
+qui retournent un rÃ©sultat de type boolÃ©en :
 
 .. list-table::
     :widths: 3 10 5
     :header-rows: 1
 
-    * - opérateur
+    * - opÃ©rateur
       - signification
       - exemple
     * - ``is``
@@ -376,13 +376,13 @@ qui retournent un résultat de type booléen :
       - test d'appartenance
       - ``3 in [3, 4, 5]``
       
-Ces deux opérateurs seront utilisés ultérieurement, 
+Ces deux opÃ©rateurs seront utilisÃ©s ultÃ©rieurement, 
 ``in`` avec les listes, les dictionnaires, les boucles 
-(paragraphe :ref:`boucle_for`), ``is`` lors de l'étude des listes 
+(paragraphe :ref:`boucle_for`), ``is`` lors de l'Ã©tude des listes 
 (paragraphe :ref:`par_liste_copie` et des :ref:`classes <chap_classe>`). 
-Bien souvent, les booléens sont utilisés de manière implicite lors 
-de tests (paragraphe :ref:`test_test`) ce qui n'empêche pas de les 
-déclarer explicitement.
+Bien souvent, les boolÃ©ens sont utilisÃ©s de maniÃ¨re implicite lors 
+de tests (paragraphe :ref:`test_test`) ce qui n'empÃªche pas de les 
+dÃ©clarer explicitement.
 
 ::
 
@@ -392,62 +392,64 @@ déclarer explicitement.
 
 .. _string_paragraphe_chaine:
 
-Chaîne de caractères
+ChaÃ®ne de caractÃ¨res
 ====================
 
-.. index:: chaîne de caractères, str, string
+.. index:: chaÃ®ne de caractÃ¨res, str, string
 
-Création d'une chaîne de caractères
-+++++++++++++++++++++++++++++++++++
+CrÃ©ation d'une chaÃ®ne de caractÃ¨res - str
++++++++++++++++++++++++++++++++++++++++++
 
 .. mathdef::
-    :title: chaîne de caractères
-    :tag: Définition
+    :title: chaÃ®ne de caractÃ¨res
+    :tag: DÃ©finition
     
-    Le terme "chaîne de caractères" ou *string* en anglais signifie 
-    une suite finie de caractères, autrement dit, du texte.
+    Le terme "chaÃ®ne de caractÃ¨res" ou *string* en anglais signifie 
+    une suite finie de caractÃ¨res, autrement dit, du texte.
 
 Ce texte est compris entre deux guillemets ou deux apostrophes, 
-ces deux symboles sont interchangeables. L'exemple suivant montre comment 
-créer une chaîne de caractères. Il ne faut pas confondre la partie entre 
+ces deux symboles sont interchangeables. 
+Le type *python* est `str <https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str>`_.
+L'exemple suivant montre comment 
+crÃ©er une chaÃ®ne de caractÃ¨res. Il ne faut pas confondre la partie entre 
 guillemets ou apostrophes, qui est une constante, de la variable qui la contient.
 
 .. runpython::
     :showcode:
 
     t = "string = texte"
-    print(type (t), t)
+    print(type(t), t)
     t = 'string = texte, initialisation avec apostrophes'
-    print(type (t), t)
+    print(type(t), t)
 
     t = "morceau 1" \
-        "morceau 2"    # second morceau ajouté au premier par l'ajout du symbole \, 
-                       # il ne doit rien y avoir après le symbole \, 
+        "morceau 2"    # second morceau ajoutÃ© au premier par l'ajout du symbole \, 
+                       # il ne doit rien y avoir aprÃ¨s le symbole \, 
                        # pas d'espace ni de commentaire
     print(t)
 
-    t = """première ligne		
-    seconde ligne"""   # chaîne de caractères qui s'étend sur deux lignes
+    t = """premiÃ¨re ligne		
+    seconde ligne"""   # chaÃ®ne de caractÃ¨res qui s'Ã©tend sur deux lignes
     print(t)
 
 
-La troisième chaîne de caractères créée lors de ce programme s'étend sur deux lignes. 
-Il est parfois plus commode d'écrire du texte sur deux lignes plutôt 
-que de le laisser caché par les limites de fenêtres d'affichage. 
-*python* offre la possibilité de couper le texte en deux chaînes de 
-caractères recollées à l'aide du symbole ``\`` à condition que 
-ce symbole soit le dernier de la ligne sur laquelle il apparaît. De même, 
+La troisiÃ¨me chaÃ®ne de caractÃ¨res crÃ©Ã©e lors de ce programme s'Ã©tend sur deux lignes. 
+Il est parfois plus commode d'Ã©crire du texte sur deux lignes plutÃ´t 
+que de le laisser cachÃ© par les limites de fenÃªtres d'affichage. 
+*python* offre la possibilitÃ© de couper le texte en deux chaÃ®nes de 
+caractÃ¨res recollÃ©es Ã  l'aide du symbole ``\`` Ã  condition que 
+ce symbole soit le dernier de la ligne sur laquelle il apparaÃ®t. De mÃªme, 
 lorsque le texte contient plusieurs lignes, il suffit de les encadrer entre deux 
-symboles ``"""`` ou ``'''`` pour que l'interpréteur *python* considère l'ensemble 
-comme une chaîne de caractères et non comme une série d'instructions. 
+symboles ``"""`` ou ``'''`` pour que l'interprÃ©teur *python* considÃ¨re l'ensemble 
+comme une chaÃ®ne de caractÃ¨res et non comme une sÃ©rie d'instructions. 
 
-Par défaut, le *python* ne permet pas l'insertion de caractères tels que 
-les accents dans les chaînes de caractères, le paragraphe 
-:ref:`par_intro_accent_code` explique comment résoudre ce problème. 
-De même, pour insérer un guillemet dans une chaîne de caractères 
-encadrée elle-même par des guillemets, il faut le faire précéder 
-du symbole ``\``. La séquence ``\`` est appelée un extra-caractère
-(voir table :ref:`extra_caractere`).
+Par dÃ©faut, le *python* ne permet pas l'insertion de caractÃ¨res tels que 
+les accents dans les chaÃ®nes de caractÃ¨res, le paragraphe 
+:ref:`par_intro_accent_code` explique comment rÃ©soudre ce problÃ¨me. 
+De mÃªme, pour insÃ©rer un guillemet dans une chaÃ®ne de caractÃ¨res 
+encadrÃ©e elle-mÃªme par des guillemets, il faut le faire prÃ©cÃ©der 
+du symbole ``\``. La sÃ©quence ``\`` est appelÃ©e un extra-caractÃ¨re
+(voir table :ref:`extra_caractere`) ou un caractÃ¨re d'Ã©chappement.
 
 .. list-table::
     :widths: 3 10
@@ -458,50 +460,52 @@ du symbole ``\``. La séquence ``\`` est appelée un extra-caractère
     * - ``'``
       - apostrophe
     * - ``\n``
-      - passage à la ligne
+      - passage Ã  la ligne
     * - ``\\``
       - insertion du symbole ``\``
     * - ``\%``
-      - pourcentage, ce symbole est aussi un caractère spécial
+      - pourcentage, ce symbole est aussi un caractÃ¨re spÃ©cial
     * - ``\t``
       - tabulation
     * - ``\r``
-      - retour à la ligne, peu usité, il a surtout son importance lorsqu'on passe
-        d'un système *Windows* à *Linux* car *Windows* l'ajoute
-        automatiquement à tous ses fichiers textes
+      - retour Ã  la ligne, peu usitÃ©, il a surtout son importance lorsqu'on passe
+        d'un systÃ¨me *Windows* Ã  *Linux* car *Windows* l'ajoute
+        automatiquement Ã  tous ses fichiers textes
+    * - ...
+      - Lire `String and Bytes literals <https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals>`_.
 
-Liste des extra-caractères les plus couramment utilisés à 
-l'intérieur d'une chaîne de caractères 
+Liste des extra-caractÃ¨res les plus couramment utilisÃ©s Ã  
+l'intÃ©rieur d'une chaÃ®ne de caractÃ¨res 
 (voir  page `Lexical analysis <https://docs.python.org/3/reference/lexical_analysis.html>`_).
 		
-Il peut être fastidieux d'avoir à doubler tous les symboles ``\`` d'un nom de fichier. 
-Il est plus simple dans ce cas de préfixer la chaîne de caractères par ``r`` 
-de façon à éviter que l'utilisation du symbole ``\`` ne désigne un caractère 
-spécial. Les deux lignes suivantes sont équivalentes : 
+Il peut Ãªtre fastidieux d'avoir Ã  doubler tous les symboles ``\`` d'un nom de fichier. 
+Il est plus simple dans ce cas de prÃ©fixer la chaÃ®ne de caractÃ¨res par ``r`` 
+de faÃ§on Ã  Ã©viter que l'utilisation du symbole ``\`` ne dÃ©signe un caractÃ¨re 
+spÃ©cial. Les deux lignes suivantes sont Ã©quivalentes : 
 
 ::
 
     s = "C:\\Users\\Dupre\\exemple.txt"
     s = r"C:\Users\Dupre\exemple.txt"
 
-Sans la lettre ``"r"``, tous les ``\`` doivent être doublés, dans le cas 
-contraire, *python* peut avoir des effets indésirables selon le 
-caractère qui suit ce symbole.
+Sans la lettre ``"r"``, tous les ``\`` doivent Ãªtre doublÃ©s, dans le cas 
+contraire, *python* peut avoir des effets indÃ©sirables selon le 
+caractÃ¨re qui suit ce symbole.
 
 
 .. _fonction_str:
 
-Manipulation d'une chaîne de caractères
+Manipulation d'une chaÃ®ne de caractÃ¨res
 +++++++++++++++++++++++++++++++++++++++
 
 
-Une chaîne de caractères est semblable à un tableau et certains 
-opérateurs qui s'appliquent aux tableaux s'appliquent également aux 
-chaînes de caractères. Ceux-ci sont regroupés dans la table 
+Une chaÃ®ne de caractÃ¨res est semblable Ã  un tableau et certains 
+opÃ©rateurs qui s'appliquent aux tableaux s'appliquent Ã©galement aux 
+chaÃ®nes de caractÃ¨res. Ceux-ci sont regroupÃ©s dans la table 
 :ref:`operation_string`. La fonction ``str`` permet de convertir un nombre, 
-un tableau, un objet (voir chapitre :ref:`chap_classe`) en chaîne de caractères 
+un tableau, un objet (voir chapitre :ref:`chap_classe`) en chaÃ®ne de caractÃ¨res 
 afin de pouvoir l'afficher. La fonction ``len`` retourne la longueur 
-de la chaîne de caractères.
+de la chaÃ®ne de caractÃ¨res.
 
 .. runpython::
     :showcode:
@@ -515,41 +519,41 @@ de la chaîne de caractères.
     :widths: 3 10 5
     :header-rows: 1
 
-    * - opérateur
+    * - opÃ©rateur
       - signification
       - exemple
     * - ``+``
-      - concaténation de chaînes de caractères
+      - concatÃ©nation de chaÃ®nes de caractÃ¨res
       - ``t = "abc" + "def"``
     * - ``+=``
-      - concaténation puis affectation
+      - concatÃ©nation puis affectation
       - ``t += "abc"
     * - ``in``, ``not in``
-      - une chaîne en contient-elle une autre ?
+      - une chaÃ®ne en contient-elle une autre ?
       - ``"ed" in "med"
     * - ``*``
-      - répétition d'une chaîne de caractères
+      - rÃ©pÃ©tition d'une chaÃ®ne de caractÃ¨res
       - ``t = "abc" * 4
     * - ``[n]``
-      - obtention du enième caractère, le premier
-        caractère a pour indice 0
+      - obtention du eniÃ¨me caractÃ¨re, le premier
+        caractÃ¨re a pour indice 0
       - ``t = "abc"; print(t[0])  # donne a``
     * - ``[i:j]``
-      - obtention des caractères compris entre les indices ``i`` et 
-        ``j-1`` inclus, le premier caractère a pour indice 0
+      - obtention des caractÃ¨res compris entre les indices ``i`` et 
+        ``j-1`` inclus, le premier caractÃ¨re a pour indice 0
       - ``t = "abc"; print(t [0:2]) # donne ab``
     
-Il existe d'autres fonctions qui permettent de manipuler les chaînes de caractères.
+Il existe d'autres fonctions qui permettent de manipuler les chaÃ®nes de caractÃ¨res.
 
 ::
 
     res = s.fonction (...)
 
-Où ``s`` est une chaîne de caractères, ``fonction`` 
-est le nom de l'opération que l'on veut appliquer à ``s``, ``res`` 
-est le résultat de cette manipulation. 
+OÃ¹ ``s`` est une chaÃ®ne de caractÃ¨res, ``fonction`` 
+est le nom de l'opÃ©ration que l'on veut appliquer Ã  ``s``, ``res`` 
+est le rÃ©sultat de cette manipulation. 
 
-La table :ref:`string_method` présente une liste non exhaustive 
+La table :ref:`string_method` prÃ©sente une liste non exhaustive 
 des fonctions disponibles dont un exemple d'utilisation suit. 
 Cette syntaxe ``variable.fonction(arguments)`` est celle des classes.
 
@@ -558,36 +562,38 @@ Cette syntaxe ``variable.fonction(arguments)`` est celle des classes.
     :header-rows: 0
    
     * - ``count( sub[, start[, end]])``
-      - Retourne le nombre d'occurences de la chaîne de caractères ``sub``,
-        les paramètres par défaut ``start`` et ``end`` permettent de réduire la
-        recherche entre les caractères d'indice ``start`` et ``end`` exclu. Par défaut,
-        ``start`` est nul tandis que ``end`` correspond à la fin de la chaîne de caractères.
+      - Retourne le nombre d'occurences de la chaÃ®ne de caractÃ¨res ``sub``,
+        les paramÃ¨tres par dÃ©faut ``start`` et ``end`` permettent de rÃ©duire la
+        recherche entre les caractÃ¨res d'indice ``start`` et ``end`` exclu. Par dÃ©faut,
+        ``start`` est nul tandis que ``end`` correspond Ã  la fin de la chaÃ®ne de caractÃ¨res.
     * - ``find( sub[, start[, end]])``
-      - Recherche une chaîne de caractères ``sub``,
-        les paramètres par défaut ``start`` et ``end`` ont la même signification
+      - Recherche une chaÃ®ne de caractÃ¨res ``sub``,
+        les paramÃ¨tres par dÃ©faut ``start`` et ``end`` ont la mÃªme signification
         que ceux de la fonction ``count``. Cette fonction retourne -1 si 
         la recherche n'a pas abouti.
     * - ``isalpha()``
-      - Retourne ``True`` si tous les caractères sont des lettres, ``False`` sinon.
+      - Retourne ``True`` si tous les caractÃ¨res sont des lettres, ``False`` sinon.
     * - ``isdigit()
-      -  Retourne ``True`` si tous les caractères sont des chiffres, ``False`` sinon.
+      -  Retourne ``True`` si tous les caractÃ¨res sont des chiffres, ``False`` sinon.
     * - ``replace( old, new[, count])``
-      - Retourne une copie de la chaîne de caractères en remplaçant toutes les
-        occurrences de la chaîne ``old`` par ``new``. Si le paramètre optionnel 
-        ``count`` est renseigné, alors seules les ``count`` premières occurrences
-        seront remplacées.
+      - Retourne une copie de la chaÃ®ne de caractÃ¨res en remplaÃ§ant toutes les
+        occurrences de la chaÃ®ne ``old`` par ``new``. Si le paramÃ¨tre optionnel 
+        ``count`` est renseignÃ©, alors seules les ``count`` premiÃ¨res occurrences
+        seront remplacÃ©es.
     * - ``split( [sep [,maxsplit]])``
-      - Découpe la chaîne de caractères en se servant de la chaîne ``sep`` comme
-        délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit}
-        coupures seront effectuées.
+      - DÃ©coupe la chaÃ®ne de caractÃ¨res en se servant de la chaÃ®ne ``sep`` comme
+        dÃ©limiteur. Si le paramÃ¨tre ``maxsplit`` est renseignÃ©, au plus ``maxsplit}
+        coupures seront effectuÃ©es.
     * - ``upper()``
       - Remplace les minuscules par des majuscules.
     * - ``lower()``
       - Remplace les majuscules par des minuscules.
     * - ``join ( li )``
       - ``li`` est une liste,
-        cette fonction agglutine tous les éléments d'une liste séparés par ``sep``
-        dans l'expression ``sep.join ( ["un", "deux"])``. 
+        cette fonction agglutine tous les Ã©lÃ©ments d'une liste sÃ©parÃ©s par ``sep``
+        dans l'expression ``sep.join ( ["un", "deux"])``.
+    * - ...
+      - Lire `String Methods <https://docs.python.org/3/library/stdtypes.html#string-methods>`_.
 
 .. runpython::
     :showcode:
@@ -601,224 +607,292 @@ Cette syntaxe ``variable.fonction(arguments)`` est celle des classes.
 
 .. _exemple_string_join:
 
-L'exemple suivant permet de retourner une chaîne de caractères contenant 
-plusieurs éléments séparés par ``";"``. La chaîne ``"un;deux;trois"`` 
-doit devenir ``"trois;deux;un"``. On utilise pour cela les fonctionnalités 
+L'exemple suivant permet de retourner une chaÃ®ne de caractÃ¨res contenant 
+plusieurs Ã©lÃ©ments sÃ©parÃ©s par ``";"``. La chaÃ®ne ``"un;deux;trois"`` 
+doit devenir ``"trois;deux;un"``. On utilise pour cela les fonctionnalitÃ©s 
 ``split`` et ``join``.
-L'exemple utilise également la fonctionnalité ``reverse`` des listes qui 
-seront décrites plus loin dans ce chapitre. Il faut simplement retenir 
+L'exemple utilise Ã©galement la fonctionnalitÃ© ``reverse`` des listes qui 
+seront dÃ©crites plus loin dans ce chapitre. Il faut simplement retenir 
 qu'une liste est un tableau. ``reverse`` retourne le tableau.
 
 .. runpython::
     :showcode:
 
     s    = "un;deux;trois"
-    mots = s.split (";")        # mots est égal à ['un', 'deux', 'trois']
-    mots.reverse ()             # retourne la liste, mots devient égal à 
+    mots = s.split (";")        # mots est Ã©gal Ã  ['un', 'deux', 'trois']
+    mots.reverse ()             # retourne la liste, mots devient Ã©gal Ã  
                                 #                 ['trois', 'deux', 'un']
-    s2 = ";".join (mots)        # concaténation des éléments de mots séparés par ";"
+    s2 = ";".join (mots)        # concatÃ©nation des Ã©lÃ©ments de mots sÃ©parÃ©s par ";"
     print(s2)                   # affiche trois;deux;un
 
 .. _label_formattage_string:
 
-Formatage d'une chaîne de caractères
+Formatage d'une chaÃ®ne de caractÃ¨res
 ++++++++++++++++++++++++++++++++++++
 
-*python* offre une manière plus concise de former une chaîne 
-de caractères à l'aide de plusieurs types d'informations en 
-évitant la conversion explicite de ces informations (fonction ``str``) 
-et leur concaténation. Il est particulièrement intéressant pour les 
-nombres réels qu'il est possible d'écrire en imposant un nombre 
-de décimales fixe. Le format est le suivant :
+Syntaxe %
+^^^^^^^^^
+
+*python* (`printf-style String Formatting <https://docs.python.org/3/library/stdtypes.html#old-string-formatting>`_)
+offre une maniÃ¨re plus concise de former une chaÃ®ne 
+de caractÃ¨res Ã  l'aide de plusieurs types d'informations en 
+Ã©vitant la conversion explicite de ces informations (type ``str``) 
+et leur concatÃ©nation. Il est particuliÃ¨rement intÃ©ressant pour les 
+nombres rÃ©els qu'il est possible d'Ã©crire en imposant un nombre 
+de dÃ©cimales fixe. Le format est le suivant :
 
 ::
 
     ".... %c1  ....  %c2 " % (v1,v2)
 
 ``c1`` est un code choisi parmi ceux de la table 
-::ref`format_print`. Il indique le format dans lequel la variable 
-``v1`` devra être transcrite. Il en est de même pour le code 
-``c2`` associé à la variable ``v2``. Les codes insérés dans la chaîne 
-de caractères seront remplacés par les variables citées entre 
-parenthèses après le symbole ``%`` suivant la fin de la chaîne de 
-caractères. Il doit y avoir autant de codes que de variables, 
-qui peuvent aussi être des constantes. 
+:ref:`format_print`. Il indique le format dans lequel la variable 
+``v1`` devra Ãªtre transcrite. Il en est de mÃªme pour le code 
+``c2`` associÃ© Ã  la variable ``v2``. Les codes insÃ©rÃ©s dans la chaÃ®ne 
+de caractÃ¨res seront remplacÃ©s par les variables citÃ©es entre 
+parenthÃ¨ses aprÃ¨s le symbole ``%`` suivant la fin de la chaÃ®ne de 
+caractÃ¨res. Il doit y avoir autant de codes que de variables, 
+qui peuvent aussi Ãªtre des constantes. 
 
-Voici concrètement l'utilisation de cette syntaxe :
+Voici concrÃ¨tement l'utilisation de cette syntaxe :
 
 .. runpython::
     :showcode:
     
     x = 5.5
     d = 7
-    s = "caractères"
-    res = "un nombre réel %f et un entier %d, une chaîne de %s, \n" \
-          "un réel d'abord converti en chaîne de caractères %s" % (x,d,s, str(x+4))
+    s = "caractÃ¨res"
+    res = "un nombre rÃ©el %f et un entier %d, une chaÃ®ne de %s, \n" \
+          "un rÃ©el d'abord converti en chaÃ®ne de caractÃ¨res %s" % (x,d,s, str(x+4))
     print(res)
-    res = "un nombre réel " + str (x) + " et un entier " + str (d) + \
-          ", une chaîne de " + s + \
-          ",\n un réel d'abord converti en chaîne de caractères " + str(x+4)
+    res = "un nombre rÃ©el " + str (x) + " et un entier " + str (d) + \
+          ", une chaÃ®ne de " + s + \
+          ",\n un rÃ©el d'abord converti en chaÃ®ne de caractÃ¨res " + str(x+4)
     print(res)
 
-La seconde affectation de la variable ``res`` propose une solution équivalente 
-à la première en utilisant l'opérateur de concaténation ``+``. 
-Les deux solutions sont équivalentes, tout dépend des préférences de celui qui écrit le programme.
+La seconde affectation de la variable ``res`` propose une solution Ã©quivalente 
+Ã  la premiÃ¨re en utilisant l'opÃ©rateur de concatÃ©nation ``+``. 
+Les deux solutions sont Ã©quivalentes, tout dÃ©pend des prÃ©fÃ©rences de celui qui Ã©crit le programme.
+La premiÃ¨re option permet nÃ©anmoins un formatage plus prÃ©cis des nombres rÃ©els 
+en imposant par exemple un nombre dÃ©fini de dÃ©cimal. Le format est le suivant :
 
-    un nombre réel 5.500000 et un entier 7, une chaîne de caractères, 
-    un réel d'abord converti en chaîne de caractères 9.5
-    un nombre réel 5.5 et un entier 7, une chaîne de caractères,
-    un réel d'abord converti en chaîne de caractères 9.5
+::
 
-La première option permet néanmoins un formatage plus précis des nombres réels 
-en imposant par exemple un nombre défini de décimal. Le format est le suivant :
+    "%n.df" % x
 
-\begin{xsyntax}{chaîne de caractères, formatage des nombres}
-\begin{verbatimno}
+``n`` est le nombre de chiffres total et ``d`` est le nombre de dÃ©cimales, 
+``f`` dÃ©signe un format rÃ©el indiquÃ© par la prÃ©sence du symbole ``%``.
 
-"%n.df" % x
-\end{verbatimno}
-\negvspace
-où ``n`` est le nombre de chiffres total et ``d`` est le nombre de décimales, ``f`` désigne un format réel indiqué par la présence du symbole ``\%}
-\indexsyntaxenoc{formatage des nombres}
-\end{xsyntax}
-            
-%\vspaceneg           
-%Exemple :       
-\vspace{-0.4cm``     
-\begin{verbatimx}
-x = 0.123456789
-print(x)             # affiche 0.123456789
-print("%1.2f" % x)   # affiche 0.12
-print("%06.2f" % x)  # affiche 000.12
-\end{verbatimx}
-\vspaceneg 
-%
-Il existe d'autres formats regroupés dans la table \ref{format_print``. L'aide reste encore le meilleur réflexe car le langage *python* est susceptible d'évoluer et d'ajouter de nouveaux formats.
-%
-            \begin{table}[ht]
-            \begin{center}\begin{tabularx}{\textwidth}{|lX|`` \hline
-            d & entier relatif\\ \hline  
-            e & nombre réel au format exponentiel    \\ \hline  
-            f & nombre réel au format décimal                                   \\ \hline  
-            g & nombre réel, format décimal ou exponentiel si la puissance est trop grande ou trop petite  \\ \hline  
-            s & chaîne de caractères \\ \hline  
-            \end{tabularx}\end{center}
-            \caption{    Liste non exhaustive des codes utilisés pour formater des informations
-                                dans une chaîne de caractères (voir page
-                                 \httpstyle{http://docs.python.org/library/stdtypes.html}).}
-            \label{format_print}
-            \end{table``                                    
+Exemple :
 
-\vspaceneg
+.. runpython::
+    :showcode:
 
-\subsection{T-uple`` \indextype{tuple``  \label{parag_tuple_defindfg}\indexclass{tuple}
-        \begin{xdefinition}{T-uple}
-        Les T-uple sont un tableau d'objets qui peuvent être de tout type. Ils ne sont pas modifiables.
-        \end{xdefinition}
+    x = 0.123456789
+    print(x)             # affiche 0.123456789
+    print("%1.2f" % x)   # affiche 0.12
+    print("%06.2f" % x)  # affiche 000.12
 
-Un T-uple apparaît comme une liste d'objets comprise entre parenthèses et séparés par des virgules. Leur création reprend le même format :
-\vspaceneg
-\begin{verbatimx}
-x = (4,5)               # création d'un T-uple composé de 2 entiers
-x = ("un",1,"deux",2)   # création d'un T-uple composé de 2 chaînes de caractères
-                        # et de 2 entiers, l'ordre d'écriture est important
-x = (3,)                # création d'un T-uple d'un élément, sans la virgule, 
-                        # le résultat est un entier
-\end{verbatimx``    
-\vspaceneg                    
-\indexfr{vecteur}
-Ces objets sont des vecteurs d'objets. Il est possible d'effectuer les opérations regroupées dans la table \ref{operation_tuple``. Etant donné que les chaînes de caractères sont également des tableaux, ces opérations reprennent en partie celles de la table \ref{operation_string}.
-%
-\indexsymbole{+}\indexsymbole{*}\indexsymbole{[]}\indexsymbole{()}
-\indexkeyword{in}\indexkeyword{not}
+Il existe d'autres formats regroupÃ©s dans la table \ref{format_print``. 
+L'aide reste encore le meilleur rÃ©flexe car le langage *python* 
+est susceptible d'Ã©voluer et d'ajouter de nouveaux formats.
 
-%
-        \begin{table}[ht]
-        \begin{center}\begin{tabularx}{\textwidth}{|lX|`` \hline
-        ``x in s``                & vrai si ``x`` est un des éléments de ``s`` \\  \hline
-        ``x not in s``    & réciproque de la ligne précédente \\  \hline
-        ``s + t``                                & concaténation de ``s`` et ``t``   \\  \hline
-        ``s * n``    & concatène ``n`` copies de ``s`` les unes à la suite des autres   \\  \hline
-        ``s[i]``                                & retourne le i$^\text{ème}$ élément de ``s``  \\  \hline
-        ``s[i:j]``                            & %\begin{minipage}{10cm`` 
-                                                                    retourne un T-uple contenant 
-                                                                    une copie des éléments de ``s`` d'indices $i$ à 
-                                                                    $j$ exclu. 
-                                                                    %\end{minipage`` 
-                                                                    \\ \hline
-        ``s[i:j:k]``                        & %\begin{minipage}{10cm`` 
-                                                                    retourne un T-uple contenant une copie 
-                                                                    des éléments de ``s`` dont les 
-                                                                    indices sont compris entre $i$ et $j$ 
-                                                                    exclu, ces indices sont espacés de $k$ :
-                                                                    $i, i+k, i+2k, i+3k, ...$ 
-                                                                    %\end{minipage`` 
-                                                                    \\ \hline
-        ``len(s)``                            & nombre d'éléments de ``s`` \\ \hline
-        ``min(s)``                            & %\begin{minipage}{10cm}
-                                                                    plus petit élément de ``s}, résultat difficile à prévoir 
-                                                                    lorsque les types des éléments sont différents 
-                                                                    %\end{minipage`` 
-                                                                    \\ \hline
-        ``max(s)``                            & %\begin{minipage}{10cm}
-                                                                    plus grand élément de ``s`` 
-                                                                    %\end{minipage`` 
-                                                                    \\ \hline
-        ``sum(s)``                            & %\begin{minipage}{10cm}
-                                                                    retourne la somme de tous les éléments 
-                                                                    %\end{minipage`` 
-                                                                    \\ \hline
-        \end{tabularx}\end{center}
-        \caption{ Opérations disponibles sur les T-uples, on suppose que \codescaption{s`` et \codescaption{t`` sont des T-uples, 
-                            \codescaption{x`` est quant à lui quelconque.
-                            }
-        \label{operation_tuple}
-        \indexfonctionbis{len}\indexfonctionbis{max}\indexfonctionbis{min}
-        \end{table``                            
+.. list-table::
+    :widths: 3 10
+    :header-rows: 0
+    
+    * - ``d``
+      - entier relatif
+    * - ``e``
+      - nombre rÃ©el au format exponentiel
+    * - ``f``
+      - nombre rÃ©el au format dÃ©cimal
+    * - ``g``
+      - nombre rÃ©el, format dÃ©cimal ou exponentiel si la puissance est trop grande ou trop petite
+    * - ``s``
+      - chaÃ®ne de caractÃ¨res
+    * - ...
+      - Lire `printf-style String Formatting <https://docs.python.org/3/library/stdtypes.html#old-string-formatting>`_.
+      
+
+MÃ©thode format
+^^^^^^^^^^^^^^
+
+La mÃ©thode `format <https://docs.python.org/3/library/stdtypes.html#str.format>`_
+propose plus d'options pour formatter le texte et son usage est de plus en plus frÃ©quent.
+La mÃ©thode interprÃ¨te les accolades ``{}`` comme des codes qu'elle remplace
+avec les valeurs passÃ©e en argument. Le type n'importe plus.
+Quelques exemples :
+
+.. runpython::
+    :showcode:
+
+    print('{0}, {1}, {2}'.format('a', 'b', 'c'))   # le format le plus simple
+    print('{}, {}, {}'.format('a', 'b', 'c'))      # sans numÃ©ro
+    print('{2}, {1}, {0}'.format('a', 'b', 'c'))   # ordre changÃ©
+    print('{0}{1}{0}'.format('abra', 'cad'))       # rÃ©pÃ©tition
+
+La mÃ©thode accepte aussi les paramÃ¨tres nommÃ©es et des expressions.
+
+.. runpython::
+    :showcode:
+
+    print('Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W'))
+    coord = (3, 5)
+    print('X: {0[0]};  Y: {0[1]}'.format(coord))
+    
+L'alignement est plus simple :
+
+.. runpython::
+    :showcode:
+
+    print('A{:<30}B'.format('left aligned'))
+    print('A{:>30}B'.format('right aligned'))
+    print('A{:^30}B'.format('centered'))
+    print('A{:*^30}B'.format('centered'))
+    
+Format numÃ©rique :
+
+.. runpython::
+    :showcode:
+
+    print('{:.2%}'.format(19.0/22.0))
+    print("int: {0:d};  hex: {0:x};  oct: {0:o};  bin: {0:b}".format(42))
+    print("int: {0:d};  hex: {0:#x};  oct: {0:#o};  bin: {0:#b}".format(42))
+    print('{:,}'.format(1234567890))
+    
+Dates :
+    
+.. runpython::
+    :showcode:
+    
+    import datetime
+    d = datetime.datetime.now()
+    print('{:%Y-%m-%d %H:%M:%S}'.format(d))
+
+.. _parag_tuple_defindfg:
+
+tuple
++++++
+
+.. mathdef::
+    :title: tuple
+    :tag: DÃ©finition
+    
+    Les T-uple sont un tableau d'objets qui peuvent Ãªtre de tout type.
+    Ils ne sont pas modifiables 
+    (les `tuple <https://docs.python.org/3/library/stdtypes.html#tuple>`_
+    sont *immuables* ou *immutable*).
+
+Un T-uple apparaÃ®t comme une liste d'objets comprise entre parenthÃ¨ses 
+et sÃ©parÃ©s par des virgules. Leur crÃ©ation reprend le mÃªme format :
+
+::
+
+    x = (4,5)               # crÃ©ation d'un T-uple composÃ© de 2 entiers
+    x = ("un",1,"deux",2)   # crÃ©ation d'un T-uple composÃ© de 2 chaÃ®nes de caractÃ¨res
+                            # et de 2 entiers, l'ordre d'Ã©criture est important
+    x = (3,)                # crÃ©ation d'un T-uple d'un Ã©lÃ©ment, sans la virgule, 
+                            # le rÃ©sultat est un entier
+
+Ces objets sont des vecteurs d'objets. 
+Etant donnÃ© que les chaÃ®nes de caractÃ¨res sont Ã©galement des tableaux, 
+ces opÃ©rations reprennent en partie celles des :ref:`_string_paragraphe_chaine`
+et dÃ©crites par le paragraphe 
+`Common Sequence Operations <https://docs.python.org/3/library/stdtypes.html#typesseq-common>`_.
+
+.. list-table::
+    :widths: 10 20
+    :header-rows: 0
+    
+    * - ``x in s``
+      - vrai si ``x`` est un des Ã©lÃ©ments de ``s``
+    * - ``x not in s``
+      - rÃ©ciproque de la ligne prÃ©cÃ©dente
+    * - ``s + t``
+      - concatÃ©nation de ``s`` et ``t``
+    * - ``s * n``
+      - concatÃ¨ne ``n`` copies de ``s`` les unes Ã  la suite des autres
+    * - ``s[i]``
+      - retourne le iÃ¨me Ã©lÃ©ment de ``s``
+    * - ``s[i:j]``  
+      - retourne un T-uple contenant une copie des Ã©lÃ©ments de ``s`` d'indices *i* Ã  *j* exclu
+    * - ``s[i:j:k]``
+      - retourne un T-uple contenant une copie des Ã©lÃ©ments de ``s`` dont les indices sont compris entre *i* et *j*
+        exclu, ces indices sont espacÃ©s de *k* : :math:`i, i+k, i+2k, i+3k, ...`
+    * - ``len(s)``
+      - nombre d'Ã©lÃ©ments de ``s``
+    * - ``min(s)``
+      - plus petit Ã©lÃ©ment de ``s``, rÃ©sultat difficile Ã  prÃ©voir 
+        lorsque les types des Ã©lÃ©ments sont diffÃ©rents 
+    * - ``max(s)``
+      - plus grand Ã©lÃ©ment de ``s`` 
+    * - ``sum(s)``
+      - retourne la somme de tous les Ã©lÃ©ments 
+      
+
+Les T-uples ne sont pas **modifiables** (ou **mutable**), cela signifie qu'il est impossible de 
+modifier un de leurs Ã©lÃ©ments. Par consÃ©quent, la ligne d'affectation suivante n'est pas correcte :
+
+
+::
+
+    a     = (4,5)
+    a [0] = 3      # dÃ©clenche une erreur d'exÃ©cution
+    
+Le message d'erreur suivant apparaÃ®t :
+
+::
+
+    File "<pyshell#78>", line 1, in -toplevel-
+        a[0]=3
+    TypeError: object doesn't support item assignment
+
+Pour changer cet Ã©lÃ©ment, il est possible de s'y prendre de la maniÃ¨re suivante :
+
+::
+
+    a = (4,5)
+    a = (3,) + a[1:2]  # crÃ©e un T-uple d'un Ã©lÃ©ment concatÃ©nÃ© 
+                       # avec la partie inchangÃ©e de a
 
 
 
-\begin{xremark}{T-uple, opérateur []}
-Les T-uples ne sont pas modifiables, cela signifie qu'il est impossible de modifier un de leurs éléments. Par conséquent, la ligne d'affectation suivante n'est pas correcte :\indexfr{modifiable}
-\begin{verbatimx}
-a     = (4,5)
-a [0] = 3      # déclenche une erreur d'exécution
-\end{verbatimx}
-\vspaceneg
-Le message d'erreur suivant apparaît :
-\vspaceneg
-\begin{verbatimx}
-Traceback (most recent call last):
-  File "<pyshell#78>", line 1, in -toplevel-
-    a[0]=3
-TypeError: object doesn't support item assignment
-\end{verbatimx}
-\vspaceneg
-Pour changer cet élément, il est possible de s'y prendre de la manière suivante :
-\vspaceneg
-\begin{verbatimx}
-a = (4,5)
-a = (3,) + a[1:2]  # crée un T-uple d'un élément concaténé 
-                   # avec la partie inchangée de a
-\end{verbatimx}
-\end{xremark}
+Nombres complexes
++++++++++++++++++
 
 
+Il existe d'autres types comme le type `complex <https://docs.python.org/3/library/functions.html#complex>`_ 
+permettant de reprÃ©senter les nombres complexes. 
+Ce type numÃ©rique suit les mÃªmes rÃ¨gles et fonctionne avec les mÃªmes opÃ©rateurs (exceptÃ© les opÃ©rateurs de comparaisons) 
+que ceux prÃ©sentÃ©s au paragraphe :ref:`type_nombre` et dÃ©crivant les nombres. 
+
+.. runpython::
+    :showcode:
+    
+    print(complex(1,1))
+    c = complex(1,1)
+    print(c*c)
+    
+Le langage *python* offre la possibilitÃ© de crÃ©er ses propres types immuables (voir :ref:`classe_slots_att`) 
+mais ils seront dÃ©finis Ã  partir des types immuables prÃ©sentÃ©s jusqu'ici.
 
 
+bytes
++++++
 
 
-\subsection{Autres types}
-\indextype{complex}\indextypenoc{complexe}
-
-Il existe d'autres types comme le type ``complex`` permettant de représenter les nombres complexes. Ce type numérique suit les mêmes règles et fonctionne avec les mêmes opérateurs (excepté les opérateurs de comparaisons) que ceux présentés au paragraphe \ref{type_nombre`` et décrivant les nombres. \vspaceneg
-\begin{verbatimx}
-print(complex(1,1))   # affiche (1+1j)
-\end{verbatimx}
-\vspaceneg
-\indexoperator{\_\_slots\_\_}
-Le langage *python* offre la possibilité de créer ses propres types immuables\footnote{voir le paragraphe \ref{classe_slots_att}`` mais ils seront définis à partir des types immuables présentés jusqu'ici.
-
+ `bytes <https://docs.python.org/3/library/stdtypes.html#bytes>`_
+ 
+ 
+ bytearray
+ +++++++++
+ 
+ `bytearray <https://docs.python.org/3/library/functions.html#bytearray>`_
+ 
+ 
+ BrÃ¨ves notions d'encoding
+ +++++++++++++++++++++++++
 
 
 
@@ -833,95 +907,95 @@ Le langage *python* offre la possibilité de créer ses propres types immuables\fo
 \section{Types modifiables (ou \textit{mutable})}
 \indextypenoc{modifiable}
 
-Les types modifiables sont des conteneurs (ou containers en anglais) : ils contiennent d'autres objets, que ce soit des nombres, des chaînes de caractères ou des objets de type modifiable.\indexfr{conteneur`` Plutôt que d'avoir dix variables pour désigner dix objets, on en n'utilise qu'une seule qui désigne ces dix objets.
+Les types modifiables sont des conteneurs (ou containers en anglais) : ils contiennent d'autres objets, que ce soit des nombres, des chaÃ®nes de caractÃ¨res ou des objets de type modifiable.\indexfr{conteneur`` PlutÃ´t que d'avoir dix variables pour dÃ©signer dix objets, on en n'utilise qu'une seule qui dÃ©signe ces dix objets.
 
 			\begin{xdefinition}{type modifiable (ou mutable)}
-			Une variable de type modifiable peut être modifiée, elle conserve le même type et le même identificateur. C'est uniquement
-			son contenu qui évolue.
+			Une variable de type modifiable peut Ãªtre modifiÃ©e, elle conserve le mÃªme type et le mÃªme identificateur. C'est uniquement
+			son contenu qui Ã©volue.
 			\end{xdefinition}
 
 
 \subsection{Liste}
 \indextypenoc{liste}\indextype{list}\indexclass{list}
 
-\subsubsection{Définition et fonctions}
+\subsubsection{DÃ©finition et fonctions}
 %
         \begin{xdefinition}{liste}
-        Les listes sont des collections d'objets qui peuvent être de tout type.
+        Les listes sont des collections d'objets qui peuvent Ãªtre de tout type.
         Elles sont modifiables.
         \end{xdefinition}
 
-Une liste apparaît comme une succession d'objets compris entre crochets et séparés par des virgules. Leur création reprend le même format :
+Une liste apparaÃ®t comme une succession d'objets compris entre crochets et sÃ©parÃ©s par des virgules. Leur crÃ©ation reprend le mÃªme format :
 %
 \begin{verbatimx}
-x = [4,5]               # création d'une liste composée de deux entiers
-x = ["un",1,"deux",2]   # création d'une liste composée de 
-                        # deux chaînes de caractères
-                        # et de deux entiers, l'ordre d'écriture est important
-x = [3,]                # création d'une liste d'un élément, sans la virgule, 
-                        # le résultat reste une liste
-x = [ ]                 # crée une liste vide
-x = list ()             # crée une liste vide
-y = x [0]               # accède au premier élément
-y = x [-1]              # accède au dernier élément
+x = [4,5]               # crÃ©ation d'une liste composÃ©e de deux entiers
+x = ["un",1,"deux",2]   # crÃ©ation d'une liste composÃ©e de 
+                        # deux chaÃ®nes de caractÃ¨res
+                        # et de deux entiers, l'ordre d'Ã©criture est important
+x = [3,]                # crÃ©ation d'une liste d'un Ã©lÃ©ment, sans la virgule, 
+                        # le rÃ©sultat reste une liste
+x = [ ]                 # crÃ©e une liste vide
+x = list ()             # crÃ©e une liste vide
+y = x [0]               # accÃ¨de au premier Ã©lÃ©ment
+y = x [-1]              # accÃ¨de au dernier Ã©lÃ©ment
 \end{verbatimx``                         
 %
-\indexfrr{liste}{chaînée}\indexfrr{tri}{liste}\indexfrr{liste}{tri}\indexfrr{liste}{insertion}
+\indexfrr{liste}{chaÃ®nÃ©e}\indexfrr{tri}{liste}\indexfrr{liste}{tri}\indexfrr{liste}{insertion}
 \indexfrr{liste}{suppression}
-Ces objets sont des listes chaînées d'autres objets de type quelconque (immuable ou modifiable). Il est possible d'effectuer les opérations regroupées dans la table \ref{operation_liste``. Ces opérations reprennent celles des T-uples (voir table \ref{operation_tuple}) et incluent d'autres fonctionnalités puisque les listes sont modifiables (voir table \ref{operation_liste}). Il est donc possible d'insérer, de supprimer des éléments, de les trier. La syntaxe des opérations sur les listes est similaire à celle des opérations qui s'appliquent sur les chaînes de caractères, elles sont présentées par la table \ref{operation_liste2``. 
+Ces objets sont des listes chaÃ®nÃ©es d'autres objets de type quelconque (immuable ou modifiable). Il est possible d'effectuer les opÃ©rations regroupÃ©es dans la table \ref{operation_liste``. Ces opÃ©rations reprennent celles des T-uples (voir table \ref{operation_tuple}) et incluent d'autres fonctionnalitÃ©s puisque les listes sont modifiables (voir table \ref{operation_liste}). Il est donc possible d'insÃ©rer, de supprimer des Ã©lÃ©ments, de les trier. La syntaxe des opÃ©rations sur les listes est similaire Ã  celle des opÃ©rations qui s'appliquent sur les chaÃ®nes de caractÃ¨res, elles sont prÃ©sentÃ©es par la table \ref{operation_liste2``. 
 
 
 
         \begin{table}[ht]
         \begin{center}\begin{tabularx}{\textwidth}{|lX|`` \hline
-        ``x in l``                & vrai si ``x`` est un des éléments de ``l`` \\  \hline
-        ``x not in l``    & réciproque de la ligne précédente \\  \hline
-        ``l + t``                                & concaténation de ``l`` et ``t``   \\  \hline
-        ``l * n ``    & concatène ``n`` copies de ``l`` les unes à la suite des autres   \\  \hline
+        ``x in l``                & vrai si ``x`` est un des Ã©lÃ©ments de ``l`` \\  \hline
+        ``x not in l``    & rÃ©ciproque de la ligne prÃ©cÃ©dente \\  \hline
+        ``l + t``                                & concatÃ©nation de ``l`` et ``t``   \\  \hline
+        ``l * n ``    & concatÃ¨ne ``n`` copies de ``l`` les unes Ã  la suite des autres   \\  \hline
         ``l[i]``                                & %\begin{minipage}{10cm}
-                                                                    retourne l'élément i$^\text{ème}$ élément de ``l},
-                                                                    à la différence des T-uples, l'instruction ``l [i] = "a"}
-                                                                    est valide, elle remplace l'élément ``i`` par ``"a"``. 
-                                                                    Un indice négatif correspond à la position ``len(l)+i}.
+                                                                    retourne l'Ã©lÃ©ment i$^\text{Ã¨me}$ Ã©lÃ©ment de ``l},
+                                                                    Ã  la diffÃ©rence des T-uples, l'instruction ``l [i] = "a"}
+                                                                    est valide, elle remplace l'Ã©lÃ©ment ``i`` par ``"a"``. 
+                                                                    Un indice nÃ©gatif correspond Ã  la position ``len(l)+i}.
                                                                     %\end{minipage``  
                                                                     \\  \hline
         ``l[i:j]``                            & %\begin{minipage}{10cm`` 
                                                                     retourne une liste contenant les 
-                                                                    éléments de ``l`` d'indices $i$ à 
+                                                                    Ã©lÃ©ments de ``l`` d'indices $i$ Ã  
                                                                     $j$ exclu. Il est possible de remplacer 
                                                                     cette sous-liste par une autre en 
-                                                                    utilisant l'affectation `` l[i:j] = l2 `` où ``l2}
-                                                                    est une autre liste (ou un T-uple) de dimension différente ou égale.
+                                                                    utilisant l'affectation `` l[i:j] = l2 `` oÃ¹ ``l2}
+                                                                    est une autre liste (ou un T-uple) de dimension diffÃ©rente ou Ã©gale.
                                                                     %\end{minipage`` 
                                                                     \\ \hline
         ``l[i:j:k]``                        & %\begin{minipage}{10cm`` 
-                                                                    retourne une liste contenant les éléments de ``l`` dont les 
+                                                                    retourne une liste contenant les Ã©lÃ©ments de ``l`` dont les 
                                                                     indices sont compris entre $i$ et $j$ 
-                                                                    exclu, ces indices sont espacés de $k$ :
+                                                                    exclu, ces indices sont espacÃ©s de $k$ :
                                                                     $i, i+k, i+2k, i+3k, ...$ Ici encore, 
-                                                                    il est possible d'écrire l'affectation
+                                                                    il est possible d'Ã©crire l'affectation
                                                                     suivante : `` l[i:j:k] = l2 `` 
-                                                                    mais ``l2`` doit être une liste 
-                                                                    (ou un T-uple) de même dimension que `` l[i:j:k]}.
+                                                                    mais ``l2`` doit Ãªtre une liste 
+                                                                    (ou un T-uple) de mÃªme dimension que `` l[i:j:k]}.
                                                                     %\end{minipage`` 
                                                                     \\ \hline
-        ``len(l)``                            & nombre d'éléments de ``l`` \\ \hline
+        ``len(l)``                            & nombre d'Ã©lÃ©ments de ``l`` \\ \hline
         ``min(l)``                            & %\begin{minipage}{10cm}
-                                                                    plus petit élément de ``l}, résultat difficile à prévoir 
-                                                                    lorsque les types des éléments sont différents 
+                                                                    plus petit Ã©lÃ©ment de ``l}, rÃ©sultat difficile Ã  prÃ©voir 
+                                                                    lorsque les types des Ã©lÃ©ments sont diffÃ©rents 
                                                                     %\end{minipage`` 
                                                                     \\ \hline
         ``max(l)``                            & %\begin{minipage}{10cm}
-                                                                    plus grand élément de ``l`` 
+                                                                    plus grand Ã©lÃ©ment de ``l`` 
                                                                     %\end{minipage`` 
                                                                     \\ \hline
         ``sum(l)``                            & %\begin{minipage}{10cm}
-                                                                    retourne la somme de tous les éléments 
+                                                                    retourne la somme de tous les Ã©lÃ©ments 
                                                                     %\end{minipage`` 
                                                                     \\ \hline
         ``del \;l [i:j]``                &    %\begin{minipage}{10cm}
-                                                                  supprime les éléments d'indices entre ``i`` et ``j`` exclu.
-                                                                  Cette instruction est équivalente à `` l [i:j] = [] }.
+                                                                  supprime les Ã©lÃ©ments d'indices entre ``i`` et ``j`` exclu.
+                                                                  Cette instruction est Ã©quivalente Ã  `` l [i:j] = [] }.
                                                                   %\end{minipage`` 
                                                                   \\ \hline
         ``list (x)``                     &    %\begin{minipage}{10cm}
@@ -929,11 +1003,11 @@ Ces objets sont des listes chaînées d'autres objets de type quelconque (immuable
                                                                   %\end{minipage`` 
                                                                   \\ \hline
         \end{tabularx}\end{center}
-        \caption{ Opérations disponibles sur les listes, identiques à celles des T-uples, 
+        \caption{ OpÃ©rations disponibles sur les listes, identiques Ã  celles des T-uples, 
                             on suppose que \codescaption{l`` et \codescaption{t`` sont des listes, \codescaption{i`` et
                              \codescaption{j`` sont
                             des entiers.
-                            ``x`` est quant à lui quelconque.}
+                            ``x`` est quant Ã  lui quelconque.}
         \label{operation_liste}
         \indexfonction{min}\indexfonction{max}\indexfonction{len}\indexfonction{sum}\indexkeyword{del}
 				\indexsymbole{.}\indexsymbole{:}\indexsymbole{[]}
@@ -944,67 +1018,67 @@ Ces objets sont des listes chaînées d'autres objets de type quelconque (immuable
 		\begin{table}[ht]
 		\begin{center}\begin{tabularx}{\textwidth}{|lX|`` \hline
 		``l.count (x)``                & %\begin{minipage}{10cm}
-		                                                        Retourne le nombre d'occurrences de l'élément ``x``. Cette notation
-		                                                        suit la syntaxe des classes développée au chapitre \ref{chap_classe}.
-		                                                        ``count`` est une méthode de la classe ``list}.
+		                                                        Retourne le nombre d'occurrences de l'Ã©lÃ©ment ``x``. Cette notation
+		                                                        suit la syntaxe des classes dÃ©veloppÃ©e au chapitre \ref{chap_classe}.
+		                                                        ``count`` est une mÃ©thode de la classe ``list}.
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		``l.index (x)``                & %\begin{minipage}{10cm}
-		                                                        Retourne l'indice de la première occurrence de l'élément ``x}
+		                                                        Retourne l'indice de la premiÃ¨re occurrence de l'Ã©lÃ©ment ``x}
 		                                                        dans la liste ``l``. Si celle-ci n'existe pas, une exception est 
-		                                                        déclenchée (voir le paragraphe \ref{chap_exception`` ou 
+		                                                        dÃ©clenchÃ©e (voir le paragraphe \ref{chap_exception`` ou 
 		                                                        l'exemple page \pageref{exemple_list_index_erreyr_ref}).
 		                                                        \indexfr{exception}
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		``l.append (x)``          & %\begin{minipage}{10cm}
-		                                                        Ajoute l'élément ``x`` à la fin de la liste ``l``. Si ``x}
-		                                                        est une liste, cette fonction ajoute la liste ``x`` en tant qu'élément,
-		                                                        au final, la liste ``l`` ne contiendra qu'un élément de plus.
+		                                                        Ajoute l'Ã©lÃ©ment ``x`` Ã  la fin de la liste ``l``. Si ``x}
+		                                                        est une liste, cette fonction ajoute la liste ``x`` en tant qu'Ã©lÃ©ment,
+		                                                        au final, la liste ``l`` ne contiendra qu'un Ã©lÃ©ment de plus.
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		``l.extend (k)``            & %\begin{minipage}{10cm}
-		                                                        Ajoute tous les éléments de la liste ``k`` à la liste ``l}.
-		                                                        La liste ``l`` aura autant d'éléments supplémentaires qu'il y en a
+		                                                        Ajoute tous les Ã©lÃ©ments de la liste ``k`` Ã  la liste ``l}.
+		                                                        La liste ``l`` aura autant d'Ã©lÃ©ments supplÃ©mentaires qu'il y en a
 		                                                        dans la liste ``k}.
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		``l.insert(i,x)``            & %\begin{minipage}{10cm}
-		                                                        Insère l'élément ``x`` à la position ``i`` dans la liste ``l}.
+		                                                        InsÃ¨re l'Ã©lÃ©ment ``x`` Ã  la position ``i`` dans la liste ``l}.
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		``l.remove (x)``            & %\begin{minipage}{10cm}
-		                                                        Supprime la première occurrence de 
-		                                                        l'élément ``x`` dans la liste ``l}.
-		                                                        S'il n'y a aucune occurrence de ``x}, cette méthode déclenche
+		                                                        Supprime la premiÃ¨re occurrence de 
+		                                                        l'Ã©lÃ©ment ``x`` dans la liste ``l}.
+		                                                        S'il n'y a aucune occurrence de ``x}, cette mÃ©thode dÃ©clenche
 		                                                        une exception.
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		``l.pop ([i])``                & %\begin{minipage}{10cm}
-		                                                        Retourne l'élément ``l[i]`` et le supprime de la liste. Le
-		                                                        paramètre ``i`` est facultatif, s'il n'est pas précisé, c'est le dernier
-		                                                        élément qui est retourné puis supprimé de la liste.
+		                                                        Retourne l'Ã©lÃ©ment ``l[i]`` et le supprime de la liste. Le
+		                                                        paramÃ¨tre ``i`` est facultatif, s'il n'est pas prÃ©cisÃ©, c'est le dernier
+		                                                        Ã©lÃ©ment qui est retournÃ© puis supprimÃ© de la liste.
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		``l.reverse (x)``            & %\begin{minipage}{10cm}
-		                                                        Retourne la liste, le premier et dernier élément échange leurs places,
+		                                                        Retourne la liste, le premier et dernier Ã©lÃ©ment Ã©change leurs places,
 		                                                        le second et l'avant dernier, et ainsi de suite.
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		\begin{tabular}{lr}``l.sort ([f, }\\ ``reverse])``  \end{tabular``        & %\begin{minipage}{10cm}
-		                                                        Cette fonction trie la liste par ordre croissant. Le paramètre ``f}
-		                                                        est facultatif, il permet de préciser la fonction de comparaison qui doit
-		                                                        être utilisée lors du tri. Cette fonction prend comme paramètre 
-		                                                        deux éléments ``x`` et 
+		                                                        Cette fonction trie la liste par ordre croissant. Le paramÃ¨tre ``f}
+		                                                        est facultatif, il permet de prÃ©ciser la fonction de comparaison qui doit
+		                                                        Ãªtre utilisÃ©e lors du tri. Cette fonction prend comme paramÃ¨tre 
+		                                                        deux Ã©lÃ©ments ``x`` et 
 		                                                        ``y`` de la liste et retourne les valeurs -1,0,1 
 		                                                        selon que ``x < y}, ``x == y`` ou ``x > y`` 
 		                                                        (voir paragraphe \ref{chap_fonction}). Si ``rev`` est
-		                                                        ``True}, alors le tri est décroissant.
+		                                                        ``True}, alors le tri est dÃ©croissant.
 		                                                        %\end{minipage``  
 		                                                        \\  \hline
 		\end{tabularx}\end{center}
-		\caption{ Opérations permettant de modifier une liste on suppose que \codescaption{l`` est une liste, 
-		                    \codescaption{x`` est quant à lui quelconque.}
+		\caption{ OpÃ©rations permettant de modifier une liste on suppose que \codescaption{l`` est une liste, 
+		                    \codescaption{x`` est quant Ã  lui quelconque.}
 		\indexmethod{count}\indexmethod{index}\indexmethod{append}\indexmethod{extend}\indexmethod{insert}\indexmethod{remove}
 		\indexmethod{pop}\indexmethod{reverse}\indexmethod{sort}
 		\label{operation_liste2}
@@ -1013,16 +1087,16 @@ Ces objets sont des listes chaînées d'autres objets de type quelconque (immuable
 
 \subsubsection{Exemples}
 %
-L'exemple suivant montre une utilisation de la méthode ``sort``. \vspaceneg\indexexemples{tri}{}
+L'exemple suivant montre une utilisation de la mÃ©thode ``sort``. \vspaceneg\indexexemples{tri}{}
 \begin{verbatimxnocut}
-x = [9,0,3,5,4,7,8]          # définition d'une liste
+x = [9,0,3,5,4,7,8]          # dÃ©finition d'une liste
 print(x)                     # affiche cette liste
 x.sort()                     # trie la liste par ordre croissant
-print(x)                     # affiche la liste triée
+print(x)                     # affiche la liste triÃ©e
 \end{verbatimxnocut}
 %
 \vspaceneg 
-Voici les deux listes affichées par cet exemple :
+Voici les deux listes affichÃ©es par cet exemple :
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1030,15 +1104,15 @@ Voici les deux listes affichées par cet exemple :
 [0, 3, 4, 5, 7, 8, 9]
 \end{verbatimx}
 \vspaceneg
-Pour classer les objets contenus par la liste mais selon un ordre différent, il faut définir une fonction qui détermine un ordre entre deux éléments de la liste. C'est la fonction ``compare`` de l'exemple suivant.\vspaceneg\indexexemples{tri}{}
+Pour classer les objets contenus par la liste mais selon un ordre diffÃ©rent, il faut dÃ©finir une fonction qui dÃ©termine un ordre entre deux Ã©lÃ©ments de la liste. C'est la fonction ``compare`` de l'exemple suivant.\vspaceneg\indexexemples{tri}{}
 \begin{verbatimx}
-def compare (x,y):           # crée une fonction
+def compare (x,y):           # crÃ©e une fonction
     if   x >  y : return -1  # qui retourne -1 si x<y,
     elif x == y : return 0   # 0 si x == y
     else        : return 1   # 1 si x < y
 
-x.sort (compare)             # trie la liste x à l'aide de la fonction compare
-                             # cela revient à la trier par ordre décroissant
+x.sort (compare)             # trie la liste x Ã  l'aide de la fonction compare
+                             # cela revient Ã  la trier par ordre dÃ©croissant
 print(x)
 \end{verbatimx}
 %
@@ -1051,17 +1125,17 @@ Le programme affiche cette fois-ci la ligne :
 \end{verbatimx}
 %
 \vspaceneg
-L'exemple suivant illustre un exemple dans lequel on essaye d'accéder à l'indice d'un élément qui n'existe pas dans la liste : 
+L'exemple suivant illustre un exemple dans lequel on essaye d'accÃ©der Ã  l'indice d'un Ã©lÃ©ment qui n'existe pas dans la liste : 
 \vspaceneg
 %
 \begin{verbatimx}
 x = [9,0,3,5,0]
-print(x.index(1)) # cherche la position de l'élément 1
+print(x.index(1)) # cherche la position de l'Ã©lÃ©ment 1
 \end{verbatimx}
 \label{exemple_list_index_erreyr_ref}
 %
 \indexfr{exception}\vspaceneg
-Comme cet élément n'existe pas, on déclenche ce qu'on appelle une exception qui se traduit par l'affichage d'un message d'erreur. Le message indique le nom de l'exception générée (``ValueError}) ainsi qu'un message d'information permettant en règle générale de connaître l'événement qui en est la cause.\vspaceneg
+Comme cet Ã©lÃ©ment n'existe pas, on dÃ©clenche ce qu'on appelle une exception qui se traduit par l'affichage d'un message d'erreur. Le message indique le nom de l'exception gÃ©nÃ©rÃ©e (``ValueError}) ainsi qu'un message d'information permettant en rÃ¨gle gÃ©nÃ©rale de connaÃ®tre l'Ã©vÃ©nement qui en est la cause.\vspaceneg
 %
 \begin{verbatimx}
 Traceback (most recent call last):
@@ -1071,7 +1145,7 @@ ValueError: list.index(x): x not in list
 \end{verbatimx}
 %
 \vspaceneg
-Pour éviter cela, on choisit d'intercepter l'exception (voir paragraphe \ref{chap_exception}).
+Pour Ã©viter cela, on choisit d'intercepter l'exception (voir paragraphe \ref{chap_exception}).
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1079,17 +1153,17 @@ x = [9,0,3,5,0]
 try:               
     print(x.index(1))
 except ValueError: 
-    print("1 n'est pas présent dans la liste x")
+    print("1 n'est pas prÃ©sent dans la liste x")
 else:              
-    print("trouvé")
+    print("trouvÃ©")
 \end{verbatimx}
 %
 \vspaceneg
-Ce programme a pour résultat :
+Ce programme a pour rÃ©sultat :
 \vspaceneg
 %
 \begin{verbatimx}
-1 n'est pas présent dans la liste x
+1 n'est pas prÃ©sent dans la liste x
 \end{verbatimx}
 %
 
@@ -1097,7 +1171,7 @@ Ce programme a pour résultat :
 \subsubsection{Fonctions ``range}, ``xrange}}\label{fonction_range_xrange}
 \indexfr{boucle}\indexfonction{range}\indexfonction{xrange}
 %
-Les listes sont souvent utilisées dans des boucles ou notamment par l'intermédiaire de la fonction ``range``. Cette fonction retourne une liste d'entiers.
+Les listes sont souvent utilisÃ©es dans des boucles ou notamment par l'intermÃ©diaire de la fonction ``range``. Cette fonction retourne une liste d'entiers.
 
 \begin{xsyntax}{``range}}
 \begin{verbatimno}
@@ -1105,7 +1179,7 @@ Les listes sont souvent utilisées dans des boucles ou notamment par l'intermédia
 range (debut, fin [,marche])
 \end{verbatimno}
 \negvspace
-Retourne une liste incluant tous les entiers compris entre ``debut`` et ``fin`` exclu. Si le paramètre facultatif ``marche`` est renseigné, la liste contient tous les entiers ``n`` compris ``debut`` et ``fin`` exclu et tels que ``n - debut`` soit un multiple de ``marche}.
+Retourne une liste incluant tous les entiers compris entre ``debut`` et ``fin`` exclu. Si le paramÃ¨tre facultatif ``marche`` est renseignÃ©, la liste contient tous les entiers ``n`` compris ``debut`` et ``fin`` exclu et tels que ``n - debut`` soit un multiple de ``marche}.
 \indexsyntaxecod{range}
 \end{xsyntax}
 
@@ -1118,7 +1192,7 @@ print(range(0,10,2))       # affiche [0, 2, 4, 6, 8]
 \end{verbatimx}
 %
 \vspaceneg
-La fonction ``xrange`` est d'un usage équivalent à ``range``. Elle permet de parcourir une liste d'entiers sans la créer vraiment. Elle est plus rapide.
+La fonction ``xrange`` est d'un usage Ã©quivalent Ã  ``range``. Elle permet de parcourir une liste d'entiers sans la crÃ©er vraiment. Elle est plus rapide.
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1129,17 +1203,17 @@ print(list(range (0,10,2))      # affiche xrange(0,10,2)
 \indexkeyword{for}\indexkeyword{in}
 %
 \vspaceneg
-Cette fonction est souvent utilisée lors de boucles\footnote{voir paragraphe \ref{boucle_for}`` pour parcourir tous les éléments d'un T-uple, d'une liste, d'un dictionnaire... Le programme suivant permet par exemple de calculer la somme de tous les entiers impairs compris entre 1 et 20 exclu.
+Cette fonction est souvent utilisÃ©e lors de boucles\footnote{voir paragraphe \ref{boucle_for}`` pour parcourir tous les Ã©lÃ©ments d'un T-uple, d'une liste, d'un dictionnaire... Le programme suivant permet par exemple de calculer la somme de tous les entiers impairs compris entre 1 et 20 exclu.
 \vspaceneg\indexexemples{somme}{}
 %
 \begin{verbatimx}
 s = 0
-for n in range (1,20,2) :  # ce programme est équivalent à
+for n in range (1,20,2) :  # ce programme est Ã©quivalent Ã 
     s += n                 # s = sum (range(1,20,2))
 \end{verbatimx}
 %
 \vspaceneg
-Le programme suivant permet d'afficher tous les éléments d'une liste.
+Le programme suivant permet d'afficher tous les Ã©lÃ©ments d'une liste.
 
 \begin{center}\begin{tabular}{@{}lr@{}}
 \begin{minipage}{8.7cm}
@@ -1148,7 +1222,7 @@ x = ["un", 1, "deux", 2, "trois", 3]
 for n in range (0, len(x)) :
     print("x [%d] = %s" % (n, x [n]))
     
-# le résultat est présenté à droite    
+# le rÃ©sultat est prÃ©sentÃ© Ã  droite    
     
 \end{verbatimx``    
 \end{minipage}
@@ -1172,7 +1246,7 @@ x [5] = 3
 \subsubsection{Boucles et listes}
 \label{liste_for_raccourci}
 %
-Il est possible aussi de ne pas se servir des indices comme intermédiaires pour accéder aux éléments d'une liste quand il s'agit d'effectuer un même traitement pour tous les éléments de la liste ``x``. \vspaceneg
+Il est possible aussi de ne pas se servir des indices comme intermÃ©diaires pour accÃ©der aux Ã©lÃ©ments d'une liste quand il s'agit d'effectuer un mÃªme traitement pour tous les Ã©lÃ©ments de la liste ``x``. \vspaceneg
 %
 \indexkeyword{for}\indexkeyword{in}
 \begin{verbatimx}
@@ -1182,7 +1256,7 @@ for el in x :
 \end{verbatimx``    
 %
 \vspaceneg
-L'instruction ``for el in x :`` se traduit littéralement par : \textit{pour tous les éléments de la liste, faire...`` Ce programme a pour résultat :
+L'instruction ``for el in x :`` se traduit littÃ©ralement par : \textit{pour tous les Ã©lÃ©ments de la liste, faire...`` Ce programme a pour rÃ©sultat :
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1194,7 +1268,7 @@ la liste inclut :  2
 %
 %
 \vspaceneg
-Il existe également des notations abrégées lorsqu'on cherche à construire une liste à partir d'une autre. Le programme suivant construit la liste des entiers de 1 à 5 à partir du résultat retourné par la fonction ``range}.\vspaceneg
+Il existe Ã©galement des notations abrÃ©gÃ©es lorsqu'on cherche Ã  construire une liste Ã  partir d'une autre. Le programme suivant construit la liste des entiers de 1 Ã  5 Ã  partir du rÃ©sultat retournÃ© par la fonction ``range}.\vspaceneg
 \indexfonction{range}\indexkeyword{for}\indexmethod{append}\indexkeyword{in}
 \begin{verbatimx}
 y = list ()
@@ -1204,7 +1278,7 @@ print(y)                                # affiche [1,2,3,4,5]
 \end{verbatimx``    
 %
 \vspaceneg
-Le langage *python* offre la possibilité de résumer cette écriture en une seule ligne. Cette syntaxe sera reprise au paragraphe \ref{liste_for_raccourci2}.
+Le langage *python* offre la possibilitÃ© de rÃ©sumer cette Ã©criture en une seule ligne. Cette syntaxe sera reprise au paragraphe \ref{liste_for_raccourci2}.
 \vspaceneg
 %
 \indexkeyword{for}
@@ -1214,12 +1288,12 @@ print(y)                                # affiche [1,2,3,4,5]
 \end{verbatimx``    
 %
 \vspaceneg
-Cette définition de liste peut également inclure des tests ou des boucles imbriquées.
+Cette dÃ©finition de liste peut Ã©galement inclure des tests ou des boucles imbriquÃ©es.
 \vspaceneg
 %
-\indexkeyword{if}\indexkeyword{for}\indexexemples{écriture condensée}{}
+\indexkeyword{if}\indexkeyword{for}\indexexemples{Ã©criture condensÃ©e}{}
 \begin{verbatimx}
-y = [ i for i in range(0,5) if i % 2 == 0]   # sélection les éléments pairs
+y = [ i for i in range(0,5) if i % 2 == 0]   # sÃ©lection les Ã©lÃ©ments pairs
 print(y)                                     # affiche [0,2,4]        
 z = [ i+j for i in range(0,5) \
           for j in range(0,5)]      # construit tous les nombres i+j possibles
@@ -1228,10 +1302,10 @@ print(z)                            # affiche [0, 1, 2, 3, 4, 1, 2, 3, 4, 5, 2,
 \end{verbatimx``    
 
 
-\subsubsection{Collage de séquences, fonction ``zip}`` \label{fonction_zip}
-\indexfonction{zip}\ifnotellipse{\indexfrr{séquence}{collage}\indextypenoc{séquence}\indexfr{collage de séquences}}\indexfrr{liste}{collage}
+\subsubsection{Collage de sÃ©quences, fonction ``zip}`` \label{fonction_zip}
+\indexfonction{zip}\ifnotellipse{\indexfrr{sÃ©quence}{collage}\indextypenoc{sÃ©quence}\indexfr{collage de sÃ©quences}}\indexfrr{liste}{collage}
 %
-On suppose qu'on dispose de $n$ séquences d'éléments (T-uple, liste), toutes de longueur $l$. La fonction ``zip`` permet de construire une liste de T-uples qui est la juxtaposition de toutes ces séquences. Le $i^\text{ième}$ T-uple de la liste résultante contiendra tous les $i^\text{ième}$ éléments des séquences juxtaposées. Si les longueurs des séquences sont différentes, la liste résultante aura même taille que la plus courte des séquences. \vspaceneg
+On suppose qu'on dispose de $n$ sÃ©quences d'Ã©lÃ©ments (T-uple, liste), toutes de longueur $l$. La fonction ``zip`` permet de construire une liste de T-uples qui est la juxtaposition de toutes ces sÃ©quences. Le $i^\text{iÃ¨me}$ T-uple de la liste rÃ©sultante contiendra tous les $i^\text{iÃ¨me}$ Ã©lÃ©ments des sÃ©quences juxtaposÃ©es. Si les longueurs des sÃ©quences sont diffÃ©rentes, la liste rÃ©sultante aura mÃªme taille que la plus courte des sÃ©quences. \vspaceneg
 %
 \begin{verbatimx}
 a = (1,0,7,0,0,0)
@@ -1243,9 +1317,9 @@ print(d)           # affiche [(1, 2, 'un'),    (0, 2, 'deux'),
 \end{verbatimx}
 
 
-\subsubsection{Concaténation de chaîne de caractères`` \indexfrr{chaîne de caractères}{concaténation}
+\subsubsection{ConcatÃ©nation de chaÃ®ne de caractÃ¨res`` \indexfrr{chaÃ®ne de caractÃ¨res}{concatÃ©nation}
 
-Il arrive fréquemment de constuire une chaîne de caractères petits bouts par petits bouts comme le montre le premier exemple ci-dessous. Cette construction peut s'avérer très lente lorsque le résultat est long. Dans ce cas, il est nettement plus rapide d'ajouter chaque morceau dans une liste puis de les concaténer en une seule fois grâce à la méthode ``join}.\indexmethod{join}
+Il arrive frÃ©quemment de constuire une chaÃ®ne de caractÃ¨res petits bouts par petits bouts comme le montre le premier exemple ci-dessous. Cette construction peut s'avÃ©rer trÃ¨s lente lorsque le rÃ©sultat est long. Dans ce cas, il est nettement plus rapide d'ajouter chaque morceau dans une liste puis de les concatÃ©ner en une seule fois grÃ¢ce Ã  la mÃ©thode ``join}.\indexmethod{join}
 \begin{center}\begin{tabular}{@{}lr@{}}
 \begin{minipage}{6.7cm}
 \begin{verbatimx}
@@ -1270,7 +1344,7 @@ s = "".join (s)
 
 \subsection{Copie}\label{par_liste_copie}
 \indexfrr{liste}{copie}
-A l'inverse des objets de type immuable, une affectation ne signifie pas une copie. Afin d'éviter certaines opérations superflues et parfois coûteuses en temps de traitement, on doit distinguer la variable de son contenu. Une variable désigne une liste avec un mot (ou identificateur), une affection permet de créer un second mot pour désigner la même liste. Il est alors équivalent de faire des opérations avec le premier mot ou le second comme le montre l'exemple suivant avec les listes ``l`` et ``l2``. \vspaceneg
+A l'inverse des objets de type immuable, une affectation ne signifie pas une copie. Afin d'Ã©viter certaines opÃ©rations superflues et parfois coÃ»teuses en temps de traitement, on doit distinguer la variable de son contenu. Une variable dÃ©signe une liste avec un mot (ou identificateur), une affection permet de crÃ©er un second mot pour dÃ©signer la mÃªme liste. Il est alors Ã©quivalent de faire des opÃ©rations avec le premier mot ou le second comme le montre l'exemple suivant avec les listes ``l`` et ``l2``. \vspaceneg
 %
 \begin{verbatimx}
 l  = [4,5,6]
@@ -1283,16 +1357,16 @@ print(l2)           # affiche [4, 'modif', 6]
 \end{verbatimx}
 \vspaceneg
 %
-Dans cet exemple, il n'est pas utile de créer une seconde variable, dans le suivant, cela permet quelques raccourcis. \vspaceneg
+Dans cet exemple, il n'est pas utile de crÃ©er une seconde variable, dans le suivant, cela permet quelques raccourcis. \vspaceneg
 \begin{verbatimx}
 l      = [[0,1], [2,3]]
 l1     = l [0]
-l1 [0] = "modif" # ligne équivalente à : l [0][0] = "modif"
+l1 [0] = "modif" # ligne Ã©quivalente Ã  : l [0][0] = "modif"
 \end{verbatimx}
 \vspaceneg
 %
 \indexmoduleint{copy}\indexfonction{copy}
-Par conséquent, lorsqu'on affecte une liste à une variable, celle-ci n'est pas recopiée, la liste reçoit seulement un nom de variable. L'affectation est en fait l'association d'un nom avec un objet (voir paragraphe \ref{par_copie_objet}). Pour copier une liste, il faut utiliser la fonction ``copy`` du module ``copy}\footnote{Le module \codesnote{copy`` est une extension interne. C'est une librairie de fonctions dont la fonction \codesnote{copy``. Cette syntaxe sera vue au chapitre \ref{chap_module}.``. Ce point sera rappelé au paragraphe \ref{classe_list_dict_ref_par`` (page \pageref{classe_list_dict_ref_par}). \vspaceneg\indexexemples{copie}{}
+Par consÃ©quent, lorsqu'on affecte une liste Ã  une variable, celle-ci n'est pas recopiÃ©e, la liste reÃ§oit seulement un nom de variable. L'affectation est en fait l'association d'un nom avec un objet (voir paragraphe \ref{par_copie_objet}). Pour copier une liste, il faut utiliser la fonction ``copy`` du module ``copy}\footnote{Le module \codesnote{copy`` est une extension interne. C'est une librairie de fonctions dont la fonction \codesnote{copy``. Cette syntaxe sera vue au chapitre \ref{chap_module}.``. Ce point sera rappelÃ© au paragraphe \ref{classe_list_dict_ref_par`` (page \pageref{classe_list_dict_ref_par}). \vspaceneg\indexexemples{copie}{}
 %
 \begin{verbatimx}
 import copy
@@ -1306,7 +1380,7 @@ print(l2)           # affiche [4, 'modif', 6]
 \end{verbatimx}
 %
 \vspaceneg
-L'opérateur ``==`` permet de savoir si deux listes sont égales même si l'une est une copie de l'autre. Le mot-clé ``is}\indexkeyword{is`` permet de vérifier si deux variables font référence à la même liste ou si l'une est une copie de l'autre comme le montre l'exemple suivant :
+L'opÃ©rateur ``==`` permet de savoir si deux listes sont Ã©gales mÃªme si l'une est une copie de l'autre. Le mot-clÃ© ``is}\indexkeyword{is`` permet de vÃ©rifier si deux variables font rÃ©fÃ©rence Ã  la mÃªme liste ou si l'une est une copie de l'autre comme le montre l'exemple suivant :
 \vspaceneg\indexexemples{copie}{}
 %
 \begin{verbatimx}
@@ -1322,7 +1396,7 @@ print(l is l3)  # affiche True
 \vspaceneg
 %
 \begin{xremark}{fonction ``copy`` et ``deepcopy}}
-Le\label{copy_deepopy_remarque_`` comportement de la fonction ``copy`` peut surprendre dans le cas où une liste contient d'autres listes. Pour être sûr que chaque élément d'une liste a été correctement recopiée, il faut utiliser la fonction ``deepcopy}.\indexfonction{deepcopy}\indexmoduleint{copy`` La fonction est plus longue mais elle recopie toutes les listes que ce soit une liste incluse dans une liste elle-même incluse dans une autre liste elle-même incluse...\indexexemples{copie}{}
+Le\label{copy_deepopy_remarque_`` comportement de la fonction ``copy`` peut surprendre dans le cas oÃ¹ une liste contient d'autres listes. Pour Ãªtre sÃ»r que chaque Ã©lÃ©ment d'une liste a Ã©tÃ© correctement recopiÃ©e, il faut utiliser la fonction ``deepcopy}.\indexfonction{deepcopy}\indexmoduleint{copy`` La fonction est plus longue mais elle recopie toutes les listes que ce soit une liste incluse dans une liste elle-mÃªme incluse dans une autre liste elle-mÃªme incluse...\indexexemples{copie}{}
 \vspaceneg
 \begin{verbatimx}
 import copy
@@ -1339,7 +1413,7 @@ print(l [0] is l3 [0])  # affiche False
 \end{verbatimx}
 \vspaceneg
 %
-La fonction ``deepcopy`` est plus lente à exécuter car elle prend en compte les références récursives comme celles de l'exemple suivant où deux listes se contiennent l'une l'autre.\indexexemples{copie}{}
+La fonction ``deepcopy`` est plus lente Ã  exÃ©cuter car elle prend en compte les rÃ©fÃ©rences rÃ©cursives comme celles de l'exemple suivant oÃ¹ deux listes se contiennent l'une l'autre.\indexexemples{copie}{}
 \vspaceneg
 \begin{verbatimx}
 l     = [1,"a"]
@@ -1358,33 +1432,33 @@ print(z)         # affiche [[[...], 3], 'a']
 
 \subsection{Dictionnaire}
 \indextypenoc{dictionnaire}\indextype{dict}\indexclass{dict}
-\indexfr{clé}\indexfr{valeur}\indexfrr{dictionnaire}{valeur}\indexfrr{dictionnaire}{clé}
+\indexfr{clÃ©}\indexfr{valeur}\indexfrr{dictionnaire}{valeur}\indexfrr{dictionnaire}{clÃ©}
 
-Les dictionnaires sont des tableaux plus souples que les listes. Une liste référence les éléments en leur donnant une position : la liste associe à chaque élément une position entière comprise entre 0 et $n-1$ si $n$ est la longueur de la liste. Un dictionnaire permet d'associer à un élément autre chose qu'une position entière : ce peut être un entier, un réel, une chaîne de caractères, un T-uple contenant des objets immuables. D'une manière générale, un dictionnaire associe à une valeur ce qu'on appelle une clé de type immuable. Cette clé permettra de retrouver la valeur associée.
+Les dictionnaires sont des tableaux plus souples que les listes. Une liste rÃ©fÃ©rence les Ã©lÃ©ments en leur donnant une position : la liste associe Ã  chaque Ã©lÃ©ment une position entiÃ¨re comprise entre 0 et $n-1$ si $n$ est la longueur de la liste. Un dictionnaire permet d'associer Ã  un Ã©lÃ©ment autre chose qu'une position entiÃ¨re : ce peut Ãªtre un entier, un rÃ©el, une chaÃ®ne de caractÃ¨res, un T-uple contenant des objets immuables. D'une maniÃ¨re gÃ©nÃ©rale, un dictionnaire associe Ã  une valeur ce qu'on appelle une clÃ© de type immuable. Cette clÃ© permettra de retrouver la valeur associÃ©e.
 
-L'avantage principal des dictionnaires est la recherche optimisée des clés. Par exemple, on recense les noms des employés d'une entreprise dans une liste. On souhaite ensuite savoir si une personne ayant un nom précisé à l'avance appartient à cette liste. Il faudra alors parcourir la liste jusqu'à trouver ce nom ou parcourir toute la liste si jamais celui-ci ne s'y trouve pas\footnote{voir également le paragraphe \ref{recherche_classique_classique}, page \pageref{recherche_classique_classique}``. Dans le cas d'un dictionnaire, cette recherche du nom sera beaucoup plus rapide à écrire et à exécuter.
+L'avantage principal des dictionnaires est la recherche optimisÃ©e des clÃ©s. Par exemple, on recense les noms des employÃ©s d'une entreprise dans une liste. On souhaite ensuite savoir si une personne ayant un nom prÃ©cisÃ© Ã  l'avance appartient Ã  cette liste. Il faudra alors parcourir la liste jusqu'Ã  trouver ce nom ou parcourir toute la liste si jamais celui-ci ne s'y trouve pas\footnote{voir Ã©galement le paragraphe \ref{recherche_classique_classique}, page \pageref{recherche_classique_classique}``. Dans le cas d'un dictionnaire, cette recherche du nom sera beaucoup plus rapide Ã  Ã©crire et Ã  exÃ©cuter.
 
-\subsubsection{Définition et fonctions}
+\subsubsection{DÃ©finition et fonctions}
 %
         \begin{xdefinition}{dictionnaire}
-        Les dictionnaires sont des listes de couples. Chaque couple contient une clé et une valeur.
-        Chaque valeur est indicée par sa clé. La valeur peut-être de tout type, la clé doit être
-        de type immuable, ce ne peut donc être ni une liste, ni un dictionnaire. Chaque clé comme chaque valeur
-        peut avoir un type différent des autres clés ou valeurs.
+        Les dictionnaires sont des listes de couples. Chaque couple contient une clÃ© et une valeur.
+        Chaque valeur est indicÃ©e par sa clÃ©. La valeur peut-Ãªtre de tout type, la clÃ© doit Ãªtre
+        de type immuable, ce ne peut donc Ãªtre ni une liste, ni un dictionnaire. Chaque clÃ© comme chaque valeur
+        peut avoir un type diffÃ©rent des autres clÃ©s ou valeurs.
         \end{xdefinition}
 
 \indexsymbole{:}\indexsymbole{\{\}}\indexsymbole{,}
-Un dictionnaire apparaît comme une succession de couples d'objets comprise entre accolades et séparés par des virgules. La clé et sa valeur sont séparées par le symbole ``:``. Leur création reprend le même format :
+Un dictionnaire apparaÃ®t comme une succession de couples d'objets comprise entre accolades et sÃ©parÃ©s par des virgules. La clÃ© et sa valeur sont sÃ©parÃ©es par le symbole ``:``. Leur crÃ©ation reprend le mÃªme format :
 \vspaceneg
 %
 \begin{verbatimx}
 x = { "cle1":"valeur1", "cle2":"valeur2" }
-y = { }         # crée un dictionnaire vide
-z = dict()      # crée aussi un dictionnaire vide
+y = { }         # crÃ©e un dictionnaire vide
+z = dict()      # crÃ©e aussi un dictionnaire vide
 \end{verbatimx}
 %
 \vspaceneg
-Les indices ne sont plus entiers mais des chaînes de caractères pour cet exemple. Pour associer la valeur à la clé "cle1", il suffit d'écrire :
+Les indices ne sont plus entiers mais des chaÃ®nes de caractÃ¨res pour cet exemple. Pour associer la valeur Ã  la clÃ© "cle1", il suffit d'Ã©crire :
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1393,43 +1467,43 @@ print(x["cle1"])
 \vspaceneg
 %
 %
-La plupart des fonctions disponibles pour les listes sont interdites pour les dictionnaires comme la concaténation ou l'opération de multiplication (``*}). Il n'existe plus non plus d'indices entiers pour repérer les éléments, le seul repère est leur clé. La table \ref{operation_dict`` dresse la liste des opérations simples sur les dictionnaires tandis que la table \ref{operation_dict2`` dresse la liste des méthodes plus complexes.
+La plupart des fonctions disponibles pour les listes sont interdites pour les dictionnaires comme la concatÃ©nation ou l'opÃ©ration de multiplication (``*}). Il n'existe plus non plus d'indices entiers pour repÃ©rer les Ã©lÃ©ments, le seul repÃ¨re est leur clÃ©. La table \ref{operation_dict`` dresse la liste des opÃ©rations simples sur les dictionnaires tandis que la table \ref{operation_dict2`` dresse la liste des mÃ©thodes plus complexes.
 %
 
         \begin{table}[ht]
         \begin{center}\begin{tabularx}{\textwidth}{|lX|`` \hline
-        ``x in d``                & vrai si ``x`` est une des clés de ``d`` \\  \hline
-        ``x not in d``         & réciproque de la ligne précédente \\  \hline
+        ``x in d``                & vrai si ``x`` est une des clÃ©s de ``d`` \\  \hline
+        ``x not in d``         & rÃ©ciproque de la ligne prÃ©cÃ©dente \\  \hline
         ``d[i]``                                & %\begin{minipage}{10cm}
-                                                                    retourne l'élément associé à la clé ``i}
+                                                                    retourne l'Ã©lÃ©ment associÃ© Ã  la clÃ© ``i}
                                                                     %\end{minipage``  
                                                                     \\  \hline
-        ``len(d)``                            & nombre d'éléments de ``d`` \\ \hline
+        ``len(d)``                            & nombre d'Ã©lÃ©ments de ``d`` \\ \hline
         ``min(d)``                            & %\begin{minipage}{10cm}
-                                                                    plus petite clé 
+                                                                    plus petite clÃ© 
                                                                     %\end{minipage`` 
                                                                     \\ \hline
         ``max(d)``                            & %\begin{minipage}{10cm}
-                                                                    plus grande clé 
+                                                                    plus grande clÃ© 
                                                                     %\end{minipage`` 
                                                                     \\ \hline
         ``del \;d [i]``                 &    %\begin{minipage}{10cm}
-                                                                supprime l'élément associé à la clé ``i}
+                                                                supprime l'Ã©lÃ©ment associÃ© Ã  la clÃ© ``i}
                                                                 %\end{minipage`` 
                                                                 \\ \hline
         ``list (d)``                 &    %\begin{minipage}{10cm}
                                                                 retourne une liste contenant 
-                                                                toutes les clés du dictionnaire ``d}.
+                                                                toutes les clÃ©s du dictionnaire ``d}.
                                                                 %\end{minipage`` 
                                                                 \\ \hline
         ``dict (x)``                 &    %\begin{minipage}{10cm}
                                                                   convertit ``x`` en un dictionnaire si cela est possible, 	
-                                                                  ``d`` est alors égal à `` dict ( d.items () ) }
+                                                                  ``d`` est alors Ã©gal Ã  `` dict ( d.items () ) }
                                                                   %\end{minipage`` 
                                                                   \\ \hline
         \end{tabularx}\end{center}
-        \caption{ Opérations disponibles sur les dictionnaires, \codescaption{d`` est un dictionnaire,
-                            \codescaption{x`` est quant à lui quelconque.}
+        \caption{ OpÃ©rations disponibles sur les dictionnaires, \codescaption{d`` est un dictionnaire,
+                            \codescaption{x`` est quant Ã  lui quelconque.}
         \indexfonctionbis{len}\indexfonction{min}\indexfonction{max}\indexkeyword{del}
 				\indexsymbole{[]}\indexkeyword{in}\indexkeyword{not}\indexfonction{len}
         \label{operation_dict}
@@ -1442,14 +1516,14 @@ La plupart des fonctions disponibles pour les listes sont interdites pour les di
         \begin{table}[ht]
         \begin{center}\begin{tabularx}{\textwidth}{|lX|`` \hline
         ``d.copy ()``                & Retourne une copie de ``d``. \\  \hline
-        ``d.has\_key (x)``    & Retourne ``True`` si ``x`` est une clé de ``d``. \\  \hline
+        ``d.has\_key (x)``    & Retourne ``True`` si ``x`` est une clÃ© de ``d``. \\  \hline
         ``d.items ()``            & %\begin{minipage}{10cm}
-                                                            Retourne une liste contenant tous les couples (clé, valeur)
+                                                            Retourne une liste contenant tous les couples (clÃ©, valeur)
                                                           inclus dans le dictionnaire.
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.keys ()``            &     %\begin{minipage}{10cm}
-                                                            Retourne une liste contenant toutes les clés du dictionnaire ``d}.
+                                                            Retourne une liste contenant toutes les clÃ©s du dictionnaire ``d}.
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.values ()``        &     %\begin{minipage}{10cm}
@@ -1458,44 +1532,44 @@ La plupart des fonctions disponibles pour les listes sont interdites pour les di
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.iteritems()``    &     %\begin{minipage}{10cm}
-                                                            Retourne un itérateur sur les couples (clé, valeur).
+                                                            Retourne un itÃ©rateur sur les couples (clÃ©, valeur).
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.iterkeys ()``    &     %\begin{minipage}{10cm}
-                                                            Retourne un itérateur sur les clés.
+                                                            Retourne un itÃ©rateur sur les clÃ©s.
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.itervalues ()``    & %\begin{minipage}{10cm}
-                                                            Retourne un itérateur sur les valeurs.
+                                                            Retourne un itÃ©rateur sur les valeurs.
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.get (k[,x])``    &     %\begin{minipage}{10cm}
-                                                            Retourne ``d [k]}, si la clé ``k`` est manquante, alors
-                                                            la valeur ``None`` est retournée à moins 
-                                                            que le paramètre optionnel ``x}
-                                                            soit renseigné, auquel cas, ce sera ce paramètre qui sera retourné.
+                                                            Retourne ``d [k]}, si la clÃ© ``k`` est manquante, alors
+                                                            la valeur ``None`` est retournÃ©e Ã  moins 
+                                                            que le paramÃ¨tre optionnel ``x}
+                                                            soit renseignÃ©, auquel cas, ce sera ce paramÃ¨tre qui sera retournÃ©.
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.clear ()``    &         %\begin{minipage}{10cm}
-                                                            Supprime tous les éléments du dictionnaire.
+                                                            Supprime tous les Ã©lÃ©ments du dictionnaire.
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.update (d2)``    &     %\begin{minipage}{10cm}
-                                                            Le dictionnaire ``d`` reçoit le contenu de ``d2}.
+                                                            Le dictionnaire ``d`` reÃ§oit le contenu de ``d2}.
                                                             %\end{minipage``  
                                                             \\  \hline
         \begin{tabular}{@{}l`` ``d.setdefault(}\\``k[,x])}\end{tabular``    & %\begin{minipage}{10cm}
-                                    Définit ``d [k]`` si la clé ``k`` existe, sinon, lui affecte ``x}
-                                    à ``d[k]}.
+                                    DÃ©finit ``d [k]`` si la clÃ© ``k`` existe, sinon, lui affecte ``x}
+                                    Ã  ``d[k]}.
                                                             %\end{minipage``  
                                                             \\  \hline
         ``d.popitem ()``    &     %\begin{minipage}{10cm}
-                                                            Retourne un élément et le supprime du dictionnaire.
+                                                            Retourne un Ã©lÃ©ment et le supprime du dictionnaire.
                                                             %\end{minipage``  
                                                             \\  \hline
         \end{tabularx}\end{center}
-        \caption{ Méthodes associées aux dictionnaires, \codescaption{d}, \codescaption{d2`` sont des dictionnaires,
-                            \codescaption{x`` est quant à lui quelconque.}
+        \caption{ MÃ©thodes associÃ©es aux dictionnaires, \codescaption{d}, \codescaption{d2`` sont des dictionnaires,
+                            \codescaption{x`` est quant Ã  lui quelconque.}
 				\indexmethod{copy}\indexmethod{has\_key}\indexmethod{items}\indexmethod{keys}\indexmethod{values}
 				\indexmethod{iteritems}\indexmethod{itervalues}\indexmethod{get}\indexmethod{clear}\indexmethod{update}
 				\indexmethod{setdefault}\indexmethod{popitem}
@@ -1503,19 +1577,19 @@ La plupart des fonctions disponibles pour les listes sont interdites pour les di
         \end{table``                            
 
 
-Contrairement à une liste, un dictionnaire ne peut être trié car sa structure interne est optimisée pour effectuer des recherches rapides parmi les éléments. On peut aussi se demander quel est l'intérêt de la méthode ``popitem`` qui retourne un élément puis le supprime alors qu'il existe le mot-clé ``del``. Cette méthode est simplement plus rapide car elle choisit à chaque fois l'élément le moins coûteux à supprimer, surtout lorsque le dictionnaire est volumineux.
+Contrairement Ã  une liste, un dictionnaire ne peut Ãªtre triÃ© car sa structure interne est optimisÃ©e pour effectuer des recherches rapides parmi les Ã©lÃ©ments. On peut aussi se demander quel est l'intÃ©rÃªt de la mÃ©thode ``popitem`` qui retourne un Ã©lÃ©ment puis le supprime alors qu'il existe le mot-clÃ© ``del``. Cette mÃ©thode est simplement plus rapide car elle choisit Ã  chaque fois l'Ã©lÃ©ment le moins coÃ»teux Ã  supprimer, surtout lorsque le dictionnaire est volumineux.
 
-%\indexfr{itérateur}
-Les itérateurs sont des objets qui permettent de parcourir rapidement un dictionnaire, ils seront décrits en détail au chapitre \ref{chap_classe`` sur les classes. Un exemple de leur utilisation est présenté dans le paragraphe suivant.
+%\indexfr{itÃ©rateur}
+Les itÃ©rateurs sont des objets qui permettent de parcourir rapidement un dictionnaire, ils seront dÃ©crits en dÃ©tail au chapitre \ref{chap_classe`` sur les classes. Un exemple de leur utilisation est prÃ©sentÃ© dans le paragraphe suivant.
 
 
 
 \subsubsection{Exemples}\indexfrr{dictionnaire}{exemple}
-Il n'est pas possible de trier un dictionnaire. L'exemple suivant permet néanmoins d'afficher tous les éléments d'un dictionnaire selon un ordre croissant des clés. Ces exemples font appel aux paragraphes sur les boucles (voir chapitre \ref{chap_boucle}).
+Il n'est pas possible de trier un dictionnaire. L'exemple suivant permet nÃ©anmoins d'afficher tous les Ã©lÃ©ments d'un dictionnaire selon un ordre croissant des clÃ©s. Ces exemples font appel aux paragraphes sur les boucles (voir chapitre \ref{chap_boucle}).
 \vspaceneg
 %
 \begin{verbatimx}
-d = { "un":1, "zéro":0, "deux":2, "trois":3, "quatre":4, "cinq":5, \
+d = { "un":1, "zÃ©ro":0, "deux":2, "trois":3, "quatre":4, "cinq":5, \
        "six":6, "sept":1, "huit":8, "neuf":9, "dix":10 }
 key = d.keys ()
 key.sort ()
@@ -1524,16 +1598,16 @@ for k in key:
 \end{verbatimx}
 %
 \vspaceneg
-L'exemple suivant montre un exemple d'utilisation des itérateurs. Il s'agit de construire un dictionnaire inversé pour lequel les valeurs seront les clés et réciproquement.\indexexemples{dictionnaire}{}
+L'exemple suivant montre un exemple d'utilisation des itÃ©rateurs. Il s'agit de construire un dictionnaire inversÃ© pour lequel les valeurs seront les clÃ©s et rÃ©ciproquement.\indexexemples{dictionnaire}{}
 \vspaceneg
 %
 \begin{verbatimx}
 d = { "un":1,   "zero":0, "deux":2, "trois":3, "quatre":4, "cinq":5, \
       "six":6,  "sept":1, "huit":8, "neuf":9,  "dix":10 }
        
-dinv = { }                      # création d'un dictionnaire vide, on parcout
-for key,value in d.items ()  :  # les éléments du dictionnaire comme si
-                                # c'était une liste de 2-uple (clé,valeur)
+dinv = { }                      # crÃ©ation d'un dictionnaire vide, on parcout
+for key,value in d.items ()  :  # les Ã©lÃ©ments du dictionnaire comme si
+                                # c'Ã©tait une liste de 2-uple (clÃ©,valeur)
     dinv [value] = key          # on retourne le dictionnaire
 
 print(dinv)                     # affiche {0: 'zero', 1: 'un', 2: 'deux', 
@@ -1542,7 +1616,7 @@ print(dinv)                     # affiche {0: 'zero', 1: 'un', 2: 'deux',
 \end{verbatimx}
 %
 \vspaceneg
-Pour être plus efficace, on peut remplacer la ligne ``for key,value in d.items () :``  par : ``for key,value in d.iteritems () :``. De cette manière, on parcourt les éléments du dictionnaire sans créer de liste intermédiaire. Il est équivalent d'utiliser l'une ou l'autre au sein d'une boucle même si le programme suivant montre une différence.
+Pour Ãªtre plus efficace, on peut remplacer la ligne ``for key,value in d.items () :``  par : ``for key,value in d.iteritems () :``. De cette maniÃ¨re, on parcourt les Ã©lÃ©ments du dictionnaire sans crÃ©er de liste intermÃ©diaire. Il est Ã©quivalent d'utiliser l'une ou l'autre au sein d'une boucle mÃªme si le programme suivant montre une diffÃ©rence.
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1552,7 +1626,7 @@ print(d.items())
 print(d.iteritems())
 \end{verbatimx}
 \vspaceneg
-Il a pour résultat :
+Il a pour rÃ©sultat :
 \vspaceneg
 \begin{verbatimx}
 [('trois', 3), ('sept', 1), ('neuf', 9), ('six', 6), ('zero', 0), 
@@ -1564,7 +1638,7 @@ Il a pour résultat :
 \vspaceneg
 
 \begin{xremark}{modification d'un dictionnaire dans une boucle}
-D'une manière générale, il faut éviter d'ajouter ou de supprimer un élément dans une liste ou un dictionnaire qu'on est en train de parcourir au sein d'une boucle ``for`` ou ``while}.\indexkeyword{for`` Cela peut marcher mais cela peut aussi aboutir à des résultats imprévisibles surtout avec l'utilisation d'itérateurs (fonction ``iteritems}, ``itervalues}, ``iterkeys}).\indexmethod{iteritems}\indexmethod{iterkeys}\indexmethod{itervalues`` Il est préférable de terminer le parcours de la liste ou du dictionnaire puis de faire les modifications désirées une fois la boucle terminée. Dans le meilleur des cas, l'erreur suivante survient :
+D'une maniÃ¨re gÃ©nÃ©rale, il faut Ã©viter d'ajouter ou de supprimer un Ã©lÃ©ment dans une liste ou un dictionnaire qu'on est en train de parcourir au sein d'une boucle ``for`` ou ``while}.\indexkeyword{for`` Cela peut marcher mais cela peut aussi aboutir Ã  des rÃ©sultats imprÃ©visibles surtout avec l'utilisation d'itÃ©rateurs (fonction ``iteritems}, ``itervalues}, ``iterkeys}).\indexmethod{iteritems}\indexmethod{iterkeys}\indexmethod{itervalues`` Il est prÃ©fÃ©rable de terminer le parcours de la liste ou du dictionnaire puis de faire les modifications dÃ©sirÃ©es une fois la boucle terminÃ©e. Dans le meilleur des cas, l'erreur suivante survient :
 \vspaceneg
 \begin{verbatimx}
   File "essai.py", line 6, in <module>
@@ -1576,7 +1650,7 @@ RuntimeError: dictionary changed size during iteration
 
 \subsubsection{Copie}\label{par_dictionnaire_copie}
 \indexfrr{dictionnaire}{copie}
-A l'instar des listes (voir paragraphe \ref{par_liste_copie}), les dictionnaires sont des objets et une affectation n'est pas équivalente à une copie comme le montre le programme suivant. 
+A l'instar des listes (voir paragraphe \ref{par_liste_copie}), les dictionnaires sont des objets et une affectation n'est pas Ã©quivalente Ã  une copie comme le montre le programme suivant. 
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1591,7 +1665,7 @@ print(d2)           # affiche {4: 4, 5: 'modif', 6: 6}
 \vspaceneg
 %
 \indexmoduleint{copy}\indexfonction{copy}
-Lorsqu'on affecte une liste à une variable, celle-ci n'est pas recopiée, la liste reçoit seulement un nom de variable. L'affectation est en fait l'association d'un nom avec un objet (voir paragraphe \ref{par_copie_objet}). Pour copier une liste, il faut utiliser la fonction ``copy`` du module ``copy}.\indexexemples{copie}{}
+Lorsqu'on affecte une liste Ã  une variable, celle-ci n'est pas recopiÃ©e, la liste reÃ§oit seulement un nom de variable. L'affectation est en fait l'association d'un nom avec un objet (voir paragraphe \ref{par_copie_objet}). Pour copier une liste, il faut utiliser la fonction ``copy`` du module ``copy}.\indexexemples{copie}{}
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1606,12 +1680,12 @@ print(d2)           # affiche {4: 4, 5: 'modif', 6: 6}
 \end{verbatimx}
 %
 \vspaceneg
-Le mot-clé ``is`` a la même signification pour les dictionnaires que pour les listes, l'exemple du paragraphe \ref{par_liste_copie`` (page \pageref{par_liste_copie}) est aussi valable pour les dictionnaires. Il en est de même pour la remarque concernant la fonction ``deepcopy``. Cette fonction recopie les listes et les dictionnaires.
+Le mot-clÃ© ``is`` a la mÃªme signification pour les dictionnaires que pour les listes, l'exemple du paragraphe \ref{par_liste_copie`` (page \pageref{par_liste_copie}) est aussi valable pour les dictionnaires. Il en est de mÃªme pour la remarque concernant la fonction ``deepcopy``. Cette fonction recopie les listes et les dictionnaires.
 
 
-\subsubsection{Clés de type modifiable``  \label{cle_dict_modificalbe_apr}\indexfrr{dictionnaire}{clé modifiable}
+\subsubsection{ClÃ©s de type modifiable``  \label{cle_dict_modificalbe_apr}\indexfrr{dictionnaire}{clÃ© modifiable}
 
-Ce paragraphe concerne davantage des utilisateurs avertis qui souhaitent malgré tout utiliser des clés de type modifiable. Dans l'exemple qui suit, la clé d'un dictionnaire est également un dictionnaire et cela provoque une erreur. Il en serait de même si la variable ``k`` utilisée comme clé était une liste.
+Ce paragraphe concerne davantage des utilisateurs avertis qui souhaitent malgrÃ© tout utiliser des clÃ©s de type modifiable. Dans l'exemple qui suit, la clÃ© d'un dictionnaire est Ã©galement un dictionnaire et cela provoque une erreur. Il en serait de mÃªme si la variable ``k`` utilisÃ©e comme clÃ© Ã©tait une liste.
 \vspaceneg
 \begin{center}\begin{tabular}{@{}lr@{}}
 \begin{minipage}{5.7cm}
@@ -1636,7 +1710,7 @@ TypeError: dict objects are unhashable
 \end{center}
 %
 \vspaceneg
-Cela ne veut pas dire qu'il faille renoncer à utiliser un dictionnaire ou une liste comme clé. La fonction ``id}\indexfonctionbis{id`` permet d'obtenir un entier qui identifie de manière unique tout objet. Le code suivant est parfaitement correct.
+Cela ne veut pas dire qu'il faille renoncer Ã  utiliser un dictionnaire ou une liste comme clÃ©. La fonction ``id}\indexfonctionbis{id`` permet d'obtenir un entier qui identifie de maniÃ¨re unique tout objet. Le code suivant est parfaitement correct.
 \vspaceneg
 \begin{verbatimx}
 k = { 1:1}
@@ -1644,21 +1718,21 @@ d = { }
 d [id (k)] = 0
 \end{verbatimx}
 \vspaceneg
-Toutefois, ce n'est pas parce que deux dictionnaires auront des contenus identiques que leurs identifiants retournés par la fonction ``id`` seront égaux. C'est ce qui explique l'erreur que provoque la dernière ligne du programme suivant.
+Toutefois, ce n'est pas parce que deux dictionnaires auront des contenus identiques que leurs identifiants retournÃ©s par la fonction ``id`` seront Ã©gaux. C'est ce qui explique l'erreur que provoque la derniÃ¨re ligne du programme suivant.
 \vspaceneg\indexexemples{\codesindex{id}}{}
 \begin{verbatimx}
 k = {1:1}
 d = { }
 d [id (k)] = 0
 b = k
-print(d[id(b)])  # affiche bien zéro
+print(d[id(b)])  # affiche bien zÃ©ro
 c = {1:1}
-print(d[id(c)])  # provoque une erreur car même si k et c ont des contenus égaux,
-                 # ils sont distincts, la clé id(c) n'existe pas dans d
+print(d[id(c)])  # provoque une erreur car mÃªme si k et c ont des contenus Ã©gaux,
+                 # ils sont distincts, la clÃ© id(c) n'existe pas dans d
 \end{verbatimx}
 \vspaceneg
 %
-Il existe un cas où on peut se passer de la fonction ``id`` mais il inclut la notion de classe définie au chapitre \ref{chap_classe``. L'exemple suivant utilise directement l'instance ``k`` comme clé. En affichant le dictionnaire ``d}, on vérifie que la clé est liée au résultat de l'instruction ``id(k)`` même si ce n'est pas la clé.\indexexemples{\codesindex{id}}{}
+Il existe un cas oÃ¹ on peut se passer de la fonction ``id`` mais il inclut la notion de classe dÃ©finie au chapitre \ref{chap_classe``. L'exemple suivant utilise directement l'instance ``k`` comme clÃ©. En affichant le dictionnaire ``d}, on vÃ©rifie que la clÃ© est liÃ©e au rÃ©sultat de l'instruction ``id(k)`` mÃªme si ce n'est pas la clÃ©.\indexexemples{\codesindex{id}}{}
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1673,7 +1747,7 @@ print(d [id(k)])           # provoque une erreur
 \end{verbatimx}
 %
 \vspaceneg
-La fonction ``hex}\indexfonction{hex`` convertit un entier en notation hexadécimale. Les nombres affichés changent à chaque exécution. Pour conclure, ce dernier exemple montre comment se passer de la fonction ``id`` dans le cas d'une clé de type dictionnaire.
+La fonction ``hex}\indexfonction{hex`` convertit un entier en notation hexadÃ©cimale. Les nombres affichÃ©s changent Ã  chaque exÃ©cution. Pour conclure, ce dernier exemple montre comment se passer de la fonction ``id`` dans le cas d'une clÃ© de type dictionnaire.
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1693,17 +1767,17 @@ print(d)         # affiche {{'t': 4}: 0}
 
 
 
-\subsection{Mot-clé ``print}, ``repr}, conversion en chaîne de caractères}
+\subsection{Mot-clÃ© ``print}, ``repr}, conversion en chaÃ®ne de caractÃ¨res}
 \indexkeyword{print}
 \indexfonction{repr}
 \indexfonction{str}
 \indexfonction{eval}
-\indexfrr{chaîne de caractères}{conversion}\indexfr{conversion}
+\indexfrr{chaÃ®ne de caractÃ¨res}{conversion}\indexfr{conversion}
 \label{fonction_print_eval}
 
-Le mot-clé ``print`` est déjà apparu dans les exemples présentés ci-dessus, il permet d'afficher une ou plusieurs variables préalablement définies, séparées par des virgules. Les paragraphes qui suivent donnent quelques exemples d'utilisation. La fonction ``print`` permet d'afficher n'importe quelle variable ou objet à l'écran, cet affichage suppose la conversion de cette variable ou objet en une chaîne de caractères. Deux fonctions permettent d'effectuer cette étape sans toutefois afficher le résultat à l'écran.
+Le mot-clÃ© ``print`` est dÃ©jÃ  apparu dans les exemples prÃ©sentÃ©s ci-dessus, il permet d'afficher une ou plusieurs variables prÃ©alablement dÃ©finies, sÃ©parÃ©es par des virgules. Les paragraphes qui suivent donnent quelques exemples d'utilisation. La fonction ``print`` permet d'afficher n'importe quelle variable ou objet Ã  l'Ã©cran, cet affichage suppose la conversion de cette variable ou objet en une chaÃ®ne de caractÃ¨res. Deux fonctions permettent d'effectuer cette Ã©tape sans toutefois afficher le rÃ©sultat Ã  l'Ã©cran.
 
-La fonction ``str`` (voir paragraphe \ref{fonction_str}) permet de convertir toute variable en chaîne de caractères. Il existe cependant une autre fonction ``repr}, qui effectue cette conversion. Dans ce cas, le résultat peut être interprété par la fonction ``eval`` (voir paragraphe \ref{fonction_eval}) qui se charge de la conversion inverse. Pour les types simples comme ceux présentés dans ce chapitre, ces deux fonctions retournent des résultats identiques. Pour l'exemple, ``x`` désigne n'importe quelle variable.
+La fonction ``str`` (voir paragraphe \ref{fonction_str}) permet de convertir toute variable en chaÃ®ne de caractÃ¨res. Il existe cependant une autre fonction ``repr}, qui effectue cette conversion. Dans ce cas, le rÃ©sultat peut Ãªtre interprÃ©tÃ© par la fonction ``eval`` (voir paragraphe \ref{fonction_eval}) qui se charge de la conversion inverse. Pour les types simples comme ceux prÃ©sentÃ©s dans ce chapitre, ces deux fonctions retournent des rÃ©sultats identiques. Pour l'exemple, ``x`` dÃ©signe n'importe quelle variable.
 %
 \vspaceneg
 \begin{verbatimx}
@@ -1715,7 +1789,7 @@ x == eval (str (x)) # n'est pas toujours vrai
 \subsection{Fonction ``eval}}
 
 \indexfonction{eval}\label{fonction_eval}\label{eval_fonction_chapitre_deux}
-Comme le suggère le paragraphe précédent, la fonction ``eval`` permet d'évaluer une chaîne de caractères ou plutôt de l'interpréter comme si c'était une instruction en *python*. Le petit exemple suivant permet de tester toutes les opérations de calcul possibles entre deux entiers.\indexexemples{\codesindex{eval}}{}
+Comme le suggÃ¨re le paragraphe prÃ©cÃ©dent, la fonction ``eval`` permet d'Ã©valuer une chaÃ®ne de caractÃ¨res ou plutÃ´t de l'interprÃ©ter comme si c'Ã©tait une instruction en *python*. Le petit exemple suivant permet de tester toutes les opÃ©rations de calcul possibles entre deux entiers.\indexexemples{\codesindex{eval}}{}
 \vspaceneg
 %
 %
@@ -1729,7 +1803,7 @@ for o in op :
 \end{verbatimx}
 %
 \vspaceneg
-Ceci aboutit au résultat suivant :
+Ceci aboutit au rÃ©sultat suivant :
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1747,7 +1821,7 @@ Ceci aboutit au résultat suivant :
 32 >>  9  =  0
 \end{verbatimx}
 %
-Le programme va créer une chaîne de caractères pour chacune des opérations et celle-ci sera évaluée grâce à la fonction ``eval`` comme si c'était une expression numérique. Il faut bien sûr que les variables que l'expression mentionne existent durant son évaluation. 
+Le programme va crÃ©er une chaÃ®ne de caractÃ¨res pour chacune des opÃ©rations et celle-ci sera Ã©valuÃ©e grÃ¢ce Ã  la fonction ``eval`` comme si c'Ã©tait une expression numÃ©rique. Il faut bien sÃ»r que les variables que l'expression mentionne existent durant son Ã©valuation. 
 
 
 
@@ -1756,53 +1830,53 @@ Le programme va créer une chaîne de caractères pour chacune des opérations et ce
 \subsection{Informations fournies par *python*}
 
 \indexfonction{dir}
-Bien que les fonctions ne soient définies que plus tard (paragraphe \ref{par_fonction}), il peut être intéressant de mentionner la fonction ``dir`` qui retourne la liste de toutes les variables créées et accessibles à cet instant du programme. L'exemple suivant :
+Bien que les fonctions ne soient dÃ©finies que plus tard (paragraphe \ref{par_fonction}), il peut Ãªtre intÃ©ressant de mentionner la fonction ``dir`` qui retourne la liste de toutes les variables crÃ©Ã©es et accessibles Ã  cet instant du programme. L'exemple suivant :
 \vspaceneg
 \begin{verbatimx}
 x = 3
 print(dir())
 \end{verbatimx}
 \vspaceneg
-Retourne le résultat suivant :
+Retourne le rÃ©sultat suivant :
 \vspaceneg
 \begin{verbatimx}
 ['__builtins__', '__doc__', '__file__', '__name__', 'x']
 \end{verbatimx}
 \vspaceneg
 %
-Certaines variables - des chaînes des caractères - existent déjà avant même la première instruction. Elles contiennent différentes informations concernant l'environnement dans lequel est exécuté le programme *python* :
+Certaines variables - des chaÃ®nes des caractÃ¨res - existent dÃ©jÃ  avant mÃªme la premiÃ¨re instruction. Elles contiennent diffÃ©rentes informations concernant l'environnement dans lequel est exÃ©cutÃ© le programme *python* :
 \indexsymbole{"""}
 
         \begin{center}\begin{tabularx}{\textwidth}{|lX|}\hline
         ``\_\_builtins\_\_``     &    %\begin{minipage}{10cm}
-                                                                Ce module contient tous les éléments présents dès le début d'un
+                                                                Ce module contient tous les Ã©lÃ©ments prÃ©sents dÃ¨s le dÃ©but d'un
                                                                 programme *python*, il contient entre autres 
-                                                                les types présentés dans ce 
+                                                                les types prÃ©sentÃ©s dans ce 
                                                                 chapitre et des fonctions simples comme ``range}.
                                                                 %\end{minipage}
                                                                 \\ \hline
         ``\_\_doc\_\_``             &    %\begin{minipage}{10cm}
-                                                                C'est une chaîne commentant le fichier, c'est une chaîne de caractères
-                                                                insérée aux premières lignes
-                                                                du fichiers et souvent entourée des symboles ``"""`` 
+                                                                C'est une chaÃ®ne commentant le fichier, c'est une chaÃ®ne de caractÃ¨res
+                                                                insÃ©rÃ©e aux premiÃ¨res lignes
+                                                                du fichiers et souvent entourÃ©e des symboles ``"""`` 
                                                                 (voir chapitre \ref{chap_module}).
                                                                 %\end{minipage}
                                                                 \\ \hline
-        ``\_\_file\_\_``             &    Contient le nom du fichier où est écrit ce programme.    \\ \hline
+        ``\_\_file\_\_``             &    Contient le nom du fichier oÃ¹ est Ã©crit ce programme.    \\ \hline
         ``\_\_name\_\_``             &    Contient le nom du module.        \\ \hline
         \end{tabularx}\end{center`` 
         \indexfr{\codesindex{\_\_builtins\_\_}}\indexfr{\codesindex{\_\_doc\_\_}}\indexfr{\codesindex{\_\_file\_\_}}
         \indexfr{\codesindex{\_\_name\_\_}}
 
-La fonction ``dir`` est également pratique pour afficher toutes les fonctions d'un module. L'instruction ``dir(sys)`` affiche la liste des fonctions du module ``sys`` (voir chapitre \ref{chap_module}).
+La fonction ``dir`` est Ã©galement pratique pour afficher toutes les fonctions d'un module. L'instruction ``dir(sys)`` affiche la liste des fonctions du module ``sys`` (voir chapitre \ref{chap_module}).
 
 \begin{xremark}{fonction ``dir}}
-La fonction ``dir`` appelée sans argument donne la liste des fonctions et variables définies à cet endroit du programme. Ce résultat peut varier selon qu'on se trouver dans une fonction, une méthode de classe ou à l'extérieur du programme. L'instruction ``dir([])`` donne la liste des méthodes qui s'appliquent à une liste.
+La fonction ``dir`` appelÃ©e sans argument donne la liste des fonctions et variables dÃ©finies Ã  cet endroit du programme. Ce rÃ©sultat peut varier selon qu'on se trouver dans une fonction, une mÃ©thode de classe ou Ã  l'extÃ©rieur du programme. L'instruction ``dir([])`` donne la liste des mÃ©thodes qui s'appliquent Ã  une liste.
 \end{xremark}
 
 
 \indexfonctionbis{type}
-De la même manière, la fonction ``type`` retourne une information concernant le type d'une variable.\vspaceneg
+De la mÃªme maniÃ¨re, la fonction ``type`` retourne une information concernant le type d'une variable.\vspaceneg
 %
 \begin{verbatimx}
 x = 3
@@ -1822,19 +1896,19 @@ print(x, type(x))     # affiche 3.5 <type 'float'>
 \subsection{Affectations multiples}
 \label{affectation_multiple}
 
-Il est possible d'effectuer en *python* plusieurs affectations simultanément.
+Il est possible d'effectuer en *python* plusieurs affectations simultanÃ©ment.
 \vspaceneg
 \indexsymbole{,}\indexsymbole{=}
 \begin{verbatimx}
-x = 5       # affecte 5 à x
-y = 6       # affecte 6 à y
-x,y = 5,6   # affecte en une seule instruction 5 à x et 6 à y
+x = 5       # affecte 5 Ã  x
+y = 6       # affecte 6 Ã  y
+x,y = 5,6   # affecte en une seule instruction 5 Ã  x et 6 Ã  y
 \end{verbatimx}
 %
 \indexfrr{affectation}{multiple}\indexfonction{divmod}
 %
 \vspaceneg
-Cette particularité reviendra lorsque les fonctions seront décrites puisqu'il est possible qu'une fonction retourne plusieurs résultats comme la fonction ``divmod`` illustrée par le programme suivant.
+Cette particularitÃ© reviendra lorsque les fonctions seront dÃ©crites puisqu'il est possible qu'une fonction retourne plusieurs rÃ©sultats comme la fonction ``divmod`` illustrÃ©e par le programme suivant.
 \vspaceneg
 %
 \indexfonction{divmod}
@@ -1846,7 +1920,7 @@ print("17 / 5 = 5 * ", x, " + ", y)  # affiche 17 / 5 = 5 *  3  +  2
 %
 %
 \vspaceneg
-Le langage *python* offre la possibilité d'effectuer plusieurs affectations sur la même ligne. Dans l'exemple qui suit, le couple $\pa{5,5}$ est affecté à la variable ``point}, puis le couple ``x}, ``y`` reçoit les deux valeurs du T-uple ``point}.
+Le langage *python* offre la possibilitÃ© d'effectuer plusieurs affectations sur la mÃªme ligne. Dans l'exemple qui suit, le couple $\pa{5,5}$ est affectÃ© Ã  la variable ``point}, puis le couple ``x}, ``y`` reÃ§oit les deux valeurs du T-uple ``point}.
 \vspaceneg
 %
 \begin{verbatimx}
@@ -1856,7 +1930,7 @@ x,y = point = 5,5
 
 \subsection{Type ``long}}
 \indextype{long}
-Le type ``long`` permet d'écrire des entiers aussi grands que l'on veut. Le langage *python* passe automatiquement du type ``int`` à ``long`` lorsque le nombre considéré devient trop grand. Ils se comportent de la même manière excepté que les opérations sur des types ``long`` sont plus longues en temps d'exécution\footnote{La différence dépend des opérations effectuées.}.
+Le type ``long`` permet d'Ã©crire des entiers aussi grands que l'on veut. Le langage *python* passe automatiquement du type ``int`` Ã  ``long`` lorsque le nombre considÃ©rÃ© devient trop grand. Ils se comportent de la mÃªme maniÃ¨re exceptÃ© que les opÃ©rations sur des types ``long`` sont plus longues en temps d'exÃ©cution\footnote{La diffÃ©rence dÃ©pend des opÃ©rations effectuÃ©es.}.
 
 \begin{center}\begin{tabular}{@{}lr@{}}
 \begin{minipage}{6.7cm}
@@ -1884,7 +1958,7 @@ for k in range (0,4) :
 
 \subsection{Ensemble}
 \indexclass{set}
-Le langage *python* définit également ce qu'on appelle un ensemble.\indexfrr{type}{ensemble}\indextype{set}\indextype{frozenset`` Il est défini par les classes ``set`` de type modifiable et la classe ``frozenset`` de type immuable. Ils n'acceptent que des types identiques et offrent la plupart des opérations liées aux ensembles comme l'intersection, l'union.\indexfr{union}\indexfr{intersection`` D'un usage moins fréquent, ils ne seront pas plus détaillés\footnote{La page \httpstyle{http://docs.python.org/library/stdtypes.html\#set`` décrit l'ensemble des fonctionnalités qui leur sont attachées.}.\indexexemples{\codesindex{set}}{}
+Le langage *python* dÃ©finit Ã©galement ce qu'on appelle un ensemble.\indexfrr{type}{ensemble}\indextype{set}\indextype{frozenset`` Il est dÃ©fini par les classes ``set`` de type modifiable et la classe ``frozenset`` de type immuable. Ils n'acceptent que des types identiques et offrent la plupart des opÃ©rations liÃ©es aux ensembles comme l'intersection, l'union.\indexfr{union}\indexfr{intersection`` D'un usage moins frÃ©quent, ils ne seront pas plus dÃ©taillÃ©s\footnote{La page \httpstyle{http://docs.python.org/library/stdtypes.html\#set`` dÃ©crit l'ensemble des fonctionnalitÃ©s qui leur sont attachÃ©es.}.\indexexemples{\codesindex{set}}{}
 \vspaceneg
 \begin{verbatimx}
 print(set ( (1,2,3) ) & set ( (2,3,5) )  )
@@ -1894,7 +1968,7 @@ print(set ( (1,2,3) ) & set ( (2,3,5) )  )
 
 %\ifnotellipse{
 \vspaceneg
-Ce chapitre a présenté les différents types de variables définis par le langage *python* pour manipuler des données ainsi que les opérations possibles avec ces types de données. Le chapitre suivant va présenter les tests, les boucles et les fonctions qui permettent de réaliser la plupart des programmes informatiques.
+Ce chapitre a prÃ©sentÃ© les diffÃ©rents types de variables dÃ©finis par le langage *python* pour manipuler des donnÃ©es ainsi que les opÃ©rations possibles avec ces types de donnÃ©es. Le chapitre suivant va prÃ©senter les tests, les boucles et les fonctions qui permettent de rÃ©aliser la plupart des programmes informatiques.
 %}
 
 
@@ -1905,7 +1979,11 @@ Ce chapitre a présenté les différents types de variables définis par le langage 
 
 
 
+https://docs.python.org/3/library/stdtypes.html#internal-objects
 
+
+
+https://docs.python.org/3/reference/datamodel.html#types
 
 
 
