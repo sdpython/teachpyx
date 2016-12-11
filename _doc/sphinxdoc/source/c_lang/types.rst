@@ -957,8 +957,8 @@ de caractères d'un `encoding <https://fr.wikipedia.org/wiki/Codage_des_caract%C
 .. runpython::
     :showcode:
     
-    b = "abc".decode("utf-8")
-    s = b.encode(b, "ascii")
+    b = "abc".encode("utf-8")
+    s = b.decode(b, "ascii")
     print(b, s)
     print(type(b), type(s))
     
