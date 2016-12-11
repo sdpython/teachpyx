@@ -1159,14 +1159,16 @@ de l'exemple suivant.
 .. runpython::
     :showcode:
     
+    from functools import cmp_to_key
+    
     def compare (x,y):           # crée une fonction
         if   x >  y : return -1  # qui retourne -1 si x<y,
         elif x == y : return 0   # 0 si x == y
         else        : return 1   # 1 si x < y
 
     x = [9,0,3,5,4,7,8]
-    x.sort(compare)              # trie la liste x à l'aide de la fonction compare
-                                 # cela revient à la trier par ordre décroissant
+    x.sort(key=cmp_to_key(compare))     # trie la liste x à l'aide de la fonction compare
+                                        # cela revient à la trier par ordre décroissant
     print(x)
 
 L'exemple suivant illustre un exemple dans lequel on essaye 
