@@ -1645,7 +1645,7 @@ sans créer de liste intermédiaire. Ceci explique ce qu'affiche le programme su
     d = { "un":1,   "zero":0, "deux":2, "trois":3, "quatre":4, "cinq":5, \
           "six":6,  "sept":1, "huit":8, "neuf":9,  "dix":10 }
     print(d.items())
-    print(list(d.items())
+    print(list(d.items()))
            
 
 D'une manière générale, il faut éviter d'ajouter ou de supprimer un élément 
