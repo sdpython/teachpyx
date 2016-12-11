@@ -958,7 +958,7 @@ de caractères d'un `encoding <https://fr.wikipedia.org/wiki/Codage_des_caract%C
     :showcode:
     
     b = "abc".encode("utf-8")
-    s = b.decode(b, "ascii")
+    s = b.decode("ascii")
     print(b, s)
     print(type(b), type(s))
     
