@@ -948,7 +948,7 @@ par **b** :
     print(b, type(b)
     
     b = bytes.fromhex('2Ef0 F1f2  ')
-    print(b, type(b)
+    print(b, type(b))
 
 Le type *bytes* est très utilisé quand il s'agit de convertit une chaîne
 de caractères d'un `encoding <https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res>`_
