@@ -945,7 +945,7 @@ par **b** :
     :showcode:
     
     b = b"345"
-    print(b, type(b)
+    print(b, type(b))
     
     b = bytes.fromhex('2Ef0 F1f2  ')
     print(b, type(b))
