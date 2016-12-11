@@ -1387,8 +1387,6 @@ dans le suivant, cela permet quelques raccourcis.
 .. runpython::
     :showcode:
 
-::
-
     l      = [[0,1], [2,3]]
     l1     = l [0]
     l1 [0] = "modif" # ligne équivalente à : l [0][0] = "modif"
