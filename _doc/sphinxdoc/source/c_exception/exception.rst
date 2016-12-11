@@ -2,6 +2,8 @@
 
 .. _l-exception:
 
+.. _chap_exception:
+
 ==========
 Exceptions
 ==========
