@@ -1164,7 +1164,8 @@ de l'exemple suivant.
         elif x == y : return 0   # 0 si x == y
         else        : return 1   # 1 si x < y
 
-    x.sort (compare)             # trie la liste x à l'aide de la fonction compare
+    x = [9,0,3,5,4,7,8]
+    x.sort(compare)              # trie la liste x à l'aide de la fonction compare
                                  # cela revient à la trier par ordre décroissant
     print(x)
 
