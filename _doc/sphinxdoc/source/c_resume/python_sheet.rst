@@ -216,7 +216,7 @@ méthodes suivantes :
         seront remplacées.
     * - ``split( [sep [,maxsplit]])``
       - Découpe la chaîne de caractères en se servant de la chaîne ``sep`` comme
-        délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit}
+        délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit``
         coupures seront effectuées.
     * - ``upper()``
       - Remplace les minuscules par des majuscules.
@@ -369,7 +369,7 @@ on suppose que ``l`` et ``t`` sont des listes, ``i`` et ``j`` sont des entiers.
       - Insère l'élément ``x`` à la position ``i`` dans la liste ``l``.
     * - ``l.remove (x)``
       - Supprime la première occurence de l'élément ``x`` dans la liste ``l``.
-        S'il n'y a aucune occurrence de ``x}, cette méthode déclenche
+        S'il n'y a aucune occurrence de ``x``, cette méthode déclenche
         une exception.
     * - ``l.pop ([i])``
       - Retourne l'élément ``l[i]`` et le supprime de la liste. Le
@@ -378,12 +378,10 @@ on suppose que ``l`` et ``t`` sont des listes, ``i`` et ``j`` sont des entiers.
     * - ``l.reverse (x)``
       - Retourne la liste, le premier et dernier élément échangent leurs places,
         le second et l'avant dernier, et ainsi de suite.
-    * - ``l.sort ([f])``
+    * - ``l.sort([key=None, reverse=False])``
       - Cette fonction trie la liste par ordre croissant. Le paramètre ``f``
-        est facultatif, il permet de préciser la fonction de comparaison qui doit
-        être utilisée lors du tri. Cette fonction prend comme paramètre 
-        deux éléments ``x`` et ``y`` de la liste et retourne les valeurs ``-1, 0, 1``
-        selon que ``x < y``, ``x == y`` ou ``x > y``.
+        est facultatif, il permet de préciser une fonction qui associe une clé de tri à
+        chaque élément. Le paramètre *reverse* permet de trier dans un sens ou dans l'autre.
         
 
 Opérations permettant de modifier une liste
@@ -1252,7 +1250,12 @@ méthode ``split`` des chaînes de caractères.
 Modules
 =======
 
-Le concept de module permet de répartir différentes parties d'un programme sur plusieurs fichiers. Il existe deux types de modules : ceux disponibles sur Internet (programmés par d'autres) et ceux que l'on programme soi-même. Les premiers sont souvent fournis avec un programme d'installation automatique ou dans le cas où ils sont manquants, des instructions permettant de l'installer. Les seconds sont écrits dans le même répertoire que le fichier principal. On enregistre le module suivant sous le nom ``geometrie.py}.
+Le concept de module permet de répartir différentes parties d'un programme sur plusieurs fichiers. 
+Il existe deux types de modules : ceux disponibles sur Internet (programmés par d'autres) 
+et ceux que l'on programme soi-même. Les premiers sont souvent fournis avec un programme 
+d'installation automatique ou dans le cas où ils sont manquants, des instructions 
+permettant de l'installer. Les seconds sont écrits dans le même répertoire que le fichier 
+principal. On enregistre le module suivant sous le nom ``geometrie.py``.
 
 
 :: 
