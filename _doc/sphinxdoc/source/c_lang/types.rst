@@ -211,7 +211,7 @@ ils se comprennent à partir de la représentation binaire des nombres entiers.
     * - opérateur
       - signification
       - exemple
-    * - ``<<`` ``>>``
+    * - ``<< >>``
       - décalage à gauche, à droite
       - ``x = 8 << 1`` 
     * - ``|``
@@ -349,7 +349,7 @@ et une chaîne de caractères est syntaxiquement correcte même si le résultat 
     * - opérateur
       - signification
       - exemple
-    * - ``< >
+    * - ``< >``
       - inférieur, supérieur
       - ``x = 5  < 5``
     * - ``<= >=``
@@ -534,13 +534,13 @@ de la chaîne de caractères.
       - ``t = "abc" + "def"``
     * - ``+=``
       - concaténation puis affectation
-      - ``t += "abc"
+      - ``t += "abc"``
     * - ``in``, ``not in``
       - une chaîne en contient-elle une autre ?
-      - ``"ed" in "med"
+      - ``"ed" in "med"``
     * - ``*``
       - répétition d'une chaîne de caractères
-      - ``t = "abc" * 4
+      - ``t = "abc" * 4``
     * - ``[n]``
       - obtention du enième caractère, le premier
         caractère a pour indice 0
@@ -580,7 +580,7 @@ Cette syntaxe ``variable.fonction(arguments)`` est celle des classes.
         la recherche n'a pas abouti.
     * - ``isalpha()``
       - Retourne ``True`` si tous les caractères sont des lettres, ``False`` sinon.
-    * - ``isdigit()
+    * - ``isdigit()``
       -  Retourne ``True`` si tous les caractères sont des chiffres, ``False`` sinon.
     * - ``replace( old, new[, count])``
       - Retourne une copie de la chaîne de caractères en remplaçant toutes les
@@ -704,7 +704,7 @@ Exemple :
     print("%1.2f" % x)   # affiche 0.12
     print("%06.2f" % x)  # affiche 000.12
 
-Il existe d'autres formats regroupés dans la table \ref{format_print``. 
+Il existe d'autres formats regroupés dans la table :ref:`format_print`. 
 L'aide reste encore le meilleur réflexe car le langage *python* 
 est susceptible d'évoluer et d'ajouter de nouveaux formats.
 
@@ -1069,7 +1069,7 @@ qui s'appliquent sur les chaînes de caractères, elles sont présentées par la
       - réciproque de la ligne précédente
     * - ``l + t``
       - concaténation de ``l`` et ``t``
-    * - ``l * n ``
+    * - ``l * n``
       - concatène ``n`` copies de ``l`` les unes à la suite des autres
     * - ``l[i]``
       - retourne l'élément i$^\text{ème}$ élément de ``l``,
@@ -1096,7 +1096,7 @@ qui s'appliquent sur les chaînes de caractères, elles sont présentées par la
       - plus grand élément de ``l``
     * - ``sum(l)``
       - retourne la somme de tous les éléments
-    * - ``del \;l [i:j]``
+    * - ``del l [i:j]``
       - supprime les éléments d'indices entre ``i`` et ``j`` exclu.
         Cette instruction est équivalente à ``l [i:j] = []``.
     * - ``list (x)``
@@ -1128,13 +1128,11 @@ qui s'appliquent sur les chaînes de caractères, elles sont présentées par la
     * - ``l.reverse (x)``
       - Retourne la liste, le premier et dernier élément échange leurs places,
         le second et l'avant dernier, et ainsi de suite.
-    * - ``l.sort ([f, }\\ ``reverse])``
-      - Cette fonction trie la liste par ordre croissant. Le paramètre ``f``
-        est facultatif, il permet de préciser la fonction de comparaison qui doit
-        être utilisée lors du tri. Cette fonction prend comme paramètre 
-        deux éléments ``x`` et ``y`` de la liste et retourne les valeurs -1,0,1 
-        selon que ``x < y``, ``x == y`` ou ``x > y`` (voir paragraphe :ref:`chap_fonction`).
-        Si ``rev`` est ``True``, alors le tri est décroissant.
+    * - ``l.sort ([key=None, reverse=False])``
+      - Cette fonction trie la liste par ordre croissant. Le paramètre ``key``
+        est facultatif, il permet de préciser la clé de comparaison qui doit
+        être utilisée lors du tri. 
+        Si ``reverse`` est ``True``, alors le tri est décroissant.
 
 
 Exemples
@@ -1581,7 +1579,7 @@ le seul repère est leur clé. La table suivante dresse la liste des opérations
     * - ``d.update(d2)``
       - Le dictionnaire ``d`` reçoit le contenu de ``d2``.
     * - ``d.setdefault(k[,x])``
-      - Définit ``d[k]`` si la clé ``k`` existe, sinon, affecte ``x`` à ``d[k]}
+      - Définit ``d[k]`` si la clé ``k`` existe, sinon, affecte ``x`` à ``d[k]``
     * - ``d.pop()``
       - Retourne un élément et le supprime du dictionnaire.
 
