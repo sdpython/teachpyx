@@ -9,7 +9,7 @@ Précis
     
     python_sheet
 
-*Autres lines*
+*Autres liens*
 
 * `Rappel de programmation <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html#rappels-de-programmation>`_
 * `Cheat Sheets <http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/cheat_sheets.html>`_

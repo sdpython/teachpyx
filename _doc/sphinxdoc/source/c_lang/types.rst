@@ -913,7 +913,7 @@ Les opérations qu'on peut faire dessus sont quasiment identiques :
         recherche entre les octets d'indice ``start`` et ``end`` exclu. Par défaut,
         ``start`` est nul tandis que ``end`` correspond à la fin de la séquence d'octets.
     * - ``find( sub[, start[, end]])``
-      - Recherche une séquence d'octets``sub``,
+      - Recherche une séquence d'octets ``sub``,
         les paramètres par défaut ``start`` et ``end`` ont la même signification
         que ceux de la fonction ``count``. Cette fonction retourne -1 si 
         la recherche n'a pas abouti.
@@ -1983,7 +1983,7 @@ puis le couple ``x``, ``y`` reçoit les deux valeurs du tuple ``point``.
 Hiérarchie des objets
 +++++++++++++++++++++
 
-La page ` <https://docs.python.org/3/reference/datamodel.html#types>`_ décrit les différentes
+La page `modèle de données <https://docs.python.org/3/reference/datamodel.html#types>`_ décrit les différentes
 catégories d'objets du langage. Des objets de la même classe propose des fonctionnalités similaires.
 
 
