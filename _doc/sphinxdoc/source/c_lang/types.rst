@@ -1130,9 +1130,10 @@ qui s'appliquent sur les chaînes de caractères, elles sont présentées par la
         le second et l'avant dernier, et ainsi de suite.
     * - ``l.sort ([key=None, reverse=False])``
       - Cette fonction trie la liste par ordre croissant. Le paramètre ``key``
-        est facultatif, il permet de préciser la clé de comparaison qui doit
+        est facultatif, il permet de préciser la fonction qui précise clé de comparaison qui doit
         être utilisée lors du tri. 
         Si ``reverse`` est ``True``, alors le tri est décroissant.
+        Lire `Sorting HOW TO <https://docs.python.org/3/howto/sorting.html#sortinghowto>`_.
 
 
 Exemples
@@ -1157,16 +1158,12 @@ de l'exemple suivant.
 .. runpython::
     :showcode:
     
-    from functools import cmp_to_key
-    
-    def compare (x,y):           # crée une fonction
-        if   x >  y : return -1  # qui retourne -1 si x<y,
-        elif x == y : return 0   # 0 si x == y
-        else        : return 1   # 1 si x < y
+    def compare_key(x):
+        return -x
 
     x = [9,0,3,5,4,7,8]
-    x.sort(key=cmp_to_key(compare))     # trie la liste x à l'aide de la fonction compare
-                                        # cela revient à la trier par ordre décroissant
+    x.sort(key=compare_key)     # trie la liste x à l'aide de la fonction compare
+                                # cela revient à la trier par ordre décroissant
     print(x)
 
 L'exemple suivant illustre un exemple dans lequel on essaye 
