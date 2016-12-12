@@ -1765,8 +1765,7 @@ L'exemple suivant utilise directement l'instance ``k`` comme clé.
 En affichant le dictionnaire ``d``, on vérifie que la clé est liée au résultat 
 de l'instruction ``id(k)`` même si ce n'est pas la clé.
 
-.. runpython::
-    :showcode:
+::
 
     class A : pass
 
@@ -1774,8 +1773,8 @@ de l'instruction ``id(k)`` même si ce n'est pas la clé.
     d = { }
     d [k] = 0
     print(d)                   # affiche {<__main__.A object at 0x0120DB90>: 0}
-    print(id (k), hex(id(k)))  # affiche 18930576, 0x120db90
-    print(d [id(k)])           # provoque une erreur
+    print(id(k), hex(id(k)))   # affiche 18930576, 0x120db90
+    print(d[id(k)])            # provoque une erreur
 
 La fonction `hex <https://docs.python.org/3/library/functions.html?highlight=id#hex>`_
 convertit un entier en notation hexadécimale. Les nombres affichés changent 
