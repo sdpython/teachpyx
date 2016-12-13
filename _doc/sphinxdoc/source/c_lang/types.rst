@@ -7,6 +7,8 @@ Types et variables du langage python
 Variables
 =========
 
+.. index:: variabl
+
 Il est impossible d'écrire un programme sans utiliser de variable. 
 Ce terme désigne le fait d'attribuer un nom ou identificateur à des informations : 
 en les nommant, on peut manipuler ces informations beaucoup plus facilement. 
@@ -30,6 +32,7 @@ par exemple ``somme`` de manière à conserver le résultat des sommes interméd
         somme = somme + i       # on ajoute le i ème élément à somme
     print(somme)
 
+.. index:: identificateur, type
 
 .. mathdef::
     :title: variable
@@ -45,10 +48,12 @@ par exemple ``somme`` de manière à conserver le résultat des sommes interméd
 
 Comme le typage est dynamique en *python*, le type n'est pas précisé explicitement, 
 il est implicitement liée à l'information manipulée. Par exemple, en écrivant, 
-``x = 3.4``, on ne précise pas le type de la variable ``x`` 
+``x=3.4``, on ne précise pas le type de la variable ``x`` 
 mais il est implicite car :math:`x` reçoit une valeur réelle : 
 ``x`` est de type réel ou `float` en *python*. Pour leur première initialisation, 
 une variable reçoit dans la plupart des cas une constante :
+
+.. index:: constante
 
 .. mathdef::
     :title: constante
@@ -86,7 +91,7 @@ du programme mais n'en faisant pas partie comme dans l'exemple qui suit.
     x = 3          # affectation de la valeur entière 3 à la variable x
     y = 3.0        # affectation de la valeur réelle 3.0 à la variable y
 
-.. index:: backslash
+.. index:: backslash, \
 
 Le *python* impose une instruction par ligne. Il n'est pas possible d'utiliser 
 deux lignes pour écrire une affectation à moins de conclure chaque ligne qui 
@@ -202,7 +207,7 @@ par deux. De même, ``7 & 2`` s'écrit ``1011 & 10 = 10``, qui vaut 2 en base d�
 Les opérateurs ``<<``, ``>>``, ``|``, ``&`` sont des opérateurs bit à bit, 
 ils se comprennent à partir de la représentation binaire des nombres entiers.
 
-.. index:: <<, >>, |, &, +, -, +=, -=, *, /, *=, /=, **, %
+.. index:: <<, >>, |, &, +, -, +=, -=, *, /, *=, /=, **, %, opérateur
 
 .. list-table::
     :widths: 3 10 5
@@ -276,7 +281,7 @@ enlever les doutes : ``3 * 2 ** 4 = 3 * (2 ** 4)``.
 La page `Opertor Precedence <https://docs.python.org/3/reference/expressions.html#operator-precedence>`_
 est plus complète à ce sujet.
 
-.. index:: division entière
+.. index:: division entière, //
 
 *python* propose l'opérateur ``//`` pour les divisions entières
 et c'est une rare exception parmi les languages
@@ -312,6 +317,8 @@ valeurs possibles : ``True`` ou ``False``.
 Voici la liste des `opérateurs <https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not>`_ 
 qui s'appliquent aux booléens.
 
+.. index:: or, and, not, opérateur
+
 .. list-table::
     :widths: 3 10 5
     :header-rows: 1
@@ -339,7 +346,7 @@ réels, chaînes de caractères, tuples... Une comparaison entre un entier
 et une chaîne de caractères est syntaxiquement correcte même si le résultat a peu d'intérêt.
 
 
-.. index:: <, >, <=, >=, !=, ==, comparaison
+.. index:: <, >, <=, >=, !=, ==, comparaison, opérateur
 
 
 .. list-table::
@@ -366,6 +373,8 @@ Toutefois, pour cet exemple, *python* accepte l'écriture résumée
 qui enchaîne des comparaisons : ``3 < x and x < 7`` est 
 équivalent à ``3 < x < 7``. Il existe deux autres mots-clés 
 qui retournent un résultat de type booléen :
+
+.. index:: in, is, opérateur
 
 .. list-table::
     :widths: 3 10 5
@@ -421,6 +430,8 @@ L'exemple suivant montre comment
 créer une chaîne de caractères. Il ne faut pas confondre la partie entre 
 guillemets ou apostrophes, qui est une constante, de la variable qui la contient.
 
+.. index:: ", """, ', ''', \
+
 .. runpython::
     :showcode:
 
@@ -458,6 +469,8 @@ encadrée elle-même par des guillemets, il faut le faire précéder
 du symbole ``\``. La séquence ``\`` est appelée un extra-caractère
 (voir table :ref:`extra_caractere`) ou un caractère d'échappement.
 
+.. index:: \n, \\, \%, \t, \r, extra caractère
+
 .. list-table::
     :widths: 3 10
     :header-rows: 1
@@ -490,6 +503,8 @@ Il est plus simple dans ce cas de préfixer la chaîne de caractères par ``r``
 de façon à éviter que l'utilisation du symbole ``\`` ne désigne un caractère 
 spécial. Les deux lignes suivantes sont équivalentes : 
 
+.. index:: r"", r''
+
 ::
 
     s = "C:\\Users\\Dupre\\exemple.txt"
@@ -521,6 +536,8 @@ de la chaîne de caractères.
     s = str (x)
     print(type(s), s)   # <type 'str'> 5.567
     print(len(s))       # affiche 5
+    
+.. index:: +, *, +=, *=, opérateur, [], [:]
 
 .. list-table::
     :widths: 3 10 5
@@ -563,6 +580,8 @@ est le résultat de cette manipulation.
 La table :ref:`string_method` présente une liste non exhaustive 
 des fonctions disponibles dont un exemple d'utilisation suit. 
 Cette syntaxe ``variable.fonction(arguments)`` est celle des classes.
+
+.. index:: count, find, upper, lower, split, join, startswith, endswith
 
 .. list-table::
     :widths: 10 20
@@ -640,6 +659,8 @@ qu'une liste est un tableau. ``reverse`` retourne le tableau.
 
 Formatage d'une chaîne de caractères
 ++++++++++++++++++++++++++++++++++++
+
+.. index:: %, %f, %d, %s, formattage
 
 Syntaxe %
 ^^^^^^^^^
@@ -729,6 +750,8 @@ est susceptible d'évoluer et d'ajouter de nouveaux formats.
 Méthode format
 ^^^^^^^^^^^^^^
 
+.. index:: format, formmattage
+
 La méthode `format <https://docs.python.org/3/library/stdtypes.html#str.format>`_
 propose plus d'options pour formatter le texte et son usage est de plus en plus fréquent.
 La méthode interprète les accolades ``{}`` comme des codes qu'elle remplace
@@ -788,6 +811,8 @@ Dates :
 tuple
 +++++
 
+.. index:: tuple
+
 .. mathdef::
     :title: tuple
     :tag: Définition
@@ -813,6 +838,8 @@ Etant donné que les chaînes de caractères sont également des tableaux,
 ces opérations reprennent en partie celles des :ref:`_string_paragraphe_chaine`
 et décrites par le paragraphe 
 `Common Sequence Operations <https://docs.python.org/3/library/stdtypes.html#typesseq-common>`_.
+
+.. index:: +, +=, *, *=, in, [], [:], opérateur
 
 .. _l-type-tuple-op:
 
@@ -877,6 +904,7 @@ Pour changer cet élément, il est possible de s'y prendre de la manière suivan
 Nombres complexes
 +++++++++++++++++
 
+.. index:: complex
 
 Il existe d'autres types comme le type `complex <https://docs.python.org/3/library/functions.html#complex>`_ 
 permettant de représenter les nombres complexes. 
@@ -898,10 +926,14 @@ mais ils seront définis à partir des types immuables présentés jusqu'ici.
 bytes
 +++++
 
+.. index:: bytes
+
 Le type `bytes <https://docs.python.org/3/library/stdtypes.html#bytes>`_
 représente un tableau d'octets. Il fonctionne quasiment pareil que le type
 `str <https://docs.python.org/3/library/stdtypes.html#string-methods>`_.
 Les opérations qu'on peut faire dessus sont quasiment identiques : 
+
+.. index:: count, find, replace, split, join, startswith, endswith
 
 .. list-table::
     :widths: 10 20
@@ -937,6 +969,7 @@ Les opérations qu'on peut faire dessus sont quasiment identiques :
     * - ...
       - Lire `Bytes and Bytearray Operations <https://docs.python.org/3/library/stdtypes.html#bytes-methods>`_.
 
+.. index:: b"", b'', fromhex
 
 Pour déclarer un tableau de *bytes*, il faut préfixer une chaîne de caractères
 par **b** :
@@ -949,6 +982,8 @@ par **b** :
     
     b = bytes.fromhex('2Ef0 F1f2  ')
     print(b, type(b))
+    
+.. index:: encode, decode
 
 Le type *bytes* est très utilisé quand il s'agit de convertit une chaîne
 de caractères d'un `encoding <https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res>`_
@@ -976,10 +1011,7 @@ sont utiles dès qu'une chaîne de caractères contient un caractère non anglai
 Types modifiables ou mutable
 ============================
 
-.. index:: mutable
-
-
-
+.. index:: mutable, modifiable, type modifiable, type mutable
 
 
 Les types modifiables sont des conteneurs (ou containers en anglais) : 
@@ -999,6 +1031,8 @@ on en n'utilise qu'une seule qui désigne ces dix objets.
 On pourrait penser que les types modifiables sont plus pratiques à l'usage
 mais ce qu'on gagne en souplesse, on le perd en taille mémoire.
 
+.. index:: getsizeof
+
 
 .. runpython::
     :showcode:
@@ -1010,6 +1044,8 @@ mais ce qu'on gagne en souplesse, on le perd en taille mémoire.
 
 bytearray
 +++++++++
+
+.. index:: bytearray
 
 Le type `bytearray <https://docs.python.org/3/library/functions.html#bytearray>`_
 est la version *mutable* du type :ref:`l-type-bytes`.
@@ -1054,6 +1090,8 @@ et incluent d'autres fonctionnalités puisque les listes sont modifiables.
 Il est donc possible d'insérer, de supprimer des éléments, de les trier. 
 La syntaxe des opérations sur les listes est similaire à celle des opérations 
 qui s'appliquent sur les chaînes de caractères, elles sont présentées par la table suivante.
+
+.. index:: +, *, +=, *=, opérateur, in, not, [], [:], len, min, max, insert, pop, sort, reverse, append, extend, index
 
 .. _operation_liste:
 
@@ -1154,6 +1192,8 @@ Pour classer les objets contenus par la liste mais selon un ordre
 différent, il faut définir une fonction qui détermine un ordre entre 
 deux éléments de la liste. C'est la fonction ``compare`` 
 de l'exemple suivant.
+
+.. index:: sort
 
 .. runpython::
     :showcode:
@@ -1263,6 +1303,8 @@ Le programme suivant permet d'afficher tous les éléments d'une liste.
 Boucles et listes
 ^^^^^^^^^^^^^^^^^
 
+.. index:: liste en extension
+
 Il est possible aussi de ne pas se servir des indices comme intermédiaires 
 pour accéder aux éléments d'une liste quand il s'agit d'effectuer un 
 même traitement pour tous les éléments de la liste ``x``.
@@ -1314,6 +1356,8 @@ Cette définition de liste peut également inclure des tests ou des boucles imbr
 Collage de séquences, fonction zip
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. index:: zip
+
 On suppose qu'on dispose de *n* séquences d'éléments (tuple, liste), toutes de 
 longueur *l*. La fonction `zip <https://docs.python.org/3/library/functions.html#zip>`_ 
 permet de construire une liste de tuples qui est la juxtaposition de toutes 
@@ -1333,6 +1377,8 @@ différentes, la liste résultante aura même taille que la plus courte des séq
 
 Concaténation de chaîne de caractères
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. index:: concaténation
 
 Il arrive fréquemment de constuire une chaîne de caractères petits
 bouts par petits bouts comme le montre le premier exemple ci-dessous. 
@@ -1356,6 +1402,8 @@ dans une liste puis de les concaténer en une seule fois grâce à la méthode
 
 Copie
 +++++
+
+.. index:: copie, copy, deepcopy
 
 A l'inverse des objets de type immuable, une affectation ne signifie 
 pas une copie. Afin d'éviter certaines opérations superflues et 
@@ -1477,6 +1525,7 @@ comme celles de l'exemple suivant où deux listes se contiennent l'une l'autre.
 Dictionnaire
 ++++++++++++
 
+.. index:: dictionnaire, dict
 
 Les dictionnaires sont des tableaux plus souples que les listes. 
 Une liste référence les éléments en leur donnant une position : 
@@ -1498,6 +1547,8 @@ rapide à écrire et à exécuter.
 
 Définition et fonctions
 ^^^^^^^^^^^^^^^^^^^^^^^
+
+.. index:: clé, valeur
 
 .. mathdef::
     :tag: Définition
@@ -1533,6 +1584,7 @@ pour les dictionnaires comme la concaténation ou l'opération de multiplication
 (``*``). Il n'existe plus non plus d'indices entiers pour repérer les éléments, 
 le seul repère est leur clé. La table suivante dresse la liste des opérations sur les dictionnaires.
 
+.. index:: in, [], [:], min, len, max, del, items, keys, values, pop, get
 
 .. list-table::
     :widths: 10 20
@@ -1663,6 +1715,8 @@ Dans le meilleur des cas, l'erreur suivante survient :
 Copie
 ^^^^^
 
+.. index:: copy, copie
+
 A l'instar des listes (voir paragraphe :ref:`par_liste_copie`), 
 les dictionnaires sont des objets et une affectation n'est pas 
 équivalente à une copie comme le montre le programme suivant. 
@@ -1733,6 +1787,8 @@ une liste comme clé. La fonction `id <https://docs.python.org/3/library/functio
 permet d'obtenir un entier qui identifie de manière unique tout objet.
 Le code suivant est parfaitement correct.
 
+.. index:: id
+
 :: 
 
     k = { 1:1}
@@ -1794,6 +1850,8 @@ de la fonction ``id`` dans le cas d'une clé de type dictionnaire.
 Ensemble ou set
 +++++++++++++++
 
+.. index:: set, &, frozen set
+
 Le langage *python* définit également ce qu'on appelle un ensemble.
 Il est défini par les classes `set <>`_ 
 de type modifiable et la classe 
@@ -1824,6 +1882,8 @@ Extensions
 Fonction ``print``, ``repr`` et conversion en chaîne de caractères
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+.. index:: print, repr
+
 La fonction ``print`` est déjà apparue dans les exemples présentés ci-dessus, 
 elle permet d'afficher une ou plusieurs variables préalablement définies, 
 séparées par des virgules. Les paragraphes qui suivent donnent quelques 
@@ -1832,6 +1892,10 @@ permet d'afficher n'importe quelle variable ou objet à l'écran, cet affichage
 suppose la conversion de cette variable ou objet en une chaîne de caractères. 
 Deux fonctions permettent d'effectuer cette étape sans 
 toutefois afficher le résultat à l'écran.
+
+**Point à retenir :** la fonction ``print`` ne change pas le programme, elle affiche à l'écran 
+le résultat d'une variable sans la modifier. Cela revient à écouter un programme avec un stéthoscope
+pour comprendre comment il fonctionne sans altérer son fonctionnement.
 
 La fonction `str <https://docs.python.org/3/library/functions.html?highlight=id#func-str>`_
 (voir paragraphe :ref:`fonction_str` permet de convertir toute variable en 
@@ -1855,6 +1919,8 @@ Pour l'exemple, ``x`` désigne n'importe quelle variable.
     
 Fonction ``eval``
 +++++++++++++++++
+
+.. index:: eval
 
 Comme le suggère le paragraphe précédent, la fonction 
 `eval <https://docs.python.org/3/library/functions.html?highlight=id#eval>`_ 
@@ -1884,6 +1950,7 @@ variables que l'expression mentionne existent durant son évaluation.
 Informations fournies par *python*
 ++++++++++++++++++++++++++++++++++
 
+.. index:: dir
 
 Bien que les fonctions ne soient définies que plus tard 
 (paragraphe :ref:`par_fonction`, il peut être intéressant de mentionner 
@@ -1900,6 +1967,8 @@ instant du programme. L'exemple suivant :
 Certaines variables - des chaînes des caractères - existent déjà avant même 
 la première instruction. Elles contiennent différentes informations concernant 
 l'environnement dans lequel est exécuté le programme *python* :
+
+.. index:: __builtins__, __doc__, __file__, __name__
 
 .. list-table::
     :widths: 5 10
@@ -1933,6 +2002,8 @@ selon qu'on se trouver dans une fonction, une méthode de classe ou à
 l'extérieur du programme. L'instruction ``dir([])`` donne la liste 
 des méthodes qui s'appliquent à une liste.
 
+.. index:: type
+
 De la même manière, la fonction 
 `type <https://docs.python.org/3/library/functions.html?highlight=id#type>`_
 retourne une information concernant le type d'une variable.
@@ -1950,6 +2021,8 @@ retourne une information concernant le type d'une variable.
 Affectations multiples
 ++++++++++++++++++++++
 
+.. index:: affectation multiple, =
+
 Il est possible d'effectuer en *python* plusieurs affectations simultanément.
 
 ::
@@ -1962,6 +2035,8 @@ Cette particularité reviendra lorsque les fonctions seront décrites
 puisqu'il est possible qu'une fonction retourne plusieurs résultats 
 comme la fonction `divmod <https://docs.python.org/3/library/functions.html?highlight=divmod#divmod>`_
 illustrée par le programme suivant.
+
+.. index:: divmod
 
 .. runpython::
     :showcode:

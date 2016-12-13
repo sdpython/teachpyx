@@ -8,6 +8,8 @@
 Exceptions
 ==========
 
+.. index:: exception, division par zéro
+
 Le petit programme suivant déclenche une erreur parce qu'il effectue une
 division par zéro.
 
@@ -56,6 +58,8 @@ la fonction qui retourne l'inverse d'un nombre.
    b = inverse(0)
    print(b)
 
+.. index:: pile d'exécution, pile d'appels
+
 Lorsque ``x == 0``, le programme effectue une division par zéro et
 déclenche une erreur. L'interpréteur Python affiche ce qu'on appelle la 
 *pile d'appels* ou `pile d'exécution <https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution>`_.
@@ -74,6 +78,8 @@ jusqu'à celle où l'erreur s'est produite.
 Afin de rattraper l'erreur, on insère le code susceptible de produire
 une erreur entre les mots clés `try <https://docs.python.org/3/reference/compound_stmts.html#try>`_ 
 et `except <https://docs.python.org/3/reference/compound_stmts.html#except>`_.
+
+.. index:: try, except
 
 .. runpython::
     :showcode:
@@ -215,6 +221,8 @@ donné en accolant au mot-clé ``except`` le type de l'exception qu'on désire
 attraper. L'exemple précédent est équivalent au suivant mais
 syntaxiquement différent. 
 
+.. index:: as
+
 .. runpython::
     :showcode:
 
@@ -272,6 +280,8 @@ Lorsqu'une fonction ou une méthode déclenche une
 exception non standard, généralement, le commentaire qui lui est associé
 l'indique. Quelques types d'exception courantes :
 
+.. index:: AttributeError, OSError, IndentationError, ImportError, IndexError, KeyError, UnicodeError, ValueError
+
 * `AttributeError <https://docs.python.org/3/library/exceptions.html#AttributeError>`_ : 
   Une référence à un attribut inexistant ou une affectation a échoué. 
 * `OSError <https://docs.python.org/3/library/exceptions.html#OSError>`_ :
@@ -308,6 +318,8 @@ l'indique. Quelques types d'exception courantes :
 
 Lancer une exception
 ++++++++++++++++++++
+
+.. index:: raise
 
 Lorsqu'une fonction détecte une erreur, il lui est possible de
 déclencher une exception par l'intermédiaire du mot-clé ``raise``. 
@@ -373,6 +385,8 @@ faut utiliser la syntaxe décrite au paragraphe précédent.
 Héritage et exception
 +++++++++++++++++++++
 
+.. index:: héritage
+
 L'instruction ``help(ZeroDivisionError)`` retourne l'aide associée à l'exception ``ZeroDivisionError``. 
 Celle-ci indique que l'exception ``ZeroDivisionError`` est en fait un cas particulier de 
 l'exception ``ArithmeticError``,
@@ -435,7 +449,7 @@ l'exception ``NameError``.
 
 
 En revanche, dans le second exemple, les deux lignes 
-``print(inverse (0))`` et ``print(inverses(0))`` ont été permutées. La première 
+``print(inverse(0))`` et ``print(inverses(0))`` ont été permutées. La première 
 exception déclenchée est la division par zéro. La première clause 
 ``except`` n'interceptera pas cette erreur puisqu'elle n'est pas du type recherché.
 
@@ -523,6 +537,8 @@ convertir ne contient pas que des chiffres.
         print(AucunChiffre.__doc__, " : ", exc)
 
 
+.. index:: __str__
+
 En redéfinissant l'opérateur ``__str__`` d'une exception, 
 il est possible d'afficher des messages plus explicites avec 
 la seule instruction ``print``.
@@ -594,6 +610,8 @@ correctement. Ils produisent les deux lignes qui suivent. %
 Exemples d'utilisation des exceptions
 =====================================
 
+.. index:: itérateur
+
 Les itérateurs
 ++++++++++++++
 
@@ -637,6 +655,8 @@ intégrante d'un algorithme.
 Exception ou valeur aberrante
 +++++++++++++++++++++++++++++
 
+.. index:: valeur aberrante
+
 Sans exception, une solution pour indiquer un cas de mauvaise utilisation 
 d'une fonction est de retourner une valeur aberrante. 
 Retourner ``-1`` pour une fonction dont le résultat est nécessairement 
@@ -674,6 +694,8 @@ Il est donc superflu de retourner un couple plutôt qu'une seule valeur.
 
 Le piège des exceptions
 +++++++++++++++++++++++
+
+.. index:: garbage collector
 
 Ce paragraphe évoque certains problèmes lorsqu'une exception est levée. 
 L'exemple utilise les fichiers décrits au chapitre :ref:`chap_fichier`. 
@@ -723,6 +745,8 @@ le fichier ``"essai.txt"`` contiendra tout ce qui aura été écrit.
             1/0=2/1=2.0
             3/2=1.5
 
+
+.. index:: context manager
 
 La troisième ligne du fichier est tronquée puisque l'erreur est
 intervenue juste avant l'affichage. On voit aussi
