@@ -33,6 +33,8 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
 .. toctree::
     :maxdepth: 1
     
+    gyexamples/index
+    gynotebooks/index    
     c_data/index
     
 
