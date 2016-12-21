@@ -1,3 +1,8 @@
-Galleries de notebook
-=====================
+Galleries
+=========
+
+
+.. contents::
+    :local:
+    :depth: 1
 
