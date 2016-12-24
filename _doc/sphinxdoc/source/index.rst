@@ -13,13 +13,15 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
 (format brut de fonderie) et sur 
 `GitHub/teachpyx <https://github.com/sdpython/teachpyx>`_ |gitlogo|.
 
-
-
 .. toctree::
     :maxdepth: 1
     
     introduction
-    
+
+
+Le langage Python
+-----------------
+
 .. toctree::
     :maxdepth: 1
     
@@ -29,28 +31,33 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
     c_modules/index
     c_regex/index
     c_parallelisation/index
+    
+Python pour scientifique
+------------------------
 
+    c_data/index
+    
+Exemples
+--------
+    
 .. toctree::
     :maxdepth: 1
     
+    i_ex
+    i_faq
     gyexamples/index
-    gynotebooks/index    
-    c_data/index
-    
+    all_notebooks
+
+
+Résumés et index
+----------------
 
 .. toctree::
     :maxdepth: 1
     
     c_resume/index
-        
-.. toctree::
-    :maxdepth: 1
-    
     end_index
         
-
-    
-
     
 Xavier Dupré    
 

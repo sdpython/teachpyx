@@ -608,7 +608,7 @@ Cette syntaxe ``variable.fonction(arguments)`` est celle des classes.
         seront remplacées.
     * - ``split( [sep [,maxsplit]])``
       - Découpe la chaîne de caractères en se servant de la chaîne ``sep`` comme
-        délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit}
+        délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit``
         coupures seront effectuées.
     * - ``upper()``
       - Remplace les minuscules par des majuscules.
@@ -956,7 +956,7 @@ Les opérations qu'on peut faire dessus sont quasiment identiques :
         seront remplacées.
     * - ``partition( [sep [,maxsplit]])``
       - Découpe la séquence d'octets en se servant de la séquence ``sep`` comme
-        délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit}
+        délimiteur. Si le paramètre ``maxsplit`` est renseigné, au plus ``maxsplit``
         coupures seront effectuées.
     * - ``join ( li )``
       - ``li`` est une liste,
@@ -1128,7 +1128,7 @@ qui s'appliquent sur les chaînes de caractères, elles sont présentées par la
     * - ``len(l)``
       - nombre d'éléments de ``l``
     * - ``min(l)``
-        plus petit élément de ``l``, résultat difficile à prévoir 
+      - plus petit élément de ``l``, résultat difficile à prévoir 
         lorsque les types des éléments sont différents 
     * - ``max(l)``
       - plus grand élément de ``l``
@@ -1655,12 +1655,12 @@ un ordre croissant des clés. Ces exemples font appel aux paragraphes sur
 les boucles (voir chapitre :ref:`chap_boucle`).
 
 .. runpython::
-    :shwocode:
+    :showcode:
 
     d = { "un":1, "zéro":0, "deux":2, "trois":3, "quatre":4, "cinq":5, \
            "six":6, "sept":1, "huit":8, "neuf":9, "dix":10 }
-    key = d.keys ()
-    key.sort ()
+    key = list(d.keys())
+    key.sort()
     for k in key:
         print(k, d[k])
 
@@ -1675,9 +1675,9 @@ seront les clés et réciproquement.
           "six":6,  "sept":1, "huit":8, "neuf":9,  "dix":10 }
            
     dinv = { }                      # création d'un dictionnaire vide, on parcout
-    for key,value in d.items ()  :  # les éléments du dictionnaire comme si
+    for key, value in d.items():    # les éléments du dictionnaire comme si
                                     # c'était une liste de 2-uple (clé,valeur)
-        dinv [value] = key          # on retourne le dictionnaire
+        dinv[value] = key           # on retourne le dictionnaire
 
     print(dinv)                     # affiche {0: 'zero', 1: 'un', 2: 'deux', 
                                     # 3: 'trois', 4: 'quatre', 5: 'cinq', 6: 'six', 
@@ -1853,9 +1853,9 @@ Ensemble ou set
 .. index:: set, &, frozen set
 
 Le langage *python* définit également ce qu'on appelle un ensemble.
-Il est défini par les classes `set <>`_ 
+Il est défini par les classes `set <https://docs.python.org/3/library/stdtypes.html#set>`_ 
 de type modifiable et la classe 
-`frozenset <>`_ de type immuable. 
+`frozenset <https://docs.python.org/3/library/stdtypes.html#frozenset>`_ de type immuable. 
 Ils n'acceptent que des types identiques et offrent la plupart 
 des opérations liées aux ensembles comme l'intersection, l'union.
 

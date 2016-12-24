@@ -21,7 +21,7 @@ sys.path.insert(
 local_template = os.path.join(os.path.abspath(
     os.path.dirname(__file__)), "phdoc_templates")
 
-from pyquickhelper.helpgen.default_conf import set_sphinx_variables
+from pyquickhelper.helpgen.default_conf import set_sphinx_variables, get_default_stylesheet
 set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2016,
                      "bootstrap", sphinx_bootstrap_theme.get_html_theme_path(),
                      locals(), extlinks=dict(
@@ -31,7 +31,7 @@ set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2016,
 blog_root = "http://www.xavierdupre.fr/app/teachpyx/helpsphinx/"
 
 html_context = {
-    'css_files': ['_static/my-styles.css'],
+    'css_files': get_default_stylesheet() + ['_static/my-styles.css'],
 }
 
 html_logo = "project_ico_small.png"

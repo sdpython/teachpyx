@@ -91,8 +91,8 @@ Pour déclarer une variable portant le nom ``va``, il suffit d'écrire :
 Le type de ``<valeur>`` détermine le type de la variable ``va``. 
 Si une variable de même portée portait déjà ce nom-là, son contenu 
 est écrasé (perdu aussi). L'instruction ``type(x)`` retourne le type de la variable ``x``. 
-**Un identificateur qu'il désigne une variable, 
-une fonction, une classe ou un module garde la valeur de sa dernière affectation.``
+Un **identificateur** qu'il désigne une variable, 
+une fonction, une classe ou un module garde la valeur de sa dernière affectation.
 
 Les types immuables
 +++++++++++++++++++
@@ -207,7 +207,7 @@ méthodes suivantes :
         la recherche n'a pas abouti.
     * - ``isalpha()``
       - Retourne ``True`` si tous les caractères sont des lettres, ``False`` sinon.
-    * - ``isdigit()
+    * - ``isdigit()``
       -  Retourne ``True`` si tous les caractères sont des chiffres, ``False`` sinon.
     * - ``replace( old, new[, count])``
       - Retourne une copie de la chaîne de caractères en remplaçant toutes les
@@ -280,7 +280,7 @@ même instance de classe.
 
 
 Liste
------
++++++
 
 Une liste est une sorte de tableau qui permet de mémoriser 
 un ensemble d'éléments de types variés. C'est une sorte de t-uple modifiable. 
@@ -399,7 +399,7 @@ Les listes peuvent aussi être définies à partir d'une écriture abrégée :
     print(z)
 
 Dictionnaire
-------------
+++++++++++++
 
 Un dictionnaire est un tableau pour lequel les indices ou clés 
 ne sont pas uniquement des entiers mais tout type non modifiable 
@@ -481,7 +481,7 @@ Méthodes associées aux dictionnaires, ``d``, ``d2`` sont des dictionnaires,
 ``x`` est quant à lui quelconque.
 
 Tableaux numériques
--------------------
++++++++++++++++++++
 
 Ce type ne fait pas partie du langage python standard mais il est couramment utilisé.
 

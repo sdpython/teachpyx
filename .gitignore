@@ -265,3 +265,4 @@ _doc/notebooks/nlp/completion.png
 _doc/notebooks/nlp/completion.pstat
 _unittests/run_unittests.py.out
 *.err
+_doc/sphinxdoc/source/phdoc_static/style_notebook_snippet.css
