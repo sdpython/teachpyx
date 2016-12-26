@@ -35,6 +35,9 @@ Le langage Python
 Python pour scientifique
 ------------------------
 
+.. toctree::
+    :maxdepth: 1
+    
     c_data/index
     
 Exemples
