@@ -4,6 +4,10 @@
 Types et variables du langage python
 ====================================
 
+.. contents::
+    :local:
+    :depth: 2
+
 Variables
 =========
 
@@ -2075,3 +2079,46 @@ on souhaite un jour traduire le même code dans un autre langage.
 
 
 
+Commentaires accentués
+======================
+
+.. index:: commentaire, #
+
+
+Les commentaires commencent par le symbole ``#`` et se terminent par la fin de la ligne ; 
+ils ne sont pas interprétés, ils n'ont aucune influence sur l'exécution du programme. 
+Lorsque les commentaires incluent des symboles exclusivement français tels que 
+les accents, le compilateur génère l'erreur suivante : 
+
+::
+
+    SyntaxError: Non-UTF-8 code starting with '\xe9' in file f.py on line 1, 
+    but no encoding declared; see http://python.org/dev/peps/pep-0263/ 
+    for details
+
+Il est néanmoins possible d'utiliser des accents dans les commentaires 
+à condition d'insérer le commentaire suivant à la première ligne du 
+programme. Il n'est pas nécessaire de retenir cette commande si le 
+programme est écrit dans l'éditeur de texte fourni avec *python* 
+car ce dernier propose automatiquement d'insérer cette ligne. 
+Ce point est abordé au paragraphe :ref:`par_intro_accent_code`.
+Il faut inclure la placer le texte suivant en première ligne :
+
+::
+
+    # -*- coding: utf-8 -*-
+
+Ou :
+
+::
+
+    # coding: cp1252
+
+Ou encore : 
+
+::
+
+    # coding: latin-1
+
+Le premier encoding ``utf-8`` est le plus communément utilisé dans le monde internet.
+Le second est utilisé par Windows.

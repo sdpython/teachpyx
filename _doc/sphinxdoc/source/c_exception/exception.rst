@@ -8,6 +8,10 @@
 Exceptions
 ==========
 
+.. contents::
+    :local:
+    :depth: 2
+
 .. index:: exception, division par zéro
 
 Le petit programme suivant déclenche une erreur parce qu'il effectue une

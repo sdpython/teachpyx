@@ -6,6 +6,10 @@
 Threads
 =======
 
+.. contents::
+    :local:
+    :depth: 2
+
 .. index:: thread, synchronisation, parallélisation
 
 Jusqu'aux années 2003-2004, l'évolution des microprocesseurs 
