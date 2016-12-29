@@ -1,5 +1,4 @@
 
-
 .. _l-constructions-classiques:
 
 ========================
@@ -8,7 +7,6 @@ Constructions classiques
 
 .. contents::
     :local:
-   
 
 Constructions classiques
 ========================
@@ -20,8 +18,6 @@ Constructions classiques
 Constructions négatives
 =======================
 
-
 .. exreflist::
     :tag: Base -
     :contents:
-   

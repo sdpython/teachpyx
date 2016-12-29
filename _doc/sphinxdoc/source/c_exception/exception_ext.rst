@@ -1,5 +1,4 @@
 
-
 .. _l-exception-ext:
 
 =====
@@ -8,7 +7,6 @@ Usage
 
 Pile d'appel
 ============
-
 
 Récupération de la pile  d'appel
 ++++++++++++++++++++++++++++++++
@@ -20,13 +18,13 @@ permet de récupérer la pile d'appels lorsqu'une exception survient.
 
     def raise_exception():
         raise Exception("an error was raised")
-            
+
     try:
         insidefe()
     except:
         exc_type, exc_value, exc_traceback = sys.exc_info()
         print("".join(traceback.format_tb(exc_traceback)))
-        
+
 Le programme affiche :
 
 ::
@@ -40,7 +38,6 @@ Cette information est précieuse pour écrire un test qui vérifie qu'une erreur
 s'est bien produite à un endroit particulier, de détecter les cas particuliers comme
 les boucles infinies ou d'améliorer un message d'erreur en cas de besoin
 (lire `How do I write Flask's excellent debug log message to a file in production? <http://stackoverflow.com/questions/14037975/how-do-i-write-flasks-excellent-debug-log-message-to-a-file-in-production>`_).
-
 
 Message d'erreur plus explicite
 +++++++++++++++++++++++++++++++
@@ -62,7 +59,7 @@ ne mentionne aucune information à propos du code qui l'a provoquée.
       File "i.py", line 5, in <module>
         s += math.log(e)
     ValueError: math domain error
-    
+
 Typiquement dans ce cas précis, on ne sait pas quel est l'indice
 de l'élément qui a provoqué l'erreur. On utilise alors un mécanisme
 qui permet d'ajouter une erreur sans perdre les informations l'exception original
@@ -95,8 +92,6 @@ Le langage garde ainsi la trace de la première exception.
         raise Exception("Issue with element {0}".format(i)) from exc
     Exception: Issue with element 1
 
-
-
 Conventions
 ===========
 
@@ -105,6 +100,6 @@ Erreur ou code d'erreur
 
 .. todoext::
     :title: terminer la section Erreur ou code d'erreur
-    
+
     parler aussi de coûts d'une exception,
     libération des ressources

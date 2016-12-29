@@ -1,12 +1,11 @@
 
-
 ######
 Précis
 ######
 
 .. toctree::
     :maxdepth: 2
-    
+
     python_sheet
 
 *Autres liens*

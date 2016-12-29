@@ -6,7 +6,7 @@ FAQ
 
 .. contents::
     :local:
-    
+
 Langage Python
 --------------
 
@@ -27,7 +27,7 @@ Modules
 
 Manipulation de texte
 ---------------------
-    
+
 .. faqreflist::
     :contents:
     :tag: regex
@@ -42,5 +42,3 @@ Manipulation des données, calcul matriciel
 .. faqreflist::
     :contents:
     :tag: numpy
-
-

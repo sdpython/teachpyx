@@ -10,7 +10,6 @@ Internet est le média le plus utilisé quant il s'agit d'apprendre à programme
 et un module Python est plus pratique pour s'assurer qu'un code Python reste valide
 lors du passage à une nouvelle version du langage.
 
-
 **Installation**
 
 Les exemples de codes sont disponibles sous la forme d'un module python
