@@ -66,17 +66,18 @@ plus haut et écrit en *python* correspond à l'exemple suivant :
 .. runpython::
     :showcode:
 
-    N = 10
+    t = [0, 1, 2, 3, 4]
+    N = 5
     moy = 0
-    for i in range(1,N+1):    # de 1 à N+1 exclu --> de 1 à N inclus
-        moy += n [i]
+    for i in range(1,N+1):      # de 1 à N+1 exclu --> de 1 à N inclus
+        moy += t[i-1]           # le premier indice est 0 et non 1
     moy /= N
     print(moy)
 
 Le premier élément de cette syntaxe est constituée de ses mots-clés
 ``for`` et ``in`` et des symboles ``=``, ``+=``, ``/=``,
 ``[``, ``]``, ``(``, ``)``, ``:``. La fonction
-`iskeyword <https://docs.python.org/3.6/library/keyword.html#keyword.iskeyword>`_
+`iskeyword <https://docs.python.org/3/library/keyword.html#keyword.iskeyword>`_
 permet de savoir si un mot-clé donné fait partie du langage *python*.
 Même si les modules seront décrits plus tard, la syntaxe
 suivante reste accessible :
