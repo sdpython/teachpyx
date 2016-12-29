@@ -7,6 +7,7 @@ Précis
     :maxdepth: 2
 
     python_sheet
+    conseil_programmes
 
 *Autres liens*
 
