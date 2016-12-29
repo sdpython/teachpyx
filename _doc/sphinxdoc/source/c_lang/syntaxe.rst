@@ -1653,7 +1653,7 @@ fonction locale qui n'est appelable que par cette fonction ``affiche_pair``.
 
 .. runpython::
     :showcode:
-    :execution:
+    :exception:
 
     def affiche_pair():
         def fonction_locale(i):            # fonction locale ou imbriquée
@@ -1914,7 +1914,7 @@ variable non définie, l'interpréteur *python* génère une erreur
 comme le montre l'exemple suivant.
 
 .. runpython::
-    :showocde:
+    :showcode:
     :exception:
 
     x = 3
