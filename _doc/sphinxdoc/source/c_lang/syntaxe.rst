@@ -580,7 +580,7 @@ dans l'ordre croissant des clés.
 
     d = { 1: 2, 3: 4, 5: 6, 7: -1, 8: -2 }
     print(d)                # affiche le dictionnaire {8: -2, 1: 2, 3: 4, 5: 6, 7: -1}
-    k = d.keys()
+    k = list(d.keys())
     print(k)                # affiche les clés [8, 1, 3, 5, 7]
     k.sort()
     print(k)                # affiche les clés triées [1, 3, 5, 7, 8]
@@ -698,10 +698,10 @@ mettre fin au parcours.
     :showcode:
 
     d = ["un", "deux", "trois"]
-    it = iter (d)                       # obtient un itérateur sur d
+    it = iter(d)                        # obtient un itérateur sur d
     while True:
         try:
-            x = it.next()               # obtient l'élément suivant, s'il n'existe pas
+            x = next(it)                # obtient l'élément suivant, s'il n'existe pas
         except StopIteration:
             break                       # déclenche une exception
         print(x)                        # affichage de tous les éléments de d
@@ -1110,14 +1110,14 @@ les résultats de la première pour tout couple de valeurs
     :showcode:
 
     import math
-    def coordonnees_polaires (x,y):
+    def coordonnees_polaires(x,y):
         rho     = math.sqrt(x*x+y*y)   # calcul la racine carrée de x*x+y*y
         theta   = math.atan2 (y,x)     # calcule l'arc tangente de y/x en tenant
                                        # compte des signes de x et y
         return rho, theta
 
     def affichage (x,y):
-        r,t = coordonnees_polaires(x,y)
+        r, t = coordonnees_polaires(x, y)
         print("cartésien (%f,%f) --> polaire (%f,%f degrés)" \
                       % (x,y,r,math.degrees(t)))
 
@@ -1919,7 +1919,7 @@ comme le montre l'exemple suivant.
 
     x = 3
     y = 4
-    print eval ("x*x+y*y+2*x*y+z")
+    print(eval ("x*x+y*y+2*x*y+z"))
 
 La variable ``z`` n'est pas définie et l'expression n'est pas évaluable.
 L'erreur se produit dans une chaîne de caractères traduite en programme
@@ -1945,9 +1945,10 @@ comme le montre l'exemple suivant.
 
 .. runpython::
     :showcode:
+    :process:
 
     import math
-    str = """def coordonnees_polaires (x,y):
+    str = """def coordonnees_polaires(x,y):
         rho     = math.sqrt(x*x+y*y)
         theta   = math.atan2 (y,x)
         return rho, theta"""          # fonction définie par une chaîne de caractères
@@ -2030,6 +2031,9 @@ lignes du programme suivant sont équivalentes.
 .. runpython::
     :showcode:
 
+    def est_pair(n):
+        return n % 2 == 0
+
     l = [0,3,4,4,5,6]
     print([ est_pair (i) for i in l ])  # affiche [0, 1, 0, 0, 1, 0]
     print(map(est_pair, l))
@@ -2049,22 +2053,24 @@ Ici encore, les deux dernières lignes sont équivalentes.
 
     def addition (x,y):
         return x + y
-    l = [0,3,4,4,5,6]
-    m = [1,3,4,5,6,8]
-    print([ addition (l [i], m [i]) for i in range (0, len (l)) ])
-    print(list(map(addition, l, m)))   # affiche [1, 6, 8, 9, 11, 14]
+    li = [0,3,4,4,5,6]
+    mo = [1,3,4,5,6,8]
+    print([ addition(li[i], mo[i]) for i in range (0, len(li)) ])
+    print(list(map(addition, li, mo)))   # affiche [1, 6, 8, 9, 11, 14]
 
 .. index:: zip
 
-Il est possible de substituer ``None`` à la fonction ``f`` pour
-obtenir l'équivalent de la fonction
+Il est possible de substituer d'utiliser la fonction ``map``
+pour obtenir l'équivalent de la fonction
 `zip <https://docs.python.org/3/library/functions.html?highlight=map#zip>`_.
 
 .. runpython::
     :showcode:
 
-    print(list(map(None, l, m)))  # affiche [(0, 1), (3, 3), (4, 4), (4, 5), (5, 6), (6, 8)]
-    print(list(zip(l,m)))         # affiche [(0, 1), (3, 3), (4, 4), (4, 5), (5, 6), (6, 8)]
+    li = [0,3,4,4,5,6]
+    mo = [1,3,4,5,6,8]
+    print(list(map((lambda x,y: (x,y)), li, mo)))
+    print(list(zip(li, mo)))
 
 .. _fonction_sorted_enumerate:
 
@@ -2106,8 +2112,8 @@ lorsqu'on souhaite parcourir une liste alors que l'indice et l'élément sont n�
 
     print("--")
 
-    for i, v in enumerate(l):
-        print (i, v)
+    for i, v in enumerate(li):
+        print(i, v)
 
 .. _table_fonction_communes:
 
