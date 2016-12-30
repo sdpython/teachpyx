@@ -25,8 +25,8 @@ Le langage Python
     :maxdepth: 1
 
     c_lang/index
-    c_exception/index
     c_classes/index
+    c_exception/index
     c_modules/index
     c_regex/index
     c_parallelisation/index
@@ -57,6 +57,7 @@ Résumés et index
     :maxdepth: 1
 
     c_resume/index
+    defthe_index
     end_index
 
 Xavier Dupré

@@ -6,7 +6,6 @@ Modifications
 .. toctree::
     :maxdepth: 2
 
-    defthe_index
     issues_todoextlist
     completed_todoextlist
     filechanges

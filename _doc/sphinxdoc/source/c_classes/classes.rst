@@ -45,17 +45,22 @@ Définition, déclaration
     :title: classe
     :tag: Définition
 
-    Une classe est un ensemble incluant des variables ou \emph{attributs`` et des fonctions ou *méthodes*.
-    Les attributs sont des variables accessibles depuis toute méthode de la classe où elles sont définies. En *python*,
-    les classes sont des types modifiables.
+    Une classe est un ensemble incluant des variables ou *attributs* et
+    des fonctions ou *méthodes*. Les attributs sont des variables
+    accessibles depuis toute méthode de la classe où elles sont
+    définies. En *python*, les classes sont des types modifiables.
 
 .. index:: class
 
-::
+.. mathdef::
+    :title: Déclaration d'une classe
+    :tag: Syntaxe
 
-    class nom_classe :
-        # corps de la classe
-        # ...
+    ::
+
+        class nom_classe :
+            # corps de la classe
+            # ...
 
 Le corps d'une classe peut être vide, inclure des variables ou
 attributs, des fonctions ou méthodes. Il est en tout cas indenté
@@ -86,9 +91,13 @@ Bien souvent, ceux qui passent d'un langage uniquement
 fonctionnel à un langage objet ne font pas marche arrière.
 L'**instantiation** se fait selon le schéma suivant :
 
-::
+.. mathdef::
+    :title: Instanciation d'une classe
+    :tag: Syntaxe
 
-    cl = nom_classe()
+    ::
+
+        cl = nom_classe()
 
 La création d'une variable de type objet est identique à
 celle des types standards du langage *python* : elle passe
@@ -145,7 +154,8 @@ Dans l'exemple précédent, la variable ``cl`` n'est pas de type
 Pour savoir si une variable est une instance d'une classe
 donnée, il faut utiliser la fonction ``isinstance`` :
 
-::
+.. runpython::
+    :showcode:
 
     class classe_vide:
         pass
@@ -171,11 +181,15 @@ obligatoirement un paramètre explicite qui est l'instance de
 la classe à laquelle cette méthode est associée. Ce paramètre
 est le moyen d'accéder aux données de la classe.
 
-::
+.. mathdef::
+    :title: Déclaration d'une méthode
+    :tag: Syntaxe
 
-    class nom_classe :
-        def nom_methode (self, param_1, ..., param_n) :
-            # corps de la méthode...
+    ::
+
+        class nom_classe :
+            def nom_methode (self, param_1, ..., param_n) :
+                # corps de la méthode...
 
 A part le premier paramètre qui doit de préférence s'appeler ``self``,
 la syntaxe de définition d'une méthode ressemble en tout point à celle
@@ -184,10 +198,14 @@ déclaration de la méthode, elle-même indentée par rapport à
 la déclaration de la classe.
 L'appel à cette méthode obéit à la syntaxe qui suit :
 
-::
+.. mathdef::
+    :title: Appel d'une méthode
+    :tag: Syntaxe
 
-    cl = nom_classe()    # variable de type nom_classe
-    t  = cl.nom_methode (valeur_1, ..., valeur_n)
+    ::
+
+        cl = nom_classe()    # variable de type nom_classe
+        t  = cl.nom_methode (valeur_1, ..., valeur_n)
 
 L'appel d'une méthode nécessite tout d'abord la création d'une
 variable. Une fois cette variable créée, il suffit d'ajouter
@@ -255,11 +273,15 @@ et les méthodes manipulent ces données liées. C'est le
 cas pour un segment qui est toujours défini par ces
 deux extrémités qui ne vont pas l'une sans l'autre.
 
-::
+.. mathdef::
+    :title: Déclaration d'un attribut
+    :tag: Syntaxe
 
-    class nom_classe :
-        def nom_methode (self, param_1, ..., param_n) :
-            self.nom_attribut = valeur
+    ::
+
+        class nom_classe :
+            def nom_methode (self, param_1, ..., param_n) :
+                self.nom_attribut = valeur
 
 Le paramètre ``self`` n'est pas un mot-clé même si le premier
 paramètre est le plus souvent appelé ``self``. Il désigne
@@ -356,11 +378,15 @@ paramètre, invariablement ``self``, il n'existe pas de contrainte
 concernant la liste des paramètres excepté que le constructeur
 ne doit pas retourner de résultat.
 
-::
+.. mathdef::
+    :title: Déclaration d'un constructeur
+    :tag: Syntaxe
 
-    class nom_classe :
-        def __init__(self, param_1, ..., param_n):
-            # code du constructeur
+    ::
+
+        class nom_classe :
+            def __init__(self, param_1, ..., param_n):
+                # code du constructeur
 
 ``nom_classe`` est une classe, ``__init__`` est son constructeur,
 sa syntaxe est la même que celle d'une méthode sauf que
@@ -368,9 +394,13 @@ le constructeur ne peut employer l'instruction ``return``.
 La modification des paramètres du constructeur implique également
 la modification de la syntaxe de création d'une instance de cette classe.
 
-::
+.. mathdef::
+    :title: Appel d'un constructeur
+    :tag: Syntaxe
 
-    x = nom_classe (valeur_1,...,valeur_n)
+    ::
+
+        x = nom_classe (valeur_1,...,valeur_n)
 
 ``nom_classe`` est une classe, ``valeur_1`` à ``valeur_n``
 sont les valeurs associées aux paramètres ``param_1``
@@ -841,12 +871,16 @@ On étoffe la classe ``nombre_complexe`` à l'aide de l'opérateur ``__iadd__``.
 Un autre opérateur souvent utilisé est ``__str__`` qui permet de
 redéfinir l'affichage d'un objet lors d'un appel à l'instruction ``print``.
 
-::
+.. mathdef::
+    :title: Déclaration de l'opérateur __str__
+    :tag: Syntaxe
 
-    class nom_class :
-        def __str__ (self) :
-            # corps de l'opérateur
-            return...
+    ::
+
+        class nom_class :
+            def __str__ (self) :
+                # corps de l'opérateur
+                return...
 
 ``nom_classe`` est une classe. L'opérateur ``__str__`` construit une
 chaîne de caractères qu'il retourne comme résultat de façon à être
@@ -1169,13 +1203,17 @@ laquelle elle est appelée.
 Une méthode statique ne nécessite pas qu'une instance soit créée pour
 être appelée. C'est donc une méthode n'ayant pas besoin du paramètre ``self``.
 
-::
+.. mathdef::
+    :title: Déclaration d'une méthode statique
+    :tag: Syntaxe
 
-    class nom_class :
-        @staticmethod
-        def nom_methode(params, ...) :
-            # corps de la méthode
-            ...
+    ::
+
+        class nom_class :
+            @staticmethod
+            def nom_methode(params, ...) :
+                # corps de la méthode
+                ...
 
 ``nom_classe`` est une classe, ``nom_methode`` est une méthode statique.
 Il faut pourtant ajouter la ligne suivante pour indiquer à la classe que
@@ -1271,15 +1309,19 @@ Attributs statiques
     instance de la classe où ils sont définis n'a été créée.
     Ces attributs sont partagés par toutes les instances.
 
-::
+.. mathdef::
+    :title: Déclaration d'un attribut statique
+    :tag: Syntaxe
 
-    class nom_class :
-        attribut_statique = valeur
-        def nom_methode (self,params, ...):
-            nom_class.attribut_statique2 = valeur2
-        def nom_methode_st (params, ...) :
-            nom_class.attribut_statique3 = valeur3
-        nom_methode_st = staticmethod (nom_methode_st)
+    ::
+
+        class nom_class :
+            attribut_statique = valeur
+            def nom_methode (self,params, ...):
+                nom_class.attribut_statique2 = valeur2
+            @staticmethod
+            def nom_methode_st (params, ...) :
+                nom_class.attribut_statique3 = valeur3
 
 ``nom_classe`` est une classe, ``nom_methode`` est une méthode non statique,
 ``nom_methode_st`` est une méthode statique. Les trois paramètres
@@ -1413,11 +1455,34 @@ chaque fois que le programmeur cherche à modifier la valeur
 de ce faux attribut, il appelle une autre méthode qui modifie
 l'instance.
 
-::
+.. mathdef::
+    :title: Déclaration d'une propriété
+    :tag: Syntaxe
 
-    class nom_classe :
-        # code de la classe
-        nom_propriete = property (fget, fset, fdel, doc)
+    ::
+
+        class nom_classe :
+            nom_propriete = property (fget, fset, fdel, doc)
+
+La documentation de la fonction
+`property <https://docs.python.org/3/library/functions.html#property>`_
+propose une autre écriture plus intuitive.
+
+.. mathdef::
+    :title: Déclaration d'une propriété (2)
+    :tag: Syntaxe
+
+    ::
+
+        class nom_classe :
+
+            @property
+            def fget_variable(self):
+                return self.variable
+
+            @variable.setter
+            def fset_variable(self, v):
+                self.variable = v
 
 Au sein de ces trois lignes, ``nom_classe`` est une classe,
 ``nom_propriete`` est le nom de la propriété, ``fget``
@@ -1681,13 +1746,17 @@ listes comme l'explique la remarque :ref:`copy_deepopy_remarque_`.
 La seconde solution, rarement utilisée, est d'utiliser l'opérateur
 ``__copy__`` et ainsi écrire le code associé à la copie des attributs de la classe.
 
-::
+.. mathdef::
+    :title: Déclaration de l'opérateur __copy__
+    :tag: Syntaxe
 
-    class nom_classe :
-        def __copy__ () :
-            copie = nom_classe(...)
-            # ...
-            return copie
+    ::
+
+        class nom_classe :
+            def __copy__ () :
+                copie = nom_classe(...)
+                # ...
+                return copie
 
 ``nom_classe`` est le nom d'une classe. La méthode ``__copy__``
 doit retourner une instance de la classe ``nom_classe``,
@@ -2055,10 +2124,14 @@ d'être fréquemment instanciée comme un point dans l'espace
 chaque instance n'a pas besoin d'avoir une liste variable
 d'attributs. Le langage *python* offre la possibilité de figer cette liste.
 
-::
+.. mathdef::
+    :title: Déclaration d'attributs figés
+    :tag: Syntaxe
 
-    class nom_classe (object) :
-        __slots__ = "attribut_1", ..., "attribut_n"
+    ::
+
+        class nom_classe (object) :
+            __slots__ = "attribut_1", ..., "attribut_n"
 
 ``nom_classe`` est le nom de la classe, elle doit hériter de ``object``
 ou d'une classe qui en hérite elle-même
@@ -2370,11 +2443,15 @@ Syntaxe
 
 L'héritage obéit à la syntaxe suivante.
 
-::
+.. mathdef::
+    :title: Héritage
+    :tag: Syntaxe
 
-    class nom_classe (nom_ancetre) :
-        # corps de la classe
-        # ...
+    ::
+
+        class nom_classe (nom_ancetre) :
+            # corps de la classe
+            # ...
 
 ``nom_classe`` désigne le nom d'une classe qui hérite ou dérive
 d'une autre classe ``nom_ancetre``. Celle-ci ``nom_ancetre``
@@ -2386,7 +2463,7 @@ tous les ancêtres d'une classe. On applique cette fonction
 
 ::
 
-help (piece_tres_truquee)
+    help (piece_tres_truquee)
 
 On obtient le résultat suivant :
 
@@ -2472,18 +2549,22 @@ dans une méthode une autre méthode appartenant explicitement à
 l'ancêtre direct de cette classe ou à un de ses ancêtres.
 La syntaxe est la suivante.
 
-::
+.. mathdef::
+    :title: Surcharge de méthodes héritées
+    :tag: Syntaxe
 
-    class nom_classe (nom_ancetre) :
-        def nom_autre_methode (self, ...) :
-            # ...
-        def nom_methode (self, ...) :
-            nom_ancetre.nom_methode (self, ...)
-                # appel de la méthode définie chez l'ancêtre
-            nom_ancetre.nom_autre_methode (self, ...)
-                # appel d'une autre méthode définie chez l'ancêtre
-            self.nom_autre_methode (...)
-                # appel d'une méthode surchargée
+    ::
+
+        class nom_classe (nom_ancetre) :
+            def nom_autre_methode (self, ...) :
+                # ...
+            def nom_methode (self, ...) :
+                nom_ancetre.nom_methode (self, ...)
+                    # appel de la méthode définie chez l'ancêtre
+                nom_ancetre.nom_autre_methode (self, ...)
+                    # appel d'une autre méthode définie chez l'ancêtre
+                self.nom_autre_methode (...)
+                    # appel d'une méthode surchargée
 
 ``nom_classe`` désigne le nom d'une classe, ``nom_ancetre``
 est le nom de la classe dont ``nom_classe`` hérite ou dérive.
@@ -2699,7 +2780,7 @@ méthode ``calcul`` qui, par défaut, sera celle de la classe ``A``.
     print(x.calcul())  # affiche 25
 
 Cette information est disponible via la fonction
-``help`` appliquée à la classe ``C}``. C'est dans ce genre de
+``help`` appliquée à la classe ``C``. C'est dans ce genre de
 situations que l'information apportée par la section
 `Method Resolution Order <https://www.python.org/download/releases/2.3/mro/>`_
 est importante.

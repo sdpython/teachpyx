@@ -98,7 +98,7 @@ Le programme suivant permet de récupérer la liste des
     import keyword
     print("\n".join(keyword.kwlist))
 
-A cela s'ajoute les symboles :
+A cela s'ajoutent les symboles :
 
 ::
 
@@ -144,16 +144,20 @@ Définition et syntaxe
 
 Syntaxe :
 
-::
+.. mathdef::
+    :title: Tests
+    :tag: Syntaxe
 
-    if condition1 :
-       instruction1
-       instruction2
-       ...
-    else :
-       instruction3
-       instruction4
-       ...
+    ::
+
+        if condition1 :
+           instruction1
+           instruction2
+           ...
+        else :
+           instruction3
+           instruction4
+           ...
 
 La clause ``else`` est facultative. Lorsque la condition ``condition1`` est fausse et qu'il
 n'y a aucune instruction à exécuter dans ce cas, la clause ``else`` est inutile.
@@ -218,13 +222,13 @@ ce qui est différent de la ligne qui précède et de la ligne qui suit.
 ::
 
     x = 1
-    if x > 0 :
+    if x > 0:
         signe = 1
-        print "le nombre est positif"
-    else :
+        print("le nombre est positif")
+    else:
         signe = -1
-      print "le nombre est négatif"     # ligne mal indentée (au sens de la grammaire)
-    print "signe = ", signe
+      print("le nombre est négatif")     # ligne mal indentée (au sens de la grammaire)
+    print("signe = ", signe)
 
 .. _l-indentation-error:
 
@@ -348,6 +352,7 @@ Son écriture condensée lorsqu'il n'y a qu'une instruction à exécuter :
     if x < 0: signe = -1
     elif x == 0: signe = 0
     else: signe = 1
+    print(signe)
 
 Le programme suivant saisit une ligne au clavier et dit si c'est "oui" ou "non" qui a été saisi.
 La fonction `input <https://docs.python.org/3/library/functions.html#input>`_ retourne
@@ -372,18 +377,18 @@ qu'en ligne de commande. L'exemple suivant montre comment remplacer cette foncti
 
 ::
 
-    import Tkinter
+    import tkinter
     def question(legende):
         reponse = [""]
-        root = Tkinter.Tk ()
+        root = tkinter.Tk ()
         root.title("pseudo input")
-        Tkinter.Label(text=legende).pack(side=Tkinter.LEFT)
-        s = Tkinter.Entry(text="def", width=80)
-        s.pack(side=Tkinter.LEFT)
+        tkinter.Label(text=legende).pack(side=tkinter.LEFT)
+        s = tkinter.Entry(text="def", width=80)
+        s.pack(side=tkinter.LEFT)
         def rget():
             reponse[0] = s.get ()
             root.destroy()
-        Tkinter.Button(text="ok", command=rget).pack(side=Tkinter.LEFT)
+        tkinter.Button(text="ok", command=rget).pack(side=tkinter.LEFT)
         root.mainloop()
         return(reponse[0])
 
@@ -450,15 +455,19 @@ test est validé. En *python*, le corps d'un test ne peut être vide,
 il faut utiliser l'instruction ``pass``. Lorsque celle-ci est manquante,
 *python* affiche un message d'erreur.
 
-::
+.. mathdef::
+    :title: Instruction pass
+    :tag: Syntaxe
 
-    signe = 0
-    x = 0
-    if x < 0: signe = -1
-    elif x == 0:
-       pass          # signe est déjà égal à 0
-    else :
-        signe = 1
+    ::
+
+        signe = 0
+        x = 0
+        if x < 0: signe = -1
+        elif x == 0:
+           pass          # signe est déjà égal à 0
+        else :
+            signe = 1
 
 Dans ce cas précis, si l'instruction ``pass`` est oubliée,
 l'interpréteur *python* génère l'erreur suivante :
@@ -494,12 +503,16 @@ Boucle while
 
 L'implémentation d'une boucle de type ``while`` suit le schéma d'écriture suivant :
 
-::
+.. mathdef::
+    :title: Boucle while
+    :tag: Syntaxe
 
-    while cond :
-        instruction 1
-        ...
-        instruction n
+    ::
+
+        while cond :
+            instruction 1
+            ...
+            instruction n
 
 Où ``cond`` est une condition qui détermine la poursuite de la répétition
 des instructions incluses dans la boucle. Tant que celle-ci est vraie,
@@ -548,12 +561,16 @@ Boucle for
 
 L'implémentation d'une boucle de type ``for`` suit le schéma d'écriture suivant :
 
-::
+.. mathdef::
+    :title: Boucle for
+    :tag: Syntaxe
 
-    for x in ensemble:
-        instruction 1
-        ...
-        instruction n
+    ::
+
+        for x in ensemble:
+            instruction 1
+            ...
+            instruction n
 
 Où ``x`` est un élément de l'ensemble ``ensemble``. Les instructions 1 à *n* sont exécutées pour
 chaque élément ``x`` de l'ensemble ``ensemble``. Cet ensemble peut être une chaîne de caractères,
@@ -630,9 +647,13 @@ peut être utilisé pour simplifier la création d'une liste à partir d'une aut
 La syntaxe d'une `liste en extension <http://sametmax.com/python-love-les-listes-en-intention-partie/>`_
 suit le schéma suivant :
 
-::
+.. mathdef::
+    :title: Liste en extension
+    :tag: Syntaxe
 
-    [ expression for x in ensemble ]
+    ::
+
+        [ expression for x in ensemble ]
 
 Où ``expression`` est une expression numérique incluant ou non ``x``,
 la variable de la boucle, ``ensemble`` est un ensemble d'éléments, tuple, liste, dictionnaire, set
@@ -798,7 +819,7 @@ Le programme suivant utilise le
 `crible d'Eratosthène <https://fr.wikipedia.org/wiki/Crible_d'%C3%89ratosth%C3%A8ne>`_
 pour dénicher tous les nombres premiers compris entre 1 et 99.
 
-*Aparté sur crible d'Eratosthène*
+*Aparté sur le crible d'Eratosthène*
 
 Le crible d'Eratosthène est un algorithme permettant de
 déterminer les nombres premiers. Pour un nombre premier *p*,
@@ -865,7 +886,7 @@ Pilotage d'une boucle : break
 Lors de l'écriture d'une boucle ``while``, il n'est pas toujours
 adéquat de résumer en une seule condition toutes les raisons pour
 lesquelles il est nécessaire d'arrêter l'exécution de cette boucle.
-De même, pour une boucle ``for}, il n'est pas toujours utile de
+De même, pour une boucle ``for``, il n'est pas toujours utile de
 visiter tous les éléments de l'ensemble à parcourir. C'est le cas
 par exemple lorsqu'on recherche un élément, une fois qu'il a été
 trouvé, il n'est pas nécessaire d'aller plus loin.
@@ -1054,13 +1075,17 @@ ailleurs. On extrait donc la partie répétée pour en faire une
 fonction. Avec l'habitude, on finit par écrire des fonctions plus
 petites et réutilisables.
 
-::
+.. mathdef::
+    :title: Déclaration d'une fonction
+    :tag: Syntaxe
 
-    def fonction_nom (par_1, ..., par_n) :
-        instruction_1
-        ...
-        instruction_n
-        return res_1, ..., res_n
+    ::
+
+        def fonction_nom (par_1, ..., par_n) :
+            instruction_1
+            ...
+            instruction_n
+            return res_1, ..., res_n
 
 ``fonction_nom`` est le nom de la fonction, il suit les mêmes règles
 que le nom des variables. ``par_1`` à ``par_n`` sont les noms des
@@ -1076,9 +1101,13 @@ A partir de ce moment, toute autre instruction de la fonction sera
 ignorée. Pour exécuter une fonction ainsi définie, il suffit de
 suivre la syntaxe suivante :
 
-::
+.. mathdef::
+    :title: Appel d'une fonction
+    :tag: Syntaxe
 
-    x_1, ..., x_n = fonction_nom (valeur_1, valeur_2, ..., valeur_n)
+    ::
+
+        x_1, ..., x_n = fonction_nom (valeur_1, valeur_2, ..., valeur_n)
 
 Où ``fonction_nom`` est le nom de la fonction,
 ``valeur_1`` à ``valeur_n`` sont les noms des paramètres,
@@ -1136,10 +1165,14 @@ Lorsqu'une fonction est souvent appelée avec les mêmes
 valeurs pour ses paramètres, il est possible de spécifier
 pour ceux-ci une valeur par défaut.
 
-::
+.. mathdef::
+    :title: Valeurs par défaut
+    :tag: Syntaxe
 
-    def fonction_nom (param_1, param_2 = valeur_2, ..., param_n = valeur_n):
-        ...
+    ::
+
+        def fonction_nom (param_1, param_2 = valeur_2, ..., param_n = valeur_n):
+            ...
 
 Où ``fonction_nom`` est le nom de la fonction.
 ``param_1`` à ``param_n`` sont les noms des paramètres,
@@ -1687,9 +1720,13 @@ soit dans une liste de valeurs, soit dans une liste de couples
 (identificateur, valeur). La déclaration d'une telle fonction obéit à la
 syntaxe suivante :
 
-::
+.. mathdef::
+    :title: Nombre indéfini de paramètres
+    :tag: Syntaxe
 
-    def fonction (param_1, ..., param_n, *liste, **dictionnaire) :
+    ::
+
+        def fonction (param_1, ..., param_n, *liste, **dictionnaire) :
 
 Où ``fonction`` est un nom de fonction, ``param_1`` à ``param_n``
 sont des paramètres de la fonction, ``liste`` est le nom de la liste

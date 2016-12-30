@@ -1,8 +1,9 @@
 
-Listes des définitions
-======================
+Syntaxes, Définitions
+=====================
 
-.. contents:: .
+.. contents::
+    :local:
     :depth: 2
 
 Définitions
@@ -10,6 +11,7 @@ Définitions
 
 .. mathdeflist::
     :tag: Définition
+    :contents:
 
 Figures
 +++++++
@@ -28,6 +30,7 @@ Syntaxe
 
 .. mathdeflist::
     :tag: Syntaxe
+    :contents:
 
 Tables
 ++++++
