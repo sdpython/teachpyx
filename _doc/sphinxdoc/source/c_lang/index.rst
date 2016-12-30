@@ -7,7 +7,6 @@ Langage
     :maxdepth: 2
 
     types
-    syntax
+    syntaxe
     constructions
-    classes
     faq
