@@ -1,21 +1,21 @@
 class CreationDestruction (object) :
     
     def __init__ (self) :
-        print "constructeur"
+        print("constructeur")
         
     def __new__ (self) :
-        print "__new__"
+        print("__new__")
         return object.__new__ (self)
         
     def __del__ (self) :
-        print "__del__"
+        print("__del__")
 
-print "a"
+print("a")
 m = CreationDestruction ()
-print "b"
+print("b")
 m2 = m
-print "c"
+print("c")
 del m
-print "d"
+print("d")
 del m2
-print "e"
+print("e")

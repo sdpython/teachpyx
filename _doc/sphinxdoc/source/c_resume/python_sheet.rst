@@ -452,7 +452,7 @@ Opérations disponibles sur les dictionnaires, ``d`` est un dictionnaire,
       - Retourne un itérateur parcourant toutes les valeurs du dictionnaire ``d``.
         **Version 2.x :** retourne une liste.
     * - ``d.get (k[,x])``
-      - Retourne ``d [k]``, si la clé ``k`` est manquante, alors
+      - Retourne ``d[k]``, si la clé ``k`` est manquante, alors
         la valeur ``None`` est retournée à moins que le paramètre optionnel ``x``
         soit renseigné, auquel cas, ce sera ce paramètre qui sera retourné.
     * - ``d.clear ()``
@@ -460,7 +460,7 @@ Opérations disponibles sur les dictionnaires, ``d`` est un dictionnaire,
     * - ``d.update (d2)``
       - Pour chaque clé de ``d1``, ``d[k] = d1 [k]``
     * - ``d.setdefault(k[,x])``
-      - Retourne ``d [k]`` si la clé ``k`` existe, sinon, affecte ``x`` à ``d[k]}.
+      - Retourne ``d[k]`` si la clé ``k`` existe, sinon, affecte ``x`` à ``d[k]``.
     * - ``d.popitem ()``
       - Retourne un élément et le supprime du dictionnaire.
 

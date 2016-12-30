@@ -22,7 +22,7 @@ class fromage :
         return s
 
     def __add__ (self,f) :
-        print "ajout fromage"
+        print("ajout fromage")
         poids = self.poids + f.poids
         couleur = [0,0,0]
         for i in range (0,3) :
@@ -43,7 +43,7 @@ class gruyere (fromage) :
         return s
 
     def __add__ (self,f) :
-        print "ajout gruyère"
+        print("ajout gruyère")
         if not isinstance (f, gruyere) :
             return fromage.__add__ (self, f)
         else :
@@ -54,15 +54,15 @@ class gruyere (fromage) :
 fr = fromage (5.0, (255,0,0), 0.5)
 fr2 = fromage (10.0, (0,255,0), 1)
 fr3 = fr + fr2
-print fr
-print fr2
-print fr3
-print "----------------------"
+print(fr)
+print(fr2)
+print(fr3)
+print("----------------------")
 g = gruyere (3.0)
 g2 = gruyere (7.0)
 g3 = g + g2
-print g
-print g2
-print g3
-print "----------------------"
-print fr2 + g
+print(g)
+print(g2)
+print(g3)
+print("----------------------")
+print(fr2 + g)

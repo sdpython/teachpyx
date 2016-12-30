@@ -16,6 +16,6 @@ def fonction_somme (ens) :
 li = ["un", "deux", "trois"]
 di = {1:"un", 2:"deux", 3:"trois"}
 tu = ("un", "deux", "trois")
-print fonction_somme (li)  # affiche list undeuxtrois
-print fonction_somme (di)  # affiche dict undeuxtrois
-print fonction_somme (tu)  # affiche erreur
+print(fonction_somme(li))  # affiche list undeuxtrois
+print(fonction_somme(di))  # affiche dict undeuxtrois
+print(fonction_somme(tu))  # affiche erreur

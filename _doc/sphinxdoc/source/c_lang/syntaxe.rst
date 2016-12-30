@@ -938,7 +938,9 @@ ne seront jamais exécutées au contraire de la dernière.
     else:
        print("aucun élément ", c, " trouvé")  # affiche aucun élément  1  trouvé
 
-Les lignes dépendant de la clause ``else`` seront exécutées dans tous les cas où l'exécution de la boucle n'est pas interrompue par une instruction ``break`` ou une instruction ``return}\footnote{voir les fonctions au paragraphe~\ref{chap_fonction}`` ou par la levée d'une exception\footnote{voir paragraphe~\ref{chap_exception}}.
+Les lignes dépendant de la clause ``else`` seront exécutées dans tous les
+cas où l'exécution de la boucle n'est pas interrompue par une
+instruction ``break`` ou une instruction ``return``.
 
 Suppression ou ajout d'éléments lors d'une boucle
 -------------------------------------------------
@@ -947,8 +949,8 @@ En parcourant la liste en se servant des indices, il est possible de
 supprimer une partie de cette liste. Il faut néanmoins faire
 attention à ce que le code ne produise pas d'erreur comme
 c'est le cas pour le suivant. La boucle ``for`` parcourt
-la liste ``list(range(0, len (li)))`` qui n'est pas modifiée en
-même temps que l'instruction ``del li [i:i+2]}.
+la liste ``list(range(0, len(li)))`` qui n'est pas modifiée en
+même temps que l'instruction ``del li[i:i+2]``.
 
 .. runpython::
     :showcode:
@@ -1212,7 +1214,7 @@ Pour remédier à cela, il faudrait écrire :
         l[0] += 1
         return l
 
-L'exercice :ref:`ex_hypercube`propose un exemple plus complet, voire retors.
+L'exercice :ref:`ex_hypercube` propose un exemple plus complet, voire retors.
 
 Ordre des paramètres
 --------------------

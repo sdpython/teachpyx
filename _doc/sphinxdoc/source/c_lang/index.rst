@@ -9,4 +9,5 @@ Langage
     types
     syntax
     constructions
+    classes
     faq
