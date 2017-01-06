@@ -1,4 +1,3 @@
-Cython
 cytoolz
 datashape
 flake8
