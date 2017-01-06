@@ -1,5 +1,3 @@
-cytoolz
-datashape
 flake8
 flask
 ipykernel
@@ -11,18 +9,14 @@ jupyter
 jupyter_client
 jupyter_console
 jupyter_core
-line_profiler
 matplotlib
 nbformat
 nbpresent
 numpy
 openpyxl
 pandas
-path.py
-patsy
 pep8
 pyzmq
-qtconsole
 requests
 six
 Sphinx
