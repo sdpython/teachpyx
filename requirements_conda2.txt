@@ -1,0 +1,10 @@
+ipykernel
+ipyparallel
+ipython
+ipython_genutils
+ipywidgets
+pep8
+pyzmq
+requests
+Sphinx
+traitlets
