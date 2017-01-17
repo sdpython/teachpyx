@@ -12,12 +12,9 @@ matplotlib
 nbformat
 nbpresent
 numpy
-openpyxl
 pandas
 pep8
 pyzmq
 requests
-six
 Sphinx
-toolz
 traitlets

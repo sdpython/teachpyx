@@ -4,12 +4,8 @@ brewer2mpl
 codecov
 entrypoints
 jyquickhelper
-mechanize
-metakernel
-pkgtools
 pyquickhelper
 pyreadline
-requests-oauthlib
 version_information
 xmltodict
 xlrd
