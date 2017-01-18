@@ -1,6 +1,11 @@
-flask
-jupyter
-jupyter_client
-jupyter_console
-jupyter_core
-
+flask$
+matplotlib
+nbformat
+nbpresent
+numpy
+pandas
+pep8
+pyzmq
+requests
+Sphinx
+traitlets
