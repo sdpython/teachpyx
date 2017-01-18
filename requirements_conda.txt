@@ -1,11 +1,4 @@
 flask
-matplotlib
-nbformat
-nbpresent
-numpy
-pandas
-pep8
-pyzmq
 requests
 Sphinx
 traitlets

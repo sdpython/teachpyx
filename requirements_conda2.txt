@@ -7,4 +7,10 @@ jupyter
 jupyter_client
 jupyter_console
 jupyter_core
-
+matplotlib
+nbformat
+nbpresent
+numpy
+pandas
+pep8
+pyzmq
