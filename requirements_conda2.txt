@@ -3,6 +3,11 @@ ipyparallel
 ipython
 ipython_genutils
 ipywidgets
+matplotlib
+nbformat
+nbpresent
+numpy
+pandas
 pep8
 pyzmq
 requests
