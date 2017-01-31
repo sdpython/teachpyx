@@ -55,7 +55,7 @@ class TestFaqException(unittest.TestCase):
         def insidefe():
             try:
                 raise Exception("an error was raised")
-            except:
+            except Exception:
                 ft = call_stack()
                 return ft
 
