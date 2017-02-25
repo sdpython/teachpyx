@@ -58,8 +58,10 @@ class TestClassiques(unittest.TestCase):
         commentaire_accentues()
         r = dix_entiers_carre()
         self.assertEqual(r, 385)
-        r = repetition_a_eviter([4, 5])
+        r = repetition_a_eviter([4, 5], False)
         self.assertEqual(r, 0.25)
+        r2 = repetition_a_eviter([4, 5], True)
+        self.assertEqual(r2, 0.25)
         r = dictionnaire_modifie_dans_la_boucle()
         self.assertEqual(
             r, ([0, 1, 2, 4, 5, 6], {0: 0, 1: 1, 2: 2, 5: 5, 6: 6}))

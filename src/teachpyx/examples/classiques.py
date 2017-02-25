@@ -94,7 +94,7 @@ def dix_entiers_carre():
     return s
 
 
-def repetition_a_eviter(serie):
+def repetition_a_eviter(serie, a_eviter=False):
     """
     Une répétition à éviter.
 
@@ -159,7 +159,10 @@ def repetition_a_eviter(serie):
             s += (obs - moy) ** 2
         return s / len(serie)
 
-    return variance(serie)
+    if a_eviter:
+        return variance_a_eviter(serie)
+    else:
+        return variance(serie)
 
 
 def dictionnaire_modifie_dans_la_boucle():
