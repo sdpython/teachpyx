@@ -19,8 +19,8 @@ fichier principal, il contient son point d'entrée, les premières instructions
 exécutées. Les autres fichiers sont considérés comme des modules, en quelque
 sorte, des annexes qui contiennent tout ce dont le fichier principal a besoin.
 
-Modules et fichiers
-===================
+Modules
+=======
 
 Exemple
 -------
@@ -177,16 +177,20 @@ module grâce à la fonction `import.reload <https://docs.python.org/3/library/i
 elle même implémentée dans le module
 `importlib <https://docs.python.org/3/library/importlib.html?highlight=reload#module-importlib>`_.
 
-::
+.. mathdef::
+    :title: importer un module (1)
+    :tag: Syntaxe
 
-    import importlib
-    import module_exemple
-    module_exemple.exemple_variable = 10
-    importlib.reload(module_exemple)
-    print(module_exemple.exemple_variable)      # affiche 3
+    ::
 
-Autres syntaxes
----------------
+        import importlib
+        import module_exemple
+        module_exemple.exemple_variable = 10
+        importlib.reload(module_exemple)
+        print(module_exemple.exemple_variable)      # affiche 3
+
+Importer un module
+------------------
 
 Il existe trois syntaxes différentes pour importer un module.
 La première est décrite au paragraphe précédent. Il en existe une
@@ -196,25 +200,33 @@ l'instruction ``as`` suivi d'un autre nom ``alias``, le module sera
 désigné par la suite par l'identificateur ``alias`` comme le
 montre l'exemple suivant.
 
-::
+.. mathdef::
+    :title: importer un module (2)
+    :tag: Syntaxe
 
-    import module_exemple as alias
+    ::
 
-    c = alias.exemple_classe()
-    print(c)
-    print(alias.exemple_fonction())
+        import module_exemple as alias
+
+        c = alias.exemple_classe()
+        print(c)
+        print(alias.exemple_fonction())
 
 La syntaxe suivante n'est pas recommandée car elle masque le module d'où
 provient une fonction en plus de tout importer.
 
-::
+.. mathdef::
+    :title: importer un module (3)
+    :tag: Syntaxe
 
-    from module_exemple import *  # décommmandé
-    from module_exemple import exemple_classe, exemple_fonction
+    ::
 
-    c = exemple_classe()
-    print(c)
-    print(exemple_fonction())
+        from module_exemple import *  # décommmandé
+        from module_exemple import exemple_classe, exemple_fonction
+
+        c = exemple_classe()
+        print(c)
+        print(exemple_fonction())
 
 De plus, la partie ``import *`` permet d'importer toutes les classes,
 attributs ou fonctions d'un module mais il est possible d'écrire
@@ -255,6 +267,10 @@ exécutée que si ce fichier est le programme principal, ajouter du code
 après le test ``if __name__ == "__main__":`` n'a aucune incidence sur
 tout programme incluant ce fichier comme module.
 
+
+Modules et fichiers
+===================
+
 Emplacement d'un module
 -----------------------
 
@@ -286,6 +302,46 @@ Il vaut mieux utiliser des *import* relatifs.
     De cette façon, on peut recopier
     le programme et ses modules à un autre endroit du disque dur sans
     altérer leur fonctionnement.
+
+Attributs communs à tout module
+-------------------------------
+
+Une fois importés, tous les modules possèdent cinq attributs qui contiennent
+des informations comme leur nom, le chemin du fichier correspondant, l'aide associée.
+
+.. list-table::
+    :widths: 5 10
+    :header-rows: 0
+
+    * - ``__all__``
+      - Contient toutes les variables, fonctions, classes du module
+    * - ``__builtins__``
+      - Ce dictionnaire contient toutes les fonctions et classes inhérentes au langage *python*
+        utilisées par le module.
+    * - ``__doc__``
+      - Contient l'aide associée au module.
+    * - ``__file__``
+      - Contient le nom du fichier qui définit le module.
+    * - ``__name__``
+      - Cette variable contient a priori le nom du module sauf si le module
+        est le point d'entrée du programme auquel cas cette variable
+        contient ``__main__``.
+
+Ces attributs sont accessibles si le nom du module est utilisé
+comme préfixe. Sans préfixe, ce sont ceux du module lui-même.
+
+.. runpython::
+    :showcode:
+
+    import os
+    print(os.__name__, os.__doc__)
+    if __name__ == "__main__":
+        print("ce fichier est le point d'entrée")
+    else:
+        print("ce fichier est importé")
+
+Cas pratiques
+=============
 
 Ce qui ne marche pas : les import cycliques
 -------------------------------------------
@@ -393,43 +449,9 @@ identificateur. Un module est un objet qui n'autorise qu'une seule instance.
     if "module_exemple" in sys.modules:
         m = sys.modules["module_exemple"]
         m.exemple_fonction()
-
-Attributs communs à tout module
--------------------------------
-
-Une fois importés, tous les modules possèdent cinq attributs qui contiennent
-des informations comme leur nom, le chemin du fichier correspondant, l'aide associée.
-
-.. list-table::
-    :widths: 5 10
-    :header-rows: 0
-
-    * - ``__all__``
-      - Contient toutes les variables, fonctions, classes du module
-    * - ``__builtins__``
-      - Ce dictionnaire contient toutes les fonctions et classes inhérentes au langage *python*
-        utilisées par le module.
-    * - ``__doc__``
-      - Contient l'aide associée au module.
-    * - ``__file__``
-      - Contient le nom du fichier qui définit le module.
-    * - ``__name__``
-      - Cette variable contient a priori le nom du module sauf si le module
-        est le point d'entrée du programme auquel cas cette variable
-        contient ``__main__``.
-
-Ces attributs sont accessibles si le nom du module est utilisé
-comme préfixe. Sans préfixe, ce sont ceux du module lui-même.
-
-.. runpython::
-    :showcode:
-
-    import os
-    print(os.__name__, os.__doc__)
-    if __name__ == "__main__":
-        print("ce fichier est le point d'entrée")
-    else:
-        print("ce fichier est importé")
+        
+Plusieurs modules et fichiers
+=============================
 
 Arborescence de modules, paquetage
 ----------------------------------

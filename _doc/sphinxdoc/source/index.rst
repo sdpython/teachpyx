@@ -27,7 +27,7 @@ Le langage Python
     c_lang/index
     c_classes/index
     c_exception/index
-    c_modules/index
+    c_module/index
     c_regex/index
     c_parallelisation/index
 
