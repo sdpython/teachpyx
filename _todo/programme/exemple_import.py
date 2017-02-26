@@ -15,6 +15,6 @@ def import_fichier (module) :
         raise ImportError ("impossible d'importer le module " + module)
         
 # on importe un module    
-mod = import_fichier (r"D:\Dupre\informatique\programme\corde.py")
+mod = import_fichier ("module_exemple.py")
 # on affiche l'aide associée
 help (mod)
