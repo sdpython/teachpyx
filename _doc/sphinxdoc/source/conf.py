@@ -47,7 +47,7 @@ if html_theme == "bootstrap":
             ("blog site", "blog/main_0000.html", True),
             ("index", "genindex"),
         ],
-        'navbar_sidebarrel': False,
+        'navbar_sidebarrel': True,
         'navbar_pagenav': True,
         'navbar_pagenav_name': "Page",
         'globaltoc_depth': 3,
