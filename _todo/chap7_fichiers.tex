@@ -2,30 +2,7 @@
 
 \section{Dates} \indexfr{dates}
 
-Le module \codes{datetime}\footnote{Voir également la page~\httpstyle{http://docs.python.org/library/datetime.html}.}\indexmoduleint{datetime} fournit une classe \codes{datetime}\indexclass{datetime} qui permet de faire des opérations et des comparaisons sur les dates et les heures. L'exemple suivant calcule l'âge d'une personne née le 11~août~1975.
-%
-\vspaceneg
-\indexexemples{dates}{}
-\begin{verbatimx}
-import datetime
-naissance = datetime.datetime (1975,11,8,10,0,0)
-jour = naissance.now () # obtient l'heure et la date actuelle
-print jour              # affiche 2010-05-22 11:24:36.312000
-age = jour - naissance  # calcule une différence
-print age               # affiche 12614 days, 1:25:10.712000
-\end{verbatimx}
-\vspaceneg
-%
-L'objet \codes{datetime} autorise les soustractions et les comparaisons entre deux dates. Une soustraction retourne un objet de type \codes{timedelta} qui correspond à une durée.\indexclass{timedelta} qu'on peut multiplier par un réel ou ajouter à un objet de même type ou à un objet de type \codes{datetime}. L'utilisation de ce type d'objet évite de se pencher sur tous les problèmes de conversion.
 
-Le module \codes{calendar}\indexmoduleint{calendar} est assez pratique pour construire des calendriers. Le programme ci-dessous affiche une liste de t-uples incluant le jour et le jour de la semaine du mois d'août 1975. Dans cette liste, on y trouve le t-uple \codes{(11,0)} qui signifie que le 11 août 1975 était un lundi. Cela permet de récupérer le jour de la semaine d'une date de naissance.\indexfr{date de naissance}
-\vspaceneg
-\indexexemples{date de naissance}{}
-\begin{verbatimx}
-import calendar
-c = calendar.Calendar ()
-for d in c.itermonthdays2 (1975,8) : print d
-\end{verbatimx}
 
 \section{Problème de jeux de caractères}\label{para_cosedescodes}
 \indexfrr{chaîne de caractères}{encodage}\indexfr{jeu de caractères}
