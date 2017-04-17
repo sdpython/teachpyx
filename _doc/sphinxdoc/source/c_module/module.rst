@@ -267,7 +267,6 @@ exécutée que si ce fichier est le programme principal, ajouter du code
 après le test ``if __name__ == "__main__":`` n'a aucune incidence sur
 tout programme incluant ce fichier comme module.
 
-
 Modules et fichiers
 ===================
 
@@ -449,7 +448,7 @@ identificateur. Un module est un objet qui n'autorise qu'une seule instance.
     if "module_exemple" in sys.modules:
         m = sys.modules["module_exemple"]
         m.exemple_fonction()
-        
+
 Plusieurs modules et fichiers
 =============================
 

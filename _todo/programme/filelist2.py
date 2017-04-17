@@ -8,8 +8,10 @@ def liste_fichier_repertoire (folder) :
         for a in f : file.append (r + "/" + a)
     return file, rep
     
-folder = r"D:\Dupre\_data\informatique"
+folder = r"."
 file,fold = liste_fichier_repertoire (folder)
 
-for f in file : print "fichier ", f
-for f in fold : print "répertoire ", f
+for f in file : 
+    print ("fichier ", f)
+for f in fold : 
+    print ("répertoire ", f)

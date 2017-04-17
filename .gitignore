@@ -266,3 +266,5 @@ _doc/notebooks/nlp/completion.pstat
 _unittests/run_unittests.py.out
 *.err
 _doc/sphinxdoc/source/phdoc_static/style_notebook_snippet.css
+_todo/programme/data.bin
+_todo/programme/info.bin

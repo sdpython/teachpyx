@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import pickle
 import copy
 
@@ -17,6 +18,9 @@ class Test :
         """conversion d'un dictionnaire dic en Test"""
         self.__dict__.update (dic)
         self.calcule_norme ()  # attribut calculé
+        
+    def __str__(self):
+        return "x={0} y={1} n={2}".format(self.x, self.y, self.n)
 
 t = Test ()
 
@@ -27,3 +31,5 @@ f.close()
 f = open('data.bin', 'rb')  # écriture
 t = pickle.load (f)
 f.close()
+
+print(t)

@@ -32,9 +32,11 @@ def liste_fichier_repertoire (folder, filter) :
     # fin
     return file,fold
     
-folder = r"D:\Dupre\_data\informatique"
-filter = "*.tex"
+folder = r"."
+filter = "*.rst"
 file,fold = liste_fichier_repertoire (folder, filter)
 
-for f in file : print "fichier ", f
-for f in fold : print "répertoire ", f
+for f in file :
+    print("fichier ", f)
+for f in fold :
+    print("répertoire ", f)
