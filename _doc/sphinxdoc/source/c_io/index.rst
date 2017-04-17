@@ -7,3 +7,4 @@ Entrées Sorties
     :maxdepth: 2
 
     files
+    faq

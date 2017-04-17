@@ -3,9 +3,9 @@
 
 .. _chap_fichier:
 
-==========
+========
 Fichiers
-==========
+========
 
 .. contents::
     :local:

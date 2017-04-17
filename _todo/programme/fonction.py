@@ -1,7 +1,10 @@
 # coding: latin-1
 """ce programme détermine toutes les fonctions définies dans 
 un programme et jamais appelées"""
-import glob, os, re
+import glob
+import os
+import re
+
 
 def trouve_toute_fonction (s, exp, gr, expm = "^$") :
     """ à partir d'une chaîne de caractères correspondant
@@ -21,13 +24,13 @@ def trouve_toute_fonction (s, exp, gr, expm = "^$") :
     res = []
     pos = 0
     r = exp.search (s, pos)   # première recherche
-    while r != None :
-        temp = (r.groups () [gr], r.span (gr), r.group (gr))
-        x    = re.compile ( expm.replace ("function", temp [0]) )
-        if not x.match (temp [2]) :  
+    while r is not None :
+        temp = (r.groups()[gr], r.span(gr), r.group(gr))
+        x    = re.compile(expm.replace ("function", temp [0]) )
+        if not x.match(temp[2]) :  
             # l'expression négative n'est pas trouvé, on peut ajouter ce résultat
-            res.append (temp)
-        r    = exp.search (s, r.end (gr) )     # recherche suivante
+            res.append(temp)
+        r = exp.search(s, r.end(gr))     # recherche suivante
     return res
 
 def get_function_list_definition (s) :
@@ -63,7 +66,6 @@ def detection_fonction_pas_appelee (file) :
 def fonction_inutile () :  # ligne 63
     pass
 
-if __name__ == "__main__" :
-    file    = "fonction.py"
-    print detection_fonction_pas_appelee (file)   
+file = __file__
+print(detection_fonction_pas_appelee(file))   
             # affiche [('fonction_inutile', 63)]
