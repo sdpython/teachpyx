@@ -886,6 +886,7 @@ dans un sens et dans l'autre, ce qui correspond à la plupart des cas.
 
 .. runpython::
     :showcode:
+    :process:
 
     import pickle
     import copy
@@ -901,13 +902,11 @@ dans un sens et dans l'autre, ce qui correspond à la plupart des cas.
 
     t = Test ()
 
-    with open('data.bin', 'wb')  # lecture
-    pickle.dump (t, f)
-    f.close()
+    with open('data.bin', 'wb') as fb:  # lecture
+        pickle.dump(t, fb)
 
-    f = open('data.bin', 'rb')  # écriture
-    t = pickle.load(f)
-    f.close()
+    with open('data.bin', 'rb') as fb:  # écriture
+        t = pickle.load(fb)
 
     print(t)
 
