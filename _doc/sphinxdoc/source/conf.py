@@ -55,6 +55,7 @@ if html_theme == "bootstrap":
         # lumen: OK
         # to try, yeti, flatly, paper
         'bootstrap_version': "3",
+        'source_link_position': "footer",
     }
 
 language = "fr"
