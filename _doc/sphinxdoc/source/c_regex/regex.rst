@@ -157,6 +157,7 @@ répertoire ``image``.
 .. runpython::
     :showcode:
 
+    import re
     s = "something\\support\\vba\\image/vbatd1_4.png"
     print(re.compile("[\\\\/]image[\\\\/].*[.]png").search(s))  # résultat positif
     print(re.compile("[\\\\/]image[\\\\/].*[.]png").search(s))  # même résultat
