@@ -197,8 +197,8 @@ il faudra écrire les multiplicateurs comme ceci : ``*?``, ``+?``, ``??``.
 
     import re
     s = "<h1>mot</h1>"
-    print(re.compile("(<.*>)").match (s).groups()) # ('<h1>mot</h1>',)
-    print(re.compile("(<.*?>)").match (s).groups()) # ('<h1>',)
+    print(re.compile("(<.*>)").match(s).groups())  # ('<h1>mot</h1>',)
+    print(re.compile("(<.*?>)").match(s).groups()) # ('<h1>',)
 
 Groupes
 -------
@@ -272,6 +272,11 @@ retournent toutes des objets `Match <https://docs.python.org/3/library/re.html?h
 
 .. runpython::
     :showcode:
+
+    s = """date 0 : 14/9/2000
+    date 1 : 20/04/1971     date 2 : 14/09/1913     date 3 : 2/3/1978
+    date 4 : 1/7/1986     date 5 : 7/3/47     date 6 : 15/10/1914
+    date 7 : 08/03/1941     date 8 : 8/1/1980     date 9 : 30/6/1976"""
 
     import re
     expression = re.compile("([0-3]?[0-9]/[0-1]?[0-9]/([0-2][0-9])?[0-9][0-9])[^\d]")
@@ -408,7 +413,7 @@ suivant montre comment récupérer le jour, le mois, l'année à l'intérieur d'
     import re
     date = "05/22/2010"
     exp  = "([0-9]{1,2})/([0-9]{1,2})/(((19)|(20))[0-9]{2})"
-    com  = re.compile (exp)
+    com  = re.compile(exp)
     print(com.search(date).groups())    # ('05', '22', '2010', '20', None, '20')
 
 Il n'est pas toujours évident de connaître le numéro du groupe qui
@@ -422,7 +427,7 @@ Elle est appliquée à l'exemple précédent.
     :showcode:
 
     exp  = "(?P<jj>[0-9]{1,2})/(?P<mm>[0-9]{1,2})/(?P<aa>((19)|(20))[0-9]{2})"
-    com  = re.compile (exp)
+    com  = re.compile(exp)
     print(com.search(date).groupdict()) # {'mm': '22', 'aa': '2010', 'jj': '05'}
 
 Le programme suivant est un exemple d'utilisation des expressions régulières
@@ -462,7 +467,7 @@ régulière, c'est le cas ici pour détecter les appels.
            - gr   : numéro de groupe correspondant au nom de la fonction
            - expm : expression négative
         """
-        exp = re.compile (exp)
+        exp = re.compile(exp)
         res = []
         pos = 0
         r = exp.search (s, pos)   # première recherche
