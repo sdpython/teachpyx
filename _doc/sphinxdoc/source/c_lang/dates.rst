@@ -9,6 +9,9 @@ Dates
     :local:
     :depth: 2
 
+datetime
+========
+
 Le module `datetime <https://docs.python.org/3/library/datetime.html?highlight=datetime#module-datetime>`_
 fournit une classe `datetime https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime>`_
 qui permet de faire des opérations et des comparaisons sur les dates et les heures.
@@ -47,3 +50,8 @@ le jour de la semaine d'une date de naissance.
     c = calendar.Calendar ()
     for d in c.itermonthdays2(1975, 8):
         print(d)
+
+Autres formats de date
+======================
+
+

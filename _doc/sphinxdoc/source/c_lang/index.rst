@@ -10,4 +10,5 @@ Langage, variable et fonctions
     syntaxe
     constructions
     dates
+    encoding
     faq
