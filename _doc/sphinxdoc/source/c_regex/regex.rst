@@ -426,6 +426,7 @@ Elle est appliquée à l'exemple précédent.
 .. runpython::
     :showcode:
 
+    import re
     exp  = "(?P<jj>[0-9]{1,2})/(?P<mm>[0-9]{1,2})/(?P<aa>((19)|(20))[0-9]{2})"
     com  = re.compile(exp)
     print(com.search(date).groupdict()) # {'mm': '22', 'aa': '2010', 'jj': '05'}
@@ -473,7 +474,7 @@ régulière, c'est le cas ici pour détecter les appels.
         r = exp.search (s, pos)   # première recherche
         while r is not None :
             temp = (r.groups()[gr], r.span(gr), r.group(gr))
-            x    = re.compile(expm.replace ("function", temp [0]) )
+            x    = re.compile(expm.replace("function", temp[0]))
             if not x.match(temp[2]) :
                 # l'expression négative n'est pas trouvé, on peut ajouter ce résultat
                 res.append(temp)
