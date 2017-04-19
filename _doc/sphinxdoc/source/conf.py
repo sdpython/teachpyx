@@ -44,7 +44,7 @@ if html_theme == "bootstrap":
         'navbar_site_name': "Site",
         'navbar_links': [
             ("XD", "http://www.xavierdupre.fr", True),
-            ("blog site", "blog/main_0000.html", True),
+            ("blog", "blog/main_0000.html", True),
             ("index", "genindex"),
         ],
         'navbar_sidebarrel': True,
