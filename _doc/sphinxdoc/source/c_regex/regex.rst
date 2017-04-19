@@ -334,19 +334,23 @@ Le résultat est illustré par le programme suivant.
 
     import os
     import re
+    import warnings
     import mutagen.mp3
     import mutagen.easyid3
 
     def infoMP3 (file, tags) :
         """retourne des informations sur un fichier MP3 sous forme de
         dictionnaire (durée, titre, artiste, ...)"""
-        a = mutagen.mp3.MP3(file)
-        b = mutagen.easyid3.EasyID3(file)
-        info = { "minutes":a.info.length/60, "nom":file }
+        try:
+            a = mutagen.mp3.MP3(file)
+            b = mutagen.easyid3.EasyID3(file)
+        except Exception as e:
+            raise Exception("Unable to read file '{0}'".format(file)) from e
+        info = {"minutes": a.info.length/60, "nom": file}
         for k in tags :
             try:
                 info[k] = str(b[k][0])
-            except ValueError:
+            except KeyError:
                 continue
         return info
 
@@ -357,7 +361,11 @@ Le résultat est illustré par le programme suivant.
             for a in f :
                 if not ext.search (a):
                     continue
-                t = infoMP3(r + "/" + a, tags)
+                try:
+                    t = infoMP3(r + "/" + a, tags)
+                except Exception as e:
+                    warnings.warn("unable to process {0}".format(e))
+                    continue
                 if len(t) > 0:
                     all.append(t)
         return all
@@ -367,8 +375,8 @@ Le résultat est illustré par le programme suivant.
         - les chansons dont le titre valide l'expression régulière heart
         - les chansons dont le titre valide l'expression régulière avoid
         - le nombre moyen de mots dans le titre d'une chanson"""
-        liheart, notitle  = [], []
-        nbmot, nbsong     = 0,0
+        liheart, notitle = [], []
+        nbmot, nbsong = 0, 0
         for a in all :
             if "title" not in a :
                 notitle.append (a)
@@ -427,6 +435,7 @@ Elle est appliquée à l'exemple précédent.
     :showcode:
 
     import re
+    date = "05/22/2010"
     exp  = "(?P<jj>[0-9]{1,2})/(?P<mm>[0-9]{1,2})/(?P<aa>((19)|(20))[0-9]{2})"
     com  = re.compile(exp)
     print(com.search(date).groupdict()) # {'mm': '22', 'aa': '2010', 'jj': '05'}

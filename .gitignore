@@ -268,3 +268,5 @@ _unittests/run_unittests.py.out
 _doc/sphinxdoc/source/phdoc_static/style_notebook_snippet.css
 _todo/programme/data.bin
 _todo/programme/info.bin
+_doc/sphinxdoc/data.bin
+_doc/sphinxdoc/info.bin
