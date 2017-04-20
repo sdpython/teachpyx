@@ -8,6 +8,42 @@ Usage
 Pile d'appel
 ============
 
+La `pile d'appel <https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution>`_
+(ou *pile d'exécution* ou *call stack*) mémorise les appels de fonctions.
+La premièrel ligne est le `point d'entrée <https://fr.wikipedia.org/wiki/Point_d%27entr%C3%A9e>`_
+du programme. La suivante est la seconde fonction appelée.
+Si celle-ci en appelle une autre, une autre ligne est ajoutée et celle-ci
+demeure jusqu'à ce qu'elle est terminée son exécution. A chaque instant,
+la dernière ligne est la fonction en train de s'exécuter, les lignes précédentes
+définissent le chemin que l'ordinateur a suivi pour arriver jusque là.
+
+.. runpython::
+    :showcode:
+
+    import traceback
+    import sys
+
+    def foncA():
+        print("foncA begin")
+        foncB()
+        print("foncA end")
+
+    def foncB():
+        print("foncB begin")
+        foncC()
+        print("foncB end")
+
+    def foncC():
+        print("foncC begin")
+        try:
+            raise Exception("erreur volontaire")
+        except Exception:
+            print("Erreur")
+            print("\n".join(traceback.format_stack()))
+        print("foncC end")
+
+    foncA()
+
 Récupération de la pile  d'appel
 ++++++++++++++++++++++++++++++++
 

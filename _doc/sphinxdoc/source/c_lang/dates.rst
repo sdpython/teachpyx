@@ -61,21 +61,20 @@ par exemple. On appelle ces dates associées à des événements
 des `timestamp <https://fr.wikipedia.org/wiki/Horodatage>`_.
 Ce sont des nombres entiers qui expriment le nombre de secondes
 qui se sont écoulées depuis une certaine origine qui
-dépend du système d'exploitation. C'est un nombre réel : 
-la partie entière est un nombre de seconde, la partie décimale 
+dépend du système d'exploitation. C'est un nombre réel :
+la partie entière est un nombre de seconde, la partie décimale
 donne les millisecondes. La valeur n'a pas de sens exploitable
 à moins de la convertir en un format compréhensible.
-C'est ce que fait la fonction 
+C'est ce que fait la fonction
 `fromtimestamp <https://docs.python.org/3/library/datetime.html?highlight=fromtimestamp#datetime.datetime.fromtimestamp>`_.
 
 .. runpython::
     :showcode:
-    
+
     import time
     ts = time.time()
     print(ts)
-    
+
     import datetime
     st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     print(st)
-
