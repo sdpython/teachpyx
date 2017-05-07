@@ -235,11 +235,10 @@ le bouton ``b`` ne contient pas de texte mais une image.
 
     * - ::
 
-            b = tkinter Button ()
-            im = tkinter.PhotoImage (file = "chameau.gif")
-            b.config (image = im)
-
-    * - .. image:: images/bbette2.png
+            b = tkinter.Button()
+            im = tkinter.PhotoImage(file="chameau.gif")
+            b.config(image=im)
+      - .. image:: images/bbette2.png
 
 Les images qu'il est possible de charger sont nécessairement au
 format *GIF*, le seul que le module *tkinter* puisse lire.
@@ -298,7 +297,7 @@ on peut utiliser l'instruction suivante :
     :header-rows: 0
 
     * - .. image:: images/saisie1.png
-        .. image:: images/saisie2.png
+      - .. image:: images/saisie2.png
     * - Zone de saisie normale
       - Zone de saisie grisée
 
@@ -568,7 +567,7 @@ permet aussi de le faire.
 
 Réciproquement, il est possible d'enlever un intitulé de la sélection à
 l'aide de la méthode
-``select_clear <http://effbot.org/tkinterbook/listbox.htm#Tkinter.Listbox.select_clear-method>`_.
+`select_clear <http://effbot.org/tkinterbook/listbox.htm#Tkinter.Listbox.select_clear-method>`_.
 
 ::
 
@@ -1119,7 +1118,7 @@ est lancé. Comme le bouton change de légende la première
 fois qu'il est pressé, l'apparence de la fenêtre change aussi, ce que montre la seconde image.
 
 .. list-table::
-    :widths: 5 5 5
+    :widths: 5 5
     :header-rows: 0
 
     * - .. image:: images/comm1.png
@@ -1982,7 +1981,7 @@ Dans ce cas précis, on fait en sorte que le contrôle intercepte le
 mouvement du curseur. Lorsque celui-ci bouge, la méthode ``mouvement``
 est appelée comme le constructeur de ``MaListbox`` l'a spécifié.
 La méthode ``nearest`` permet de définir l'intitulé le plus proche du curseur.
-La méthode ``itemconfig} permet de changer le fond de cet intitulé en gris après avoir modifié le fond de l'intitulé précédent pour qu'il retrouve sa couleur d'avant. Le résultat est illustré la figure~\ref{listbox_curseur_soiut}.
+La méthode ``itemconfig`` permet de changer le fond de cet intitulé en gris après avoir modifié le fond de l'intitulé précédent pour qu'il retrouve sa couleur d'avant. Le résultat est illustré la figure~\ref{listbox_curseur_soiut}.
 
 .. image:: images/listboxs.png
 

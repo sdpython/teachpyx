@@ -263,7 +263,7 @@ transcrivent l'ordre alphabétique.
       - égal, différent
     * - ``is``, ``not is``
       - ``x is y`` vérifie que ``x`` et ``y``
-        sont égaux, ``not  is}, différents,
+        sont égaux, ``not  is``, différents,
         l'opérateur ``is`` est différent de l'opérateur ``==``,
         il est expliqué au paragraphe :ref:`par_liste_copie`
     * - ``in``, ``not in``

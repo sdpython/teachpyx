@@ -27,13 +27,13 @@ L'exemple suivant calcule l'âge d'une personne née le 11 août 1975.
     age = jour - naissance  # calcule une différence
     print(age)              # affiche 12614 days, 1:25:10.712000
 
-L'objet `datetime https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime>`_
+L'objet `datetime <https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime>`_
 autorise les soustractions et les comparaisons entre deux dates. Une soustraction
 retourne un objet de type
-`timedelta https://docs.python.org/3/library/datetime.html?highlight=timedelta#datetime.timedelta>`_
+`timedelta <https://docs.python.org/3/library/datetime.html?highlight=timedelta#datetime.timedelta>`_
 qui correspond à une durée qu'on peut multiplier par un réel ou ajouter à un
 objet de même type ou à un objet de type
-`datetime https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime>`_.
+`datetime <https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime>`_.
 L'utilisation de ce type d'objet évite de se pencher sur tous les problèmes de conversion.
 
 Le module `calendar <https://docs.python.org/3/library/calendar.html?highlight=calendar#module-calendar>`_
