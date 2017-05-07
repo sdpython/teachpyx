@@ -1,13 +1,13 @@
-import Tix as Tk
-root = Tk.Tk ()
+import tkinter.tix as tix
+root = tix.Tk ()
 
-o = Tk.FileSelectBox (root)
+o = tix.FileSelectBox (root)
 o.pack ()
 
 def print_file () :
-    print o.cget ("value")
+    print(o.cget ("value"))
 
-b = Tk.Button (root, text = "print")
+b = tix.Button (root, text = "print")
 b.config (command = print_file)
 b.pack ()
 

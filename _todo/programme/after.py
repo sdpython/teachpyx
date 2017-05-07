@@ -1,6 +1,6 @@
-import Tkinter
-root = Tkinter.Tk ()
-l = Tkinter.Label (text = "0 secondes")
+import tkinter
+root = tkinter.Tk ()
+l = tkinter.Label (text = "0 secondes")
 l.pack ()
 sec = 0
 id = None

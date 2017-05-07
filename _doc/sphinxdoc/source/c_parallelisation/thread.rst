@@ -477,6 +477,8 @@ le même verrou pour protéger les deux sections. Ainsi, chaque thread ne pourra
 l'une ou l'autre des portions de code protégées tant que l'une d'entre
 elles est visitée par l'autre thread.
 
+.. _thread_interface_graphique:
+
 Interface graphique
 ===================
 

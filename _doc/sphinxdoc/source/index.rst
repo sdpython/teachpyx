@@ -31,6 +31,7 @@ Le langage Python
     c_module/index
     c_regex/index
     c_parallelisation/index
+    c_gui/index
 
 Python pour scientifique
 ------------------------
