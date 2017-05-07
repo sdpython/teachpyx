@@ -798,6 +798,7 @@ Tandis que l'aide associée au constructeur d'un object :
 
 .. runpython::
     :showcode:
+    :process:
 
     import tkinter
     help(tkinter.Button.__init__)
@@ -1188,6 +1189,7 @@ La liste complète est accessible avec l'instruction suivante :
 
 .. runpython::
     :showcode:
+    :process:
 
     import tkinter
     help(tkinter.Event)
@@ -1237,6 +1239,7 @@ La liste complète est accessible avec l'instruction suivante :
 
 .. runpython::
     :showcode:
+    :process:
 
     import tkinter
     help(tkinter.Label.bind)
