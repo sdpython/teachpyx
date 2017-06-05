@@ -90,13 +90,15 @@ Xavier Dupré
 .. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=master
     :target: https://codecov.io/github/sdpython/teachpyx?branch=master
 
-.. image:: http://img.shields.io/github/issues/sdpython/teachpyx.png
-    :alt: GitHub Issues
-    :target: https://github.com/sdpython/teachpyx/issues
+.. only:: html
 
-.. image:: https://badge.waffle.io/sdpython/teachpyx.png?label=ready&title=Ready
-    :alt: Waffle
-    :target: https://waffle.io/sdpython/teachpyx
+    .. image:: https://badge.waffle.io/sdpython/teachpyx.png?label=ready&title=Ready
+        :alt: Waffle
+        :target: https://waffle.io/sdpython/teachpyx
+
+    .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
+        :alt: GitHub Issues
+        :target: https://github.com/sdpython/teachpyx/issues
 
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
 | :ref:`l-modules`     |  :ref:`l-functions` | :ref:`l-classes`    | :ref:`l-methods`   | :ref:`l-staticmethods` | :ref:`l-properties`                            |

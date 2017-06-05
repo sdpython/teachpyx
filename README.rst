@@ -30,13 +30,15 @@ README
 .. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=master
     :target: https://codecov.io/github/sdpython/teachpyx?branch=master
 
-.. image:: http://img.shields.io/github/issues/sdpython/teachpyx.png
-    :alt: GitHub Issues
-    :target: https://github.com/sdpython/teachpyx/issues
+.. only:: html
 
-.. image:: https://badge.waffle.io/sdpython/teachpyx.png?label=ready&title=Ready
-    :alt: Waffle
-    :target: https://waffle.io/teachpyx/teachpyx
+    .. image:: https://badge.waffle.io/sdpython/teachpyx.png?label=ready&title=Ready
+        :alt: Waffle
+        :target: https://waffle.io/teachpyx/teachpyx
+
+    .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
+        :alt: GitHub Issues
+        :target: https://github.com/sdpython/teachpyx/issues
 
 **Links:**
 
