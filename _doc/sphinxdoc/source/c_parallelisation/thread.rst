@@ -762,21 +762,30 @@ avec des messages de type ``("dessous", n)``, ``("dessus", n)``, ``("gagne", n)`
 Les affichages se chevauchent parfois, il faudrait pour éviter cela synchroniser
 l'affichage à l'aide d'un verrou.   		
 
-.. todoext::
-    :tag: plus
-    :title: aborder async, await
 
-    Python 3.5 a introduit les mots clés
-    `async, await <https://docs.python.org/3/whatsnew/3.5.html?highlight=async#whatsnew-pep-492>`_.
+GIL - Global Interpreter Lock
+=============================
 
-.. todoext::
-    :tag: plus
-    :title: librairies de synchronisation
+Le `Global Interpreter Lock <https://en.wikipedia.org/wiki/Global_interpreter_lock>`_
+est un verrou qui évite à plusieurs threads de modifier le même objet en même temps.
+Dans les langages bas niveau, on fait la distrinction entre un tableau ou une liste
+qui supporte les accès concurrentiels ou non. Si elle ne les supporte pas, les accès
+sont plus rapides mais suppose que le dévelopeur s'occupe de gérer les problèmes
+de synchronisation si besoin.
 
-    Tel que joblib...
+Le langage Python protège listes et dictionnaires par l'intermédiaire de ce verrou
+qui est unique pour toutes les listes afin de pouvoir gérer efficacement le 
+`garbage collector <https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)>`_
+(voir module `gc <https://docs.python.org/3/library/gc.html>`_). En conséquence,
+si le langage Python est multithread par design, dans les faits, il ne l'est presque
+pas car le *GIL* est sans cesse utilisé.
 
-.. todoext::
-    :tag: plus
-    :title: schéma classique de parallélisation
 
-    s'inspirer de joblib
+
+async- await - asyncio
+======================
+
+
+
+
+
