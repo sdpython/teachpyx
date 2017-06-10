@@ -760,8 +760,32 @@ avec des messages de type ``("dessous", n)``, ``("dessus", n)``, ``("gagne", n)`
     e2.wait ()
 
 Les affichages se chevauchent parfois, il faudrait pour éviter cela synchroniser
-l'affichage à l'aide d'un verrou.   		
+l'affichage à l'aide d'un verrou.
 
+Multithreading plus simple
+==========================
+
+Le module `threading <https://docs.python.org/3/library/threading.html>`_
+a beaucoup été utilisé mais d'autres modules ont été ajoutés à la
+distribution standard de python.
+
+* `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_ :
+  le module propose une interface similaire pour paralléliser avec des threads ou des processus.
+  La création des threads s'écrit plus rapidement.
+* `asyncio <https://docs.python.org/3/library/asyncio-task.html>`_ :
+  ce module fonctionne avec les mots-clés
+  `async, await <https://docs.python.org/3/library/asyncio-task.html#example-hello-world-coroutine>`_
+  et il est particulièrement adapté à la parallélisation à des accès aux ressources.
+
+Le premier module est plus adapté à la parallélisation des calculs,
+le second est particulière utile pour écrire des applications non bloquantes
+qui gère pas mal d'accès à Internet.
+
+concurrent.futures
+------------------
+
+async- await - asyncio
+----------------------
 
 GIL - Global Interpreter Lock
 =============================
@@ -774,18 +798,9 @@ sont plus rapides mais suppose que le dévelopeur s'occupe de gérer les problè
 de synchronisation si besoin.
 
 Le langage Python protège listes et dictionnaires par l'intermédiaire de ce verrou
-qui est unique pour toutes les listes afin de pouvoir gérer efficacement le 
+qui est unique pour toutes les listes afin de pouvoir gérer efficacement le
 `garbage collector <https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)>`_
 (voir module `gc <https://docs.python.org/3/library/gc.html>`_). En conséquence,
 si le langage Python est multithread par design, dans les faits, il ne l'est presque
-pas car le *GIL* est sans cesse utilisé.
-
-
-
-async- await - asyncio
-======================
-
-
-
-
-
+pas car le *GIL* est sans cesse utilisé. Le notebook :ref:`gilexamplerst` finira
+de vous convaincre.
