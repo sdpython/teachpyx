@@ -915,17 +915,17 @@ L'exemple suivant construit un *logger* par thread
 
     def is_prime(n):
         logger = get_logger(threading.current_thread().name)
-        logger.info(f"start {n}*")
+        logger.info("start {}*".format(n))
         if n % 2 == 0:
-            logger.info(f"end1 {n}*")
+            logger.info("end1 {}*".format(n))
             return False
 
         sqrt_n = int(math.floor(math.sqrt(n)))
         for i in range(3, sqrt_n + 1, 2):
             if n % i == 0:
-                logger.info(f"end2 {n}*")
+                logger.info("end2 {}*".format(n))
                 return False
-        logger.info(f"end3 {n}*")
+        logger.info("end3 {}*".format(n))
         return True
 
     def main():
