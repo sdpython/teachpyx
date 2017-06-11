@@ -944,9 +944,98 @@ L'exemple suivant construit un *logger* par thread
 
     with open("thread_1.log", "r") as f:
         print(f.read())
+        
+Notion de futures
+-----------------
 
-async- await - asyncio
-----------------------
+.. index:: futures, promises, promesses, tâches
+
+Ce concept est apparu récemment dans les langages de programmation, non pas
+qu'il n'est jamais été utilisé avant l'an 2000 mais l'usage de plus en plus
+fréquent de la programmation parallélisée fait que certains concept sont 
+nommés et intègres les langages.
+Les `futures ou promesses <https://fr.wikipedia.org/wiki/Futures_(informatique)>`_
+font référence à un résultat dont le calcul est géré par un autre thread ou
+processus. Le résultat n'est pas prêt au moment où ce second thread démarre mais il
+le sera bientôt d'où son nom. On les retrouve en C#
+`Programmation asynchrone avec Async et Await <https://msdn.microsoft.com/fr-fr/library/hh191443(v=vs.120).aspx>`_
+ou C++ `std::async <http://en.cppreference.com/w/cpp/thread/async>`_
+
+Il y a deux objets *futures* en Python qui sont produits par différents
+jeux de fonctions. On ne créé jamais un *futures*, c'est toujours une fonction
+qui le fait.
+
+* `concurrent.futures.Future <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Future>`_ :
+  ils sont créés par le module 
+  `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_.
+* `asyncio.future <https://docs.python.org/3/library/asyncio-task.html#future>`_ :
+  ils sont créés par le module 
+  `asyncio <https://docs.python.org/3/library/asyncio.html>`_.
+  
+Les deux objets possèdent la même interface et sont presque compatibles.
+Cela dit, il vaut mieux éviter de les mélanger. Je cite la documentation :
+
+    This class is not compatible with the 
+    `wait() <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.wait>`_ and 
+    `as_completed() <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.as_completed>`_
+    functions in the concurrent.futures package.
+
+Distribuer l'exécution d'une fonction est relativement facile. Les choses se compliquent
+quand il s'agit de distribuer un calcul qui dépend d'un autre calcul distribué.
+Il faut enchaîner ces fonctions qu'on dit 
+`asynchrones <https://en.wikipedia.org/wiki/Synchronous_programming_language>`_
+puisque leur exécution n'est plus inscrite dans une seule et même séquence
+mais dans plusieurs fils d'exécution parallèles.
+
+Un problème de blocage
+++++++++++++++++++++++
+
+La fonction distribue le calcul de la somme des éléments d'un tableau.
+et elle est récursive.
+
+::
+
+    def distribute_sum(executor, array, i=0, j=-1):
+        if j == -1:
+            j = len(array)
+        if j - i == 1:
+            return array[i]
+        elif j - i < 10:
+            return sum(array[i:j])
+        else:
+            m = (i + j) // 2
+            # on utilise le même executor
+            f1 = executor.submit( distribute_sum, executor, array, i, m)
+            f2 = executor.submit( distribute_sum, executor, array, m, j)
+            return f1.result() + f2.result()
+
+    import random
+    array = [random.random() for n in range(0, 1000)]
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
+    future = executor.submit(distribute_sum, executor, array)
+    future.result()
+    
+Il faut voir l'objet *executor* comme un objet qui empile les fonctions
+à exécuter. Le problème dans l'exemple précédent est que la fonction
+*distribute_sum* est déjà dans la pile d'exécution et attend l'exécution
+de deux autres appels à la même fonction placée après elle dans la pile d'exécution.
+
+.. image:: images/pool.png
+
+Si chaque appel à la fonction était effectué sur un thread différent,
+cela pourrait fonctionner. Mais ce n'est pas le cas pour cette implémentation.
+L'appel 1 attend la fin de 2 et 3 qui ne peuvent pas être exécutés tant
+que 1 n'est pas fini. Pour résoudre le problème dans ce cas ci, il faut 
+remplacer le commentaire par la ligne suivante :
+
+::
+
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
+
+
+
+async - await - asyncio
+-----------------------
 
 GIL - Global Interpreter Lock
 =============================
