@@ -784,6 +784,167 @@ qui gère pas mal d'accès à Internet.
 concurrent.futures
 ------------------
 
+Le `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_
+implémente une classe `Executor <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor>`_
+qui définit une interface pour l'exécution en parallèle. On peut soit :
+
+* soumettre l'exécution d'une fonction avec
+  `submit <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor.submit>`_,
+* ou soumettre l'exécution de la même fonction appliquée à séquence de jeux de paramètres
+  avec `map <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor.map>`_.
+
+Cette classe est dérivée en un
+`ThreadPoolExecutor <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor>`_
+dont le principal argument *max_works* définit le nombre de threads à exécuter en parallèle.
+Je reproduis ici l'`exemple <https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor-example>`_
+de la documentation de *Python* qui détermine si un nombre est premier.
+
+.. runpython::
+    :showcode:
+
+    import concurrent.futures
+    import math
+
+    PRIMES = [
+        112272535095293,
+        112582705942171,
+        112272535095293,
+        115280095190773,
+        115797848077099,
+        1099726899285419]
+
+    def is_prime(n):
+        if n % 2 == 0:
+            return False
+
+        sqrt_n = int(math.floor(math.sqrt(n)))
+        for i in range(3, sqrt_n + 1, 2):
+            if n % i == 0:
+                return False
+        return True
+
+    def main():
+        with concurrent.futures.ThreadPoolExecutor(2) as executor:
+            for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
+                print('%d is prime: %s' % (number, prime))
+
+    main()
+
+Débugger un programme en parallèle n'est pas chose facile car les exécutions s'entremêlent
+et les instructions *print* si elles sont insérées dans la fonction parallélisée produisent
+des résultats indéchiffrables.
+
+.. runpython::
+    :showcode:
+
+    import concurrent.futures
+    import math
+
+    PRIMES = [
+        112272535095293,
+        112582705942171,
+        112272535095293,
+        115280095190773,
+        115797848077099,
+        1099726899285419]
+
+    def is_prime(n):
+        print("start", n, "*")
+        if n % 2 == 0:
+            return False
+
+        sqrt_n = int(math.floor(math.sqrt(n)))
+        for i in range(3, sqrt_n + 1, 2):
+            if n % i == 0:
+                return False
+        print("end", n, "#")
+        return True
+
+    def main():
+        with concurrent.futures.ThreadPoolExecutor(2) as executor:
+            for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
+                print('%d is prime: %s' % (number, prime))
+
+    main()
+
+Pour débugger, il faut utiliser le module `logging <https://docs.python.org/3/library/logging.html#module-logging>`_
+(voir aussi `Ecrire des logs en Python <http://sametmax.com/ecrire-des-logs-en-python/>`_).
+L'exemple suivant construit un *logger* par thread
+
+.. runpython::
+    :showcode:
+
+    import concurrent.futures
+    import math
+    import logging
+    import sys
+    import threading
+
+    loggers = {}
+
+    def get_logger(name):
+        if name in loggers:
+            return loggers[name]
+        logger = logging.getLogger(name)
+        logger.setLevel(logging.DEBUG)
+        fmt = '%(asctime)s - %(threadName)s - %(levelname)s - %(message)s'
+        formatter = logging.Formatter(fmt)
+
+        # Pour un affiche sur la sortie standard mais cela s'entremêle parfois.
+        # ch = logging.StreamHandler(sys.stdout)
+        # ch.setFormatter(formatter)
+        # logger.addHandler(ch)
+
+        # Pour une sortie dans un fichier.
+        # Le mode "w" signifie que les logs de l'exécution précédente
+        # seront effacés.
+        fh = logging.FileHandler(name + ".log", "w")
+        fh.setFormatter(formatter)
+        logger.addHandler(fh)
+
+        loggers[name] = logger
+        return loggers[name]
+
+    PRIMES = [
+        112272535095293,
+        112582705942171,
+        112272535095293,
+        115280095190773,
+        115797848077099,
+        1099726899285419]
+
+    def is_prime(n):
+        logger = get_logger(threading.current_thread().name)
+        logger.info(f"start {n}*")
+        if n % 2 == 0:
+            logger.info(f"end1 {n}*")
+            return False
+
+        sqrt_n = int(math.floor(math.sqrt(n)))
+        for i in range(3, sqrt_n + 1, 2):
+            if n % i == 0:
+                logger.info(f"end2 {n}*")
+                return False
+        logger.info(f"end3 {n}*")
+        return True
+
+    def main():
+        with concurrent.futures.ThreadPoolExecutor(2, "thread") as executor:
+            for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
+                print('%d is prime: %s' % (number, prime))
+
+    main()
+
+    print("-----")
+
+    with open("thread_0.log", "r") as f:
+        print(f.read())
+
+    print("-----")
+
+    with open("thread_1.log", "r") as f:
+        print(f.read())
+
 async- await - asyncio
 ----------------------
 
@@ -804,3 +965,6 @@ qui est unique pour toutes les listes afin de pouvoir gérer efficacement le
 si le langage Python est multithread par design, dans les faits, il ne l'est presque
 pas car le *GIL* est sans cesse utilisé. Le notebook :ref:`gilexamplerst` finira
 de vous convaincre.
+
+cython
+------
