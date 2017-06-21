@@ -782,9 +782,9 @@ le second est particulière utile pour écrire des applications non bloquantes
 qui gère pas mal d'accès à Internet.
 
 concurrent.futures
-------------------
+++++++++++++++++++
 
-Le `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_
+Le module `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_
 implémente une classe `Executor <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor>`_
 qui définit une interface pour l'exécution en parallèle. On peut soit :
 
@@ -944,45 +944,44 @@ L'exemple suivant construit un *logger* par thread
 
     with open("thread_1.log", "r") as f:
         print(f.read())
-        
+
 Notion de futures
------------------
++++++++++++++++++
 
 .. index:: futures, promises, promesses, tâches
 
 Ce concept est apparu récemment dans les langages de programmation, non pas
 qu'il n'est jamais été utilisé avant l'an 2000 mais l'usage de plus en plus
-fréquent de la programmation parallélisée fait que certains concept sont 
+fréquent de la programmation parallélisée fait que certains concept sont
 nommés et intègres les langages.
 Les `futures ou promesses <https://fr.wikipedia.org/wiki/Futures_(informatique)>`_
 font référence à un résultat dont le calcul est géré par un autre thread ou
 processus. Le résultat n'est pas prêt au moment où ce second thread démarre mais il
 le sera bientôt d'où son nom. On les retrouve en C#
 `Programmation asynchrone avec Async et Await <https://msdn.microsoft.com/fr-fr/library/hh191443(v=vs.120).aspx>`_
-ou C++ `std::async <http://en.cppreference.com/w/cpp/thread/async>`_
-
+ou C++ `std::async <http://en.cppreference.com/w/cpp/thread/async>`_.
 Il y a deux objets *futures* en Python qui sont produits par différents
 jeux de fonctions. On ne créé jamais un *futures*, c'est toujours une fonction
 qui le fait.
 
 * `concurrent.futures.Future <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Future>`_ :
-  ils sont créés par le module 
+  ils sont créés par le module
   `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_.
 * `asyncio.future <https://docs.python.org/3/library/asyncio-task.html#future>`_ :
-  ils sont créés par le module 
+  ils sont créés par le module
   `asyncio <https://docs.python.org/3/library/asyncio.html>`_.
-  
+
 Les deux objets possèdent la même interface et sont presque compatibles.
 Cela dit, il vaut mieux éviter de les mélanger. Je cite la documentation :
 
-    This class is not compatible with the 
-    `wait() <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.wait>`_ and 
+    This class is not compatible with the
+    `wait() <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.wait>`_ and
     `as_completed() <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.as_completed>`_
     functions in the concurrent.futures package.
 
 Distribuer l'exécution d'une fonction est relativement facile. Les choses se compliquent
 quand il s'agit de distribuer un calcul qui dépend d'un autre calcul distribué.
-Il faut enchaîner ces fonctions qu'on dit 
+Il faut enchaîner ces fonctions qu'on dit
 `asynchrones <https://en.wikipedia.org/wiki/Synchronous_programming_language>`_
 puisque leur exécution n'est plus inscrite dans une seule et même séquence
 mais dans plusieurs fils d'exécution parallèles.
@@ -1014,7 +1013,7 @@ et elle est récursive.
     executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
     future = executor.submit(distribute_sum, executor, array)
     future.result()
-    
+
 Il faut voir l'objet *executor* comme un objet qui empile les fonctions
 à exécuter. Le problème dans l'exemple précédent est que la fonction
 *distribute_sum* est déjà dans la pile d'exécution et attend l'exécution
@@ -1025,17 +1024,39 @@ de deux autres appels à la même fonction placée après elle dans la pile d'ex
 Si chaque appel à la fonction était effectué sur un thread différent,
 cela pourrait fonctionner. Mais ce n'est pas le cas pour cette implémentation.
 L'appel 1 attend la fin de 2 et 3 qui ne peuvent pas être exécutés tant
-que 1 n'est pas fini. Pour résoudre le problème dans ce cas ci, il faut 
+que 1 n'est pas fini. Pour résoudre le problème dans ce cas ci, il faut
 remplacer le commentaire par la ligne suivante :
 
 ::
 
     executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
 
-
-
 async - await - asyncio
------------------------
++++++++++++++++++++++++
+
+`asyncio <https://docs.python.org/3/library/asyncio.html>`_ a fait émerger
+les mots-clés `async and await <https://docs.python.org/3/whatsnew/3.5.html?highlight=async#whatsnew-pep-492>`_
+qui font partie du langage depuis la version 3.5 tout comme elles font partie
+d'autres langages comme `C# <https://docs.microsoft.com/en-us/dotnet/csharp/async>`_
+ou `C++ <http://www.cplusplus.com/reference/future/async/>`_.
+
+Concrètement, ce n'est pas si difficile d'écrire une fonction
+qui a vocation à être parallélisée. Ce qui devient compliqué est d'avoir
+à sa disposition plein de fonctions à paralléliser. Il faut
+synchroniser. Ces deux mots-clés permettent de définir une fonction
+à vocation parallèle (``async``) et une façon d'attendre
+qu'elles aient retourné un résultat (``await``).
+Ces deux mots-clés sont une façon élégant de créer
+des assemblages de fonctions indépendantes et parallélisées.
+
+Les interfaces graphiques ne contiennent qu'un seul *await*
+ou une seule boucle de messages qui attend inlassablement que
+quelque chose se passe. Le mot-clé *async* agit comme un aiguillage.
+Une action est enclenchée. Elle signalera sa fin et son résultat plus tard.
+
+.. image:: images/asyncapi.png
+
+Le mot-clés *await* sert à chaîner les fonctions parallélisées.
 
 GIL - Global Interpreter Lock
 =============================
