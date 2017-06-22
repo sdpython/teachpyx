@@ -1077,4 +1077,31 @@ pas car le *GIL* est sans cesse utilisé. Le notebook :ref:`gilexamplerst` finir
 de vous convaincre.
 
 cython
-------
+++++++
+
+Tout est possible avec le langage C même si
+`cython <http://cython.org/>`_
+est un mélange des de *python* et *C*. Le contexte
+`nogil <http://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#releasing-the-gil>`_
+permet de relâcher la contrainte sur GIL pour une fonction ou une partie de code.
+Plus de liberté veut dire aussi plus d'attention à apporter au code.
+La page `Using parallelism <http://cython.readthedocs.io/en/latest/src/userguide/parallelism.html?highlight=nogil#using-parallelism>`_
+donne quelques exemples simples de parallélisation.
+Il est plus facile de paralléliser Python avec un autre langage
+(voir aussi `Parallelizing numpy array loops with Cython and OpenMP <http://www.perrygeo.com/parallelizing-numpy-array-loops-with-cython-and-mpi.html>`_).
+
+C#, Java
+++++++++
+
+L'intégration de langage C est supportée par Python car l'interpéteur
+est implémenté en C. Utiliser d'autres langages peut se faire via une
+interface en C et celle-ci existe pour certains langages.
+C'est le cas du `C# <https://fr.wikipedia.org/wiki/C_sharp>`_
+qui peut être utilisé via le module
+`pythonnet <https://github.com/pythonnet/pythonnet>`_ ou encore
+`Java <https://fr.wikipedia.org/wiki/Java>`_ via
+`py4j <https://www.py4j.org/>`_,
+`pyjnius <https://github.com/kivy/pyjnius>`_.
+Les threads sont plus faciles à implémenter dans ces langages
+même si le `garbage collector <https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)>`_
+peut nuire aux performances.
