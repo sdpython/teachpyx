@@ -51,6 +51,7 @@ def is_local():
        "bdist_msi" in sys.argv or \
        "build27" in sys.argv or \
        "build_script" in sys.argv or \
+       "build_ext" in sys.argv or \
        "build_sphinx" in sys.argv or \
        "bdist_wheel" in sys.argv or \
        "bdist_wininst" in sys.argv or \
