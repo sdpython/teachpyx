@@ -187,7 +187,7 @@ if is_local():
         fLOG=logging_function, covtoken=("983adc1c-d7b1-4afa-8673-4345163704d2", "'_UT_36_std' in outfile"))
     if not r and not ({"bdist_msi", "sdist",
                        "bdist_wheel", "publish", "publish_doc", "register",
-                       "upload_docs", "bdist_wininst"} & set(sys.argv)):
+                       "upload_docs", "bdist_wininst", "build_ext"} & set(sys.argv)):
         raise Exception("unable to interpret command line: " + str(sys.argv))
 else:
     r = False
