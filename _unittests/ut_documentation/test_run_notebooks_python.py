@@ -41,7 +41,6 @@ except ImportError:
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder
 from pyquickhelper.ipythonhelper import execute_notebook_list, execute_notebook_list_finalize_ut
-from pyquickhelper.pycode import compare_module_version
 from pyquickhelper.ipythonhelper import install_python_kernel_for_unittest
 import src.teachpyx
 
