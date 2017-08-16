@@ -40,7 +40,7 @@ README
         :alt: GitHub Issues
         :target: https://github.com/sdpython/teachpyx/issues
         
-.. image:: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/nbcov.png
+.. image:: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/_images/nbcov.png
     :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
             
