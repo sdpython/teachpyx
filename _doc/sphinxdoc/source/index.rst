@@ -100,6 +100,10 @@ Xavier Dupré
         :alt: GitHub Issues
         :target: https://github.com/sdpython/teachpyx/issues
 
+.. image:: nbcov.png
+    :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
+    :alt: Notebook Coverage        
+
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
 | :ref:`l-modules`     |  :ref:`l-functions` | :ref:`l-classes`    | :ref:`l-methods`   | :ref:`l-staticmethods` | :ref:`l-properties`                            |
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+

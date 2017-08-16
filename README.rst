@@ -39,6 +39,11 @@ README
     .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
         :alt: GitHub Issues
         :target: https://github.com/sdpython/teachpyx/issues
+        
+.. image:: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/nbcov.png
+    :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
+    :alt: Notebook Coverage
+            
 
 **Links:**
 
