@@ -39,7 +39,7 @@ except ImportError:
     import src
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder
+from pyquickhelper.pycode import get_temp_folder, is_travis_or_appveyor
 from pyquickhelper.ipythonhelper import execute_notebook_list, execute_notebook_list_finalize_ut
 from pyquickhelper.ipythonhelper import install_python_kernel_for_unittest
 import src.teachpyx
@@ -57,7 +57,7 @@ class TestRunNotebooksPython(unittest.TestCase):
             # notebooks are not converted into python 2.7, so not tested
             return
 
-        kernel_name = None if "travis" in sys.executable else install_python_kernel_for_unittest(
+        kernel_name = None if is_travis_or_appveyor() in sys.executable else install_python_kernel_for_unittest(
             "python3_module_template")
 
         temp = get_temp_folder(__file__, "temp_run_notebooks_python")
@@ -69,7 +69,6 @@ class TestRunNotebooksPython(unittest.TestCase):
         for f in os.listdir(fnb):
             if os.path.splitext(f)[-1] == ".ipynb" and "_long" not in f:
                 keepnote.append(os.path.join(fnb, f))
-        assert len(keepnote) > 0
 
         # function to tell that a can be run
         def valid(cell):
@@ -89,10 +88,6 @@ class TestRunNotebooksPython(unittest.TestCase):
             os.path.normpath(os.path.join(
                 os.path.abspath(os.path.dirname(__file__)), "..", "..", "..", "jyquickhelper", "src"))
         ]
-
-        # creation of a kernel
-        kernel_name = None if "travis" in sys.executable else install_python_kernel_for_unittest(
-            "teachpyx")
 
         # run the notebooks
         res = execute_notebook_list(
