@@ -72,6 +72,9 @@ Xavier Dupré
     :target: https://ci.appveyor.com/project/sdpython/teachpyx
     :alt: Build Status Windows
 
+.. image:: https://circleci.com/gh/sdpython/teachpyx/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/sdpython/teachpyx/tree/master
+
 .. image:: https://badge.fury.io/py/teachpyx.svg
     :target: http://badge.fury.io/py/teachpyx
 
@@ -102,7 +105,7 @@ Xavier Dupré
 
 .. image:: nbcov.png
     :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
-    :alt: Notebook Coverage        
+    :alt: Notebook Coverage
 
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
 | :ref:`l-modules`     |  :ref:`l-functions` | :ref:`l-classes`    | :ref:`l-methods`   | :ref:`l-staticmethods` | :ref:`l-properties`                            |

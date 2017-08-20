@@ -12,6 +12,9 @@ README
     :target: https://ci.appveyor.com/project/sdpython/teachpyx
     :alt: Build Status Windows
 
+.. image:: https://circleci.com/gh/sdpython/teachpyx/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/sdpython/teachpyx/tree/master
+
 .. image:: https://badge.fury.io/py/teachpyx.svg
     :target: http://badge.fury.io/py/teachpyx
 
@@ -39,11 +42,10 @@ README
     .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
         :alt: GitHub Issues
         :target: https://github.com/sdpython/teachpyx/issues
-        
+
 .. image:: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/_images/nbcov.png
     :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
-            
 
 **Links:**
 
