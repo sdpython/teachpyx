@@ -9,7 +9,6 @@ pycodestyle>=2.0.0
 pydocstyle
 pyquickhelper>1.5.2122
 semantic_version
-setuptools
 sphinx-bootstrap-theme
 sphinx-gallery
 sphinxcontrib-images
