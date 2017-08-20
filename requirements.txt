@@ -10,9 +10,14 @@ pydocstyle
 pyquickhelper>1.5.2122
 semantic_version
 setuptools
+sphinx-bootstrap-theme
 sphinx-gallery
+sphinxcontrib-images
+sphinxcontrib-imagesvg
+sphinxcontrib-jsdemo
+sphinxjp.themes.basicstrap
+sphinxjp.themes.revealjs
+sphinxjp.themes.sphinxjp
 tqdm
 unify
-version_information
-xmltodict
-xlrd
+wheel
