@@ -8,7 +8,7 @@ nbformat
 nbpresent
 notebook>=5.0.0
 numpy>=1.11.0
-pandas>=20.0.0
+pandas>=0.20.0
 pillow
 scikit-learn
 scipy
