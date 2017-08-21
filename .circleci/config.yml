@@ -84,6 +84,7 @@ jobs:
             cp -r  _doc/sphinxdoc/build/html test-reports/doc
             mkdir -p test-reports/pdf
             cp _doc/sphinxdoc/build/latex/*.pdf test-reports/pdf
+            cp _doc/sphinxdoc/build/latex/teach*.tex test-reports/pdf
             
       - store_artifacts:
           path: test-reports
