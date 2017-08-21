@@ -12,5 +12,5 @@ pandas>=0.20.0
 pillow
 scikit-learn
 scipy
-setuptools>=35.0.0
+setuptools
 Sphinx
