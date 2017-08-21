@@ -26,7 +26,7 @@ jobs:
           command: |
                     sudo apt-get install -y texlive
                     sudo apt-get install -y texlive-latex-extra
-                    sudo apt-get install texlive-lang-european
+                    sudo apt-get install -y texlive-lang-french
           
       - run:
           name: Install 7z, unrar
