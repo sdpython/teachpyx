@@ -622,10 +622,14 @@ des répertoires inclus dans un répertoire.
     filter = "*.rst"
     file,fold = liste_fichier_repertoire (folder, filter)
 
-    for f in file :
+    for i, f in enumerate(file):
         print("fichier ", f)
-    for f in fold :
+        if i >= 10:
+            break
+    for i, f in enumerate(fold):
         print("répertoire ", f)
+        if i >= 10:
+            break
 
 Le programme repose sur l'utilisation d'une fonction récursive
 qui explore d'abord le premier répertoire. Elle se contente d'ajouter à

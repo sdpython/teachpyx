@@ -117,3 +117,6 @@ custom_preamble = """\n
 imgmath_latex_preamble = preamble + custom_preamble
 latex_elements['preamble'] = preamble + custom_preamble
 mathdef_link_only = True
+
+epkg_dictionary["nan"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
+epkg_dictionary["NaN"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'

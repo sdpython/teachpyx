@@ -9,11 +9,11 @@ from pandas import Index
 
 def pandas_fillna(df, by, hasna=None):
     """
-    replace the nan value for something not nan
+    Replaces the :epkg:`nan` value for something not :epkg:`nan`.
 
     @param      df      dataframe
     @param      by      list of columns for which we need to replace nan
-    @param      hasna   None or list of columns for which we need to replace NaN
+    @param      hasna   None or list of columns for which we need to replace :epkg:`NaN`
     @return             list of values chosen for each column, new dataframe (new copy)
     """
     df = df.copy()
