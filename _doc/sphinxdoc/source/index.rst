@@ -13,54 +13,111 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
 (format brut de fonderie) et sur
 `GitHub/teachpyx <https://github.com/sdpython/teachpyx>`_ |gitlogo|.
 
-.. toctree::
-    :maxdepth: 1
+.. only:: html
 
-    introduction
+    .. toctree::
+        :maxdepth: 1
+
+        introduction
+
+.. only:: latex
+
+    .. toctree::
+        :maxdepth: 2
+
+        introduction
 
 Le langage Python
 -----------------
 
-.. toctree::
-    :maxdepth: 1
+.. only:: html
 
-    c_lang/index
-    c_classes/index
-    c_exception/index
-    c_io/index
-    c_module/index
-    c_regex/index
-    c_parallelisation/index
-    c_gui/index
+    .. toctree::
+        :maxdepth: 1
+
+        c_lang/index
+        c_classes/index
+        c_exception/index
+        c_io/index
+        c_module/index
+        c_regex/index
+        c_parallelisation/index
+        c_gui/index
+
+.. only:: latex
+
+    .. toctree::
+        :maxdepth: 2
+
+        c_lang/index
+        c_classes/index
+        c_exception/index
+        c_io/index
+        c_module/index
+        c_regex/index
+        c_parallelisation/index
+        c_gui/index
 
 Python pour scientifique
 ------------------------
 
-.. toctree::
-    :maxdepth: 1
+.. only:: html
 
-    c_data/index
+    .. toctree::
+        :maxdepth: 1
+
+        c_data/index
+
+.. only:: latex
+
+    .. toctree::
+        :maxdepth: 2
+
+        c_data/index
 
 Exemples
 --------
 
-.. toctree::
-    :maxdepth: 1
+.. only:: html
 
-    i_ex
-    i_faq
-    gyexamples/index
-    all_notebooks
+    .. toctree::
+        :maxdepth: 1
+
+        i_ex
+        i_faq
+        gyexamples/index
+        all_notebooks
+
+.. only:: latex
+
+    .. toctree::
+        :maxdepth: 2
+
+        i_ex
+        i_faq
+        gyexamples/index
+        all_notebooks
 
 Résumés et index
 ----------------
 
-.. toctree::
-    :maxdepth: 1
+.. only:: html
 
-    c_resume/index
-    defthe_index
-    end_index
+    .. toctree::
+        :maxdepth: 1
+
+        c_resume/index
+        defthe_index
+        end_index
+
+.. only:: latex
+
+    .. toctree::
+        :maxdepth: 2
+
+        c_resume/index
+        defthe_index
+        end_index
 
 Xavier Dupré
 
