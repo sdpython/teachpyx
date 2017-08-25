@@ -1,14 +1,12 @@
-ansiconv
 autopep8
 babel!=2.0
 blockdiag
-bokeh
 coverage
 jyquickhelper
 mutagen
 pycodestyle>=2.0.0
 pydocstyle
-pyquickhelper>1.5.2122
+pyquickhelper>1.5.2126
 semantic_version
 sphinx-bootstrap-theme
 sphinx-gallery
