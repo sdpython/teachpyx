@@ -1105,3 +1105,10 @@ qui peut être utilisé via le module
 Les threads sont plus faciles à implémenter dans ces langages
 même si le `garbage collector <https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)>`_
 peut nuire aux performances.
+
+Bibliographie
+=============
+
+*articles*
+
+* `Aynschonous API for Python <http://stevedower.id.au/blog/async-api-for-python/>`_

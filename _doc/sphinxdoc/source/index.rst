@@ -109,6 +109,7 @@ Résumés et index
         c_resume/index
         defthe_index
         end_index
+        blog/blogindex
 
 .. only:: latex
 
@@ -118,6 +119,7 @@ Résumés et index
         c_resume/index
         defthe_index
         end_index
+        blog/blogindex
 
 Xavier Dupré
 
