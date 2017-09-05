@@ -26,7 +26,7 @@ set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2017,
                      "bootstrap", sphinx_bootstrap_theme.get_html_theme_path(),
                      locals(), extlinks=dict(
                          issue=('https://github.com/sdpython/teachpyx/issues/%s', 'issue')),
-                     title="Programmation avec le langage Python", book=True)
+                     title="Programmation avec le langage Python", book=True, nblayout='table')
 
 blog_root = "http://www.xavierdupre.fr/app/teachpyx/helpsphinx/"
 
