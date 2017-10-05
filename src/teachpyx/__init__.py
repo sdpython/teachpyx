@@ -1,7 +1,8 @@
 #-*- coding: utf-8 -*-
 """
 @file
-@brief Main file.
+@brief Module *teachpyx*.
+Materials for a book about programming with :pekg:`Python`.
 """
 
 __version__ = "0.1"
