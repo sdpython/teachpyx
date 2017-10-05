@@ -55,4 +55,4 @@ README
 
 **teachpyx**
 
-Computer Science en français.
+Programmation Python en français.
