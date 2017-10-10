@@ -427,7 +427,7 @@ Opérations qu'un dictionnaire supporte.
       - retourne une liste contenant toutes les clés du dictionnaire ``d``.
     * - ``dict (x)``
       - convertit ``x`` en un dictionnaire si cela est possible,
-        en particulier, ``d`` est égal à ``dict ( d.items () )``
+        en particulier, ``d`` est égal à ``dict(d.items())``
 
 Opérations disponibles sur les dictionnaires, ``d`` est un dictionnaire,
 ``x`` est quant à lui quelconque.
@@ -436,32 +436,32 @@ Opérations disponibles sur les dictionnaires, ``d`` est un dictionnaire,
     :widths: 10 20
     :header-rows: 0
 
-    * - ``d.copy ()``
+    * - ``d.copy()``
       - Retourne une copie de ``d``.
     * - ``x in d``
       - Retourne ``True`` si ``x`` est une clé de ``d``.
-    * - ``d.items ()``
+    * - ``d.items()``
       - Retourne un itérateur parcourant contenant tous les couples (clé, valeur)
         inclus dans le dictionnaire. Pour obtenir une liste, il faut écrire
-        ``list ( d.items() )``.
+        ``list(d.items())``.
         **Version 2.x :** retourne une liste.
-    * - ``d.keys ()``
+    * - ``d.keys()``
       - Retourne un itérateur parcourant toutes les clés du dictionnaire ``d``.
         **Version 2.x :** retourne une liste.
-    * - ``d.values ()``
+    * - ``d.values()``
       - Retourne un itérateur parcourant toutes les valeurs du dictionnaire ``d``.
         **Version 2.x :** retourne une liste.
-    * - ``d.get (k[,x])``
+    * - ``d.get(k[,x])``
       - Retourne ``d[k]``, si la clé ``k`` est manquante, alors
         la valeur ``None`` est retournée à moins que le paramètre optionnel ``x``
         soit renseigné, auquel cas, ce sera ce paramètre qui sera retourné.
-    * - ``d.clear ()``
+    * - ``d.clear()``
       - Supprime tous les éléments du dictionnaire.
-    * - ``d.update (d2)``
-      - Pour chaque clé de ``d1``, ``d[k] = d1 [k]``
+    * - ``d.update(d2)``
+      - Pour chaque clé de ``d1``, ``d[k] = d2[k]``
     * - ``d.setdefault(k[,x])``
       - Retourne ``d[k]`` si la clé ``k`` existe, sinon, affecte ``x`` à ``d[k]``.
-    * - ``d.popitem ()``
+    * - ``d.popitem()``
       - Retourne un élément et le supprime du dictionnaire.
 
 Méthodes associées aux dictionnaires, ``d``, ``d2`` sont des dictionnaires,
