@@ -29,3 +29,7 @@ build: off
 
 test_script:
   - "%PYTHON%\\python -u setup.py unittests"
+
+artifacts:
+  - path: dist
+    name: teachpyx
