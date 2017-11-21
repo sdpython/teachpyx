@@ -143,10 +143,6 @@ Xavier Dupré
         :alt: MIT License
         :target: http://opensource.org/licenses/MIT
 
-    .. image:: https://landscape.io/github/sdpython/teachpyx/master/landscape.svg?style=flat
-       :target: https://landscape.io/github/sdpython/teachpyx/master
-       :alt: Code Health
-
     .. image:: https://requires.io/github/sdpython/teachpyx/requirements.svg?branch=master
          :target: https://requires.io/github/sdpython/teachpyx/requirements/?branch=master
          :alt: Requirements Status
