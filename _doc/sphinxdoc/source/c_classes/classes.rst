@@ -727,8 +727,8 @@ dans la méthode ``barycentre`` par exemple.
 
 .. _par_constructeur_operateur:
 
-Opérateurs, itérateurs
-======================
+Opérateurs
+==========
 
 Les opérateurs sont des symboles du langages comme
 ``+``, ``-``, ``+=``, ... Au travers des opérateurs,
@@ -747,10 +747,6 @@ L'addition n'est pas le seul symbole concerné,
 le langage *python* permet de donner un sens à tous
 les opérateurs numériques et d'autres reliés à des
 fonctions du langage comme ``len`` ou ``max``.
-
-Opérateurs
-----------
-
 Le programme suivant contient une classe définissant un nombre
 complexe. La méthode ``ajoute`` définit ce qu'est une addition
 entre nombres complexes.
@@ -1018,13 +1014,66 @@ l'interprétation de ``print(a[4])`` :
       - Opérateurs appelés pour les opérations
         ``+=``, ``/=``, ``*=``, ``-=``, ``**=``, ``<<=``, ``>>=``
 
+.. index:: opérateur retourné
+
 La liste complète est accessible à
-`Operators <https://docs.python.org/3.5/library/operator.html>`_.
+`Operators <https://docs.python.org/3/library/operator.html>`_.
+Le langage :epkg:`Python` autorise une opération peu commune
+aux autres langages : des
+`opérateurs retournés <https://docs.python.org/3/reference/datamodel.html#object.__radd__>`_.
+Cela permet de donner un sens à une expression du type
+``4 + instance d'un objet``. Le type entier ne définit pas cette
+opération et elle devrait normalement échoué. Comme elle n'exsite pas,
+il est possible de définir un opérateur retourné qui prend le relais
+dans ce cas. Il est recommandé d'en faire un usage modéré car
+c'est quelque chose peu répandu dans les langages de programmation.
+
+.. runpython::
+    :showcode:
+
+    class RightSide:
+
+        def __init__(self, v):
+            self.v = v
+
+        def __str__(self):
+            return "RS({})".format(self.v)
+
+        def __add__(self, v):
+            return RightSide('9999999999')
+
+    class LeftSide:
+
+        def __init__(self, v):
+            self.v = v
+
+        def __str__(self):
+            return "LS({})".format(self.v)
+
+        def __add__(self, o):
+            return LeftSide(self.v + o)
+
+        def __radd__(self, o):
+            return RightSide(self.v + o)
+
+        def __lshift__(self, o):
+            return self.__add__(o)
+
+        def __rlshift__(self, o):
+            return self.__radd__(o)
+
+    print(LeftSide(3) + 4)
+    print(4 + LeftSide(3))
+    print('---')
+    print(LeftSide(3) << 4)
+    print(4 << LeftSide(3))
+    print('---')
+    print(RightSide(4) + LeftSide(3))
 
 .. _chap_iterateur:
 
 Itérateurs
-----------
+==========
 
 L'opérateur ``__iter__`` permet de définir ce qu'on appelle un
 itérateur. C'est un objet qui permet d'en explorer un autre,
