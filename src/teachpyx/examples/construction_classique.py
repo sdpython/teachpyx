@@ -456,8 +456,9 @@ def mat2vect(mat):
         .. runpython::
             :showcode:
 
-            mat = [[0,1,2],[3,4,5]]
-            lin = reduce ( lambda x,y: x+y, mat )
+            from functools import reduce
+            mat = [[0,1,2], [3,4,5]]
+            lin = reduce(lambda x,y: x+y, mat)
             print(lin)
     """
     return reduce(lambda x, y: x + y, mat)
