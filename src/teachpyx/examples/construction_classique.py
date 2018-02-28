@@ -10,7 +10,7 @@ from functools import reduce
 
 def recherche(li, c):
     """
-    Retourne l'index d'un élément ou -1 si non trouvé
+    Retourne l'index d'un élément ou -1 si non trouvé.
 
     @param      li      liste
     @param      c       élément à trouver
@@ -193,8 +193,8 @@ def text2mat(s, sep_row="\n", sep_col="\t"):
 
 def mat2text(mat, sep_row="\n", sep_col="\t"):
     """
-    convertit une matrice en une chaîne de caractères,
-    réciproque de la fonction @see fn text2mat
+    Convertit une matrice en une chaîne de caractères,
+    réciproque de la fonction @see fn text2mat.
 
     @param      mat         matrice à convertir (liste de listes)
     @param      sep_row     séparation de ligne
@@ -278,7 +278,7 @@ def somme(li):
 
 def triindex(li):
     """
-    trie une liste, retourne la liste triée et les positions initiales
+    Trie une liste, retourne la liste triée et les positions initiales.
 
     @param      li      tableau
     @return             liste triée
@@ -344,7 +344,7 @@ def triindex(li):
 
 def compte(li):
     """
-    compte le nombre d'occurrences de chaque élément d'une liste
+    Compte le nombre d'occurrences de chaque élément d'une liste.
 
     @param  li      tableau
     @return         dictionnaire
@@ -380,13 +380,13 @@ def compte(li):
             :showcode:
 
             mat = [ [1,1,1], [2,2,2], [1,1,1]]
-            d  = { }
+            d  = {}
             for l in mat:
-                k = str (l)    # k = tuple (l) lorsque cela est possible
+                k = str(l)    # k = tuple (l) lorsque cela est possible
                 if k not in d:
-                    d [k] = 1
+                    d[k] = 1
                 else:
-                    d [k] += 1
+                    d[k] += 1
             print(d)   # affiche {'[1, 1, 1]': 2, '[2, 2, 2]': 1}
 
         Les listes ne peuvent pas être les clés du dictionnaire :
@@ -400,21 +400,22 @@ def compte(li):
 
             li = ["un", "deux", "un", "trois"]
             d  = { }
-            for i,v in enumerate(li):
+            for i, v in enumerate(li):
                 if v not in d:
-                    d [v] = [ i ]
+                    d[v] = [i]
                 else:
-                    d [v].append (i)
+                    d[v].append(i)
             print(d)   # affiche {'un': [0, 2], 'trois': [3], 'deux': [1]}
 
-        S'il suffit juste compter, l'écriture la plus simple est :
+        S'il suffit juste de compter, l'écriture la plus simple est :
 
         .. runpython::
             :showcode:
 
+            r = {}
             li = ["un", "deux", "un", "trois"]
             for x in li:
-                r[x] = r.get(x,0)+1
+                r[x] = r.get(x,0) + 1
             print(r)
     """
     r = {}
@@ -425,8 +426,8 @@ def compte(li):
 
 def mat2vect(mat):
     """
-    convertit une matrice en un tableau à une seule dimension,
-    réciproque de la fonction @see fn vect2mat
+    Convertit une matrice en un tableau à une seule dimension,
+    réciproque de la fonction @see fn vect2mat.
 
     @param  mat     matrice
     @return         liste
@@ -495,7 +496,8 @@ def vect2mat(vect, ncol):
 
 def integrale(fonction, a, b, n):
     """
-    calcule l'intégrale d'une fonction avec la méthode de Rienmann
+    Calcule l'intégrale d'une fonction avec la
+    `méthode de Rienmann <https://fr.wikipedia.org/wiki/Somme_de_Riemann>`_.
 
     @param  fonction        fonction
     @param  a               borne inférieure de l'intervalle
@@ -543,8 +545,8 @@ def integrale(fonction, a, b, n):
 
 def construit_matrice_carree(n):
     """
-    cette construit une matrice carrée remplie de zéro
-    sous la forme d'une liste de listes
+    Cette fonction construit une matrice carrée remplie de zéro
+    sous la forme d'une liste de listes.
 
     @param      n       dimension de la matrice carrée
     """
@@ -553,7 +555,7 @@ def construit_matrice_carree(n):
 
 def enumerate_permutations_recursive(ensemble):
     """
-    énumère les permutations d'un ensemble de façon récursive
+    Enumère les permutations d'un ensemble de façon récursive.
 
     @param      ensemble        ensemble à permuter
     @return                     itérateur sur les permutations
@@ -572,7 +574,7 @@ def enumerate_permutations_recursive(ensemble):
 
 def enumerate_permutations(ensemble):
     """
-    énumère les permutations d'un ensemble de façon non récursive
+    Enumère les permutations d'un ensemble de façon non récursive.
 
     @param      ensemble        ensemble à permuter
     @return                     itérateur sur les permutations

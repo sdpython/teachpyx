@@ -7,4 +7,3 @@ Classes et programmation objet
     :maxdepth: 2
 
     classes
-    faq

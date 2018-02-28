@@ -14,6 +14,9 @@ Langage Python
     :contents:
     :tag: python
 
+Classes
+-------
+
 .. faqreflist::
     :contents:
     :tag: class
