@@ -78,10 +78,10 @@ def minindex(li):
         .. runpython::
             :showcode:
 
-            li = [ 0, 434, 43, 6436, 5 ]
+            li = [0, 434, 43, 6436, 5]
             m  = 0
-            for i in range (0, len (li)):
-                if li [m] < li [i]:
+            for i in range (0, len(li)):
+                if li[m] < li[i]:
                     m = i
             print(m)
 
@@ -90,7 +90,8 @@ def minindex(li):
         .. runpython::
             :showcode:
 
-            k = [(v,i) for i,v in enumerate (li)]
+            li = [0, 434, 43, 6436, 5]
+            k = [(v,i) for i, v in enumerate(li)]
             m = min(k)
             print(m)
 
