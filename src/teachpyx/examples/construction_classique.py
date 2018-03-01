@@ -126,15 +126,15 @@ def recherche_dichotomique(li, c):
             :showcode:
 
             def recherche_dichotomique(li, c) :
-                a,b = 0, len (li)-1
+                a, b = 0, len (li)-1
                 while a <= b :
-                    m = (a+b)/2
-                    if   c == li [m] : return m
-                    elif c <  li [m] : b = m-1   # partie supérieure éliminée
-                    else             : a = m+1   # partie inférieure éliminée
-                return -1  # élément non trouvé
+                    m = (a + b)//2
+                    if   c == li[m]: return m
+                    elif c <  li[m]: b = m-1
+                    else           : a = m+1
+                return -1
 
-            print(recherche_dichotomique([0, 2, 5, 7, 8], 7)
+            print(recherche_dichotomique([0, 2, 5, 7, 8], 7))
     """
     a, b = 0, len(li) - 1
     while a <= b:
@@ -150,8 +150,8 @@ def recherche_dichotomique(li, c):
 
 def text2mat(s, sep_row="\n", sep_col="\t"):
     """
-    convertit une chaîne de caractères en une matrice ( = liste de listes),
-    réciproque de la fonction @see fn mat2text
+    Convertit une chaîne de caractères en une matrice ( = liste de listes),
+    réciproque de la fonction @see fn mat2text.
 
     @param      s           texte à convertir
     @param      sep_row     séparation de ligne
