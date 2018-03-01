@@ -493,6 +493,7 @@ def vect2mat(vect, ncol):
         .. runpython::
             :showcode:
 
+            ncol = 2
             vect = [0, 1, 2, 3, 4, 5]
             mat = [vect[i*ncol: (i+1)*ncol] for i in range(0,len(vect)//ncol)]
             print(mat)
