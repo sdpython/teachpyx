@@ -266,6 +266,9 @@ def somme(li):
         .. runpython::
             :showcode:
 
+            def fonction(x):
+                return x
+
             li = [0, 434, 43, 6456]
             s1 = sum([fonction(l) for l in li])
             s2 = sum(fonction(l) for l in li)
