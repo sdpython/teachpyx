@@ -238,7 +238,7 @@ def somme(li):
         .. runpython::
             :showcode:
 
-            li = [ 0, 434, 43, 6456 ]
+            li = [0, 434, 43, 6456]
             s  = 0                       # initialisation
             for l in li :                # boucle
                 s += l                   # addition
@@ -253,6 +253,8 @@ def somme(li):
 
             def fonction(x):
                 return x
+
+            li = [0, 434, 43, 6456]
             s  = 0
             for l in li:
                 s += fonction (l)
@@ -264,9 +266,10 @@ def somme(li):
         .. runpython::
             :showcode:
 
-            s1 = sum ( [fonction (l) for l in li] )
-            s2 = sum ( fonction (l) for l in li )
-            s3 = sum ( map (fonction, li) )
+            li = [0, 434, 43, 6456]
+            s1 = sum([fonction(l) for l in li])
+            s2 = sum(fonction(l) for l in li)
+            s3 = sum(map(fonction, li))
             print(s1, s2, s3)
 
         L'avantage des deux dernières instructions est qu'elles évitent
@@ -336,7 +339,7 @@ def triindex(li):
             :showcode:
 
             tab = ["zero", "un", "deux"]
-            tab_position = [ (t,i) for i,t in enumerate(tab) ]
+            tab_position = [(t,i) for i,t in enumerate(tab)]
             tab_position.sort()
             print(tab_position)
     """
@@ -366,9 +369,9 @@ def compte(li):
             d  = { }
             for l in li:
                 if l not in d:
-                    d [l] = 1
+                    d[l] = 1
                 else:
-                    d [l] += 1
+                    d[l] += 1
             print(d)   # affiche {'un': 2, 'trois': 1, 'deux': 1}
 
         La structure la plus appropriée ici est un dictionnaire puisqu'on cherche
@@ -488,7 +491,7 @@ def vect2mat(vect, ncol):
             :showcode:
 
             vect = [0, 1, 2, 3, 4, 5]
-            mat = [ vect[i*ncol: (i+1)*ncol] for i in range(0,len(vect)//ncol) ]
+            mat = [vect[i*ncol: (i+1)*ncol] for i in range(0,len(vect)//ncol)]
             print(mat)
 
     """
