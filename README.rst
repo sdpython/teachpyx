@@ -16,7 +16,7 @@ README
     :target: https://circleci.com/gh/sdpython/teachpyx/tree/master
 
 .. image:: https://badge.fury.io/py/teachpyx.svg
-    :target: http://badge.fury.io/py/teachpyx
+    :target: https://pypi.org/project/teachpyx/
 
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
     :alt: MIT License
