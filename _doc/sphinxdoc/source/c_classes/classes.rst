@@ -361,6 +361,14 @@ Cette écriture devrait toutefois être évitée puisque la méthode
     li = [ nb.methode1(100) for i in range(0,10) ]
     print(li)  # affiche [19, 46, 26, 88, 44, 56, 56, 26, 0, 8]
 
+Ceux qui découvrent la programmation se posent toujours
+la question de l'utilité de ce nouveau concept qui ne
+permet pas de faire des choses différentes, tout au plus
+de les faire mieux. La finalité des classes apparaît
+avec le concept d':ref:`par_classe_heritage`. L'article illustre
+une façon de passer progressivent des fonctions aux classes de
+fonctions : :ref:`C'est obligé les classes ? <blog-class-ou-fonction>`.
+
 .. _par_classe_constructeur:
 
 Constructeur

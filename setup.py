@@ -79,8 +79,8 @@ def is_local():
     import_pyquickhelper()
     from pyquickhelper.pycode.setup_helper import available_commands_list
     return available_commands_list(sys.argv)
-    
-    
+
+
 def verbose():
     print("---------------------------------")
     print("package_dir =", package_dir)
