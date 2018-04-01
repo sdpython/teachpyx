@@ -744,8 +744,8 @@ Méthode format
 
 .. index:: format, formmattage
 
-La méthode `format <https://docs.python.org/3/library/stdtypes.html#str.format>`_
-propose plus d'options pour formatter le texte et son usage est de plus en plus fréquent.
+La méthode :epkg:`format` propose plus d'options pour formatter
+le texte et son usage est de plus en plus fréquent.
 La méthode interprète les accolades ``{}`` comme des codes qu'elle remplace
 avec les valeurs passée en argument. Le type n'importe plus.
 Quelques exemples :
@@ -795,6 +795,14 @@ Dates :
     import datetime
     d = datetime.datetime.now()
     print('{:%Y-%m-%d %H:%M:%S}'.format(d))
+
+Le site :epkg:`pyformat` recense d'autres usages de la méthode
+:epkg:`format` comme l'affichage de chaînes de caractères tronquées.
+
+.. runpython::
+    :showcode:
+
+    print('{:10.5}'.format('formatages'))
 
 .. _parag_tuple_defindfg:
 
