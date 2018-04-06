@@ -1,0 +1,32 @@
+
+.. blogpost::
+    :title: Debugger Python
+    :keywords: python, classes
+    :date: 2018-04-05
+    :categories: debug
+
+    L'exécution pas à pas d'un programme
+    :epkg:`Python` permet souvent de trouver
+    facilement l'erreur caché dans un programme.
+    Cette astuce est néanmoins compliquée à mettre
+    en oeuvre dans deux cas. Le premier lorsque l'erreur
+    se produit dans un module implémentée en :epkg:`C++`.
+    C'est assez rare pour les modules standard comme
+    :epkg:`pandas` ou :epkg:`numpy` mais néanmoins possible.
+    Il n'y a pas d'options pratique depuis :epkg:`Python`
+    si ce n'est Visual Studio :
+    `Débogage conjoint de Python et de C++ <https://docs.microsoft.com/fr-fr/visualstudio/python/debugging-mixed-mode-c-cpp-python-in-visual-studio>`_.
+    Le second cas difficile avec un débugger survient
+    lorsque l'erreur se produit dans un programme après plusieurs
+    minutes d'exécution ou à la dernière itération d'une boucle
+    à un million de tours. Dans ces cas-là, le seul recours
+    est souvent d'utiliser la fonction ``print`` à des endroits
+    bien choisis. Parfois, on souhaite détecter que le même nombre
+    d'objets à été créés puis détruits, parfois, on souhaite
+    tomber sur la donnée qui fait exploser la mémoire.
+    Le module `pympler <https://pythonhosted.org/Pympler/index.html>`_
+    propose quelques outils pour ces deux méthodes de diagnostic.
+    Quoiqu'il en soit, après une telle aventure, vous serez
+    probablement incité à écrire des petites fonctions facilement
+    testables séparéments plutôt que de grandes fonctions
+    terriblement compliquées à tester.

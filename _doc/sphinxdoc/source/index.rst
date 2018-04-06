@@ -19,6 +19,17 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
         :maxdepth: 1
 
         introduction
+        c_lang/index
+        c_classes/index
+        c_exception/index
+        c_io/index
+        c_module/index
+        c_regex/index
+        c_parallelisation/index
+        c_gui/index
+        c_data/index
+        i_examples
+        c_resume/index
 
 .. only:: latex
 
@@ -26,15 +37,6 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
         :maxdepth: 2
 
         introduction
-
-Le langage Python
------------------
-
-.. only:: html
-
-    .. toctree::
-        :maxdepth: 1
-
         c_lang/index
         c_classes/index
         c_exception/index
@@ -43,85 +45,19 @@ Le langage Python
         c_regex/index
         c_parallelisation/index
         c_gui/index
-
-.. only:: latex
-
-    .. toctree::
-        :maxdepth: 2
-
-        c_lang/index
-        c_classes/index
-        c_exception/index
-        c_io/index
-        c_module/index
-        c_regex/index
-        c_parallelisation/index
-        c_gui/index
-
-Python pour scientifique
-------------------------
-
-.. only:: html
-
-    .. toctree::
-        :maxdepth: 1
-
         c_data/index
-
-.. only:: latex
-
-    .. toctree::
-        :maxdepth: 2
-
-        c_data/index
-
-Exemples
---------
-
-.. only:: html
-
-    .. toctree::
-        :maxdepth: 1
-
-        i_ex
-        i_faq
-        gyexamples/index
-        all_notebooks
-
-.. only:: latex
-
-    .. toctree::
-        :maxdepth: 2
-
-        i_ex
-        i_faq
-        gyexamples/index
-        all_notebooks
-
-Résumés et index
-----------------
-
-.. only:: html
-
-    .. toctree::
-        :maxdepth: 1
-
+        i_examples
         c_resume/index
-        defthe_index
-        end_index
-        blog/blogindex
+        i_index
 
-.. only:: latex
-
-    .. toctree::
-        :maxdepth: 2
-
-        c_resume/index
-        defthe_index
-        end_index
-        blog/blogindex
-
-Xavier Dupré
+Je regrette de ne pas savoir bien dessiner.
+Mais je supporte toujours difficilement de
+recommencer tout un dessin à cause d'un trait mal
+placé, d'une gomme qui étale plutôt qu'elle n'efface.
+Alors j'ai opté pour la programmation.
+J'enregistre mes coups de crayons,
+elle les répète à l'infini.
+`Xavier Dupré <http://www.xavierdupre.fr/>`_
 
 .. only:: html
 
