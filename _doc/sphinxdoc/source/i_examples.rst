@@ -4,7 +4,7 @@ Examples
 ########
 
 Exemples, FAQ (Frequently Asked Questions), notebooks
-et autres petits bouts de codes qu'on espère pouvoir copier
+et autres petits bouts de codes qu'on espÃ¨re pouvoir copier
 coller sans les comprendre. Parfois c'est vrai.
 
 .. only:: html
