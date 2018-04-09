@@ -7,6 +7,7 @@
 
     .. runpython::
         :showcode:
+        :nopep8:
 
         s1 = 'İ'
         s2 = s1.lower()
