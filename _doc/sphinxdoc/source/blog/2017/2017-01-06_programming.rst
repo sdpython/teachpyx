@@ -5,6 +5,11 @@
     :date: 2017-01-06
     :categories: weird
 
+    This is the kind of example I never imagined
+    maybe because I trust too much the code I write
+    and I can't see it fail for something like what
+    follows.
+
     .. runpython::
         :showcode:
         :nopep8:
