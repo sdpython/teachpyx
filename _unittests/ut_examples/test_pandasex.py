@@ -63,8 +63,7 @@ class TestPandasex(unittest.TestCase):
 
         for ty in types:
             data = [{"this": "cst", "type": "tt1=" + str(ty[0]), "value": ty[1]},
-                    {"this": "cst", "type": "tt2=" +
-                        str(ty[0]), "value": ty[1]},
+                    {"this": "cst", "type": "tt2=" + str(ty[0]), "value": ty[1]},
                     {"this": "cst", "type": "row_for_nan"}]
             df = pandas.DataFrame(data)
             gr = pandas_groupby_nan(df, "value")
@@ -75,8 +74,7 @@ class TestPandasex(unittest.TestCase):
 
         for ty in types:
             data = [{"this": "cst", "type": "tt1=" + str(ty[0]), "value": ty[1]},
-                    {"this": "cst", "type": "tt2=" +
-                        str(ty[0]), "value": ty[1]},
+                    {"this": "cst", "type": "tt2=" + str(ty[0]), "value": ty[1]},
                     {"this": "cst", "type": "row_for_nan"}]
             df = pandas.DataFrame(data)
             try:
