@@ -1,3 +1,4 @@
+===========================
 Generate this documentation
 ===========================
 
@@ -10,13 +11,13 @@ Configuration:
 .. literalinclude:: conf.py
 
 Extensions to install
-+++++++++++++++++++++
+=====================
 
 * `pyquickhelper <https://pypi.python.org/pypi/pyquickhelper/>`_
 * `wild_sphinx_theme <https://pypi.python.org/pypi/wild_sphinx_theme>`_
 
 Tips
-++++
+====
 
 Module `pyquickhelper <https://pypi.python.org/pypi/pyquickhelper/>`_
 defines sphinx command

@@ -118,6 +118,8 @@ mathdef_link_only = True
 
 epkg_dictionary["C++"] = 'https://fr.wikipedia.org/wiki/C%2B%2B'
 epkg_dictionary["format"] = 'https://docs.python.org/3/library/stdtypes.html#str.format'
+epkg_dictionary["joblib"] = 'https://pythonhosted.org/joblib/'
 epkg_dictionary["nan"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
 epkg_dictionary["NaN"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
+epkg_dictionary["OpenMP"] = 'https://fr.wikipedia.org/wiki/OpenMP'
 epkg_dictionary["pyformat"] = 'https://pyformat.info/'

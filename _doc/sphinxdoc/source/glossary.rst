@@ -1,6 +1,7 @@
 
 .. index:: glossary
 
+========
 Glossary
 ========
 

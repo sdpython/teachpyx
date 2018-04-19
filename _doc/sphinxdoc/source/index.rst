@@ -4,6 +4,7 @@
 .. |gitlogo| image:: _static/git_logo.png
              :height: 20
 
+======================================
 Apprendre la programmation avec Python
 ======================================
 

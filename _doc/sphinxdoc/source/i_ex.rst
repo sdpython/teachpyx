@@ -1,6 +1,7 @@
 
 .. _l-EX2:
 
+========
 Examples
 ========
 
@@ -8,21 +9,21 @@ Examples
     :local:
 
 Construction classique
-++++++++++++++++++++++
+======================
 
 .. exreflist::
     :contents:
     :tag: Base
 
 Constructions négatives
-+++++++++++++++++++++++
+=======================
 
 .. exreflist::
     :contents:
     :tag: Base -
 
 Numpy
-+++++
+=====
 
 .. exreflist::
     :contents:

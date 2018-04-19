@@ -31,3 +31,7 @@ Cette dernière librairie est utilisée par le module
 `sanic <http://sanic.readthedocs.io/en/latest/>`_ qui implémenté
 un serveur web plus rapide que
 `flask <http://flask.pocoo.org/>`_.
+La page `Parallel Processing in Python <https://homes.cs.washington.edu/~jmschr/lectures/Parallel_Processing_in_Python.html>`_
+passe en revue différentes stratégies de parallélisation
+pour l'implémentation de calculs numériques avec
+:epkg:`joblib`, :epkg:`cython`, :epkg:`OpenMP`.

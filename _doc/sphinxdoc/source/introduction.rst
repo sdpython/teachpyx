@@ -1,7 +1,7 @@
 
-############
+============
 Introduction
-############
+============
 
 Ceci est une relecture du livre que j'ai écrit en 2009
 `Programmation avec le langage Python <http://www.editions-ellipses.fr/product_info.php?products_id=6891>`_

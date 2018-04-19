@@ -1,7 +1,7 @@
 
-########
-Examples
-########
+========
+Exemples
+========
 
 Exemples, FAQ (Frequently Asked Questions), notebooks
 et autres petits bouts de codes qu'on espère pouvoir copier
