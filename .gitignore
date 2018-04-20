@@ -273,3 +273,8 @@ _doc/sphinxdoc/info.bin
 _doc/notebooks/Untitled.ipynb
 _doc/sphinxdoc/source/c_gui/images/ren.py
 _doc/sphinxdoc/source/nbcov.png
+_doc/notebooks/python/include/*
+_doc/notebooks/python/bin/*
+_doc/notebooks/python/schema_pb2.py
+_doc/notebooks/python/schema.proto
+_doc/notebooks/python/protoc-*.zip

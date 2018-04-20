@@ -123,6 +123,7 @@ epkg_dictionary["JSON"] = 'https://fr.wikipedia.org/wiki/JavaScript_Object_Notat
 epkg_dictionary["nan"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
 epkg_dictionary["NaN"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
 epkg_dictionary["OpenMP"] = 'https://fr.wikipedia.org/wiki/OpenMP'
+epkg_dictionary["protobuf"] = 'https://developers.google.com/protocol-buffers/'
 epkg_dictionary["pyformat"] = 'https://pyformat.info/'
 epkg_dictionary["ujson"] = 'https://github.com/esnme/ultrajson'
 epkg_dictionary["ultrajson"] = 'https://github.com/esnme/ultrajson'

@@ -135,7 +135,7 @@ plus sérialisables par défaut.
 .. runpython::
     :showcode:
 
-    from json import dump
+    from json import dump, JSONEncoder
     from io import StringIO
 
     class A:
@@ -161,8 +161,7 @@ avec la classe `JSONEncoder <https://docs.python.org/3/library/json.html#json.JS
 .. runpython::
     :showcode:
 
-    from json import JSONEncoder
-    from json import dump
+    from json import dump, JSONEncoder
     from io import StringIO
 
     class A:
@@ -184,7 +183,8 @@ Et la relecture s'effectue comme suit :
 .. runpython::
     :showcode:
 
-    from json import JSONDecoder
+    from json import load, JSONDecoder
+    from io import StringIO
 
     class MyDecoder(JSONDecoder):
             def decode(self, o):
@@ -266,6 +266,9 @@ Pour réduire la taille de l'objet une fois sérialisé, on en stocke qu'un seul
 .. runpython::
     :showcode:
 
+    from io import BytesIO
+    from pickle import dump, load
+
     class B:
         def __init__(self, att):
             self.att1 = att
@@ -288,6 +291,38 @@ Pour réduire la taille de l'objet une fois sérialisé, on en stocke qu'un seul
         buffer = BytesIO(seq)
         read = load(buffer)
         print(read.att1, read.att2)
+
+Optimisation
+============
+
+.. index:: protobuf
+
+La communication entre services devient parfois cruciale
+pour assurer un service temps réel. Le premier enjeu est
+d'écrire ou de lire rapidement. Le second est de pouvoir
+accéder à une information sans avoir à déchiffrer l'ensemble
+des données sérialisées. Pour ces deux objectifs, la solution
+la plus aboutie est la librarie :epkg:`protobuf`. L'efficacité
+est gagnée en imposant un format strict et figé aux données.
+La première étape consiste à définir un schéma de donnée,
+qui est convertit ensuite en un programme qui permette de
+sérialiser, désérialiser et accéder à une information précise
+dans le language de votre choix.
+
+.. blockdiag::
+
+    blockdiag {
+       A [label = "schéma"];
+       B [label = "code python"];
+       A -> B [label = "compilation"];
+    }
+
+La suite est dans le notebook :
+
+.. toctree::
+    :maxdepth:
+
+    ../notebooks/serialisation_protobuf
 
 Sérialiser autre chose que des données
 ======================================
