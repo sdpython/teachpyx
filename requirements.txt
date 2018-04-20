@@ -1,6 +1,7 @@
 cloudpickle
 coverage
 jyquickhelper
+protobuf
 pyquickhelper>=1.7.2536
 solar-theme
 sphinxcontrib-blockdiag
