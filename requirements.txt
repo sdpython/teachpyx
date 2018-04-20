@@ -1,5 +1,8 @@
+cloudpickle
 coverage
 jyquickhelper
 pyquickhelper>=1.7.2536
 solar-theme
+sphinxcontrib-blockdiag
+ujson
 wheel

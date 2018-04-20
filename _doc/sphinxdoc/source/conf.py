@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import sys
 import os
 import datetime
@@ -29,6 +29,7 @@ set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2018,
                      title="Programmation avec le langage Python", book=True, nblayout='table')
 
 blog_root = "http://www.xavierdupre.fr/app/teachpyx/helpsphinx/"
+extensions.append("sphinxcontrib-blockdiag")
 
 html_context = {
     'css_files': get_default_stylesheet() + ['_static/my-styles.css'],
@@ -42,8 +43,6 @@ if html_theme == "bootstrap":
         'navbar_site_name': "Site",
         'navbar_links': [
             ("XD", "http://www.xavierdupre.fr", True),
-            ("blog", "blog/main_0000.html", True),
-            ("index", "genindex"),
         ],
         'navbar_sidebarrel': True,
         'navbar_pagenav': True,
@@ -110,7 +109,7 @@ custom_preamble = """\n
 \\newcommand{\\sac}[0]{|}
 \\newcommand{\\abs}[1]{\\left|#1\\right|}
 """
-#\\usepackage{eepic}
+# \\usepackage{eepic}
 
 imgmath_latex_preamble = preamble + custom_preamble
 latex_elements['preamble'] = preamble + custom_preamble
@@ -119,7 +118,10 @@ mathdef_link_only = True
 epkg_dictionary["C++"] = 'https://fr.wikipedia.org/wiki/C%2B%2B'
 epkg_dictionary["format"] = 'https://docs.python.org/3/library/stdtypes.html#str.format'
 epkg_dictionary["joblib"] = 'https://pythonhosted.org/joblib/'
+epkg_dictionary["JSON"] = 'https://fr.wikipedia.org/wiki/JavaScript_Object_Notation'
 epkg_dictionary["nan"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
 epkg_dictionary["NaN"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
 epkg_dictionary["OpenMP"] = 'https://fr.wikipedia.org/wiki/OpenMP'
 epkg_dictionary["pyformat"] = 'https://pyformat.info/'
+epkg_dictionary["ujson"] = 'https://github.com/esnme/ultrajson'
+epkg_dictionary["ultrajson"] = 'https://github.com/esnme/ultrajson'
