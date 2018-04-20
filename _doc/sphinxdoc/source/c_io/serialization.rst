@@ -105,7 +105,7 @@ La conversion inverse s'effectue comme suit.
     from io import StringIO
 
     seq = '{"records": [{"nom": "Xavier", "pr\\u00e9nom": "Xavier", ' + \
-          "langages": [{"nom": "C++", "age": 40}, {"nom": "Python", "age": 20}]}]}'
+          '"langages": [{"nom": "C++", "age": 40}, {"nom": "Python", "age": 20}]}]}'
 
     buffer = StringIO(seq)
     read = load(buffer)
