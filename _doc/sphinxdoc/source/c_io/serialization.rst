@@ -186,6 +186,10 @@ Et la relecture s'effectue comme suit :
     from json import load, JSONDecoder
     from io import StringIO
 
+    class A:
+        def __init__(self, att):
+            self.att = att
+
     class MyDecoder(JSONDecoder):
             def decode(self, o):
                 dec = JSONDecoder.decode(self, o)
