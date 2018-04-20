@@ -29,7 +29,8 @@ set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2018,
                      title="Programmation avec le langage Python", book=True, nblayout='table')
 
 blog_root = "http://www.xavierdupre.fr/app/teachpyx/helpsphinx/"
-extensions.append("sphinxcontrib-blockdiag")
+extensions.append("sphinxcontrib.blockdiag")
+# blockdiag_fontpath = '/usr/share/fonts/truetype/ipafont/ipagp.ttf'
 
 html_context = {
     'css_files': get_default_stylesheet() + ['_static/my-styles.css'],
