@@ -269,6 +269,7 @@ Pour réduire la taille de l'objet une fois sérialisé, on en stocke qu'un seul
 
 .. runpython::
     :showcode:
+    :process:
 
     from io import BytesIO
     from pickle import dump, load
