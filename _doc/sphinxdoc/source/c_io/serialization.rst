@@ -287,14 +287,14 @@ Pour réduire la taille de l'objet une fois sérialisé, on en stocke qu'un seul
             setattr(self, 'att1', state["att"])
             setattr(self, 'att2', state["att"])
 
-        data = B('r')
-        buffer = BytesIO()
-        res = dump(data, buffer)
-        seq = buffer.getvalue()
+    data = B('r')
+    buffer = BytesIO()
+    res = dump(data, buffer)
+    seq = buffer.getvalue()
 
-        buffer = BytesIO(seq)
-        read = load(buffer)
-        print(read.att1, read.att2)
+    buffer = BytesIO(seq)
+    read = load(buffer)
+    print(read.att1, read.att2)
 
 Optimisation
 ============
