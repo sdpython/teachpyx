@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@brief      test log(time=33s)
+@brief      test log(time=67s)
 """
 
 import sys
@@ -45,9 +45,9 @@ from pyquickhelper.ipythonhelper import install_python_kernel_for_unittest
 import src.teachpyx
 
 
-class TestRunNotebooksPython(unittest.TestCase):
+class TestRunNotebooksPythonProtobuf(unittest.TestCase):
 
-    def test_run_notebook_python(self):
+    def test_run_notebook_python_protobuf(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -56,14 +56,14 @@ class TestRunNotebooksPython(unittest.TestCase):
         kernel_name = None if is_travis_or_appveyor() else install_python_kernel_for_unittest(
             "python3_module_template")
 
-        temp = get_temp_folder(__file__, "temp_run_notebooks_python")
+        temp = get_temp_folder(__file__, "temp_run_notebooks_python_protobuf")
 
         # selection of notebooks
         fnb = os.path.normpath(os.path.join(
             os.path.abspath(os.path.dirname(__file__)), "..", "..", "_doc", "notebooks", "python"))
         keepnote = []
         for f in os.listdir(fnb):
-            if os.path.splitext(f)[-1] == ".ipynb" and "_long" not in f and "protobuf" not in f:
+            if os.path.splitext(f)[-1] == ".ipynb" and "protobuf" in f:
                 keepnote.append(os.path.join(fnb, f))
 
         # function to tell that a can be run
