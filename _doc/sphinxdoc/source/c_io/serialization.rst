@@ -109,7 +109,7 @@ La conversion inverse s'effectue comme suit.
 
     buffer = StringIO(seq)
     read = load(buffer)
-    read
+    print(read)
 
 Tous les types ne sont pas sérialisables même si ceux-ci
 sont fréquemment utilisés :
@@ -176,7 +176,7 @@ avec la classe `JSONEncoder <https://docs.python.org/3/library/json.html#json.JS
     buffer = StringIO()
     res = dump(data, buffer, cls=MyEncoder)
     res = buffer.getvalue()
-    res
+    print(res)
 
 Et la relecture s'effectue comme suit :
 
@@ -201,7 +201,7 @@ Et la relecture s'effectue comme suit :
     res = '{"classname": "A", "data": {"att": "e"}}'
     buffer = StringIO(res)
     obj = load(buffer, cls=MyDecoder)
-    obj
+    print(obj)
 
 Il existe des alternatives plus rapides au module
 `json <https://docs.python.org/3/library/json.html>`_
@@ -325,7 +325,7 @@ dans le language de votre choix.
 La suite est dans le notebook :
 
 .. toctree::
-    :maxdepth:
+    :maxdepth: 1
 
     ../notebooks/serialisation_protobuf
 
@@ -339,6 +339,6 @@ développés pour cela. Le notebook suivant étudie certains cas
 où cela est néanmoins possible sans trop de développement.
 
 .. toctree::
-    :maxdepth:
+    :maxdepth: 1
 
     ../notebooks/serialisation_examples
