@@ -39,7 +39,7 @@ except ImportError:
     import src
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder, is_travis_or_appveyor
+from pyquickhelper.pycode import get_temp_folder, is_travis_or_appveyor, skipif_circleci, skipif_travis
 from pyquickhelper.ipythonhelper import execute_notebook_list, execute_notebook_list_finalize_ut
 from pyquickhelper.ipythonhelper import install_python_kernel_for_unittest
 import src.teachpyx
@@ -47,6 +47,8 @@ import src.teachpyx
 
 class TestRunNotebooksPythonProtobuf(unittest.TestCase):
 
+    @skipif_circleci("'Permission denied: 'bin/protoc'")
+    @skipif_travis("'Permission denied: 'bin/protoc'")
     def test_run_notebook_python_protobuf(self):
         fLOG(
             __file__,
