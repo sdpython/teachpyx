@@ -186,10 +186,14 @@ def same_variable(a, b):
 
         * **mutable**
             * `bool <https://docs.python.org/3/library/functions.html#bool>`_
-            * `int <https://docs.python.org/3/library/functions.html#int>`_, `float <https://docs.python.org/3/library/functions.html#float>`_, `complex <https://docs.python.org/3/library/functions.html#complex>`_
-            * `str <https://docs.python.org/3/library/functions.html#func-str>`_, `bytes <https://docs.python.org/3/library/functions.html#bytes>`_
+            * `int <https://docs.python.org/3/library/functions.html#int>`_,
+              `float <https://docs.python.org/3/library/functions.html#float>`_,
+              `complex <https://docs.python.org/3/library/functions.html#complex>`_
+            * `str <https://docs.python.org/3/library/functions.html#func-str>`_,
+              `bytes <https://docs.python.org/3/library/functions.html#bytes>`_
             * `None <https://docs.python.org/3/library/constants.html?highlight=none#None>`_
-            * `tuple <https://docs.python.org/3/library/functions.html#func-tuple>`_, `frozenset <https://docs.python.org/3/library/functions.html#func-frozenset>`_
+            * `tuple <https://docs.python.org/3/library/functions.html#func-tuple>`_,
+              `frozenset <https://docs.python.org/3/library/functions.html#func-frozenset>`_
         * **immutable**, par défaut tous les autres types dont :
             * `list <https://docs.python.org/3/library/functions.html#func-list>`_
             * `dict <https://docs.python.org/3/library/functions.html#func-dict>`_
@@ -200,7 +204,8 @@ def same_variable(a, b):
         immutable par quelques astuces :
 
         * `__slots__ <https://docs.python.org/3/reference/datamodel.html?highlight=_slots__#object.__slots__>`_
-        * `How to Create Immutable Classes in Python <http://www.blog.pythonlibrary.org/2014/01/17/how-to-create-immutable-classes-in-python/>`_
+        * `How to Create Immutable Classes in Python
+          <http://www.blog.pythonlibrary.org/2014/01/17/how-to-create-immutable-classes-in-python/>`_
         * `Ways to make a class immutable in Python <http://stackoverflow.com/questions/4996815/ways-to-make-a-class-immutable-in-python>`_
         * `freeze <https://freeze.readthedocs.org/en/latest/>`_
 
@@ -368,7 +373,8 @@ def enumerate_regex_search(exp, text):
             for m in exp.finditer(text):
                 # ...
 
-        Voir également `Petites subtilités avec les expressions régulières en Python <http://www.xavierdupre.fr/blog/2014-12-02_nojs.html>`_.
+        Voir également `Petites subtilités avec les expressions régulières en Python
+        <http://www.xavierdupre.fr/blog/2014-12-02_nojs.html>`_.
     """
     # found = exp.search(text)
     if isinstance(exp, str):

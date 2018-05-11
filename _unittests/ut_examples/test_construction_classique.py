@@ -38,7 +38,8 @@ except ImportError:
     import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
-from src.teachpyx.examples.construction_classique import recherche, minindex, text2mat, compte, integrale, vect2mat, mat2vect, recherche_dichotomique
+from src.teachpyx.examples.construction_classique import recherche, minindex, text2mat, compte
+from src.teachpyx.examples.construction_classique import integrale, vect2mat, mat2vect, recherche_dichotomique
 from src.teachpyx.examples.construction_classique import mat2text, triindex, construit_matrice_carree
 
 

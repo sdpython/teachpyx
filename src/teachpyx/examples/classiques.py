@@ -144,15 +144,18 @@ def repetition_a_eviter(serie, a_eviter=False):
     """
 
     def moyenne(serie):
+        "moyenne"
         return sum(serie) / len(serie)
 
     def variance_a_eviter(serie):
+        "variance longue"
         s = 0
         for obs in serie:
             s += (obs - moyenne(serie)) ** 2
         return s / len(serie)
 
     def variance(serie):
+        "variance courte"
         s = 0
         moy = moyenne(serie)
         for obs in serie:
@@ -223,7 +226,7 @@ def dictionnaire_modifie_dans_la_boucle():
 
     d = {k: k for k in li}
     rem = []
-    for k, v in d.items():
+    for k in d:
         if k == 4:
             rem.append(k)
     for r in rem:
