@@ -12,11 +12,14 @@ pour réduire le nombre d'arguments d'une fonction pour
 en fixer un.
 """
 
+
 def twoargs(a, b):
     return a + b
 
+
 def oneargs(x):
     return twoargs(x, 5)
+
 
 print(oneargs(1))
 

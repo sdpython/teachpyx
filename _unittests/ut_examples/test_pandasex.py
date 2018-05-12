@@ -11,6 +11,7 @@ import os
 import unittest
 import pandas
 import numpy
+from pyquickhelper.loghelper import fLOG
 
 
 try:
@@ -26,24 +27,7 @@ except ImportError:
         sys.path.append(path)
     import src
 
-try:
-    import pyquickhelper as skip_
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyquickhelper",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyquickhelper as skip_
 
-
-from pyquickhelper.loghelper import fLOG
 from src.teachpyx.examples.numpysex import numpy_types
 from src.teachpyx.examples.pandasex import pandas_groupby_nan
 

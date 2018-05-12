@@ -6,6 +6,9 @@ import sys
 import os
 import unittest
 from datetime import datetime
+from pyquickhelper.loghelper import fLOG
+from pyquickhelper.pycode import ExtTestCase
+from pyquickhelper.pycode.pip_helper import fix_pip_902
 
 
 try:
@@ -21,25 +24,7 @@ except ImportError:
         sys.path.append(path)
     import src
 
-try:
-    import pyquickhelper as skip_
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyquickhelper",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyquickhelper as skip_
 
-from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import ExtTestCase
-from pyquickhelper.pycode.pip_helper import fix_pip_902
 from src.teachpyx.faq.faq_python import entier_grande_taille, difference_div, python_path, same_variable, stringio
 from src.teachpyx.faq.faq_python import property_example, enumerate_regex_search, sortable_class, list_of_installed_packages
 from src.teachpyx.faq.faq_python import information_about_package, get_month_name, get_day_name
