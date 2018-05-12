@@ -12,7 +12,6 @@ pour réduire le nombre d'arguments d'une fonction pour
 en fixer un.
 """
 
-
 def twoargs(a, b):
     return a + b
 
@@ -62,3 +61,7 @@ print(fcts_b)
 fcts_a = [lambda a=a: oneargs(a) for a in range(0, 3)]
 fcts_b = [f() for f in fcts_a]
 print(fcts_b)
+
+#########################
+# :epkg:`pylint` fait surgir le warning suivant quand cela arrive
+# ``W0640: Cell variable v defined in loop``.
