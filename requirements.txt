@@ -1,6 +1,7 @@
 cloudpickle
 coverage
 jyquickhelper
+pandas_streaming>=0.1.87
 protobuf
 pyquickhelper>=1.8
 solar-theme
