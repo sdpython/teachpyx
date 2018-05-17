@@ -10,6 +10,7 @@ import sys
 import os
 import unittest
 from pyquickhelper.loghelper import fLOG
+from pandas_streaming.df.dataframe_helpers import numpy_types
 
 
 try:
@@ -26,7 +27,7 @@ except ImportError:
     import src
 
 
-from src.teachpyx.examples.numpysex import numpy_matrix2list, numpy_types
+from src.teachpyx.examples.numpysex import numpy_matrix2list
 
 
 class TestNumpys(unittest.TestCase):
