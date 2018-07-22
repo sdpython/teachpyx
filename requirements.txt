@@ -4,7 +4,8 @@ jyquickhelper
 pandas_streaming>=0.1.87
 protobuf
 pyquickhelper>=1.8
-solar-theme
+sphinx_bootstrap_theme
 sphinxcontrib-blockdiag
+solar-theme
 ujson
 wheel
