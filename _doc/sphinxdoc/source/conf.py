@@ -103,6 +103,7 @@ latex_elements['preamble'] = preamble + custom_preamble
 mathdef_link_only = True
 
 epkg_dictionary["C++"] = 'https://fr.wikipedia.org/wiki/C%2B%2B'
+epkg_dictionary["cython"] = 'http://cython.org/'
 epkg_dictionary["format"] = 'https://docs.python.org/3/library/stdtypes.html#str.format'
 epkg_dictionary["joblib"] = 'https://pythonhosted.org/joblib/'
 epkg_dictionary["JSON"] = 'https://fr.wikipedia.org/wiki/JavaScript_Object_Notation'
