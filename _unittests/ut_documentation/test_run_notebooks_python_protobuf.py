@@ -7,7 +7,7 @@ import sys
 import os
 import unittest
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder, skipif_circleci, skipif_travis
+from pyquickhelper.pycode import get_temp_folder, skipif_travis
 from pyquickhelper.ipythonhelper import execute_notebook_list, execute_notebook_list_finalize_ut
 
 
@@ -30,7 +30,6 @@ import src.teachpyx
 
 class TestRunNotebooksPythonProtobuf(unittest.TestCase):
 
-    @skipif_circleci("'Permission denied: 'bin/protoc'")
     @skipif_travis("'Permission denied: 'bin/protoc'")
     def test_run_notebook_python_protobuf(self):
         fLOG(
