@@ -2,7 +2,7 @@
 """
 @file
 @brief Module *teachpyx*.
-Materials for a book about programming with :pekg:`Python`.
+Materials for a book about programming with :epkg:`Python`.
 """
 
 __version__ = "0.1"
