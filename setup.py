@@ -160,7 +160,6 @@ if not r:
         packages=packages,
         package_dir=package_dir,
         package_data=package_data,
-        #data_files              = data_files,
-        #install_requires                = [  'numpy', 'ipython'],
-        #include_package_data    = True,
+        setup_requires=["pyquickhelper"],
+        install_requires=['numpy', 'pandas'],
     )
