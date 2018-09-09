@@ -14,42 +14,22 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
 (format brut de fonderie) et sur
 `GitHub/teachpyx <https://github.com/sdpython/teachpyx>`_ |gitlogo|.
 
-.. only:: html
+.. toctree::
+    :maxdepth: 1
 
-    .. toctree::
-        :maxdepth: 1
-
-        introduction
-        c_lang/index
-        c_classes/index
-        c_exception/index
-        c_io/index
-        c_module/index
-        c_regex/index
-        c_parallelisation/index
-        c_gui/index
-        c_data/index
-        i_examples
-        c_resume/index
-
-.. only:: latex
-
-    .. toctree::
-        :maxdepth: 2
-
-        introduction
-        c_lang/index
-        c_classes/index
-        c_exception/index
-        c_io/index
-        c_module/index
-        c_regex/index
-        c_parallelisation/index
-        c_gui/index
-        c_data/index
-        i_examples
-        c_resume/index
-        i_index
+    introduction
+    c_lang/index
+    c_classes/index
+    c_exception/index
+    c_io/index
+    c_module/index
+    c_regex/index
+    c_parallelisation/index
+    c_gui/index
+    c_data/index
+    i_examples
+    c_resume/index
+    i_index
 
 Je regrette de ne pas savoir bien dessiner.
 Mais je supporte toujours difficilement de
