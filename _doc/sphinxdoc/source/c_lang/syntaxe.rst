@@ -1037,7 +1037,9 @@ Fonctions
 Les fonctions sont des petits programmes qui effectuent des
 tâches plus précises que le programme entier. On peut effectivement
 écrire un programme sans fonction mais ils sont en général
-illisibles. Utiliser des fonctions implique de découper un
+illisibles. Une fonction décrit des traitement à faire
+sur les arguments qu'elle reçoit en supposant qu'ils existent.
+Utiliser des fonctions implique de découper un
 algorithme en tâches élémentaires. Le programme final est ainsi
 plus facile à comprendre. Un autre avantage est de pouvoir plus
 facilement isoler une erreur s'il s'en produit une : il suffit de

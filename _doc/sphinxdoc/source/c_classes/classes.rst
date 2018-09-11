@@ -188,14 +188,17 @@ est le moyen d'accéder aux données de la classe.
     ::
 
         class nom_classe :
-            def nom_methode (self, param_1, ..., param_n) :
+            def nom_methode(self, param_1, ..., param_n):
                 # corps de la méthode...
 
 A part le premier paramètre qui doit de préférence s'appeler ``self``,
 la syntaxe de définition d'une méthode ressemble en tout point à celle
 d'une fonction. Le corps de la méthode est indenté par rapport à la
 déclaration de la méthode, elle-même indentée par rapport à
-la déclaration de la classe.
+la déclaration de la classe. Comme une fonction,
+une méthode suppose que les arguments qu'elle reçoit existe,
+y compris ``self``. On écrit la méthode en supposant qu'un
+object existe qu'on nomme ``self``.
 L'appel à cette méthode obéit à la syntaxe qui suit :
 
 .. mathdef::
