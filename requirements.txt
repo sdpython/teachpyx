@@ -4,7 +4,7 @@ jyquickhelper
 mutagen
 pandas_streaming>=0.1.87
 protobuf
-pyquickhelper>=1.8
+pyquickhelper>=1.8.2814
 sphinx_bootstrap_theme
 sphinxcontrib-blockdiag
 solar-theme
