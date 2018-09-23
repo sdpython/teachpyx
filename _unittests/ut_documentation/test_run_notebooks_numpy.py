@@ -27,22 +27,22 @@ except ImportError:
 import src.teachpyx
 
 
-class TestRunNotebooksPython(unittest.TestCase):
+class TestRunNotebooksNumpy(unittest.TestCase):
 
-    def test_run_notebook_python(self):
+    def test_run_notebook_pandas(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        temp = get_temp_folder(__file__, "temp_run_notebooks_python")
+        temp = get_temp_folder(__file__, "temp_run_notebooks_numpy")
 
         # selection of notebooks
         fnb = os.path.normpath(os.path.join(
-            os.path.abspath(os.path.dirname(__file__)), "..", "..", "_doc", "notebooks", "python"))
+            os.path.abspath(os.path.dirname(__file__)), "..", "..", "_doc", "notebooks", "numpy"))
         keepnote = []
         for f in os.listdir(fnb):
-            if os.path.splitext(f)[-1] == ".ipynb" and "_long" not in f and "protobuf" not in f:
+            if os.path.splitext(f)[-1] == ".ipynb" and "_long" not in f:
                 keepnote.append(os.path.join(fnb, f))
 
         # run the notebooks

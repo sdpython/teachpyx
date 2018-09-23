@@ -8,3 +8,4 @@ Exceptions
 
     exception
     exception_ext
+    warning

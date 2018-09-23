@@ -280,41 +280,66 @@ Lorsqu'une erreur ne correspond pas à l'une de ces exceptions,
 il est possible de créer une exception propre à un certain type d'erreur.
 Lorsqu'une fonction ou une méthode déclenche une
 exception non standard, généralement, le commentaire qui lui est associé
-l'indique. Quelques types d'exception courantes :
+l'indique. Quelques types d'exception courantes
+documentée dans la section
+`Concrete exceptions <https://docs.python.org/3/library/exceptions.html#concrete-exceptions>`_.
+Certaines surviennent car le programme est mal écrit et l'interpréteur
+ne peut le comprendre :
 
-.. index:: AttributeError, OSError, IndentationError, ImportError, IndexError, KeyError, UnicodeError, ValueError
+.. index:: IndentationError, SyntaxError
 
-* `AttributeError <https://docs.python.org/3/library/exceptions.html#AttributeError>`_ :
-  Une référence à un attribut inexistant ou une affectation a échoué.
-* `OSError <https://docs.python.org/3/library/exceptions.html#OSError>`_ :
-  Une opération concernant les entrées/sorties (Input/Output) a échoué.
-  Cette erreur survient par exemple lorsqu'on cherche à
-  lire un fichier qui n'existe pas.
-* `ImportError <https://docs.python.org/3/library/exceptions.html#ImportError>`_ :
-  Cette erreur survient lorsqu'on cherche à importer un module qui n'existe pas.
-* `IndentationError <https://docs.python.org/3/library/exceptions.html#IndentationError>`_ :
+* **IndentationError** :
   L'interpréteur ne peut interpréter une partie du programme à cause
   d'un problème d'indentation. Il n'est pas possible
   d'exécuter un programme mal indenté mais cette erreur peut se produire
   lors de l'utilisation de la fonction
   `compile <https://docs.python.org/3/library/functions.html?highlight=compile#compile>`_.
-* `IndexError <https://docs.python.org/3/library/exceptions.html#IndexError>`_ :
+* **SyntaxError** :
+  Le programme a un problème de syntaxe comme une parenthèse en trop ou
+  ou en moins.
+
+Les deux suivantes surviennent lorsqu'on se trompe dans l'orthographe d'une
+variable, une fonction, un module :
+
+.. index:: AttributeError, NameError, ImportError
+
+* **AttributeError** :
+  Une référence à un attribut inexistant ou une affectation a échoué.
+* **ImportError** :
+  Cette erreur survient lorsqu'on cherche à importer un module qui n'existe pas,
+  son nom est mal orthographié ou il n'est pas installé.
+* **NameError** :
+  On utilise une variable, une fonction, une classe qui n'existe pas.
+
+Les erreurs très fréquentes, erreur d'indices, de types :
+
+.. index:: IndexError, KeyError, TypeError, ValueError
+
+* **IndexError** :
   On utilise un index erroné pour accéder à un élément d'une liste,
   d'un dictionnaire ou de tout autre tableau.
-* `KeyError <https://docs.python.org/3/library/exceptions.html#KeyError>`_ :
+* **KeyError** :
   Une clé est utilisée pour accéder à un élément d'un dictionnaire
   dont elle ne fait pas partie.
-* `NameError <https://docs.python.org/3/library/exceptions.html#NameError>`_ :
-  On utilise une variable, une fonction, une classe qui n'existe pas.
-* `TypeError <https://docs.python.org/3/library/exceptions.html#TypeError>`_
+* **TypeError** :
   Erreur de type, une fonction est appliquée sur un objet qu'elle n'est
   pas censée manipuler.
-* `UnicodeError <https://docs.python.org/3/library/exceptions.html#UnicodeError>`_
-  Erreur de conversion d'un `encodage <https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res>`_
-  de texte à un autre.
-* `ValueError <https://docs.python.org/3/library/exceptions.html#ValueError>`_ :
+* **ValueError** :
   Cette exception survient lorsqu'une valeur est inappropriée pour une certaine
   opération, par exemple, l'obtention du logarithme d'un nombre négatif.
+
+Les erreurs qui surviennent lorsqu'on travaille avec des fichiers :
+
+.. index:: OSError, UnicodeError
+
+* **OSError** :
+  Une opération concernant les entrées/sorties (Input/Output) a échoué.
+  Cette erreur survient par exemple lorsqu'on cherche à
+  lire un fichier qui n'existe pas.
+* **UnicodeError** :
+  Erreur de conversion d'un `encodage <https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res>`_
+  de texte à un autre. C'est une erreur qui survient régulièrement quand on travaille
+  avec des langues qui ont des accents (non anglophones).
 
 Lancer une exception
 ++++++++++++++++++++
