@@ -13,7 +13,7 @@ datetime
 ========
 
 Le module `datetime <https://docs.python.org/3/library/datetime.html?highlight=datetime#module-datetime>`_
-fournit une classe `datetime https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime>`_
+fournit une classe `datetime <https://docs.python.org/3/library/datetime.html?highlight=datetime#datetime.datetime>`_
 qui permet de faire des opérations et des comparaisons sur les dates et les heures.
 L'exemple suivant calcule l'âge d'une personne née le 11 août 1975.
 
