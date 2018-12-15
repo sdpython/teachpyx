@@ -971,6 +971,8 @@ Par le biais de l'exception ``IndexError``, les expressions
 le programme par un message comme celui qui suit obtenu après
 l'interprétation de ``print(a[4])`` :
 
+.. _operator_classe:
+
 .. list-table::
     :widths: 5 10
     :header-rows: 0
@@ -1563,6 +1565,8 @@ qui multiplie les parties réelle et imaginaire par un nombre réel positif
 de manière à ce que le nombre complexe ait le module demandé.
 On procède de même pour la propriété ``arg``.
 
+.. _exemple_point_xyz:
+
 La propriété ``conj`` retourne quant à elle le conjugué du
 nombre complexe mais la réciproque n'est pas prévue.
 On ne peut affecter une valeur à ``conj``.
@@ -2154,6 +2158,8 @@ la copie précédemment effectuée et conservée dans ``memo``.
     print(o3)  # affiche o2 4 : 1
 
 .. index:: sérialisation
+
+.. _classe_slots_att:
 
 Ces problématiques se rencontrent souvent lorsqu'on aborde le
 problème de la sérialisation d'un objet qui consiste à
@@ -2765,7 +2771,7 @@ n'est pas connu. Ce problème revient également lorsqu'on
 définit des matrices et des vecteurs. Un vecteur est une
 matrice d'une seul colonne, il ne possède qu'une seule
 dimension au lieu de deux pour une matrice. L'exercice
-:ref:`exeercie_heritage_multiple` revient sur ce dilemme.
+:ref:`tarabiscoterst` revient sur ce dilemme.
 
 .. _heritage_pultiuple_par:
 
@@ -3228,7 +3234,7 @@ a d'un côté différentes structures pour les mêmes données
 et de l'autre différents algorithmes pour le même objectif.
 Par exemple, une matrice peut être définie comme une liste
 de listes ou un dictionnaire de tuples
-(voir exercice :ref:`exercice_dame_dico_matrice`).
+(voir exercice :ref:`partiedamerst`).
 La multiplication de deux matrices peut être une multiplication
 classique ou celle de `Strassen <https://fr.wikipedia.org/wiki/Algorithme_de_Strassen>`_.
 L'algorithme de multiplication de deux matrices de Strassen

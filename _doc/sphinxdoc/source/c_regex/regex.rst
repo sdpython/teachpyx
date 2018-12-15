@@ -1,6 +1,8 @@
 
 .. _l-regex:
 
+.. _regex_label_chap:
+
 .. _chap_regex:
 
 ======================

@@ -138,6 +138,7 @@ Définition et syntaxe
 .. mathdef::
     :title: test
     :tag: Définition
+    :lid: test_test
 
     Les tests permettent d'exécuter des instructions différentes
     selon la valeur d'une condition logique.
@@ -1249,7 +1250,7 @@ Pour remédier à cela, il faudrait écrire :
         l[0] += 1
         return l
 
-L'exercice :ref:`ex_hypercube` propose un exemple plus complet, voire retors.
+L'exercice :ref:`hypercuberst` propose un exemple plus complet, voire retors.
 
 Ordre des paramètres
 --------------------
@@ -2113,9 +2114,9 @@ pour obtenir l'équivalent de la fonction
     print(list(map((lambda x,y: (x,y)), li, mo)))
     print(list(zip(li, mo)))
 
-.. _fonction_sorted_enumerate:
-
 .. index:: sorted
+
+.. _fonction_sorted_enumerate:
 
 Comme pour les dictionnaires, la fonction
 `sorted <https://docs.python.org/3/library/functions.html?highlight=map#sorted>`_

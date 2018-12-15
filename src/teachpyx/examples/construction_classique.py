@@ -518,6 +518,7 @@ def integrale(fonction, a, b, n):
     .. exref::
         :tag: Base
         :title: fonction comme paramètre
+        :lid: paragraphe_fonction_variable
 
         Une fonction peut aussi recevoir en paramètre une autre fonction.
         L'exemple suivant inclut la fonction ``calcul_n_valeur``
@@ -574,7 +575,7 @@ def enumerate_permutations_recursive(ensemble):
     if len(ensemble) == 1:
         yield ensemble
     else:
-        for i in range(0, len(ensemble)):
+        for i in range(0, len(ensemble)):  # pylint: disable=C0200
             ensemble[0], ensemble[i] = ensemble[i], ensemble[0]
             per = enumerate_permutations_recursive(ensemble[1:])
             for p in per:

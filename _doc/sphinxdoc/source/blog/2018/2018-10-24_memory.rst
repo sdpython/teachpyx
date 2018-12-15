@@ -10,11 +10,11 @@
     est parfois très lent ou pourquoi il est en théorie un langage
     multithreadé qui ne l'est pas en apparence. La vidéo suivante
     explique d'autres petits recoins cachés du langage.
-    
+
     .. youtube:: https://youtu.be/F6u5rhUQ6dU
 
     La suivante explique les désagréments que l'on rencontre souvent
     quand un projet grossit inexorablement sans qu'on revisite
     quelques vieux codes écrits par des auteurs parfois disparus.
-    
+
     .. youtube:: https://youtu.be/JKYktDRoRxw

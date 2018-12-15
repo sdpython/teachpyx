@@ -177,6 +177,8 @@ entre parenthèses et séparées par une virgule.
 
 .. _l-type-float:
 
+.. _type_nombre:
+
 Nombres réels et entiers
 ========================
 
@@ -456,6 +458,8 @@ lorsque le texte contient plusieurs lignes, il suffit de les encadrer entre deux
 symboles ``"""`` ou ``'''`` pour que l'interpréteur *python* considère l'ensemble
 comme une chaîne de caractères et non comme une série d'instructions.
 
+.. _extra_caractere:
+
 Par défaut, le *python* ne permet pas l'insertion de caractères tels que
 les accents dans les chaînes de caractères, le paragraphe
 :ref:`par_intro_accent_code` explique comment résoudre ce problème.
@@ -510,6 +514,8 @@ contraire, *python* peut avoir des effets indésirables selon le
 caractère qui suit ce symbole.
 
 .. _fonction_str:
+
+.. _operation_string:
 
 Manipulation d'une chaîne de caractères
 +++++++++++++++++++++++++++++++++++++++
@@ -569,6 +575,8 @@ Il existe d'autres fonctions qui permettent de manipuler les chaînes de caract�
 Où ``s`` est une chaîne de caractères, ``fonction``
 est le nom de l'opération que l'on veut appliquer à ``s``, ``res``
 est le résultat de cette manipulation.
+
+.. _string_method:
 
 La table :ref:`string_method` présente une liste non exhaustive
 des fonctions disponibles dont un exemple d'utilisation suit.
@@ -718,6 +726,8 @@ Exemple :
     print("%1.2f" % x)   # affiche 0.12
     print("%06.2f" % x)  # affiche 000.12
 
+.. _format_string:
+
 Il existe d'autres formats regroupés dans la table :ref:`format_print`.
 L'aide reste encore le meilleur réflexe car le langage *python*
 est susceptible d'évoluer et d'ajouter de nouveaux formats.
@@ -835,7 +845,7 @@ et séparés par des virgules. Leur création reprend le même format :
 
 Ces objets sont des vecteurs d'objets.
 Etant donné que les chaînes de caractères sont également des tableaux,
-ces opérations reprennent en partie celles des :ref:`_string_paragraphe_chaine`
+ces opérations reprennent en partie celles des :ref:`string_paragraphe_chaine`
 et décrites par le paragraphe
 `Common Sequence Operations <https://docs.python.org/3/library/stdtypes.html#typesseq-common>`_.
 
@@ -1456,6 +1466,8 @@ ou si l'une est une copie de l'autre comme le montre l'exemple suivant :
 
 **Fonction ``copy`` et ``deepcopy``**
 
+.. _copy_deepopy_remarque_:
+
 Le comportement de la fonction
 `copy <https://docs.python.org/3/library/copy.html?highlight=copy#copy.copy>`_
 peut surprendre dans le cas où une liste contient d'autres listes.
@@ -2047,6 +2059,8 @@ les accents, le compilateur génère l'erreur suivante :
     SyntaxError: Non-UTF-8 code starting with '\xe9' in file f.py on line 1,
     but no encoding declared; see http://python.org/dev/peps/pep-0263/
     for details
+
+.. _par_intro_accent_code:
 
 Il est néanmoins possible d'utiliser des accents dans les commentaires
 à condition d'insérer le commentaire suivant à la première ligne du

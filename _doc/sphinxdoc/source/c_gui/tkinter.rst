@@ -3,6 +3,8 @@
 
 .. _chap_tkinter:
 
+.. _chap_interface:
+
 =======
 tkinter
 =======
@@ -1132,7 +1134,7 @@ Pour éviter cela, il est possible d'associer au bouton une méthode de
 classe comme le suggère l'exemple du paragraphe :ref:`more_than_on_e_window_ref`.
 C'est même recommandé.
 
-				
+.. _parag_graph_bind:
 				
 Associer n'importe quel événement à un objet
 --------------------------------------------

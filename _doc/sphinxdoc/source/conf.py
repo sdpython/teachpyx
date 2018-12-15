@@ -102,15 +102,18 @@ imgmath_latex_preamble = preamble + custom_preamble
 latex_elements['preamble'] = preamble + custom_preamble
 mathdef_link_only = True
 
-epkg_dictionary["C++"] = 'https://fr.wikipedia.org/wiki/C%2B%2B'
-epkg_dictionary["cython"] = 'http://cython.org/'
-epkg_dictionary["format"] = 'https://docs.python.org/3/library/stdtypes.html#str.format'
-epkg_dictionary["joblib"] = 'https://pythonhosted.org/joblib/'
-epkg_dictionary["JSON"] = 'https://fr.wikipedia.org/wiki/JavaScript_Object_Notation'
-epkg_dictionary["nan"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
-epkg_dictionary["NaN"] = 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html'
-epkg_dictionary["OpenMP"] = 'https://fr.wikipedia.org/wiki/OpenMP'
-epkg_dictionary["protobuf"] = 'https://developers.google.com/protocol-buffers/'
-epkg_dictionary["pyformat"] = 'https://pyformat.info/'
-epkg_dictionary["ujson"] = 'https://github.com/esnme/ultrajson'
-epkg_dictionary["ultrajson"] = 'https://github.com/esnme/ultrajson'
+epkg_dictionary.update({
+    'C++': 'https://fr.wikipedia.org/wiki/C%2B%2B',
+    'cython': 'http://cython.org/',
+    'format': 'https://docs.python.org/3/library/stdtypes.html#str.format',
+    'joblib': 'https://pythonhosted.org/joblib/',
+    'JSON': 'https://fr.wikipedia.org/wiki/JavaScript_Object_Notation',
+    'nan': 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html',
+    'NaN': 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html',
+    'OpenMP': 'https://fr.wikipedia.org/wiki/OpenMP',
+    'protobuf': 'https://developers.google.com/protocol-buffers/',
+    'pyformat': 'https://pyformat.info/',
+    'shebang': 'https://fr.wikipedia.org/wiki/Shebang',
+    'ujson': 'https://github.com/esnme/ultrajson',
+    'ultrajson': 'https://github.com/esnme/ultrajson',
+})
