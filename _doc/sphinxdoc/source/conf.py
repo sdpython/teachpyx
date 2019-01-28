@@ -103,6 +103,7 @@ latex_elements['preamble'] = preamble + custom_preamble
 mathdef_link_only = True
 
 epkg_dictionary.update({
+    'C': 'https://fr.wikipedia.org/wiki/C_(langage)',
     'C++': 'https://fr.wikipedia.org/wiki/C%2B%2B',
     'cython': 'http://cython.org/',
     'format': 'https://docs.python.org/3/library/stdtypes.html#str.format',
