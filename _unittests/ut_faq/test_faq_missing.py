@@ -5,6 +5,7 @@
 import sys
 import os
 import unittest
+import warnings
 from datetime import datetime
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import ExtTestCase
@@ -59,7 +60,7 @@ class TestFaqMissing(ExtTestCase):
 
         try:
             list_of_installed_packages()
-        except ImportModule as e:
+        except ImportError as e:
             if "cannot import name 'get_installed_distributions'" in str(e):
                 warnings.warn("This should be fixed in a future release.")
             return
