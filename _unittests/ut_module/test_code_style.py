@@ -43,7 +43,8 @@ class TestCodeStyle(unittest.TestCase):
                    pylint_ignore=('C0103', 'C1801', 'R0201', 'R1705', 'W0108', 'W0613',
                                   'W0212', 'W0107'),
                    skip=['construction_classique.py:577: C0200',
-                         "Redefining built-in 'format'"])
+                         "Redefining built-in 'format'",
+                         "data_bikes.py:1: F0002"])
 
     def test_code_style_test(self):
         fLOG(
