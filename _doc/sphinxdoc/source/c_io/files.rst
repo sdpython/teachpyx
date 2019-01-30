@@ -640,7 +640,7 @@ permet d'obtenir la liste des fichiers et des sous-répertoire.
 Cette fonction parcourt automatiquement les sous-répertoires inclus,
 le programme est plus court mais elle ne prend pas en compte le filtre
 qui peut être alors pris en compte grâce aux expressions régulières
-(voir :ref:`regex_label_chap`).
+(voir :ref:`l-regex`).
 
 .. runpython::
     :showcode:

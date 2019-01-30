@@ -1,10 +1,6 @@
 
 .. _l-regex:
 
-.. _regex_label_chap:
-
-.. _chap_regex:
-
 ======================
 Expressions régulières
 ======================
@@ -21,7 +17,8 @@ de la méthode `find <https://docs.python.org/3/library/stdtypes.html?highlight=
 attachée aux chaînes de caractères, elle suffit encore lorsqu'on cherche
 un mot au pluriel ou au singulier mais il faut l'appeler au moins
 deux fois pour chercher ces deux formes. Pour des expressions plus
-compliquées, il est conseillé d'utiliser les `expressions régulières <https://fr.wikipedia.org/wiki/Expression_rationnelle>`_.
+compliquées, il est conseillé d'utiliser les
+`expressions régulières <https://fr.wikipedia.org/wiki/Expression_rationnelle>`_.
 C'est une fonctionnalité qu'on retrouve dans beaucoup de langages.
 C'est une forme de grammaire qui permet de rechercher des expressions.
 
@@ -47,9 +44,10 @@ Le second chiffre est compris entre 0 et 9, soit ``[0-9]``.
 Le format des jours est traduit par ``[0-3][0-9]``. Mais le premier
 jour est facultatif, ce qu'on précise avec le symbole ``?`` : ``[0-3]?[0-9]``.
 Les mois suivent le même principe : ``[0-1]?[0-9]``. Pour les années,
-ce sont les deux premiers chiffres qui sont facultatifs, le symbole ``?`` s'appliquent sur les
-deux premiers chiffres, ce qu'on précise avec des parenthèses : ``([0-2][0-9])?[0-9][0-9]``.
-Le format final d'une date devient :
+ce sont les deux premiers chiffres qui sont facultatifs, le symbole ``?``
+s'appliquent sur les deux premiers chiffres,
+ce qu'on précise avec des parenthèses :
+``([0-2][0-9])?[0-9][0-9]``. Le format final d'une date devient :
 
 ::
 
@@ -61,7 +59,8 @@ régulière qui sont entre parenthèses de celles qui ne le sont pas : c'est un 
 de dire au module `re <https://docs.python.org/3/library/re.html?highlight=re#module-re>`_
 que nous nous intéressons à telle partie de l'expression qui est signalée
 entre parenthèses. Comme la partie qui nous intéresse - une date -
-concerne l'intégralité de l'expression régulière, il faut insérer celle-ci entre parenthèses.
+concerne l'intégralité de l'expression régulière,
+il faut insérer celle-ci entre parenthèses.
 
 La première étape consiste à construire l'expression régulière,
 la seconde à rechercher toutes les fois qu'un morceau de la chaîne ``s``
@@ -135,7 +134,8 @@ les ensembles prédéfinis et leur équivalent en terme d'ensemble de caractère
         ``\t`` qui est une tabulation, ``\n`` qui est une fin de ligne et qui
         ``\r`` qui est un retour à la ligne.
     * - ``\S``
-      - désigne tout caractère différent d'un espace, est équivalent à  ``[^ \t\n\r\f\v]``
+      - désigne tout caractère différent d'un espace,
+        est équivalent à  ``[^ \t\n\r\f\v]``
     * - ``\w``
       - désigne tout lettre ou chiffre, est équivalent à ``[a-zA-Z0-9\_]``
     * - ``\W``
@@ -241,8 +241,9 @@ On peut aussi remplacer une expression régulière par une chaîne de caractère
     * - ``match(s[, pos[, end]])``
       - Vérifie la correspondance entre l'expression régulière et la chaîne
         ``s``. Il est possible de n'effectuer cette vérification qu'entre
-        les caractères dont les positions sont ``pos`` et ``end``. La fonction retourne
-        ``None`` s'il n'y a pas de correspondance et sinon un objet de type ``Match``.
+        les caractères dont les positions sont ``pos`` et ``end``.
+        La fonction retourne ``None`` s'il n'y a pas de correspondance et
+        sinon un objet de type ``Match``.
     * - ``search(s[, pos[, end]])``
       - Fonction semblable à ``match``, au lieu de vérifier la correspondance entre
         toute la chaîne et l'expression régulière, cherche la première chaîne
@@ -340,7 +341,7 @@ Le résultat est illustré par le programme suivant.
     import mutagen.mp3
     import mutagen.easyid3
 
-    def infoMP3 (file, tags) :
+    def infoMP3 (file, tags):
         """retourne des informations sur un fichier MP3 sous forme de
         dictionnaire (durée, titre, artiste, ...)"""
         try:
@@ -356,10 +357,10 @@ Le résultat est illustré par le programme suivant.
                 continue
         return info
 
-    def all_files (repertoire, tags, ext = re.compile (".mp3$")) :
+    def all_files(repertoire, tags, ext=re.compile(".mp3$")):
         """retourne les informations pour chaque fichier d'un répertoire"""
         all = []
-        for r, d, f in os.walk (repertoire) :
+        for r, d, f in os.walk(repertoire):
             for a in f :
                 if not ext.search (a):
                     continue
@@ -390,7 +391,7 @@ Le résultat est illustré par le programme suivant.
             if heart.search(ti):
                 liheart.append (a)
             nbsong += 1
-            nbmot  += len ([ m for m in sep.split (ti) if len (m) > 0 ])
+            nbmot += len([m for m in sep.split(ti) if len (m) > 0])
         nbsong = max(nbsong, 1)
         return liheart, notitle, float (nbmot)/nbsong
 
@@ -398,9 +399,9 @@ Le résultat est illustré par le programme suivant.
     all = all_files (r"D:\musique", tags)
 
     avoid = re.compile("^(((audio)?track( )?( - )?[0-9]{1,2})|(piste [0-9]{1,2}))$")
-    sep   = re.compile("[- ,;!'.?&:]")
+    sep = re.compile("[- ,;!'.?&:]")
     heart = re.compile("((heart)(?!((ache)|(land))))")
-    liheart, notitle, moymot = heart_notitle_mots (all, avoid, sep, heart)
+    liheart, notitle, moymot = heart_notitle_mots(all, avoid, sep, heart)
 
     print("nombre de mots moyen par titre ", moymot)
     print("somme des durée contenant heart ", sum([s ["minutes"] for s in liheart]))
@@ -422,8 +423,8 @@ suivant montre comment récupérer le jour, le mois, l'année à l'intérieur d'
 
     import re
     date = "05/22/2010"
-    exp  = "([0-9]{1,2})/([0-9]{1,2})/(((19)|(20))[0-9]{2})"
-    com  = re.compile(exp)
+    exp = "([0-9]{1,2})/([0-9]{1,2})/(((19)|(20))[0-9]{2})"
+    com = re.compile(exp)
     print(com.search(date).groups())    # ('05', '22', '2010', '20', None, '20')
 
 Il n'est pas toujours évident de connaître le numéro du groupe qui
@@ -438,8 +439,8 @@ Elle est appliquée à l'exemple précédent.
 
     import re
     date = "05/22/2010"
-    exp  = "(?P<jj>[0-9]{1,2})/(?P<mm>[0-9]{1,2})/(?P<aa>((19)|(20))[0-9]{2})"
-    com  = re.compile(exp)
+    exp = "(?P<jj>[0-9]{1,2})/(?P<mm>[0-9]{1,2})/(?P<aa>((19)|(20))[0-9]{2})"
+    com = re.compile(exp)
     print(com.search(date).groupdict()) # {'mm': '22', 'aa': '2010', 'jj': '05'}
 
 Le programme suivant est un exemple d'utilisation des expressions régulières
@@ -469,15 +470,17 @@ régulière, c'est le cas ici pour détecter les appels.
         """ à partir d'une chaîne de caractères correspondant
         à un programme Python, cette fonction retourne
         une liste de 3-uples, chacun contient :
-            - le nom de la fonction
-            - (debut,fin) de l'expression dans la chaîne
-            - la ligne où elle a été trouvée
+
+        - le nom de la fonction
+        - (debut,fin) de l'expression dans la chaîne
+        - la ligne où elle a été trouvée
 
         Paramètres:
-           - s    : chaîne de caractères
-           - exp  : chaîne de caractères correspond à l'expression
-           - gr   : numéro de groupe correspondant au nom de la fonction
-           - expm : expression négative
+
+       - *s*: chaîne de caractères
+       - *exp*: chaîne de caractères correspond à l'expression
+       - *gr*: numéro de groupe correspondant au nom de la fonction
+       - *expm*: expression négative
         """
         exp = re.compile(exp)
         res = []
@@ -499,7 +502,7 @@ régulière, c'est le cas ici pour détecter les appels.
 
     def get_function_list_call (s) :
         """trouve tous les appels de fonctions"""
-        return trouve_toute_fonction (s, \
+        return trouve_toute_fonction(s, \
                   "\n.*[=(,[{ .]([a-zA-Z_][a-zA-Z_0-9]*)(?![ ]?:)[ ]*[(].*[)]?", 0, \
                   "^\\n[ ]*(class|def)[ ]+function.*$")
 
@@ -507,22 +510,22 @@ régulière, c'est le cas ici pour détecter les appels.
         """retourne les couples de fonctions jamais appelées suivies
         du numéro de la ligne où elles sont définies"""
 
-        f       = open (file, "r")
-        li      = f.readlines ()
-        f.close ()
-        sfile   = "".join (li)
+        f = open(file, "r")
+        li = f.readlines()
+        f.close()
+        sfile = "".join(li)
 
-        funcdef = get_function_list_definition (sfile)
-        funccal = get_function_list_call (sfile)
-        f2 = [ p [0] for p in funccal ]
+        funcdef = get_function_list_definition(sfile)
+        funccal = get_function_list_call(sfile)
+        f2 = [p[0] for p in funccal]
         res = []
-        for f in funcdef :
-            if f [0] not in f2 :
-                ligne = sfile [:f [1][0]].count ("\n")
-                res.append ( (f [0], ligne+2))
+        for f in funcdef:
+            if f[0] not in f2:
+                ligne = sfile[:f[1][0]].count("\n")
+                res.append((f[0], ligne+2))
         return res
 
-    def fonction_inutile () :  # ligne 63
+    def fonction_inutile():  # ligne 63
         pass
 
     file = __file__
