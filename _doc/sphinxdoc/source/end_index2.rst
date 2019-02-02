@@ -5,7 +5,7 @@ Index
 
 .. toctree::
 
-    end_index_changes
+    filechanges
+    all_report
     end_index_glossaire
-    end_index_module
     blog/blogindex

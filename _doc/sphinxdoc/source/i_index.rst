@@ -9,7 +9,7 @@ Index
         :maxdepth: 1
 
         defthe_index
-        end_index
+        end_index2
         blog/blogindex
 
 .. only:: latex
@@ -18,5 +18,5 @@ Index
         :maxdepth: 2
 
         defthe_index
-        end_index
+        end_index2
         blog/blogindex
