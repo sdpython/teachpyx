@@ -1,9 +1,4 @@
 
-.. _l-README:
-
-README
-======
-
 .. image:: https://travis-ci.org/sdpython/teachpyx.svg?branch=master
     :target: https://travis-ci.org/sdpython/teachpyx
     :alt: Build status
@@ -41,12 +36,17 @@ README
     :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
 
+.. _l-README:
+
+teachpyx
+========
+
+Programmation *Python* en français.
+A usage pédagogique. La documentation du module
+est construite pour un cours de programmation.
+
 **Links:**
 
 * `GitHub/teachpyx <https://github.com/sdpython/teachpyx/>`_
 * `documentation <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/index.html>`_
 * `Blog <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/blog/main_0000.html#ap-main-0>`_
-
-**teachpyx**
-
-Programmation Python en français.
