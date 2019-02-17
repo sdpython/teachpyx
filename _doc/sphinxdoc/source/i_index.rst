@@ -17,6 +17,5 @@ Index
     .. toctree::
         :maxdepth: 2
 
-        defthe_index
-        end_index2
+        end_index_glossaire
         blog/blogindex
