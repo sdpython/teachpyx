@@ -657,10 +657,14 @@ qui peut être alors pris en compte grâce aux expressions régulières
     folder = r"."
     file,fold = liste_fichier_repertoire (folder)
 
-    for f in file :
-        print ("fichier ", f)
-    for f in fold :
-        print ("répertoire ", f)
+    for i, f in enumerate(file):
+        print("fichier ", f)
+        if i > 5:
+            break
+    for i, f in enumerate(fold):
+        print("répertoire ", f)
+        if i > 5:
+            break
 
 Format binaire
 ==============
