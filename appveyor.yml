@@ -20,6 +20,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install pymyinstall"
   - "%PYTHON%\\Scripts\\pymy_install3 --set=pyquickhelper"
   - "%PYTHON%\\Scripts\\pymy_install3 ujson protobuf pandas scikit-learn scipy"
+  - "%PYTHON%\\Scripts\\pip install git+https://github.com/sdpython/nbconvert.git@fixes"
   - "%PYTHON%\\Scripts\\pip install -r requirements.txt"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"
   - "set PATH=%PATH%;C:\\projects\\teachpyx\\build\\update_modules\\Graphviz\\bin"
