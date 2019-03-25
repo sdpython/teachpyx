@@ -4,41 +4,15 @@
 You should indicate a time in seconds. The program ``run_unittests.py``
 will sort all test files by increasing time and run them.
 """
-
-
-import sys
-import os
 import unittest
 from datetime import datetime
-from pyquickhelper.loghelper import fLOG
-
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
-
-
-from src.teachpyx.examples.classiques import commentaire_accentues, dix_entiers_carre, repetition_a_eviter, dictionnaire_modifie_dans_la_boucle
-from src.teachpyx.examples.classiques import str2date
+from teachpyx.examples.classiques import commentaire_accentues, dix_entiers_carre, repetition_a_eviter, dictionnaire_modifie_dans_la_boucle
+from teachpyx.examples.classiques import str2date
 
 
 class TestClassiques(unittest.TestCase):
 
     def test_fonctions(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
         commentaire_accentues()
         r = dix_entiers_carre()
         self.assertEqual(r, 385)

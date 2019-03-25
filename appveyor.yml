@@ -24,6 +24,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install git+https://github.com/sdpython/nbconvert.git@fixes"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"
   - "set PATH=%PATH%;C:\\projects\\teachpyx\\build\\update_modules\\Graphviz\\bin"
+  - set PYTHONPATH=src
 build: off
 
 test_script:

@@ -1,38 +1,14 @@
 """
-@brief      test log(time=7s)
+@brief      test log(time=2s)
 """
-
-import sys
-import os
 import unittest
-from pyquickhelper.loghelper import fLOG
+from pyquickhelper.pycode import ExtTestCase
+from teachpyx.faq.faq_exception import call_stack
 
 
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
-
-
-from src.teachpyx.faq.faq_exception import call_stack
-
-
-class TestFaqException(unittest.TestCase):
+class TestFaqException(ExtTestCase):
 
     def test_call_back(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
         def insidef():
             ft = call_stack()
             return ft
@@ -45,13 +21,11 @@ class TestFaqException(unittest.TestCase):
                 return ft
 
         cb, sb = insidef()
-        fLOG(cb, sb)
         self.assertEqual(sb, "")
         self.assertEqual(len(cb), 0)
         cb, sb = insidefe()
-        fLOG(cb, sb)
         self.assertEqual(len(cb), 1)
-        assert 'raise Exception("an error was raised")' in sb
+        self.assertIn('raise Exception("an error was raised")', sb)
 
 
 if __name__ == "__main__":
