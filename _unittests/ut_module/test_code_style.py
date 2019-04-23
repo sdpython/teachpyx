@@ -49,14 +49,7 @@ class TestCodeStyle(unittest.TestCase):
                    pylint_ignore=('C0111', 'C0103', 'W0622', 'C1801', 'C0412',
                                   'R0201', 'W0122', 'W0123', 'E1101', 'R1705',
                                   'W0703', 'W0107'),
-                   skip=["src' imported but unused",
-                         "skip_' imported but unused",
-                         "skip__' imported but unused",
-                         "skip___' imported but unused",
-                         "Unused variable 'skip_'",
-                         "imported as skip_",
-                         "Unused argument 'cell'",
-                         "Unused import src",
+                   skip=["Unused argument 'cell'",
                          ])
 
 
