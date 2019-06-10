@@ -54,7 +54,7 @@ def numpy_matrix2list(mat):
 
 def numpy_types():
     """
-    return the list of numpy available types
+    Returns the list of numpy available types.
 
     @return     list of types
 
