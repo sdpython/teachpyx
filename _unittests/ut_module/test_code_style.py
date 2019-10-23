@@ -2,7 +2,6 @@
 @brief      test log(time=0s)
 """
 
-import sys
 import os
 import unittest
 import warnings
@@ -18,11 +17,6 @@ class TestCodeStyle(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        if sys.version_info[0] == 2:
-            warnings.warn(
-                "skipping test_code_style because of Python 2 or " + sys.executable)
-            return
-
         thi = os.path.abspath(os.path.dirname(__file__))
         src_ = os.path.normpath(os.path.join(thi, "..", "..", "src"))
         check_pep8(src_, fLOG=fLOG,
@@ -30,18 +24,14 @@ class TestCodeStyle(unittest.TestCase):
                                   'W0212', 'W0107', 'C0415'),
                    skip=['construction_classique.py:577: C0200',
                          "Redefining built-in 'format'",
-                         "data_bikes.py:1: F0002"])
+                         "data_bikes.py:1: F0002",
+                         "C0415"])
 
     def test_code_style_test(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-
-        if sys.version_info[0] == 2:
-            warnings.warn(
-                "skipping test_code_style because of Python 2 or " + sys.executable)
-            return
 
         thi = os.path.abspath(os.path.dirname(__file__))
         test = os.path.normpath(os.path.join(thi, "..", ))
