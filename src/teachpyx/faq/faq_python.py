@@ -471,7 +471,7 @@ def list_of_installed_packages():
         opérationnelle sous Windows à moins d'installer le compilateur C++ utilisée pour compiler
         Python.
     """
-    from pyquickhelper.pycode.pip_helper import get_packages_list  # pylint: verbose=C0415
+    from pyquickhelper.pycode.pip_helper import get_packages_list  # pylint: disable=C0415
     return get_packages_list()
 
 
@@ -528,7 +528,7 @@ def information_about_package(name):
         La différence entre les deux ooptions tient aux environnements virtuels, voir
         `Python virtual environments <http://astropy.readthedocs.org/en/stable/development/workflow/virtual_pythons.html>`_.
     """
-    from pyquickhelper.pycode.pip_helper import get_package_info  # pylint: verbose=C0415
+    from pyquickhelper.pycode.pip_helper import get_package_info  # pylint: disable=C0415
     return get_package_info(name)
 
 
