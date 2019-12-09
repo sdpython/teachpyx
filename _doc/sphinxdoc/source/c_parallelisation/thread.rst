@@ -992,27 +992,24 @@ Un problème de blocage
 La fonction distribue le calcul de la somme des éléments d'un tableau.
 et elle est récursive.
 
-::
+.. runpython::
+    :showcode:
 
-    def distribute_sum(executor, array, i=0, j=-1):
-        if j == -1:
-            j = len(array)
-        if j - i == 1:
-            return array[i]
-        elif j - i < 10:
-            return sum(array[i:j])
-        else:
-            m = (i + j) // 2
-            # on utilise le même executor
-            f1 = executor.submit( distribute_sum, executor, array, i, m)
-            f2 = executor.submit( distribute_sum, executor, array, m, j)
+    import numpy
+    import concurrent.futures as cf
+
+
+    def parallel_numpy_dot(va, vb):
+        with cf.ThreadPoolExecutor(max_workers=2) as e:
+            m = va.shape[0] // 2
+            f1 = e.submit(numpy.dot, va[:m], vb[:m])
+            f2 = e.submit(numpy.dot, va[m:], vb[m:])
             return f1.result() + f2.result()
 
-    import random
-    array = [random.random() for n in range(0, 1000)]
-    executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
-    future = executor.submit(distribute_sum, executor, array)
-    future.result()
+
+    va = numpy.random.randn(100000).astype(numpy.float64)
+    vb = numpy.random.randn(100000).astype(numpy.float64)
+    print(parallel_numpy_dot(va, vb))
 
 Il faut voir l'objet *executor* comme un objet qui empile les fonctions
 à exécuter. Le problème dans l'exemple précédent est que la fonction
