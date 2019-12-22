@@ -814,6 +814,41 @@ Le site :epkg:`pyformat` recense d'autres usages de la méthode
 
     print('{:10.5}'.format('formatages'))
 
+La méthode format référence les informations à afficher par
+numéro ``{1}``, par ordre avec ``{}`` ou par nom ``{name}``.
+
+.. runpython::
+    :showcode:
+
+    print('A {} B {}'.format(0, 1))
+    print('A {1} B {0}'.format(0, 1))
+    print('A {un} B {deux}'.format(un=1, deux=2))
+
+Les dernières version de :epkg:`python` (voir `PEP 498
+<https://www.python.org/dev/peps/pep-0498/>`_ ont indroduit
+une notation plus concise encore avec l'utilisation du préfixe
+``f"..."`` ou ``f'...'``. La syntaxe est identique à celle de la méthode
+*format* lorsque les informations sont nommées. Les noms correspondent
+alors à des variables.
+
+.. runpython::
+    :showcode:
+
+    print('A {un} B {deux}'.format(un=1, deux=2))
+    un = 1
+    deux = 2
+    print(f'A {un} B {deux}')
+
+Il faut que les variables à afficher existent et on peut se
+permettre quelques excentricités.
+
+.. runpython::
+    :showcode:
+
+    print('A {un} B {deux}'.format(un=1, deux=2))
+    un = 1
+    print(f'A {un} B {un + 1}')
+
 .. _parag_tuple_defindfg:
 
 .. _l-type-tuple:
@@ -1835,17 +1870,46 @@ Ensemble ou set
 .. index:: set, &, frozen set
 
 Le langage *python* définit également ce qu'on appelle un ensemble.
-Il est défini par les classes `set <https://docs.python.org/3/library/stdtypes.html#set>`_
+Il est défini par les classes `set
+<https://docs.python.org/3/library/stdtypes.html#set>`_
 de type modifiable et la classe
-`frozenset <https://docs.python.org/3/library/stdtypes.html#frozenset>`_ de type immuable.
-Ils n'acceptent que des types identiques et offrent la plupart
-des opérations liées aux ensembles comme l'intersection, l'union.
+`frozenset <https://docs.python.org/3/library/stdtypes.html#frozenset>`_
+de type immuable. Ils n'acceptent que des types identiques
+et offrent la plupart des opérations liées aux ensembles
+comme l'intersection, l'union.
 
 .. runpython::
     :showcode:
 
     print(set ( (1,2,3) ) & set ( (2,3,5) )  )
                # construit l'intersection qui est set([2, 3])
+
+.. mathdef::
+    :title: set
+    :tag: Définition
+
+    Un `set` est un ensemble de valeurs uniques.
+    Ajouter une valeur déjà dans la liste
+    n'a donc aucun impact. On s'en sert beaucoup
+    pour récupérer une liste d'éléments uniques.
+    Ce type est dit *mutable* car il est possible
+    d'ajouter des valeurs. Comme pour les dictionnaires,
+    les valeurs stockées dans un ensemble doivent être
+    immutables. Sans cela, le langage ne pourrait garantir
+    l'unicité.
+
+.. mathdef::
+    :title: frozenset
+    :tag: Définition
+
+    Un `set` est un ensemble de valeurs uniques.
+    Ajouter une valeur déjà dans la liste
+    n'a donc aucun impact. On s'en sert beaucoup
+    pour récupérer une liste d'éléments uniques.
+    Ce type est dit *immutable* car il est impossible
+    d'ajouter des valeurs. En contrepartie, on peut s'en
+    servir comme clé dans un dictionnaire ou comme
+    valeur dans un `set` ou `frozenset`.
 
 .. todoext::
     :title: Compléter le paragraphe sur les set
