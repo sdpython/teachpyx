@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.split(__file__)[0])))
 local_template = os.path.join(os.path.abspath(
     os.path.dirname(__file__)), "phdoc_templates")
 
-set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2019,
+set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2020,
                      "bootstrap", sphinx_bootstrap_theme.get_html_theme_path(),
                      locals(), extlinks=dict(
                          issue=('https://github.com/sdpython/teachpyx/issues/%s', 'issue')),
@@ -22,7 +22,7 @@ html_context = {
     'css_files': get_default_stylesheet() + ['_static/my-styles.css', '_static/gallery.css'],
 }
 
-html_logo = "project_ico_small.png"
+html_logo = "phdoc_static/project_ico_small.png"
 
 if html_theme == "bootstrap":
     html_theme_options = {
