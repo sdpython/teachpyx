@@ -998,14 +998,12 @@ et elle est récursive.
     import numpy
     import concurrent.futures as cf
 
-
     def parallel_numpy_dot(va, vb):
         with cf.ThreadPoolExecutor(max_workers=2) as e:
             m = va.shape[0] // 2
             f1 = e.submit(numpy.dot, va[:m], vb[:m])
             f2 = e.submit(numpy.dot, va[m:], vb[m:])
             return f1.result() + f2.result()
-
 
     va = numpy.random.randn(100000).astype(numpy.float64)
     vb = numpy.random.randn(100000).astype(numpy.float64)
