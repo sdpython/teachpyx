@@ -824,6 +824,9 @@ numéro ``{1}``, par ordre avec ``{}`` ou par nom ``{name}``.
     print('A {1} B {0}'.format(0, 1))
     print('A {un} B {deux}'.format(un=1, deux=2))
 
+Notation `f{}`
+^^^^^^^^^^^^^^
+
 Les dernières version de :epkg:`python` (voir `PEP 498
 <https://www.python.org/dev/peps/pep-0498/>`_ ont indroduit
 une notation plus concise encore avec l'utilisation du préfixe
@@ -848,6 +851,31 @@ permettre quelques excentricités.
     print('A {un} B {deux}'.format(un=1, deux=2))
     un = 1
     print(f'A {un} B {un + 1}')
+
+Un cas particuler `%r` ou `{!r}`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Avec l'expérience, on s'aperçoit que des messages d'erreur
+précis accélère notablement sa résolution. Le message
+doit inclure des valeurs, des types
+pour donner le plus d'informations possible.
+Lorsqu'on construit ce message, il n'est plus possible
+de distinguer un entier ``1`` d'une chaîne de caractères
+``'1'``. Cette distinction est néanmoins très importante
+car au premier coup d'oeil, on s'oriente vers une cause
+plutôt qu'une autre. C'est pourquoi on utilise beaucoup
+dans les exceptions le format `%r` ou `{!r}` qui propose
+un formattage proche de l'expression de la valeur au format
+python.
+
+.. runpython::
+    :showcode:
+
+    print("'True' n'est pas True")
+    print("{} n'est pas {}".format('True', True))
+    print("{!r} n'est pas {!r}".format('True', True))
+    print(f"{'True'} n'est pas {True}")
+    print(f"'{'True'}' n'est pas {True}")
 
 .. _parag_tuple_defindfg:
 
@@ -1915,6 +1943,16 @@ comme l'intersection, l'union.
     :title: Compléter le paragraphe sur les set
 
     set, frozen set
+
+Matrices et DataFrames
+======================
+
+Bien que ces objects soient maintenant incontournables
+et font une des force du langage :epkg:`python`, ils ne
+font pas partie du langage mais sont implémentés dans
+les librairies :epkg:`numpy` et :epkg:`pandas`.
+Ces deux objets nécessitent un chapitre à part :
+:ref:`l-matrix-dataframe`.
 
 Extensions
 ==========
