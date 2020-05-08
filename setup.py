@@ -161,5 +161,5 @@ if not r:
         package_dir=package_dir,
         package_data=package_data,
         setup_requires=["pyquickhelper>=1.9"],
-        install_requires=['numpy', 'pandas'],
+        install_requires=['numpy>=1.18', 'pandas>=1.0'],
     )
