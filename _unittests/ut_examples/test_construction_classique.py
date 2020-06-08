@@ -5,9 +5,11 @@ You should indicate a time in seconds. The program ``run_unittests.py``
 will sort all test files by increasing time and run them.
 """
 import unittest
-from teachpyx.examples.construction_classique import recherche, minindex, text2mat, compte
-from teachpyx.examples.construction_classique import integrale, vect2mat, mat2vect, recherche_dichotomique
-from teachpyx.examples.construction_classique import mat2text, triindex, construit_matrice_carree
+from teachpyx.examples.construction_classique import (
+    recherche, minindex, text2mat, compte,
+    integrale, vect2mat, mat2vect, recherche_dichotomique,
+    mat2text, triindex, construit_matrice_carree,
+    somme)
 
 
 class TestConstructionClassique(unittest.TestCase):
@@ -41,6 +43,10 @@ class TestConstructionClassique(unittest.TestCase):
         mat = construit_matrice_carree(10)
         self.assertEqual(len(mat), 10)
         self.assertEqual(len(mat[0]), 10)
+
+    def test_somme(self):
+        li = [0, 1, 2]
+        self.assertEqual(somme(li), 3)
 
 
 if __name__ == "__main__":
