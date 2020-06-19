@@ -16,6 +16,8 @@ pandas>=1.0.0
 pandas_streaming>=0.1.87
 pillow
 protobuf
+pycodestyle
+pylint
 pyquickhelper>=1.9
 scikit-learn
 scipy
