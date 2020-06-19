@@ -32,6 +32,10 @@
     :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
 
+.. image:: https://img.shields.io/github/repo-size/sdpython/teachpyx
+    :target: https://github.com/sdpython/teachpyx/
+    :alt: size
+
 .. _l-README:
 
 teachpyx

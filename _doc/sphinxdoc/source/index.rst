@@ -75,6 +75,10 @@ elle les répète à l'infini.
         :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
         :alt: Notebook Coverage
 
+    .. image:: https://img.shields.io/github/repo-size/sdpython/teachpyx
+        :target: https://github.com/sdpython/teachpyx/
+        :alt: size
+
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
 | :ref:`l-modules`     |  :ref:`l-functions` | :ref:`l-classes`    | :ref:`l-methods`   | :ref:`l-staticmethods` | :ref:`l-properties`                            |
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
