@@ -22,6 +22,7 @@ pyquickhelper>=1.9
 scikit-learn
 scipy
 sphinx
+sphinxcontrib.imagesvg
 sphinx_bootstrap_theme
 sphinxcontrib-blockdiag
 solar-theme
