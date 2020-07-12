@@ -15,7 +15,9 @@
     :epkg:`pandas` ou :epkg:`numpy` mais néanmoins possible.
     Il n'y a pas d'options pratique depuis :epkg:`Python`
     si ce n'est Visual Studio :
-    `Débogage conjoint de Python et de C++ <https://docs.microsoft.com/fr-fr/visualstudio/python/debugging-mixed-mode-c-cpp-python-in-visual-studio>`_.
+    `Débogage conjoint de Python et de C++
+    <https://docs.microsoft.com/fr-fr/visualstudio/
+    python/debugging-mixed-mode-c-cpp-python-in-visual-studio>`_.
     Le second cas difficile avec un débugger survient
     lorsque l'erreur se produit dans un programme après plusieurs
     minutes d'exécution ou à la dernière itération d'une boucle
