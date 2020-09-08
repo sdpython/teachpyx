@@ -68,7 +68,7 @@ jobs:
             export PYTHONPATH=src
             python setup.py unittests
 
-       - run:
+      - run:
            name: wheel
            command: |
              . venv/bin/activate
