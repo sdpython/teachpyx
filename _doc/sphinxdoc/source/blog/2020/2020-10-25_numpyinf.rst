@@ -1,0 +1,43 @@
+
+.. blogpost::
+    :title: Infinite dans une conversion de float64 en float32
+    :keywords: python, mémoire
+    :date: 2020-10-25
+    :categories: numpy
+
+    C'est le genre de petits détails numériques qui font
+    qu'un calcul échoue sans qu'on se doute le plus souvent
+    qu'une erreur s'est glissée quelque part.
+    Le type `float32` est très utilisé dans le cas des réseaux
+    de neurones profonds car le calcul peut alors être fait
+    sur CPU et GPU. Dans le cas du machine learning classique,
+    avec :epkg:`scikit-learn`, c'est le type `float64` est qui
+    le plus souvent utilisé. Dès lors, il arrrive qu'on doivent
+    convertir des réels d'un type à l'autre.
+    
+    De `float32` à `float64`, tout se passe bien puisque le second
+    type est plus précis que le premier, il est codé sur plus d'octets.
+    Le nombre converti est identique à l'original dans ce cas.
+    Dans l'autre sens, on pourrait s'attendre à une légère perte
+    de précision, une sorte d'arrondi, sauf que dans un cas,
+    la différence est notable.
+
+    .. runpython::
+        :showcode:
+
+        import numpy
+        x = numpy.float64(1e300)
+        print(x)
+        print(numpy.float32(x))
+
+    La valeur `1e300` ne peut être représentée avec un type
+    `float32 <https://en.wikipedia.org/wiki/
+    Single-precision_floating-point_format>`_
+    mais elle existe avec un type `float64`. Quand on
+    la convertit, :epkg:`numpy` la remplace par une constante
+    `numpy.inf <https://numpy.org/devdocs/reference/
+    constants.html#numpy.inf>`_ ce qui peut avoir un impact
+    assez grand selon les calculs qui suivent.
+    On pourrait que ce cas n'arrive pas souvent sauf quand on
+    utilise la fonction exponentielle. Et c'est très fréquent en
+    deep learning.
