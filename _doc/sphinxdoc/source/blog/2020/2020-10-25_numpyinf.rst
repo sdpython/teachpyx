@@ -14,7 +14,7 @@
     avec :epkg:`scikit-learn`, c'est le type `float64` est qui
     le plus souvent utilisé. Dès lors, il arrrive qu'on doivent
     convertir des réels d'un type à l'autre.
-    
+
     De `float32` à `float64`, tout se passe bien puisque le second
     type est plus précis que le premier, il est codé sur plus d'octets.
     Le nombre converti est identique à l'original dans ce cas.
