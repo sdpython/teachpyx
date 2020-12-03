@@ -3,7 +3,8 @@
 Astuces avec les lambda functions
 =================================
 
-Les `lambda <https://docs.python.org/fr/3/reference/expressions.html?highlight=lambda#lambda>`_
+Les `lambda <https://docs.python.org/fr/3/reference/
+expressions.html?highlight=lambda#lambda>`_
 fonctions ont :epkg:`Python` sont assez
 plutôt esthétiques si ce n'est le mot-clé ``lambda``
 assez long à écrire. A priori l'écrire est équivalent
