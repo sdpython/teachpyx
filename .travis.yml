@@ -1,20 +1,11 @@
-dist: xenial
+dist: focal
 sudo: true
 language: python
 env:
   - SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=disk
 matrix:
   include:
-  - python: 3.7.3
-    name: "Py.3.7.3-Sph.2.1"
-    env: sphinxconstraint=">=2.1"
-    addons:
-    -  apt:
-    -    packages:
-          - graphviz
-  - python: 3.8.1
-    name: "Py.3.8.1-Sph.2.3"
-    env: sphinxconstraint=">=2.3"
+  - python: 3.9
     addons:
     -  apt:
     -    packages:
