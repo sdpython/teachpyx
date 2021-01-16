@@ -6,8 +6,7 @@ will sort all test files by increasing time and run them.
 """
 import unittest
 import numpy
-from pandas_streaming.df.dataframe_helpers import numpy_types
-from teachpyx.examples.numpysex import numpy_matrix2list
+from teachpyx.examples.numpysex import numpy_matrix2list, numpy_types
 
 
 class TestNumpys(unittest.TestCase):
