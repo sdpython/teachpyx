@@ -23,7 +23,7 @@ scikit-learn
 scipy
 sphinx
 sphinxcontrib.imagesvg
-sphinx_bootstrap_theme
+pydata_sphinx_theme
 sphinxcontrib-blockdiag
 sphinx_gallery
 solar-theme
