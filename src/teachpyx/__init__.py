@@ -5,7 +5,7 @@
 Materials for a book about programming with :epkg:`Python`.
 """
 
-__version__ = "0.2.330"
+__version__ = "0.2.335"
 __author__ = "Xavier Dupré"
 __github__ = "https://github.com/sdpython/teachpyx"
 __url__ = "http://www.xavierdupre.fr/app/teachpyx/helpsphinx/index.html"

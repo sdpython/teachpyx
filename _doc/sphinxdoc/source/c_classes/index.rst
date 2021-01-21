@@ -1,7 +1,7 @@
 
-##############################
-Classes et programmation objet
-##############################
+#######
+Classes
+#######
 
 .. toctree::
     :maxdepth: 2

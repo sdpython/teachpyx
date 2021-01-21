@@ -1,7 +1,7 @@
 
-##############################
-Langage, variable et fonctions
-##############################
+######################
+Variables et fonctions
+######################
 
 .. toctree::
     :maxdepth: 2

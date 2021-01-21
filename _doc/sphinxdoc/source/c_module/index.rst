@@ -1,10 +1,12 @@
 
-#######
-Modules
-#######
+#########################
+Entrées, Sorties, Modules
+#########################
 
 .. toctree::
     :maxdepth: 2
 
-    module
+    files
+    serialization
+    module    
     faq
