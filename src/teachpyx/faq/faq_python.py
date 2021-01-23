@@ -63,19 +63,21 @@ def difference_div():
         Le résultat de la division avec l'opérateur ``//`` est toujours entier.
         Il correspond au quotient de la division.
 
-        ::
+        .. runpython::
+            :showcode:
 
             div1 = 1/2
             div2 = 4/2
             div3 = 1//2
             div4 = 1.0//2.0
-            print(div1,div2,div3,div4) # affiche (0.5, 2.0, 0, 0)
+            print(div1, div2, div3, div4) # affiche (0.5, 2.0, 0, 0)
 
         Le reste d'une division entière est obtenue avec l'opérateur ``%``.
 
-        ::
+        .. runpython::
+            :showcode:
 
-            print ( 5 % 2 )  # affiche 1
+            print( 5 % 2 )  # affiche 1
 
         C'est uniquement vrai pour les version Python 3.x.
         Pour les versions 2.x, les opérateurs ``/`` et ``//`` avaient des comportements différents
@@ -543,7 +545,8 @@ def get_month_name(date):
         :tag: python
         :title: Récupérer le nom du mois à partir d'une date
 
-        ::
+        .. runpython::
+            :showcode:
 
             import datetime
             dt = datetime.datetime(2016, 1, 1)
@@ -563,7 +566,8 @@ def get_day_name(date):
         :tag: python
         :title: Récupérer le nom du jour à partir d'une date
 
-        ::
+        .. runpython::
+            :showcode:
 
             import datetime
             dt = datetime.datetime(2016, 1, 1)

@@ -45,8 +45,10 @@ def recherche(li, c):
 
         ::
 
-            if c in li: return li.index(c)
-            else: return -1
+            if c in li:
+                return li.index(c)
+            else:
+                return -1
 
         Même si ce bout de code parcourt deux fois le tableau (une fois déterminer
         sa présence, une seconde fois pour sa position), ce code est souvent plus rapide

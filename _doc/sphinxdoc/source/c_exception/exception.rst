@@ -16,20 +16,14 @@ Exceptions
 Le petit programme suivant déclenche une erreur parce qu'il effectue une
 division par zéro.
 
-::
+.. runpython::
+    :showcode:
+    :exception:
 
-   x = 0
-   y = 1.0 / x
+    x = 0
+    y = 1.0 / x
 
-Il déclenche une erreur ou ce qu'on appelle une *exception* :
-
-::
-
-   Traceback (most recent call last):
-     File "cours.py", line 2, in ?
-       y = 1.0 / x
-   ZeroDivisionError: float division
-
+Il déclenche une erreur ou ce qu'on appelle une *exception*.
 Le mécanisme des exceptions permet au programme de "rattraper" les
 erreurs, de détecter qu'une erreur s'est produite et d'agir en
 conséquence afin que le programme ne s'arrête pas.
@@ -50,16 +44,18 @@ On décide par exemple qu'on veut rattraper toutes les erreurs du
 programme et afficher un message d'erreur. Le programme suivant appelle
 la fonction qui retourne l'inverse d'un nombre.
 
-::
+.. runpython::
+    :showcode:
+    :exception:
 
-   def inverse (x):
-       y = 1.0 / x
-       return y
+    def inverse (x):
+        y = 1.0 / x
+        return y
 
-   a = inverse(2)
-   print(a)
-   b = inverse(0)
-   print(b)
+    a = inverse(2)
+    print(a)
+    b = inverse(0)
+    print(b)
 
 .. index:: pile d'exécution, pile d'appels
 
@@ -68,15 +64,6 @@ déclenche une erreur. L'interpréteur Python affiche ce qu'on appelle la
 *pile d'appels* ou `pile d'exécution <https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution>`_.
 La pile d'appel permet d'obtenir la liste de toutes les fonctions pour remonter
 jusqu'à celle où l'erreur s'est produite.
-
-::
-
-   Traceback (most recent call last):
-     File "cours.py", line 8, in ?
-       b = inverse (0)
-     File "cours.py", line 3, in inverse
-       y = 1.0 / x
-   ZeroDivisionError: float division
 
 Afin de rattraper l'erreur, on insère le code susceptible de produire
 une erreur entre les mots clés `try <https://docs.python.org/3/reference/compound_stmts.html#try>`_
@@ -165,8 +152,14 @@ suivant est dirigée vers l'instruction qui suit le mot-clé ``except``.
         print(inverse(2))
         print(inverse(0))     # cette ligne produirait une erreur
                               # mais le programme n'arrive jamais jusqu'ici
-    except:
+    except Exception:
         print("le programme a déclenché une erreur")
+
+Cette écriture n'est néanmoins par recommandée car le programme
+intercepte toutes les erreurs quelles qu'elles soient. Il est
+préférable de n'attraper que les exceptions prévues sans risquer
+de masquer celles qui n'étaient pas prévues et qui pourraient
+être la conséquence d'un bug.
 
 Obtenir le type d'erreur, attraper un type d'exception
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -692,7 +685,9 @@ on préfère souvent déclencher une exception, ici, ``ValueError``.
 La plupart du temps, cette exception n'est pas déclenchée.
 Il est donc superflu de retourner un couple plutôt qu'une seule valeur.
 
-::
+.. runpython::
+    :showcode:
+    :exception:
 
     def racine_carree(x) :
         if x < 0:
@@ -763,7 +758,9 @@ Pour se prémunir contre les exceptions lorsqu'on écrit un fichier,
 il faut utiliser le mot clé
 `with <https://www.python.org/dev/peps/pep-0343/>`_ :
 
-::
+.. runpython::
+    :showcode:
+    :exception:
 
     for i in range(0, 5):
         try :

@@ -154,7 +154,8 @@ Type "rien" ou None
 *python* propose un type ``None`` pour signifier qu'une variable ne contient rien.
 La variable est de type ``None`` et est égale à ``None``.
 
-::
+.. runpython::
+    :showcode:
 
     s = None
     print(s)    # affiche None
@@ -948,20 +949,15 @@ et décrites par le paragraphe
 Les tuples ne sont pas **modifiables** (ou **mutable**), cela signifie qu'il est impossible de
 modifier un de leurs éléments. Par conséquent, la ligne d'affectation suivante n'est pas correcte :
 
-::
+.. runpython::
+    :showcode:
+    :exception:
 
-    a     = (4,5)
-    a [0] = 3      # déclenche une erreur d'exécution
+    a    = (4,5)
+    a[0] = 3      # déclenche une erreur d'exécution
 
-Le message d'erreur suivant apparaît :
-
-::
-
-    File "<pyshell#78>", line 1, in -toplevel-
-        a[0]=3
-    TypeError: object doesn't support item assignment
-
-Pour changer cet élément, il est possible de s'y prendre de la manière suivante :
+Pour changer cet élément, il est possible de s'y prendre
+de la manière suivante :
 
 ::
 
@@ -1269,7 +1265,9 @@ d'accéder à l'indice d'un élément qui n'existe pas dans la liste :
 
 .. _exemple_list_index_erreyr_ref:
 
-::
+.. runpython::
+    :showcode:
+    :exception:
 
     x = [9,0,3,5,0]
     print(x.index(1))   # cherche la position de l'élément 1
@@ -1280,14 +1278,8 @@ d'erreur. Le message indique le nom de l'exception générée (``ValueError``)
 ainsi qu'un message d'information permettant en règle générale
 de connaître l'événement qui en est la cause.
 
-::
-
-    Traceback (most recent call last):
-      File "c:/temp/temp", line 2, in -toplevel-
-        print(x.index(1))
-    ValueError: list.index(x): x not in list
-
-Pour éviter cela, on choisit d'intercepter l'exception (voir paragraphe :ref:`chap_exception`).
+Pour éviter cela, on choisit d'intercepter l'exception
+(voir paragraphe :ref:`chap_exception`).
 
 .. runpython::
     :showcode:

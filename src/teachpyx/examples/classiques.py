@@ -79,14 +79,14 @@ def dix_entiers_carre():
         ::
 
             s = 0
-            for i in range(1,11):
+            for i in range(1, 11):
                 s += i**2
 
         D'une façon abrégée :
 
         ::
 
-            s = sum ( [ i**2 for i in range(1,11) ] )
+            s = sum ( [ i**2 for i in range(1, 11) ] )
     """
     s = 0
     for i in range(1, 11):
