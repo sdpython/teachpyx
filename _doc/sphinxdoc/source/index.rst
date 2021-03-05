@@ -8,7 +8,7 @@
 Apprendre la programmation avec Python
 ======================================
 
-Le site `Python dans tous ses états <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/>`_
+Le site `Python dans tous ses états <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/>`_
 est un peu bordélique même si j'essaye d'y apporter un peu d'ordre. Il s'étale. Il déborde un peu ici.
 Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/teachpyx_doc.pdf>`_
 (format brut de fonderie) et sur
