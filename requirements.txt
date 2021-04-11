@@ -19,6 +19,7 @@ protobuf
 pycodestyle
 pylint
 pyquickhelper>=1.9
+pyquicksetup>=0.2
 scikit-learn
 scipy
 sphinx
