@@ -19,7 +19,6 @@ before_script:
 
 script:
   - { CMD: "$PYINT -u setup.py unittests --covtoken=983adc1c-d7b1-4afa-8673-4345163704d2", NAME: "UT" }
-  - { CMD: "$PYINT -u setup.py unittests_LONG", NAME: "UT_LONG", TIMEOUT: 3600 }
 
 after_script:
   - $PYINT -u setup.py bdist_wheel
