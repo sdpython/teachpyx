@@ -8,7 +8,7 @@
     Je me suis amusé à programmer un module Python
     qui inclut des fonctions écrites en C.
     J'ai ajouté un build automatique sur
-    `travis <https://travis-ci.org/sdpython/cpyquickhelper>`_ et
+    `travis <https://travis-ci.com/sdpython/cpyquickhelper>`_ et
     `appveyor <https://ci.appveyor.com/project/sdpython/cpyquickhelper>`_.
     La documentation du module
     `cpyquickhelper <http://www.xavierdupre.fr/app/cpyquickhelper/helpsphinx/index.html>`_
