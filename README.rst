@@ -17,10 +17,6 @@
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT
 
-.. image:: https://requires.io/github/sdpython/teachpyx/requirements.svg?branch=master
-     :target: https://requires.io/github/sdpython/teachpyx/requirements/?branch=master
-     :alt: Requirements Status
-
 .. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=master
     :target: https://codecov.io/github/sdpython/teachpyx?branch=master
 
