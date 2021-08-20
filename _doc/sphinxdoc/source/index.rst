@@ -42,7 +42,7 @@ elle les répète à l'infini.
 .. only:: html
 
     .. image:: https://travis-ci.com/sdpython/teachpyx.svg?branch=master
-        :target: https://travis-ci.com/sdpython/teachpyx
+        :target: https://app.travis-ci.com/github/sdpython/teachpyx
         :alt: Build status
 
     .. image:: https://ci.appveyor.com/api/projects/status/5jl303wl14dtesl0?svg=true
