@@ -2232,6 +2232,44 @@ cet attribut depuis une méthode (``self.j=6``).
 L'attribut ``__dict__`` n'existe pas non plus, par conséquent,
 l'expression ``a.__dict__`` génère la même exception. La présence de
 l'instruction ``__slots__ = ...`` n'a aucun incidence sur les attributs statiques.
+Un dernier argument pour montrer que l'attribut `__slots__`
+est gage d'efficacité :
+
+.. runpython::
+    :showcode:
+
+    import time
+
+    class t1:    
+        def __init__(self, a, b):
+            self.a = a
+            self.b = b
+           
+    class t2(object):
+        def __init__(self, a, b):
+            self.a = a
+            self.b = b
+
+    class t3:    
+        __slots__ = ['a', 'b']
+        def __init__(self, a, b):
+            self.a = a
+            self.b = b
+
+    begin = time.perf_counter()
+    h = list(t1("0", 1e6) for i in range(0, 1000000))
+    print('t1:', time.perf_counter() - begin)
+
+    begin = time.perf_counter()
+    h = list(t2("0", 1e6) for i in range(0, 1000000))
+    print('t2:', time.perf_counter() - begin)
+
+    begin = time.perf_counter()
+    h = list(t3("0", 1e6) for i in range(0, 1000000))
+    print('t3:', time.perf_counter() - begin)
+
+Pour résumer, si les atributs d'une classe sont figés, autant
+le dire à l'interpréteur, il produira un code plus rapide.
 
 .. _par_classe_heritage:
 
