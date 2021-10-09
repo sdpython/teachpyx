@@ -7,7 +7,7 @@ Classes
 
 .. index:: classe
 
-.. contents:
+.. contents::
     :local:
     :depth: 2
 
