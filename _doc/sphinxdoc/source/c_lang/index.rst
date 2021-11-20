@@ -9,6 +9,7 @@ Variables et fonctions
     types
     syntaxe
     constructions
+    collections
     dates
     encoding
     faq
