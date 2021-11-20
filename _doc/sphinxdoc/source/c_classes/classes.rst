@@ -2240,17 +2240,17 @@ est gage d'efficacité :
 
     import time
 
-    class t1:    
+    class t1:
         def __init__(self, a, b):
             self.a = a
             self.b = b
-           
+
     class t2(object):
         def __init__(self, a, b):
             self.a = a
             self.b = b
 
-    class t3:    
+    class t3:
         __slots__ = ['a', 'b']
         def __init__(self, a, b):
             self.a = a

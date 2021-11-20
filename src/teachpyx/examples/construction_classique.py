@@ -361,6 +361,7 @@ def compte(li):
     .. exref::
         :tag: Base
         :title: comptage
+        :lid: l-ex-comptage
 
         On souhaite ici compter le nombre d'occurrences de chaque élément d'un tableau.
         Par exemple, on pourrait connaître par ce moyen la popularité d'un mot dans un discours
