@@ -6,11 +6,11 @@ Constructions classiques
 ========================
 
 Le module :mod:`collections` propose d'autres types d'objets
-qui en contiennent d'autres. Ils sont très proches des types
-standards liste ou dictionnaires mais sont optimisés pour un usage
+qui en contiennent d'autres. Ils sont trÃ¨s proches des types
+standards liste ou dictionnaires mais sont optimisÃ©s pour un usage
 en particulier. Cela les rend plus efficaces pour celui-ci et
 souvent plus lent pour les autres. Ce chapitre en recense les
-plus utilisés.
+plus utilisÃ©s.
 
 .. contents::
     :local:
@@ -19,10 +19,10 @@ OrderedDict
 ===========
 
 :class:`collections.OrderedDict` est un dictionnaire qui conservent
-l'ordre dans lequel les éléments y ont été insérés.
-Cette distinction était effective jusqu'à Python 3.7 mais
+l'ordre dans lequel les Ã©lÃ©ments y ont Ã©tÃ© insÃ©rÃ©s.
+Cette distinction Ã©tait effective jusqu'Ã  Python 3.7 mais
 depuis cette version, le type standard `dict` conserve
-également l'ordre d'insertion comme le montre l'exemple suivant.
+Ã©galement l'ordre d'insertion comme le montre l'exemple suivant.
 
 .. runpython::
     :showcode:
@@ -44,14 +44,14 @@ depuis cette version, le type standard `dict` conserve
     print(list(dico))
     print(list(dico.items()))
 
-Néanmoins, cette distinctions est importante à connaître pour des
+NÃ©anmoins, cette distinctions est importante Ã  connaÃ®tre pour des
 langages plus bas niveau comme le C++.
 
 namedtuple
 ==========
 
 :func:`collections.namedtuple` est un tuple, donc immuable,
-mais chaque élément est associé un nom.
+mais chaque Ã©lÃ©ment est associÃ© un nom.
 La fonction :func:`collections.namedtuple` retourne une classe
 et non une instance de classe.
 
@@ -72,8 +72,8 @@ et non une instance de classe.
     except AttributeError as e:
         print(e)
 
-On accède à chaque élément avec un nom ou un indice.
-Et on peut récupérer la liste des attributs de la classe.
+On accÃ¨de Ã  chaque Ã©lÃ©ment avec un nom ou un indice.
+Et on peut rÃ©cupÃ©rer la liste des attributs de la classe.
 
 .. runpython::
     :showcode:
@@ -89,9 +89,9 @@ le rend plus lisible.
 Counter
 =======
 
-:class:`collection.Counter` est un dictionnaire spécifique dans les valeurs
-sont entières. Il est très pratique pour compter les éléments.
-L'exemple :ref:`comptage <l-ex-comptage>` s'écrit en une ligne.
+:class:`collection.Counter` est un dictionnaire spÃ©cifique dans les valeurs
+sont entiÃ¨res. Il est trÃ¨s pratique pour compter les Ã©lÃ©ments.
+L'exemple :ref:`comptage <l-ex-comptage>` s'Ã©crit en une ligne.
 
 .. runpython::
     :showcode:
@@ -106,8 +106,8 @@ deque
 =====
 
 :class:`collection.deque` est une liste qui supporte l'insertion
-d'éléments en bout de liste et au début également
-(`liste chaînée <https://fr.wikipedia.org/wiki/Liste_cha%C3%AEn%C3%A9e>`_).
+d'Ã©lÃ©ments en bout de liste et au dÃ©but Ã©galement
+(`liste chaÃ®nÃ©e <https://fr.wikipedia.org/wiki/Liste_cha%C3%AEn%C3%A9e>`_).
 
 .. runpython::
     :showcode:
@@ -119,11 +119,11 @@ d'éléments en bout de liste et au début également
     ens.appendleft('D')
     print(ens)
 
-Il faut retenir que ce qu'on gagne en agilité se perd souvent
-en performance ou en espace mémoire.
-La différence n'est pas flagrante. Encore une fois,
-le langage Python est lent et rend ces différences parfois négligeables.
-Ces différences sont souvent significatives pour des langages
+Il faut retenir que ce qu'on gagne en agilitÃ© se perd souvent
+en performance ou en espace mÃ©moire.
+La diffÃ©rence n'est pas flagrante. Encore une fois,
+le langage Python est lent et rend ces diffÃ©rences parfois nÃ©gligeables.
+Ces diffÃ©rences sont souvent significatives pour des langages
 plus bas niveau.
 
 .. runpython::
