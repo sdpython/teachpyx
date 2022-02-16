@@ -9,8 +9,7 @@ local_template = os.path.join(os.path.abspath(
     os.path.dirname(__file__)), "phdoc_templates")
 
 set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2022,
-                     "pydata_sphinx_theme",
-                     pydata_sphinx_theme.get_html_theme_path(),
+                     "pydata_sphinx_theme", ['_static'],
                      locals(), extlinks=dict(
                          issue=('https://github.com/sdpython/teachpyx/issues/%s', 'issue')),
                      title="Programmation avec le langage Python", book=True, nblayout='table')
