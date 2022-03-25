@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# pylint: disable=C0115,C0116
 """
 @file
 @brief Quelques questions d'ordre général autour du langage Python.
