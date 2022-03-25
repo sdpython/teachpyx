@@ -128,9 +128,9 @@ def same_variable(a, b):
     Cette fonction dit si les deux objets sont en fait le même objet (True)
     ou non (False) s'ils sont différents (même s'ils contiennent la même information).
 
-    @param      a       n'importe quel objet
-    @param      b       n'importe quel objet
-    @return             ``True`` ou ``False``
+    :param a: n'importe quel objet
+    :param b: n'importe quel objet
+    :return: ``True`` ou ``False``
 
     .. faqref::
         :tag: python
@@ -241,8 +241,8 @@ def stringio(text):
     """
     returns a StringIO object on a text
 
-    @param      text        any text
-    @return                 StringIO object
+    :param text: any text
+    :return: StringIO object
 
     .. faqref::
         :tag: python
@@ -359,9 +359,9 @@ def enumerate_regex_search(exp, text):
     """
     Cette fonction itère sur les différentes occurences d'une expression régulière.
 
-    @param      exp     expression régulière
-    @param      text    text à parser
-    @return             itérateur
+    :param exp: expression régulière
+    :param text: text à parser
+    :return: itérateur
 
     .. faqref::
         :tag: regex
@@ -538,8 +538,8 @@ def get_month_name(date):
     """
     returns the month name for a give date
 
-    @param      date        datatime
-    @return                 month name
+    :param date: datatime
+    :return: month name
 
     .. faqref::
         :tag: python
@@ -559,8 +559,8 @@ def get_day_name(date):
     """
     returns the day name for a give date
 
-    @param      date        datatime
-    @return                 month name
+    :param date: datatime
+    :return: month name
 
     .. faqref::
         :tag: python
@@ -574,3 +574,52 @@ def get_day_name(date):
             print(dt.strftime("%A"))
     """
     return date.strftime("%A")
+
+
+def class_getitem():
+    """
+    This function shows how to enable an expression such as
+    `A[1]` where `A` is a class type and not an instance.
+    This can be done through `__class_getitem__
+    <https://docs.python.org/3/reference/datamodel.html#object.__class_getitem__>`_.
+    """
+
+    class A:
+        def __init__(self):
+            pass
+
+        @classmethod
+        def get(cls, index):
+            if index == 1:
+                return A1
+            if index == 2:
+                return A2
+            assert False  # pragma: no cover
+
+        @classmethod
+        def __class_getitem__(cls, index):
+            return cls.get(index)
+
+        def __getitem__(self, index):
+            return "i[%d]" % index
+
+    class A1(A):
+        def __init__(self):
+            A.__init__(self)
+
+    class A2(A):
+        def __init__(self):
+            A.__init__(self)
+
+    a = A()
+    assert a[5] == "i[5]"
+    assert a.__class__.__name__ == "A"
+
+    a = A.get(1)()
+    assert a.__class__.__name__ == "A1"
+
+    a = A[1]()
+    assert a.__class__.__name__ == "A1"
+
+    a = A[2]()
+    assert a.__class__.__name__ == "A2"
