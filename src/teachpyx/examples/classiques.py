@@ -224,7 +224,7 @@ def dictionnaire_modifie_dans_la_boucle():
         if i == 2:
             liste.remove(3)
 
-    d = {k: k for k in li}
+    d = {k: k for k in liste}
     rem = []
     for k in d:
         if k == 4:
