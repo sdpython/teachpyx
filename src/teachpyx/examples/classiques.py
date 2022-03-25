@@ -232,7 +232,7 @@ def dictionnaire_modifie_dans_la_boucle():
     for r in rem:
         del d[r]
 
-    return li, d
+    return liste, d
 
 
 def str2date(s, format="%d/%m/%Y"):
