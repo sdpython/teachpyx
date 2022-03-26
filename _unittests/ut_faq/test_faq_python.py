@@ -3,7 +3,8 @@
 """
 import unittest
 import datetime
-from teachpyx.faq.faq_python import get_month_name, get_day_name
+from teachpyx.faq.faq_python import (
+    get_month_name, get_day_name, class_getitem)
 
 
 class TestFaqPython(unittest.TestCase):
@@ -17,6 +18,9 @@ class TestFaqPython(unittest.TestCase):
         dt = datetime.datetime(2016, 1, 25)
         name = get_day_name(dt)
         self.assertEqual(name, "Monday")
+
+    def test_class_getitem(self):
+        class_getitem()
 
 
 if __name__ == "__main__":

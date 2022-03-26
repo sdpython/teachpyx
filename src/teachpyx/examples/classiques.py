@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# pylint: disable=W4701
 """
 @file
 @brief  quelques fonctions à propos de la première séance
@@ -219,12 +220,12 @@ def dictionnaire_modifie_dans_la_boucle():
         il est conseillé de s'en abstenir ainsi que pour tout type d'objets qui en contient d'autres.
         C'est une habitude qui vous servira pour la plupart des autres langages.
     """
-    li = [0, 1, 2, 3, 4, 5, 6]
-    for i in li:
+    liste = [0, 1, 2, 3, 4, 5, 6]
+    for i in liste:
         if i == 2:
-            li.remove(3)
+            liste.remove(3)
 
-    d = {k: k for k in li}
+    d = {k: k for k in liste}
     rem = []
     for k in d:
         if k == 4:
@@ -232,7 +233,7 @@ def dictionnaire_modifie_dans_la_boucle():
     for r in rem:
         del d[r]
 
-    return li, d
+    return liste, d
 
 
 def str2date(s, format="%d/%m/%Y"):

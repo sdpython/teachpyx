@@ -3190,6 +3190,55 @@ la chaîne de caractères ``s`` et non à la troisième ligne du programme.
     print("----------------------")
     print(fr2 + g)
 
+Surcharge d'opérateur sur des types
+===================================
+
+Il est possible de surcharger tous les opérateurs pour une classe permettant
+ainsi de donner un sens à `x * y`, `x[5]` lorsque *x* est une instance d'une
+classe `A` définie dans le programme. Maintenant, on souhaiterait donner un sens
+à l'expression `A[1]` alors que `A` est une classe et non une instance.
+Cela peut se faire via la méthode
+`__class_getitem__
+<https://docs.python.org/3/reference/datamodel.html#object.__class_getitem__>`_.
+
+.. runpython::
+    :showcode:
+
+    class A:
+        def __init__(self):
+            pass
+
+        @classmethod
+        def get(cls, index):
+            if index == 1:
+                return A1
+            if index == 2:
+                return A2
+            assert False  # pragma: no cover
+
+        @classmethod
+        def __class_getitem__(cls, index):
+            return cls.get(index)
+
+    class A1(A):
+        pass
+
+    class A2(A):
+        pass
+
+    a = A()
+    print(a.__class__.__name__)
+
+    a = A[1]()
+    print(a.__class__.__name__)
+
+    a = A[2]()
+    print(a.__class__.__name__)
+
+Lors de l'exécution de `A[1]`, l'interpréteur appelle la méthode
+`__class_getitem__` qui elle même retourne le type `A1`. Cette construction
+est propre au langage python. Son usage est plutôt rare.
+
 Constructions classiques
 ========================
 
