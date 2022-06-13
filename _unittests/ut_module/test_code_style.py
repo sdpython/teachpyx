@@ -19,7 +19,7 @@ class TestCodeStyle(unittest.TestCase):
         thi = os.path.abspath(os.path.dirname(__file__))
         src_ = os.path.normpath(os.path.join(thi, "..", "..", "src"))
         check_pep8(src_, fLOG=fLOG,
-                   pylint_ignore=('C0103', 'C1801', 'R0201', 'R1705', 'W0108', 'W0613',
+                   pylint_ignore=('C0103', 'C1801', 'R1705', 'W0108', 'W0613',
                                   'W0212', 'W0107', 'C0415', 'C0209'),
                    skip=['construction_classique.py:577: C0200',
                          "Redefining built-in 'format'",
@@ -35,7 +35,7 @@ class TestCodeStyle(unittest.TestCase):
         test = os.path.normpath(os.path.join(thi, "..", ))
         check_pep8(test, fLOG=fLOG, neg_pattern="temp_.*",
                    pylint_ignore=('C0111', 'C0103', 'W0622', 'C1801', 'C0412',
-                                  'R0201', 'W0122', 'W0123', 'E1101', 'R1705',
+                                  'W0122', 'W0123', 'E1101', 'R1705',
                                   'W0703', 'W0107', 'C0415', 'C0209'),
                    skip=["Unused argument 'cell'",
                          ])
