@@ -12,7 +12,7 @@ class TestFaqNumpy(unittest.TestCase):
         pi = math.pi
         fpi = to_float32(pi)
         if fpi == pi:
-            raise Exception("not possible {0} ? {1}".format(pi, fpi))
+            raise Exception(f"not possible {pi} ? {fpi}")
 
 
 if __name__ == "__main__":

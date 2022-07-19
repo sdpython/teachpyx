@@ -23,7 +23,7 @@ def envoyer_mail (aqui, sujet, contenu, files = []):
         part.set_payload(content)
         encoders.encode_base64(part)
         part.add_header('Content-Disposition',  \
-                        'attachment; filename="%s"' % os.path.basename(file))
+                        f'attachment; filename="{os.path.basename(file)}"')
         msg.attach(part)
 
     smtp = smtplib.SMTP("smtp.gmail.com", 587)
