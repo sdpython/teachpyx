@@ -8,9 +8,13 @@
 Apprendre la programmation avec Python
 ======================================
 
-Le site `Python dans tous ses états <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/>`_
-est un peu bordélique même si j'essaye d'y apporter un peu d'ordre. Il s'étale. Il déborde un peu ici.
-Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/teachpyx_doc.pdf>`_
+Internet est une source quasi-infinie de documents, papiers, bouts de
+code sur beaucoup de sujets mais il faut savoir picorer.
+Ce site se veut plus facile à lire de façon traditionnelle,
+un peu comme un livre. Il s'adresse surtout à ceux qui ne savent
+pas ou eu programmer.
+Il est aussi disponible en
+`PDF <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/teachpyx_doc.pdf>`_
 (format brut de fonderie) et sur
 `GitHub/teachpyx <https://github.com/sdpython/teachpyx>`_ |gitlogo|.
 
@@ -30,14 +34,12 @@ Le site est aussi disponible en `PDF <http://www.xavierdupre.fr/app/teachpyx/hel
     c_resume/index
     i_index
 
-Je regrette de ne pas savoir bien dessiner.
-Mais je supporte toujours difficilement de
-recommencer tout un dessin à cause d'un trait mal
-placé, d'une gomme qui étale plutôt qu'elle n'efface.
-Alors j'ai opté pour la programmation.
-J'enregistre mes coups de crayons,
-elle les répète à l'infini.
+Les ordinateurs font principalement des calculs. Ils permettent
+aussi d'automatiser de nombreuses tâches pour lesquelles ils
+n'ont pas été spécifiquement conçus. Le site
 `Xavier Dupré <http://www.xavierdupre.fr/>`_
+contient beaucoup d'exemples sur beaucoup de sujets,
+souvent reliés au machine learning.
 
 .. only:: html
 

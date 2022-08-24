@@ -83,17 +83,29 @@ latex_elements['preamble'] = preamble + custom_preamble
 mathdef_link_only = True
 
 epkg_dictionary.update({
+    'algorithme': 'https://fr.wikipedia.org/wiki/Algorithme',
+    'algorithmes numériques':
+        'http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/'
+        'specials/algorithm_culture.html#catalogue-d-algorithmes',
+    'algorithmes de tri': 'https://fr.wikipedia.org/wiki/Algorithme_de_tri',
+    'Anaconda': 'https://www.anaconda.com/',
+    'Awesome Python': 'https://github.com/vinta/awesome-python',
     'C': 'https://fr.wikipedia.org/wiki/C_(langage)',
     'C++': 'https://fr.wikipedia.org/wiki/C%2B%2B',
     'cython': 'http://cython.org/',
     'format': 'https://docs.python.org/3/library/stdtypes.html#str.format',
     'joblib': 'https://pythonhosted.org/joblib/',
     'JSON': 'https://fr.wikipedia.org/wiki/JavaScript_Object_Notation',
+    'Miniconda': 'https://docs.conda.io/en/latest/miniconda.html',
     'nan': 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html',
     'NaN': 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html',
     'OpenMP': 'https://fr.wikipedia.org/wiki/OpenMP',
+    'programmation fonctionnelle': 'https://fr.wikipedia.org/wiki/Programmation_fonctionnelle',
+    'programmation impérative': 'https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative',
     'protobuf': 'https://developers.google.com/protocol-buffers/',
     'pyformat': 'https://pyformat.info/',
+    'pypi': 'https://pypi.org/',
+    'Python': 'https://www.python.org/',
     'shebang': 'https://fr.wikipedia.org/wiki/Shebang',
     'ujson': 'https://github.com/esnme/ultrajson',
     'ultrajson': 'https://github.com/esnme/ultrajson',
