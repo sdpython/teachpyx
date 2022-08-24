@@ -95,6 +95,7 @@ epkg_dictionary.update({
     'cython': 'http://cython.org/',
     'format': 'https://docs.python.org/3/library/stdtypes.html#str.format',
     'joblib': 'https://pythonhosted.org/joblib/',
+    'jupyter': 'https://jupyter.org/',
     'JSON': 'https://fr.wikipedia.org/wiki/JavaScript_Object_Notation',
     'Miniconda': 'https://docs.conda.io/en/latest/miniconda.html',
     'nan': 'https://docs.scipy.org/doc/numpy/reference/generated/numpy.isnan.html',
@@ -109,4 +110,5 @@ epkg_dictionary.update({
     'shebang': 'https://fr.wikipedia.org/wiki/Shebang',
     'ujson': 'https://github.com/esnme/ultrajson',
     'ultrajson': 'https://github.com/esnme/ultrajson',
+    'Visual Studio Code': 'https://code.visualstudio.com/',
 })

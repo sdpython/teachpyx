@@ -202,3 +202,21 @@ La suite du site se lit en diagonale ou en rang serré selon vos
 connaissances actuelles, selon que vous connaissez déjà un
 autre langage de programmation. Et il faut pratiquer.
 
+Fichier ou notebook
+===================
+
+Il faut bien écrire son programme quelque part. Il exite deux options.
+La première est d'écrire son programme dans un fichier texte
+qui doit obligatoirement avoir l'extension ``.py``. On peut ensuite
+l'exécuter avec l'instruction en ligne de commande
+``python <nom de fichier.py>``. Il est recommandé d'utiliser
+un éditeur de texte dédié à cet usage. Le plus utilisé est
+:epkg:`Visual Studio Code`.
+
+La seconde option est un notebook. Cette façon de travailler
+nécessite l'installation de :epkg:`jupyter`. C'est plus facile
+quand on commence. Ce support vise principalement les chercheurs
+qui peuvent de cette façon avoir dans un même document
+du code, des sorties de code, du texte, des formules, des graphiques.
+C'est déconseillé dès qu'on doit utiliser un programme pour automatiser
+une tâche.
