@@ -10,8 +10,9 @@ local_template = os.path.join(os.path.abspath(
 
 set_sphinx_variables(__file__, "teachpyx", "Xavier Dupré", 2022,
                      "pydata_sphinx_theme", ['_static'],
-                     locals(), extlinks=dict(
-                         issue=('https://github.com/sdpython/teachpyx/issues/%s', 'issue')),
+                     locals(), extlinks=dict(issue=(
+                         'https://github.com/sdpython/teachpyx/issues/%s',
+                         'issue %s')),
                      title="Programmation avec le langage Python", book=True, nblayout='table')
 
 blog_root = "http://www.xavierdupre.fr/app/teachpyx/helpsphinx/"
