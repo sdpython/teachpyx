@@ -15,7 +15,7 @@ class TestFaqException(ExtTestCase):
 
         def insidefe():
             try:
-                raise Exception("an error was raised")
+                raise RuntimeError("an error was raised")
             except Exception:
                 ft = call_stack()
                 return ft
