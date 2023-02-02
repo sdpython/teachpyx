@@ -21,7 +21,7 @@ extensions.append("sphinxcontrib.blockdiag")
 
 html_css_files = ['my-styles.css']
 
-html_logo = "phdoc_static/project_ico_small.png"
+html_logo = "_static/project_ico_small.png"
 
 language = "fr"
 
