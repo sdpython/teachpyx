@@ -25,7 +25,7 @@ class TestFaqException(ExtTestCase):
         self.assertEqual(len(cb), 0)
         cb, sb = insidefe()
         self.assertEqual(len(cb), 1)
-        self.assertIn('raise Exception("an error was raised")', sb)
+        self.assertIn('raise RuntimeError("an error was raised")', sb)
 
 
 if __name__ == "__main__":
