@@ -32,7 +32,6 @@ Il est aussi disponible en
     c_data/index
     i_examples
     c_resume/index
-    i_index
 
 Les ordinateurs font principalement des calculs. Ils permettent
 aussi d'automatiser de nombreuses tâches pour lesquelles ils
