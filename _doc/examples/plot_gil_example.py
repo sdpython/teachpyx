@@ -26,7 +26,7 @@ def create_list(n):
     return res
 
 
-timeit.timeit("create_list(100000)")
+timeit.timeit("create_list(100000)", globals=globals(), number=100)
 
 ######################################
 # En parallèle avec le module `concurrent.futures
@@ -40,7 +40,7 @@ def run2(nb):
             pass
 
 
-timeit.timeit("run2(100000)")
+timeit.timeit("run2(100000)", globals=globals(), number=100)
 
 
 ######################################
@@ -62,7 +62,7 @@ def attendre(t=0.009):
     return None
 
 
-timeit.timeit("attendre()")
+timeit.timeit("attendre()", globals=globals(), number=100)
 
 
 ######################################
@@ -75,7 +75,7 @@ def run3(t):
             pass
 
 
-timeit.timeit("run3(0.009)")
+timeit.timeit("run3(0.009)", globals=globals(), number=100)
 
 
 ######################################

@@ -30,13 +30,13 @@ mat[2, 3], mat[2][3]
 ########################################
 #
 
-timeit.timeit("mat[2, 3]")
+timeit.timeit("mat[2, 3]", globals=globals(), number=100)
 
 
 ########################################
 #
 
-timeit.timeit("mat[2][3]")
+timeit.timeit("mat[2][3]", globals=globals(), number=100)
 
 
 ########################################

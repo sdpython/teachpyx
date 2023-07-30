@@ -19,7 +19,7 @@ import os
 import timeit
 import struct
 from io import BytesIO
-from sphinx_runpython.runpython.loghelper import run_cmd
+from sphinx_runpython.runpython import run_cmd
 import google.protobuf as gp
 from google.protobuf.json_format import MessageToJson, Parse as ParseJson
 
@@ -139,7 +139,7 @@ type(res), res
 ########################################
 #
 
-timeit.timeit("person.SerializeToString()")
+timeit.timeit("person.SerializeToString()", globals=globals(), number=100)
 
 
 ########################################
@@ -160,13 +160,13 @@ pers
 ########################################
 #
 
-timeit.timeit("schema_pb2.Person.FromString(res)")
+timeit.timeit("schema_pb2.Person.FromString(res)", globals=globals(), number=100)
 
 
 ########################################
 #
 
-timeit.timeit("pers.ParseFromString(res)")
+timeit.timeit("pers.ParseFromString(res)", globals=globals(), number=100)
 
 
 ########################################
@@ -243,7 +243,7 @@ print(MessageToJson(pers))
 ########################################
 #
 
-timeit.timeit("MessageToJson(pers)")
+timeit.timeit("MessageToJson(pers)", globals=globals(), number=100)
 
 
 ########################################
@@ -258,4 +258,6 @@ res
 ########################################
 #
 
-timeit.timeit("ParseJson(js, message=schema_pb2.Person())")
+timeit.timeit(
+    "ParseJson(js, message=schema_pb2.Person())", globals=globals(), number=100
+)

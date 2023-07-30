@@ -146,14 +146,14 @@ data = {
 #
 
 
-timeit.timeit("json.dump(data, StringIO())")
+timeit.timeit("json.dump(data, StringIO())", globals=globals(), number=100)
 
 
 #########################################
 #
 
 
-timeit.timeit("ujson.udump(data, StringIO())")
+timeit.timeit("ujson.udump(data, StringIO())", globals=globals(), number=100)
 
 
 #########################################
@@ -164,20 +164,20 @@ timeit.timeit("ujson.udump(data, StringIO())")
 buffer = StringIO()
 ujson.dump(data, buffer)
 res = buffer.getvalue()
-timeit.timeit("load(StringIO(res))")
+timeit.timeit("load(StringIO(res))", globals=globals(), number=100)
 
 
 #########################################
 #
 
-timeit.timeit("ujson.load(StringIO(res))")
+timeit.timeit("ujson.load(StringIO(res))", globals=globals(), number=100)
 
 
 #########################################
 # On enlève le temps passé dans la creation du buffer.
 
 
-timeit.timeit("StringIO(res)")
+timeit.timeit("StringIO(res)", globals=globals(), number=100)
 
 
 #########################################
@@ -323,13 +323,13 @@ read.att1, read.att2
 #
 
 data = B("r")
-timeit.timeit("pickle.dump(data, BytesIO())")
+timeit.timeit("pickle.dump(data, BytesIO())", globals=globals(), number=100)
 
 
 #########################################
 #
 
-timeit.timeit("pickle.load(BytesIO(seq))")
+timeit.timeit("pickle.load(BytesIO(seq))", globals=globals(), number=100)
 
 
 #########################################
@@ -339,7 +339,11 @@ timeit.timeit("pickle.load(BytesIO(seq))")
 # Il est possible d'accélérer un peu les choses.
 
 
-timeit.timeit("pickle.dump(data, BytesIO(), protocol=pickle.HIGHEST_PROTOCOL)")
+timeit.timeit(
+    "pickle.dump(data, BytesIO(), protocol=pickle.HIGHEST_PROTOCOL)",
+    globals=globals(),
+    number=100,
+)
 
 
 #########################################
