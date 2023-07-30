@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-import sys
 import os
-from sphinx_runpython.github_link import make_linkcode_resolve
-from sphinx_runpython.conf_helper import has_dvipng, has_dvisvgm
-from teachpyx import __version__
+import sys
 
+from sphinx_runpython.conf_helper import has_dvipng, has_dvisvgm
+from sphinx_runpython.github_link import make_linkcode_resolve
+
+from teachpyx import __version__
 
 extensions = [
     "nbsphinx",

@@ -7,7 +7,6 @@ from teachpyx.faq.faq_exception import call_stack
 
 
 class TestFaqException(ExtTestCase):
-
     def test_call_back(self):
         def insidef():
             ft = call_stack()

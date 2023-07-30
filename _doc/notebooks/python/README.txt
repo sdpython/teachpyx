@@ -1,3 +1,0 @@
-Ballades autour de Python
--------------------------
-

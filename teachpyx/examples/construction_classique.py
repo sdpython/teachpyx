@@ -1,9 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-@file
-@brief Quelques constructions classiques pour éviter de recoder des variantes d'algorithmes.
-classiques.
-"""
+# coding: utf-8
+
 
 from functools import reduce
 
@@ -50,9 +46,12 @@ def recherche(li, c):
             else:
                 return -1
 
-        Même si ce bout de code parcourt deux fois le tableau (une fois déterminer
-        sa présence, une seconde fois pour sa position), ce code est souvent plus rapide
-        que la première version et la probabilité d'y faire une erreur plus faible.
+        Même si ce bout de code parcourt deux fois le
+        tableau (une fois déterminer
+        sa présence, une seconde fois pour sa position),
+        ce code est souvent plus rapide
+        que la première version et la probabilité
+        d'y faire une erreur plus faible.
     """
     if c in li:
         return li.index(c)
@@ -72,9 +71,11 @@ def minindex(li):
         :tag: Base
         :title: minimum avec position
 
-        La fonction `min <https://docs.python.org/3/library/functions.html#min>`_
+        La fonction `min
+        <https://docs.python.org/3/library/functions.html#min>`_
         retourne le minium d'un tableau mais pas sa position.
-        Le premier réflexe est alors de recoder le parcours de la liste
+        Le premier réflexe est alors de recoder le
+        parcours de la liste
         tout en conservant la position du minimum.
 
         .. runpython::
@@ -87,7 +88,8 @@ def minindex(li):
                     m = i
             print(m)
 
-        Mais il existe une astuce pour obtenir la position sans avoir à le reprogrammer.
+        Mais il existe une astuce pour obtenir la
+        position sans avoir à le reprogrammer.
 
         .. runpython::
             :showcode:
@@ -97,7 +99,8 @@ def minindex(li):
             m = min(k)
             print(m)
 
-        La fonction ``min`` choisit l'élément minimum d'un tableau dont les éléments sont des
+        La fonction ``min`` choisit l'élément minimum d'un
+        tableau dont les éléments sont des
         couples (élément du premier tableau, sa position).
         Le minimum est choisi en comparant les éléments, et la position
         départegera les exaequo.
@@ -120,9 +123,12 @@ def recherche_dichotomique(li, c):
         La `recherche dichotomique <http://fr.wikipedia.org/wiki/Dichotomie>`_
         est plus rapide qu'une recherche classique mais elle
         suppose que celle-ci s'effectue dans un ensemble trié.
-        L'idée est de couper en deux l'intervalle de recherche à chaque itération.
-        Comme l'ensemble est trié, en comparant l'élément cherché à l'élément central,
-        on peut éliminer une partie de l'ensemble : la moitié inférieure ou supérieure.
+        L'idée est de couper en deux l'intervalle de
+        recherche à chaque itération.
+        Comme l'ensemble est trié, en comparant
+        l'élément cherché à l'élément central,
+        on peut éliminer une partie de l'ensemble :
+        la moitié inférieure ou supérieure.
 
         .. runpython::
             :showcode:
@@ -144,15 +150,16 @@ def recherche_dichotomique(li, c):
         if c == li[m]:
             return m
         elif c < li[m]:
-            b = m - 1   # partie supérieure éliminée
+            b = m - 1  # partie supérieure éliminée
         else:
-            a = m + 1   # partie inférieure éliminée
+            a = m + 1  # partie inférieure éliminée
     return -1  # élément non trouvé
 
 
 def text2mat(s, sep_row="\n", sep_col="\t"):
     """
-    Convertit une chaîne de caractères en une matrice ( = liste de listes),
+    Convertit une chaîne de caractères en une matrice
+    ( = liste de listes),
     réciproque de la fonction @see fn mat2text.
 
     @param      s           texte à convertir
@@ -164,10 +171,13 @@ def text2mat(s, sep_row="\n", sep_col="\t"):
         :tag: Base
         :title: conversion d'une chaîne de caractère en matrice
 
-        Les quelques lignes qui suivent permettent de décomposer une chaîne de caractères
+        Les quelques lignes qui suivent permettent de décomposer
+        une chaîne de caractères
         en matrice. Chaque ligne et chaque colonne sont séparées par des
-        séparateurs différents. Ce procédé intervient souvent lorsqu'on récupère des
-        informations depuis un fichier texte lui-même provenant d'un tableur.
+        séparateurs différents. Ce procédé intervient souvent
+        lorsqu'on récupère des
+        informations depuis un fichier texte lui-même provenant
+        d'un tableur.
 
         .. runpython::
             :showcode:
@@ -181,15 +191,21 @@ def text2mat(s, sep_row="\n", sep_col="\t"):
 
         Comme cette opération est très fréquente lorsqu'on travaille avec les données,
         on ne l'implémente plus soi-même. On préfère utiliser un module comme
-        `pandas <http://pandas.pydata.org/>`_ qui est plus robuste et considère plus de cas.
-        Pour écrire, utilise la méthode `to_csv <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_csv.html>`_,
+        `pandas <http://pandas.pydata.org/>`_ qui est plus
+        robuste et considère plus de cas.
+        Pour écrire, utilise la méthode `to_csv
+        <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_csv.html>`_,
         pour lire, la fonction
-        `read_csv <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.io.parsers.read_csv.html>`_.
+        `read_csv
+        <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.io.parsers.read_csv.html>`_.
         On peut également directement enregistrer au format Excel
-        `read_excel <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.io.excel.read_excel.html>`_ et écrire dans ce même format
-        `to_excel <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_excel.html>`_.
+        `read_excel
+        <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.io.excel.read_excel.html>`_
+        et écrire dans ce même format
+        `to_excel
+        <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.to_excel.html>`_.
     """
-    ligne = s.split(sep_row)                   # lignes
+    ligne = s.split(sep_row)  # lignes
     mat = [el.split(sep_col) for el in ligne]  # colonnes
     return mat
 
@@ -217,8 +233,8 @@ def mat2text(mat, sep_row="\n", sep_col="\t"):
 
             print(s)
     """
-    ligne = [";".join(li) for li in mat]     # colonnes
-    s = "|".join(ligne)                      # lignes
+    ligne = [";".join(li) for li in mat]  # colonnes
+    s = "|".join(ligne)  # lignes
     return s
 
 
@@ -233,7 +249,8 @@ def somme(li):
         :tag: Base
         :title: calcul d'une somme
 
-        Le calcul d'une somme fait toujours intervenir une boucle car le langage
+        Le calcul d'une somme fait toujours
+        intervenir une boucle car le langage
         :epkg:`Python` ne peut faire des additions qu'avec deux nombres.
         Le schéma est toujours le même : initialisation et boucle.
 
@@ -246,8 +263,10 @@ def somme(li):
                 s += l                   # addition
             print(s)
 
-        Ce code est équivalent à la fonction `sum <https://docs.python.org/3/library/functions.html#sum>`_.
-        Dans ce cas où la somme intègre le résultat d'une fonction (au sens mathématique)
+        Ce code est équivalent à la fonction `sum
+        <https://docs.python.org/3/library/functions.html#sum>`_.
+        Dans ce cas où la somme intègre le résultat d'une fonction
+        (au sens mathématique)
         et non les éléments d'une liste, il faudrait écrire :
 
         .. runpython::
@@ -262,7 +281,8 @@ def somme(li):
                 s += fonction (l)
             print(s)
 
-        Et ces deux lignes pourraient être résumées en une seule grâce
+        Et ces deux lignes pourraient être résumées
+        en une seule grâce
         à l'une de ces instructions :
 
         .. runpython::
@@ -279,7 +299,8 @@ def somme(li):
 
         L'avantage des deux dernières instructions est qu'elles évitent
         la création d'une liste intermédiaire,
-        c'est un point à prendre en compte si la liste sur laquelle opère la
+        c'est un point à prendre en compte si la
+        liste sur laquelle opère la
         somme est volumineuse.
     """
     return sum(li)
@@ -296,8 +317,10 @@ def triindex(li):
         :tag: Base
         :title: tri, garder les positions initiales
 
-        Le tri est une opération fréquente. On n'a pas toujours le temps de programmer
-        le tri le plus efficace comme un tri `quicksort <http://fr.wikipedia.org/wiki/Tri_rapide>`_
+        Le tri est une opération fréquente. On n'a pas
+        toujours le temps de programmer
+        le tri le plus efficace comme un tri `quicksort
+        <http://fr.wikipedia.org/wiki/Tri_rapide>`_
         et un tri plus simple suffit la plupart du temps.
         Le tri suivant consiste à recherche le plus petit élément puis à
         échanger sa place avec le premier élément du tableau du tableau.
@@ -321,15 +344,20 @@ def triindex(li):
 
             print(li)
 
-        La fonction `sorted <https://docs.python.org/3/library/functions.html#sorted>`_
+        La fonction `sorted
+        <https://docs.python.org/3/library/functions.html#sorted>`_
         trie également une liste mais selon un algorithme plus efficace
         que celui-ci (voir `Timsort <http://en.wikipedia.org/wiki/Timsort>`_).
-        On est parfois amené à reprogrammer un tri parce qu'on veut conserver la position des éléments
+        On est parfois amené à reprogrammer un tri parce qu'on veut
+        conserver la position des éléments
         dans le tableau non trié.
-        Cela arrive quand on souhaite trier un tableau et appliquer la même transformation à un second
+        Cela arrive quand on souhaite trier un tableau et
+        appliquer la même transformation à un second
         tableau.
-        Il est toujours préférable de ne pas reprogrammer un tri (moins d'erreur).
-        Il suffit d'applicer la même idée que pour la fonction @see fn minindex.
+        Il est toujours préférable de ne pas reprogrammer
+        un tri (moins d'erreur).
+        Il suffit d'applicer la même idée que pour la
+        fonction @see fn minindex.
 
         .. runpython::
             :showcode:
@@ -363,8 +391,10 @@ def compte(li):
         :title: comptage
         :lid: l-ex-comptage
 
-        On souhaite ici compter le nombre d'occurrences de chaque élément d'un tableau.
-        Par exemple, on pourrait connaître par ce moyen la popularité d'un mot dans un discours
+        On souhaite ici compter le nombre d'occurrences de
+        chaque élément d'un tableau.
+        Par exemple, on pourrait connaître par ce moyen
+        la popularité d'un mot dans un discours
         politique ou l'étendue du vocabulaire utilisé.
         L'exemple suivant compte les mots d'une liste de mots.
 
@@ -380,11 +410,14 @@ def compte(li):
                     d[l] += 1
             print(d)   # affiche {'un': 2, 'trois': 1, 'deux': 1}
 
-        La structure la plus appropriée ici est un dictionnaire puisqu'on cherche
+        La structure la plus appropriée ici est un
+        dictionnaire puisqu'on cherche
         à associer une valeur à un élément d'une liste qui peut être de tout type.
         Si la liste contient des éléments de type modifiable comme une liste,
-        il faudrait convertir ceux-ci en un type immuable comme une chaîne de caractères.
-        L'exemple suivant illustre ce cas en comptant les occurrences des lignes d'une matrice.
+        il faudrait convertir ceux-ci en un type immuable
+        comme une chaîne de caractères.
+        L'exemple suivant illustre ce cas en comptant
+        les occurrences des lignes d'une matrice.
 
         .. runpython::
             :showcode:
@@ -400,10 +433,13 @@ def compte(li):
             print(d)   # affiche {'[1, 1, 1]': 2, '[2, 2, 2]': 1}
 
         Les listes ne peuvent pas être les clés du dictionnaire :
-        `Why Lists Can't Be Dictionary Keys <https://wiki.python.org/moin/DictionaryKeys>`_.
+        `Why Lists Can't Be Dictionary Keys
+        <https://wiki.python.org/moin/DictionaryKeys>`_.
 
-        On peut également vouloir non pas compter le nombre d'occurrence mais mémoriser les
-        positions des éléments tous identiques. On doit utiliser un dictionnaire de listes :
+        On peut également vouloir non pas compter
+        le nombre d'occurrence mais mémoriser les
+        positions des éléments tous identiques.
+        On doit utiliser un dictionnaire de listes :
 
         .. runpython::
             :showcode:
@@ -446,9 +482,12 @@ def mat2vect(mat):
         :tag: Base
         :title: conversion d'une matrice en un vecteur
 
-        Dans un langage comme le *C++*, il arrive fréquemment qu'une matrice ne soit pas
-        représentée par une liste de listes mais par une seule liste car cette représentation
-        est plus efficace. Il faut donc convertir un indice en deux indices ligne et colonne.
+        Dans un langage comme le *C++*, il arrive fréquemment
+        qu'une matrice ne soit pas
+        représentée par une liste de listes mais par une seule 
+        liste car cette représentation
+        est plus efficace. Il faut donc convertir un indice 
+        en deux indices ligne et colonne.
         Il faut bien sûr que le nombre de colonnes sur chaque ligne soit constant.
         Le premier programme convertit une liste de listes en une seule liste.
 
@@ -488,11 +527,16 @@ def vect2mat(vect, ncol):
         :tag: Base
         :title: conversion d'un vecteur en une matrice
 
-        Dans un langage comme le *C++*, il arrive fréquemment qu'une matrice ne soit pas
-        représentée par une liste de listes mais par une seule liste car cette représentation
-        est plus efficace. Il faut donc convertir un indice en deux indices ligne et colonne.
-        Il faut bien sûr que le nombre de colonnes sur chaque ligne soit constant.
-        Le premier programme convertit une liste de listes en une seule liste.
+        Dans un langage comme le *C++*, il arrive fréquemment
+        qu'une matrice ne soit pas
+        représentée par une liste de listes mais par une
+        seule liste car cette représentation
+        est plus efficace. Il faut donc convertir un
+        indice en deux indices ligne et colonne.
+        Il faut bien sûr que le nombre de colonnes sur
+        chaque ligne soit constant.
+        Le premier programme convertit une liste de
+        listes en une seule liste.
 
         .. runpython::
             :showcode:
@@ -503,8 +547,7 @@ def vect2mat(vect, ncol):
             print(mat)
 
     """
-    return [vect[i * ncol: (i + 1) * ncol]
-            for i in range(0, len(vect) // ncol)]
+    return [vect[i * ncol : (i + 1) * ncol] for i in range(0, len(vect) // ncol)]
 
 
 def integrale(fonction, a, b, n):
@@ -598,7 +641,6 @@ def enumerate_permutations(ensemble):
     else:
         position = list(range(len(ensemble)))
         while position[0] < len(ensemble):
-
             memo = []
             for i, p in enumerate(position):
                 ensemble[i], ensemble[p] = ensemble[p], ensemble[i]

@@ -5,13 +5,27 @@ import unittest
 import warnings
 from datetime import datetime
 from pyquickhelper.pycode import ExtTestCase
-from teachpyx.faq.faq_python import entier_grande_taille, difference_div, python_path, same_variable, stringio
-from teachpyx.faq.faq_python import property_example, enumerate_regex_search, sortable_class, list_of_installed_packages
-from teachpyx.faq.faq_python import information_about_package, get_month_name, get_day_name
+from teachpyx.faq.faq_python import (
+    entier_grande_taille,
+    difference_div,
+    python_path,
+    same_variable,
+    stringio,
+)
+from teachpyx.faq.faq_python import (
+    property_example,
+    enumerate_regex_search,
+    sortable_class,
+    list_of_installed_packages,
+)
+from teachpyx.faq.faq_python import (
+    information_about_package,
+    get_month_name,
+    get_day_name,
+)
 
 
 class TestFaqMissing(ExtTestCase):
-
     def test_faq_pythonm(self):
         entier_grande_taille()
         difference_div()
@@ -22,8 +36,8 @@ class TestFaqMissing(ExtTestCase):
         property_example()
         self.assertNotEmpty(list(enumerate_regex_search("r*", "rararr")))
         sortable_class([5, 5])
-        self.assertEqual(get_month_name(datetime(2016, 4, 5)), 'April')
-        self.assertEqual(get_day_name(datetime(2016, 4, 17)), 'Sunday')
+        self.assertEqual(get_month_name(datetime(2016, 4, 5)), "April")
+        self.assertEqual(get_day_name(datetime(2016, 4, 17)), "Sunday")
 
     def test_faq_pythonm_pip(self):
         try:

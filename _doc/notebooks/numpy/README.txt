@@ -1,2 +1,0 @@
-Ballades autour de numpy
-------------------------

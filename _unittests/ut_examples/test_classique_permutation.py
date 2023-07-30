@@ -6,11 +6,13 @@ will sort all test files by increasing time and run them.
 """
 import unittest
 import itertools
-from teachpyx.examples.construction_classique import enumerate_permutations_recursive, enumerate_permutations
+from teachpyx.examples.construction_classique import (
+    enumerate_permutations_recursive,
+    enumerate_permutations,
+)
 
 
-class TestClassiquesPermutation (unittest.TestCase):
-
+class TestClassiquesPermutation(unittest.TestCase):
     def test_permutation(self):
         self.maxDiff = None
         ens = list(range(5))

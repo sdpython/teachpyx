@@ -1,6 +1,1 @@
-"""
-@file
-@breif shortcuts for FAQ
-"""
-
-from .faq_python import enumerate_regex_search
+from .faq_python import enumerate_regex_search  # noqa: F401

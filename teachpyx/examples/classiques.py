@@ -17,18 +17,20 @@ def commentaire_accentues():
         :tag: python
         :title: Python n'accepte pas les accents
 
-        .. index:: accent, accents, utf8, encoding
-
-        Le langage Python a été conçu en langage anglais. Dès qu'on on ajoute un caractère
-        qui ne fait pas partie de l'alphabet anglais (ponctuation comprise), il déclenche une erreur :
+        Le langage Python a été conçu en langage anglais.
+        Dès qu'on on ajoute un caractère
+        qui ne fait pas partie de l'alphabet anglais
+        (ponctuation comprise), il déclenche une erreur :
 
         ::
 
             File "faq_cvxopt.py", line 3
-            SyntaxError: Non-UTF-8 code starting with '\xe8' in file faq_cvxopt.py on line 4, but no encoding declared;
+            SyntaxError: Non-UTF-8 code starting with '\xe8' in
+                file faq_cvxopt.py on line 4, but no encoding declared;
                 see http://python.org/dev/peps/pep-0263/ for details
 
-        Pour la résoudre, il faut dire à l'interpréteur que des caractères non anglais peuvent apparaître
+        Pour la résoudre, il faut dire à l'interpréteur que
+        des caractères non anglais peuvent apparaître
         et écrire sur la première ligne du programme :
 
         ::
@@ -41,12 +43,14 @@ def commentaire_accentues():
 
             # -*- coding: utf-8 -*-
 
-        Si vous utilisez l'éditeur `SciTE <http://www.scintilla.org/SciTE.html>`_ sous Windows,
+        Si vous utilisez l'éditeur
+        `SciTE <http://www.scintilla.org/SciTE.html>`_ sous Windows,
         après avoir ajouté cette ligne avec l'encoding `utf-8`,
         il est conseillé de fermer le fichier puis de le réouvrir.
         SciTE le traitera différemment.
 
-        **L'encodage ``utf-8`` est la norme sur Internet.** C'est pourquoi il est préférable d'utiliser celui-ci pour
+        **L'encodage ``utf-8`` est la norme sur Internet.**
+        C'est pourquoi il est préférable d'utiliser celui-ci pour
         partager son code via une page Web.
     """
     pass
@@ -91,7 +95,7 @@ def dix_entiers_carre():
     """
     s = 0
     for i in range(1, 11):
-        s += i ** 2
+        s += i**2
     return s
 
 
@@ -116,8 +120,10 @@ def repetition_a_eviter(serie, a_eviter=False):
                     s += (obs-moyenne(serie))**2
                 return s / len(serie)
 
-        La fonction ``variance_a_eviter`` appelle la fonction ``moyenne`` à chaque passage
-        dans la boucle. Or, rien ne change d'un passage à l'autre. Il vaut mieux stocker
+        La fonction ``variance_a_eviter``
+        appelle la fonction ``moyenne`` à chaque passage
+        dans la boucle. Or, rien ne change d'un passage à l'autre.
+        Il vaut mieux stocker
         le résultat dans une variable :
 
     ::
@@ -203,8 +209,8 @@ def dictionnaire_modifie_dans_la_boucle():
                 for k,v in d.items():
             RuntimeError: dictionary changed size during iteration
 
-        Il faut pour éviter cela stocker les éléments qu'on veut modifier pour les supprimer
-        ensuite.
+        Il faut pour éviter cela stocker les éléments
+        qu'on veut modifier pour les supprimer ensuite.
 
         ::
 
@@ -217,7 +223,8 @@ def dictionnaire_modifie_dans_la_boucle():
                 del d[r]
 
         Même si Python autorise cela pour les listes,
-        il est conseillé de s'en abstenir ainsi que pour tout type d'objets qui en contient d'autres.
+        il est conseillé de s'en abstenir ainsi que pour tout
+        type d'objets qui en contient d'autres.
         C'est une habitude qui vous servira pour la plupart des autres langages.
     """
     liste = [0, 1, 2, 3, 4, 5, 6]
@@ -248,9 +255,11 @@ def str2date(s, format="%d/%m/%Y"):
         :title: conversion d'une chaîne de caractère en datetime
         :tag: Base
 
-        C'est le genre de fonction qu'on n'utilise pas souvent mais qu'on peine à retrouver
+        C'est le genre de fonction qu'on n'utilise pas souvent
+        mais qu'on peine à retrouver
         lorsqu'on en a besoin.
-        Il faut utiliser la fonction `strftime <https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior>`_.
+        Il faut utiliser la fonction `strftime
+        <https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior>`_.
 
         ::
 
