@@ -1,61 +1,66 @@
 # -*- coding: utf-8 -*-
-import sys
 import os
-from setuptools import find_packages, setup
-from pyquicksetup import read_version, read_readme, default_cmdclass
+
+from setuptools import setup
+
+######################
+# beginning of setup
+######################
 
 
-#########
-# settings
-#########
+here = os.path.dirname(__file__)
+if here == "":
+    here = "."
+package_data = {"teachpyx": ["*.txt"]}
 
-project_var_name = "teachpyx"
-versionPython = f"{sys.version_info.major}.{sys.version_info.minor}"
-path = "Lib/site-packages/" + project_var_name
-readme = 'README.rst'
-history = "HISTORY.rst"
-requirements = None
+try:
+    with open(os.path.join(here, "requirements.txt"), "r") as f:
+        requirements = f.read().strip(" \n\r\t").split("\n")
+except FileNotFoundError:
+    requirements = []
+if len(requirements) == 0 or requirements == [""]:
+    requirements = ["matplotlib", "numpy", "pandas"]
 
-KEYWORDS = [project_var_name, 'Xavier Dupré', 'teaching']
-DESCRIPTION = """Lectures about programming mostly in Python."""
+try:
+    with open(os.path.join(here, "README.rst"), "r", encoding="utf-8") as f:
+        long_description = "teachpyx:" + f.read().split("teachpyx:")[1]
+except FileNotFoundError:
+    long_description = ""
 
+version_str = "0.1.0"
+with open(os.path.join(here, "teachpyx/__init__.py"), "r") as f:
+    line = [
+        _
+        for _ in [_.strip("\r\n ") for _ in f.readlines()]
+        if _.startswith("__version__")
+    ]
+    if len(line) > 0:
+        version_str = line[0].split("=")[1].strip('" ')
 
-CLASSIFIERS = [
-    'Programming Language :: Python :: %d' % sys.version_info[0],
-    'Intended Audience :: Developers',
-    'Topic :: Scientific/Engineering',
-    'Topic :: Education',
-    'License :: OSI Approved :: MIT License',
-    'Development Status :: 5 - Production/Stable'
-]
-
-
-#######
-# data
-#######
-
-
-packages = find_packages('src', exclude='src')
-package_dir = {k: "src/" + k.replace(".", "/") for k in packages}
-package_data = {}
-
-
+# see https://pypi.org/classifiers/
 setup(
-    name=project_var_name,
-    version=read_version(__file__, project_var_name, subfolder='src'),
-    author='Xavier Dupré',
-    author_email='xavier.dupre@gmail.com',
-    license="MIT",
-    url="http://www.xavierdupre.fr/app/teachpyx/helpsphinx/index.html",
-    download_url="https://github.com/sdpython/teachpyx/",
-    description=DESCRIPTION,
-    long_description=read_readme(__file__),
-    cmdclass=default_cmdclass(),
-    keywords=KEYWORDS,
-    classifiers=CLASSIFIERS,
-    packages=packages,
-    package_dir=package_dir,
+    name="teachpyx",
+    version=version_str,
+    description="Programmation Python",
+    long_description=long_description,
+    author="Xavier Dupré",
+    author_email="xavier.dupre@gmail.com",
+    url="https://github.com/sdpython/teachpyx",
     package_data=package_data,
-    setup_requires=['pyquicksetup>=0.2'],
-    install_requires=['numpy>=1.18', 'pandas>=1.0'],
+    install_requires=requirements,
+    classifiers=[
+        "Intended Audience :: Science/Research",
+        "Intended Audience :: Education",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Scientific/Engineering :: Mathematics",
+        "Topic :: Education",
+        "Development Status :: 5 - Production/Stable",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+    ],
 )
