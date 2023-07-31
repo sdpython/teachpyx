@@ -9,6 +9,14 @@ Elle accélère l'écriture et la lecture des données et permet aussi
 un accès rapide à une information précise dans désérialiser
 les autres. Elle réalise cela en imposant un schéma strict de données.
 
+L'exemple fonctionne si l'exécutable `protoc` et le package `protobuf`
+ont des versions compatibles. Un message apparaîtra dans le cas contraire.
+
+::
+
+    protoc --version
+    python -c "import google.protobuf as gp;print(gp.__version__)"
+
 Schéma
 ======
 
@@ -16,6 +24,7 @@ On récupère l'exemple du `tutorial
 <https://developers.google.com/protocol-buffers/docs/pythontutorial>`_.
 """
 import os
+import sys
 import timeit
 import struct
 from io import BytesIO
@@ -29,8 +38,8 @@ syntax = "proto2";
 package tutorial;
 
 message Person {
-  required string name = 1;
-  required int32 id = 2;
+  optional string name = 1;
+  optional int32 id = 2;
   optional string email = 3;
 
   enum PhoneType {
@@ -40,7 +49,7 @@ message Person {
   }
 
   message PhoneNumber {
-    required string number = 1;
+    optional string number = 1;
     optional PhoneType type = 2 [default = HOME];
   }
 
@@ -106,6 +115,7 @@ print(content[:1000])
 # Pour utliser *protobuf*, il faut importer le module créé.
 
 
+sys.path.append(".")
 import schema_pb2  # noqa: E402
 
 ########################################
