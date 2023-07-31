@@ -43,6 +43,11 @@ jobs:
             ${{ runner.os }}-pip-
             ${{ runner.os }}-
 
+      - name: protobuf version
+        run: |
+          protoc --version
+          python -c "import google.protobuf as gp;print(gp.__version__)"
+
       - name: Generate coverage report
         run: |
           pip install pytest

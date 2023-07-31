@@ -60,6 +60,12 @@ jobs:
           key: v2-dependencies-{{ checksum "requirements-dev.txt" }}
         
       - run:
+          name: version
+          command: |
+            protoc --version
+            python -c "import google.protobuf as gp;print(gp.__version__)"
+
+      - run:
           name: run tests
           command: |
             python -m pytest _unittests
