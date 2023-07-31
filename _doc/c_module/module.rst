@@ -690,7 +690,7 @@ comme celle qui fournit le module
 `tensorflow <https://pypi.python.org/pypi/tensorflow/>`_.
 Tout va souvent très vite. Le nombre de modifications est
 un critère assez simple pour s'assurer qu'un module
-est maintenu : `commit <https://github.com/etetoolkit/ete/commits/master>`_.
+est maintenu : `commit <https://github.com/scikit-learn/scikit-learn/commits/main>`_.
 La plupart des modules sont sur Github aujourd'hui. S'il ne l'est pas,
 passez votre chemin.
 

@@ -40,7 +40,7 @@ la fréquence des mises à jour de leur code source avant d'en choisir une
 La licence de :epkg:`wxPython` est plus souple.
 D'autres alternatives sont disponibles à
 `Other Graphical User Interface Packages
-<https://docs.python.org/3/library/othergui.html#other-gui-packages>`_.
+<https://docs.python.org/3.8/library/othergui.html>`_.
 
 Le fonctionnement des interfaces graphiques sous un module
 ou un autre est presque identique. C'est pourquoi ce chapitre n'en présentera qu'un seul,

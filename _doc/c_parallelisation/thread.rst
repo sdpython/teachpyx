@@ -1080,7 +1080,7 @@ Plus de liberté veut dire aussi plus d'attention à apporter au code.
 La page `Using parallelism <http://cython.readthedocs.io/en/latest/src/userguide/parallelism.html?highlight=nogil#using-parallelism>`_
 donne quelques exemples simples de parallélisation.
 Il est plus facile de paralléliser Python avec un autre langage
-(voir aussi `Parallelizing numpy array loops with Cython and OpenMP <http://www.perrygeo.com/parallelizing-numpy-array-loops-with-cython-and-mpi.html>`_).
+(voir aussi `Parallelizing numpy array loops with Cython and OpenMP <https://gist.github.com/perrygeo/2f1b52149f285c00c500>`_).
 
 C#, Java
 ++++++++
@@ -1103,4 +1103,4 @@ Bibliographie
 
 *articles*
 
-* `Aynschonous API for Python <http://stevedower.id.au/blog/async-api-for-python/>`_
+* `Async API for Python <https://stevedower.id.au/blog/async-api-for-python>`_

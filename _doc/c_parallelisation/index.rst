@@ -18,7 +18,7 @@ les paragraphes suivantes.
 
 Il existe d'autres librairies qui ont été développés pour des usages
 spécifiques telles que
-`joblib <https://pythonhosted.org/joblib/>`_ qui est utilisé
+`joblib <https://joblib.readthedocs.io/en/stable/>`_ qui est utilisé
 par `scikit-learn <http://scikit-learn.org/stable/>`_.
 La librairie `gevent <http://www.gevent.org/>`_ est un équivalent
 de la librairie :mod:`asyncio`
@@ -32,7 +32,7 @@ Cette dernière librairie est utilisée par le module
 un serveur web plus rapide que
 `flask <http://flask.pocoo.org/>`_.
 La page `Parallel Processing in Python
-<https://homes.cs.washington.edu/~jmschr/lectures/Parallel_Processing_in_Python.html>`_
+<https://www.machinelearningplus.com/python/parallel-processing-python/>`_
 passe en revue différentes stratégies de parallélisation
 pour l'implémentation de calculs numériques avec
 :epkg:`joblib`, :epkg:`cython`, :epkg:`OpenMP`.
