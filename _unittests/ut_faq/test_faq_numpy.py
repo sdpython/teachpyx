@@ -1,6 +1,3 @@
-"""
-@brief      test log(time=7s)
-"""
 import unittest
 import math
 from teachpyx.faq.faq_numpy import to_float32

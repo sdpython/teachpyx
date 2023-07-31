@@ -4,11 +4,11 @@ import sys
 import importlib
 import subprocess
 import time
-from teachpyx import __file__ as onnx_array_api_file
+from teachpyx import __file__ as teachpyx_file
 from teachpyx.ext_test_case import ExtTestCase
 
 VERBOSE = 0
-ROOT = os.path.realpath(os.path.abspath(os.path.join(onnx_array_api_file, "..", "..")))
+ROOT = os.path.realpath(os.path.abspath(os.path.join(teachpyx_file, "..", "..")))
 
 
 def import_source(module_file_path, module_name):

@@ -10,7 +10,7 @@ Types et variables du langage python
 Variables
 =========
 
-.. index:: variabl
+.. index:: variable
 
 Il est impossible d'écrire un programme sans utiliser de variable.
 Ce terme désigne le fait d'attribuer un nom ou identificateur à des informations :
@@ -424,8 +424,7 @@ Création d'une chaîne de caractères - str
 
 Ce texte est compris entre deux guillemets ou deux apostrophes,
 ces deux symboles sont interchangeables.
-Le type *python* est `str <https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str>`_.
-L'exemple suivant montre comment
+Le type *python* est :class:`str`. L'exemple suivant montre comment
 créer une chaîne de caractères. Il ne faut pas confondre la partie entre
 guillemets ou apostrophes, qui est une constante, de la variable qui la contient.
 
@@ -492,7 +491,8 @@ du symbole ``\``. La séquence ``\`` est appelée un extra-caractère
         d'un système *Windows* à *Linux* car *Windows* l'ajoute
         automatiquement à tous ses fichiers textes
     * - ...
-      - Lire `String and Bytes literals <https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals>`_.
+      - Lire `String and Bytes literals 
+        <https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals>`_.
 
 Liste des extra-caractères les plus couramment utilisés à
 l'intérieur d'une chaîne de caractères
@@ -667,7 +667,7 @@ Formatage d'une chaîne de caractères
 Syntaxe %
 ^^^^^^^^^
 
-*python* (`printf-style String Formatting <https://docs.python.org/3/library/stdtypes.html#old-string-formatting>`_)
+*python* (:epkg:`printf-style String Formatting`)
 offre une manière plus concise de former une chaîne
 de caractères à l'aide de plusieurs types d'informations en
 évitant la conversion explicite de ces informations (type ``str``)
@@ -748,7 +748,7 @@ est susceptible d'évoluer et d'ajouter de nouveaux formats.
     * - ``s``
       - chaîne de caractères
     * - ...
-      - Lire `printf-style String Formatting <https://docs.python.org/3/library/stdtypes.html#old-string-formatting>`_.
+      - Lire :epkg:`printf-style String Formatting`.
 
 Méthode format
 ^^^^^^^^^^^^^^
@@ -994,10 +994,9 @@ bytes
 
 .. index:: bytes
 
-Le type `bytes <https://docs.python.org/3/library/stdtypes.html#bytes>`_
+Le type :class:`bytes`
 représente un tableau d'octets. Il fonctionne quasiment pareil que le type
-`str <https://docs.python.org/3/library/stdtypes.html#string-methods>`_.
-Les opérations qu'on peut faire dessus sont quasiment identiques :
+:class:`str`. Les opérations qu'on peut faire dessus sont quasiment identiques :
 
 .. index:: count, find, replace, split, join, startswith, endswith
 
@@ -1052,7 +1051,7 @@ par **b** :
 .. index:: encode, decode
 
 Le type *bytes* est très utilisé quand il s'agit de convertit une chaîne
-de caractères d'un `encoding <https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res>`_
+de caractères d'un :epkg:`encoding`
 à l'autre.
 
 .. runpython::
@@ -1063,7 +1062,7 @@ de caractères d'un `encoding <https://fr.wikipedia.org/wiki/Codage_des_caract%C
     print(b, s)
     print(type(b), type(s))
 
-Les `encoding <https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res>`_
+Les :epkg:`encoding`
 sont utiles dès qu'une chaîne de caractères contient un caractère non anglais
 (accent, sigle...). Les bytes sont aussi très utilisés pour
 `sérialiser <https://fr.wikipedia.org/wiki/S%C3%A9rialisation>`_ un objet.
@@ -1104,16 +1103,15 @@ bytearray
 
 .. index:: bytearray
 
-Le type `bytearray <https://docs.python.org/3/library/functions.html#bytearray>`_
-est la version *mutable* du type :ref:`l-type-bytes`.
+Le type :epkg:`bytearray` est la version *mutable* du type :ref:`l-type-bytes`.
 
 Liste
 +++++
 
 .. index:: liste, list
 
-Définition et fonctions
-^^^^^^^^^^^^^^^^^^^^^^^
+Définition et méthodes (list)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. mathdef::
     :tag: Définition
@@ -1229,8 +1227,8 @@ qui s'appliquent sur les chaînes de caractères, elles sont présentées par la
         Si ``reverse`` est ``True``, alors le tri est décroissant.
         Lire `Sorting HOW TO <https://docs.python.org/3/howto/sorting.html#sortinghowto>`_.
 
-Exemples
-^^^^^^^^
+Exemples (list)
+^^^^^^^^^^^^^^^
 
 L'exemple suivant montre une utilisation de la méthode ``sort``.
 
@@ -1429,7 +1427,7 @@ bouts par petits bouts comme le montre le premier exemple ci-dessous.
 Cette construction peut s'avérer très lente lorsque le résultat est
 long. Dans ce cas, il est nettement plus rapide d'ajouter chaque morceau
 dans une liste puis de les concaténer en une seule fois grâce à la méthode
-`join <https://docs.python.org/3/library/stdtypes.html#str.join>`_
+:meth:`str.join`.
 
 ::
 
@@ -1484,8 +1482,7 @@ n'est pas recopiée, la liste reçoit seulement un nom de variable.
 L'affectation est en fait l'association d'un nom avec un objet
 (voir paragraphe :ref:`par_copie_objet`).
 Pour copier une liste, il faut utiliser la fonction
-`copy <https://docs.python.org/3/library/copy.html?highlight=copy#copy.copy>`_
-du module `copy <https://docs.python.org/3/library/copy.html>`_
+:func:`copy.copy` du module :mod:`copy`.
 
 .. runpython::
     :showcode:
@@ -1499,7 +1496,7 @@ du module `copy <https://docs.python.org/3/library/copy.html>`_
     print(l)            # affiche [4,5,6]
     print(l2)           # affiche [4, 'modif', 6]
 
-Le module `copy <https://docs.python.org/3/library/copy.html>`_
+Le module :mod:`copy`
 est une extension interne. Cette syntaxe sera vue au chapitre :ref:`chap_module`.
 Ce point sera rappelé au paragraphe :ref:`classe_list_dict_ref_par`.
 L'opérateur ``==`` permet de savoir si deux listes sont égales même si l'une est
@@ -1523,12 +1520,10 @@ ou si l'une est une copie de l'autre comme le montre l'exemple suivant :
 
 .. _copy_deepopy_remarque_:
 
-Le comportement de la fonction
-`copy <https://docs.python.org/3/library/copy.html?highlight=copy#copy.copy>`_
+Le comportement de la fonction :func:`copy.copy`
 peut surprendre dans le cas où une liste contient d'autres listes.
 Pour être sûr que chaque élément d'une liste a été correctement recopiée,
-il faut utiliser la fonction
-`deepcopy <https://docs.python.org/3/library/copy.html?highlight=copy#copy.deepcopy>`_.
+il faut utiliser la fonction :epkg:`deepcopy`.
 La fonction est plus longue mais elle recopie toutes les listes que
 ce soit une liste incluse dans une liste elle-même incluse
 dans une autre liste elle-même incluse...
@@ -1548,7 +1543,7 @@ dans une autre liste elle-même incluse...
     print(l [0] is l2 [0])  # affiche True
     print(l [0] is l3 [0])  # affiche False
 
-La fonction `deepcopy <https://docs.python.org/3/library/copy.html?highlight=copy#copy.deepcopy>`_
+La fonction :epkg:`deepcopy`
 est plus lente à exécuter car elle prend en compte les références récursives
 comme celles de l'exemple suivant où deux listes se contiennent l'une l'autre.
 
@@ -1588,8 +1583,8 @@ ce nom ou parcourir toute la liste si jamais celui-ci ne s'y trouve pas.
 Dans le cas d'un dictionnaire, cette recherche du nom sera beaucoup plus
 rapide à écrire et à exécuter.
 
-Définition et fonctions
-^^^^^^^^^^^^^^^^^^^^^^^
+Définition et méthodes (dict)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. index:: clé, valeur
 
@@ -1686,8 +1681,8 @@ Les itérateurs sont des objets qui permettent de parcourir rapidement un dictio
 ils seront décrits en détail au chapitre :ref:`chap_classe` sur les classes.
 Un exemple de leur utilisation est présenté dans le paragraphe suivant.
 
-Exemples
-^^^^^^^^
+Exemples (dict)
+^^^^^^^^^^^^^^^
 
 Il n'est pas possible de trier un dictionnaire. L'exemple
 suivant permet néanmoins d'afficher tous les éléments d'un dictionnaire selon
@@ -1751,8 +1746,8 @@ Dans le meilleur des cas, l'erreur suivante survient :
 
 .. _par_dictionnaire_copie:
 
-Copie
-^^^^^
+Copie (dict)
+^^^^^^^^^^^^
 
 .. index:: copy, copie
 
@@ -1775,7 +1770,7 @@ Lorsqu'on affecte un dictionnaire à une variable, celui-ci n'est pas recopié,
 le dictionnaire reçoit seulement un nom de variable. L'affectation est en fait
 l'association d'un nom avec un objet (voir paragraphe :ref:`par_copie_objet`).
 Pour copier un dictionnaire, on peut utiliser la méthode
-`copy <https://docs.python.org/3/library/stdtypes.html?highlight=copy#dict.copy>`_.
+:meth:`dict.copy`.
 
 .. runpython::
     :showcode:
@@ -1792,7 +1787,7 @@ Le mot-clé ``is`` a la même signification pour les dictionnaires que
 pour les listes, l'exemple du paragraphe :ref:`par_liste_copie`
 est aussi valable pour les dictionnaires. Il en est de même
 pour la remarque concernant la fonction
-`deepcopy <https://docs.python.org/3/library/copy.html?highlight=copy#copy.deepcopy>`_.
+:epkg:`deepcopy`.
 Cette fonction recopie les listes et les dictionnaires.
 
 .. _cle_dict_modificalbe_apr:
@@ -1974,7 +1969,7 @@ La fonction `str <https://docs.python.org/3/library/functions.html?highlight=id#
 chaîne de caractères. Il existe cependant une autre fonction
 `repr <https://docs.python.org/3/library/functions.html?highlight=id#repr>`_
 qui effectue cette conversion. Dans ce cas, le résultat peut être
-interprété par la fonction `eval <https://docs.python.org/3/library/functions.html?highlight=id#eval>`_
+interprété par la fonction :epkg:`eval`
 qui se charge de la conversion inverse.
 Pour les types simples comme ceux présentés dans ce chapitre,
 ces deux fonctions retournent des résultats identiques.
@@ -1995,7 +1990,7 @@ Fonction ``eval``
 .. index:: eval
 
 Comme le suggère le paragraphe précédent, la fonction
-`eval <https://docs.python.org/3/library/functions.html?highlight=id#eval>`_
+:epkg:`eval`
 permet d'évaluer une chaîne de caractères ou plutôt de l'interpréter
 comme si c'était une instruction en *python*.
 Le petit exemple suivant permet de tester toutes les opérations de
@@ -2013,18 +2008,16 @@ calcul possibles entre deux entiers.
 
 Le programme va créer une chaîne de caractères pour chacune des opérations
 et celle-ci sera évaluée grâce à la fonction
-`eval <https://docs.python.org/3/library/functions.html?highlight=id#eval>`_
+:epkg:`eval`
 comme si c'était une expression numérique. Il faut bien sûr que les
 variables que l'expression mentionne existent durant son évaluation.
 
 Informations fournies par *python*
 ++++++++++++++++++++++++++++++++++
 
-.. index:: dir
-
 Bien que les fonctions ne soient définies que plus tard
 (paragraphe :ref:`par_fonction`, il peut être intéressant de mentionner
-la fonction `dir <https://docs.python.org/3/library/functions.html?highlight=id#dir>`_
+la fonction :epkg:`dir`
 qui retourne la liste de toutes les variables créées et accessibles à cet
 instant du programme. L'exemple suivant :
 
@@ -2059,7 +2052,7 @@ l'environnement dans lequel est exécuté le programme *python* :
     * - ``__name__``
       - Contient le nom du module.
 
-La fonction `dir <https://docs.python.org/3/library/functions.html?highlight=id#dir>`_
+La fonction :epkg:`dir`
 est également pratique pour afficher toutes les fonctions d'un module.
 L'instruction ``dir(sys)`` affiche la liste des fonctions du module
 `sys <https://docs.python.org/3/library/sys.html?highlight=sys#module-sys>`_

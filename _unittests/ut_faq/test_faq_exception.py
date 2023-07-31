@@ -1,8 +1,5 @@
-"""
-@brief      test log(time=2s)
-"""
 import unittest
-from pyquickhelper.pycode import ExtTestCase
+from teachpyx.ext_test_case import ExtTestCase
 from teachpyx.faq.faq_exception import call_stack
 
 

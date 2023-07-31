@@ -8,7 +8,7 @@ Constructions classiques
 .. contents::
     :local:
 
-Constructions classiques
+Constructions fréquentes
 ========================
 
 .. exreflist::

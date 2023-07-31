@@ -1,9 +1,3 @@
-"""
-@brief      test log(time=1s)
-
-You should indicate a time in seconds. The program ``run_unittests.py``
-will sort all test files by increasing time and run them.
-"""
 import unittest
 import numpy
 from teachpyx.examples.numpysex import numpy_matrix2list, numpy_types

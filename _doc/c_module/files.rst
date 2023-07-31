@@ -37,7 +37,7 @@ commençant par 06... En utilisant des modules tels que
 ou encore `openpyxl <https://pypi.python.org/pypi/openpyxl>`_,
 il serait possible d'étendre cette fonctionnalité aux fichiers de type
 `pdf <https://fr.wikipedia.org/wiki/Portable_Document_Format>`_
-et aux fichiers `Excel <https://fr.wikipedia.org/wiki/Microsoft_Excel>`_.
+et aux fichiers :epkg:`Excel`.
 
 Format texte
 ============
@@ -46,11 +46,10 @@ Format texte
 
 Les `fichiers texte <https://fr.wikipedia.org/wiki/Fichier_texte>`_ sont les plus
 simples : ce sont des suites de caractères. Le format
-`HTML <https://fr.wikipedia.org/wiki/Hypertext_Markup_Language>`_ et
-`XML <https://fr.wikipedia.org/wiki/Extensible_Markup_Language>`_ font partie de
+:epkg:`HTML` et :epkg:`XML` font partie de
 cette catégorie. Ils servent autant à conserver des informations qu'à en
 échanger comme par exemple transmettre une matrice à
-`Excel <https://fr.wikipedia.org/wiki/Microsoft_Excel>`_.
+:epkg:`Excel`.
 
 Ce format, même s'il est simple, implique une certaine organisation dans la
 façon de conserver les données afin de pouvoir les récupérer. Le cas le
@@ -152,11 +151,10 @@ Ou encore :
                 f.write ( str (mat [i][j]) + "\t")
             f.write ("\n")
 
-La fonction `open <https://docs.python.org/3/library/functions.html?highlight=open#open>`_
-accepte deux paramètres, le premier est le nom du fichier,
-le second définit le mode d'ouverture : ``"w"`` pour écrire (**w**rite),
-"a" pour écrire et ajouter (**a**ppend),
-"r" pour lire (**r**ead). Ceci signifie que la fonction ``open``
+La fonction :func:`open` accepte deux paramètres, le premier est le nom du fichier,
+le second définit le mode d'ouverture : ``"w"`` pour écrire (**w** rite),
+"a" pour écrire et ajouter (**a** ppend),
+"r" pour lire (**r** ead). Ceci signifie que la fonction ``open``
 sert à ouvrir un fichier quelque soit l'utilisation qu'on en fait.
 
 A la première écriture dans un fichier (premier appel à la fonction ``write``,
@@ -286,13 +284,11 @@ d'une ligne. C'est pour cela que la lecture est parfois suivie d'une
     l_net = [ s.strip ("\n\r") for s in l ]
 
 Les informations peuvent être structurées de façon plus élaborée dans un fichier texte,
-c'est le cas des formats `HTML <https://fr.wikipedia.org/wiki/Hypertext_Markup_Language>`_ et
-`XML <https://fr.wikipedia.org/wiki/Extensible_Markup_Language>`_.
+c'est le cas des formats :epkg:`HTML` et
+:epkg:`XML`.
 Pour ce type de format plus complexe, il est déconseillé de concevoir soi-même
 un programme capable de les lire, il existe presque toujours un module qui permette
-de le faire. C'est le cas du module
-`html.parser <https://docs.python.org/3/library/html.parser.html>`_
-ou `xml <https://docs.python.org/3/library/xml.html?highlight=xml#module-xml>`_.
+de le faire. C'est le cas du module :mod:`html.parser` ou :mod:`xml`.
 De plus, les modules sont régulièrement mis à jour et suivent l'évolution des
 formats qu'ils décryptent.
 
@@ -346,7 +342,7 @@ Encoding et les accents
 Par défaut, un fichier n'accepte pas d'enregistrer des accents, uniquement
 les acaractères `ascii <https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange>`_.
 C'est pourquoi il faut presque tout le temps utiliser le paramètre *encoding*
-de la fonction `open <https://docs.python.org/3/library/functions.html?highlight=open#open>`_
+de la fonction :func:`open`
 que ce soit pour écrire ou lire.
 
 ::
@@ -372,8 +368,8 @@ sur les fichiers textes existent comme `7-zip <http://www.7-zip.org/>`_.
 Ce format n'est pas seulement utilisé pour compresser mais aussi comme
 un moyen de regrouper plusieurs fichiers en un seul.
 
-Lecture
--------
+Lecture (zip)
+-------------
 
 L'exemple suivant permet par exemple d'obtenir la liste des fichiers
 inclus dans un fichier *zip* :
@@ -399,16 +395,16 @@ lu est au format texte donc lisible).
 
 On retrouve dans ce cas les étapes d'ouverture et de fermeture même si
 la première est implicitement inclus dans le constructeur de la classe
-`ZipFile <https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile>`_.
+:class:`zipfile.ZipFile`.
 
-Ecriture
---------
+Ecriture (zip)
+--------------
 
 Pour créer un fichier *zip*, le procédé ressemble à la création de
 n'importe quel fichier. La seule différence provient du fait qu'il
 est possible de stocker le fichier à compresser sous un autre nom à
 l'intérieur du fichier *zip*, ce qui explique les deux premiers arguments
-de la méthode `write <https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile.write>`_.
+de la méthode :meth:`zipfile.ZipFile.write`.
 Le troisième paramètre indique si le fichier doit être compressé
 `ZIP_DEFLATED <https://docs.python.org/3/library/zipfile.html#zipfile.ZIP_DEFLATED>`_
 ou non `ZIP_STORED <https://docs.python.org/3/library/zipfile.html#zipfile.ZIP_STORED>`_.
@@ -666,8 +662,8 @@ qui peut être alors pris en compte grâce aux expressions régulières
         if i > 5:
             break
 
-Format binaire
-==============
+Sans format ou format binaire
+=============================
 
 .. index:: format binaire
 
@@ -689,20 +685,20 @@ l'ordinateur : une suite d'octets (bytes en anglais).
 Deux étapes vont intervenir que ce soit pour l'écriture :
 
 1. On récupère les informations dans une suite d'octets
-   (fonction `pack <https://docs.python.org/3/library/struct.html?highlight=pack#struct.pack>`_
-   du module `struct <https://docs.python.org/3/library/struct.html>`_).
+   (fonction :func:`struct.pack`
+   du module :mod:`struct`).
 2. On les écrit dans un fichier
-   (méthode `write <https://docs.python.org/3.6/library/io.html?highlight=readlines#io.RawIOBase.write>`_
+   (méthode :meth:`io.RawIOBase.write`
    affiliée aux fichiers).
 
 Ou la lecture :
 
 1. On lit une suite d'octets depuis un fichier
-   (méthode `read <https://docs.python.org/3.6/library/io.html?highlight=readlines#io.BufferedIOBase.read>`_
+   (méthode :meth:`io.RawIOBase.read`
    affiliée aux fichiers).
 2. On transforme cette suite d'octets pour retrouver l'information
    qu'elle formait initialement
-   (fonction `unpack <https://docs.python.org/3/library/struct.html?highlight=pack#struct.unpack>`_).
+   (fonction :func:`struct.unpack`).
 
 L'utilisation de fichiers binaires est moins évidente qu'il n'y paraît et
 il faut faire appel à des modules spécialisés alors que la gestion des
@@ -721,8 +717,7 @@ problèmes que pour un fichier texte : il faut organiser les données
 avant de les enregistrer pour savoir comment les retrouver. Les
 types immuables (réel, entier, caractère) sont assez simples à gérer
 dans ce format. Pour les objets complexes, *python* propose une solution grâce au module
-`pickle <https://docs.python.org/3/library/pickle.html>`_
-(voir aussi le modile `dill <https://pypi.python.org/pypi/dill>`_
+:mod:`pickle` (voir aussi le modile :epkg:`dill`
 pour des types telles que des fonctions).
 
 Ecriture dans un fichier binaire
@@ -734,11 +729,11 @@ C'est le code ``"wb"`` qui est important (*w* pour *write*, *b* pour *binary*),
 il spécifie le mode d'ouverture ``"w"`` et le format ``"b"``.
 La fermeture est la même que pour un fichier texte.
 
-Le module `struct <https://docs.python.org/3/library/struct.html>`_
-et la fonction `pack <https://docs.python.org/3/library/struct.html?highlight=pack#struct.pack>`_
+Le module :mod:`struct`
+et la fonction :func:`struct.pack`
 permet de convertir les informations sous forme de chaîne de caractères
 avant de les enregistrer au format binaire.
-La fonction `pack <https://docs.python.org/3/library/struct.html?highlight=pack#struct.pack>`_
+La fonction :func:`struct.pack`
 construit une chaîne de caractères égale
 au contenu de la mémoire. Son affichage avec la fonction *print*
 produit quelque chose d'illisible le plus souvent.
@@ -759,7 +754,7 @@ Lecture d'un fichier binaire
 Le code associé à l'ouverture d'un fichier binaire en mode
 lecture est ``"rb"``, cela donne : ``open("<nom_fichier>", "rb")``.
 La lecture utilise la fonction
-`unpack <https://docs.python.org/3/library/struct.html?highlight=pack#struct.unpack>`_
+:func:`struct.unpack`
 pour effectuer la conversion inverse, celle d'une chaîne de caractères en
 entiers, réels, ... Le paragraphe suivant illustre la lecture et l'écriture au format binaire.
 
@@ -797,7 +792,7 @@ fichier à l'aide d'un éditeur de texte.
     print(x)
     print(s)
 
-Les résultats de la méthode `unpack <https://docs.python.org/3/library/struct.html?highlight=pack#struct.unpack>`_
+Les résultats de la méthode :func:`struct.unpack`
 apparaissent dans un tuple mais les données sont correctement récupérées.
 Ce programme fait aussi apparaître une des particularité du format
 binaire. On suppose ici que la chaîne de caractères est toujours de
@@ -860,7 +855,7 @@ Objets plus complexes
 .. index:: sérialisation
 
 Il existe un moyen de sauvegarder dans un fichier des objets
-plus complexes à l'aide du module `pickle <https://docs.python.org/3/library/pickle.html>`_
+plus complexes à l'aide du module :mod:`pickle`
 Celui-ci permet de stocker dans un fichier le contenu d'un dictionnaire
 à partir du moment où celui-ci contient des objets standard du
 langage *python*. Le principe pour l'écriture est le suivant :
@@ -884,7 +879,7 @@ La lecture est aussi simple :
         dico = pickle.load(fb)
         lis  = pickle.load(fb)
 
-Un des avantages du module `pickle <https://docs.python.org/3/library/pickle.html>`_
+Un des avantages du module :mod:`pickle`
 est de pouvoir gérer les références circulaires : il est capable d'enregistrer
 et de relire une liste qui se contient elle-même,
 ce peut être également une liste qui en contient une autre qui contient la première...
@@ -963,8 +958,8 @@ que le montre l'exemple suivant :
 
     print(t)
 
-Le module `pickle <https://docs.python.org/3/library/pickle.html>`_
+Le module :mod:`pickle`
 ne permet de sérialiser tout type d'objet comme les fonctions. Il est
 parfois utile de sauver une fonction car c'est un paramètre du programme.
 Il faut dans ce cas soit le faire soi-même, soit utiliser le module
-`dill <https://pypi.python.org/pypi/dill>`_.
+:epkg:`dill`.

@@ -1,10 +1,7 @@
-"""
-@brief      test log(time=4s)
-"""
 import unittest
 import warnings
 from datetime import datetime
-from pyquickhelper.pycode import ExtTestCase
+from teachpyx.ext_test_case import ExtTestCase
 from teachpyx.faq.faq_python import (
     entier_grande_taille,
     difference_div,

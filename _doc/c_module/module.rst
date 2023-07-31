@@ -3,9 +3,9 @@
 
 .. _chap_module:
 
-=======
-Modules
-=======
+===================
+Module ou extension
+===================
 
 .. contents::
     :local:
@@ -19,8 +19,8 @@ fichier principal, il contient son point d'entrée, les premières instructions
 exécutées. Les autres fichiers sont considérés comme des modules, en quelque
 sorte, des annexes qui contiennent tout ce dont le fichier principal a besoin.
 
-Modules
-=======
+Un module
+=========
 
 Exemple
 -------
@@ -28,7 +28,7 @@ Exemple
 .. index:: point d'entrée
 
 Cet exemple montre comment répartir un programme sur deux fichiers.
-Le premier est appelé \textit{module} car il n'inclut pas le point d'entrée du programme.
+Le premier est appelé *module* car il n'inclut pas le point d'entrée du programme.
 
 .. mathdef::
     :title: point d'entrée du programme
@@ -132,7 +132,7 @@ La dernière instruction affiche l'aide du module :
     FILE
         module_exemple.py
 
-Pour importer un module, il suffit d'insérer l'instruction \
+Pour importer un module, il suffit d'insérer l'instruction
 ``import nom_module`` avant d'utiliser une des choses qu'il définit.
 Ces importations sont souvent regroupées au début du programme, elles
 sont de cette façon mises en évidence même s'il est possible de les
@@ -174,8 +174,7 @@ Le module ``module_exemple`` contient une variable ``exemple_variable`` peut
 être modifiée au cours de l'exécution du programme. Il est possible de
 revenir à sa valeur initiale en forçant *python* à recharger le
 module grâce à la fonction `import.reload <https://docs.python.org/3/library/importlib.html#importlib.reload>`_
-elle même implémentée dans le module
-`importlib <https://docs.python.org/3/library/importlib.html?highlight=reload#module-importlib>`_.
+elle même implémentée dans le module :mod:`importlib`.
 
 .. mathdef::
     :title: importer un module (1)
@@ -286,7 +285,7 @@ d'installation de *python*. Si ce n'est pas le cas, il faut préciser
     sys.path.append("répertoire où se trouve le module à importer")
     import nom_module
 
-La variable `sys.path <https://docs.python.org/3/library/sys.html#sys.path>`_
+La variable :epkg:`sys.path`
 contient les répertoires où *python* va chercher les modules. Le premier
 d'entre eux est le répertoire du programme. Il suffit d'ajouter à
 cette liste le répertoire désiré.
@@ -397,8 +396,7 @@ module si celui-ci est désigné par un nom de fichier incluant
 son répertoire. Il faut d'abord déterminer le répertoire où est
 le module grâce à la fonction
 `split <https://docs.python.org/3.6/library/stdtypes.html#str.split>`_
-du module
-`os.path <https://docs.python.org/3.6/library/os.path.html?highlight=os.path#module-os.path>`_.
+du module :mod:`os.path`.
 Le programme suivant illustre cette possibilité en proposant une
 fonction qui importe un module connaissant le nom du fichier qui le contient.
 Il ne faut pas oublier d'enlever l'extension et ne pas garder aucun répertoire.
@@ -414,8 +412,8 @@ Il ne faut pas oublier d'enlever l'extension et ne pas garder aucun répertoire.
 Liste des modules importés
 --------------------------
 
-Le dictionnaire `modules <https://docs.python.org/3/library/sys.html?highlight=modules#sys.modules>`_
-du module `sys <https://docs.python.org/3/library/sys.html>`_ contient l'ensemble
+Le dictionnaire :epkg:`sys.modules`
+du module :mod:`sys` contient l'ensemble
 des modules importés. Le programme suivant affiche cette liste.
 
 .. runpython::
@@ -433,13 +431,13 @@ Lorsque le programme stipule l'import d'un module, *python* vérifie
 s'il n'est pas déjà présent dans cette liste. Dans le cas contraire,
 il l'importe. Chaque module n'est importé qu'une seule fois. La première
 instruction ``import module_exemple`` rencontrée introduit une nouvelle
-entrée dans le dictionnaire `modules <https://docs.python.org/3/library/sys.html?highlight=modules#sys.modules>`_ :
+entrée dans le dictionnaire :epkg:`sys.modules` :
 
 ::
 
     module_exemple  <module 'module_exemple' from 'D:\python_cours\module_exemple.py'>
 
-Le dictionnaire `modules <https://docs.python.org/3/library/sys.html?highlight=modules#sys.modules>`_
+Le dictionnaire :epkg:`sys.modules`
 peut être utilisé pour vérifier la présence d'un module ou lui assigner un autre
 identificateur. Un module est un objet qui n'autorise qu'une seule instance.
 
@@ -458,7 +456,7 @@ Arborescence de modules, paquetage
 Lorsque le nombre de modules devient conséquent, il est parfois
 souhaitable de répartir tous ces fichiers dans plusieurs répertoires.
 Il faudrait alors inclure tous ces répertoires dans la liste
-`sys.path <https://docs.python.org/3/library/sys.html#sys.path>`_
+:epkg:`sys.path`
 ce qui paraît fastidieux. *python* propose la définition de paquetage,
 ce dernier englobe tous les fichiers *python* d'un répertoire à
 condition que celui-ci contienne un fichier ``__init__.py`` qui peut
@@ -567,7 +565,7 @@ susceptible de s'allonger au fur et à mesure du développement du langage
       - Lire le format HTML
     * - `importlib <https://docs.python.org/3/library/importlib.html>`_
       - Pour importer des modules.
-    * - `math <https://docs.python.org/3/library/math.html>`_
+    * - :mod:`math`
       - Fonctions mathématiques standard telles que
         `cos <https://docs.python.org/3/library/math.html?highlight=cos#math.cos>`_,
         `exp <https://docs.python.org/3/library/math.html?highlight=exp#math.exp>`_,
@@ -583,7 +581,7 @@ susceptible de s'allonger au fur et à mesure du développement du langage
         structurées de façon complexe en une structure linéaire facilement enregistrable dans un fichier
     * - `profile <https://docs.python.org/3/library/profile.html>`_
       - Etudier le temps passé dans les fonctions d'un programme
-    * - `random <https://docs.python.org/3/library/random.html>`_
+    * - :mod:`random`
       - Génération de nombres aléatoires
     * - `re <https://docs.python.org/3/library/re.html>`_
       - Expressions régulières
@@ -593,7 +591,7 @@ susceptible de s'allonger au fur et à mesure du développement du langage
       - Accès aux fonctionnalités du gestionnaire de base de données SQLite3
     * - `string <https://docs.python.org/3/library/string.html>`_
       - Manipulations des chaînes de caractères
-    * - `sys <https://docs.python.org/3/library/sys.html>`_
+    * - :mod:`sys`
       - Fonctions systèmes, fonctions liées au langage *python*
     * - `threading <https://docs.python.org/3/library/threading.html>`_
       - Utilisation de threads
@@ -614,8 +612,8 @@ susceptible de s'allonger au fur et à mesure du développement du langage
 
 Certains de ces modules sont présentés dans les chapitres qui suivent.
 Le programme suivant par exemple utilise les modules
-`random <https://docs.python.org/3/library/random.html>`_
-`math <https://docs.python.org/3/library/math.html>`_
+:mod:`random`
+:mod:`math`
 pour estimer le nombre :math:`\pi`.
 Pour cela, on tire aléatoirement deux nombres :math:`x,y` dans l'intervalle
 :math:`[0,1]`, si :math:`\sqrt{x^2+y^2} \infegal 1`,

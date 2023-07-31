@@ -8,9 +8,16 @@ FAQ
 .. contents::
     :local:
 
-FAQ
-===
+Python
+======
 
 .. faqreflist::
     :tag: python
+    :contents:
+
+numpy
+=====
+
+.. faqreflist::
+    :tag: numpy
     :contents:

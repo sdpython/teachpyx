@@ -1,9 +1,3 @@
-"""
-@brief      test log(time=1s)
-
-You should indicate a time in seconds. The program ``run_unittests.py``
-will sort all test files by increasing time and run them.
-"""
 import unittest
 from datetime import datetime
 from teachpyx.examples.classiques import (

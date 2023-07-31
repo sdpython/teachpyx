@@ -103,7 +103,7 @@ def difference_div():
 def python_path():
     """
     .. faqref::
-        :tag: module
+        :tag: python
         :title: Comment éviter sys.path.append...
         quand on développe un module ?
 
@@ -239,7 +239,13 @@ def same_variable(a, b):
           <http://www.blog.pythonlibrary.org/2014/01/17/how-to-create-immutable-classes-in-python/>`_
         * `Ways to make a class immutable in Python
           <http://stackoverflow.com/questions/4996815/ways-to-make-a-class-immutable-in-python>`_
-        * `freeze <https://freeze.readthedocs.org/en/latest/>`_
+        * surcharger des méthodes `__getattr__ 
+          <https://docs.python.org/3/reference/datamodel.html#object.__getattr__>`_,
+          `__getattribute__ 
+          <https://docs.python.org/3/reference/datamodel.html#object.__getattribute__>`_,
+          `__setattr__ 
+          <https://docs.python.org/3/reference/datamodel.html#object.__setattr__>`_.
+          
 
         Enfin, pour les objects qui s'imbriquent les uns dans
         les autres, une liste de listes, une classe
@@ -354,7 +360,7 @@ def property_example():
     """
 
     .. faqref::
-        :tag: class
+        :tag: python
         :title: property
 
         Une `property
@@ -415,7 +421,7 @@ def enumerate_regex_search(exp, text):
     :return: itérateur
 
     .. faqref::
-        :tag: regex
+        :tag: python
         :title: Comment itérer sur les résultats d'une expression régulière ?
 
         On utilise la méthode
@@ -441,7 +447,7 @@ def enumerate_regex_search(exp, text):
 def sortable_class(cl):
     """
     .. faqref::
-        :tag: class
+        :tag: python
         :title: Classe sortable
 
         Il faut prononcer *sortable* à l'anglaise.
@@ -483,7 +489,7 @@ def list_of_installed_packages():
     calls ``pip list`` to retrieve the list of packages
 
     .. faqref::
-        :tag: module
+        :tag: python
         :title: Obtenir des informations sur les packages installés
 
         Le module `pip <https://pip.pypa.io/en/stable/>`_
@@ -547,7 +553,7 @@ def information_about_package(name):
     Calls ``pip show`` to retrieve information about packages.
 
     .. faqref::
-        :tag: module
+        :tag: python
         :title: Récupérer la liste des modules installés
 
         Le module `pip <https://pip.pypa.io/en/stable/>`_
@@ -588,7 +594,7 @@ def information_about_package(name):
         `Compiling Python on Windows <https://docs.python.org/3/using/windows.html#compiling-python-on-windows>`_).
 
         C'est pour cela qu'on préfère utiliser des distributions comme
-        `Anaconda <http://continuum.io/downloads#py34>`_
+        `Anaconda <https://www.anaconda.com/>`_
         qui propose par défaut
         une version de Python accompagnée des modules les plus utilisés.
         Elle propose également une façon

@@ -24,26 +24,27 @@ une fonction. C'est comme si le programme avait une multitude de points
 d'entrée.
 
 Il existe plusieurs modules permettant d'exploiter les interfaces graphiques.
-Le plus simple est le module `tkinter <https://docs.python.org/3/library/tk.html>`_
+Le plus simple est le module :epkg:`tkinter`
 présent lors de l'installation du langage *Python*. Ce module est simple mais limité.
-Le module `wxPython <https://wxpython.org/>`_ est une alternative plus riche
+Le module :epkg:`wxPython` est une alternative plus riche
 mais il faut vérifier que sa dernière mise à jour est assez récente.
 La plus connue est `PyQt5 <http://pyqt.sourceforge.net/Docs/PyQt5/>`_
 (ou `PyQt4 <http://pyqt.sourceforge.net/Docs/PyQt4/>`_).
-Le module `tkinter <https://docs.python.org/3/library/tk.html>`_
+Le module :epkg:`tkinter`
 fait partie de la distribution standard de *Python* et sera disponible dans
 toutes les verions de *Python*. Visuellement, *tkinter* est moins *joli*
 que d'autres extensions mais il vaut mieux vérifier
 la fréquence des mises à jour de leur code source avant d'en choisir une
 `github/wxPython <https://github.com/wxWidgets/wxWidgets>`_
 `github/PyQt5 <https://github.com/pyqt/python-qt5>`_.
-La licence de `wxPython <https://github.com/wxWidgets/wxWidgets>`_ est plus souple.
+La licence de :epkg:`wxPython` est plus souple.
 D'autres alternatives sont disponibles à
-`Other Graphical User Interface Packages <https://docs.python.org/3/library/othergui.html#other-gui-packages>`_.
+`Other Graphical User Interface Packages
+<https://docs.python.org/3/library/othergui.html#other-gui-packages>`_.
 
 Le fonctionnement des interfaces graphiques sous un module
 ou un autre est presque identique. C'est pourquoi ce chapitre n'en présentera qu'un seul,
-le module `tkinter <https://docs.python.org/3/library/tk.html>`_.
+le module :epkg:`tkinter`.
 Pour d'autres modules, les noms de classes changent mais la logique reste la même :
 il s'agit d'associer des événements à des parties du programme *Python*.
 
@@ -53,7 +54,17 @@ Une excellente source de documentation sont les forums de discussion
 qui sont un lieu où des programmeurs échangent questions et réponses.
 Un message d'erreur entré sur un moteur de recherche Internet permet souvent
 de tomber sur des échanges de ce type, sur des problèmes résolus par d'autres.
-Le plus connu est `stackoverflow/tkinter <http://stackoverflow.com/questions/tagged/tkinter>`_.
+Le plus connu est `stackoverflow/tkinter
+<http://stackoverflow.com/questions/tagged/tkinter>`_.
+
+Sous Linux, l'utilisation de ce module requiert une étape supplémentaire
+si l'erreur suivante se produit :
+`ImportError: No module named 'Tkinter'
+<https://stackoverflow.com/questions/25905540/importerror-no-module-named-tkinter>`_.
+
+::
+
+    sudo apt-get install python3-tk
 
 .. _chap_interface_intro_section:
 
@@ -627,7 +638,7 @@ Il suffit de transposer cet exemple pour ajouter une barre de défilement horizo
 Toutefois, il est préférable d'utiliser un objet prédéfini présent dans le module
 `tix <https://docs.python.org/3/library/tkinter.tix.html>`_
 qui est une extension du module
-`tkinter <https://docs.python.org/3/library/tk.html>`_.
+:epkg:`tkinter`.
 Elle est présentée au paragraphe :ref:`chap_interface_exemple_programme`.
 
 Lorsqu'on insère plusieurs objets
@@ -660,7 +671,7 @@ Liste avec barre de défilement, Combobox
 C'est une liste avec une barre de défilement incluse qui est présente dans l'extension
 `ttk <https://docs.python.org/3/library/tkinter.ttk.html>`_
 qui étend la liste des objets proposés par
-`tkinter <https://docs.python.org/3/library/tk.html>`_.
+:epkg:`tkinter`.
 C'est ce que fait l'objet
 `ttk.Combobox <https://docs.python.org/3.6/library/tkinter.ttk.html?highlight=combobox#tkinter.ttk.Combobox>`_.
 
@@ -1649,7 +1660,7 @@ Fenêtres standard
 Le module `tix <https://docs.python.org/3/library/tkinter.tix.html>`_
 propose une fenêtre de sélection de fichiers identique à celle de
 la figure suivante.
-`tkinter <https://docs.python.org/3/library/tk.html>`_
+:epkg:`tkinter`
 a l'avantage d'être simple et ne nécessite pas un long apprentissage
 pour le maîtriser mais il est limité. Pour ce type de fenêtres qu'on
 retrouve dans la plupart des programmes, il existe presque toujours
@@ -2079,7 +2090,7 @@ première fonction pour revenir à la fonction ``mainloop``, la seule capable
 de saisir le prochain événement.
 
 La figure qui suit précise la gestion des messages.
-`tkinter <https://docs.python.org/3/library/tk.html>`_
+:epkg:`tkinter`
 se charge de la réception des messages puis de l'appel au traitement
 correspondant indiqué par la méthode ou la fonction attachée à
 l'événement. Le programmeur peut définir les traitements associés
@@ -2156,7 +2167,7 @@ d'événements particulière.
 Communiquer un résultat par message
 -----------------------------------
 
-Le module `tkinter <https://docs.python.org/3/library/tk.html>`_
+Le module :epkg:`tkinter`
 permet de définir ses propres messages qui peuvent servir à communiquer
 des informations. Une fonction est par exemple appelée lorsqu'un bouton
 est pressé. Celle-ci, une fois terminée, retourne son résultat sous forme

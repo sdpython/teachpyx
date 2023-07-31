@@ -78,7 +78,7 @@ def numpy_types():
         moins de place en mémoire.
         Le coût des calculs avec des *double* est plus coûteux avec les GPU.
         Lire `Explaining FP64 performance on GPUs
-        <http://arrayfire.com/explaining-fp64-performance-on-gpus/>`_.
+        <https://arrayfire.com/blog/explaining-fp64-performance-on-gpus/>`_.
     """
 
     return [

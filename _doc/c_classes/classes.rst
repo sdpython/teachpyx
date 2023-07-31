@@ -5,8 +5,6 @@
 Classes
 =======
 
-.. index:: classe
-
 .. contents::
     :local:
     :depth: 2
@@ -77,7 +75,7 @@ colonnes, les coefficients de la matrice. Cette matrice inclut
 aussi des méthodes comme des opérations entre deux matrices telles que
 l'addition, la soustraction, la multiplication ou des opérations sur
 elle-même comme l'inversion, la transposition, la diagonalisation.
-		
+        
 Cette liste n'est pas exhaustive, elle illustre ce que peut être
 une classe "matrice" - représentation informatique d'un objet "matrice" -,
 un type complexe incluant des informations de types variés (entier
@@ -175,7 +173,7 @@ Méthodes
     Les méthodes sont des fonctions qui sont associées de manière explicite à une classe.
     Elles ont comme particularité un accès privilégié aux données de la classe elle-même.
 
-Ces données	ou *attributs* sont définis plus loin. Les méthodes sont en
+Ces données    ou *attributs* sont définis plus loin. Les méthodes sont en
 fait des fonctions pour lesquelles la liste des paramètres contient
 obligatoirement un paramètre explicite qui est l'instance de
 la classe à laquelle cette méthode est associée. Ce paramètre
@@ -562,8 +560,8 @@ création d'une instance. Ils contiennent des informations sur l'instance.
         (voir paragraphe :ref:`par_class_liste_attribut`.
     * - ``__doc__``
       - Contient un commentaire associé à la classe
-        (voir paragraphe :ref:`par_class_commentaire`.							
-		
+        (voir paragraphe :ref:`par_class_commentaire`.                            
+        
 L'attribut ``__class__`` contient lui même d'autres d'attributs :
 
 .. list-table::
@@ -656,16 +654,13 @@ Le plus utilisé est
 
 .. index:: dir
 
-La fonction `dir <https://docs.python.org/3/library/functions.html?highlight=dir#dir>`_
-permet aussi d'obtenir des informations
+La fonction :epkg:`dir` permet aussi d'obtenir des informations
 sur la classe. Cette fonction appliquée à la classe ou à une
 instance retourne l'ensemble de la liste des attributs et des
 méthodes. L'exemple suivant utilise la fonction
-`dir <https://docs.python.org/3/library/functions.html?highlight=dir#dir>`_
-avant et après l'appel de la méthode ``meth``. Etant donné
+:epkg:`dir` avant et après l'appel de la méthode ``meth``. Etant donné
 que cette méthode ajoute un attribut, la fonction
-`dir <https://docs.python.org/3/library/functions.html?highlight=dir#dir>`_
-retourne une liste plus longue après l'appel.
+:epkg:`dir` retourne une liste plus longue après l'appel.
 
 .. runpython::
     :showcode:
@@ -681,7 +676,7 @@ retourne une liste plus longue après l'appel.
     print(dir(a))             # affiche ['__doc__', '__module__', 'meth', 'y']
     print(dir(essai_class))   # affiche ['__doc__', '__module__', 'meth']
 
-La fonction `dir <https://docs.python.org/3/library/functions.html?highlight=dir#dir>`_
+La fonction :epkg:`dir`
 appliquée à la classe elle-même retourne une liste qui inclut
 les méthodes et les attributs déjà déclarés. Elle n'inclut pas
 ceux qui sont déclarés dans une méthode jamais exécutée
@@ -1022,7 +1017,7 @@ l'interprétation de ``print(a[4])`` :
       - Opérateurs appelés pour les opérations
         ``+``, ``/``, ``*``, ``-``, ``**``, ``<``, ``<``
     * - ``__iadd__(self,x)``, ``__idiv__(self,x)``, ``__imul__(self,x)``,
-		``__isub__(self,x)``, ``__ipow__(self,x)``, ``__ilshift__(self, x)``
+        ``__isub__(self,x)``, ``__ipow__(self,x)``, ``__ilshift__(self, x)``
         ``__irshift__(self, x)``
       - Opérateurs appelés pour les opérations
         ``+=``, ``/=``, ``*=``, ``-=``, ``**=``, ``<<=``, ``>>=``
@@ -2541,7 +2536,7 @@ définition reste inchangée.
     Lorsqu'une classe *B* hérite de la classe *A* et redéfinit une méthode de la classe *A* portant
     le même nom, on dit qu'elle surcharge cette méthode. S'il n'est pas explicitement précisé
     qu'on fait appel à une méthode d'une classe donnée, c'est toujours la méthode surchargée qui est exécutée.
-				
+                
 Syntaxe
 -------
 
@@ -2594,7 +2589,7 @@ On obtient le résultat suivant :
 
 .. _remarque_method_resolution_order:
 
-La rubrique `Method Resolution Order <https://www.python.org/download/releases/2.3/mro/>`_
+La rubrique :epkg:`Method Resolution Order`
 indique la liste des héritages successifs qui ont mené à la classe ``piece_tres_truquee``.
 Cette rubrique indique aussi que, lorsqu'on appelle une méthode de la classe
 ``piece_tres_truquee``, si elle n'est pas redéfinie dans cette classe,
@@ -2622,7 +2617,7 @@ classe hérite d'une autre comme le montre l'exemple suivant.
     print(piece_normale in piece_tres_truquee.__bases__)  # affiche False
     print(piece_truquee in piece_tres_truquee.__bases__)  # affiche True
 
-La fonction `issubclass <https://docs.python.org/3/library/functions.html?highlight=issubclass#issubclass>`_
+La fonction :epkg:`issubclass`
 permet d'obtenir un résultat équivalent. ``issubclass(A,B)`` indique si
 la classe ``A`` hérite directement ou indirectement de la classe ``B``.
 Le paragraphe :ref:`fonction_issubclass_paragraphe` revient sur cette fonction.
@@ -2730,8 +2725,8 @@ de la classe fille afin que cette attribut existe pour la classe fille.
 
 .. _heritage_classe_sens_par:
 
-Sens de l'héritage
-------------------
+Sens de l'héritage (2)
+----------------------
 
 Il n'est pas toujours évident de concevoir le sens d'un héritage.
 En mathématique, le carré est un rectangle dont les côtés sont
@@ -2886,7 +2881,7 @@ méthode ``calcul`` qui, par défaut, sera celle de la classe ``A``.
 Cette information est disponible via la fonction
 ``help`` appliquée à la classe ``C``. C'est dans ce genre de
 situations que l'information apportée par la section
-`Method Resolution Order <https://www.python.org/download/releases/2.3/mro/>`_
+:epkg:`Method Resolution Order`
 est importante.
 
 ::
@@ -2952,7 +2947,7 @@ Fonctions issubclass et isinstance
 
 .. index:: issubclass
 
-La fonction `issubclass <https://docs.python.org/3/library/functions.html?highlight=issubclass#issubclass>`_
+La fonction :epkg:`issubclass`
 permet de savoir si une classe hérite d'une autre.
 
 ::
@@ -3244,8 +3239,8 @@ Constructions classiques
 
 .. _paragraphe_fonction_variable_classe:
 
-Héritage
---------
+Sens de l'héritage (1)
+----------------------
 
 Le premier exemple est classique puisqu'il reprend le programme du
 paragraphe :ref:`paragraphe_fonction_variable`

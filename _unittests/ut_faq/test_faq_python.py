@@ -1,6 +1,3 @@
-"""
-@brief      test log(time=7s)
-"""
 import unittest
 import datetime
 from teachpyx.faq.faq_python import get_month_name, get_day_name, class_getitem

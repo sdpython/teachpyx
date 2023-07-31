@@ -195,7 +195,7 @@ il est possible de condenser l'écriture avec le mot-clé ``elif`` :
 
 Le décalage des instructions par rapport aux lignes contenant les mots-clés
 ``if``, ``elif``, ``else`` est très important : il fait partie de la syntaxe du langage
-et s'appelle l'`indentation <https://fr.wikipedia.org/wiki/Style_d%27indentation>`_.
+et s'appelle l':epkg:`indentation`.
 Celle-ci permet de grouper les instructions ensemble. Le programme suivant est syntaxiquement
 correct même si le résultat n'est pas celui désiré.
 
@@ -297,18 +297,18 @@ qui sont eux-mêmes sur les opérateurs logiques ``not``, ``and``, ``or``.
 Il est tout de même conseillé d'ajouter des parenthèses en cas de doute.
 C'est ce qu décrit la page `Operator precedence <https://docs.python.org/3/reference/expressions.html#operator-precedence>`_.
 
-Ecriture condensée
-------------------
+Ecriture condensée (test)
+-------------------------
 
 Il existe deux écritures condensées de tests.
 La première consiste à écrire un test et l'unique instruction qui en dépend sur une seule ligne.
 
 ::
 
-if condition :
-    instruction1
-else :
-    instruction2
+    if condition :
+        instruction1
+    else :
+        instruction2
 
 Ce code peut tenir en deux lignes :
 
@@ -327,8 +327,8 @@ variable à tester est entière. ``if x == 1 or x == 6  or x == 50 :``
 peut être résumé simplement par ``if x in (1,6,50) :`` ou ``if x in {1,6,50}:``
 pour les grandes listes.
 
-Exemple
--------
+Exemple (test)
+--------------
 
 L'exemple suivant associe à la variable ``signe`` le signe de la variable ``x``.
 
@@ -356,7 +356,7 @@ Son écriture condensée lorsqu'il n'y a qu'une instruction à exécuter :
     print(signe)
 
 Le programme suivant saisit une ligne au clavier et dit si c'est "oui" ou "non" qui a été saisi.
-La fonction `input <https://docs.python.org/3/library/functions.html#input>`_ retourne
+La fonction :func:`input` retourne
 ce qui vient de l'utilisateur :
 
 ::
@@ -367,7 +367,7 @@ ce qui vient de l'utilisateur :
     else:
         print "non"
 
-La fonction `input <https://docs.python.org/3/library/functions.html#input>`_
+La fonction :func:`input`
 invite l'utilisateur d'un programme à saisir une réponse lors de l'exécution du programme.
 Tant que la touche entrée n'a pas été pressée, l'exécution du programme ne peut continuer.
 Cette fonction est en réalité peu utilisée. Les interfaces graphiques sont
@@ -617,8 +617,7 @@ qui réduit l'exemple suivant en trois lignes:
 
 La boucle la plus répandue est celle qui parcourt des indices entiers
 compris entre *0* et *n-1*. On utilise pour cela la boucle ``for`` et la fonction
-`range <https://docs.python.org/3/library/functions.html#func-range>`_
-comme dans l'exemple qui suit.
+:func:`range` comme dans l'exemple qui suit.
 
 .. runpython::
     :showcode:
@@ -780,8 +779,8 @@ Il est alors possible de parcourir plusieurs séquences
         print(y), " est le carré de ", x
         # affichage à droite
 
-Ecriture condensée
-------------------
+Ecriture condensée (for)
+------------------------
 
 Comme pour les tests, lorsque les boucles ne contiennent
 qu'une seule instruction, il est possible de l'écrire sur
@@ -1130,8 +1129,8 @@ Sans l'instruction ``return``, toute fonction retourne ``None``.
 
 .. _para_fonction_exemple:
 
-Exemple
--------
+Exemple (for)
+-------------
 
 Le programme suivant utilise deux fonctions.
 La première convertit des coordonnées cartésiennes en
@@ -1186,7 +1185,6 @@ est spécifiée pour un paramètre, alors tous ceux qui
 suivent devront eux aussi avoir une valeur par défaut.
 
 Exemple :
-%
 
 .. runpython::
     :showcode:
@@ -2064,8 +2062,7 @@ sont présentées :ref:`plus bas <table_fonction_communes>`.
 
 .. index:: map
 
-La fonction `map <https://docs.python.org/3/library/functions.html?highlight=map#map>`_
-permet d'écrire des boucles de façon simplifiée.
+La fonction :func:`map` permet d'écrire des boucles de façon simplifiée.
 Elle est utile dans le cas où on souhaite appliquer la même fonction
 à tous les éléments d'un ensemble. Par exemple les deux dernières
 lignes du programme suivant sont équivalentes.
@@ -2081,11 +2078,11 @@ lignes du programme suivant sont équivalentes.
     print(map(est_pair, l))
     print(list(map(est_pair, l)))       # affiche [0, 1, 0, 0, 1, 0]
 
-La fonction `map <https://docs.python.org/3/library/functions.html?highlight=map#map>`_
+La fonction :func:`map`
 retourne un itérateur et non un ensemble. Cela explique le second résultat du programme
 précédent. Pour obtenir les résultats, il faut explicitement parcourir l'ensemble des
 résultats. C'est ce que fait la dernière instruction. La fonction
-`map <https://docs.python.org/3/library/functions.html?highlight=map#map>`_
+:func:`map`
 est une :ref:`fonction générateur <l-fonction-generateur>`.
 Elle peut aider à simplifier l'écriture lorsque plusieurs listes sont impliquées.
 Ici encore, les deux dernières lignes sont équivalentes.

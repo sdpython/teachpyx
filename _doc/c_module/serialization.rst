@@ -7,7 +7,7 @@ Sérialisation
 
 .. index:: sérialisation
 
-La `sérialisation <https://fr.wikipedia.org/wiki/S%C3%A9rialisation>`_ est
+La :epkg:`sérialisation` est
 un besoin fréquent depuis l'avènement d'internet. Une appplication
 web est souvent un assemblage de services indépendant qui s'échangent des
 informations complexes. Un service doit transmettre des données
@@ -30,7 +30,7 @@ JSON
 ====
 
 Un des premiers utilisés dans le monde internet est le format
-`XML <https://fr.wikipedia.org/wiki/Extensible_Markup_Language>`_.
+:epkg:`XML`.
 Le langage `HTML <https://fr.wikipedia.org/wiki/Hypertext_Markup_Language>`_
 suit la même logique que le format *XML*.
 Il peut représenter un assemblage de liste et de dictionnaires
@@ -70,7 +70,7 @@ de dictionnaires puis à la convertir sous la forme d'une séquence d'octets.
        A -> B -> C;
     }
 
-Le format `XML <https://fr.wikipedia.org/wiki/Extensible_Markup_Language>`_
+Le format :epkg:`XML`
 intervient lors de la seconde étape. Il est assez *verbeux*. La séquence
 d'octets ou plutôt de caractères qu'il produit est assez longue même une fois
 les espaces enlevés. On lui préfère le format :epkg:`JSON`
@@ -154,9 +154,9 @@ plus sérialisables par défaut.
         print(e)
 
 On peut néanmoins contourner l'obstacle en indiquant à la fonction
-`dump <https://docs.python.org/3/library/json.html#json.dump>`_
+:func:`json.dump`
 comment convertir l'instance en un assemblage de listes et de dictionnaires
-avec la classe `JSONEncoder <https://docs.python.org/3/library/json.html#json.JSONEncoder>`_.
+avec la classe :class:`json.JSONEncoder`.
 
 .. runpython::
     :showcode:
@@ -204,8 +204,7 @@ Et la relecture s'effectue comme suit :
     print(obj)
 
 Il existe des alternatives plus rapides au module
-`json <https://docs.python.org/3/library/json.html>`_
-come le module :epkg:`ultrajson`.
+:mod:`json` comme le module :epkg:`ultrajson`.
 
 Binaire
 =======
