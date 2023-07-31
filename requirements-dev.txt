@@ -7,7 +7,7 @@ jyquickhelper
 matplotlib
 pandas
 pillow
-protobuf
+protobuf<4
 pydata_sphinx_theme
 pytest
 pytest-cov
