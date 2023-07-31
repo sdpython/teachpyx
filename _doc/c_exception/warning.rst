@@ -1,14 +1,16 @@
 
 .. _l-warning:
 
-=======
-Warning
-=======
+==================
+Warning et logging
+==================
 
 .. index:: warning
 
-Les `warning <https://docs.python.org/3/library/warnings.html>`_
-ne sont pas des erreurs mais des soupçons d'erreurs.
+Warnings
+========
+
+Les *warnings* ne sont pas des erreurs mais des soupçons d'erreurs.
 Le programme peut continuer mais il est possible qu'il s'arrête
 un peu plus tard et la cause pourrait être un *warning* déclenché
 un peu plus tôt.
@@ -24,10 +26,9 @@ finalement supprimée. Tout code s'appuyant encore sur cette fonction
 provoquera une erreur.
 
 Générer un warning
-==================
+------------------
 
-Le module `warnings <https://docs.python.org/3/library/warnings.html>`_
-permet de lancer un *warning* comme ceci :
+Le module :mod:`warnings` permet de lancer un *warning* comme ceci :
 
 .. runpython::
     :showcode:
@@ -47,7 +48,7 @@ les trier.
     warnings.warn("Warning d'un certain lancé !", UserWarning)
 
 Intercepter un warning
-======================
+----------------------
 
 Les *warning* sont parfois très agaçants car il s'insère dans les
 sorties du programme qui deviennent moins lisibles. Il serait
@@ -122,7 +123,7 @@ des tests unitaires.
             print("warning {0} : {1}".format(i, w))
 
 Warning personnalisé
-====================
+--------------------
 
 Comme pour les exceptions, il est possible de définir ses propres
 *warning* en héritant d'un *warning* en particulier.
@@ -136,3 +137,25 @@ Comme pour les exceptions, il est possible de définir ses propres
         pass
 
     warnings.warn("mon warning", MonWarning)
+
+Logging
+=======
+
+Les logs enregistrent des événements qu'un programme produit.
+Ils sont utilisées pour comprendre des erreurs que celui-ci produit.
+Le premier réflexe est d'insérer des instructions `print` pour
+afficher des résultats intermédiaires pour déterminer le premier
+endroit où une erreur se produit. Et puis on les enlève car ils
+rendent les résultats illisibles dans une masse d'informations
+inutiles lorsque tout se passe bien.
+
+Il faut voir les logs comme des `print` silencieux qu'un développeur
+peut activer s'il a besoin de traces d'exécution pour débugger.
+C'est aussi pratique pour comprendre ce qu'il se passe sur un problème
+créer par un utilisateur d'un programme qu'on développe. L'utilisateur
+peut activer les logs et les transmettre à celui qui peut les comprendre.
+Les logs sont indispensables à tout site web. Ils enregistrent toutes les
+connexions et permettent vérifier rapidement si un site est attaqué ou pas.
+
+Les logs sont une fonctionnalité présente dans la plupart des langages.
+En python, c'est le module :mod:`logging` qui l'implémente.

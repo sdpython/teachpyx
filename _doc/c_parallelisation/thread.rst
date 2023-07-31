@@ -19,7 +19,7 @@ maintenant vers la construction de processeurs multicoeurs, c'est-à-dire des
 machines capables d'exécuter des programmes simultanément, de maintenir
 plusieurs *fils d'exécution* en parallèle.
 
-Les `threads <https://fr.wikipedia.org/wiki/Thread_(informatique)>`_
+Les :epkg:`threads`
 ou fils d'exécution ont trois usages principaux. Le premier est
 relié au `calcul distribué <https://fr.wikipedia.org/wiki/Calcul_distribu%C3%A9>`_ ou calcul parallèle.
 Par exemple, le calcul d'une intégrale sur un intervalle peut être effectué sur
@@ -769,11 +769,10 @@ Le module `threading <https://docs.python.org/3/library/threading.html>`_
 a beaucoup été utilisé mais d'autres modules ont été ajoutés à la
 distribution standard de python.
 
-* `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_ :
+* :mod:`concurrent.futures` :
   le module propose une interface similaire pour paralléliser avec des threads ou des processus.
   La création des threads s'écrit plus rapidement.
-* `asyncio <https://docs.python.org/3/library/asyncio-task.html>`_ :
-  ce module fonctionne avec les mots-clés
+* :mod:`asyncio` : ce module fonctionne avec les mots-clés
   `async, await <https://docs.python.org/3/library/asyncio-task.html#example-hello-world-coroutine>`_
   et il est particulièrement adapté à la parallélisation à des accès aux ressources.
 
@@ -784,17 +783,17 @@ qui gère pas mal d'accès à Internet.
 concurrent.futures
 ++++++++++++++++++
 
-Le module `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_
-implémente une classe `Executor <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor>`_
+Le module :mod:`concurrent.futures`
+implémente une classe :class:`concurrent.futures.Executor`
 qui définit une interface pour l'exécution en parallèle. On peut soit :
 
 * soumettre l'exécution d'une fonction avec
-  `submit <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor.submit>`_,
+  :meth:`concurrent.futures.Executor.submit`
 * ou soumettre l'exécution de la même fonction appliquée à séquence de jeux de paramètres
-  avec `map <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor.map>`_.
+  avec :meth:`concurrent.futures.Executor.map`
 
 Cette classe est dérivée en un
-`ThreadPoolExecutor <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor>`_
+:class:`concurrent.futures.ThreadPoolExecutor`
 dont le principal argument *max_works* définit le nombre de threads à exécuter en parallèle.
 Je reproduis ici l'`exemple <https://docs.python.org/3/library/concurrent.futures.html#processpoolexecutor-example>`_
 de la documentation de *Python* qui détermine si un nombre est premier.
@@ -958,18 +957,16 @@ Les `futures ou promesses <https://fr.wikipedia.org/wiki/Futures_(informatique)>
 font référence à un résultat dont le calcul est géré par un autre thread ou
 processus. Le résultat n'est pas prêt au moment où ce second thread démarre mais il
 le sera bientôt d'où son nom. On les retrouve en C#
-`Programmation asynchrone avec Async et Await <https://msdn.microsoft.com/fr-fr/library/hh191443(v=vs.120).aspx>`_
+`Programmation asynchrone avec Async et Await 
+<https://msdn.microsoft.com/fr-fr/library/hh191443(v=vs.120).aspx>`_
 ou C++ `std::async <http://en.cppreference.com/w/cpp/thread/async>`_.
 Il y a deux objets *futures* en Python qui sont produits par différents
 jeux de fonctions. On ne créé jamais un *futures*, c'est toujours une fonction
 qui le fait.
 
-* `concurrent.futures.Future <https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Future>`_ :
-  ils sont créés par le module
-  `concurrent.futures <https://docs.python.org/3/library/concurrent.futures.html#module-concurrent.futures>`_.
+* :class:`concurrent.futures.Future` : ils sont créés par le module :mod:`concurrent.futures`.
 * `asyncio.future <https://docs.python.org/3/library/asyncio-task.html#future>`_ :
-  ils sont créés par le module
-  `asyncio <https://docs.python.org/3/library/asyncio.html>`_.
+  ils sont créés par le module :mod:`asyncio`.
 
 Les deux objets possèdent la même interface et sont presque compatibles.
 Cela dit, il vaut mieux éviter de les mélanger. Je cite la documentation :
@@ -1032,7 +1029,7 @@ async - await - asyncio
 `asyncio <https://docs.python.org/3/library/asyncio.html>`_ a fait émerger
 les mots-clés `async and await <https://docs.python.org/3/whatsnew/3.5.html?highlight=async#whatsnew-pep-492>`_
 qui font partie du langage depuis la version 3.5 tout comme elles font partie
-d'autres langages comme `C# <https://docs.microsoft.com/en-us/dotnet/csharp/async>`_
+d'autres langages comme `C#/async <https://docs.microsoft.com/en-us/dotnet/csharp/async>`_
 ou `C++ <http://www.cplusplus.com/reference/future/async/>`_.
 
 Concrètement, ce n'est pas si difficile d'écrire une fonction
@@ -1065,14 +1062,14 @@ de synchronisation si besoin.
 
 Le langage Python protège listes et dictionnaires par l'intermédiaire de ce verrou
 qui est unique pour toutes les listes afin de pouvoir gérer efficacement le
-`garbage collector <https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)>`_
+:epkg:`garbage collector`
 (voir module `gc <https://docs.python.org/3/library/gc.html>`_). En conséquence,
 si le langage Python est multithread par design, dans les faits, il ne l'est presque
 pas car le *GIL* est sans cesse utilisé. Le notebook :ref:`gilexamplerst` finira
 de vous convaincre.
 
-cython
-++++++
+cython : un mélange de python et C
+++++++++++++++++++++++++++++++++++
 
 Tout est possible avec le langage C même si
 `cython <http://cython.org/>`_
@@ -1098,7 +1095,7 @@ qui peut être utilisé via le module
 `py4j <https://www.py4j.org/>`_,
 `pyjnius <https://github.com/kivy/pyjnius>`_.
 Les threads sont plus faciles à implémenter dans ces langages
-même si le `garbage collector <https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)>`_
+même si le :epkg:`garbage collector`
 peut nuire aux performances.
 
 Bibliographie

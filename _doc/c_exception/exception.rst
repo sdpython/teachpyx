@@ -37,8 +37,9 @@ Attraper toutes les erreurs
 Une exception est un objet qui indique que le programme ne peut continuer son exécution.
 Le type de l'exception donne une indication sur le type de l'erreur rencontrée.
 L'exception contient généralement un message plus détaillé.
-Toutes les exceptions hérite du type
-`Exception <https://docs.python.org/3/library/exceptions.html#Exception>`_.
+Toutes les exceptions hérite des types :class:`BaseException`
+pour les exceptions définies par le langage et :class:`Exception` pour
+les exceptions définies par l'utilisateur.
 
 On décide par exemple qu'on veut rattraper toutes les erreurs du
 programme et afficher un message d'erreur. Le programme suivant appelle

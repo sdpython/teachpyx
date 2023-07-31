@@ -535,8 +535,8 @@ Il existe un raccourci pour les intervalles :
     if 5 < x and x < 10 :     # peut être écrit : if 5 < x < 10 :
         ...
 
-Boucles
-+++++++
+for ou while
+++++++++++++
 
 Il y a deux types de boucles, la boucle ``for`` parcourt un ensemble,
 la boucle ``while`` continue tant qu'une condition est vraie.
@@ -1504,9 +1504,6 @@ aurait si la liste était vide.
     s = ""
     for m in l :
         s += m # concaténation des mots en une seule chaîne de caractères
-
-Fonctions
-+++++++++
 
 Différence entre ``print`` et ``return``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

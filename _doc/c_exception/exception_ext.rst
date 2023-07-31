@@ -5,8 +5,8 @@
 Usage
 =====
 
-Pile d'appel
-============
+Pile d'appel ou call stack
+==========================
 
 La `pile d'appel <https://fr.wikipedia.org/wiki/Pile_d%27ex%C3%A9cution>`_
 (ou *pile d'exécution* ou *call stack*) mémorise les appels de fonctions.

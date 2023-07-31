@@ -13,12 +13,12 @@ A quoi ça sert ?
 ================
 
 Chercher un mot dans un texte est une tâche facile, c'est l'objectif
-de la méthode `find <https://docs.python.org/3/library/stdtypes.html?highlight=find#str.find>`_
+de la méthode :meth:`str.find`
 attachée aux chaînes de caractères, elle suffit encore lorsqu'on cherche
 un mot au pluriel ou au singulier mais il faut l'appeler au moins
 deux fois pour chercher ces deux formes. Pour des expressions plus
-compliquées, il est conseillé d'utiliser les
-`expressions régulières <https://fr.wikipedia.org/wiki/Expression_rationnelle>`_.
+compliquées, il est conseillé d'utiliser une
+`expression régulière <https://fr.wikipedia.org/wiki/Expression_rationnelle>`_.
 C'est une fonctionnalité qu'on retrouve dans beaucoup de langages.
 C'est une forme de grammaire qui permet de rechercher des expressions.
 
@@ -53,10 +53,10 @@ ce qu'on précise avec des parenthèses :
 
     [0-3]?[0-9]/[0-1]?[0-9]/([0-2][0-9])?[0-9][0-9]
 
-Le module `re <https://docs.python.org/3/library/re.html?highlight=re#module-re>`_
+Le module :mod:`re`
 gère les expressions régulières, celui-ci traite différemment les parties de l'expression
 régulière qui sont entre parenthèses de celles qui ne le sont pas : c'est un moyen
-de dire au module `re <https://docs.python.org/3/library/re.html?highlight=re#module-re>`_
+de dire au module :mod:`re`
 que nous nous intéressons à telle partie de l'expression qui est signalée
 entre parenthèses. Comme la partie qui nous intéresse - une date -
 concerne l'intégralité de l'expression régulière,
@@ -224,15 +224,14 @@ l'expression *Xavier Dupont* ou *M. Dupont* s'écrira : ``(Xavier)|(M[.]) Dupont
 Fonctions
 ---------
 
-La fonction `compile <https://docs.python.org/3/library/re.html?highlight=re#re.compile>`_
-du module `re <https://docs.python.org/3/library/re.html?highlight=re#module-re>`_
+La fonction :func:`re.compile`
+du module :mod:`re`
 permet de construire un objet "expression régulière". A partir de cet objet,
 on peut vérifier la correspondance entre une expression régulière et une chaîne
-de caractères (méthode `match <https://docs.python.org/3/library/re.html?highlight=re#re.match>`_).
-On peut chercher une expression régulière
-(méthode `search <https://docs.python.org/3/library/re.html?highlight=re#re.search>`_).
+de caractères (méthode :func:`re.match`).
+On peut chercher une expression régulière (méthode :func:`re.search`).
 On peut aussi remplacer une expression régulière par une chaîne de caractères
-(méthode `sub <https://docs.python.org/3/library/re.html?highlight=re#re.sub>`_).
+(méthode :func:`re.sub`).
 
 .. list-table::
     :widths: 5 10
@@ -268,10 +267,8 @@ On peut aussi remplacer une expression régulière par une chaîne de caractère
       - Chaîne de caractères associée à l'expression régulière. C'est un attribut.
 
 Ces méthodes et attributs qui s'appliquent à un objet de type "expression régulière"
-retourné par la fonction `compile <https://docs.python.org/3/library/re.html?highlight=re#re.compile>`_.
-Les méthodes `search <https://docs.python.org/3/library/re.html?highlight=re#re.search>`_
-et `match <https://docs.python.org/3/library/re.html?highlight=re#re.match>`_
-retournent toutes des objets `Match <https://docs.python.org/3/library/re.html?highlight=re#re.Match>`_ :
+retourné par la fonction :func:`re.compile`. Les méthodes :func:`re.search`
+et :func:`re.match` retournent toutes des objets :func:`re.match` :
 
 .. runpython::
     :showcode:
@@ -298,10 +295,8 @@ retournent toutes des objets `Match <https://docs.python.org/3/library/re.html?h
     * - ``span([gr])``
       - Retourne les positions dans la chaîne originale des chaînes extraites validées le groupe ``gr``.
 
-Ces méthodes qui s'appliquent à un objet de type
-`Match <https://docs.python.org/3/library/re.html?highlight=re#re.Match>`_
-qui est le résultat des méthodes `search <https://docs.python.org/3/library/re.html?highlight=re#re.search>`_
-et `match <https://docs.python.org/3/library/re.html?highlight=re#re.match>`_.
+Ces méthodes qui s'appliquent à un objet de type :func:`re.match`
+qui est le résultat des méthodes :func:`re.search` et :func:`re.match`.
 Les groupes sont des sous-parties de l'expression régulière, chacune d'entre elles incluses
 entre parenthèses. Le énième correspond au groupe qui suit la énième parenthèse ouvrante.
 Le premier groupe a pour indice 1.
