@@ -153,7 +153,7 @@ timeit.timeit("json.dump(data, StringIO())", globals=globals(), number=100)
 #
 
 
-timeit.timeit("ujson.udump(data, StringIO())", globals=globals(), number=100)
+timeit.timeit("ujson.dump(data, StringIO())", globals=globals(), number=100)
 
 
 #########################################

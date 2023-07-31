@@ -52,7 +52,8 @@ class TestDocumentationExamples(ExtTestCase):
                 if "No such file or directory: 'schema_pb2.py'" in str(st):
                     if verbose:
                         print(
-                            f"failed: {name!r} due to missing protoc (or wrong version)."
+                            f"failed: {name!r} due to missing protoc "
+                            f"(or wrong version)."
                         )
                     return 0
                 raise AssertionError(
