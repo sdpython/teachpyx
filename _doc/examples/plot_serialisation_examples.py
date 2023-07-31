@@ -164,7 +164,7 @@ timeit.timeit("ujson.dump(data, StringIO())", globals=globals(), number=100)
 buffer = StringIO()
 ujson.dump(data, buffer)
 res = buffer.getvalue()
-timeit.timeit("ujson.load(StringIO(res))", globals=globals(), number=100)
+timeit.timeit("json.load(StringIO(res))", globals=globals(), number=100)
 
 
 #########################################
