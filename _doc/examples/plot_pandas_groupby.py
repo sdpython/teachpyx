@@ -14,7 +14,6 @@ groupby et valeur manquantes
 
 
 import pandas
-from pandas_streaming.df import pandas_groupby_nan
 
 
 data = [{"a": 1, "b": 2}, {"a": 10, "b": 20}, {"b": 3}, {"b": 4}]
