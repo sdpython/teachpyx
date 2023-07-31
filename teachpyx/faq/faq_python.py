@@ -239,13 +239,13 @@ def same_variable(a, b):
           <http://www.blog.pythonlibrary.org/2014/01/17/how-to-create-immutable-classes-in-python/>`_
         * `Ways to make a class immutable in Python
           <http://stackoverflow.com/questions/4996815/ways-to-make-a-class-immutable-in-python>`_
-        * surcharger des méthodes `__getattr__ 
+        * surcharger des méthodes `__getattr__
           <https://docs.python.org/3/reference/datamodel.html#object.__getattr__>`_,
-          `__getattribute__ 
+          `__getattribute__
           <https://docs.python.org/3/reference/datamodel.html#object.__getattribute__>`_,
-          `__setattr__ 
+          `__setattr__
           <https://docs.python.org/3/reference/datamodel.html#object.__setattr__>`_.
-          
+
 
         Enfin, pour les objects qui s'imbriquent les uns dans
         les autres, une liste de listes, une classe
