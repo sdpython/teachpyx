@@ -48,14 +48,14 @@ class TestDocumentationExamples(ExtTestCase):
                     # is tested in onnx framework
                     if verbose:
                         print(f"failed: {name!r} due to missing dot.")
-                    return 0
+                    return -1
                 if "No such file or directory: 'schema_pb2.py'" in str(st):
                     if verbose:
                         print(
                             f"failed: {name!r} due to missing protoc "
                             f"(or wrong version)."
                         )
-                    return 0
+                    return -1
                 raise AssertionError(
                     "Example '{}' (cmd: {} - exec_prefix='{}') "
                     "failed due to\n{}"
@@ -77,7 +77,7 @@ class TestDocumentationExamples(ExtTestCase):
 
                 def _test_(self, name=name):
                     res = self.run_test(fold, name, verbose=VERBOSE)
-                    self.assertTrue(res)
+                    self.assertIn(res, (-1, 1))
 
                 setattr(cls, f"test_{short_name}", _test_)
 
