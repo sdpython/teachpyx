@@ -49,6 +49,12 @@ class TestDocumentationExamples(ExtTestCase):
                     if verbose:
                         print(f"failed: {name!r} due to missing dot.")
                     return 0
+                if "No such file or directory: 'schema_pb2.py'" in str(st):
+                    if verbose:
+                        print(
+                            f"failed: {name!r} due to missing protoc (or wrong version)."
+                        )
+                    return 0
                 raise AssertionError(
                     "Example '{}' (cmd: {} - exec_prefix='{}') "
                     "failed due to\n{}"

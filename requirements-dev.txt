@@ -1,6 +1,7 @@
 black
 black-nb
 blockdiag
+cloudpickle
 coverage
 jupyter
 jyquickhelper
