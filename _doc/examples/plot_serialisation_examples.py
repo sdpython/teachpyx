@@ -12,8 +12,8 @@ JSON
 Le format :epkg:`JSON` est le format le plus utilisé sur internet
 notemmant via les :epkg:`API REST`.
 
-Ecriture
-++++++++
+Ecriture (json)
++++++++++++++++
 """
 from io import StringIO, BytesIO
 import timeit
@@ -45,8 +45,8 @@ seq
 
 
 #########################################
-# Lecture
-# +++++++
+# Lecture (json)
+# ++++++++++++++
 
 
 buffer = StringIO(seq)
@@ -188,8 +188,8 @@ timeit.timeit("StringIO(res)", globals=globals(), number=100)
 # Celui-ci est propre à *Python* et ne peut être lu d'autres langages,
 # voire parfois par d'autres versions de *Python*.
 #
-# Ecriture
-# ++++++++
+# Ecriture (pickle)
+# +++++++++++++++++
 
 
 data = {
@@ -214,8 +214,8 @@ seq
 
 
 #########################################
-# Lecture
-# +++++++
+# Lecture (pickle)
+# ++++++++++++++++
 
 
 buffer = BytesIO(seq)
@@ -401,7 +401,7 @@ except Exception as e:
 
 #########################################
 # Il est possible de contourner l'obstacle en utilisant le module
-# :epkg:`cloudpicke` qui stocke le code de la fonction.
+# :epkg:`cloudpickle` qui stocke le code de la fonction.
 
 
 def myfunc(x):
@@ -433,10 +433,11 @@ res["f"](res["x"])
 
 
 #########################################
-# JSON
-# ++++
+# Fonction et JSON
+# ++++++++++++++++
 #
-# La sérialisation au format JSON ne fonctionne pas avec le module standard.
+# La sérialisation d'une fonction au format JSON ne 
+# fonctionne pas avec le module standard.
 
 
 buffer = StringIO()
@@ -453,7 +454,7 @@ except Exception as e:
 
 buffer = StringIO()
 try:
-    res = json.dump(data, buffer)  # 3
+    res = ujson.dump(data, buffer)  # 3
 except TypeError as e:
     print(e)
 buffer.getvalue()

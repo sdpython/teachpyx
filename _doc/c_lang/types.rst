@@ -807,8 +807,8 @@ Dates :
     d = datetime.datetime.now()
     print('{:%Y-%m-%d %H:%M:%S}'.format(d))
 
-Le site :epkg:`pyformat` recense d'autres usages de la méthode
-:epkg:`format` comme l'affichage de chaînes de caractères tronquées.
+Le site :epkg:`format` recense d'autres usages de la méthode
+`format` comme l'affichage de chaînes de caractères tronquées.
 
 .. runpython::
     :showcode:
@@ -1925,11 +1925,6 @@ comme l'intersection, l'union.
     d'ajouter des valeurs. En contrepartie, on peut s'en
     servir comme clé dans un dictionnaire ou comme
     valeur dans un `set` ou `frozenset`.
-
-.. todoext::
-    :title: Compléter le paragraphe sur les set
-
-    set, frozen set
 
 Matrices et DataFrames
 ======================

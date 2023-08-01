@@ -32,6 +32,10 @@ Il est aussi disponible en
     c_data/index
     i_examples
     c_resume/index
+    auto_examples/index
+    defthe_index
+    license
+    CHANGELOGS
 
 Les ordinateurs font principalement des calculs. Ils permettent
 aussi d'automatiser de nombreuses tâches pour lesquelles ils
@@ -66,10 +70,6 @@ souvent reliés au machine learning.
     .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
         :alt: GitHub Issues
         :target: https://github.com/sdpython/teachpyx/issues
-
-    .. image:: nbcov.png
-        :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
-        :alt: Notebook Coverage
 
     .. image:: https://img.shields.io/github/repo-size/sdpython/teachpyx
         :target: https://github.com/sdpython/teachpyx/

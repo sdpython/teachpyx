@@ -1,5 +1,7 @@
 # coding: utf-8
 """
+.. _l-example-protobuf:
+
 ===========================
 Sérialisation avec protobuf
 ===========================

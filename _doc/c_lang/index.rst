@@ -12,4 +12,3 @@ Variables et fonctions
     collections
     dates
     encoding
-    faq

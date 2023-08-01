@@ -439,7 +439,7 @@ print(m2.valeurs_propres())
 # :math:`M''` ? Quelles sont ses vraies valeurs propres ?
 #
 # La matrice :math:`M''` n'est en fait pas diagonalisable, c'est-à-dire que
-# :math:`\tr(M'')^2 - 4 * \det{M''} = 4 - 4 (1 + 10^{-18}) < 0`.
+# :math:`tr(M'')^2 - 4 \det{M''} = 4 - 4 (1 + 10^{-18}) < 0`.
 # Or le calcul proposé par la question 3 aboutit au même résultat faux que pour
 # la matrice :math:`M_2`, les deux valeurs propres trouvées seront égales à 1.
 # Si on applique la décomposition proposée :

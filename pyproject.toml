@@ -21,8 +21,6 @@ ignore_directives = [
     "plot",
     "runpython",
     "tocdelay",
-    "todoext",
-    "todoextlist",
 ]
 ignore_roles = ["epkg", "githublink", "issue"]
 ignore_messages = [

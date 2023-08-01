@@ -4,6 +4,8 @@
 *.pyc
 *.pyd
 *.so
+*.bin
+*.log
 .coverage
 .eggs/*
 _cache/*
@@ -13,9 +15,11 @@ dist/*
 onnxruntime_profile*
 prof
 temp_*
+essai.txt
 .ipynb_checkpoints
 _doc/CHANGELOGS.rst
 _doc/LICENSE.txt
+_doc/examples/*.proto
 _doc/auto_examples/*
 _doc/examples/plot_*.png
 _doc/examples/plot_*.xlsx

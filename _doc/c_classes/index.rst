@@ -7,3 +7,5 @@ Classes
     :maxdepth: 2
 
     classes
+    questions
+

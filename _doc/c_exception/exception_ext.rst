@@ -113,8 +113,8 @@ Conventions
 Erreur ou code d'erreur
 +++++++++++++++++++++++
 
-.. todoext::
-    :title: terminer la section Erreur ou code d'erreur
+*à compléter*
 
-    parler aussi de coûts d'une exception,
-    libération des ressources
+* erreur ou code d'erreur
+* coûts d'une exception
+* libération des ressources

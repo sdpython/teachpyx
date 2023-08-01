@@ -926,7 +926,7 @@ et ``__setitem__`` de manière à pouvoir accéder aux coordonnées de la
 classe ``point_espace`` qui définit un point dans l'espace.
 En règle générale, lorsque les indices ne sont pas corrects, ces
 deux opérateurs lèvent l'exception ``IndexError``
-(voir le chapitre :ref:`chap_exception`.
+(voir le chapitre :ref:`chap_exception`).
 
 .. runpython::
     :showcode:

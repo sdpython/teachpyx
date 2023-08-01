@@ -321,12 +321,7 @@ dans le language de votre choix.
        A -> B [label = "compilation"];
     }
 
-La suite est dans le notebook :
-
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/serialisation_protobuf
+La suite est dans l'exemple :ref:`l-example-protobuf`.
 
 Sérialiser autre chose que des données
 ======================================
@@ -340,4 +335,4 @@ où cela est néanmoins possible sans trop de développement.
 .. toctree::
     :maxdepth: 1
 
-    ../notebooks/serialisation_examples
+    ../auto_examples/serialisation_examples

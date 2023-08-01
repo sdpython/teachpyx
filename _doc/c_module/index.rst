@@ -9,4 +9,3 @@ Entrées, Sorties, Modules
     files
     serialization
     module
-    faq

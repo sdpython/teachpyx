@@ -21,8 +21,6 @@ Glossary
 
         Le formatage de données est utilisé dès qu'une information est
         affichée à l'écran, le plus souvent pour débugger ou pour logger.
-        Le site :epkg:`pyformat` recense différents usages utiles mais
-        parfois peu connus de la fonction :epkg:`format`.
 
     ml
         Raccourci pour `Machine Learning <https://en.wikipedia.org/wiki/Machine_learning>`_.
