@@ -104,8 +104,8 @@ La conversion inverse s'effectue comme suit.
     from json import load
     from io import StringIO
 
-    seq = '{"records": [{"nom": "Xavier", "pr\\u00e9nom": "Xavier", ' + \
-          '"langages": [{"nom": "C++", "age": 40}, {"nom": "Python", "age": 20}]}]}'
+    seq = ('{"records": [{"nom": "Xavier", "pr\\u00e9nom": "Xavier", ' +
+           '"langages": [{"nom": "C++", "age": 40}, {"nom": "Python", "age": 20}]}]}')
 
     buffer = StringIO(seq)
     read = load(buffer)
@@ -335,4 +335,4 @@ où cela est néanmoins possible sans trop de développement.
 .. toctree::
     :maxdepth: 1
 
-    ../auto_examples/serialisation_examples
+    ../auto_examples/plot_serialisation_examples

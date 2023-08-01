@@ -96,9 +96,9 @@ du programme mais n'en faisant pas partie comme dans l'exemple qui suit.
 
 .. index:: backslash, \
 
-Le *python* impose une instruction par ligne. Il n'est pas possible d'utiliser
-deux lignes pour écrire une affectation à moins de conclure chaque ligne qui
-n'est pas la dernière par le symbole ``\``
+Le *python* privilégie une instruction par ligne mais il n'est pas possible d'utiliser
+plusieurs lorsqu'il n'y a aucune ambiguïté.
+Dans le cas contraire, le symbole ``\`` permet d'indiquer que la ligne n'est pas finie.
 L'exemple suivant est impossible.
 
 ::
@@ -112,6 +112,13 @@ Il devrait être rédigé comme suit :
 
     x =  \
         5.5
+
+Mais les parenthèses sont à privilégier :
+
+::
+
+    x =  (
+        5.5)
 
 Avec ce symbole, les longues instructions peuvent être écrites sur plusieurs
 lignes de manière plus lisibles, de sorte qu'elles apparaissent en entier à l'écran.
@@ -395,7 +402,7 @@ Ces deux opérateurs seront utilisés ultérieurement,
 (paragraphe :ref:`boucle_for`), ``is`` lors de l'étude des listes
 (paragraphe :ref:`par_liste_copie` et des :ref:`classes <chap_classe>`).
 Bien souvent, les booléens sont utilisés de manière implicite lors
-de tests (paragraphe :ref:`test_test`) ce qui n'empêche pas de les
+de tests (paragraphe :ref:`test <test_test>`) ce qui n'empêche pas de les
 déclarer explicitement.
 
 ::
@@ -458,15 +465,13 @@ lorsque le texte contient plusieurs lignes, il suffit de les encadrer entre deux
 symboles ``"""`` ou ``'''`` pour que l'interpréteur *python* considère l'ensemble
 comme une chaîne de caractères et non comme une série d'instructions.
 
-.. _extra_caractere:
-
 Par défaut, le *python* ne permet pas l'insertion de caractères tels que
 les accents dans les chaînes de caractères, le paragraphe
 :ref:`par_intro_accent_code` explique comment résoudre ce problème.
 De même, pour insérer un guillemet dans une chaîne de caractères
 encadrée elle-même par des guillemets, il faut le faire précéder
 du symbole ``\``. La séquence ``\`` est appelée un extra-caractère
-(voir table :ref:`extra_caractere`) ou un caractère d'échappement.
+(voir table suivante) ou un caractère d'échappement.
 
 .. index:: \n, \\, \%, \t, \r, extra caractère
 
@@ -577,9 +582,7 @@ Où ``s`` est une chaîne de caractères, ``fonction``
 est le nom de l'opération que l'on veut appliquer à ``s``, ``res``
 est le résultat de cette manipulation.
 
-.. _string_method:
-
-La table :ref:`string_method` présente une liste non exhaustive
+La table suivante présente une liste non exhaustive
 des fonctions disponibles dont un exemple d'utilisation suit.
 Cette syntaxe ``variable.fonction(arguments)`` est celle des classes.
 
@@ -680,7 +683,7 @@ de décimales fixe. Le format est le suivant :
     ".... %c1  ....  %c2 " % (v1,v2)
 
 ``c1`` est un code choisi parmi ceux de la table
-:ref:`format_print`. Il indique le format dans lequel la variable
+:ref:`format print <format_string>`. Il indique le format dans lequel la variable
 ``v1`` devra être transcrite. Il en est de même pour le code
 ``c2`` associé à la variable ``v2``. Les codes insérés dans la chaîne
 de caractères seront remplacés par les variables citées entre
@@ -696,8 +699,8 @@ Voici concrètement l'utilisation de cette syntaxe :
     x = 5.5
     d = 7
     s = "caractères"
-    res = "un nombre réel %f et un entier %d, une chaîne de %s, \n" \
-          "un réel d'abord converti en chaîne de caractères %s" % (x,d,s, str(x+4))
+    res = ("un nombre réel %f et un entier %d, une chaîne de %s, \n"
+           "un réel d'abord converti en chaîne de caractères %s" % (x,d,s, str(x+4)))
     print(res)
     res = "un nombre réel " + str (x) + " et un entier " + str (d) + \
           ", une chaîne de " + s + \
@@ -729,7 +732,7 @@ Exemple :
 
 .. _format_string:
 
-Il existe d'autres formats regroupés dans la table :ref:`format_print`.
+Il existe d'autres formats regroupés dans la table suivante.
 L'aide reste encore le meilleur réflexe car le langage *python*
 est susceptible d'évoluer et d'ajouter de nouveaux formats.
 
@@ -984,7 +987,8 @@ que ceux présentés au paragraphe :ref:`type_nombre` et décrivant les nombres.
     c = complex(1,1)
     print(c*c)
 
-Le langage *python* offre la possibilité de créer ses propres types immuables (voir :ref:`classe_slots_att`)
+Le langage *python* offre la possibilité de créer ses propres types immuables
+(voir :ref:`__slots__ <classe_slots_att>`)
 mais ils seront définis à partir des types immuables présentés jusqu'ici.
 
 .. _l-type-bytes:
@@ -1298,8 +1302,7 @@ Fonction range
 .. index:: range
 
 Les listes sont souvent utilisées dans des boucles ou notamment
-par l'intermédiaire de la fonction
-`range <https://docs.python.org/3/library/functions.html#func-range>`_.
+par l'intermédiaire de la fonction :epkg:`range`.
 Cette fonction retourne un `itérateur <https://fr.wikipedia.org/wiki/It%C3%A9rateur>`_
 sur des entiers. Nous verrons les itérateurs plus tard. Disons pour le moment
 les itérateurs ont l'apparence d'un ensembe mais ce n'en est pas un.
@@ -1364,7 +1367,7 @@ L'instruction ``for el in x :`` se traduit littéralement par :
 
 Il existe également des notations abrégées lorsqu'on cherche à construire
 une liste à partir d'une autre. Le programme suivant construit la liste des
-entiers de 1 à 5 à partir du résultat retourné par la fonction ``range``.
+entiers de 1 à 5 à partir du résultat retourné par la fonction :epkg:`range`.
 
 .. runpython::
     :showcode:
@@ -1390,7 +1393,7 @@ Cette définition de liste peut également inclure des tests ou des boucles imbr
 
     y = [ i for i in range(0,5) if i % 2 == 0]   # sélection les éléments pairs
     print(y)                                     # affiche [0,2,4]
-    z = [ i+j for i in range(0,5) \
+    z = [ i+j for i in range(0,5)
               for j in range(0,5)]      # construit tous les nombres i+j possibles
     print(z)
 
@@ -1441,6 +1444,8 @@ dans une liste puis de les concaténer en une seule fois grâce à la méthode
     s = "".join (s)
 
 .. _par_liste_copie:
+
+.. _copy_deepopy_remarque:
 
 Copie
 +++++
@@ -1517,8 +1522,6 @@ ou si l'une est une copie de l'autre comme le montre l'exemple suivant :
     print(l is l3)  # affiche True
 
 **Fonction ``copy`` et ``deepcopy``**
-
-.. _copy_deepopy_remarque_:
 
 Le comportement de la fonction :func:`copy.copy`
 peut surprendre dans le cas où une liste contient d'autres listes.
@@ -1692,7 +1695,7 @@ les boucles (voir chapitre :ref:`chap_boucle`).
 .. runpython::
     :showcode:
 
-    d = { "un":1, "zéro":0, "deux":2, "trois":3, "quatre":4, "cinq":5, \
+    d = { "un":1, "zéro":0, "deux":2, "trois":3, "quatre":4, "cinq":5,
            "six":6, "sept":1, "huit":8, "neuf":9, "dix":10 }
     key = list(d.keys())
     key.sort()
@@ -1706,7 +1709,7 @@ seront les clés et réciproquement.
 .. runpython::
     :showcode:
 
-    d = { "un":1,   "zero":0, "deux":2, "trois":3, "quatre":4, "cinq":5, \
+    d = { "un":1,   "zero":0, "deux":2, "trois":3, "quatre":4, "cinq":5,
           "six":6,  "sept":1, "huit":8, "neuf":9,  "dix":10 }
 
     dinv = { }                      # création d'un dictionnaire vide, on parcout
@@ -1724,7 +1727,7 @@ sans créer de liste intermédiaire. Ceci explique ce qu'affiche le programme su
 .. runpython::
     :showcode:
 
-    d = { "un":1,   "zero":0, "deux":2, "trois":3, "quatre":4, "cinq":5, \
+    d = { "un":1,   "zero":0, "deux":2, "trois":3, "quatre":4, "cinq":5,
           "six":6,  "sept":1, "huit":8, "neuf":9,  "dix":10 }
     print(d.items())
     print(list(d.items()))
@@ -2036,7 +2039,7 @@ l'environnement dans lequel est exécuté le programme *python* :
       - Ce module contient tous les éléments présents dès le début d'un
         programme *python*, il contient entre autres
         les types présentés dans ce
-        chapitre et des fonctions simples comme ``range``.
+        chapitre et des fonctions simples comme :epkg:`range`.
     * - ``__doc__``
       - C'est une chaîne commentant le fichier, c'est une chaîne de caractères
         insérée aux premières lignes

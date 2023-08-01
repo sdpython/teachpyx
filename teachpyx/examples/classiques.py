@@ -247,9 +247,8 @@ def str2date(s, format="%d/%m/%Y"):
     """
     convertit une chaîne de caractères en datetime
 
-    @param      s       chaîne de caractères
-    @param      format  format de la conversion
-
+    :param s: chaîne de caractères
+    :param format: format de la conversion
 
     .. exref::
         :title: conversion d'une chaîne de caractère en datetime

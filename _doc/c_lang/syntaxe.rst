@@ -138,7 +138,7 @@ Définition et syntaxe
 .. mathdef::
     :title: test
     :tag: Définition
-    :lid: test_test
+    :label: test_test
 
     Les tests permettent d'exécuter des instructions différentes
     selon la valeur d'une condition logique.
@@ -617,7 +617,7 @@ qui réduit l'exemple suivant en trois lignes:
 
 La boucle la plus répandue est celle qui parcourt des indices entiers
 compris entre *0* et *n-1*. On utilise pour cela la boucle ``for`` et la fonction
-:func:`range` comme dans l'exemple qui suit.
+:epkg:`range` comme dans l'exemple qui suit.
 
 .. runpython::
     :showcode:
@@ -1053,7 +1053,7 @@ elles ont un identificateur et une valeur qui est dans ce cas
 un morceau de code. Cette précision explique certaines syntaxes du
 chapitre :ref:`chap_interface` sur les interfaces graphiques
 ou celle introduite en fin de chapitre au
-paragraphe :ref:`paragraphe_fonction_variable`.
+paragraphe :ref:`fonction comme paramètre <paragraphe_fonction_variable>`.
 
 .. _par_fonction_syntaxe:
 
@@ -1151,8 +1151,7 @@ les résultats de la première pour tout couple de valeurs
 
     def affichage (x,y):
         r, t = coordonnees_polaires(x, y)
-        print("cartésien (%f,%f) --> polaire (%f,%f degrés)" \
-                      % (x,y,r,math.degrees(t)))
+        print("cartésien (%f,%f) --> polaire (%f,%f degrés)" % (x,y,r,math.degrees(t)))
 
     affichage(1,1)
     affichage(0.5,1)
@@ -1738,8 +1737,8 @@ L'appel à cette fonction suit quant à lui la syntaxe suivante :
 
 ::
 
-    fonction (valeur_1, ..., valeur_n, \
-              liste_valeur_1, ..., liste_valeur_p, \
+    fonction (valeur_1, ..., valeur_n,
+              liste_valeur_1, ..., liste_valeur_p,
               nom_1 = v_1, ..., nom_q = v_q)
 
 Où ``fonction`` est un nom de fonction, ``valeur_1`` à
@@ -1908,7 +1907,7 @@ l'ensemble des entiers compris entre 0 et *n* exclu
                                 # fonction fonction_yield, elle simule la liste
                                 # [0,1,2]
 
-Le programme affiche tous les entiers compris entre~0 et 4 inclus ainsi que le
+Le programme affiche tous les entiers compris entre 0 et 4 inclus ainsi que le
 texte ``"yield 1"`` ou ``"yield 2"`` selon l'instruction ``yield`` qui a
 retourné le résultat. Lorsque la fonction a finalement terminé
 son exécution, le prochain appel agit comme si c'était la première
@@ -2019,6 +2018,8 @@ un exemple d'utilisation de la fonction ``compile`` avec la fonction ``eval``.
 
 .. _par_indentation:
 
+.. _fonction_sorted_enumerate:
+
 Indentation
 ===========
 
@@ -2113,8 +2114,6 @@ pour obtenir l'équivalent de la fonction
 
 .. index:: sorted
 
-.. _fonction_sorted_enumerate:
-
 Comme pour les dictionnaires, la fonction
 `sorted <https://docs.python.org/3/library/functions.html?highlight=map#sorted>`_
 permet de parcourir les éléments d'une liste de façon ordonnée.
@@ -2136,9 +2135,8 @@ la liste ``li`` demeure inchangée alors qu'elle est triée dans le premier prog
 
 .. index:: enumerate
 
-La fonction `enumerate <https://docs.python.org/3/library/functions.html?highlight=map#enumerate>`_
-permet d'éviter l'emploi de la fonction
-`range <https://docs.python.org/3/library/functions.html?highlight=map#func-range>`_
+La fonction :func:`enumerate`
+permet d'éviter l'emploi de la fonction :epkg:`range`
 lorsqu'on souhaite parcourir une liste alors que l'indice et l'élément sont nécessaires.
 
 .. runpython::

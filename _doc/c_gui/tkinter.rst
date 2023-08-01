@@ -116,7 +116,7 @@ Les exemples de codes des paragraphes qui suivent permettent de disposer les obj
 dans une fenêtre qui ne s'affichera pas sans les quelques lignes de code
 supplémentaires présentées au paragraphe :ref:`mainloop_fenetre_principale`
 et l'utilisation d'une méthode
-:meth:`tkinter.Widget.pack`
+:epkg:`tkinter.Widget.pack`
 L'exemple suivant crée un objet :
 
 ::
@@ -190,7 +190,7 @@ Bouton
 .. index:: bouton
 
 Un bouton a pour but de faire le lien entre une fonction et un clic de souris.
-Un bouton correspond à la classe :class:`tkinter.Button`
+Un bouton correspond à la classe :epkg:`tkinter.Button`
 Pour créer un bouton, il suffit d'écrire la ligne suivante :
 
 ::
@@ -199,7 +199,7 @@ Pour créer un bouton, il suffit d'écrire la ligne suivante :
 
 Il est possible que le texte de ce bouton doive changer après quelques temps.
 Dans ce cas, il faut appeler la méthode
-:meth:`tkinter.Button.config` comme suit :
+:epkg:`tkinter.Button.config` comme suit :
 
 ::
 
@@ -265,7 +265,7 @@ Zone de saisie
 
 Une zone de saisie a pour but de recevoir une information entrée
 par l'utilisateur. Une zone de saisie correspond à la classe
-:class:`tkinter.Entry` ;
+:epkg:`tkinter.Entry` ;
 pour en créer une, il suffit d'écrire la ligne suivante :
 
 ::
@@ -273,7 +273,7 @@ pour en créer une, il suffit d'écrire la ligne suivante :
     saisie = tkinter.Entry ()
 
 Pour modifier le contenu de la zone de saisie, il faut utiliser
-la méthode :meth:`tkinter.Entry.insert`
+la méthode :epkg:`tkinter.Entry.insert`
 qui insère un texte à une position donnée.
 
 ::
@@ -283,14 +283,14 @@ qui insère un texte à une position donnée.
     saisie.insert (pos, "contenu")
 
 Pour obtenir le contenu de la zone de saisie, il faut utiliser la méthode
-:meth:`tkinter.Entry.get` :
+:epkg:`tkinter.Entry.get` :
 
 ::
 
     contenu = saisie.get ()
 
 Pour supprimer le contenu de la zone de saisie, il faut utiliser la
-méthode :meth:`tkinter.Entry.delete`.
+méthode :epkg:`tkinter.Entry.delete`.
 Cette méthode supprime le texte entre deux positions.
 
 ::
@@ -317,7 +317,7 @@ on peut utiliser l'instruction suivante :
 La seconde zone de saisie est grisée par rapport à la première.
 Les zones de saisie grisées ne peuvent pas être modifiées. Pour obtenir
 cet état, il suffit d'utiliser la méthode
-:meth:`tkinter.Entry.config`
+:epkg:`tkinter.Entry.config`
 comme pour les précédents objets. Cette option sera rappelée au paragraphe
 :ref:`methode_communes_interface`.
 
@@ -330,7 +330,7 @@ Zone de saisie à plusieurs lignes
 
 Une zone de saisie à plusieurs lignes est identique à la précédente à ceci
 près qu'elle autorise la saisie d'un texte sur plusieurs lignes. Cette zone
-correspond à la classe :class:`tkinter.Text`.
+correspond à la classe :epkg:`tkinter.Text`.
 Pour créer une telle zone, il suffit d'écrire la ligne suivante :
 
 ::
@@ -338,7 +338,7 @@ Pour créer une telle zone, il suffit d'écrire la ligne suivante :
     saisie = tkinter.Text ()
 
 Pour modifier le contenu de la zone de saisie, il faut utiliser la méthode
-:meth:`tkinter.Text.insert`
+:epkg:`tkinter.Text.insert`
 qui insère un texte à une position donnée. La méthode diffère de celle
 de la classe :ref:`Entry <tkinter-entry>` puisque la position d'insertion est
 maintenant une chaîne de caractères contenant deux nombres séparés
@@ -352,7 +352,7 @@ par un point : le premier nombre désigne la ligne, le second la position sur ce
     saisie.insert (pos, "première ligne\nseconde ligne")
 
 Pour obtenir le contenu de la zone de saisie, il faut utiliser la méthode
-:meth:`tkinter.Text.get`
+:epkg:`tkinter.Text.get`
 qui retourne le texte entre deux positions. La position de fin n'est pas
 connue, on utilise la chaîne de caractères ``"end"`` pour désigner la fin de la zone de saisie.
 
@@ -364,7 +364,7 @@ connue, on utilise la chaîne de caractères ``"end"`` pour désigner la fin de 
     contenu = saisie.get (pos1, pos2)
 
 Pour supprimer le contenu de la zone de saisie, il faut utiliser la méthode
-:meth:`tkinter.Text.delete`.
+:epkg:`tkinter.Text.delete`.
 Cette méthode supprime le texte entre deux positions.
 
 ::
@@ -399,7 +399,7 @@ on utilise l'instruction suivante :
 
 L'image précédente montre une zone de saisie à plusieurs lignes.
 Pour griser cette zone, il suffit d'utiliser la méthode
-:meth:`tkinter.Text.config`
+:epkg:`tkinter.Text.config`
 rappelée au paragraphe :ref:`methode_communes_interface`.
 
 .. _tkinter-checkbutton:
@@ -410,7 +410,7 @@ Case à cocher
 .. index:: CheckButton, case à cocher
 
 Une case à cocher correspond à la classe
-:class:`tkinter.CheckButton`.
+:epkg:`tkinter.CheckButton`.
 Pour créer une case à cocher, il suffit d'écrire la ligne suivante :
 
 ::
@@ -421,9 +421,9 @@ Pour créer une case à cocher, il suffit d'écrire la ligne suivante :
     case = tkinter.Checkbutton (variable = v)
 
 En fait, ce sont deux objets qui sont créés. Le premier, de type
-:class:`tkinter.IntVar`,
+:epkg:`tkinter.IntVar`,
 mémorise la valeur de la case à cocher. Le second objet, de type
-:class:`tkinter.CheckButton`, gère l'apparence
+:epkg:`tkinter.CheckButton`, gère l'apparence
 au niveau de l'interface graphique. La raison de ces deux objets est plus
 évidente dans le cas de l'objet
 :ref:`RadioButton <tkinter-checkbutton>` décrit au paragraphe suivant.
@@ -457,7 +457,7 @@ Il est possible d'associer du texte à l'objet case à cocher :
 
 La troisième est grisée par rapport à la première. Les cases grisées ne peuvent pas être cochées.
 Pour obtenir cet état, il suffit d'utiliser la méthode
-:meth:`tkinter.CheckButton.config`
+:epkg:`tkinter.CheckButton.config`
 rappelée au paragraphe :ref:`methode_communes_interface`.
 
 .. _tkinter-radiobutton:
@@ -468,7 +468,7 @@ Case ronde ou bouton radio
 .. index:: RadioButton, bouton radio, IntVar
 
 Une case ronde ou *bouton radio* correspond à la classe
-:class:`tkinter.RadioButton`.
+:epkg:`tkinter.RadioButton`.
 Elles fonctionnent de manière semblable à des cases à cocher excepté le
 fait qu'elles n'apparaissent jamais seules : elles fonctionnent en groupe.
 Pour créer un groupe de trois cases rondes, il suffit d'écrire la ligne suivante :
@@ -531,7 +531,7 @@ Liste
 
 Un objet liste contient une liste d'intitulés qu'il est possible de
 sélectionner. Une liste correspond à la classe
-:class:`tkinter.ListBox`.
+:epkg:`tkinter.ListBox`.
 Pour la créer, il suffit d'écrire la ligne suivante :
 
 ::
@@ -549,7 +549,7 @@ on utilise l'instruction suivante :
     li.config (width = 10, height = 5)
 
 On peut insérer un élément dans la liste avec la méthode
-:meth:`tkiner.ListBox.insert` :
+:epkg:`tkinter.ListBox.insert` :
 
 ::
 
@@ -557,7 +557,7 @@ On peut insérer un élément dans la liste avec la méthode
     li.insert (pos, "première ligne")
 
 On peut supprimer des intitulés de cette liste avec la méthode
-:meth:`tkiner.ListBox.delete`.
+:epkg:`tkinter.ListBox.delete`.
 
 ::
 
@@ -568,7 +568,7 @@ On peut supprimer des intitulés de cette liste avec la méthode
 
 Les intitulés de cette liste peuvent ou non être sélectionnés. Cliquer sur un
 intitulé le sélectionne mais la méthode
-:meth:`tkiner.ListBox.select_set` permet aussi de le faire.
+:epkg:`tkinter.ListBox.select_set` permet aussi de le faire.
 
 ::
 
@@ -578,7 +578,7 @@ intitulé le sélectionne mais la méthode
     # pos2 inclus ou seulement celui d'indice pos1 si pos2 == None
 
 Réciproquement, il est possible d'enlever un intitulé de la sélection à
-l'aide de la méthode :meth:`tkiner.ListBox.select_clear`.
+l'aide de la méthode :epkg:`tkinter.ListBox.select_clear`.
 
 ::
 
@@ -587,14 +587,14 @@ l'aide de la méthode :meth:`tkiner.ListBox.select_clear`.
     # retire la sélection de tous les éléments entre les indices
     # pos1 et pos2 inclus ou seulement celui d'indice pos1 si pos2 == None
 
-La méthode :meth:`tkiner.ListBox.curselection`
+La méthode :epkg:`tkinter.ListBox.curselection`
 permet d'obtenir la liste des indices des éléments sélectionnés.
 
 ::
 
     sel = li.curselection ()
 
-La méthode :meth:`tkiner.ListBox.get`
+La méthode :epkg:`tkinter.ListBox.get`
 permet récupérer un élément de la liste tandis que la méthode \codes{size} retourne le nombre d'éléments :\indextkk{size}\indextkk{get}
 
 ::
@@ -612,11 +612,11 @@ Exemple de liste. La seconde liste est grisée et ne peut être modifiée.
       - .. image:: images/list2.png
 
 Pour obtenir l'état grisé, il faut appeler la méthode
-:meth:`tkiner.ListBox.config`
+:epkg:`tkinter.ListBox.config`
 et rappelée au paragraphe :ref:`methode_communes_interface`.
 Il est possible d'adjoindre une barre de défilement verticale. Il faut pour
 cela inclure l'objet dans une sous-fenêtre
-:class:`tkinter.Frame`
+:epkg:`tkinter.Frame`
 qui est définie au paragraphe :ref:`interf_fraph_sous_gene`
 comme dans l'exemple suivant :
 
@@ -624,7 +624,7 @@ comme dans l'exemple suivant :
 
     frame      = tkinter.Frame (parent)
     scrollbar  = tkinter.Scrollbar (frame)
-    li         = tkinter.Listbox (frame, width = 88, height = 6, \
+    li         = tkinter.Listbox (frame, width = 88, height = 6,
                                   yscrollcommand = scrollbar.set)
     scrollbar.config (command = li.yview)
     li.pack (side = tkinter.LEFT)
@@ -635,13 +635,13 @@ Toutefois, il est préférable d'utiliser un objet prédéfini présent dans le 
 :mod:`tkinter.tix` qui est une extension du module :epkg:`tkinter`.
 Elle est présentée au paragraphe :ref:`chap_interface_exemple_programme`.
 
-Lorsqu'on insère plusieurs objets :class:`tkinter.ListBox`
+Lorsqu'on insère plusieurs objets :epkg:`tkinter.ListBox`
 dans une seule fenêtre, ces objets partagent par défaut la même sélection.
 Autrement dit, lorsqu'on clique sur un élément de la seconde
-:class:`tkinter.ListBox`,
+:epkg:`tkinter.ListBox`,
 l'élément sélectionné dans la première ne l'est plus. Afin de pouvoir
 sélectionner un élément dans chaque
-:class:`tkinter.ListBox`, il faut ajouter
+:epkg:`tkinter.ListBox`, il faut ajouter
 dans les paramètres du constructeur l'option ``exportselection=0``
 comme l'illustre l'exemple suivant :
 
@@ -651,7 +651,7 @@ comme l'illustre l'exemple suivant :
 
 Il existe des méthodes plus avancées qui permettent de modifier l'aspect
 graphique d'un élément comme la méthode
-:meth:`tkinter.ListBox.itemconfig`.
+:epkg:`tkinter.ListBox.itemconfig`.
 Son utilisation est peu fréquente à moins de vouloir réaliser une belle
 interface graphique. Le paragraphe :ref:`more_than_on_e_window_ref_liste`
 montre l'utilisation qu'on peut en faire.
@@ -663,7 +663,7 @@ Liste avec barre de défilement, Combobox
 	
 C'est une liste avec une barre de défilement incluse qui est présente dans l'extension
 :mod:`tkinter.ttk` qui étend la liste des objets proposés par
-:epkg:`tkinter`. C'est ce que fait l'objet :class:`tkinter.ttk.ComboBox`.
+:epkg:`tkinter`. C'est ce que fait l'objet :epkg:`tkinter.ttk.Combobox`.
 
 ::
 
@@ -699,7 +699,7 @@ Canevas
 -------
 
 Pour dessiner, il faut utiliser un objet canevas,
-correspondant à la classe :class:`tkinter.Canvas`.
+correspondant à la classe :epkg:`tkinter.Canvas`.
 Pour la créer, il suffit d'écrire la ligne suivante :
 
 ::
@@ -718,9 +718,9 @@ on utilise l'instruction suivante :
 
 Cet objet permet de dessiner des lignes, des courbes, d'écrire du
 texte grâce aux méthodes
-:meth:`tkinter.Canvas.create_line`,
-:meth:`tkinter.Canvas.create_rectangle`,
-:meth:`tkinter.Canvas.create_text`.
+:epkg:`tkinter.Canvas.create_line`,
+:epkg:`tkinter.Canvas.create_rectangle`,
+:epkg:`tkinter.Canvas.create_text`.
 
 ::
 
@@ -829,9 +829,9 @@ Emplacements
 Chacun des objets (ou widgets) présentés au paragraphe précédent
 possède trois méthodes qui permettent de déterminer sa position dans
 une fenêtre :
-:meth:`tkinter.Widget.pack`,
-:meth:`tkinter.Widget.grid`,
-:meth:`tkinter.Widget.place`.
+:epkg:`tkinter.Widget.pack`,
+:epkg:`tkinter.Widget.grid`,
+:epkg:`tkinter.Widget.place`.
 Les deux premières permettent de disposer les objets sans se soucier
 ni de leur dimension ni de leur position. La fenêtre gère cela
 automatiquement. La dernière place les objets dans une fenêtre à
@@ -890,8 +890,8 @@ Il n'est pas toujours évident d'obtenir du premier coup le positionnement
 des objets souhaités au départ et il faut tâtonner pour y arriver.
 Lorsque un objet n'est plus nécessaire, il est possible de le faire
 disparaître en appelant la méthode
-:meth:`tkinter.Widget.pack_forget`.
-Le rappel de la méthode :meth:`tkinter.Widget.pack`
+:epkg:`tkinter.Widget.pack_forget`.
+Le rappel de la méthode :epkg:`tkinter.Widget.pack`
 le fera réapparaître mais rarement au même endroit.
 
 ::
@@ -902,7 +902,7 @@ le fera réapparaître mais rarement au même endroit.
 Méthode grid
 ++++++++++++
 
-La méthode :meth:`tkinter.Widget.grid`
+La méthode :epkg:`tkinter.Widget.grid`
 suppose que la fenêtre qui les contient est organisée selon une grille
 dont chaque case peut recevoir un objet. L'exemple suivant place
 trois objets dans les cases de coordonnées
@@ -923,7 +923,7 @@ compte des lignes et colonnes vides.
 
 .. image:: images/grid1.png
 
-La méthode :meth:`tkinter.Widget.grid`
+La méthode :epkg:`tkinter.Widget.grid`
 possède plusieurs options, en voici cinq :
 
 * ``column`` : colonne dans laquelle sera placée l'objet.
@@ -939,8 +939,8 @@ possède plusieurs options, en voici cinq :
   d'étendre l'objet d'un bord à l'autre en écrivant ``sticky="N+S"``
   ou ``sticky="E+W"``.
 
-Enfin, comme pour la méthode :meth:`tkinter.Widget.pack`,
-il existe une méthode :meth:`tkinter.Widget.grid_forget`
+Enfin, comme pour la méthode :epkg:`tkinter.Widget.pack`,
+il existe une méthode :epkg:`tkinter.Widget.grid_forget`
 qui permet de faire disparaître les objets.
 
 ::
@@ -950,25 +950,25 @@ qui permet de faire disparaître les objets.
 Méthode place
 +++++++++++++
 
-La méthode :meth:`tkinter.Widget.place`
+La méthode :epkg:`tkinter.Widget.place`
 est sans doute la plus simple à comprendre puisqu'elle permet
 de placer chaque objet à une position définie par des coordonnées.
 Elle peut être utilisée en parallèle avec les méthodes
-:meth:`tkinter.Widget.place` et
-:meth:`tkinter.Widget.grid`.
+:epkg:`tkinter.Widget.place` et
+:epkg:`tkinter.Widget.grid`.
 
 ::
 
     l = tkinter.Label(text="première ligne")
     l.place (x=10, y=50)
 
-La méthode :meth:`tkinter.Widget.place_forget`
+La méthode :epkg:`tkinter.Widget.place_forget`
 permet de faire disparaître un objet placer avec cette méthode.
 L'inconvénient de cette méthode survient lorsqu'on cherche à modifier
 l'emplacement d'un objet : il faut en général revoir les positions de
 tous les autres éléments de la fenêtre. On procède souvent par tâtonnement
 pour construire une fenêtre et disposer les objets. Ce travail est beaucoup
-plus long avec la méthode :meth:`tkinter.Widget.place`.
+plus long avec la méthode :epkg:`tkinter.Widget.place`.
 
 .. _interf_fraph_sous_gene:
 
@@ -982,7 +982,7 @@ C'est aussi la seule façon de réutiliser un groupe de contrôle ou widgets
 dans plusieurs fenêtres sans avoir à dupliquer le code.
 La figure suivante montre deux objets regroupés dans un rectangle avec à sa
 gauche une zone de texte. Les boîtes sont des instances de la classe
-:class:`tkinter.Frame`.
+:epkg:`tkinter.Frame`.
 
 .. image:: images/frame.png
 
@@ -990,7 +990,7 @@ Les deux premiers objets, une zone de texte au-dessus d'une zone de saisie,
 sont regroupés dans une boîte rectangle rouge, invisible à l'écran.
 A droite et centrée, une dernière zone de texte. Cet alignement est plus simple à réaliser
 en regroupant les deux premiers objets dans un object
-:class:`tkinter.Frame`.
+:epkg:`tkinter.Frame`.
 Pour créer une boîte, il suffit d'écrire la ligne suivante :
 
 ::
@@ -1022,7 +1022,7 @@ la fenêtre de la figure ci-dessus.
     e.pack (side = tkinter.RIGHT) # positionne e à l'intérieur
                                   #   de la fenêtre principale
 
-L'utilisation de ces blocs :class:`tkinter.Frame`
+L'utilisation de ces blocs :epkg:`tkinter.Frame`
 est pratique lorsque le même ensemble de contrôles apparaît dans
 plusieurs fenêtres différentes ou au sein de la même fenêtre.
 Cette possibilité est envisagée au paragraphe
@@ -1070,12 +1070,12 @@ Une fenêtre peut contenir plusieurs zones de saisie, toutes capables
 d'intercepter la pression d'une touche du clavier et d'ajouter
 la lettre correspondante à la zone de saisie. Or la seule qui
 ajoute effectivement une lettre à son contenu est celle qui a le
-:meth:`tkinter.Widget.focus`.
+:epkg:`tkinter.Widget.focus`.
 La pression de la touche tabulation fait passer le focus d'un
 objet à l'autre. La figure ci-dessous montre un bouton qui a le focus.
 Lorsqu'on désire qu'un objet en particulier ait le focus,
 il suffit d'appeler la méthode
-:meth:`tkinter.Widget.focus_set`.
+:epkg:`tkinter.Widget.focus_set`.
 
 .. image:: images/focus.png
 
@@ -1161,7 +1161,7 @@ fonctions à des événements liés à leur apparence.
 Toutefois, pour un jeu par exemple, il est parfois nécessaire
 d'avoir accès au mouvement de la souris et il faut revenir aux
 événements *bruts*. Un événement est décrit par la classe
-:class:`tkinter.Event`
+:epkg:`tkinter.Event`
 dont les attributs listés par la table suivante décrivent l'événement
 qui sera la plupart du temps la pression d'une touche du clavier
 ou le mouvement de la souris.
@@ -1197,10 +1197,10 @@ La liste complète est accessible avec l'instruction suivante :
     import tkinter
     help(tkinter.Event)
 
-La méthode :meth:`tkinter.Widget.bind`
+La méthode :epkg:`tkinter.Widget.bind`
 permet d'exécuter une fonction lorsqu'un certain événement donné est
 intercepté par un objet donné. La fonction exécutée accepte un seul
-paramètre de type :class:`tkinter.Event`
+paramètre de type :epkg:`tkinter.Event`
 qui est l'événement qui l'a déclenchée. Cette méthode a pour syntaxe :
 
 ::
@@ -1211,7 +1211,7 @@ qui est l'événement qui l'a déclenchée. Cette méthode a pour syntaxe :
 caractères ``ev`` dont les valeurs possibles sont décrites ci-dessous.
 ``fonction`` est la fonction qui est appelée lorsque l'événement survient. Cette fonction
 ne prend qu'un paramètre de type
-:class:`tkinter.Event`.
+:epkg:`tkinter.Event`.
 
 .. list-table::
     :widths: 5 10
@@ -1248,7 +1248,7 @@ La liste complète est accessible avec l'instruction suivante :
     help(tkinter.Label.bind)
 
 L'exemple suivant utilise la méthode
-:meth:`tkinter.Widget.bind`
+:epkg:`tkinter.Widget.bind`
 pour que le seul bouton de la fenêtre intercepte toute pression d'une
 touche, tout mouvement et toute pression du premier bouton de la souris
 lorsque le curseur est au dessus de la zone graphique du bouton.
@@ -1334,9 +1334,9 @@ suivantes qui signifie que l'événement ``<button-1>`` n'existe pas.
 
 Il arrive parfois qu'un événement ne doive pas être associé à un
 seul objet mais à tous ceux que la fenêtre contient. C'est
-l'objectif de la méthode :meth:`tkinter.Widget.bind_all`.
+l'objectif de la méthode :epkg:`tkinter.Widget.bind_all`.
 Sa syntaxe est exactement la même que la méthode
-:meth:`tkinter.Widget.bind`.
+:epkg:`tkinter.Widget.bind`.
 
 ::
 
@@ -1348,9 +1348,9 @@ On utilise peu cette fonction, on préfère construire des objets propres
 De la même manière qu'il est possible d'associer un événement à un
 objet d'une fenêtre, il est possible d'effectuer l'opération inverse
 qui consiste à supprimer cette association.
-La méthode :meth:`tkinter.Widget.unbind`
+La méthode :epkg:`tkinter.Widget.unbind`
 désactive un événement associé à un objet.
-La méthode :meth:`tkinter.Widget.unbind_all`
+La méthode :epkg:`tkinter.Widget.unbind_all`
 désactive un événement associé pour tous les objets d'une fenêtre.
 
 ::
@@ -1380,7 +1380,7 @@ Menu
 Les menus fonctionnent de la même manière que les boutons.
 Chaque intitulé du menu est relié à une fonction qui sera
 exécutée à la condition que l'utilisateur sélectionne cet
-intitulé. L'objet :class:`tkinter.Menu`
+intitulé. L'objet :epkg:`tkinter.Menu`
 ne désigne pas le menu dans son ensemble mais seulement un niveau.
 Par exemple, le menu présenté par la figure suivante est en fait un
 assemblage de trois menus auquel on pourrait ajouter d'autres sous-menus.
@@ -1390,7 +1390,7 @@ assemblage de trois menus auquel on pourrait ajouter d'autres sous-menus.
 La représentation d'un menu tient plus d'un graphe que d'une liste. Chaque intitulé
 du menu peut être connecté à une fonction ou être le point d'entrée d'un nouveau sous-menu.
 Pour créer un menu ou un sous-menu, il suffit de créer un objet de type
-:class:`tkinter.Menu` :
+:epkg:`tkinter.Menu` :
 
 ::
 
@@ -1405,10 +1405,10 @@ le suivant :
     root.config (menu = m)
 
 ``root`` est ici la fenêtre principale mais ce pourrait être également
-une fenêtre de type :class:`tkinter.Toplevel`
+une fenêtre de type :epkg:`tkinter.Toplevel`
 Ce menu peut aussi être le sous-menu associé à un intitulé d'un menu
 existant. La méthode
-:meth:`tkinter.Menu.add_cascade`
+:epkg:`tkinter.Menu.add_cascade`
 permet d'ajouter un sous-menu associé à un label :
 
 ::
@@ -1418,7 +1418,7 @@ permet d'ajouter un sous-menu associé à un label :
     mainmenu.add_cascade (label = "sous-menu 1", menu = msousmenu)
 
 En revanche, si on souhaite affecter une fonction à un menu, on utilisera
-la méthode :meth:`tkinter.Menu.add_command`.
+la méthode :epkg:`tkinter.Menu.add_command`.
 
 ::
 
@@ -1474,7 +1474,7 @@ Ce qui donne :
 
 Chaque intitulé d'un menu est ajouté en fin de liste,
 il est possible d'en supprimer certains à partir de leur position avec
-la méthode :meth:`tkinter.Menu.delete`.
+la méthode :epkg:`tkinter.Menu.delete`.
 
 ::
 
@@ -1503,32 +1503,32 @@ un seul bouton qui, s'il est pressé, mettra fin à l'application.
 
 La table suivante regroupe les fonctions les plus utilisées.
 Celles-ci s'applique à une fenêtre de type
-:class:`tkinter.Toplevel`
+:epkg:`tkinter.Toplevel`
 qui est aussi le type de la fenêtre principale.
 
 .. list-table::
     :widths: 5 10
     :header-rows: 0
 
-    * - :meth:`tkinter.Toplevel.destroy`
+    * - :epkg:`tkinter.Toplevel.destroy`
       - Détruit la fenêtre.
-    * - :meth:`tkinter.Toplevel.deiconify`
+    * - :epkg:`tkinter.Toplevel.deiconify`
       - La fenêtre reprend une taille normale.
-    * - :meth:`tkinter.Toplevel.geometry` (s)
+    * - :epkg:`tkinter.Toplevel.geometry` (s)
       - Modifie la taille de la fenêtre. ``s`` est une chaîne de
         caractères de type ``"w x h ± x ± y"``.
         ``w`` et ``h`` sont la largeur et la hauteur.
         ``x`` et ``y`` sont la position du coin supérieur haut à l'écran.
-    * - :meth:`tkinter.Toplevel.iconify`
+    * - :epkg:`tkinter.Toplevel.iconify`
       - La fenêtre se réduit à un icône.
-    * - :meth:`tkinter.Toplevel.resizable` (w, h)
+    * - :epkg:`tkinter.Toplevel.resizable` (w, h)
       - Spécifie si la fenêtre peut changer de taille.
         ``w`` et ``h`` sont des booléens.
-    * - :meth:`tkinter.Toplevel.title` (s)
+    * - :epkg:`tkinter.Toplevel.title` (s)
       - Change le titre de la fenêtre, ``s`` est une chaîne de caractères.
-    * - :meth:`tkinter.Toplevel.withdraw`
+    * - :epkg:`tkinter.Toplevel.withdraw`
       - Fait disparaître la fenêtre. La fonction inverse est
-        :meth:`tkinter.Toplevel.deiconify`.
+        :epkg:`tkinter.Toplevel.deiconify`.
 
 D'autres fenêtres et contrôles
 ------------------------------
@@ -1539,15 +1539,15 @@ Deux extensions complètent cette liste
 :mod:`tkinter.ttk` et :mod:`tkinter.tix`.
 On trouve notamment :
 
-* :class:`tkinter.ttk.Combobox`
-* :class:`tkinter.ttk.Notebook`
-* :class:`tkinter.ttk.Progressbar`
-* :class:`tkinter.ttk.Treeview`
+* :epkg:`tkinter.ttk.Combobox`
+* :epkg:`tkinter.ttk.Notebook`
+* :epkg:`tkinter.ttk.Progressbar`
+* :epkg:`tkinter.ttk.Treeview`
 
 :mod:`tkinter.tix` propose des widgets un peu plus complexes :
 
-* :class:`tkinter.tix.DirTree`
-* :class:`tkinter.tix.FileSelectBox`
+* :epkg:`tkinter.tix.DirTree`
+* :epkg:`tkinter.tix.FileSelectBox`
 
 Cette liste n'est pas exhaustive.
 
@@ -1556,7 +1556,7 @@ Créer une seconde boîte de dialogues
 
 Lorsqu'un programme doit utiliser plusieurs fenêtres et non
 pas une seule, l'emploi de l'objet
-:class:`tkinter.Toplevel`
+:epkg:`tkinter.Toplevel`
 est inévitable. L'instruction ``root = tkinter.Tk()``
 crée la fenêtre principale, l'instruction ``win = tkinter.Toplevel()``
 crée une seconde fenêtre qui fonctionne exactement comme la fenêtre
@@ -1572,16 +1572,16 @@ messages via la méthode ``mainloop``.
 Un cas d'utilisation simple est par exemple un bouton pressé qui
 fait apparaître une fenêtre permettant de sélectionner un fichier,
 cette seconde fenêtre sera un objet
-:class:`tkinter.Toplevel`.
+:epkg:`tkinter.Toplevel`.
 Il n'est pas nécessaire de s'étendre plus sur cet objet, son comportement est
 identique à celui de la fenêtre principale, les fonctions décrites
 au paragraphe :ref:`fonction_predefeinies_toot` s'appliquent également
-aux objets :class:`tkinter.Toplevel`.
+aux objets :epkg:`tkinter.Toplevel`.
 Il reste néanmoins à préciser un dernier point. Tous les
 objets précédemment décrits au paragraphe :ref:`interface_graphique_objet_s`
 doivent inclure un paramètre supplémentaire dans leur
 constructeur pour signifier qu'ils appartiennent à un objet
-:class:`tkinter.Toplevel`
+:epkg:`tkinter.Toplevel`
 et non à la fenêtre principale. Par exemple, pour créer
 une zone de texte, la syntaxe est la suivante :
 
@@ -1590,7 +1590,7 @@ une zone de texte, la syntaxe est la suivante :
     # zone_texte appartient à la fenêtre principale
     zone_texte = tkinter.Label (text = "premier texte")
 
-Pour l'inclure à une fenêtre :class:`tkinter.Toplevel`,
+Pour l'inclure à une fenêtre :epkg:`tkinter.Toplevel`,
 cette syntaxe devient :
 
 ::
@@ -1601,20 +1601,20 @@ cette syntaxe devient :
 
 Lors de la définition de chaque objet ou *widget*,
 si le premier paramètre est de type
-:class:`tkinter.Toplevel`,
+:epkg:`tkinter.Toplevel`,
 alors ce paramètre sera affecté à la fenêtre passée en
 premier argument et non à la fenêtre principale.
 Ce principe est le même que celui de la sous-fenêtre
-:class:`tkinter.Frame`
+:epkg:`tkinter.Frame`
 (voir paragraphe :ref:`interf_fraph_sous_gene`).
 La seule différence provient du fait que l'objet
-:class:`tkinter.Toplevel`
+:epkg:`tkinter.Toplevel`
 est une fenêtre autonome qui peut attendre un message grâce à la méthode
 ``mainloop``, ce n'est pas le cas de l'objet
-:class:`tkinter.Frame`.
+:epkg:`tkinter.Frame`.
 
 Toutefois, il est possible d'afficher plusieurs fenêtres
-:class:`tkinter.Toplevel` simultanément.
+:epkg:`tkinter.Toplevel` simultanément.
 Le programme suivant en est un exemple :
 
 ::
@@ -1669,20 +1669,19 @@ affiche une fenêtre qui permet de sélectionner un fichier.
     import os
 
     class FileSelection(object) :
-        """classe permettant de sélectionner un fichier
-        ou un répertoire à travers une boîte de dialogue"""
+        """
+        Classe permettant de sélectionner un fichier
+        ou un répertoire à travers une boîte de dialogue.
 
-        def __init__(self, parent, titre = "Sélection de fichier", \
-                        chemin = None, file = True, exist= True) :
-            """
-            initialise la classe
+        :param parent: parent
+        :param titre: titre de la fenêtre
+        :param chemin: fichier ou répertoire par défaut
+        :param file: True, fichier, False, répertoire
+        :param exist: True, le répertoire ou le fichier sélectionné doit exister
+        """
 
-            @param      parent          parent
-            @param      titre           titre de la fenêtre
-            @param      chemin          fichier ou répertoire par défaut
-            @param      file            True : fichier, False : répertoire
-            @param      exist           True : le répertoire ou le fichier
-                                               sélectionné doit exister"""
+        def __init__(self, parent, titre="Sélection de fichier",
+                     chemin=None, file=True, exist=True) :
             self.parent = parent
             self.titre  = titre
             self.chemin = chemin
@@ -1890,7 +1889,7 @@ Compte à rebours
 Il est possible de demander à un objet d'appeler une fonction
 après un certains laps de temps exprimé un millisecondes. Le programme
 suivant crée un objet de type
-:class:`tkinter.Label`.
+:epkg:`tkinter.Label`.
 Il contient une fonction qui change son contenu et lui affecte un
 compte à rebours qui impose à l'objet de rappeler cette fonction
 1000 millisecondes plus tard. Le résultat est un programme qui crée
@@ -1924,7 +1923,7 @@ L'intitulé de l'objet ``Label`` change toutes les secondes.
 La méthode `tkinter.Label.after`
 retourne un entier permettant d'identifier le compte à rebours
 qu'il est possible d'interrompre en utilisant la méthode
-:meth:`tkinter.Label.after_cancel`
+:epkg:`tkinter.Label.after_cancel`
 Dans l'exemple précédent, il faudrait utiliser l'instruction
 suivante :
 
@@ -1941,14 +1940,14 @@ On peut personnifier un contrôle. Par exemple, on peut mettre en
 évidence l'intitulé d'une liste sous le curseur de la souris.
 Le moyen le plus simple est de créer une nouvelle classe qui
 se substituera au classique
-:class:`tkinter.ListBox`.
+:epkg:`tkinter.ListBox`.
 Il suffit que cette nouvelle classe hérite de
-:class:`tkinter.ListBox`
+:epkg:`tkinter.ListBox`
 en prenant soin de lui donner un constructeur reprenant les mêmes
 paramètres que celui de la classe
-:class:`tkinter.ListBox`.
+:epkg:`tkinter.ListBox`.
 De cette façon, il suffit de remplacer
-:class:`tkinter.ListBox`
+:epkg:`tkinter.ListBox`
 par ``MaListbox`` pour changer l'apparence d'une liste.
 
 ::
@@ -2045,8 +2044,8 @@ Ce programme crée trois boutons et attache à chacun d'entre eux une
 méthode de la classe ``MaFenetre``. Le constructeur de la classe prend
 comme unique paramètre un pointeur sur un objet qui peut être la
 fenêtre principale, un objet de type
-:class:`tkinter.Frame` ou
-:class:`tkinter.Toplevel`.
+:epkg:`tkinter.Frame` ou
+:epkg:`tkinter.Toplevel`.
 Cette construction permet de considérer cet ensemble de trois boutons comme
 un objet à part entière ; de ce fait il peut être inséré plusieurs fois
 comme le montre l'exemple suivant illustré par la figure qui suit.
@@ -2168,7 +2167,7 @@ Le programme suivant utilise ce concept. La pression d'un bouton appelle une
 fonction ``event_generate`` qui génère un message personnalisé
 ``<<perso>>`` avec comme paramètre ``rooty=-5``. A son tour, celui-ci est
 attrapé et dirigé vers la fonction ``perso`` qui affiche l'attribut
-``y_root`` de la classe :class:`tkinter.Event`
+``y_root`` de la classe :epkg:`tkinter.Event`
 qui a reçu la valeur \codes{-5} lors de l'appel de la fonction
 ``event_generate``. Ce procédé ne permet toutefois que de renvoyer que
 quelques résultats entiers.

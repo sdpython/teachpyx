@@ -453,7 +453,7 @@ proche de celui d'un spammeur.
                 content = f.read()
             part.set_payload(content)
             encoders.encode_base64(part)
-            part.add_header('Content-Disposition',  \
+            part.add_header('Content-Disposition',
                             'attachment; filename="%s"' % os.path.basename(file))
             msg.attach(part)
 

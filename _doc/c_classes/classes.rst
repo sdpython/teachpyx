@@ -913,7 +913,7 @@ l'instruction ``print`` affiche un nombre complexe sous la forme :math:`a+ i b`.
     print(c3)       # affiche 1.000000 + 1.000000 i
 
 Il existe de nombreux opérateurs qu'il est possible de définir.
-La table :ref:`operateur_classe` présente les plus utilisés.
+La table :ref:`opérateurs et classes <operateur_classe>` présente les plus utilisés.
 Parmi ceux-là, on peut s'attarder sur les opérateurs
 ``__getitem__`` et ``__setitem__``, ils redéfinissent l'opérateur
 ``[]`` permettant d'accéder à un élément d'une liste ou d'un dictionnaire.
@@ -966,7 +966,7 @@ Par le biais de l'exception ``IndexError``, les expressions
 le programme par un message comme celui qui suit obtenu après
 l'interprétation de ``print(a[4])`` :
 
-.. _operator_classe:
+.. _operateur_classe:
 
 .. list-table::
     :widths: 5 10
@@ -1497,6 +1497,8 @@ du corps de ``essai_class``.
 
 .. _classe_proprietes_par:
 
+.. _exemple_point_xyz:
+
 Propriétés
 ----------
 
@@ -1559,8 +1561,6 @@ ce module. Lorsqu'on cherche à modifier ce module, on fait appel à une autre m
 qui multiplie les parties réelle et imaginaire par un nombre réel positif
 de manière à ce que le nombre complexe ait le module demandé.
 On procède de même pour la propriété ``arg``.
-
-.. _exemple_point_xyz:
 
 La propriété ``conj`` retourne quant à elle le conjugué du
 nombre complexe mais la réciproque n'est pas prévue.
@@ -1801,7 +1801,7 @@ Pour effectivement copier les attributs dont le type est une classe,
 la première option - la plus simple - est de remplacer la fonction
 ``copy`` par la fonction ``deepcopy``. Le comportement de cette
 fonction dans le cas des classes est le même que dans le cas des
-listes comme l'explique la remarque :ref:`copy_deepopy_remarque_`.
+listes comme l'explique la remarque :ref:`copy_deepopy_remarque`.
 La seconde solution, rarement utilisée, est d'utiliser l'opérateur
 ``__copy__`` et ainsi écrire le code associé à la copie des attributs de la classe.
 
@@ -3128,8 +3128,7 @@ la chaîne de caractères ``s`` et non à la troisième ligne du programme.
         def decouper(self,nb):
             l = []
             for i in range (0,nb) :
-                f = fromage (self.poids/nb, \
-                                self.couleur, self.odeur)
+                f = fromage(self.poids/nb, self.couleur, self.odeur)
                 l.append(f)
             return l
 
@@ -3144,12 +3143,11 @@ la chaîne de caractères ``s`` et non à la troisième ligne du programme.
             poids = self.poids + f.poids
             couleur = [0,0,0]
             for i in range (0,3) :
-                couleur [i] = (self.couleur [i] * self.poids \
-                           + f.couleur [i] * f.poids) / poids
-            odeur = (self.odeur * self.poids + \
-                     f.odeur * f.poids) / poids
-            couleur = ( couleur [0], couleur [1], couleur [2])
-            return fromage (poids, couleur, odeur)
+                couleur [i] = (self.couleur [i] * self.poids + 
+                               f.couleur[i] * f.poids) / poids
+            odeur = (self.odeur * self.poids + f.odeur * f.poids) / poids
+            couleur = (couleur[0], couleur[1], couleur[2])
+            return fromage(poids, couleur, odeur)
 
     class gruyere(fromage):
         def __init__ (self,p) :
@@ -3243,7 +3241,7 @@ Sens de l'héritage (1)
 ----------------------
 
 Le premier exemple est classique puisqu'il reprend le programme du
-paragraphe :ref:`paragraphe_fonction_variable`
+paragraphe :ref:`fonction comme paramètre <paragraphe_fonction_variable>`
 pour le réécrire avec des classes et éviter de passer des fonctions
 comme paramètre d'une autre fonction. La première classe définit
 le module des suivantes. La méthode ``calcul`` n'accepte qu'un
@@ -3365,8 +3363,7 @@ suivre le schéma qui suit.
 
     class MatriceList (Matrice) :
         def __init__ (self,lin,col,coef):
-            Matrice.__init__ (self, \
-                          lin, col, coef)
+            Matrice.__init__ (self, lin, col, coef)
             #...
 
         def __getitem__ (self, i,j) : #...
@@ -3376,8 +3373,7 @@ suivre le schéma qui suit.
 
     class MatriceDict (Matrice) :
         def __init__ (self,lin,col,coef):
-            Matrice.__init__ (self, \
-                           lin, col, coef)
+            Matrice.__init__ (self, lin, col, coef)
             #...
 
         def __getitem__ (self, i,j) : #...

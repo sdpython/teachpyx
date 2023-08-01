@@ -30,8 +30,9 @@ Il est aussi disponible en
     c_parallelisation/index
     c_gui/index
     c_data/index
-    i_examples
     c_resume/index
+    i_ex
+    i_faq
     auto_examples/index
     defthe_index
     license
@@ -43,6 +44,7 @@ n'ont pas été spécifiquement conçus. Le site
 `Xavier Dupré <http://www.xavierdupre.fr/>`_
 contient beaucoup d'exemples sur beaucoup de sujets,
 souvent reliés au machine learning.
+Le contenu est sur `github <https://github.com/sdpython/teachpyx/>`_.
 
 .. only:: html
 
@@ -75,16 +77,3 @@ souvent reliés au machine learning.
         :target: https://github.com/sdpython/teachpyx/
         :alt: size
 
-+----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
-| :ref:`l-modules`     |  :ref:`l-functions` | :ref:`l-classes`    | :ref:`l-methods`   | :ref:`l-staticmethods` | :ref:`l-properties`                            |
-+----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
-| :ref:`modindex`      |  :ref:`l-EX2`       | :ref:`search`       | :ref:`l-license`   | :ref:`l-changes`       | :ref:`l-README`                                |
-+----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
-| :ref:`genindex`      |  :ref:`l-FAQ2`      | :ref:`l-notebooks`  |                    | :ref:`l-statcode`      | `Unit Test Coverage <coverage/index.html>`_    |
-+----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
-
-**Links:** `github <https://github.com/sdpython/teachpyx/>`_,
-`documentation <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/index.html>`_,
-:ref:`l-README`,
-:ref:`blog <ap-main-0>`,
-:ref:`l-issues-todolist`

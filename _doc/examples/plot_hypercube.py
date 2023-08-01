@@ -1,5 +1,8 @@
 # coding: utf-8
 """
+
+.. _hypercuberst:
+
 =============================
 Hypercube et autres exercices
 =============================

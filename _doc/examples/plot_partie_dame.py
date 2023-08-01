@@ -1,5 +1,8 @@
 # coding: utf-8
 """
+
+.. _partiedamerst:
+
 ================
 Parties de dames
 ================

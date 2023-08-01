@@ -89,7 +89,7 @@ le rend plus lisible.
 Counter
 =======
 
-:class:`collection.Counter` est un dictionnaire spécifique dans les valeurs
+:class:`collections.Counter` est un dictionnaire spécifique dans les valeurs
 sont entières. Il est très pratique pour compter les éléments.
 L'exemple :ref:`comptage <l-ex-comptage>` s'écrit en une ligne.
 
@@ -105,7 +105,7 @@ L'exemple :ref:`comptage <l-ex-comptage>` s'écrit en une ligne.
 deque
 =====
 
-:class:`collection.deque` est une liste qui supporte l'insertion
+:class:`collections.deque` est une liste qui supporte l'insertion
 d'éléments en bout de liste et au début également
 (`liste chaînée <https://fr.wikipedia.org/wiki/Liste_cha%C3%AEn%C3%A9e>`_).
 

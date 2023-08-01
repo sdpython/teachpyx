@@ -10,8 +10,8 @@ def numpy_matrix2list(mat):
     """
     Convertit une matrice `numpy <http://www.numpy.org/>`_ en list.
 
-    @param      mat     matrix
-    @return             liste de listes
+    :param mat: matrix
+    :return: liste de listes
 
     .. exref::
         :title: opérations avec numpy.matrix

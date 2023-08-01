@@ -1,5 +1,8 @@
 # coding: utf-8
 """
+
+.. _tarabiscoterst:
+
 ====================================
 Exercices expliqués de programmation
 ====================================

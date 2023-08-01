@@ -935,8 +935,8 @@ le langage python, ils commencent et terminent par ``__``.
             self.att4 = att1 * att2 * att3
 
         def __add__ (self, a) :
-             return ma_classe (self.att1 + a.att1, self.att2 + a.att2, \
-                           self.att3 + a.att3, self.att4 + a.att4)
+             return ma_classe (self.att1 + a.att1, self.att2 + a.att2,
+                               self.att3 + a.att3, self.att4 + a.att4)
 
     a = ma_classe (1,2,3)
     b = ma_classe (4,5,6)
@@ -1391,8 +1391,10 @@ L'exemple suivant regroupe tous ces cas.
             self.f = f
 
         def __str__(self) :
-            return """exception AucunChiffre, lancée depuis la fonction """ + self.f + \
-            " avec le paramètre " + self.s
+            return (
+                f"exception AucunChiffre, lancée depuis la fonction {self.f} "
+                f"avec le paramètre {self.s}"
+            )
 
     def conversion (s) :
         """conversion d'une chaîne de caractères en entier"""
@@ -1430,7 +1432,7 @@ pour accéder à un caractère, on procède comme pour une liste.
 Guillemets ou pas
 ^^^^^^^^^^^^^^^^^
 
-Doit-on mettre des guillemets ou non~?
+Doit-on mettre des guillemets ou non ?
 
 ::
 
@@ -1462,7 +1464,7 @@ Boucles
 
 Les deux programmes suivant sont équivalents. La seule
 différence réside dans l'écriture dans la boucle ``for``
-qui utilise dans le premier cas la fonction ``range`` et dans l'autre non.
+qui utilise dans le premier cas la fonction :epkg:`range` et dans l'autre non.
 
 ::
 
@@ -1471,7 +1473,7 @@ qui utilise dans le premier cas la fonction ``range`` et dans l'autre non.
     for i in range (0, len(l)) :
         up.append ( l [i].upper() )
 
-Lorsqu'on utilise la fonction ``range``, on dispose lors
+Lorsqu'on utilise la fonction :epkg:`range`, on dispose lors
 de la boucle de deux informations, l'indice ``i`` et l'élément ``l [i]``.
 Si l'indice n'est pas utile, il est possible de simplifier la boucle comme suit.
 
@@ -1482,7 +1484,7 @@ Si l'indice n'est pas utile, il est possible de simplifier la boucle comme suit.
     for m in l :
         up.append ( m.upper() )
 
-En général, on se sert de la boucle qui utilise la fonction ``range`` dans deux cas :
+En général, on se sert de la boucle qui utilise la fonction :epkg:`range` dans deux cas :
 
 #. On souhaite faire des opérations sur les éléments qui précèdent
    ou suivent l'élément en question, ce qui nécessite de connaître l'indice.

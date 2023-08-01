@@ -707,5 +707,5 @@ Ce procédé marche la plupart du temps. Il échoue lorsque le module
 inclut des fichiers écrits dans un autre langage.
 L'installation dépend alors du système d'exploitation.
 Il est plus simple dans le cas d'installation des modules
-précmopilés. Sous Windows, beaucoup sont accessibles sur cette page :
-`Unofficial Windows Binaries for Python Extension Packages <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_.
+précompilés. La plupart sont disponibles sous cette forme
+sur :epkg:`PyPi`, le site de publication des packages python.

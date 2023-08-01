@@ -53,8 +53,7 @@ il est préférable d'essayer d'abord :
 
     conda install <extension>
 
-Les exemples de codes sont d'ailleurs disponibles sous la forme d'un module python
-et des :ref:`notebooks <l-notebooks>` accessibles sur le site.
+Des exemples de codes sont d'ailleurs disponibles sous la forme d'un module python.
 
 ::
 

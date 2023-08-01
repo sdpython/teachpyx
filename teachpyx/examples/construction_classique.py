@@ -8,9 +8,9 @@ def recherche(li, c):
     """
     Retourne l'index d'un élément ou -1 si non trouvé.
 
-    @param      li      liste
-    @param      c       élément à trouver
-    @return             position
+    :param li: liste
+    :param c: élément à trouver
+    :return: position
 
     .. exref::
         :tag: Base
@@ -63,9 +63,8 @@ def minindex(li):
     """
     Retourne l'index du minimum et le minimum.
 
-    @param  li      liste
-    @return         tuple (minimum,position)
-
+    :param li: liste
+    :return: tuple (minimum, position)
 
     .. exref::
         :tag: Base
@@ -112,9 +111,9 @@ def recherche_dichotomique(li, c):
     """
     Effectue une recherche dichotomique.
 
-    @param  li      tableau
-    @param  c       élément à chercher
-    @return         position
+    :param li: tableau
+    :param c: élément à chercher
+    :return: position
 
     .. exref::
         :tag: Base
@@ -162,10 +161,10 @@ def text2mat(s, sep_row="\n", sep_col="\t"):
     ( = liste de listes),
     réciproque de la fonction @see fn mat2text.
 
-    @param      s           texte à convertir
-    @param      sep_row     séparation de ligne
-    @param      sep_col     séparateur de colonnes
-    @return                 liste de liste
+    :param s: texte à convertir
+    :param sep_row: séparation de ligne
+    :param sep_col: séparateur de colonnes
+    :return: liste de liste
 
     .. exref::
         :tag: Base
@@ -215,10 +214,10 @@ def mat2text(mat, sep_row="\n", sep_col="\t"):
     Convertit une matrice en une chaîne de caractères,
     réciproque de la fonction @see fn text2mat.
 
-    @param      mat         matrice à convertir (liste de listes)
-    @param      sep_row     séparation de ligne
-    @param      sep_col     séparateur de colonnes
-    @return                 liste de liste
+    :param mat: matrice à convertir (liste de listes)
+    :param sep_row: séparation de ligne
+    :param sep_col: séparateur de colonnes
+    :return: liste de liste
 
     .. exref::
         :tag: Base
@@ -242,8 +241,8 @@ def somme(li):
     """
     Calcule la somme des éléments d'un tableau.
 
-    @param      li      tableau
-    @return             somme
+    :param li: tableau
+    :return: somme
 
     .. exref::
         :tag: Base
@@ -310,8 +309,8 @@ def triindex(li):
     """
     Trie une liste, retourne la liste triée et les positions initiales.
 
-    @param      li      tableau
-    @return             liste triée
+    :param li: tableau
+    :return: liste triée
 
     .. exref::
         :tag: Base
@@ -383,13 +382,13 @@ def compte(li):
     """
     Compte le nombre d'occurrences de chaque élément d'une liste.
 
-    @param  li      tableau
-    @return         dictionnaire
+    :param li: tableau
+    :return: dictionnaire
 
     .. exref::
         :tag: Base
         :title: comptage
-        :lid: l-ex-comptage
+        :label: l-ex-comptage
 
         On souhaite ici compter le nombre d'occurrences de
         chaque élément d'un tableau.
@@ -475,8 +474,8 @@ def mat2vect(mat):
     Convertit une matrice en un tableau à une seule dimension,
     réciproque de la fonction @see fn vect2mat.
 
-    @param  mat     matrice
-    @return         liste
+    :param mat: matrice
+    :return: liste
 
     .. exref::
         :tag: Base
@@ -519,9 +518,9 @@ def vect2mat(vect, ncol):
     Convertit un tableau à une dimension en une matrice,
     réciproque de la fonction @see fn mat2vect.
 
-    @param  vect    vecteur
-    @param  ncol    nombre de colonnes
-    @return         matrice
+    :param vect: vecteur
+    :param ncol: nombre de colonnes
+    :return: matrice
 
     .. exref::
         :tag: Base
@@ -555,16 +554,16 @@ def integrale(fonction, a, b, n):
     Calcule l'intégrale d'une fonction avec la
     `méthode de Rienmann <https://fr.wikipedia.org/wiki/Somme_de_Riemann>`_.
 
-    @param  fonction        fonction
-    @param  a               borne inférieure de l'intervalle
-    @param  b               borne supérieure de l'intervalle
-    @param  n               nombre de division de l'intervalle
-    @return                 valeur
+    :param fonction: fonction
+    :param a: borne inférieure de l'intervalle
+    :param b: borne supérieure de l'intervalle
+    :param n: nombre de division de l'intervalle
+    :return: valeur
 
     .. exref::
         :tag: Base
         :title: fonction comme paramètre
-        :lid: paragraphe_fonction_variable
+        :label: paragraphe_fonction_variable
 
         Une fonction peut aussi recevoir en paramètre une autre fonction.
         L'exemple suivant inclut la fonction ``calcul_n_valeur``
@@ -605,7 +604,7 @@ def construit_matrice_carree(n):
     Cette fonction construit une matrice carrée remplie de zéro
     sous la forme d'une liste de listes.
 
-    @param      n       dimension de la matrice carrée
+    :param n: dimension de la matrice carrée
     """
     return [[0 for i in range(n)] for j in range(n)]
 
@@ -614,8 +613,8 @@ def enumerate_permutations_recursive(ensemble):
     """
     Enumère les permutations d'un ensemble de façon récursive.
 
-    @param      ensemble        ensemble à permuter
-    @return                     itérateur sur les permutations
+    :param ensemble: ensemble à permuter
+    :return: itérateur sur les permutations
     """
 
     if len(ensemble) == 1:
@@ -633,8 +632,8 @@ def enumerate_permutations(ensemble):
     """
     Enumère les permutations d'un ensemble de façon non récursive.
 
-    @param      ensemble        ensemble à permuter
-    @return                     itérateur sur les permutations
+    :param ensemble: ensemble à permuter
+    :return: itérateur sur les permutations
     """
     if len(ensemble) == 1:
         yield ensemble

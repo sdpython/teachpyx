@@ -6,7 +6,7 @@ Questions
 .. contents::
     :local:
 
-.. blog-class-ou-fonction:
+.. _blog-class-ou-fonction:
 
 C'est obligé d'utiliser les classes ?
 ======================================
