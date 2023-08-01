@@ -436,7 +436,7 @@ res["f"](res["x"])
 # Fonction et JSON
 # ++++++++++++++++
 #
-# La sérialisation d'une fonction au format JSON ne 
+# La sérialisation d'une fonction au format JSON ne
 # fonctionne pas avec le module standard.
 
 
