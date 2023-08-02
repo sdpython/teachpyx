@@ -54,7 +54,7 @@ pygments_style = "sphinx"
 todo_include_todos = True
 nbsphinx_execute = "never"
 
-html_theme = "pydata_sphinx_theme"
+html_theme = "furo"
 html_theme_path = ["_static"]
 html_theme_options = {}
 html_sourcelink_suffix = ""
