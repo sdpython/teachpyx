@@ -38,42 +38,35 @@ Il est aussi disponible en
     license
     CHANGELOGS
 
-Les ordinateurs font principalement des calculs. Ils permettent
-aussi d'automatiser de nombreuses tâches pour lesquelles ils
-n'ont pas été spécifiquement conçus. Le site
-`Xavier Dupré <http://www.xavierdupre.fr/>`_
+L'intelligence artificielle est entrée dans le quotidien.
+Machine learning, deep learning, la porte d'entrée se fait
+par la programmation et principalement avec le langgage python.
+Le site `Xavier Dupré <http://www.xavierdupre.fr/>`_
 contient beaucoup d'exemples sur beaucoup de sujets,
 souvent reliés au machine learning.
 Le contenu est sur `github <https://github.com/sdpython/teachpyx/>`_.
 
-.. only:: html
+.. image:: https://ci.appveyor.com/api/projects/status/5jl303wl14dtesl0?svg=true
+    :target: https://ci.appveyor.com/project/sdpython/teachpyx
+    :alt: Build Status Windows
 
-    .. image:: https://travis-ci.com/sdpython/teachpyx.svg?branch=master
-        :target: https://app.travis-ci.com/github/sdpython/teachpyx
-        :alt: Build status
+.. image:: https://circleci.com/gh/sdpython/teachpyx/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/sdpython/teachpyx/tree/master
 
-    .. image:: https://ci.appveyor.com/api/projects/status/5jl303wl14dtesl0?svg=true
-        :target: https://ci.appveyor.com/project/sdpython/teachpyx
-        :alt: Build Status Windows
+.. image:: https://badge.fury.io/py/teachpyx.svg
+    :target: https://pypi.org/project/teachpyx/
 
-    .. image:: https://circleci.com/gh/sdpython/teachpyx/tree/master.svg?style=svg
-        :target: https://circleci.com/gh/sdpython/teachpyx/tree/master
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+    :alt: MIT License
+    :target: http://opensource.org/licenses/MIT
 
-    .. image:: https://badge.fury.io/py/teachpyx.svg
-        :target: https://pypi.org/project/teachpyx/
+.. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=master
+    :target: https://codecov.io/github/sdpython/teachpyx?branch=master
 
-    .. image:: https://img.shields.io/badge/license-MIT-blue.svg
-        :alt: MIT License
-        :target: http://opensource.org/licenses/MIT
+.. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
+    :alt: GitHub Issues
+    :target: https://github.com/sdpython/teachpyx/issues
 
-    .. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=master
-        :target: https://codecov.io/github/sdpython/teachpyx?branch=master
-
-    .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
-        :alt: GitHub Issues
-        :target: https://github.com/sdpython/teachpyx/issues
-
-    .. image:: https://img.shields.io/github/repo-size/sdpython/teachpyx
-        :target: https://github.com/sdpython/teachpyx/
-        :alt: size
-
+.. image:: https://img.shields.io/github/repo-size/sdpython/teachpyx
+    :target: https://github.com/sdpython/teachpyx/
+    :alt: size

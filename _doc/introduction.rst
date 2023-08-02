@@ -4,8 +4,9 @@ Introduction
 ============
 
 Ceci est une relecture du livre que j'ai écrit en 2009
-`Programmation avec le langage Python <http://www.editions-ellipses.fr/product_info.php?products_id=6891>`_
-et disponible au format `PDF <http://www.xavierdupre.fr/site2013/index_documents.html>`_.
+`Programmation avec le langage Python
+<https://www.editions-ellipses.fr/accueil/3823-programmation-avec-le-langage-python-2e-edition-9782729863371.html>`_
+écrit en 2011 avec une version de Python que plus personne n'utilise.
 La transcription du livre sous la forme d'un site web et d'un
 module python a permis d'automatiser la vérification des exemples
 pour assurer que ceux-ci fonctionnent encore avec les dernières
@@ -16,7 +17,8 @@ Installation de Python
 
 Pour ceux qui débutent, je recommande l'utilisation de la
 distribution :epkg:`Anaconda`. Elle fonctionne sous Windows,
-Linux et MacOS. Pour ceux qui souhaitent réduire la taille
+Linux, MacOS.
+Pour ceux qui souhaitent réduire la taille
 du premier téléchargement (> 500 Mo), elle existe en version
 allégée :epkg:`Miniconda`. Avec cette distribution, il est quasiment
 possible de tout faire grâce à une interface graphique.
@@ -27,7 +29,7 @@ par rapport à cette dernière. C'est rarement un problème.
 En ce qui me concerne, je préfère la version officielle de :epkg:`Python`.
 Elle est moins gourmande sur le disque mais parfois plus
 difficile à maîtriser lors de l'installation de certaines
-extensions.
+extensions. Elle est installée par défault sur les distributions Linux.
 
 Installation d'extensions ou modules ou packages
 ================================================
@@ -67,7 +69,8 @@ Accents
 Le langage :epkg:`python` est conçu pour un monde anglophone
 et l'utilisation des accents ne va pas de soi.
 Le programme suivant qui demande d'afficher un message
-contenant un accent provoque l'apparition d'une erreur :
+contenant un accent peut provoquer l'apparition d'une erreur
+selon les caractéristiques de votre machine.
 
 ::
 
@@ -80,7 +83,7 @@ L'erreur est la suivante :
     File "essai.py", line 1
     SyntaxError: Non-ASCII character '\xe9' in file i.py on line 1,
              but no encoding declared;
-             see http://www.python.org/peps/pep-0263.html for details
+             see https://peps.python.org/pep-0263/ for details
 
 Dans ce cas, il faut ajouter une ligne placée en première position
 qui précise que des accents pourront être utilisés.
@@ -100,16 +103,27 @@ réservations d'hôtels, de trains ou d'avions même si aujourd'hui
 ce problème ne devrait plus en être un. Dans le cas contraire,
 cela donne une indication du côté vieillot voire obsolète
 d'une implémentation.
-A cause des accents, la plupart des exemples cités dans ce
-livre ne fonctionnent pas sans cette première ligne qui a
+A cause des accents, les exemples cités dans ce
+livre ne fonctionnent pas toujours sans cette première ligne qui a
 parfois été enlevée pour des questions
 de lisibilité. Il faut penser à l'ajouter pour reproduire
 les exemples.
+
+Les dernières versions du langage Python autorisent maintenant la
+présence de lettres accentuées dans les noms des variables, de fonctions
+ou de classes. Néanmoins, c'est une mauvaise habitude à prendre
+car beaucoup de langages ne le permettent pas.
 
 L'instruction ``print(...)`` ordonne à l'ordinateur d'afficher
 un message à l'écran. Il n'a aucun impact sur son fonctionnement.
 Elle est beaucoup utilisée pour vérifier que le programme
 fait bien ce qu'il est supposé faire.
+
+Une nouvelle version du langage Python est maintenant publiée chaque année.
+L'ensemble des modifications est tenue à jour sur la page 
+`Python Enhancement Proposals (PEP) <https://peps.python.org/>`_.
+Chaque version est maintenue environ cinq ans selon un calendrier
+précisé au moment de la sortie.
 
 Trois concepts, séquence, test, boucle
 ======================================
