@@ -4,7 +4,6 @@ blockdiag
 cloudpickle
 coverage
 jupyter
-jyquickhelper
 matplotlib
 mutagen  # mp3
 nbsphinx
@@ -15,7 +14,7 @@ pydata_sphinx_theme
 pytest
 pytest-cov
 ruff
-scikit-learn>=1.1
+scikit-learn>=1.2
 sphinx
 sphinx-gallery
 sphinx-issues
