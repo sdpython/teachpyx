@@ -9,7 +9,7 @@ Un petit problème de chiffre, le
 `mathador <https://maitressedelaforet.fr/le-mathador-rituel-de-calcul-mental/>`_
 consiste à trouver un montant à partir de 5 nombres et 4 opérations.
 
-Example : composer 28 avec 17, 12, 3, 2, 1 et les opérations *, +, /, -.
+Example : composer 28 avec 17, 12, 3, 2, 1 et les opérations `*`, `+`, `/`, `-`.
 
 Il faut tout utiliser.
 
