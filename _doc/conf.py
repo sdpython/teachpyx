@@ -107,6 +107,7 @@ sphinx_gallery_conf = {
     "examples_dirs": os.path.join(os.path.dirname(__file__), "examples"),
     # path where to save gallery generated examples
     "gallery_dirs": "auto_examples",
+    "ignore_pattern": "schema_pb.*[.]py",
 }
 
 # next

@@ -31,6 +31,7 @@ Il est aussi disponible en
     c_gui/index
     c_data/index
     c_resume/index
+    api/index
     i_ex
     i_faq
     auto_examples/index
