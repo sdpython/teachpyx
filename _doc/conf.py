@@ -21,6 +21,7 @@ extensions = [
     "sphinx_gallery.gen_gallery",
     "sphinx_issues",
     "sphinx_runpython.blocdefs.sphinx_exref_extension",
+    "sphinx_runpython.blocdefs.sphinx_faqref_extension",
     "sphinx_runpython.blocdefs.sphinx_mathdef_extension",
     "sphinx_runpython.epkg",
     "sphinx_runpython.gdot",
