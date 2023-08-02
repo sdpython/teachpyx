@@ -22,13 +22,7 @@ Il est aussi disponible en
     :maxdepth: 1
 
     introduction
-    c_lang/index
-    c_classes/index
-    c_exception/index
-    c_module/index
-    c_regex/index
-    c_parallelisation/index
-    c_gui/index
+    py/index
     c_data/index
     c_resume/index
     api/index

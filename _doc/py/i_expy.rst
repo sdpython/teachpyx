@@ -21,10 +21,3 @@ Constructions négatives
 .. exreflist::
     :contents:
     :tag: Base -
-
-Numpy
-=====
-
-.. exreflist::
-    :contents:
-    :tag: numpy
