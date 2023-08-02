@@ -176,7 +176,7 @@ epkg_dictionary = {
     "algorithmes de tri": "https://fr.wikipedia.org/wiki/Algorithme_de_tri",
     "algorithmes numériques": "https://fr.wikipedia.org/wiki/Numerical_Recipes",
     "API REST": "https://fr.wikipedia.org/wiki/Representational_state_transfer",
-    "Anaconda": "https://continuum.io/downloads",
+    "Anaconda": "https://www.anaconda.com/",
     "ApproximateNMFPredictor": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/mlinsights/mlmodel/anmf_predictor.html",
     "AUC": "https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve",
     "Awesome Python": "https://awesome-python.com/",
@@ -275,8 +275,8 @@ epkg_dictionary = {
 
 epkg_dictionary.update(
     {
-        "tkinter.Button": "https://tkdocs.com/tutorial/button.html",
-        "tkinter.Button.config": "https://tkdocs.com/tutorial/button.html",
+        "tkinter.Button": "https://tkdocs.com/widgets/button.html",
+        "tkinter.Button.config": "https://tkdocs.com/widgets/button.html",
         "tkinter.Canvas": "https://tkdocs.com/tutorial/canvas.html",
         "tkinter.Canvas.create_line": "https://tkdocs.com/tutorial/canvas.html",
         "tkinter.Canvas.create_rectangle": "https://tkdocs.com/tutorial/canvas.html",
