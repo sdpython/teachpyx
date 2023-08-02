@@ -61,8 +61,6 @@ Des exemples de codes sont d'ailleurs disponibles sous la forme d'un module pyth
 
     pip install teachpyx
 
-.. _par_intro_accent_code:
-
 Accents
 =======
 
