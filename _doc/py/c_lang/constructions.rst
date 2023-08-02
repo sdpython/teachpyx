@@ -5,9 +5,6 @@
 Constructions classiques
 ========================
 
-.. contents::
-    :local:
-
 Constructions fréquentes
 ========================
 

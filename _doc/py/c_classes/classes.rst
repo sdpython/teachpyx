@@ -5,10 +5,6 @@
 Classes
 =======
 
-.. contents::
-    :local:
-    :depth: 2
-
 Imaginons qu'une banque détienne un fichier contenant des informations
 sur ses clients et qu'il soit impossible pour un client d'avoir
 accès directement à ces informations. Toutefois, il lui est

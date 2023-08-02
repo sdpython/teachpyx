@@ -3,9 +3,6 @@
 Questions
 #########
 
-.. contents::
-    :local:
-
 .. _blog-class-ou-fonction:
 
 C'est obligé d'utiliser les classes ?

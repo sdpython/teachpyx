@@ -3,10 +3,6 @@
 Syntaxes, Définitions
 =====================
 
-.. contents::
-    :local:
-    :depth: 2
-
 Définitions
 ===========
 

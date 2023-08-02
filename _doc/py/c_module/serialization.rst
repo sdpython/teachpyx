@@ -22,10 +22,6 @@ complexes en une séquence d'octets puis effectuer la conversion
 inverse. Ces opérations sont regroupées sous le terme
 de *sérialisation*.
 
-.. contents::
-    :local:
-    :depth: 2
-
 JSON
 ====
 
