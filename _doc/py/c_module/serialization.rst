@@ -335,4 +335,4 @@ où cela est néanmoins possible sans trop de développement.
 .. toctree::
     :maxdepth: 1
 
-    ../auto_examples/plot_serialisation_examples
+    ../../auto_examples/plot_serialisation_examples

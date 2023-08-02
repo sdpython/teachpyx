@@ -1,7 +1,7 @@
 
 *en construction permanente*
 
-.. |gitlogo| image:: _static/git_logo.png
+.. |gitlogo| image:: ../_static/git_logo.png
              :height: 20
 
 =================

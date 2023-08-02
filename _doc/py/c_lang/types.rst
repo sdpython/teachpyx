@@ -2129,6 +2129,8 @@ au langage et laisse transparaître des informations dont l'interpréteur a beso
 pour comprendre le programme. Il est déconseillé de s'en servir si jamais
 on souhaite un jour traduire le même code dans un autre langage.
 
+.. _par_intro_accent_code:
+
 Commentaires accentués
 ======================
 
@@ -2144,8 +2146,6 @@ les accents, le compilateur génère l'erreur suivante :
     SyntaxError: Non-UTF-8 code starting with '\xe9' in file f.py on line 1,
     but no encoding declared; see http://python.org/dev/peps/pep-0263/
     for details
-
-.. _par_intro_accent_code:
 
 Il est néanmoins possible d'utiliser des accents dans les commentaires
 à condition d'insérer le commentaire suivant à la première ligne du
