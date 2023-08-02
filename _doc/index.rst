@@ -23,6 +23,7 @@ Il est aussi disponible en
 
     introduction
     py/index
+    practice/index
     c_data/index
     c_resume/index
     api/index
@@ -55,8 +56,8 @@ Le contenu est sur `github <https://github.com/sdpython/teachpyx/>`_.
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT
 
-.. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=main
-    :target: https://codecov.io/github/sdpython/teachpyx?branch=main
+.. image:: https://codecov.io/github/sdpython/teachpyx/branch/main/graph/badge.svg?token=zmROB7lJAt 
+    :target: https://codecov.io/github/sdpython/teachpyx
 
 .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
     :alt: GitHub Issues
