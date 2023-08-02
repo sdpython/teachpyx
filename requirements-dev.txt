@@ -3,6 +3,7 @@ black-nb
 blockdiag
 cloudpickle
 coverage
+furo
 jupyter
 matplotlib
 mutagen  # mp3
@@ -10,7 +11,6 @@ nbsphinx
 pandas
 pillow
 protobuf<4
-pydata_sphinx_theme
 pytest
 pytest-cov
 ruff
