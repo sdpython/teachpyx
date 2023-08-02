@@ -52,8 +52,8 @@ Le contenu est sur `github <https://github.com/sdpython/teachpyx/>`_.
     :target: https://ci.appveyor.com/project/sdpython/teachpyx
     :alt: Build Status Windows
 
-.. image:: https://circleci.com/gh/sdpython/teachpyx/tree/master.svg?style=svg
-    :target: https://circleci.com/gh/sdpython/teachpyx/tree/master
+.. image:: https://dl.circleci.com/status-badge/img/gh/sdpython/teachpyx/tree/main.svg?style=svg
+    :target: https://dl.circleci.com/status-badge/redirect/gh/sdpython/teachpyx/tree/main
 
 .. image:: https://badge.fury.io/py/teachpyx.svg
     :target: https://pypi.org/project/teachpyx/
@@ -62,8 +62,8 @@ Le contenu est sur `github <https://github.com/sdpython/teachpyx/>`_.
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT
 
-.. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=master
-    :target: https://codecov.io/github/sdpython/teachpyx?branch=master
+.. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=main
+    :target: https://codecov.io/github/sdpython/teachpyx?branch=main
 
 .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
     :alt: GitHub Issues
