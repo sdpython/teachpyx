@@ -1,8 +1,4 @@
 
-.. image:: https://travis-ci.com/sdpython/teachpyx.svg?branch=master
-    :target: https://app.travis-ci.com/github/sdpython/teachpyx
-    :alt: Build status
-
 .. image:: https://ci.appveyor.com/api/projects/status/5jl303wl14dtesl0?svg=true
     :target: https://ci.appveyor.com/project/sdpython/teachpyx
     :alt: Build Status Windows
@@ -24,25 +20,13 @@
     :alt: GitHub Issues
     :target: https://github.com/sdpython/teachpyx/issues
 
-.. image:: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/_images/nbcov.png
-    :target: http://www.xavierdupre.fr/app/teachpyx/helpsphinx/all_notebooks_coverage.html
-    :alt: Notebook Coverage
-
 .. image:: https://img.shields.io/github/repo-size/sdpython/teachpyx
     :target: https://github.com/sdpython/teachpyx/
     :alt: size
 
-.. _l-README:
+teachpyx: programmation python
+==============================
 
-teachpyx
-========
-
-Programmation *Python* en français.
-A usage pédagogique. La documentation du module
+Programmation *Python* en français. A usage pédagogique. La
+`documentation <https://sdpython.github.io/doc/teachpyx/dev/>`_ du module
 est construite pour un cours de programmation.
-
-**Links:**
-
-* `GitHub/teachpyx <https://github.com/sdpython/teachpyx/>`_
-* `documentation <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/index.html>`_
-* `Blog <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/blog/main_0000.html#ap-main-0>`_

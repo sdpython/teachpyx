@@ -1,0 +1,54 @@
+[tool.rstcheck]
+report_level = "INFO"
+ignore_directives = [
+    "autosignature",
+    "autoclass",
+    "autofunction",
+    "automodule",
+    "blockdiag",
+    "blogpost",
+    "blogpostagg",
+    "exref",
+    "exreflist",
+    "faqref",
+    "faqreflist",
+    "gdot",
+    "image-sg",
+    "inheritance-diagram",
+    "mathdef",
+    "mathdeflist",
+    "nbgallery",
+    "nbgallerylink",
+    "plot",
+    "runpython",
+    "tocdelay",
+]
+ignore_roles = ["epkg", "githublink", "issue"]
+ignore_messages = [
+    ".*Hyperlink target .* is not referenced.*",
+    ".*Document or section may not begin with a transition.*",
+    ".*Unknown target name: .*[0-9]{4}.*",
+    ".*Duplicate explicit target name: .pdf..*",
+    ".*Unexpected possible title overline or transition..*",
+]
+
+[tool.ruff]
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".eggs",
+    ".git",
+    "build",
+    "dist",
+]
+
+# Same as Black.
+line-length = 88
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.per-file-ignores]
+"_doc/conf.py" = ["F821"]
+"teachpyx/__init__.py" = ["E501"]

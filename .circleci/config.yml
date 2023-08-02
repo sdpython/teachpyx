@@ -11,7 +11,7 @@ jobs:
 
       - restore_cache:
           keys:
-          - v2-dependencies-{{ checksum "requirements.txt" }}
+          - v2-dependencies-{{ checksum "requirements-dev.txt" }}
           - v2-dependencies-
 
       - run:
@@ -52,23 +52,27 @@ jobs:
       - run:
           name: install dependencies 2
           command: |
-            pip install -r requirements.txt
+            pip install -r requirements-dev.txt
 
       - save_cache:
           paths:
             - ./venv
-          key: v2-dependencies-{{ checksum "requirements.txt" }}
+          key: v2-dependencies-{{ checksum "requirements-dev.txt" }}
         
+      - run:
+          name: version
+          command: |
+            protoc --version
+            python -c "import google.protobuf as gp;print(gp.__version__)"
+
       - run:
           name: run tests
           command: |
-            export PYTHONPATH=src
-            python setup.py unittests
+            python -m pytest _unittests
 
       - run:
            name: wheel
            command: |
-             export PYTHONPATH=src
              python setup.py bdist_wheel
              mkdir -p test-reports/dist
              cp dist/*.whl test-reports/dist

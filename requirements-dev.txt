@@ -1,0 +1,25 @@
+black
+black-nb
+blockdiag
+cloudpickle
+coverage
+jupyter
+matplotlib
+mutagen  # mp3
+nbsphinx
+pandas
+pillow
+protobuf<4
+pydata_sphinx_theme
+pytest
+pytest-cov
+ruff
+scikit-learn>=1.2
+sphinx
+sphinx-gallery
+sphinx-issues
+sphinxcontrib-blockdiag
+git+https://github.com/sdpython/sphinx-runpython.git
+tqdm
+ujson
+wheel

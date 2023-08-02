@@ -1,19 +1,21 @@
-"""
-@brief      test log(time=1s)
-
-You should indicate a time in seconds. The program ``run_unittests.py``
-will sort all test files by increasing time and run them.
-"""
 import unittest
 from teachpyx.examples.construction_classique import (
-    recherche, minindex, text2mat, compte,
-    integrale, vect2mat, mat2vect, recherche_dichotomique,
-    mat2text, triindex, construit_matrice_carree,
-    somme)
+    recherche,
+    minindex,
+    text2mat,
+    compte,
+    integrale,
+    vect2mat,
+    mat2vect,
+    recherche_dichotomique,
+    mat2text,
+    triindex,
+    construit_matrice_carree,
+    somme,
+)
 
 
 class TestConstructionClassique(unittest.TestCase):
-
     def test_fonction(self):
         self.assertEqual(recherche([2, 3, 45], 3), 1)
         self.assertEqual(recherche([2, 3, 45], 4), -1)
@@ -27,10 +29,10 @@ class TestConstructionClassique(unittest.TestCase):
         self.assertEqual(t, s)
         tab = ["zero", "un", "deux"]
         r = triindex(tab)
-        self.assertEqual(r, [('deux', 2), ('un', 1), ('zero', 0)])
+        self.assertEqual(r, [("deux", 2), ("un", 1), ("zero", 0)])
         li = ["un", "deux", "un", "trois"]
         r = compte(li)
-        self.assertEqual(r, {'trois': 1, 'deux': 1, 'un': 2})
+        self.assertEqual(r, {"trois": 1, "deux": 1, "un": 2})
         mat = [[0, 1, 2], [3, 4, 5]]
         r = mat2vect(mat)
         self.assertEqual(r, [0, 1, 2, 3, 4, 5])
