@@ -43,6 +43,9 @@ Corrections
     exams/td_note_2015_rattrapage_enonce
     exams/td_note_2016
     exams/td_note_2017
+    exams/td_note_2017_2
+    exams/td_note_2017_rattrapage
+    exams/td_note_2017_rattrapage2
     exams/td_note_2018_1
     exams/td_note_2018_2
     exams/td_note_2019_1
