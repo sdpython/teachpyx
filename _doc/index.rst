@@ -23,11 +23,9 @@ pas ou eu programmer. Le contenu est disponible sur
     practice/index
     c_data/index
     c_resume/index
-    api/index
     articles/index
+    i_ex
     i_faq
-    auto_examples/index
-    defthe_index
     license
     CHANGELOGS
 

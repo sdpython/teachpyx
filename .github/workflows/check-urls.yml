@@ -42,6 +42,6 @@ jobs:
         print_all: false
         timeout: 5
         retry_count# : 3
-        exclude_urls: https://hal.archives-ouvertes.fr/hal-00990252/document,https://github.com/onnx/models/raw/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx,https://arxiv.org/ftp/arxiv/papers/1510/1510.04863.pdf,https://hal.science/hal-01125940,https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7
-        exclude_patterns: https://www.data.gouv.fr/fr/datasets/r/e3d83ab3-dc52-4c99-abaf-8a38050cc68c,https://github.com/onnx/models/raw/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx,https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7
+        exclude_urls: https://hal.archives-ouvertes.fr/hal-00990252/document,https://github.com/onnx/models/raw/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx,https://arxiv.org/ftp/arxiv/papers/1510/1510.04863.pdf,https://hal.science/hal-01125940,https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7,https://github.com/sdpython/teachpyx/raw/main/_data/examen2021.zip
+        exclude_patterns: https://www.data.gouv.fr/fr/datasets/r/e3d83ab3-dc52-4c99-abaf-8a38050cc68c,https://github.com/onnx/models/raw/main/vision/classification/mobilenet/model/mobilenetv2-12.onnx,https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7,https://github.com/sdpython/teachpyx/raw/main/_data/examen2021.zip
         # force_pass : true

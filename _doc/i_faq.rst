@@ -9,12 +9,10 @@ Langage Python
 ==============
 
 .. faqreflist::
-    :contents:
     :tag: python
 
 numpy
 =====
 
 .. faqreflist::
-    :contents:
     :tag: numpy

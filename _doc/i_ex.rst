@@ -1,14 +1,21 @@
 
-=====================
-Syntaxes, Définitions
-=====================
+=================
+Tous les exemples
+=================
+
+Code
+====
+
+.. toctree::
+
+    auto_examples/index
+    api/index
 
 Définitions
 ===========
 
 .. mathdeflist::
     :tag: Définition
-    :contents:
 
 Figures
 =======
@@ -27,7 +34,6 @@ Syntaxe
 
 .. mathdeflist::
     :tag: Syntaxe
-    :contents:
 
 Tables
 ======
