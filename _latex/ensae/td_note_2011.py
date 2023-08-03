@@ -130,7 +130,6 @@ if __name__ == "__main__":
     # on observe que certains points sont aberrants, ce qui r�duit d'autant
     # l'estimation du rayon d'un arrondissement (il suffit qu'un restaurant
     # �tiquet�s dans le 15�me soit situ� pr�s du barycentre du 14�me.)
-    import numpy as np
     import matplotlib.pyplot as plt
 
     fig = plt.figure()
