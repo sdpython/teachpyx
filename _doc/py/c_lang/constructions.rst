@@ -10,11 +10,9 @@ Constructions fréquentes
 
 .. exreflist::
     :tag: Base
-    :contents:
 
 Constructions négatives
 =======================
 
 .. exreflist::
     :tag: Base -
-    :contents:
