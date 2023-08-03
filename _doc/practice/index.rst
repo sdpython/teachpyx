@@ -44,8 +44,6 @@ Corrections
     exams/td_note_2016
     exams/td_note_2017
     exams/td_note_2017_2
-    exams/td_note_2017_rattrapage
-    exams/td_note_2017_rattrapage2
     exams/td_note_2018_1
     exams/td_note_2018_2
     exams/td_note_2019_1
@@ -54,6 +52,8 @@ Corrections
     exams/td_note_2020_2
     exams/td_note_2021
     exams/td_note_2022
+    exams/td_note_2022_rattrapage
+    exams/td_note_2022_rattrapage2
     exams/td_note_2023
 
 Exercices courts
