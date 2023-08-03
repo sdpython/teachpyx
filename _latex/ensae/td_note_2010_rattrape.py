@@ -1,12 +1,10 @@
-# coding: latin-1
+# coding: utf-8
 import random
-import numpy
-import math
 import pylab
 import copy
 
 ###
-# réponse à la question 1
+# rï¿½ponse ï¿½ la question 1
 ###
 
 
@@ -35,17 +33,22 @@ Brest	-4,552110195	48,36014938
 Metz	6,11729002	49,0734787
 Sedan	4,896070004	49,68407059
 Grenoble	5,684440136	45,13940048
-Annecy	6,082499981	45,8782196""".replace(",", ".").split("\n")
-    # ligne d'avant : on découpe l'unique chaîne de caractères
+Annecy	6,082499981	45,8782196""".replace(
+        ",", "."
+    ).split(
+        "\n"
+    )
+    # ligne d'avant : on dï¿½coupe l'unique chaï¿½ne de caractï¿½res
 
-    # ligne suivant : on découpe chaque ligne en colonne
+    # ligne suivant : on dï¿½coupe chaque ligne en colonne
     tour = [t.strip("\r\n ").split("\t") for t in tour]
-    # puis on convertit les deux dernières colonnes
+    # puis on convertit les deux derniï¿½res colonnes
     tour = [t[:1] + [float(x) for x in t[1:]] for t in tour]
     return tour
 
+
 ###
-# réponse à la question 2
+# rï¿½ponse ï¿½ la question 2
 ###
 
 
@@ -54,47 +57,49 @@ def distance(tour, i, j):
     dy = tour[i][2] - tour[j][2]
     return (dx**2 + dy**2) ** 0.5
 
+
 ###
-# réponse à la question 3
+# rï¿½ponse ï¿½ la question 3
 ###
 
 
 def longueur_tour(tour):
     # n villes = n segments
     d = 0
-    for i in xrange(0, len(tour) - 1):
+    for i in range(0, len(tour) - 1):
         d += distance(tour, i, i + 1)
     # il ne faut pas oublier de boucler pour le dernier segment
     d += distance(tour, 0, -1)
     return d
 
+
 ###
-# réponse à la question 4
+# rï¿½ponse ï¿½ la question 4
 ###
 
 
 def graph(tour):
     x = [t[1] for t in tour]
     y = [t[2] for t in tour]
-    x += [x[0]]   # on ajoute la dernière ville pour boucler
-    y += [y[0]]   #
+    x += [x[0]]  # on ajoute la derniï¿½re ville pour boucler
+    y += [y[0]]  #
     pylab.plot(x, y)
     for ville, x, y in tour:
         pylab.text(x, y, ville)
     pylab.show()
 
+
 ###
-# réponse à la question 5
+# rï¿½ponse ï¿½ la question 5
 ###
 
 
 def permutation(tour):
-
     # on calcule la longueur du tour actuelle
     best = longueur_tour(tour)
 
-    # variable fix : dit combien d'échanges ont eu lieu depuis la
-    # dernière amélioration
+    # variable fix : dit combien d'ï¿½changes ont eu lieu depuis la
+    # derniï¿½re amï¿½lioration
     fix = 0
     while True:
         # on tire deux villes au hasard
@@ -103,7 +108,7 @@ def permutation(tour):
         if i == j:
             continue
 
-        # on les échanges si i != j
+        # on les ï¿½changes si i != j
         e = tour[i]
         tour[i] = tour[j]
         tour[j] = e
@@ -112,8 +117,8 @@ def permutation(tour):
         d = longueur_tour(tour)
 
         if d >= best:
-            # si le résultat est plus long --> retour en arrière
-            # ce qui consiste à échanger à nouveau les deux villes
+            # si le rï¿½sultat est plus long --> retour en arriï¿½re
+            # ce qui consiste ï¿½ ï¿½changer ï¿½ nouveau les deux villes
             fix += 1
             e = tour[i]
             tour[i] = tour[j]
@@ -121,22 +126,23 @@ def permutation(tour):
         else:
             # sinon, on garde le tableau tel quel
             best = d
-            # et on met fix à 0 pour signifier qu'une modification a eu lieu
+            # et on met fix ï¿½ 0 pour signifier qu'une modification a eu lieu
             fix = 0
 
-        # si aucune modification n'a eu lieu durant les dernières 10000 itérations,
-        # on s'arrête
+        # si aucune modification n'a eu lieu durant les derniï¿½res 10000 itï¿½rations,
+        # on s'arrï¿½te
         if fix > 10000:
             break
 
+
 ###
-# réponse à la question 6
+# rï¿½ponse ï¿½ la question 6
 ###
 
 
 def retourne(tour, i, j):
     """
-    on échange les éléments i et j
+    on ï¿½change les ï¿½lï¿½ments i et j
     puis i+1 et j-1
     puis i+2 et j-2
     tant que i+k < j-k
@@ -148,15 +154,16 @@ def retourne(tour, i, j):
         i += 1
         j -= 1
 
+
 ###
-# réponse à la question 7
+# rï¿½ponse ï¿½ la question 7
 ###
 
 
 def croisement(tour):
     """
-    cette fonction reprend le même schéma que la fonction permutation
-    on annule une modification en appelant à nouveau la fonction retourne
+    cette fonction reprend le mï¿½me schï¿½ma que la fonction permutation
+    on annule une modification en appelant ï¿½ nouveau la fonction retourne
     """
     best = longueur_tour(tour)
     fix = 0
@@ -166,7 +173,7 @@ def croisement(tour):
         retourne(tour, i, j)
         d = longueur_tour(tour)
         if d >= best:
-            # retour en arrière
+            # retour en arriï¿½re
             fix += 1
             retourne(tour, i, j)
         else:
@@ -175,35 +182,35 @@ def croisement(tour):
         if fix > 10000:
             break
 
+
 ###
-# réponse à la question 8
+# rï¿½ponse ï¿½ la question 8
 ###
 
 
 def enchaine(tour):
     """
-    cette fonction est plus complexe que le résultat demandé pour cette question
-    on enchaîne les deux fonctions (croisement, permutation) tant que
+    cette fonction est plus complexe que le rï¿½sultat demandï¿½ pour cette question
+    on enchaï¿½ne les deux fonctions (croisement, permutation) tant que
     la longueur du circuit diminue
 
     et si jamais cette longueur ne diminue plus, on perturbe le circuit
     au plus deux fois
-    en échangeant trois couples de villes choisies au hasard,
-    cette dernière partie n'était pas prévue dans l'énoncé
+    en ï¿½changeant trois couples de villes choisies au hasard,
+    cette derniï¿½re partie n'ï¿½tait pas prï¿½vue dans l'ï¿½noncï¿½
     """
     best = longueur_tour(tour)
     tttt = copy.deepcopy(tour)
-    print "debut", best
+    print("debut", best)
     nom = 0
     while True:
-
         croisement(tour)
         d = longueur_tour(tour)
-        print "croisement", d, best
+        print("croisement", d, best)
 
         permutation(tour)
         d = longueur_tour(tour)
-        print "permutation", d, best
+        print("permutation", d, best)
 
         if d < best:
             best = d

@@ -1,4 +1,4 @@
-# coding:latin-1
+# coding:utf-8
 import td_note_2013_novembre_2012_exoS as exoS
 
 # question 1, exo S (1 ou 4)
@@ -16,6 +16,7 @@ def voisins_a_valeurs_nulle(matrice, i, j):
         res.append((i, j + 1))
     return res
 
+
 # question 2, exo S (1 ou 4)
 
 
@@ -25,23 +26,25 @@ def tous_voisins_a_valeurs_nulle(matrice, liste_points):
         res += voisins_a_valeurs_nulle(matrice, i, j)
     return res
 
+
 # question 3, exo S (1 ou 4)
 
 
 def fonction_coloriage(matrice, i0, j0):
-    # étage 1
+    # ï¿½tage 1
     acolorier = [(i0, j0)]
     while len(acolorier) > 0:
-        # étape 2
+        # ï¿½tape 2
         for i, j in acolorier:
             matrice[i][j] = 2
-        # étape 3
+        # ï¿½tape 3
         acolorier = tous_voisins_a_valeurs_nulle(matrice, acolorier)
-        # on enlève les doublons car sinon cela prend trop de temps
+        # on enlï¿½ve les doublons car sinon cela prend trop de temps
         d = {}
         for i, j in acolorier:
             d[i, j] = 0
         acolorier = [(i, j) for i, j in d]
+
 
 # question 5, exo S (version 1)
 
@@ -54,18 +57,19 @@ def surface_coloriee(matrice):
                 surface += 1
     return surface
 
+
 # question 5, exo S (version 4)
 
 
 def fonction_coloriage_1000(matrice, i0, j0):
     acolorier = [(i0, j0)]
-    nb = 0                                 # ligne ajoutée
+    nb = 0  # ligne ajoutï¿½e
     while len(acolorier) > 0:
         for i, j in acolorier:
             matrice[i][j] = 2
-            nb += 1                        # ligne ajoutée
+            nb += 1  # ligne ajoutï¿½e
         if nb > 1000:
-            break               # ligne ajoutée
+            break  # ligne ajoutï¿½e
         acolorier = tous_voisins_a_valeurs_nulle(matrice, acolorier)
         d = {}
         for i, j in acolorier:
@@ -77,10 +81,10 @@ def fonction_coloriage_1000(matrice, i0, j0):
 matrice = exoS.construit_matrice(100)
 fonction_coloriage(matrice, 53, 53)
 exoS.dessin_matrice(matrice)
-print surface_coloriee(matrice)  # retourne 3258
+print(surface_coloriee(matrice))  # retourne 3258
 
-# question 5, exo S (version 4) vérification
+# question 5, exo S (version 4) vï¿½rification
 matrice = exoS.construit_matrice(100)
 fonction_coloriage_1000(matrice, 53, 53)
 exoS.dessin_matrice(matrice)
-print surface_coloriee(matrice)  # retourne 1002
+print(surface_coloriee(matrice))  # retourne 1002

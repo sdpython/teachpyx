@@ -1,7 +1,8 @@
-# coding: latin-1
+# coding: utf-8
 ####################################
 # exercice 1
 ####################################
+
 
 # question 1
 def numero(jour, mois, duree=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]):
@@ -10,6 +11,7 @@ def numero(jour, mois, duree=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]):
         s += duree[i]
     s += jour - 1
     return s + 1
+
 
 # question 2
 
@@ -31,15 +33,26 @@ def ecart(num):
     return res
 
 
-s = [(1, 1), (9, 4), (1, 5), (8, 5), (17, 5), (4, 6), (14, 7),
-     (15, 8), (1, 11), (11, 11), (25, 12)]
+s = [
+    (1, 1),
+    (9, 4),
+    (1, 5),
+    (8, 5),
+    (17, 5),
+    (4, 6),
+    (14, 7),
+    (15, 8),
+    (1, 11),
+    (11, 11),
+    (25, 12),
+]
 r = conversion_liste(s)
 ec = ecart(r)
 
 # question 3
 pos = ec.index(max(ec))
-print "position de l'écart le plus grand ", pos
-print "jour ", s[pos], " --> ", s[pos + 1]
+print("position de l'ï¿½cart le plus grand ", pos)
+print("jour ", s[pos], " --> ", s[pos + 1])
 
 ####################################
 # exercice 2
@@ -82,20 +95,31 @@ def ecart_date(date):
 
 
 # question 7
-s = [(1, 1), (9, 4), (1, 5), (8, 5), (17, 5), (4, 6),
-     (14, 7), (15, 8), (1, 11), (11, 11), (25, 12)]
+s = [
+    (1, 1),
+    (9, 4),
+    (1, 5),
+    (8, 5),
+    (17, 5),
+    (4, 6),
+    (14, 7),
+    (15, 8),
+    (1, 11),
+    (11, 11),
+    (25, 12),
+]
 
 r = conversion_date(s)
 ec = ecart_date(r)
 pos = ec.index(max(ec))
-print "position de l'ecart le plus grand ", pos
-print "jour ", s[pos], " --> ", s[pos + 1]
+print("position de l'ecart le plus grand ", pos)
+print("jour ", s[pos], " --> ", s[pos + 1])
 
 # question 8
 """
 La conversion en Date est faite une fois pour les dates (1,1) et (25,12)
-et 2 fois pour les autres en effet, la méthode difference effectue
-la conversion en numéros des dates self et autre
+et 2 fois pour les autres en effet, la mï¿½thode difference effectue
+la conversion en numï¿½ros des dates self et autre
 la fonction ecart_date calcule date [i].difference ( date [i-1] ) et
                                          date [i+1].difference ( date [i] )
             --> la date [i] est convertie 2 fois
@@ -103,7 +127,7 @@ la fonction ecart_date calcule date [i].difference ( date [i-1] ) et
 
 # question 9
 """
-On peut par exemple stocker la conversion en numéro
+On peut par exemple stocker la conversion en numï¿½ro
 dans le constructeur comme suit :
 """
 
@@ -131,5 +155,5 @@ class Date:
 r = conversion_date(s)
 ec = ecart_date(r)
 pos = ec.index(max(ec))
-print "position de l'écart le plus grand ", pos
-print "jour ", s[pos], " --> ", s[pos + 1]
+print("position de l'ï¿½cart le plus grand ", pos)
+print("jour ", s[pos], " --> ", s[pos + 1])

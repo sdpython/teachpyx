@@ -1,15 +1,15 @@
-# coding:latin-1
+# coding:utf-8
 import re
 
 
 def lit_fichier(file):
     """
-    0 Séance 	
-    1 Référence	
-    2 Entité dépositaire	
-    3 Elu dépositaire	
-    4 Objet	
-    5 Type	
+    0 Sï¿½ance
+    1 Rï¿½fï¿½rence
+    2 Entitï¿½ dï¿½positaire
+    3 Elu dï¿½positaire
+    4 Objet
+    5 Type
     6 Rapporteur
     """
     f = open(file, "r")
@@ -29,7 +29,7 @@ def extrait_montant(objet):
         montant = montant.replace(".", "").replace(",", ".")
         return montant
     else:
-        #print ("problème ", objet)
+        # print ("problï¿½me ", objet)
         return None
 
 
@@ -39,7 +39,7 @@ def extrait_assoc(objet):
     if res:
         return res.groups()
     else:
-        #print ("problème ", objet)
+        # print ("problï¿½me ", objet)
         return None
 
 
@@ -50,20 +50,20 @@ def extrait_date(date):
         annee = res.groups()[0]
         return annee
     else:
-        print("problème ", date)
+        print("problï¿½me ", date)
         return None
 
 
 def compte_annee(lines):
     compte = {}
     for a, b, c, d in lines:
-        a = d[0] if d != None else None
+        a = d[0] if d is not None else None
         compte[a] = compte.get(a, 0) + b
     return compte
 
 
 if __name__ == "__main__":
-    # données récupérées ici: http://opendata.paris.fr/opendata/jsp/site/Portal.jsp?document_id=154&portlet_id=102
+    # donnï¿½es rï¿½cupï¿½rï¿½es ici: http://opendata.paris.fr/opendata/jsp/site/Portal.jsp?document_id=154&portlet_id=102
     file = "td_note_2013_ordre_du_jour_conseil_municipal.txt"
 
     lines = lit_fichier(file)
@@ -77,7 +77,7 @@ if __name__ == "__main__":
         date = extrait_date(line[0])
 
         err = 0
-        if date == None:
+        if date is None:
             date = line[0]
             err += 1
         else:
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
         text = line[1]
         montant = extrait_montant(text)
-        if montant != None:
+        if montant is not None:
             montant = float(montant)
         else:
             err += 1

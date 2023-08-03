@@ -1,22 +1,22 @@
-# coding:latin-1
+# coding:utf-8
 import re
 import sys
+
 sys.path.append("../../complements_site_web")
-import importme
+# import importme
 
 
 def recupere_donnees():
     """
-    0 Séance 	
-    1 Référence	
-    2 Entité dépositaire	
-    3 Elu dépositaire	
-    4 Objet	
-    5 Type	
+    0 Sï¿½ance
+    1 Rï¿½fï¿½rence
+    2 Entitï¿½ dï¿½positaire
+    3 Elu dï¿½positaire
+    4 Objet
+    5 Type
     6 Rapporteur
     """
-    file = importme.import_module(
-        "td_note_2013_ordre_du_jour_conseil_municipal.zip")[0]
+    file = importme.import_module("td_note_2013_ordre_du_jour_conseil_municipal.zip")[0]
     f = open(file, "r")
     lines = f.readlines()
     f.close()
@@ -33,9 +33,12 @@ def extrait_montant(objet):
         montant = res.groups()[0]
         return montant
     else:
-        print("problème ", objet)
+        print("problï¿½me ", objet)
         return None
 
-    """Subvention à l'Association des Commerçants de la rue Mesnil (16e) pour les illuminations à l'occasion
-    des fêtes de fin d'année 2007, dans le cadre de l'opération "Paris Illumine Paris". -
-    Montant : 7.000 euros.	PJ	Mme Lyne COHEN-SOLAL (2ème Commission) rapporteure."""
+    """Subvention ï¿½ l'Association des Commerï¿½ants de la rue 
+    Mesnil (16e) pour les illuminations ï¿½ l'occasion
+    des fï¿½tes de fin d'annï¿½e 2007, dans le cadre de 
+    l'opï¿½ration "Paris Illumine Paris". -
+    Montant : 7.000 euros.	
+    PJ	Mme Lyne COHEN-SOLAL (2ï¿½me Commission) rapporteure."""

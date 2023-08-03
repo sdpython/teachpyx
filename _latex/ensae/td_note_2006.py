@@ -1,16 +1,16 @@
-# coding: latin-1
+# coding: utf-8
 # question 1
 def lit_fichier(file):
     f = open(file, "r")
     mot = []
-    for l in f:
-        mot.append(l.replace("\n", ""))
+    for li in f:
+        mot.append(li.replace("\n", ""))
     f.close()
     return mot
 
 
 mot = lit_fichier("td_note_texte.txt")
-print mot
+print(mot)
 
 # question 2
 
@@ -23,7 +23,7 @@ def est_trie(mot):
 
 
 tri = est_trie(mot)
-print "liste triée ", tri
+print("liste triï¿½e ", tri)
 
 # question 3
 
@@ -35,14 +35,14 @@ def cherche(mot, m):
     return -1
 
 
-print "mot ACHATS ", cherche(mot, "ACHATS")
-print "mot achats ", cherche(mot, "achats")
+print("mot ACHATS ", cherche(mot, "ACHATS"))
+print("mot achats ", cherche(mot, "achats"))
 
 # question 4
 un = cherche(mot, "UN")
 deux = cherche(mot, "DEUX")
-print "recherche normale ", un, deux
-print "nombre d'itérations", un + deux
+print("recherche normale ", un, deux)
+print("nombre d'itï¿½rations", un + deux)
 
 # question 5, 6, nbun et nbdeux contiennent le nombre de comparaisons
 
@@ -65,21 +65,21 @@ def cherche_dicho(mot, m):
 
 un, nbun = cherche_dicho(mot, "UN")
 deux, nbdeux = cherche_dicho(mot, "DEUX")
-print "recherche dichotomique ", un, deux
-print "nombre d'itérations ", nbun + nbdeux
+print("recherche dichotomique ", un, deux)
+print("nombre d'itï¿½rations ", nbun + nbdeux)
 
 # question 7
 """
-Lors d'une recherche simple, au pire, l'élément cherche sera
-en dernière position, ce qui signifie n itérations pour le trouver.
-Le coût de la recherche simple est en O(n).
+Lors d'une recherche simple, au pire, l'ï¿½lï¿½ment cherche sera
+en derniï¿½re position, ce qui signifie n itï¿½rations pour le trouver.
+Le coï¿½t de la recherche simple est en O(n).
 """
 
 # question 8
 """
-Lors de la recherche dichotomique, à chaque itération, on divise par deux
+Lors de la recherche dichotomique, ï¿½ chaque itï¿½ration, on divise par deux
 l'ensemble dans lequel la recherche s'effectue,
-au départ n, puis n/2, puis n/4 jusqu'à  ce que n/2^k soit nul
-c'est-à-dire k = partie entière de ln n / ln 2
-il y a au plus k itérations donc le coût de l'algorithme est en O (ln n).
+au dï¿½part n, puis n/2, puis n/4 jusqu'ï¿½ ce que n/2^k soit nul
+c'est-ï¿½-dire k = partie entiï¿½re de ln n / ln 2
+il y a au plus k itï¿½rations donc le coï¿½t de l'algorithme est en O (ln n).
 """

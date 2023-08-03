@@ -1,4 +1,4 @@
-# coding:latin-1
+# coding:utf-8
 import random
 
 # question 1
@@ -13,6 +13,7 @@ def sequence():
         res.append(i)
     return res
 
+
 # question 2
 
 
@@ -25,6 +26,6 @@ def moyenne(nb_tirage):
 
 
 s = sequence()
-print len(s), s
+print(len(s), s)
 m = moyenne(100)
-print m
+print(m)

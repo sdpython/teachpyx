@@ -1,8 +1,9 @@
-#coding: latin-1
+# coding: utf-8
 
-# énoncé 1, exercice 1, recherche dichotomique
+# ï¿½noncï¿½ 1, exercice 1, recherche dichotomique
 
 # question 1
+
 
 def recherche_dichotomique(element, liste_triee):
     """
@@ -22,8 +23,8 @@ def recherche_dichotomique(element, liste_triee):
     return a
 
 
-l = [0, 2, 4, 6, 8, 100, 1000]
-print(recherche_dichotomique(100, l))  # affiche 5
+li = [0, 2, 4, 6, 8, 100, 1000]
+print(recherche_dichotomique(100, li))  # affiche 5
 
 # question 2
 
@@ -41,11 +42,11 @@ print(deux_recherches(100, li, lp))  # affiche (5, -1)
 
 # question 3
 """
-                            liste coupée       liste non coupée (2n)
+                            liste coupï¿½e       liste non coupï¿½e (2n)
 recherche simple                1 + n                 2n
 recherche dichotomique          1 + ln n             ln(2n) = 1 + ln(n)
 
-coût équivalent
+coï¿½t ï¿½quivalent
 """
 
 # question 4
@@ -64,16 +65,16 @@ def recherche_dichotomique(element, liste_triee):
             a = m + 1
         m = (a + b) // 2
     if liste_triee[a] != element:
-        return -1       # ligne ajoutée
+        return -1  # ligne ajoutï¿½e
     else:
-        return m                                 # ligne ajoutée
+        return m  # ligne ajoutï¿½e
 
 
-l = [0, 2, 4, 6, 8, 100, 1000]
-for i in l:
-    print(i, recherche_dichotomique(i, l))
-    # vérifier qu'on retrouve tous les éléments existant
-print(recherche_dichotomique(1, l))   # affiche -1
+li = [0, 2, 4, 6, 8, 100, 1000]
+for i in li:
+    print(i, recherche_dichotomique(i, li))
+    # vï¿½rifier qu'on retrouve tous les ï¿½lï¿½ments existant
+print(recherche_dichotomique(1, li))  # affiche -1
 
 # question  5
 
@@ -85,14 +86,15 @@ def deux_recherches(element, liste_impair, liste_pair):
     else:
         return i
 
+
 # question 6
 
 
 """
 Les logarithmes sont en base 2.
 
-coût fonction question 2 : 1001 ( 1 + ln(n) )      = C1
-coût fonction question 5 : 1000 ln(n)  + 2 ln(n)   = C2
+coï¿½t fonction question 2 : 1001 ( 1 + ln(n) )      = C1
+coï¿½t fonction question 5 : 1000 ln(n)  + 2 ln(n)   = C2
 C2 - C1 = ln(n) - 1001 > 0
 
 La fonction 5 est plus rapide dans ce cas.

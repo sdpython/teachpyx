@@ -1,12 +1,13 @@
-#coding: latin-1
+# coding: utf-8
 
-# énoncé 2, exercice 3 distance de Levenstein
+# ï¿½noncï¿½ 2, exercice 3 distance de Levenstein
 
 # question 1
 
+
 def distance_edition(mot1, mot2):
     """
-    première fonction retrouvée à : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
+    premiï¿½re fonction retrouvï¿½e ï¿½ : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
     """
     dist = {(-1, -1): 0}
     for i, c in enumerate(mot1):
@@ -28,23 +29,23 @@ def distance_edition(mot1, mot2):
 
 
 print("****1*")
-print(distance_edition("levenstein", "levenstien"))     # 2
-print(distance_edition("bonbbon", "bonbon"))            # 1
-print(distance_edition("example", "exemples"))          # 2
+print(distance_edition("levenstein", "levenstien"))  # 2
+print(distance_edition("bonbbon", "bonbon"))  # 1
+print(distance_edition("example", "exemples"))  # 2
 
 # question 2
 
 print("****2*")
-print(distance_edition("levenstien", "levenstein"))     # 2
-print(distance_edition("bonbon", "bonbbon"))            # 1
-print(distance_edition("exemples", "example"))          # 2
+print(distance_edition("levenstien", "levenstein"))  # 2
+print(distance_edition("bonbon", "bonbbon"))  # 1
+print(distance_edition("exemples", "example"))  # 2
 
 # question 3
 
 
 def distance_edition(mot1, mot2):
     """
-    première fonction retrouvée à : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
+    premiï¿½re fonction retrouvï¿½e ï¿½ : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
     """
     dist = {(-1, -1): 0}
     for i, c in enumerate(mot1):
@@ -70,19 +71,19 @@ def distance_edition(mot1, mot2):
 
 
 print("****3*")
-print(distance_edition("levenstein", "levenstien"))     # 1
-print(distance_edition("bonbbon", "bonbon"))            # 1
-print(distance_edition("example", "exemples"))          # 2
-print(distance_edition("levenstien", "levenstein"))     # 1
-print(distance_edition("bonbon", "bonbbon"))            # 1
-print(distance_edition("exemples", "example"))          # 2
+print(distance_edition("levenstein", "levenstien"))  # 1
+print(distance_edition("bonbbon", "bonbon"))  # 1
+print(distance_edition("example", "exemples"))  # 2
+print(distance_edition("levenstien", "levenstein"))  # 1
+print(distance_edition("bonbon", "bonbbon"))  # 1
+print(distance_edition("exemples", "example"))  # 2
 
 # question 4
 
 
 def distance_edition(mot1, mot2):
     """
-    première fonction retrouvée à : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
+    premiï¿½re fonction retrouvï¿½e ï¿½ : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
     """
     dist = {(-1, -1): 0}
     for i, c in enumerate(mot1):
@@ -114,9 +115,9 @@ def distance_edition(mot1, mot2):
 
 
 print("****4*")
-print(distance_edition("levenstein", "levenstien"))     # 1
-print(distance_edition("bonbbon", "bonbon"))            # 0.45
-print(distance_edition("example", "exemples"))          # 2
-print(distance_edition("levenstien", "levenstein"))     # 1
-print(distance_edition("bonbon", "bonbbon"))            # 0.45
-print(distance_edition("exemples", "example"))          # 2
+print(distance_edition("levenstein", "levenstien"))  # 1
+print(distance_edition("bonbbon", "bonbon"))  # 0.45
+print(distance_edition("example", "exemples"))  # 2
+print(distance_edition("levenstien", "levenstein"))  # 1
+print(distance_edition("bonbon", "bonbbon"))  # 0.45
+print(distance_edition("exemples", "example"))  # 2

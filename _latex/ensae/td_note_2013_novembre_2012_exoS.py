@@ -1,8 +1,8 @@
-# coding:latin-1
+# coding:utf-8
 import math
 
-# cette fonction construit deux spirales imbriquées dans une matrice nb x nb
-# le résultat est retourné sous forme de liste de listes
+# cette fonction construit deux spirales imbriquï¿½es dans une matrice nb x nb
+# le rï¿½sultat est retournï¿½ sous forme de liste de listes
 
 
 def construit_matrice(nb):
@@ -28,21 +28,43 @@ def construit_matrice(nb):
 
     return mat
 
-# cette fonction reçoit une matrice sous forme de liste de listes contenant des entiers : 0,1,2
-# à chaque valeur est associée une couleur :
+
+# cette fonction reï¿½oit une matrice sous forme
+# de liste de listes contenant des entiers : 0,1,2
+# ï¿½ chaque valeur est associï¿½e une couleur :
 # 0 pour blanc, 1 pour bleu, 2 pour rouge
 
 
 def dessin_matrice(matrice):
     import pylab
+
     colors = {1: "blue", 2: "red"}
     for i in range(0, len(matrice)):
         for j in range(0, len(matrice[i])):
             if matrice[i][j] in colors:
-                pylab.plot([i - 0.5, i - 0.5, i + 0.5, i + 0.5, i - 0.5, i + 0.5, i - 0.5, i + 0.5],
-                           [j - 0.5, j + 0.5, j + 0.5, j - 0.5,
-                            j - 0.5, j + 0.5, j + 0.5, j - 0.5],
-                           colors[matrice[i][j]])
+                pylab.plot(
+                    [
+                        i - 0.5,
+                        i - 0.5,
+                        i + 0.5,
+                        i + 0.5,
+                        i - 0.5,
+                        i + 0.5,
+                        i - 0.5,
+                        i + 0.5,
+                    ],
+                    [
+                        j - 0.5,
+                        j + 0.5,
+                        j + 0.5,
+                        j - 0.5,
+                        j - 0.5,
+                        j + 0.5,
+                        j + 0.5,
+                        j - 0.5,
+                    ],
+                    colors[matrice[i][j]],
+                )
     pylab.show()
 
 

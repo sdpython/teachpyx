@@ -1,4 +1,4 @@
-# coding:latin-1
+# coding:utf-8
 import random
 
 
@@ -34,7 +34,7 @@ a, c = 0.3, 0.2
 b = 1 - a - c
 
 moy = 1.0 / (a - c)
-print "calcul", moy
+print("calcul", moy)
 
 m1 = moyenne(100000, a, b, c)
-print "simulée", m1
+print("simulÃ©e", m1)

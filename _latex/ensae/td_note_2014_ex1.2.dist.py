@@ -1,12 +1,13 @@
-#coding: latin-1
+# coding: utf-8
 
-# énoncé 1, exercice 2 distance de Levenstein
+# ï¿½noncï¿½ 1, exercice 2 distance de Levenstein
 
 # question 1
 
+
 def distance_edition(mot1, mot2):
     """
-    première fonction retrouvée à : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
+    premiï¿½re fonction retrouvï¿½e ï¿½ : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
     """
     dist = {(-1, -1): 0}
     for i, c in enumerate(mot1):
@@ -28,18 +29,18 @@ def distance_edition(mot1, mot2):
 
 
 print("****1*")
-print(distance_edition("levenstein", "levenshtein"))    # 1
-print(distance_edition("bonbon", "bonbom"))             # 1
-print(distance_edition("example", "exemples"))          # 2
-print(distance_edition("esche", "eche"))                # 1
+print(distance_edition("levenstein", "levenshtein"))  # 1
+print(distance_edition("bonbon", "bonbom"))  # 1
+print(distance_edition("example", "exemples"))  # 2
+print(distance_edition("esche", "eche"))  # 1
 
 # question 2
 
 print("****2*")
-print(distance_edition("levenshtein", "levenstein"))    # 1
-print(distance_edition("bonbom", "bonbon"))             # 1
-print(distance_edition("exemples", "example"))          # 2
-print(distance_edition("eche", "esche"))                # 1
+print(distance_edition("levenshtein", "levenstein"))  # 1
+print(distance_edition("bonbom", "bonbon"))  # 1
+print(distance_edition("exemples", "example"))  # 2
+print(distance_edition("eche", "esche"))  # 1
 
 # question 3
 
@@ -60,7 +61,7 @@ def distance_edition(mot1, mot2):
             if (i - 1, j - 1) in dist:
                 if c == d:
                     x = dist[i - 1, j - 1]
-                elif c in ['n', 'm'] and d in ['n', 'm']:
+                elif c in ["n", "m"] and d in ["n", "m"]:
                     x = dist[i - 1, j - 1] + 0.5
                 else:
                     x = dist[i - 1, j - 1] + 1
@@ -70,14 +71,14 @@ def distance_edition(mot1, mot2):
 
 
 print("****3*")
-print(distance_edition("levenstein", "levenshtein"))    # 1
-print(distance_edition("bonbon", "bonbom"))             # 0.5
-print(distance_edition("example", "exemples"))          # 2
-print(distance_edition("esche", "eche"))                # 1
-print(distance_edition("levenshtein", "levenstein"))    # 1
-print(distance_edition("bonbom", "bonbon"))             # 0.5
-print(distance_edition("exemples", "example"))          # 2
-print(distance_edition("eche", "esche"))                # 1
+print(distance_edition("levenstein", "levenshtein"))  # 1
+print(distance_edition("bonbon", "bonbom"))  # 0.5
+print(distance_edition("example", "exemples"))  # 2
+print(distance_edition("esche", "eche"))  # 1
+print(distance_edition("levenshtein", "levenstein"))  # 1
+print(distance_edition("bonbom", "bonbon"))  # 0.5
+print(distance_edition("exemples", "example"))  # 2
+print(distance_edition("eche", "esche"))  # 1
 
 # question 4
 
@@ -104,7 +105,7 @@ def distance_edition(mot1, mot2):
             if (i - 1, j - 1) in dist:
                 if c == d:
                     x = dist[i - 1, j - 1]
-                elif c in ['n', 'm'] and d in ['n', 'm']:
+                elif c in ["n", "m"] and d in ["n", "m"]:
                     x = dist[i - 1, j - 1] + 0.5
                 else:
                     x = dist[i - 1, j - 1] + 1
@@ -114,14 +115,14 @@ def distance_edition(mot1, mot2):
 
 
 print("****4*")
-print(distance_edition("levenstein", "levenshtein"))    # 1
-print(distance_edition("bonbon", "bonbom"))             # 0.5
-print(distance_edition("example", "exemples"))          # 1.5
-print(distance_edition("esche", "eche"))                # 0.5
-print(distance_edition("levenshtein", "levenstein"))    # 1
-print(distance_edition("bonbom", "bonbon"))             # 0.5
-print(distance_edition("exemples", "example"))          # 1.5
-print(distance_edition("eche", "esche"))                # 0.5
+print(distance_edition("levenstein", "levenshtein"))  # 1
+print(distance_edition("bonbon", "bonbom"))  # 0.5
+print(distance_edition("example", "exemples"))  # 1.5
+print(distance_edition("esche", "eche"))  # 0.5
+print(distance_edition("levenshtein", "levenstein"))  # 1
+print(distance_edition("bonbom", "bonbon"))  # 0.5
+print(distance_edition("exemples", "example"))  # 1.5
+print(distance_edition("eche", "esche"))  # 0.5
 
 # question 5
 
@@ -154,7 +155,7 @@ def distance_edition(mot1, mot2):
             if (i - 1, j - 1) in dist:
                 if c == d:
                     x = dist[i - 1, j - 1]
-                elif c in ['n', 'm'] and d in ['n', 'm']:
+                elif c in ["n", "m"] and d in ["n", "m"]:
                     x = dist[i - 1, j - 1] + 0.5
                 else:
                     x = dist[i - 1, j - 1] + 1
@@ -164,11 +165,11 @@ def distance_edition(mot1, mot2):
 
 
 print("****5*")
-print(distance_edition("levenstein", "levenshtein"))    # 1
-print(distance_edition("bonbon", "bonbom"))             # 0.5
-print(distance_edition("example", "exemples"))          # 1.2
-print(distance_edition("esche", "eche"))                # 0.5
-print(distance_edition("levenshtein", "levenstein"))    # 1
-print(distance_edition("bonbom", "bonbon"))             # 0.5
-print(distance_edition("exemples", "example"))          # 1.2
-print(distance_edition("eche", "esche"))                # 0.5
+print(distance_edition("levenstein", "levenshtein"))  # 1
+print(distance_edition("bonbon", "bonbom"))  # 0.5
+print(distance_edition("example", "exemples"))  # 1.2
+print(distance_edition("esche", "eche"))  # 0.5
+print(distance_edition("levenshtein", "levenstein"))  # 1
+print(distance_edition("bonbom", "bonbon"))  # 0.5
+print(distance_edition("exemples", "example"))  # 1.2
+print(distance_edition("eche", "esche"))  # 0.5

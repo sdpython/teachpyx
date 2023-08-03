@@ -1,5 +1,4 @@
-# coding:latin-1
-import random
+# coding: utf-8
 import math
 
 # question 1
@@ -13,12 +12,13 @@ def calcul_suite_a(n, e, a, b, c):
             if k == e:
                 p[u, k] = a * p.get((u - 1, k + 1), 0)
             elif k == e + 1:
-                p[u, k] = a * p.get((u - 1, k + 1), 0) + \
-                    b * p.get((u - 1, k), 0)
+                p[u, k] = a * p.get((u - 1, k + 1), 0) + b * p.get((u - 1, k), 0)
             elif k > e + 1:
-                p[u, k] = a * p.get((u - 1, k + 1), 0) + \
-                    b * p.get((u - 1, k), 0) + \
-                    c * p.get((u - 1, k - 1), 0)
+                p[u, k] = (
+                    a * p.get((u - 1, k + 1), 0)
+                    + b * p.get((u - 1, k), 0)
+                    + c * p.get((u - 1, k - 1), 0)
+                )
     return p
 
 
@@ -32,11 +32,12 @@ def affiche_proba(ps, e):
         moy += p * u
         mes = "u % 3d P(U=u) %1.6g r_u %1.6g" % (u, p, moy)
         if u < 3 or u % 50 == 0:
-            print mes
+            print(mes)
         logru.append(math.log(moy))
         logu.append(math.log(u))
 
     import pylab
+
     pylab.plot(logu, logru, "o")
     pylab.show()
 
