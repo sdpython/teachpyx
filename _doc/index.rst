@@ -12,10 +12,7 @@ Internet est une source quasi-infinie de documents, papiers, bouts de
 code sur beaucoup de sujets mais il faut savoir picorer.
 Ce site se veut plus facile à lire de façon traditionnelle,
 un peu comme un livre. Il s'adresse surtout à ceux qui ne savent
-pas ou eu programmer.
-Il est aussi disponible en
-`PDF <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/teachpyx_doc.pdf>`_
-(format brut de fonderie) et sur
+pas ou eu programmer. Le contenu est disponible sur
 `GitHub/teachpyx <https://github.com/sdpython/teachpyx>`_ |gitlogo|.
 
 .. toctree::

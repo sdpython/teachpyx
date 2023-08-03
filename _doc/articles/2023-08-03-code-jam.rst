@@ -1,0 +1,15 @@
+
+
+.. index:: Code Jam
+
+2023-08-03 : Code Jam
+=====================
+
+Il fut un temps où Google organisait des concours faits d'exercices
+algorithmiques : Google Code Jam. Les exercices proposées par Google
+ne sont plus en ligne mais comme ils ont passionnées un grand nombre
+de développeurs, il est possible de le retrouver. Voici deux 
+sources assez complètes sur ce sujet.
+
+* `Google-Kick-Start <https://github.com/Harmon758/Google-Kick-Start>`_
+* `Programming Logic / Google Code Jam <https://www.programminglogic.com/category/google-code-jam/>`_

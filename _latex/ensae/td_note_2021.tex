@@ -1,0 +1,99 @@
+%!TEX encoding =  IsoLatin
+\input{../../common/exo_begin.tex}%
+
+\firstpassagedo{
+\newcommand{\sametextforthisinterro}[0]{ 
+\huge ENSAE TD not�, mardi 24 novembre 2020
+
+\normalsize
+\textit{Le programme devra �tre envoy� par mail au charg� de TD et au professeur. Toutes les questions valent 2 points except� deux questions.}
+\smallskip
+}
+
+\sametextforthisinterro
+}
+
+
+\exosubject{}
+\begin{xexercice}\label{td_note_label1_2021}%\indexfrr{�nonc�}{pratique}
+
+On dispose de donn�es issues des h�pitaux relative � l'�pid�mie. On s'int�resse au temps pass� dans l'h�pital. Pour chaque personne, on conna�t :
+\begin{itemize}
+\item Sa date d'entr�e (jour de l'ann�e)
+\item Sa date de sortie si la personne est gu�rie,
+\item L'issue : d�c�s (0) ou gu�rison (1)
+\end{itemize}
+
+On veut calculer une fonction $S(t)$ qui d�termine la probabilit� de survie des malades encore dans l'h�pital $t$ jours apr�s leur arriv�e. Cette courbe s'appelle l'estimateur de \textit{Kaplan-Meier}.
+
+\exequest R�cup�rer les donn�es disponibles � l'adresse suivante sous la forme d'un DataFrame avec l'instruction :
+
+\texttt{pandas.read\_csv("enseignement/complements/examen2021.zip")}
+
+\exequest Calculer la dur�e de s�jour � l'h�pital pour chaque personne, quelle que soit l'issue.
+
+\exequest On note $n(t)$ nombre de personnes entr�es � l'h�pital et qui y sont encore apr�s $t$ jours, on note $d(t)$ le nombre de personnes qui sont d�c�d�es au jour $t$ � partir de leur entr�e � l'h�pital. L'estimateur de \textit{Kaplan-Meier} est d�fini par $S(t)=\frac{n(t) - d(t)}{n(t)}$. Ecrire une fonction qui retourne le r�sultat de cet estimateur pour un $t$ donn�.
+
+\exequest Calculer tous les $S(t)$ pour $t$ allant de 1 � 100.
+
+\exequest Tracer cette fonction avec matplotlib. Vous pourrez vous inspirer du code fourni dans l'�nonc� (1 point)
+
+
+\begin{verbatimx}
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 1, figsize=(4, 4))
+T = [0, 1, 2, 3]
+St = [1, 0.8, 0.6, 0.2]
+ax.plot(T, St)
+\end{verbatimx}
+
+\exequest Les donn�es des h�pitaux en acc�s libre recensent chaque jour le nombre de personnes entr�es � l'h�pital, le nombre de personnes d�c�d�es et gu�ries � l'h�pital. Est-il possible de calculer l'estimateur pr�c�dent sur ses donn�es ? Expliquez pourquoi. (On ne demande pas de le faire si c'est possible). (1 point)
+
+\end{xexercice}
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\exosubject{}
+\begin{xexercice}\label{td_note_label2_2021}%\indexfrr{�nonc�}{pratique}
+
+On s'int�resse � la propagation d'un virus dans une classe. On suppose que chacun reste assis � la m�me place sans bouger. Il faut une heure pour qu'une personne contamine son voisin. Une personne a quatre voisins :
+
+\begin{figure}[ht]
+\begin{center}\begin{tabular}{|c|}\hline 
+\includegraphics[width=4cm]{../python_examen/image/pixel.png} \\ \hline
+\end{tabular}
+\end{center}
+\caption{Voisinage pixels}
+\label{voisinage_pixel}
+\end{figure}
+
+
+\exequest On consid�re une matrice carr�e \texttt{M = numpy.zeros(N, N)} avec un �l�ve par place. L'�l�ve $ij$ est contamin� (\texttt{M[i,j]=1}) ($i,j = 4,5$ par exemple). On suppose connu l'�tat de la contamination � l'instant $t$ (heures), calculer la matrice des personnes contamin�es � l'heure $t+1$ d'apr�s.
+
+Il est possible de r�pondre � cette en utilisant la fonction \texttt{numpy.maximum} et aucune boucle.
+
+\exequest m�me chose apr�s $T$ heures.
+
+\exequest On vaccine une proportion $p$ de la classe, on cr�e une matrice de la m�me dimension qui contient 1 si la personne est vaccin�e, 0 sinon.
+
+\texttt{vaccine = (numpy.random.rand(N, N) <= p).astype(numpy.int32)}.
+
+Une personne vaccin�e stoppe la propagation. Calculer la propagation l'heure $t+1$.
+
+\exequest m�me chose apr�s $T$ heures.
+
+\exequest Faites varier $p$, recommencer plusieurs fois. Quel $p$ faut-il pour �viter la propagation ?
+
+
+\end{xexercice}
+
+
+
+
+
+\input{../../common/exo_end.tex}%
