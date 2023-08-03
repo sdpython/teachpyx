@@ -57,7 +57,7 @@ Exercices courts
 ================
 
 .. toctree::
-    :maxdepth:
+    :maxdepth: 1
 
     exams/interro_rapide_20_minutes_2014_09
     exams/interro_rapide_20_minutes_2014_10
