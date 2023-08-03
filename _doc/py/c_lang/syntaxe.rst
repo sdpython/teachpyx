@@ -7,10 +7,6 @@
 Syntaxe du langage Python (boucles, tests, fonctions)
 =====================================================
 
-.. contents::
-    :local:
-    :depth: 2
-
 Avec les variables, les boucles et les fonctions, on connaît suffisamment d'éléments pour écrire
 des programmes. Le plus difficile n'est pas forcément de les comprendre mais plutôt d'arriver
 à découper un algorithme complexe en utilisant ces briques élémentaires. C'est l'objectif

@@ -12,10 +12,7 @@ Internet est une source quasi-infinie de documents, papiers, bouts de
 code sur beaucoup de sujets mais il faut savoir picorer.
 Ce site se veut plus facile à lire de façon traditionnelle,
 un peu comme un livre. Il s'adresse surtout à ceux qui ne savent
-pas ou eu programmer.
-Il est aussi disponible en
-`PDF <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/teachpyx_doc.pdf>`_
-(format brut de fonderie) et sur
+pas ou eu programmer. Le contenu est disponible sur
 `GitHub/teachpyx <https://github.com/sdpython/teachpyx>`_ |gitlogo|.
 
 .. toctree::
@@ -23,6 +20,7 @@ Il est aussi disponible en
 
     introduction
     py/index
+    practice/index
     c_data/index
     c_resume/index
     api/index
@@ -55,8 +53,8 @@ Le contenu est sur `github <https://github.com/sdpython/teachpyx/>`_.
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT
 
-.. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=main
-    :target: https://codecov.io/github/sdpython/teachpyx?branch=main
+.. image:: https://codecov.io/github/sdpython/teachpyx/branch/main/graph/badge.svg?token=zmROB7lJAt 
+    :target: https://codecov.io/github/sdpython/teachpyx
 
 .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
     :alt: GitHub Issues

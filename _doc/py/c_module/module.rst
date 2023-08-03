@@ -7,10 +7,6 @@
 Module ou extension
 ===================
 
-.. contents::
-    :local:
-    :depth: 2
-
 .. index:: module
 
 Il est souvent préférable de répartir le code d'un grand programme

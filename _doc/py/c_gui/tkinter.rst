@@ -9,10 +9,6 @@
 tkinter
 =======
 
-.. contents::
-    :local:
-    :depth: 2
-
 Les interfaces graphiques servent à rendre les programmes plus conviviaux.
 Elles sont pratiques à utiliser mais elles demandent un peu de temps pour
 les concevoir. Un programme sans interface exécute des instructions les

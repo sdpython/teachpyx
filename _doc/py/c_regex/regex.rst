@@ -5,10 +5,6 @@
 Expressions régulières
 ======================
 
-.. contents::
-    :local:
-    :depth: 2
-
 A quoi ça sert ?
 ================
 

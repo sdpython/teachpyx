@@ -7,10 +7,6 @@
 Fichiers
 ========
 
-.. contents::
-    :local:
-    :depth: 2
-
 .. index:: fichier
 
 Lorsqu'un programme termine son exécution, toutes les informations stockées

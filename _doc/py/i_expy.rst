@@ -5,9 +5,6 @@
 Exemples
 ========
 
-.. contents::
-    :local:
-
 Construction classique
 ======================
 

@@ -3,10 +3,6 @@
 Types et variables du langage python
 ====================================
 
-.. contents::
-    :local:
-    :depth: 2
-
 Variables
 =========
 

@@ -5,10 +5,6 @@
 Encoding et jeux de caractères
 ==============================
 
-.. contents::
-    :local:
-    :depth: 2
-
 .. index:: jeux de caractères
 
 Jeux de caractères

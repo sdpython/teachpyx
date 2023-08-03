@@ -13,8 +13,8 @@
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT
 
-.. image:: https://codecov.io/github/sdpython/teachpyx/coverage.svg?branch=main
-    :target: https://codecov.io/github/sdpython/teachpyx?branch=main
+.. image:: https://codecov.io/github/sdpython/teachpyx/branch/main/graph/badge.svg?token=zmROB7lJAt 
+    :target: https://codecov.io/github/sdpython/teachpyx
 
 .. image:: http://img.shields.io/github/issues/sdpython/teachpyx.svg
     :alt: GitHub Issues

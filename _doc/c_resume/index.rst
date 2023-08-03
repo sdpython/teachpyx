@@ -11,8 +11,6 @@ Précis
 
 *Autres liens*
 
-* `Rappel de programmation <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/td_2a.html#rappels-de-programmation>`_
-* `Cheat Sheets <http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/cheat_sheets.html>`_
 * `Python Numpy Tutorial <http://cs231n.github.io/python-numpy-tutorial/>`_
 * `100 numpy exercises <http://www.labri.fr/perso/nrougier/teaching/numpy.100/>`_
 * `Matplotlib tutorial <http://www.labri.fr/perso/nrougier/teaching/matplotlib/matplotlib.html>`_

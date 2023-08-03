@@ -12,9 +12,6 @@ en particulier. Cela les rend plus efficaces pour celui-ci et
 souvent plus lent pour les autres. Ce chapitre en recense les
 plus utilisés.
 
-.. contents::
-    :local:
-
 OrderedDict
 ===========
 

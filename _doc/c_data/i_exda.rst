@@ -3,9 +3,6 @@
 Exemples
 ========
 
-.. contents::
-    :local:
-
 Numpy
 =====
 

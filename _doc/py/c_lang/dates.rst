@@ -5,10 +5,6 @@
 Dates
 =====
 
-.. contents::
-    :local:
-    :depth: 2
-
 datetime
 ========
 

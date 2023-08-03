@@ -5,9 +5,6 @@
 FAQ
 ===
 
-.. contents::
-    :local:
-
 Langage Python
 ==============
 
