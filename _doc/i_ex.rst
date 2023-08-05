@@ -3,14 +3,6 @@
 Tous les exemples
 =================
 
-Code
-====
-
-.. toctree::
-
-    auto_examples/index
-    api/index
-
 Définitions
 ===========
 

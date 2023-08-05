@@ -170,6 +170,10 @@ def measure_time(
 class ExtTestCase(unittest.TestCase):
     _warns = []
 
+    def assertEndsWith(self, string, suffix):
+        if not string.endswith(suffix):
+            raise AssertionError(f"{string!r} does not end with {suffix!r}.")
+
     def assertExists(self, name):
         if not os.path.exists(name):
             raise AssertionError(f"File or folder {name!r} does not exists.")

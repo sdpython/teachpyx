@@ -17,15 +17,28 @@ pas ou eu programmer. Le contenu est disponible sur
 
 .. toctree::
     :maxdepth: 1
+    :caption: Lectures
 
     introduction
     py/index
-    practice/index
     c_data/index
     c_resume/index
     articles/index
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Exercices
+
+    practice/index
+    auto_examples/index
+    api/index
     i_ex
     i_faq
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Compléments
+
     license
     CHANGELOGS
 

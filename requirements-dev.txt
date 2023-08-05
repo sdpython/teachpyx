@@ -4,7 +4,9 @@ blockdiag
 cloudpickle
 coverage
 furo
+ipython
 jupyter
+lifelines
 matplotlib
 mutagen  # mp3
 nbsphinx
