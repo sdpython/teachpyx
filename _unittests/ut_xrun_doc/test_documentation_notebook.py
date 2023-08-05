@@ -40,7 +40,7 @@ class TestDocumentationNotebook(ExtTestCase):
         content = exporter.from_filename(nb_name)
         bcontent = content[0].encode("utf-8")
 
-        with tempfile.NamedTemporaryFile() as tmp:
+        with tempfile.NamedTemporaryFile(suffix=".py") as tmp:
             tmp.write(bcontent)
             tmp.seek(0)
 
