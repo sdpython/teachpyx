@@ -4,6 +4,7 @@ blockdiag
 cloudpickle
 coverage
 furo
+ipython
 jupyter
 matplotlib
 mutagen  # mp3
