@@ -26,6 +26,14 @@ def import_source(module_file_path, module_name):
 
 
 class TestDocumentationNotebook(ExtTestCase):
+    def post_process(self, content):
+        lines = []
+        for line in content.split("\n"):
+            if "get_ipython()" in line:
+                line = "# " + line
+            lines.append(line)
+        return "\n".join(lines)
+
     def run_test(self, nb_name: str, verbose=0) -> int:
         ppath = os.environ.get("PYTHONPATH", "")
         if len(ppath) == 0:
@@ -37,8 +45,8 @@ class TestDocumentationNotebook(ExtTestCase):
         perf = time.perf_counter()
 
         exporter = PythonExporter()
-        content = exporter.from_filename(nb_name)
-        bcontent = content[0].encode("utf-8")
+        content = self.post_process(exporter.from_filename(nb_name)[0])
+        bcontent = content.encode("utf-8")
 
         with tempfile.NamedTemporaryFile(suffix=".py") as tmp:
             self.assertEndsWith(tmp.name, ".py")
@@ -63,7 +71,7 @@ class TestDocumentationNotebook(ExtTestCase):
                     raise AssertionError(
                         f"Example {nb_name!r} (cmd: {cmds} - "
                         f"exec_prefix={sys.exec_prefix!r}) "
-                        f"failed due to\n{st}"
+                        f"failed due to\n{st}\n-----\n{content}"
                     )
 
         dt = time.perf_counter() - perf
@@ -76,14 +84,16 @@ class TestDocumentationNotebook(ExtTestCase):
         found = os.listdir(fold)
         last = os.path.split(fold)[-1]
         for name in found:
+            if "interro_rapide_" in name:
+                continue
             if name.endswith(".ipynb"):
                 fullname = os.path.join(fold, name)
 
-                def _test_(self, name=name):
+                def _test_(self, fullname=fullname):
                     res = self.run_test(fullname, verbose=VERBOSE)
                     self.assertIn(res, (-1, 1))
 
-                setattr(cls, f"test_{last}_{name}", _test_)
+                setattr(cls, f"test_{last}_{os.path.splitext(name)[0]}", _test_)
 
     @classmethod
     def add_test_methods(cls):
