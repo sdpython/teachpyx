@@ -484,6 +484,23 @@ def sortable_class(cl):
     pass
 
 
+class PQPipError(Exception):
+    """
+    Any exception raised by one of the following function.
+    """
+
+    def __init__(self, *args):
+        """
+        :param args: either a string 3 strings (cmd, out, err)
+        """
+        if len(args) == 1:
+            Exception.__init__(self, args[0])
+        else:
+            cmd, out, err = args
+            mes = f"CMD:\n{cmd}\nOUT:\n{out}\n[piperror]\n{err}"
+            Exception.__init__(self, mes)
+
+
 class Distribution:
     """
     Common interface for old and recent pip packages.
@@ -665,6 +682,48 @@ def list_of_installed_packages():
     return get_packages_list()
 
 
+def get_package_info(name=None, start=0, end=-1):
+    """
+    Calls ``pip show`` to retrieve information about packages.
+
+    :param name: name of he packages or None to get all of them in a list
+    :param start: start at package n (in list return by :func:`get_packages_list`)
+    :param end: end at package n, -1 for all
+    :return: dictionary or list of dictionaries
+    """
+    from pip._internal.commands.show import search_packages_info
+
+    if name is None:
+        res = []
+        packs = get_packages_list()
+        if end == -1:
+            end = len(packs)  # pragma: no cover
+        subp = packs[start:end]
+        if len(subp) == 0:
+            raise PQPipError(  # pragma: no cover
+                "No package, start={0}, end={1}, len(subp)={2}, len(packs)={3}".format(
+                    start, end, len(subp), len(packs)
+                )
+            )
+        for cp in subp:
+            pack = cp.project_name
+            info = get_package_info(pack)
+            res.append(info)
+        if len(res) == 0 and len(subp) > 0:
+            raise PQPipError(  # pragma: no cover
+                f"Empty list, unexpected, start={start}, "
+                f"end={end}, len(subp)={len(subp)}"
+            )
+        return res
+
+    res = list(search_packages_info([name]))
+    if len(res) != 1:
+        raise PQPipError(  # pragma: no cover
+            f"Unexpected number of results {len(res)} for {name}"
+        )
+    return res[0]
+
+
 def information_about_package(name):
     """
     Calls ``pip show`` to retrieve information about packages.
@@ -719,10 +778,6 @@ def information_about_package(name):
 
             conda install <module_compile>
     """
-    from pyquickhelper.pycode.pip_helper import (
-        get_package_info,
-    )  # pylint: disable=C0415
-
     return get_package_info(name)
 
 
