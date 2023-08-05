@@ -484,6 +484,53 @@ def sortable_class(cl):
     pass
 
 
+class Distribution:
+    """
+    Common interface for old and recent pip packages.
+    """
+
+    def __init__(self, dist):
+        self.dist = dist
+
+    def __getattr__(self, attr):
+        if attr == "key":
+            if hasattr(self.__dict__["dist"], "key"):
+                return self.__dict__["dist"].key
+            return self.__dict__["dist"].canonical_name
+        if attr == "dist":
+            return self.__dict__["dist"]
+        if attr in {
+            "_get_metadata",
+            "requires",
+            "PKG_INFO",
+            "project_name",
+            "py_version",
+            "platform",
+            "extras",
+        }:
+            if hasattr(self.__dict__["dist"], attr):
+                return getattr(self.__dict__["dist"], attr)
+            try:
+                return getattr(self.__dict__["dist"]._dist, attr)
+            except AttributeError as e:
+                if attr == "project_name":
+                    return getattr(self.__dict__["dist"]._dist, "name")
+                if attr == "py_version":
+                    return getattr(self.__dict__["dist"]._dist, "version")
+                if attr in {"platform", "extras"}:
+                    return None
+                raise AttributeError(
+                    f"Unable to find {attr!r} in {dir(self.__dict__['dist']._dist)} or "
+                    f"{dir(self.__dict__['dist'])}."
+                ) from e
+        try:
+            return getattr(self.__dict__["dist"], attr)
+        except AttributeError as e:
+            raise AttributeError(
+                f"Unable to find {attr!r} in {dir(self.__dict__['dist'])}."
+            ) from e
+
+
 def get_installed_distributions(
     local_only=True,
     skip=None,
