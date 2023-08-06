@@ -58,9 +58,9 @@ class TestDocumentationNotebook(ExtTestCase):
             try:
                 mod = import_source(fold, os.path.splitext(name)[0])
                 assert mod is not None
-            except FileNotFoundError:
+            except (FileNotFoundError, RuntimeError):
                 # try another way
-                cmds = [sys.executable, "-u", os.path.join(fold, name)]
+                cmds = [sys.executable, "-u", name]
                 p = subprocess.Popen(
                     cmds, stdout=subprocess.PIPE, stderr=subprocess.PIPE
                 )
