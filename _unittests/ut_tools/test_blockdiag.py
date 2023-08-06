@@ -15,7 +15,7 @@ class TestBlockDiag(ExtTestCase):
             """.replace(
             "            ", ""
         )
-        img = draw_diagram(code, format="png")
+        img = draw_diagram(code, fmt="png")
         self.assertNotEmpty(img)
 
     @ignore_warnings(DeprecationWarning)
@@ -28,7 +28,7 @@ class TestBlockDiag(ExtTestCase):
             """.replace(
             "            ", ""
         )
-        img = draw_diagram(code, format="pillow")
+        img = draw_diagram(code, fmt="pillow")
         self.assertTrue(img, Image)
         self.assertEqual(img.size, (832, 200))
 
@@ -42,7 +42,7 @@ class TestBlockDiag(ExtTestCase):
             """.replace(
             "            ", ""
         )
-        img = draw_diagram(code, format="svg")
+        img = draw_diagram(code, fmt="svg")
         self.assertTrue(img, str)
         self.assertTrue(
             '<rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)"' in img

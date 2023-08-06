@@ -243,12 +243,12 @@ def dictionnaire_modifie_dans_la_boucle():
     return liste, d
 
 
-def str2date(s, format="%d/%m/%Y"):
+def str2date(s, fmt="%d/%m/%Y"):
     """
     convertit une chaîne de caractères en datetime
 
     :param s: chaîne de caractères
-    :param format: format de la conversion
+    :param fmt: format de la conversion
 
     .. exref::
         :title: conversion d'une chaîne de caractère en datetime

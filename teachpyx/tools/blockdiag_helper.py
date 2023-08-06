@@ -98,7 +98,7 @@ def _detectfont(font):
     return fontpath
 
 
-def draw_diagram(graph, module="blockdiag", format="pillow", **options):
+def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
     """
     Draws a graph based on module :epkg:`blockdiag`.
 
