@@ -93,15 +93,20 @@ class TestDocumentationNotebook(ExtTestCase):
                     res = self.run_test(fullname, verbose=VERBOSE)
                     self.assertIn(res, (-1, 1))
 
-                setattr(cls, f"test_{last}_{os.path.splitext(name)[0]}", _test_)
+                lasts = last.replace("-", "_")
+                names = os.path.splitext(name)[0].replace("-", "_")
+                setattr(cls, f"test_{lasts}_{names}", _test_)
 
     @classmethod
     def add_test_methods(cls):
         this = os.path.abspath(os.path.dirname(__file__))
-        fold = os.path.normpath(
-            os.path.join(this, "..", "..", "_doc", "practice", "exams")
-        )
-        cls.add_test_methods_path(fold)
+        folds = [
+            os.path.join(this, "..", "..", "_doc", "practice", "exams"),
+            os.path.join(this, "..", "..", "_doc", "practice", "py-base"),
+            os.path.join(this, "..", "..", "_doc", "practice", "algo-base"),
+        ]
+        for fold in folds:
+            cls.add_test_methods_path(os.path.normpath(fold))
 
 
 TestDocumentationNotebook.add_test_methods()
