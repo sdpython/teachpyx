@@ -1,3 +1,3 @@
 
-Bouts de code à conserver
-=========================
+Gallerie d'exemples
+===================
