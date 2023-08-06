@@ -218,6 +218,13 @@ Catalogue d'algorithmes
 Beaucoup de ces algorithmes sont implémentés dans ce projet :
 `TheAlgorithms <https://github.com/TheAlgorithms/Python>`_.
 
+Le module `algorithms <https://github.com/nryoung/algorithms>`_
+implémente beaucoup d'algorithmes classiques tels que
+la `recherche binaire <https://github.com/nryoung/algorithms/blob/master/algorithms/searching/binary_search.py>`_,
+le générateur de nombre aléatoire de
+`Mersenne <https://github.com/nryoung/algorithms/blob/master/algorithms/random/mersenne_twister.py>`_,
+le tri `heapsort <https://github.com/nryoung/algorithms/blob/master/algorithms/sorting/heap_sort.py>`_.
+
 Problèmes NP-complets
 +++++++++++++++++++++
 
@@ -236,7 +243,6 @@ Un peu de morphisme parce que ça m'a toujours fasciné :
 Liens
 +++++
 
-* :ref:`l-problem-solved`
 * `Liste d'algorithme sur Wikipédia <http://en.wikipedia.org/wiki/List_of_algorithms>`_
   (`version française <http://fr.wikipedia.org/wiki/Liste_d%27algorithmes>`_)
 * `List of machine learning concepts <http://en.wikipedia.org/wiki/List_of_machine_learning_concepts>`_
@@ -244,7 +250,6 @@ Liens
 * `Introduction to graphs and networks <http://freakonometrics.hypotheses.org/51106>`_
   (échantillon dans un graphe, chaîne de Markov, centralité, ...)
 * `Networks and Flows #2 <http://freakonometrics.hypotheses.org/51457>`_
-* :ref:`Algorithmes classiques implémentés <l-blog-algo-impl>`
 
 Articles sur des algorithmes
 ++++++++++++++++++++++++++++
@@ -288,7 +293,7 @@ Pour s'entraîner
   dont les précédents exercices sont disponibles :
   `ACM-ICPC Live Archive <https://www.udebug.com/LA/icpc-archive-volumes>`_,
   mais aussi les problèmes du
-  `Castor Informatique <https://castor-informatique.fr/>`_
+  `Castor Informatique <https://castor-informatique.fr>`_
   pour les plus jeunes.
 
 Google's recommandations

@@ -6,9 +6,9 @@ Langage Python
     :maxdepth: 1
     :caption: Structure de données
 
-    py-base/code_list_tuple
+    py-base/code_liste_tuple
     py-base/nbheap
-    py-base/structure_donnees_conversion
+    py-base/structures_donnees_conversion
     py-base/recherche_dichotomique
 
 .. toctree::
