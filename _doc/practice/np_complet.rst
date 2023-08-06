@@ -58,7 +58,8 @@ Idée pour démonstration qu'un problème est NP-complet
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Une preuve complète est donnée dans le cours
-`Logique, modèles, calculs (INF 423) <http://www.enseignement.polytechnique.fr/informatique/INF423/i.php?n=Main.Poly>`_.
+`Logique, modèles, calculs (INF 423)
+<https://www.enseignement.polytechnique.fr/informatique/INF423/uploads/Main/poly-good.pdf>`_.
 
 **1**
 
