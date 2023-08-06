@@ -102,7 +102,7 @@ def draw_diagram(graph, module="blockdiag", format="pillow", **options):
     """
     Draws a graph based on module :epkg:`blockdiag`.
 
-    :param graph: definition, see `syntax <https://blockdiag.com/en/blockdiag/examples.html>`_
+    :param graph: definition, see `blockdiag <http://blockdiag.com/en/>`_
     :param module: ``'blockdiag'`` (only available value)
     :param format: can be a filename or a module name (``'pillow'``)
     :param options: additional options for :epkg:`blockdiag`

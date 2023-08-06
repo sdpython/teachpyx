@@ -20,7 +20,8 @@ scikit-learn>=1.2
 sphinx
 sphinx-gallery
 sphinx-issues
-sphinxcontrib-blockdiag
+# sphinxcontrib-blockdiag
+git+https://github.com/tjni/blockdiag.git@pillow-10
 git+https://github.com/sdpython/sphinx-runpython.git
 tqdm
 ujson
