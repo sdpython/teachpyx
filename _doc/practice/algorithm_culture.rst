@@ -47,7 +47,7 @@ Le coût de nombreux algorithmes non NP-complet se décomposer comme suit :
 * :math:`O(1)` : `table de hashage <https://fr.wikipedia.org/wiki/Table_de_hachage>`_
 
 Dès qu'on sort des puissances entières, il faut s'attendre à un algorithme non trivial
-tel que l'`algorithme de Strassen <https://fr.wikipedia.org/wiki/Algorithme_de_Strassen>`_
+tel que l':epkg:`algorithme de Strassen`
 pour la multiplication de matrice (:math:`n^{2.807}`), ou celui
 de `Marco Bodrato <http://www.bodrato.it/papers/>`_
 (`A Strassen-like Matrix Multiplication Suited for Squaring and Higher Power Computation
@@ -171,10 +171,6 @@ Catalogue d'algorithmes
       `Quantifying the robustness of metro networks <https://arxiv.org/abs/1505.06664>`_
     * détection de motif fréquents
       `fp-growth <https://en.wikibooks.org/wiki/Data_Mining_Algorithms_In_R/Frequent_Pattern_Mining/The_FP-Growth_Algorithm>`_,
-      voir aussi
-      `fp-growth 1/3 <http://blog.khaledtannir.net/2012/07/lalgorithme-fp-growth-les-bases-13/#.WyS1xqczbSE>`_,
-      `fp-growth 2/3 <http://blog.khaledtannir.net/2012/07/lalgorithme-fp-growth-construction-du-fp-tree-23/#.WyS1x6czbSE>`_,
-      `fp-growth 3/3 <http://blog.khaledtannir.net/2012/07/lalgorithme-fp-growth-identification-des-itemsets-frequents-33/#.WyS1yaczbSE>`_
 * Texte
     * `Algorithme de Knuth-Morris-Pratt <http://fr.wikipedia.org/wiki/Algorithme_de_Knuth-Morris-Pratt>`_ **algo**
     * `Algorithme de Rabin-Karp <http://fr.wikipedia.org/wiki/Algorithme_de_Rabin-Karp>`_ **algo**
@@ -194,7 +190,7 @@ Catalogue d'algorithmes
     * `codage Huffman <http://fr.wikipedia.org/wiki/Codage_de_Huffman>`_ (voir aussi `LZ77, LZ78 <http://fr.wikipedia.org/wiki/LZ77_et_LZ78>`_) **algo**
     * `bootstrap, intervalles de confiance <http://fr.wikipedia.org/wiki/Bootstrap_(statistiques)#Intervalle_de_confiance>`_ **algo**
     * `filtre de Bloom <http://fr.wikipedia.org/wiki/Filtre_de_Bloom>`_ **algo**
-    * `Algorithme de Strassen <http://fr.wikipedia.org/wiki/Algorithme_de_Strassen>`_ **algo**
+    * :epkg:`Algorithme de Strassen` **algo**
     * `Woodbury matrix identity <http://en.wikipedia.org/wiki/Woodbury_matrix_identity>`_ **algo**
     * `Blockwise inversion <http://en.wikipedia.org/wiki/Invertible_matrix#Blockwise_inversion>`_ **algo**
     * `Toom-Cook <https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication>`_ **algo**
@@ -202,7 +198,9 @@ Catalogue d'algorithmes
     * `LRU - Last Recent Used <https://fr.wikipedia.org/wiki/Algorithmes_de_remplacement_des_lignes_de_cache>`_ **algo**
 * Programmation
     * `itérateur <http://fr.wikipedia.org/wiki/It%C3%A9rateur>`_ (mot-clé `yield <http://sametmax.com/comment-utiliser-yield-et-les-generateurs-en-python/>`_) **déf**
-    * `mémoïzation <http://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation>`_ **déf** (voir aussi `Mémoïzation d'une fonction Python <http://sametmax.com/memoization-dune-fonction-python/>`_)
+    * `mémoïzation <http://fr.wikipedia.org/wiki/M%C3%A9mo%C3%AFsation>`_ **déf**
+      (voir aussi `Mémoïzation d'une fonction Python
+      <https://sametmax.oprax.fr/memoization-dune-fonction-python/index.html>`_)
     * `programmation fonctionnelle <http://fr.wikipedia.org/wiki/Programmation_fonctionnelle>`_ **déf**
     * `récursivité <http://fr.wikipedia.org/wiki/R%C3%A9cursivit%C3%A9>`_ **déf**
     * `Kahan summation algorithm <https://en.wikipedia.org/wiki/Kahan_summation_algorithm>`_ **algo**
@@ -267,7 +265,8 @@ Livres
   Robert Faure, Bernard Lemaire, Christophe Picouleau
 * `Programming Pearls <https://www.amazon.com/Programming-Pearls-2nd-Jon-Bentley/dp/0201657880>`_,
   Jon Bentley
-* `Introduction to Algorithms 3rd Edition <https://mcdtu.files.wordpress.com/2017/03/introduction-to-algorithms-3rd-edition-sep-2010.pdf>`_,
+* `Introduction to Algorithms 3rd Edition
+  <https://github.com/calvint/AlgorithmsOneProblems/blob/master/Algorithms/Thomas%20H.%20Cormen,%20Charles%20E.%20Leiserson,%20Ronald%20L.%20Rivest,%20Clifford%20Stein%20Introduction%20to%20Algorithms,%20Third%20Edition%20%202009.pdf>`_,
   Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
 * `Programmation efficace - 128 algorithmes qu'il faut avoir compris et codés en Python au cours de sa vie <http://www.editions-ellipses.fr/product_info.php?products_id=10829>`_,
   ce livre est accompagné d'un répertoire sur GitHub :
@@ -279,7 +278,7 @@ Pour s'entraîner
 ++++++++++++++++
 
 * `Project Euler <https://projecteuler.net/about>`_
-* `Google Jam <https://codingcompetitions.withgoogle.com/codejam>`_,
+* `Archives de Google Jam <https://github.com/google/coding-competitions-archive>`_,
   voir aussi `Solutions to problems of Code Jam 2020, 2019, 2018, 2017 and earlier
   <https://github.com/salvois/codejam>`_
 * `LeetCode <https://leetcode.com/>`_
@@ -287,9 +286,9 @@ Pour s'entraîner
   ce site recensent plusieurs compétitions comme celle-ci
   `Southwestern Europe Regional Contest (SWERC) <https://swerc.eu/2018/about/>`_
   dont les précédents exercices sont disponibles :
-  `ACM-ICPC Live Archive <https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=750>`_,
+  `ACM-ICPC Live Archive <https://www.udebug.com/LA/icpc-archive-volumes>`_,
   mais aussi les problèmes du
-  `Castor Informatique <http://castor-informatique.fr/>`_
+  `Castor Informatique <https://castor-informatique.fr/>`_
   pour les plus jeunes.
 
 Google's recommandations

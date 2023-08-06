@@ -170,6 +170,8 @@ preamble = """
 """
 
 epkg_dictionary = {
+    "Algorithme de Strassen": "https://fr.wikipedia.org/wiki/Algorithme_de_Strassen",
+    "algorithme de Strassen": "https://fr.wikipedia.org/wiki/Algorithme_de_Strassen",
     "ACP": "https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales",
     "AESA": "https://tavianator.com/aesa/",
     "algorithme": "https://fr.wikipedia.org/wiki/Algorithme",

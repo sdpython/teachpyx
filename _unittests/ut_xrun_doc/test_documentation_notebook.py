@@ -18,8 +18,8 @@ def import_source(module_file_path, module_name):
         raise FileNotFoundError(module_file_path)
     module_spec = importlib.util.spec_from_file_location(module_name, module_file_path)
     if module_spec is None:
-        raise FileNotFoundError(
-            f"Unable to find {module_name!r} in {module_file_path!r}."
+        raise RuntimeError(
+            f"Unable to find or execute {module_name!r} in {module_file_path!r}."
         )
     module = importlib.util.module_from_spec(module_spec)
     return module_spec.loader.exec_module(module)
