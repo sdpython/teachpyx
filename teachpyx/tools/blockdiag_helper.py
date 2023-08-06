@@ -104,7 +104,7 @@ def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
 
     :param graph: definition, see `blockdiag <http://blockdiag.com/en/>`_
     :param module: ``'blockdiag'`` (only available value)
-    :param format: can be a filename or a module name (``'pillow'``)
+    :param fmt: can be a filename or a module name (``'pillow'``)
     :param options: additional options for :epkg:`blockdiag`
     :return: graph
 
@@ -114,8 +114,6 @@ def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
             A -> B -> C -> D;
             A -> E -> F -> G;
         }
-
-    See notebook :ref:`drawdiagramrst`.
     """
     if module == "blockdiag":
         import blockdiag  # pylint: disable=C0415
@@ -133,12 +131,12 @@ def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
     else:
         raise ValueError("Unexected value for 'blockdiag': '{0}'".format(module))
 
-    if format in ("pillow", "png"):
+    if fmt in ("pillow", "png"):
         ftype = "png"
-    elif format == "svg":
+    elif fmt == "svg":
         ftype = "svg"
     else:
-        raise ValueError("format should in ['pillow', 'svg']")
+        raise ValueError(f"fmt={fmt!r} should in ['pillow', 'svg', 'png']")
 
     fontmap = _create_fontmap(
         fontmap=options.get("fontmap", None), font=options.get("font", None)
@@ -157,7 +155,7 @@ def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
         transparency=options.get("transparency", False),
         size=options.get("size", None),
     )
-    if format == "pillow":
+    if fmt == "pillow":
         from PIL import Image
 
         image = Image.open(io.BytesIO(res))

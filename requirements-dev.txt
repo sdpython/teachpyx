@@ -22,7 +22,7 @@ sphinx
 sphinx-gallery
 sphinx-issues
 sphinxcontrib-blockdiag
-git+https://github.com/tjni/blockdiag.git@pillow-10
+git+https://github.com/sdpython/blockdiag.git@pil10
 git+https://github.com/sdpython/sphinx-runpython.git
 tqdm
 ujson

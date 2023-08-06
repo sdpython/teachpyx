@@ -265,4 +265,4 @@ def str2date(s, fmt="%d/%m/%Y"):
             import datetime
             dt = datetime.datetime.strptime ("16/01/2014", "%d/%m/%Y")
     """
-    return datetime.datetime.strptime(s, format)
+    return datetime.datetime.strptime(s, fmt)
