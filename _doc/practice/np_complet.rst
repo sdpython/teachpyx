@@ -6,9 +6,6 @@
 Problèmes NP-complets
 =====================
 
-.. contents::
-    :local:
-
 Quelques définitions
 ++++++++++++++++++++
 

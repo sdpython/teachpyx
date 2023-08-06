@@ -10,7 +10,9 @@ La première série explore les bases du langage.
     :maxdepth: 1
     :caption: Langage Python
 
-    py
+    pystruct
+    pydata
+    pycheck
 
 La seconde série illustre des algorithmes à connaître.
 
@@ -20,7 +22,8 @@ La seconde série illustre des algorithmes à connaître.
 
     algorithm_culture
     np_complet
-    algo
+    algo101
+    algocompose
 
 La troisième série sert à vous évaluer.
 

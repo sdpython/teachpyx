@@ -32,13 +32,13 @@ pas ou eu programmer. Le contenu est disponible sur
     practice/index
     auto_examples/index
     api/index
-    i_ex
-    i_faq
 
 .. toctree::
     :maxdepth: 1
     :caption: Compléments
 
+    i_ex
+    i_faq
     license
     CHANGELOGS
 
