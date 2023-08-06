@@ -18,8 +18,8 @@ def import_source(module_file_path, module_name):
         raise FileNotFoundError(module_file_path)
     module_spec = importlib.util.spec_from_file_location(module_name, module_file_path)
     if module_spec is None:
-        raise FileNotFoundError(
-            f"Unable to find {module_name!r} in {module_file_path!r}."
+        raise RuntimeError(
+            f"Unable to find or execute {module_name!r} in {module_file_path!r}."
         )
     module = importlib.util.module_from_spec(module_spec)
     return module_spec.loader.exec_module(module)
@@ -58,9 +58,9 @@ class TestDocumentationNotebook(ExtTestCase):
             try:
                 mod = import_source(fold, os.path.splitext(name)[0])
                 assert mod is not None
-            except FileNotFoundError:
+            except (FileNotFoundError, RuntimeError):
                 # try another way
-                cmds = [sys.executable, "-u", os.path.join(fold, name)]
+                cmds = [sys.executable, "-u", name]
                 p = subprocess.Popen(
                     cmds, stdout=subprocess.PIPE, stderr=subprocess.PIPE
                 )
@@ -93,15 +93,20 @@ class TestDocumentationNotebook(ExtTestCase):
                     res = self.run_test(fullname, verbose=VERBOSE)
                     self.assertIn(res, (-1, 1))
 
-                setattr(cls, f"test_{last}_{os.path.splitext(name)[0]}", _test_)
+                lasts = last.replace("-", "_")
+                names = os.path.splitext(name)[0].replace("-", "_")
+                setattr(cls, f"test_{lasts}_{names}", _test_)
 
     @classmethod
     def add_test_methods(cls):
         this = os.path.abspath(os.path.dirname(__file__))
-        fold = os.path.normpath(
-            os.path.join(this, "..", "..", "_doc", "practice", "exams")
-        )
-        cls.add_test_methods_path(fold)
+        folds = [
+            os.path.join(this, "..", "..", "_doc", "practice", "exams"),
+            os.path.join(this, "..", "..", "_doc", "practice", "py-base"),
+            os.path.join(this, "..", "..", "_doc", "practice", "algo-base"),
+        ]
+        for fold in folds:
+            cls.add_test_methods_path(os.path.normpath(fold))
 
 
 TestDocumentationNotebook.add_test_methods()

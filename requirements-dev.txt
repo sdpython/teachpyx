@@ -3,6 +3,7 @@ black-nb
 blockdiag
 cloudpickle
 coverage
+cytoolz
 furo
 ipython
 jupyter
@@ -21,6 +22,7 @@ sphinx
 sphinx-gallery
 sphinx-issues
 sphinxcontrib-blockdiag
+git+https://github.com/sdpython/blockdiag.git@pil10
 git+https://github.com/sdpython/sphinx-runpython.git
 tqdm
 ujson

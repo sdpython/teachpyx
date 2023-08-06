@@ -170,6 +170,8 @@ preamble = """
 """
 
 epkg_dictionary = {
+    "Algorithme de Strassen": "https://fr.wikipedia.org/wiki/Algorithme_de_Strassen",
+    "algorithme de Strassen": "https://fr.wikipedia.org/wiki/Algorithme_de_Strassen",
     "ACP": "https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales",
     "AESA": "https://tavianator.com/aesa/",
     "algorithme": "https://fr.wikipedia.org/wiki/Algorithme",
@@ -182,6 +184,7 @@ epkg_dictionary = {
     "Awesome Python": "https://awesome-python.com/",
     "B+ tree": "https://en.wikipedia.org/wiki/B%2B_tree",
     "BLAS": "https://www.netlib.org/blas/",
+    "blockdiag": "https://github.com/blockdiag/blockdiag",
     "Branch and Bound": "https://en.wikipedia.org/wiki/Branch_and_bound",
     "bytearray": "https://docs.python.org/3/library/functions.html#bytearray",
     "C++": "https://fr.wikipedia.org/wiki/C%2B%2B",
