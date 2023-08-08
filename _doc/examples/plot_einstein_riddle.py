@@ -1,5 +1,7 @@
 # coding: utf-8
 """
+.. _l-exemple-einstein-riddle:
+
 ====================================
 L'énigme d'Einstein et sa résolution
 ====================================
@@ -79,8 +81,9 @@ toutes les configurations compatibles avec une règle donnée
 .. note::
 
     L'énigme d'Einstein est une énigme comme celle que résoud
-    `Hermionne `https://www.encyclopedie-hp.org/hogwarts/chamber_of_stone.php>`_
-    dans le premier tome de Harry Potter. 
+    Hermionne dans le premier tome de Harry Potter
+    (voir :ref:`l-enigme-hermionne`).
+    
 
 On commence par la fonction `permutation`:
 qui énumère les permutations d'un ensemble :
