@@ -10,3 +10,5 @@ se construisent sous la forme d'un assemblage d'algorithme plus simple.
     :caption: A parcourir
 
     algo-base/exercice_morse
+    ../auto_examples/plot_tsp
+    ../auto_examples/plot_einstein_riddle

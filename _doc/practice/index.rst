@@ -25,7 +25,7 @@ La seconde série illustre des algorithmes à connaître.
     algo101
     algocompose
 
-La troisième série sert à vous évaluer.
+La dernière série sert à vous évaluer.
 
 .. toctree::
     :maxdepth: 1
