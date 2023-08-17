@@ -1,4 +1,3 @@
-import os
 import unittest
 from teachpyx.ext_test_case import ExtTestCase
 from teachpyx.practice.rues_paris import (
@@ -1041,13 +1040,13 @@ class TestRueParis(ExtTestCase):
         self.assertEmpty(list(allow))
 
     def test_algo2(self):
-        vertices, edges = self.vertices, self.edges
+        edges = self.edges
         edges = edges[:1000]
         added = eulerien_extension(edges, alpha=1 / 8)
         assert len(added) > 0
 
     def test_algo_euler4(self):
-        vertices, edges = self.vertices, self.edges
+        edges = self.edges
 
         vertices = {}
         for e in edges:
@@ -1085,7 +1084,7 @@ class TestRueParis(ExtTestCase):
         self.assertEqual(len(alls), len(path))
 
     def test_algo3(self):
-        vertices, edges = self.vertices, self.edges
+        edges = self.edges
         added = eulerien_extension(edges, distance=distance_paris)
         self.assertNotEmpty(added)
 
