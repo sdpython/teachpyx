@@ -104,6 +104,7 @@ class TestDocumentationNotebook(ExtTestCase):
             os.path.join(this, "..", "..", "_doc", "practice", "exams"),
             os.path.join(this, "..", "..", "_doc", "practice", "py-base"),
             os.path.join(this, "..", "..", "_doc", "practice", "algo-base"),
+            os.path.join(this, "..", "..", "_doc", "practice", "algo-compose"),
         ]
         for fold in folds:
             cls.add_test_methods_path(os.path.normpath(fold))

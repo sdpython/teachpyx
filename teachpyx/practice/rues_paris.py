@@ -103,7 +103,7 @@ def get_data(
         items.sort()
         vertices = [_[1] for _ in items]
 
-    return edges
+    return edges, vertices
 
 
 def graph_degree(
