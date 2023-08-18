@@ -42,6 +42,8 @@ class TestDocumentationExamples(ExtTestCase):
             res = p.communicate()
             out, err = res
             st = err.decode("ascii", errors="ignore")
+            if "No such file or directory" in st:
+                raise FileNotFoundError(st)
             if len(st) > 0 and "Traceback" in st:
                 if '"dot" not found in path.' in st:
                     # dot not installed, this part
