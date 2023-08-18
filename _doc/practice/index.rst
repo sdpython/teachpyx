@@ -4,11 +4,11 @@ Culture et Pratique
 
 La programmation, c'est comme la musique.
 Il faut toujours pratiquer régulièrement.
-La première série explore les bases du langage.
+La première série d'exercices explore les bases du langage.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Langage Python
+    :caption: Exercices sur le langage Python
 
     pystruct
     pydata
