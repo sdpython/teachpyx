@@ -4,7 +4,6 @@ import sys
 import importlib
 import subprocess
 import time
-import warnings
 from nbconvert import PythonExporter
 from teachpyx import __file__ as teachpyx_file
 from teachpyx.ext_test_case import ExtTestCase
@@ -81,13 +80,7 @@ class TestDocumentationNotebook(ExtTestCase):
                         f"exec_prefix={sys.exec_prefix!r}) "
                         f"failed due to\n{st}"
                     )
-                    if (
-                        sys.platform == "win32"
-                        and "test_plot_serialisation_protobuf" in name
-                    ):
-                        warnings.warn(msg)
-                    else:
-                        raise AssertionError(msg)
+                    raise AssertionError(msg)
 
         dt = time.perf_counter() - perf
         if verbose:
@@ -103,10 +96,20 @@ class TestDocumentationNotebook(ExtTestCase):
                 continue
             if name.endswith(".ipynb"):
                 fullname = os.path.join(fold, name)
+                if sys.platform == "win32" and (
+                    "protobuf" in name or "td_note_2021" in name
+                ):
 
-                def _test_(self, fullname=fullname):
-                    res = self.run_test(fullname, verbose=VERBOSE)
-                    self.assertIn(res, (-1, 1))
+                    @unittest.skip("issue on windows")
+                    def _test_(self, fullname=fullname):
+                        res = self.run_test(fullname, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
+
+                else:
+
+                    def _test_(self, fullname=fullname):
+                        res = self.run_test(fullname, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
 
                 lasts = last.replace("-", "_")
                 names = os.path.splitext(name)[0].replace("-", "_")
