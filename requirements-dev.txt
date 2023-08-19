@@ -11,6 +11,7 @@ lifelines
 matplotlib
 mutagen  # mp3
 nbsphinx
+networkx
 pandas
 pillow
 protobuf<4

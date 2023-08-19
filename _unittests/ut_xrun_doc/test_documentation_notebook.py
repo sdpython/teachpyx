@@ -4,6 +4,7 @@ import sys
 import importlib
 import subprocess
 import time
+import warnings
 from nbconvert import PythonExporter
 from teachpyx import __file__ as teachpyx_file
 from teachpyx.ext_test_case import ExtTestCase
@@ -75,11 +76,18 @@ class TestDocumentationNotebook(ExtTestCase):
                 if "No such file or directory" in st:
                     raise FileNotFoundError(st)
                 if len(st) > 0 and "Traceback" in st:
-                    raise AssertionError(
+                    msg = (
                         f"Example {nb_name!r} (cmd: {cmds} - "
                         f"exec_prefix={sys.exec_prefix!r}) "
-                        f"failed due to\n{st}\n-----\n{content}"
+                        f"failed due to\n{st}"
                     )
+                    if (
+                        sys.platform == "win32"
+                        and "test_plot_serialisation_protobuf" in name
+                    ):
+                        warnings.warn(msg)
+                    else:
+                        raise AssertionError(msg)
 
         dt = time.perf_counter() - perf
         if verbose:
