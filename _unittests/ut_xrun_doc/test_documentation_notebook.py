@@ -92,15 +92,14 @@ class TestDocumentationNotebook(ExtTestCase):
         found = os.listdir(fold)
         last = os.path.split(fold)[-1]
         for name in found:
-            if "interro_rapide_" in name:
-                continue
             if name.endswith(".ipynb"):
                 fullname = os.path.join(fold, name)
-                if sys.platform == "win32" and (
-                    "protobuf" in name or "td_note_2021" in name
+                if "interro_rapide_" in name or (
+                    sys.platform == "win32"
+                    and ("protobuf" in name or "td_note_2021" in name)
                 ):
 
-                    @unittest.skip("issue on windows")
+                    @unittest.skip("notebook with questions or issues with windows")
                     def _test_(self, fullname=fullname):
                         res = self.run_test(fullname, verbose=VERBOSE)
                         self.assertIn(res, (-1, 1))

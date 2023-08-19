@@ -51,17 +51,10 @@ class TestDocumentationExamples(ExtTestCase):
                     if verbose:
                         print(f"failed: {name!r} due to missing dot.")
                     return -1
-                if "No such file or directory: 'schema_pb2.py'" in str(st):
-                    if verbose:
-                        print(
-                            f"failed: {name!r} due to missing protoc "
-                            f"(or wrong version)."
-                        )
-                    return -1
                 raise AssertionError(
-                    "Example '{}' (cmd: {} - exec_prefix='{}') "
-                    "failed due to\n{}"
-                    "".format(name, cmds, sys.exec_prefix, st)
+                    f"Example {name!r} (cmd: {cmds!r} - "
+                    f"exec_prefix={sys.exec_prefix!r}) "
+                    f"failed due to\n{st}"
                 )
         dt = time.perf_counter() - perf
         if verbose:
@@ -77,9 +70,20 @@ class TestDocumentationExamples(ExtTestCase):
             if name.startswith("plot_") and name.endswith(".py"):
                 short_name = os.path.split(os.path.splitext(name)[0])[-1]
 
-                def _test_(self, name=name):
-                    res = self.run_test(fold, name, verbose=VERBOSE)
-                    self.assertIn(res, (-1, 1))
+                if sys.platform == "win32" and (
+                    "protobuf" in name or "td_note_2021" in name
+                ):
+
+                    @unittest.skip("notebook with questions or issues with windows")
+                    def _test_(self, name=name):
+                        res = self.run_test(fold, name, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
+
+                else:
+
+                    def _test_(self, name=name):
+                        res = self.run_test(fold, name, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
 
                 setattr(cls, f"test_{short_name}", _test_)
 
