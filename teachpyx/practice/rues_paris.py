@@ -30,7 +30,7 @@ def distance_haversine(lat1: float, lng1: float, lat2: float, lng2: float) -> fl
 
 
 def get_data(
-    url: str = "https://github.com/sdpython/teachpyx/raw/paris/_data/paris_54000.zip",
+    url: str = "https://github.com/sdpython/teachpyx/raw/main/_data/paris_54000.zip",
     dest: str = ".",
     timeout: int = 10,
     verbose: bool = False,
