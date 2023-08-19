@@ -46,7 +46,9 @@ def get_data(
     :param dest: répertoire dans lequel télécharger les données
     :param timeout: timeout (seconds) when estabishing the connection
     :param verbose: affiche le progrès
-    :param keep: garde tout si la valeur est -1, sinon garde les 1000 premières rues
+    :param keep: garde tout si la valeur est -1,
+        sinon garde les 1000 premières rues, ces rues sont choisies
+        de façon à construire un ensemble connexe
     :return: liste d'arcs
 
     Un arc est défini par un 6-uple contenant les informations suivantes :
@@ -88,22 +90,38 @@ def get_data(
         pairs[p] = True
 
     if keep is not None:
-        short_edges = edges[:keep]
         new_vertices = {}
-        edges = []
-        for edge in short_edges:
-            p1, p2 = edge[-3:-1]
-            if p1 not in new_vertices:
-                new_vertices[p1] = len(new_vertices)
-            if p2 not in new_vertices:
-                new_vertices[p2] = len(new_vertices)
-            i1, i2 = new_vertices[p1], new_vertices[p2]
-            edges.append((i1, i2, edge[2], p1, p2, edge[-1]))
+        already_added = set()
+        new_edges = []
+        for _ in range(0, int(keep**0.5) + 1):
+            for edge in edges:
+                if edge[:2] in already_added:
+                    continue
+                p1, p2 = edge[-3:-1]
+                if (
+                    len(new_vertices) > 0
+                    and p1 not in new_vertices
+                    and p2 not in new_vertices
+                ):
+                    # On considère des rues connectées à des rues déjà sélectionnées.
+                    continue
+                if p1 not in new_vertices:
+                    new_vertices[p1] = len(new_vertices)
+                if p2 not in new_vertices:
+                    new_vertices[p2] = len(new_vertices)
+                i1, i2 = new_vertices[p1], new_vertices[p2]
+                new_edges.append((i1, i2, edge[2], p1, p2, edge[-1]))
+                already_added.add(edge[:2])
+                if len(new_edges) >= keep:
+                    break
+            if len(new_edges) >= keep:
+                break
         items = [(v, i) for i, v in new_vertices.items()]
         items.sort()
         vertices = [_[1] for _ in items]
+        edges = new_edges
 
-    return edges
+    return edges, vertices
 
 
 def graph_degree(
@@ -321,7 +339,7 @@ def eulerien_extension(
     totali = 0
     while len(allow) > 0:
         if verbose:
-            print(f"------- nb odd vertices {len(allow)} iteration {totali}")
+            print(f"------- # odd vertices {len(allow)} iteration {totali}")
         allowset = set(allow)
         init = bellman(
             edges,
@@ -384,9 +402,9 @@ def euler_path(
     edges_from = {}
     somme = 0
     for e in edges:
-        k = e[:2]
-        v = e[-1]
-        alledges[k] = ["street"] + list(k + (v,))
+        k = e[:2]  # indices des noeuds
+        v = e[-1]  # distance
+        alledges[k] = ["street", *k, v]
         a, b = k
         alledges[b, a] = alledges[a, b]
         if a not in edges_from:
@@ -398,10 +416,10 @@ def euler_path(
         somme += v
 
     for e in added_edges:  # il ne faut pas enlever les doublons
-        k = e[:2]
-        v = e[-1]
+        k = e[:2]  # indices ds noeuds
+        v = e[-1]  # distance
         a, b = k
-        alledges[k] = ["jump"] + list(k + (v,))
+        alledges[k] = ["jump", *k, v]
         alledges[b, a] = alledges[a, b]
         if a not in edges_from:
             edges_from[a] = []
@@ -411,39 +429,43 @@ def euler_path(
         edges_from[b].append(alledges[a, b])
         somme += v
 
-    degre = {}
-    for a, v in edges_from.items():
-        t = len(v)
-        degre[t] = degre.get(t, 0) + 1
-
-    two = [a for a, v in edges_from.items() if len(v) == 2]
+    # les noeuds de degré impair
     odd = [a for a, v in edges_from.items() if len(v) % 2 == 1]
     if len(odd) > 0:
-        raise ValueError("some vertices have an odd degree")
+        raise ValueError("Some vertices have an odd degree.")
+    # les noeuds de degré 2, on les traverse qu'une fois
+    two = [a for a, v in edges_from.items() if len(v) == 2]
     begin = two[0]
 
     # checking
     for v, le in edges_from.items():
+        # v est une extrémité
         for e in le:
+            # to est l'autre extrémité
             to = e[1] if v != e[1] else e[2]
             if to not in edges_from:
-                raise RuntimeError(
-                    "unable to find vertex {0} for edge {0},{1}".format(to, v)
-                )
+                raise RuntimeError(f"Unable to find vertex {to} for edge {to},{v}")
             if to == v:
-                raise RuntimeError(f"circular edge {to}")
+                raise RuntimeError(f"Circular edge {to}")
 
-    # loop
+    # On sait qu'il existe un chemin. La fonction explore les arcs
+    # jusqu'à revenir à son point de départ. Elle supprime les arcs
+    # utilisées de edges_from.
     path = _explore_path(edges_from, begin)
-    for p in path:
-        if len(p) == 0:
-            raise RuntimeError("this exception should not happen")
+
+    # Il faut s'assurer que le chemin ne contient pas de boucles non visitées.
     while len(edges_from) > 0:
+        # Il reste des arcs non visités. On cherche le premier
+        # arc connecté au chemin existant.
         start = None
         for i, p in enumerate(path):
             if p[0] in edges_from:
                 start = i, p
                 break
+        if start is None:
+            raise RuntimeError(
+                f"start should not be None\npath={path}\nedges_from={edges_from}"
+            )
         sub = _explore_path(edges_from, start[1][0])
         i = start[0]
         path[i : i + 1] = path[i : i + 1] + sub

@@ -28,3 +28,4 @@ _doc/examples/data/*.optimized.onnx
 _doc/examples/*.html
 _doc/_static/require.js
 _doc/_static/viz.js
+_doc/practice/algo-compose/paris_54000.*

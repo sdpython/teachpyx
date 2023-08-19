@@ -3,7 +3,6 @@ import os
 import sys
 import importlib
 import subprocess
-import tempfile
 import time
 from nbconvert import PythonExporter
 from teachpyx import __file__ as teachpyx_file
@@ -48,31 +47,40 @@ class TestDocumentationNotebook(ExtTestCase):
         content = self.post_process(exporter.from_filename(nb_name)[0])
         bcontent = content.encode("utf-8")
 
-        with tempfile.NamedTemporaryFile(suffix=".py") as tmp:
-            self.assertEndsWith(tmp.name, ".py")
-            tmp.write(bcontent)
-            tmp.seek(0)
+        tmp = "temp_notebooks"
+        if not os.path.exists(tmp):
+            os.mkdir(tmp)
+        # with tempfile.NamedTemporaryFile(suffix=".py") as tmp:
+        name = os.path.splitext(os.path.split(nb_name)[-1])[0]
+        if os.path.exists(tmp):
+            tmp_name = os.path.join(tmp, name + ".py")
+            self.assertEndsWith(tmp_name, ".py")
+            with open(tmp_name, "wb") as f:
+                f.write(bcontent)
 
-            fold, name = os.path.split(tmp.name)
+            fold, name = os.path.split(tmp_name)
 
             try:
                 mod = import_source(fold, os.path.splitext(name)[0])
                 assert mod is not None
             except (FileNotFoundError, RuntimeError):
                 # try another way
-                cmds = [sys.executable, "-u", name]
+                cmds = [sys.executable, "-u", tmp_name]
                 p = subprocess.Popen(
                     cmds, stdout=subprocess.PIPE, stderr=subprocess.PIPE
                 )
                 res = p.communicate()
                 out, err = res
                 st = err.decode("ascii", errors="ignore")
+                if "No such file or directory" in st:
+                    raise FileNotFoundError(st)
                 if len(st) > 0 and "Traceback" in st:
-                    raise AssertionError(
+                    msg = (
                         f"Example {nb_name!r} (cmd: {cmds} - "
                         f"exec_prefix={sys.exec_prefix!r}) "
-                        f"failed due to\n{st}\n-----\n{content}"
+                        f"failed due to\n{st}"
                     )
+                    raise AssertionError(msg)
 
         dt = time.perf_counter() - perf
         if verbose:
@@ -84,14 +92,23 @@ class TestDocumentationNotebook(ExtTestCase):
         found = os.listdir(fold)
         last = os.path.split(fold)[-1]
         for name in found:
-            if "interro_rapide_" in name:
-                continue
             if name.endswith(".ipynb"):
                 fullname = os.path.join(fold, name)
+                if "interro_rapide_" in name or (
+                    sys.platform == "win32"
+                    and ("protobuf" in name or "td_note_2021" in name)
+                ):
 
-                def _test_(self, fullname=fullname):
-                    res = self.run_test(fullname, verbose=VERBOSE)
-                    self.assertIn(res, (-1, 1))
+                    @unittest.skip("notebook with questions or issues with windows")
+                    def _test_(self, fullname=fullname):
+                        res = self.run_test(fullname, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
+
+                else:
+
+                    def _test_(self, fullname=fullname):
+                        res = self.run_test(fullname, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
 
                 lasts = last.replace("-", "_")
                 names = os.path.splitext(name)[0].replace("-", "_")
@@ -104,6 +121,7 @@ class TestDocumentationNotebook(ExtTestCase):
             os.path.join(this, "..", "..", "_doc", "practice", "exams"),
             os.path.join(this, "..", "..", "_doc", "practice", "py-base"),
             os.path.join(this, "..", "..", "_doc", "practice", "algo-base"),
+            os.path.join(this, "..", "..", "_doc", "practice", "algo-compose"),
         ]
         for fold in folds:
             cls.add_test_methods_path(os.path.normpath(fold))
