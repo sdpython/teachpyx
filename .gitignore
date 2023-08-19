@@ -29,5 +29,6 @@ _doc/examples/*.html
 _doc/_static/require.js
 _doc/_static/viz.js
 _doc/practice/algo-compose/paris_54000.*
+_doc/c_data/*.csv
 _doc/c_data/*.txt
 _doc/c_data/*.xlsx
