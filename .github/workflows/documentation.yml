@@ -82,9 +82,9 @@ jobs:
             grep ERROR doc.txt
             exit 1
           fi
-          if [[ $(grep WARNING doc.txt | grep -v 'blockdiag') ]]; then
+          if [[ $(grep WARNING doc.txt | grep -v 'download') ]]; then
             echo "Documentation produces warnings."
-            grep WARNING doc.txt | grep -v 'blockdiag'
+            grep WARNING doc.txt | grep -v 'download'
             exit 1
           fi
 
