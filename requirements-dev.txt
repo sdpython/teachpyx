@@ -4,6 +4,7 @@ blockdiag
 cloudpickle
 coverage
 cytoolz
+dbfread
 furo
 ipython
 jupyter
