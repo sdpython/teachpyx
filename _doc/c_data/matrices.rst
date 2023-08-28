@@ -2,5 +2,8 @@
 Calcul matriciel
 ================
 
-*à compléter*
+.. toctree::
+
+    nb_array
+    nb_numpy
 

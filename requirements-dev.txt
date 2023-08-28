@@ -4,6 +4,7 @@ blockdiag
 cloudpickle
 coverage
 cytoolz
+dbfread
 furo
 ipython
 jupyter
@@ -12,6 +13,7 @@ matplotlib
 mutagen  # mp3
 nbsphinx
 networkx
+openpyxl
 pandas
 pillow
 protobuf<4
