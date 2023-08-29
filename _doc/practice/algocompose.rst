@@ -13,3 +13,5 @@ se construisent sous la forme d'un assemblage d'algorithme plus simple.
     ../auto_examples/plot_tsp
     ../auto_examples/plot_einstein_riddle
     algo-compose/paris_parcours
+    algo-compose/BJKST
+    algo-compose/vigenere
