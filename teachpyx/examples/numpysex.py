@@ -56,7 +56,7 @@ def numpy_types():
     """
     Returns the list of numpy available types.
 
-    @return     list of types
+    :return: list of types
 
     To know a little bit more about those types.
 

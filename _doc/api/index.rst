@@ -2,6 +2,7 @@ Code inclus dans cette librairie
 ================================
 
 .. toctree::
+    :caption: Constructions classiques
 
     classique
     tools
@@ -14,4 +15,5 @@ Code inclus dans cette librairie
 .. toctree::
     :caption: FAQ
 
+    numpysex
     faqs
