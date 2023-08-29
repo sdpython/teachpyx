@@ -120,7 +120,7 @@ Catalogue d'algorithmes
     * `problème d'ordonnancement <http://fr.wikipedia.org/wiki/Th%C3%A9orie_de_l'ordonnancement>`_ **algo**
 * Permutations
     * `Sattolo's algorithm <https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Sattolo's_algorithm>`_ **algo**
-* Problème non `NP-complet <http://fr.wikipedia.org/wiki/Liste_de_probl%C3%A8mes_NP-complets>`_
+* Problème non :epkg:`NP-complet`
     * `Problème du voyageur de commerce <http://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce>`_  **algo**
       (ou `Graphe Hamiltonien <http://fr.wikipedia.org/wiki/Graphe_hamiltonien>`_),
       lire `Solution of a Large-Scale Traveling-Salesman Problem <http://www.cs.uleth.ca/~benkoczi/OR/read/tsp-dantzig-fulkerson-johnson-54.pdf>`_.
@@ -249,7 +249,7 @@ de vérifier qu'un *mot m* est solution de *A* en temps polynomial.
 
 **NP-complet**
 
-Un problème `NP-complet <https://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet>`_
+Un problème :epkg:`NP-complet`
 est un problème qui n'admet pas d'algorithmes capables de trouver une solution
 en un temps polynomial. Plus précisément, pour deux problèmes *A* et *B* de cette classe,
 il existe une transformation (ou *réduction*) *f* qui transforme

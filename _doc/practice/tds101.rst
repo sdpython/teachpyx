@@ -8,9 +8,11 @@ Enoncés Corrections sur le langage Python
     :caption: Enoncés
 
     tds-base/integrale_rectangle
+    tds-base/j2048
 
 .. toctree::
     :maxdepth: 1
     :caption: Correction
 
     tds-base/integrale_rectangle_correction
+    tds-base/j2048_correction

@@ -220,6 +220,7 @@ epkg_dictionary = {
     "Miniconda": "https://docs.conda.io/en/latest/miniconda.html",
     "mlinsights": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/index.html",
     "mlstatpy": "https://sdpython.github.io/doc/mlstatpy/dev/",
+    "NP-complet": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet",
     "numpy": (
         "https://www.numpy.org/",
         ("https://docs.scipy.org/doc/numpy/reference/generated/numpy.{0}.html", 1),
