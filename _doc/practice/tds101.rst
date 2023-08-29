@@ -9,6 +9,7 @@ Enoncés Corrections sur le langage Python
 
     tds-base/integrale_rectangle
     tds-base/j2048
+    tds-base/pyramide_bigarree
 
 .. toctree::
     :maxdepth: 1
@@ -16,3 +17,4 @@ Enoncés Corrections sur le langage Python
 
     tds-base/integrale_rectangle_correction
     tds-base/j2048_correction
+    tds-base/pyramide_bigarree_correction
