@@ -7,4 +7,8 @@ Calcul matriciel
 
     nb_array
     nb_numpy
-    i_exda
+
+En raccourci
+
+.. exreflist::
+    :tag: numpy

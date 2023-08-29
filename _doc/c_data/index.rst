@@ -19,8 +19,3 @@ pour la manipulations de données avec les *DataFrames*.
 
     matrices
     dataframes
-
-En raccourci
-
-.. exreflist::
-    :tag: numpy
