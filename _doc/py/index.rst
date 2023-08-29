@@ -18,5 +18,4 @@ Le langage Python
     c_regex/index
     c_parallelisation/index
     c_gui/index
-    i_expy
 

@@ -27,6 +27,12 @@ pas ou eu programmer. Le contenu est disponible sur
 
 .. toctree::
     :maxdepth: 1
+    :caption: savoir
+
+    algorithm_culture
+
+.. toctree::
+    :maxdepth: 1
     :caption: Exercices
 
     practice/index

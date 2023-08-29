@@ -1,6 +1,6 @@
-===================
-Culture et Pratique
-===================
+=========
+Pratiquer
+=========
 
 La programmation, c'est comme la musique.
 Il faut toujours pratiquer régulièrement.
@@ -13,15 +13,14 @@ La première série d'exercices explore les bases du langage.
     pystruct
     pydata
     pycheck
+    tds101
 
-La seconde série illustre des algorithmes à connaître.
+La série suivante explique pas à pas quelques algorithmes.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Algorithme
+    :caption: Algorithmes illustrés
 
-    algorithm_culture
-    np_complet
     algo101
     algocompose
 

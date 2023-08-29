@@ -4,13 +4,14 @@
 Survol algorithmique
 ====================
 
-Il est facile de caler un modèle statistiques lorsque les données sont propres
-et de taille raisonnable. Ce n'est quasiment jamais le cas.
-On a besoin de nettoyer ou de transformer les données. On a besoin
-de réduire le temps de calcul d'un algorithme car il est inexploitable en l'état.
-Pour ces deux raisons, il est utile de connaître quelques algorithmes
-afin d'avoir d'avoir des idées. On a besoin d'avoir un moyen rapide, visuelle
-et efficace de comparer deux résultats.
+L'algorithmie est une partie des mathématiques. On part toujours d'un état
+initial pour arriver après une série d'opérations connues à un état final.
+Cette série dépend de l'état initial. Elle peut inclure de l'aléatoire.
+On parle d'algorithme lorsqu'on arrive à démontrer que la séquence
+d'opération qu'il produit mène toujours à l'état final souhaité
+quel que soit l'état initial. Il existe une grande variété de problèmes
+déjà résolus qu'il est utile de connaître. C'est autant d'outils disponibles
+pour créer ses propres algorithmes.
 
 Ordres de grandeur
 ++++++++++++++++++
@@ -225,17 +226,88 @@ le tri `heapsort <https://github.com/nryoung/algorithms/blob/master/algorithms/s
 Problèmes NP-complets
 +++++++++++++++++++++
 
+On distingue trois classes de problèmes
+*P*, *NP*, *NP-complet*.
+
+**coût**
+
+**P**
+
+Un problème appartient à la
+`classe P <https://fr.wikipedia.org/wiki/P_(complexit%C3%A9)>`_
+s'il peut être décidé en temps polynômial.
+
+**NP**
+
+Un problème de décision est dans
+`NP <https://fr.wikipedia.org/wiki/NP_(complexit%C3%A9)>`_
+s'il est décidé par une
+`machine de Turing non déterministe <https://fr.wikipedia.org/wiki/Machine_de_Turing_non_d%C3%A9terministe>`_
+en temps polynomial par rapport à la taille de l'entrée.
+Cela implique que pour un problème *A*, il est possible
+de vérifier qu'un *mot m* est solution de *A* en temps polynomial.
+
+**NP-complet**
+
+Un problème `NP-complet <https://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet>`_
+est un problème qui n'admet pas d'algorithmes capables de trouver une solution
+en un temps polynomial. Plus précisément, pour deux problèmes *A* et *B* de cette classe,
+il existe une transformation (ou *réduction*) *f* qui transforme
+le problème *A* en *B*.
+
+**BPP**
+
+La classe `BPP <https://fr.wikipedia.org/wiki/BPP_(complexit%C3%A9)>`_
+est un objet de la théorie de la complexité, en informatique théorique.
+C'est une classe de problèmes de décision qui peut être définie avec des
+`machines de Turing probabilistes <https://fr.wikipedia.org/wiki/Machine_de_Turing_probabiliste>`_.
+L'acronyme BPP vient de Bounded-error Probabilistic Polynomial time.
+
+**P=NP ?**
+
+C'est un problème encore irrésolu :
+`Problème P = NP <https://fr.wikipedia.org/wiki/Probl%C3%A8me_P_%3D_NP>`_.
+
+**Problème NP complets**
+
 * `21 problèmes NP-complet de Karp <https://fr.wikipedia.org/wiki/21_probl%C3%A8mes_NP-complets_de_Karp>`_
 * `Liste de problèmes NP complets <https://fr.wikipedia.org/wiki/Liste_de_probl%C3%A8mes_NP-complets>`_
   (`en <https://en.wikipedia.org/wiki/List_of_NP-complete_problems>`_)
-* :ref:`l-np-complets`
 
-.. index:: morphisme
 
-Un peu de morphisme parce que ça m'a toujours fasciné :
+Idée pour démonstrer qu'un problème est NP-complet
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
-* `Efficient and practical tree preconditioning for solving Laplacian systems <http://www.lix.polytechnique.fr/~maks/papers/SEA_2015_draft.pdf>`_
-* `A Survey on Data-driven Dictionary-based Methods for 3D Modeling <http://www.lix.polytechnique.fr/~maks/papers/dictionary_survey.pdf>`_
+Une preuve complète est donnée dans le cours
+`Logique, modèles, calculs (INF 423)
+<https://www.enseignement.polytechnique.fr/informatique/INF423/uploads/Main/poly-good.pdf>`_.
+
+**1**
+
+L'idée est toujours la même : il faut partir d'un problème NP-complet connu
+et le réduire de façon polynomial au problème *P* dont on cherche à démontrer qu'il
+est NP-complet. La *réduction* est une transformation d'un problème
+*A* en *P* de telle sorte qu'une solution problème *A*
+puisse être transformé en une solution du problème *P* et réciproquement.
+
+**2**
+
+Il faut un premier problème NP-complet pour lequel il faut démontrer la NP-complétude.
+C'est le théorème de `Stephen Cook <https://fr.wikipedia.org/wiki/Stephen_Cook>`_ :
+le problème `SAT <https://fr.wikipedia.org/wiki/Probl%C3%A8me_SAT>`_ est NP-complet.
+On peut montrer que les problème SAT et
+`3-SAT <https://fr.wikipedia.org/wiki/Probl%C3%A8me_SAT#3-SAT>`_ sont équivalents.
+
+**3**
+
+Beaucoup de problèmes se présentent sous la forme d'une optimisation.
+Or *SAT* est un problème de décision : existe-t-il un point de
+:math:`\acc{0,1}^N` qui vérifie une clause logique :
+:math:`\vee_k  ( y_{1k} \wedge ... \wedge y_{n_k k} )`
+avec :math:`y_{ik}` est soit :math:`x_i` soit :math:`\neg x_i` ?
+Pour passer de l'un à l'autre, on transforme le problème d'optimisation
+en un problème de décision : existe-t-il une solution dont l'évaluation
+est inférieure ou supérieur à un certain seuil ?
 
 Liens
 +++++
@@ -275,6 +347,13 @@ Livres
   `tryalgo <https://github.com/jilljenn/tryalgo>`_
   (`documentation <http://jilljenn.github.io/tryalgo/>`_)
   et d'un site web `Résolution de problèmes algorithmiques <http://tryalgo.org/>`_
+
+Des applications possibles :
+
+* `Efficient and practical tree preconditioning for solving Laplacian systems
+  <http://www.lix.polytechnique.fr/~maks/papers/SEA_2015_draft.pdf>`_
+* `A Survey on Data-driven Dictionary-based Methods for 3D Modeling
+  <http://www.lix.polytechnique.fr/~maks/papers/dictionary_survey.pdf>`_
 
 Pour s'entraîner
 ++++++++++++++++

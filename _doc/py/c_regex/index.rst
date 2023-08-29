@@ -1,7 +1,7 @@
 
-#####################
-Expression régulières
-#####################
+######################
+Expressions régulières
+######################
 
 .. toctree::
     :maxdepth: 2

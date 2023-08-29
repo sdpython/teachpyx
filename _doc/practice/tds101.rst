@@ -1,0 +1,16 @@
+=========================================
+Enoncés Corrections sur le langage Python
+=========================================
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Enoncés
+
+    tds-base/integrale_rectangle
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Correction
+
+    tds-base/integrale_rectangle_correction
