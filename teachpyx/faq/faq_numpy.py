@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-@file
-@brief Quelques questions autour de :epkg:`numpy`.
-
-"""
 import numpy
 
 

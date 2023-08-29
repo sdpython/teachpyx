@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-@file
-@brief Quelques exemples autour de `numpy <http://www.numpy.org/>`_.
-"""
 import numpy
 
 
 def numpy_matrix2list(mat):
     """
-    Convertit une matrice `numpy <http://www.numpy.org/>`_ en list.
+    Convertit une matrice :epkg:`numpy` en list.
 
     :param mat: matrix
     :return: liste de listes
@@ -18,7 +14,7 @@ def numpy_matrix2list(mat):
         :tag: numpy
 
         Voici quelques écritures classiques avec le module
-        `numpy <http://www.numpy.org/>`_.
+        :epkg:`numpy`.
 
         ::
 
@@ -56,7 +52,7 @@ def numpy_types():
     """
     Returns the list of numpy available types.
 
-    @return     list of types
+    :return: list of types
 
     To know a little bit more about those types.
 

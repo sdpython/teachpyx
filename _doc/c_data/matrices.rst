@@ -6,4 +6,3 @@ Calcul matriciel
 
     nb_array
     nb_numpy
-
