@@ -15,8 +15,8 @@ Enoncés Corrections sur le langage Python
     tds-base/j2048
     tds-base/texte_langue
     tds-base/pyramide_bigarree
-    tds-base/classe_carre_magique
-    tds-base/classe_heritage
+    tds-base/classes_carre_magique
+    tds-base/classes_heritage
 
 .. toctree::
     :maxdepth: 1
@@ -30,5 +30,5 @@ Enoncés Corrections sur le langage Python
     tds-base/j2048_correction
     tds-base/texte_langue_correction
     tds-base/pyramide_bigarree_correction
-    tds-base/classe_carre_magique_correction
-    tds-base/classe_heritage_correction
+    tds-base/classes_carre_magique_correction
+    tds-base/classes_heritage_correction
