@@ -8,6 +8,7 @@ cytoolz
 dbfread
 furo
 ipython
+jinja2
 jupyter
 lifelines
 matplotlib
