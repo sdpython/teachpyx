@@ -13,6 +13,7 @@ Enoncés Corrections sur le langage Python
     tds-base/module_file_regex
     tds-base/integrale_rectangle
     tds-base/j2048
+    tds-base/texte_langue
     tds-base/pyramide_bigarree
     tds-base/classe_carre_magique
     tds-base/classe_heritage
@@ -27,6 +28,7 @@ Enoncés Corrections sur le langage Python
     tds-base/module_file_regex_correction
     tds-base/integrale_rectangle_correction
     tds-base/j2048_correction
+    tds-base/texte_langue_correction
     tds-base/pyramide_bigarree_correction
     tds-base/classe_carre_magique_correction
     tds-base/classe_heritage_correction

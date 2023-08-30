@@ -7,3 +7,6 @@ Sources
 * `examen2021.zip <examen2021.zip>`_ :
 * `paris_54000.zip <paris_54000.zip>`_ :
 * Naissance, décès, mariages 2012 : `Naissance, décès, mariages 2012 <https://www.insee.fr/fr/statistiques/2407910?sommaire=2117120>`_
+* `voeux.zip <voeux.zip>`_ : collection de voeux présidentiels récupérés
+  depuis le site de l'`Elysée <https://www.elysee.fr/>`_
+* `articles.zip <articles.zip>`_ : collection d'articles en anglais et en français
