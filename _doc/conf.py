@@ -238,6 +238,7 @@ epkg_dictionary = {
     "PiecewiseTreeRegressor": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/mlinsights/mlmodel/"
     "piecewise_tree_regression.html#mlinsights.mlmodel.piecewise_tree_regression.PiecewiseTreeRegressor",
     "Pillow": "https://pillow.readthedocs.io/en/stable/",
+    "pip": "https://pip.pypa.io/en/stable/",
     "Predictable t-SNE": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/predictable_tsne.html",
     "printf-style String Formatting": "https://docs.python.org/3/library/stdtypes.html#old-string-formatting",
     "programmation impérative": "https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative",

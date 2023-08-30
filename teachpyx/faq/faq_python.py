@@ -630,8 +630,7 @@ def list_of_installed_packages():
         :tag: python
         :title: Obtenir des informations sur les packages installés
 
-        Le module `pip <https://pip.pypa.io/en/stable/>`_
-        retourne des informations
+        Le module :epkg:`pip` retourne des informations
         sur n'importe quel module installé, sa version,
         sa license ::
 
@@ -732,8 +731,7 @@ def information_about_package(name):
         :tag: python
         :title: Récupérer la liste des modules installés
 
-        Le module `pip <https://pip.pypa.io/en/stable/>`_
-        permet d'installer
+        Le module :epkg:`pip` permet d'installer
         de nouveaux modules mais aussi d'obtenir la liste
         des packages installés ::
 
@@ -747,16 +745,13 @@ def information_about_package(name):
     .. faqref::
         :tag: python
         :title: Pourquoi l'installation de pandas (ou numpy)
-        ne marche pas sous Windows avec pip ?
+            ne marche pas sous Windows avec pip ?
 
         Python est un langage très lent et c'est pourquoi la
         plupart des modules de calculs numériques
         incluent des parties implémentées en langage C++.
-        `numpy <http://www.numpy.org/>`_,
-        `pandas <http://pandas.pydata.org/>`_,
-        `matplotlib <http://matplotlib.org/>`_,
-        `scipy <http://www.scipy.org/>`_,
-        `scikit-learn <http://scikit-learn.org/stable/>`_,
+        :epkg:`numpy`, :epkg:`pandas`, :epkg:`matplotlib`,
+        :epkg:`scipy`, :epkg:`scikit-learn`, ...
         ...
 
         Sous Linux, le compilateur est intégré au système et
@@ -767,7 +762,8 @@ def information_about_package(name):
         défaut à moins de l'installer.
         Il faut faire attention alors d'utiliser exactement le même que celui utilisé
         pour compiler Python (voir
-        `Compiling Python on Windows <https://docs.python.org/3/using/windows.html#compiling-python-on-windows>`_).
+        `Compiling Python on Windows
+        <https://docs.python.org/3/using/windows.html#compiling-python-on-windows>`_).
 
         C'est pour cela qu'on préfère utiliser des distributions comme
         `Anaconda <https://www.anaconda.com/>`_
