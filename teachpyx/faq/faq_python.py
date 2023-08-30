@@ -278,7 +278,7 @@ def same_variable(a, b):
 
 def stringio(text):
     """
-    returns a StringIO object on a text
+    Teturns a :class:`io.StringIO` object on a text.
 
     :param text: any text
     :return: StringIO object
@@ -347,7 +347,7 @@ def stringio(text):
             nb = processus_quotidien(f)
             print(nb)
 
-            text = "ligne1\nligne2"
+            text = "ligne1\\nligne2"
             st = io.StringIO(text)
             nb = processus_quotidien(st)
             print(nb)
