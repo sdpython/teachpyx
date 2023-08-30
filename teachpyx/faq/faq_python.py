@@ -104,8 +104,7 @@ def python_path():
     """
     .. faqref::
         :tag: python
-        :title: Comment éviter sys.path.append...
-        quand on développe un module ?
+        :title: Comment éviter sys.path.append... quand on développe un module ?
 
         Lorsqu'on développe un module,
         on ne veut pas l'installer. On ne veut pas qu'il soit présent
