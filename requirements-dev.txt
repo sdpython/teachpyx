@@ -1,12 +1,14 @@
 black
 black-nb
 blockdiag
+chardet
 cloudpickle
 coverage
 cytoolz
 dbfread
 furo
 ipython
+jinja2
 jupyter
 lifelines
 matplotlib

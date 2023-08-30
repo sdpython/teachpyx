@@ -11,7 +11,7 @@ On parle aussi de `circuit hamiltonien <https://en.wikipedia.org/wiki/Hamiltonia
 qui consiste à trouver le plus court chemin passant par tous les noeuds d'un graphe.
 Ce programme explore quelques solutions approchées et intuitives.
 
-Ce problème est `NP-complet <http://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet)>`_
+Ce problème est :epkg:`NP-complet`
 à savoir qu'il n'existe pas d'algorithme qui permette de trouver la solution avec un
 coût polynômial. C'est aussi un problème différent du `plus court chemin dans un graphe
 <https://fr.wikipedia.org/wiki/Probl%C3%A8mes_de_cheminement)>`_

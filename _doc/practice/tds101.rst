@@ -1,0 +1,34 @@
+=========================================
+Enoncés Corrections sur le langage Python
+=========================================
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Enoncés
+
+    tds-base/premiers_pas
+    tds-base/variable_boucle_tests
+    tds-base/dictionnaire_vigenere
+    tds-base/module_file_regex
+    tds-base/integrale_rectangle
+    tds-base/j2048
+    tds-base/texte_langue
+    tds-base/pyramide_bigarree
+    tds-base/classes_carre_magique
+    tds-base/classes_heritage
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Correction
+
+    tds-base/premiers_pas_correction
+    tds-base/variable_boucle_tests_correction
+    tds-base/dictionnaire_vigenere_correction
+    tds-base/module_file_regex_correction
+    tds-base/integrale_rectangle_correction
+    tds-base/j2048_correction
+    tds-base/texte_langue_correction
+    tds-base/pyramide_bigarree_correction
+    tds-base/classes_carre_magique_correction
+    tds-base/classes_heritage_correction

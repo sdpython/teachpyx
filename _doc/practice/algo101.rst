@@ -17,3 +17,5 @@ des briques des bases algorithmiques.
     algo-base/exercice_echelle
     algo-base/exercice_plus_grande_somme
     algo-base/exercice_xn
+    algo-base/exercice_morse
+    algo-base/matrix_dictionary

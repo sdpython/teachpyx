@@ -15,7 +15,7 @@ permet de manipuler les matrices, :epkg:`pandas`
 pour la manipulations de données avec les *DataFrames*.
 
 .. toctree::
+    :maxdepth: 2
 
     matrices
     dataframes
-    i_exda
