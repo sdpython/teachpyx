@@ -24,6 +24,13 @@ des briques des bases algorithmiques.
 
 .. toctree::
     :maxdepth: 1
+    :caption: Graphes
+
+    algo-base/exercice_compose_connexe
+    algo-base/exercice_random_graph
+
+.. toctree::
+    :maxdepth: 1
     :caption: A voir
 
     algo-base/exercice_morse
