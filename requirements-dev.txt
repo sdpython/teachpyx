@@ -6,11 +6,13 @@ cloudpickle
 coverage
 cytoolz
 dbfread
+dict2xml
 furo
 ipython
 jinja2
 jupyter
 lifelines
+lxml
 matplotlib
 mutagen  # mp3
 nbsphinx
