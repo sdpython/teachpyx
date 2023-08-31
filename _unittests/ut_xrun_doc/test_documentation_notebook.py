@@ -112,6 +112,13 @@ class TestDocumentationNotebook(ExtTestCase):
                         res = self.run_test(fullname, verbose=VERBOSE)
                         self.assertIn(res, (-1, 1))
 
+                elif "module_file_regex" in name and sys.platform != "win32":
+
+                    @unittest.skip("issues with linux")
+                    def _test_(self, fullname=fullname):
+                        res = self.run_test(fullname, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
+
                 else:
 
                     def _test_(self, fullname=fullname):

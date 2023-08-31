@@ -45,6 +45,6 @@ des briques des bases algorithmiques.
 
 .. toctree::
     :maxdepth: 1
-    :caption: A voir
+    :caption: Graphes
 
-    algo-base/exercice_morse
+    algo-base/exercice_simulation_covid
