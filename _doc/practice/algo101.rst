@@ -18,9 +18,23 @@ des briques des bases algorithmiques.
     algo-base/exercice_echelle
     algo-base/exercice_plus_grande_somme
     algo-base/exercice_xn
-    algo-base/exercice_edit_distance
     algo-base/exercice_topk
     algo-base/BJKST
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Programmation dynamique
+
+    algo-base/exercice_editdist
+    algo-base/exercice_edit_distance
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Problème NP-complets
+
+    ../auto_examples/plot_tsp
+    algo-base/exercice_tsp
+    algo-base/tsp_aparte
 
 .. toctree::
     :maxdepth: 1
@@ -34,4 +48,3 @@ des briques des bases algorithmiques.
     :caption: A voir
 
     algo-base/exercice_morse
-    ../auto_examples/plot_tsp
