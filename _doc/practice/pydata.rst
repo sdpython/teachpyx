@@ -1,10 +1,9 @@
-==============================
-Manipulation de données (code)
-==============================
+========================
+Exercices simples (code)
+========================
 
 .. toctree::
     :maxdepth: 1
-    :caption: Manipulation de données
 
     py-base/pivot_gauss
     py-base/coloriage_carre

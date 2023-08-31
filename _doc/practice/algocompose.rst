@@ -1,6 +1,6 @@
-===========================
-Algorithmes composés (code)
-===========================
+===============================
+Assemblage d'algorithmes (code)
+===============================
 
 Les problèmes qui suivent sont plus complexes dont les solutions
 se construisent sous la forme d'un assemblage d'algorithme plus simple.
@@ -9,9 +9,7 @@ se construisent sous la forme d'un assemblage d'algorithme plus simple.
     :maxdepth: 1
     :caption: A parcourir
 
-    algo-base/exercice_morse
-    ../auto_examples/plot_tsp
+    algo-compose/exercice_morse
     ../auto_examples/plot_einstein_riddle
     algo-compose/paris_parcours
-    algo-compose/BJKST
     algo-compose/vigenere

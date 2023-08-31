@@ -1,6 +1,6 @@
-==============================
-Algorithmes à connaître (code)
-==============================
+===========================
+Algorithmes courants (code)
+===========================
 
 Les premiers exercices illustrent des algorithmes connus
 et régulièrement utilisés lors d'entretien d'embauche.
@@ -19,5 +19,12 @@ des briques des bases algorithmiques.
     algo-base/exercice_plus_grande_somme
     algo-base/exercice_xn
     algo-base/exercice_edit_distance
-    algo-base/exercice_morse
     algo-base/exercice_topk
+    algo-base/BJKST
+
+.. toctree::
+    :maxdepth: 1
+    :caption: A voir
+
+    algo-base/exercice_morse
+    ../auto_examples/plot_tsp
