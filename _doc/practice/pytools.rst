@@ -7,3 +7,4 @@ Outils, automatisation (code)
     :caption: Enquêter
 
     py-base/exercice_regex
+    py-base/exercice_json_xml
