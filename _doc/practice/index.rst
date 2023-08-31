@@ -13,6 +13,7 @@ La première série d'exercices explore les bases du langage.
     pystruct
     pydata
     pycheck
+    pytools
     tds101
 
 La série suivante explique pas à pas quelques algorithmes.

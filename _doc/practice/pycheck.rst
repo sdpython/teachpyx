@@ -7,3 +7,4 @@ Comprendre un programme (code)
     :caption: Enquêter
 
     py-base/profiling_example
+    py-base/profile_gini
