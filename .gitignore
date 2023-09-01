@@ -29,6 +29,10 @@ _doc/examples/*.html
 _doc/_static/require.js
 _doc/_static/viz.js
 _doc/practice/algo-compose/paris_54000.*
+_doc/practice/py-base/*.csv
+_doc/practice/py-base/*.json
+_doc/practice/py-base/*.xlsx
+_doc/practice/py-base/*.zip
 _doc/practice/tds-base/*.txt
 _doc/practice/tds-base/*.csv
 _doc/practice/tds-base/*.zip

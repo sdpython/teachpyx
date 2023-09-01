@@ -53,4 +53,5 @@ max-complexity = 10
 "_doc/conf.py" = ["F821"]
 "teachpyx/__init__.py" = ["E501"]
 "teachpyx/tools/__init__.py" = ["F401"]
+"teachpyx/tools/profiling.py" = ["E731"]
 "_latex/ensae/*" = ["F811", "F821"]

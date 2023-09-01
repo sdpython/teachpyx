@@ -6,11 +6,13 @@ cloudpickle
 coverage
 cytoolz
 dbfread
+dict2xml
 furo
 ipython
 jinja2
 jupyter
 lifelines
+lxml
 matplotlib
 mutagen  # mp3
 nbsphinx
@@ -19,6 +21,7 @@ openpyxl
 pandas
 pillow
 protobuf<4
+pyinstrument
 pytest
 pytest-cov
 ruff
