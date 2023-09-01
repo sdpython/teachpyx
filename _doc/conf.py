@@ -245,6 +245,7 @@ epkg_dictionary = {
     "programmation impérative": "https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative",
     "programmation fonctionnelle": "https://fr.wikipedia.org/wiki/Programmation_fonctionnelle",
     "protobuf": "https://protobuf.dev/",
+    "pyinstrument": "https://github.com/joerick/pyinstrument",
     "pypi": "https://pypi.org/",
     "PyPi": "https://pypi.org/",
     "pylint": "https://www.pylint.org/",
