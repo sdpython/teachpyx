@@ -538,7 +538,7 @@ def profile(
     .. plot::
 
         import matplotlib.pyplot as plt
-        from onnx_array_api.profiling import profile
+        from teachpyx.tools.profiling import profile
 
         def subf(x):
             return sum(x)
@@ -553,7 +553,7 @@ def profile(
             'namefct').plot(kind='bar', figsize=(8, 3), rot=30)
         ax.set_title("example of a graph")
         for la in ax.get_xticklabels():
-            la.set_horizontalalignment('right');
+            la.set_horizontalalignment('right')
         plt.show()
     """
     pr = cProfile.Profile(**kwargs)
