@@ -9,3 +9,4 @@ Structures de données (code)
     py-base/nbheap
     py-base/structures_donnees_conversion
     py-base/recherche_dichotomique
+    py-base/exercice_hash
