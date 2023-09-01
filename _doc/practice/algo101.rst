@@ -45,6 +45,7 @@ des briques des bases algorithmiques.
 
 .. toctree::
     :maxdepth: 1
-    :caption: Graphes
+    :caption: Simulation
 
+    algo-base/exercice_simulation_covid_simple
     algo-base/exercice_simulation_covid
