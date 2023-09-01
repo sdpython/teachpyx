@@ -61,7 +61,7 @@ class ProfileNode:
 
     @property
     def key(self):
-        "Returns `file:line`."
+        "Returns ``file:line``."
         return ProfileNode._key(self.filename, self.line, self.func_name)
 
     def get_root(self):
@@ -526,7 +526,7 @@ def profile(
     Profiles the execution of a function.
 
     :param fct: function to profile
-    :param sort: see :class:`pstats.Stats.sort_stats`
+    :param sort: see :meth:`pstats.Stats.sort_stats`
     :param rootrem: root to remove in filenames
     :param as_df: return the results as a dataframe and not text
     :param return_results: if True, return results as well
