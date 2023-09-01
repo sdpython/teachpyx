@@ -526,14 +526,13 @@ def profile(
     Profiles the execution of a function.
 
     :param fct: function to profile
-    :param sort: see `sort_stats <https://docs.python.org/3/library/
-        profile.html#pstats.Stats.sort_stats>`_
+    :param sort: see :class:`pstats.Stats.sort_stats`
     :param rootrem: root to remove in filenames
     :param as_df: return the results as a dataframe and not text
     :param return_results: if True, return results as well
         (in the first position)
     :param kwargs: additional parameters used to create the profiler,
-        see :class:`cProfile.Profile`
+        see :class:`cProfile.cProfile`
     :return: raw results, statistics text dump (or dataframe is *as_df* is True)
 
     .. plot::
@@ -557,7 +556,7 @@ def profile(
             la.set_horizontalalignment('right');
         plt.show()
     """
-    pr = cProfile.Profile(**kwargs)
+    pr = cProfile.cProfile(**kwargs)
     pr.enable()
     fct_res = fct()
     pr.disable()
