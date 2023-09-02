@@ -50,13 +50,6 @@ Exercices sur le langage python
     py-base/exercice_serialisation_json
 
 .. toctree::
-    :maxdepth: 2
-
-    pycheck
-    pytools
-    tds101
-
-.. toctree::
     :maxdepth: 1
     :caption: Enoncés
 

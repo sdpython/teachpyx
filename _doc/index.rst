@@ -29,7 +29,7 @@ pas ou eu programmer. Le contenu est disponible sur
 
     practice/index_python
     practice/index_algo
-    practice/index_exams
+    practice/index_exam
 
 .. toctree::
     :maxdepth: 1
