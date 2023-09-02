@@ -228,6 +228,7 @@ epkg_dictionary = {
     "mlstatpy": "https://sdpython.github.io/doc/mlstatpy/dev/",
     "NP-complet": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet",
     "neato": "https://www.graphviz.org/pdf/neatoguide.pdf",
+    "notebook": "https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html#notebook-document",
     "numpy": (
         "https://www.numpy.org/",
         ("https://docs.scipy.org/doc/numpy/reference/generated/numpy.{0}.html", 1),
@@ -281,6 +282,7 @@ epkg_dictionary = {
     "ujson": "https://github.com/ultrajson/ultrajson",
     "Visual Studio Code": "https://code.visualstudio.com/",
     "Visualize a scikit-learn pipeline": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/visualize_pipeline.html",
+    "viz.js": "https://github.com/mdaines/viz-js",
     "X-tree": "https://en.wikipedia.org/wiki/X-tree",
     "XML": "https://fr.wikipedia.org/wiki/Extensible_Markup_Language",
     "wikipedia dumps": "https://dumps.wikimedia.org/frwiki/latest/",
