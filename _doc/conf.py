@@ -81,7 +81,7 @@ latex_elements = {
 mathjax3_config = {"chtml": {"displayAlign": "left"}}
 
 intersphinx_mapping = {
-    "IPython": ("https://ipython.readthedocs.io", None),
+    "IPython": ("https://ipython.readthedocs.io/en/stable/", None),
     "matplotlib": ("https://matplotlib.org/", None),
     "numpy": ("https://numpy.org/doc/stable", None),
     "onnx": ("https://onnx.ai/onnx/", None),
