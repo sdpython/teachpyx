@@ -33,3 +33,5 @@ Voir aussi les précédents énoncés : :ref:`l-exams`.
 * exercices sur des algortihmes :ref:`l-algo`
 * examens passés :ref:`l-exam`
 * Site plus tout-à-fait maintenu `www.xavierdupre.fr <http://www.xavierdupre.fr>`_
+* `Plan suivi en 2022
+  <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/questions/route_1A_2022.html#seance-1-7-9-introduction-dictionnaire>`_
