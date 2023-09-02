@@ -566,13 +566,13 @@ def get_installed_distributions(
     :return: list of installed Distribution objects.
     """
     if use_cmd:
-        raise NotImplementedError("use_cmd should be False.")  # pragma: no cover
+        raise NotImplementedError("use_cmd should be False.")
     if skip is None:
         try:
             from pip._internal.utils.compat import stdlib_pkgs
 
             skip = stdlib_pkgs
-        except ImportError:  # pragma: no cover
+        except ImportError:
             pass
     try:
         from pip._internal.metadata import get_default_environment
@@ -590,7 +590,7 @@ def get_installed_distributions(
             )
         )
 
-    except ImportError:  # pragma: no cover
+    except ImportError:
         from pip._internal.utils.misc import get_installed_distributions as getd
 
         return list(
@@ -689,10 +689,10 @@ def get_package_info(name=None, start=0, end=-1):
         res = []
         packs = get_packages_list()
         if end == -1:
-            end = len(packs)  # pragma: no cover
+            end = len(packs)
         subp = packs[start:end]
         if len(subp) == 0:
-            raise PQPipError(  # pragma: no cover
+            raise PQPipError(
                 "No package, start={0}, end={1}, len(subp)={2}, len(packs)={3}".format(
                     start, end, len(subp), len(packs)
                 )
@@ -702,7 +702,7 @@ def get_package_info(name=None, start=0, end=-1):
             info = get_package_info(pack)
             res.append(info)
         if len(res) == 0 and len(subp) > 0:
-            raise PQPipError(  # pragma: no cover
+            raise PQPipError(
                 f"Empty list, unexpected, start={start}, "
                 f"end={end}, len(subp)={len(subp)}"
             )
@@ -710,9 +710,7 @@ def get_package_info(name=None, start=0, end=-1):
 
     res = list(search_packages_info([name]))
     if len(res) != 1:
-        raise PQPipError(  # pragma: no cover
-            f"Unexpected number of results {len(res)} for {name}"
-        )
+        raise PQPipError(f"Unexpected number of results {len(res)} for {name}")
     return res[0]
 
 
@@ -830,7 +828,7 @@ def class_getitem():
                 return A1
             if index == 2:
                 return A2
-            assert False  # pragma: no cover
+            assert False
 
         @classmethod
         def __class_getitem__(cls, index):

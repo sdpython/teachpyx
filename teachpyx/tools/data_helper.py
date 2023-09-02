@@ -15,7 +15,7 @@ def decompress_zip(filename, dest: str, verbose: bool = False) -> List[str]:
     """
     try:
         fp = zipfile.ZipFile(filename, "r")
-    except zipfile.BadZipFile as e:  # pragma: no cover
+    except zipfile.BadZipFile as e:
         raise RuntimeError(f"Unable to unzip {filename!r}") from e
     files = []
     for info in fp.infolist():

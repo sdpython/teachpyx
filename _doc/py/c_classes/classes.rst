@@ -3203,7 +3203,7 @@ Cela peut se faire via la méthode
                 return A1
             if index == 2:
                 return A2
-            assert False  # pragma: no cover
+            assert False
 
         @classmethod
         def __class_getitem__(cls, index):
