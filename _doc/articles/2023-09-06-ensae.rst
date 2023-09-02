@@ -1,0 +1,35 @@
+2023-09-06 : ENSAE
+==================
+
+**Notions à maîtriser**
+
+* éléments de bases du langages (boucles, listes, tests, fonctions)
+* classes (attributes, méthodes, opérateurs, héritages)
+* graphes, arbre
+* numpy (opérations standard, broadcasting)
+* format de données (JSON, XML, HTML, csv)
+* tests unitaires (package unittest, git, pull request)
+* algorithmes
+   * tri fusion
+   * recherche dichotomique
+   * graphes (composantes connexes, Kruskal)
+   * programmation dynamique (chemin plus court dans un graphe, distance d'édition)
+   * problème NP-complet tels que le voyageur de commerce
+
+**Notions non abordées**
+
+Elles le seront en seconde année et non en première année : manipulation de données, pandas, machine learning.
+
+**Evaluation**
+
+1 TD noté. Les classes seront abordées et un problème algorithmique.
+Voir aussi les précédents énoncés : :ref:`l-exams`.
+
+**Ressources**
+
+* Ce site : `sdpython.github.io/doc/teachpyx/dev/ <https://sdpython.github.io/doc/teachpyx/dev/>`_
+* :ref:`l-book-python`
+* exercices sur le langage :ref:`l-python`
+* exercices sur des algortihmes :ref:`l-algo`
+* examens passés :ref:`l-exam`
+* Site plus tout-à-fait maintenu `www.xavierdupre.fr <http://www.xavierdupre.fr>`_
