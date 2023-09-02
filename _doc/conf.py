@@ -203,6 +203,7 @@ epkg_dictionary = {
     "dill": "https://dill.readthedocs.io/en/latest/",
     "dir": "https://docs.python.org/3/library/functions.html?highlight=dir#dir",
     "dot": "https://fr.wikipedia.org/wiki/DOT_(langage)",
+    "DOT": "https://fr.wikipedia.org/wiki/DOT_(langage)",
     "encoding": "https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res",
     "eval": "https://docs.python.org/3/library/functions.html?highlight=id#eval",
     "Excel": "https://fr.wikipedia.org/wiki/Microsoft_Excel",
