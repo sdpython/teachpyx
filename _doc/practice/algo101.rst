@@ -19,6 +19,7 @@ des briques des bases algorithmiques.
     algo-base/exercice_plus_grande_somme
     algo-base/exercice_xn
     algo-base/exercice_topk
+    algo-base/exercice_suffix
     algo-base/BJKST
 
 .. toctree::
@@ -27,6 +28,7 @@ des briques des bases algorithmiques.
 
     algo-base/exercice_editdist
     algo-base/exercice_edit_distance
+    algo-base/exercice_ordonnancement
 
 .. toctree::
     :maxdepth: 1

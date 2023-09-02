@@ -81,12 +81,14 @@ latex_elements = {
 mathjax3_config = {"chtml": {"displayAlign": "left"}}
 
 intersphinx_mapping = {
-    "onnx": ("https://onnx.ai/onnx/", None),
+    "IPython": ("https://ipython.readthedocs.io", None),
     "matplotlib": ("https://matplotlib.org/", None),
     "numpy": ("https://numpy.org/doc/stable", None),
+    "onnx": ("https://onnx.ai/onnx/", None),
     "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
     "python": (f"https://docs.python.org/{sys.version_info.major}", None),
     "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
+    "skl2onnx": ("https://onnx.ai/sklearn-onnx/", None),
     "sklearn": ("https://scikit-learn.org/stable/", None),
     "sklearn-onnx": ("https://onnx.ai/sklearn-onnx/", None),
     "torch": ("https://pytorch.org/docs/stable/", None),
@@ -170,6 +172,8 @@ preamble = """
 """
 
 epkg_dictionary = {
+    "_ipython_display_": "https://ipython.readthedocs.io/en/stable/config/integrating.html?highlight=Integrating%20",
+    "_repr_html_": "https://ipython.readthedocs.io/en/stable/config/integrating.html#custom-methods",
     "Algorithme de Strassen": "https://fr.wikipedia.org/wiki/Algorithme_de_Strassen",
     "algorithme de Strassen": "https://fr.wikipedia.org/wiki/Algorithme_de_Strassen",
     "ACP": "https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales",
@@ -223,6 +227,7 @@ epkg_dictionary = {
     "mlinsights": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/index.html",
     "mlstatpy": "https://sdpython.github.io/doc/mlstatpy/dev/",
     "NP-complet": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet",
+    "neato": "https://www.graphviz.org/pdf/neatoguide.pdf",
     "numpy": (
         "https://www.numpy.org/",
         ("https://docs.scipy.org/doc/numpy/reference/generated/numpy.{0}.html", 1),
