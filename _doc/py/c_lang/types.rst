@@ -1510,7 +1510,7 @@ ou si l'une est une copie de l'autre comme le montre l'exemple suivant :
 
     import copy
     l  = [1,2,3]
-    l2 = copy.copy (l)
+    l2 = copy.copy(l)
     l3 = l
 
     print(l == l2)  # affiche True
@@ -1532,8 +1532,8 @@ dans une autre liste elle-même incluse...
 
     import copy
     l  = [[1,2,3],[4,5,6]]
-    l2 = copy.copy (l)
-    l3 = copy.deepcopy (l)
+    l2 = copy.copy(l)
+    l3 = copy.deepcopy(l)
     l [0][0] = 1111
     print(l)                # affiche [[1111, 2, 3], [4, 5, 6]]
     print(l2)               # affiche [[1111, 2, 3], [4, 5, 6]]
@@ -1556,7 +1556,7 @@ comme celles de l'exemple suivant où deux listes se contiennent l'une l'autre.
     print(ll)        # affiche [[[...], 'a'], 3]
 
     import copy
-    z = copy.deepcopy (l)
+    z = copy.deepcopy(l)
     print(z)         # affiche [[[...], 3], 'a']
 
 Dictionnaire
@@ -1645,12 +1645,12 @@ le seul repère est leur clé. La table suivante dresse la liste des opérations
     * - ``dict (x)``
       - convertit ``x`` en un dictionnaire si cela est possible,
         ``d`` est alors égal à ``dict ( d.items () )``
-    * - ``d.copy ()``
+    * - ``d.copy()``
       - Retourne une copie de ``d``
-    * - ``d.items ()``
+    * - ``d.items()``
       - Retourne un itérateur sur tous les couples (clé, valeur)
         inclus dans le dictionnaire.
-    * - ``d.keys ()``
+    * - ``d.keys()``
       - Retourne un itérateur sur toutes les clés du dictionnaire ``d``
     * - ``d.values ()``
       - Retourne un itérateur sur toutes les

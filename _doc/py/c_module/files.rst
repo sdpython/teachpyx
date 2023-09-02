@@ -534,7 +534,7 @@ Copie, suppression
     :widths: 5 10
     :header-rows: 0
 
-    * - `copy (f1,f2) <https://docs.python.org/3/library/shutil.html?highlight=shutil#shutil.copy>`_
+    * - `copy(f1,f2) <https://docs.python.org/3/library/shutil.html?highlight=shutil#shutil.copy>`_
       - Copie le fichier ``f1`` vers ``f2``.
     * - `chdir (p) <https://docs.python.org/3/library/os.html?highlight=chdir#os.chdir>`_
       - Change le répertoire courant, cette fonction peut être importante lorsqu'on
@@ -933,7 +933,7 @@ que le montre l'exemple suivant :
             self.n = (self.x ** 2 + self.y ** 2) ** 0.5
         def __getstate__ (self) :
             """conversion de Test en un dictionnaire"""
-            d = copy.copy (self.__dict__)
+            d = copy.copy(self.__dict__)
             del d ["n"]  # attribut calculé, on le sauve pas
             return d
         def __setstate__ (self,dic) :

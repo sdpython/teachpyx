@@ -25,24 +25,18 @@ pas ou eu programmer. Le contenu est disponible sur
 
 .. toctree::
     :maxdepth: 1
-    :caption: savoir
-
-    algorithm_culture
-
-.. toctree::
-    :maxdepth: 1
     :caption: Exercices
 
-    practice/index
-    auto_examples/index
-    api/index
+    practice/index_python
+    practice/index_algo
+    practice/index_exams
 
 .. toctree::
     :maxdepth: 1
     :caption: Compléments
 
-    i_ex
-    i_faq
+    algorithm_culture
+    i_index
     license
     CHANGELOGS
 

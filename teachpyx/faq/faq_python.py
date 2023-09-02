@@ -86,12 +86,6 @@ def difference_div():
             :showcode:
 
             print( 5 % 2 )  # affiche 1
-
-        C'est uniquement vrai pour les version Python 3.x.
-        Pour les versions 2.x, les opérateurs ``/`` et ``//``
-        avaient des comportements différents
-        (voir `What’s New In Python 3.0
-        <https://docs.python.org/3/whatsnew/3.0.html#integers>`_).
     """
     div1 = 1 / 2
     div2 = 4 / 2

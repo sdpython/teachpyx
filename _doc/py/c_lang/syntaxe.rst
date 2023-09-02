@@ -1239,7 +1239,7 @@ Pour remédier à cela, il faudrait écrire :
 
     import copy
     def fonction (l = [0,0]) :
-        l = copy.copy (l)
+        l = copy.copy(l)
         l[0] += 1
         return l
 

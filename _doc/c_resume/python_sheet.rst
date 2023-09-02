@@ -12,7 +12,7 @@ Quelques lignes suffisent pour découvrir la version installée :
     :showcode:
 
     import sys
-    print (sys.version)
+    print(sys.version)
 
 Avec la version *3.x*, le langage a introduit quelques changements importants qui seront précisés.
 Il est préférable de choisir la version 3 plutôt que 2.7. Outre le fait qu'elle
@@ -46,11 +46,11 @@ Quelques rappels sur le langage :
 .. runpython::
     :showcode:
 
-    def fonction () :
+    def fonction() :
          """fonction de
          démonstration"""
          return 0
-    help (fonction)
+    help(fonction)
 
 **2 astuces en cas de problème**
 
@@ -101,8 +101,6 @@ Les variables de type immuable ne peuvent pas être modifiées.
 * ``str`` : une chaîne de caractères ou string, elle apparaît entre guillemets,
   entre apostrophes, entre trois guillements (``"""``) si elle s'étend sur
   plusieurs lignes. ``s = "exemple"``.
-  **Version 2.7 :** il existe un autre type ``unicode`` utilisé pour représenter des
-  chaînes de caractères non latines (en chinois par exemple).
 * ``tuple`` : un vecteur d'éléments de types identiques ou différents,
   il apparaît entre parenthèses, on accède à un de ses éléments à l'aide de
   crochets. Les éléments d'un t-uple ``t`` sont indicés de 0 à ``len(t)-1`` inclus.
@@ -134,9 +132,7 @@ les types numériques ainsi que sur les chaînes de caractères.
 
 **Fréquente source de bug :**
 
-* **Version 2.7 :** une division entière a pour résultat le quotient
-  et non un nombre décimal. Autrement dit : ``1/2 = 0`` et non ``0.5``.
-* **Version 3.x :** une division entière a pour résultat un réel.
+* une division entière a pour résultat un réel.
   Autrement dit : ``1/2 = 0.5``. Pour une division entière, il faut utiliser
   ``//`` : ``1//2 = 0``.
 
@@ -162,8 +158,8 @@ ou d'une chaîne de caractères ``t`` sont indicés de 0 à ``len (t)-1`` inclus
 ::
 
     t[i:j]  # correspond à un sous-ensemble allant des indices i à j exclu
-    t[:j]   #  = t[0:j]
-    t[i:]   # = t [i: len (t)]
+    t[:j]   #  = t[0: j]
+    t[i:]   #  = t[i: len(t)]
 
 Pour les chaînes de caractères, on utilise fréquemment les
 méthodes suivantes :
@@ -171,16 +167,15 @@ méthodes suivantes :
 ::
 
     st = "langage python"
-    st = 'langage python'           # idem
-    st = 'un guillement "'          # chaîne contenant un guillement
-    st = "un guillement \""         # chaîne contenant un guillement, il faut ajouter \
-                                    #     pour ne pas confondre avec l'autre guillement
-    st = st.upper ()                # mise en lettres majuscules
-    i  = st.find ("PYTHON")         # on cherche "PYTHON" dans st
-    print (i)                       # affiche 8  Version 3.x, écrire print (i),
-                                    #    pour la version 2.x, écrire print i
-    print (st.count ("PYTHON"))     # affiche 1  Version 3.x : idem print (...)
-    print (st.count ("PYTHON", 9))  # affiche 0  Version 3.x : idem print (...)
+    st = 'langage python'          # idem
+    st = 'un guillement "'         # chaîne contenant un guillement
+    st = "un guillement \""        # chaîne contenant un guillement, il faut ajouter \
+                                   #     pour ne pas confondre avec l'autre guillement
+    st = st.upper()                # mise en lettres majuscules
+    i  = st.find("PYTHON")         # on cherche "PYTHON" dans st
+    print(i)                       # affiche 8  
+    print(st.count("PYTHON"))      # affiche 1
+    print(st.count("PYTHON", 9))   # affiche 0
 
 .. list-table::
     :widths: 10 20
@@ -213,10 +208,10 @@ méthodes suivantes :
       - Remplace les minuscules par des majuscules.
     * - ``lower()``
       - Remplace les majuscules par des minuscules.
-    * - ``join ( li )``
+    * - ``join( li )``
       - ``li`` est une liste,
         cette fonction agglutine tous les éléments d'une liste séparés par ``sep``
-        dans l'expression ``sep.join ( ["un", "deux"])``.
+        dans l'expression ``sep.join(["un", "deux"])``.
 
 Quelques fonctions s'appliquant aux chaînes de caractères, l'aide associée au langage python
 fournira la liste complète. Certains des paramètres sont encadrés par des crochets,
@@ -228,9 +223,9 @@ décimale ce qui est fait grâce à la syntaxe suivante :
     :showcode:
 
     x = 0.123456789
-    print ("%1.2f" % x)    # donne 0.12
+    print("%1.2f" % x)    # donne 0.12
     s = "%2.2e %s" % (3.14159, "est une approximation de pi")
-    print (s)              # Version 2.x : print s
+    print(s)
 
 Les types modifiables
 =====================
@@ -251,7 +246,7 @@ Pour copier une liste ou un dictionnaire, il faut utiliser :
 
     a = [1,2]
     import copy
-    b = copy.copy (a)
+    b = copy.copy(a)
 
 ou, si la liste inclut également d'autres listes ou dictionnaires :
 
@@ -259,7 +254,7 @@ ou, si la liste inclut également d'autres listes ou dictionnaires :
 
     a = [1,2]
     import copy
-    b = copy.deepcopy (a)
+    b = copy.deepcopy(a)
 
 Cette remarque s'applique à tout type modifiable, liste, dictionnaire ou
 tout autre classe. La suppression d'une variable n'implique pas la
@@ -280,7 +275,7 @@ un ensemble d'éléments de types variés. C'est une sorte de t-uple modifiable.
     x = [3,]                # création d'une liste d'un élément, sans la virgule,
                             # le résultat reste une liste
     x = [ ]                 # crée une liste vide
-    x = list ()             # crée une liste vide
+    x = list()              # crée une liste vide
 
 Opérations qu'une liste supporte.
 
@@ -336,32 +331,32 @@ on suppose que ``l`` et ``t`` sont des listes, ``i`` et ``j`` sont des entiers.
     :widths: 10 20
     :header-rows: 0
 
-    * - ``l.count (x)``
+    * - ``l.count(x)``
       - Retourne le nombre d'occurrences de l'élément ``x``.
         ``count`` est une méthode de la classe ``list``.
-    * - ``l.index (x)``
+    * - ``l.index(x)``
       - Retourne l'indice de la première occurrence de l'élément ``x``
         dans la liste ``l``. Si celle-ci n'existe, une exception est
         déclenchée.
-    * - ``l.append (x)``
+    * - ``l.append(x)``
       - Ajoute l'élément ``x`` à la fin de la liste ``l``. Si ``x``
         est une liste, cette fonction ajoute la liste ``x`` en tant qu'élément,
         au final, la liste ``l`` ne contiendra qu'un élément de plus.
-    * - ``l.extend (k)``
+    * - ``l.extend(k)``
       - Ajoute tous les éléments de la liste ``k`` à la liste ``l``.
         La liste ``l`` aura autant d'éléments supplémentaires qu'il y en a
         dans la liste ``k``.
     * - ``l.insert(i,x)``
       - Insère l'élément ``x`` à la position ``i`` dans la liste ``l``.
-    * - ``l.remove (x)``
+    * - ``l.remove(x)``
       - Supprime la première occurence de l'élément ``x`` dans la liste ``l``.
         S'il n'y a aucune occurrence de ``x``, cette méthode déclenche
         une exception.
-    * - ``l.pop ([i])``
+    * - ``l.pop([i])``
       - Retourne l'élément ``l[i]`` et le supprime de la liste. Le
         paramètre ``i`` est facultatif, s'il n'est pas précisé, c'est le dernier
         élément dont la valeur est d'abord retournée puis il est supprimé de la liste.
-    * - ``l.reverse (x)``
+    * - ``l.reverse(x)``
       - Retourne la liste, le premier et dernier élément échangent leurs places,
         le second et l'avant dernier, et ainsi de suite.
     * - ``l.sort([key=None, reverse=False])``
@@ -395,11 +390,11 @@ ne sont pas uniquement des entiers mais tout type non modifiable
 
     x = { "cle1": "valeur1", "cle2": "valeur2" }
     print(x ["cle1"])
-    x [(0,1)] = "clé tuple"   # ajoute une nouvelle valeur dont la clé est (0,1)
+    x[(0, 1)] = "clé tuple"   # ajoute une nouvelle valeur dont la clé est (0,1)
                               #   les parenthèses sont superflues
     print(x)
     y = { }                   # crée un dictionnaire vide
-    z = dict ()               # crée aussi un dictionnaire vide
+    z = dict()                # crée aussi un dictionnaire vide
 
 Opérations qu'un dictionnaire supporte.
 
@@ -421,9 +416,9 @@ Opérations qu'un dictionnaire supporte.
       - plus grande clé
     * - ``del l [i]``
       - supprime l'élément associé à la clé ``i``
-    * - ``list (d)``
+    * - ``list(d)``
       - retourne une liste contenant toutes les clés du dictionnaire ``d``.
-    * - ``dict (x)``
+    * - ``dict(x)``
       - convertit ``x`` en un dictionnaire si cela est possible,
         en particulier, ``d`` est égal à ``dict(d.items())``
 
@@ -442,13 +437,10 @@ Opérations disponibles sur les dictionnaires, ``d`` est un dictionnaire,
       - Retourne un itérateur parcourant contenant tous les couples (clé, valeur)
         inclus dans le dictionnaire. Pour obtenir une liste, il faut écrire
         ``list(d.items())``.
-        **Version 2.x :** retourne une liste.
     * - ``d.keys()``
       - Retourne un itérateur parcourant toutes les clés du dictionnaire ``d``.
-        **Version 2.x :** retourne une liste.
     * - ``d.values()``
       - Retourne un itérateur parcourant toutes les valeurs du dictionnaire ``d``.
-        **Version 2.x :** retourne une liste.
     * - ``d.get(k[,x])``
       - Retourne ``d[k]``, si la clé ``k`` est manquante, alors
         la valeur ``None`` est retournée à moins que le paramètre optionnel ``x``
@@ -473,7 +465,7 @@ Ce type ne fait pas partie du langage python standard mais il est couramment uti
 ::
 
     import numpy
-    a = numpy.array ( [0,1] )
+    a = numpy.array([0, 1])
 
 Il permet de convertir des listes en une structure plus appropriée au calcul
 qui sont nettement plus rapides. En contrepartie, il n'est pas aussi
@@ -624,11 +616,11 @@ Elle applique une fonction à chaque élément d'un ensemble.
 .. runpython::
     :showcode:
 
-    def fonction (x):
+    def fonction(x):
         return x % 2
 
     li  = [ 3,4,5]
-    li2 = map (fonction, li)
+    li2 = map(fonction, li)
     print(list(li2))
 
 A priori, l'ensemble qui en résulte contient autant d'éléments
@@ -676,11 +668,11 @@ plusieurs résultats ou aucun. Leur déclaration suit le schéma suivant :
 
 ::
 
-    def exemple_fonction (p1, p2, p3) :
+    def exemple_fonction(p1, p2, p3) :
         # code de la fonction
         return r1, r2
 
-    a,b = exemple_fonction (1,2,3)   # exemple d'appel de la fonction
+    a,b = exemple_fonction(1, 2, 3)   # exemple d'appel de la fonction
 
 L'instruction ``return`` n'est pas obligatoire mais si elle
 est présente à un ou plusieurs endroits, aucune autre instruction de la
@@ -691,21 +683,21 @@ ces paramètres reçoivent une valeur même si celle-ci n'est pas précisée lor
 
 ::
 
-    def exemple_fonction (p1, p2 = 4, p3 = 7) :
+    def exemple_fonction(p1, p2=4, p3=7):
         # code de la fonction
         return r1, r2
 
-    a,b = exemple_fonction (1)         # = exemple_fonction (1,4,7)
-    a,b = exemple_fonction (1,2,3)     # = exemple_fonction (1,2,3)
-    a,b = exemple_fonction (1,2)       # = exemple_fonction (1,2,7)
-    a,b = exemple_fonction (1,p3 = 2)  # = exemple_fonction (1,4,2)
+    a,b = exemple_fonction(1)          # = exemple_fonction(1,4,7)
+    a,b = exemple_fonction(1, 2, 3)    # = exemple_fonction(1,2,3)
+    a,b = exemple_fonction(1, 2)       # = exemple_fonction(1,2,7)
+    a,b = exemple_fonction(1, p3=2)    # = exemple_fonction(1,4,2)
 
 Les paramètres par défaut doivent tous être mis en fin de
 déclaration, l'exemple suivant n'est pas correct :
 
 ::
 
-    def exemple_fonction (p1, p2 = 4, p3) :
+    def exemple_fonction(p1, p2=4, p3):
         # code de la fonction
         return r1, r2
     # affiche le message d'erreur : SyntaxError: non-default argument follows default argument
@@ -717,11 +709,11 @@ n'a pas de répercution à l'extérieur).
 .. runpython::
     :showcode:
 
-    def exemple_fonction (p1) :
+    def exemple_fonction(p1) :
         p1 = 3
     a = 1
-    exemple_fonction (a)
-    print (a)
+    exemple_fonction(a)
+    print(a)
 
 Les paramètres de type modifiable sont passés par référence (une modification
 à l'intérieur de la fonction a des répercutions à l'extérieur).
@@ -729,11 +721,11 @@ Les paramètres de type modifiable sont passés par référence (une modificatio
 .. runpython::
     :showcode:
 
-    def exemple_fonction (p1) :
+    def exemple_fonction(p1) :
         p1[0] = 3
     a = [1]
-    exemple_fonction (a)
-    print (a)
+    exemple_fonction(a)
+    print(a)
 
 mot-clé ``lambda``
 ++++++++++++++++++
@@ -743,11 +735,11 @@ Le mot-clé ``lambda`` permet de définir des fonctions au sein d'une expression
 .. runpython::
     :showcode:
 
-    def fonction (x) :
+    def fonction(x) :
         return x % 2
-    li  = [ 3,4,5]
-    li2 = map (fonction, li)
-    print (list(li2))
+    li  = [3, 4, 5]
+    li2 = map(fonction, li)
+    print(list(li2))
 
 Peut-être écrit comme :
 
@@ -755,8 +747,8 @@ Peut-être écrit comme :
     :showcode:
 
     li  = [ 3,4,5]
-    li2 = map (lambda x : x%2, li)
-    print (list(li2))
+    li2 = map(lambda x : x%2, li)
+    print(list(li2))
 
 Et si on veut ajouter un paramètre à la fonction ``lambda`` :
 
@@ -765,7 +757,7 @@ Et si on veut ajouter un paramètre à la fonction ``lambda`` :
 
     li  = [ 3,4,5]
     k   = 2
-    li2 = map (lambda x, y=k: x % y, li)
+    li2 = map(lambda x, y=k: x % y, li)
     print(list(li2))
 
 mot-clé ``yield``
@@ -780,19 +772,19 @@ En python, elle se décline sous la forme d'itérateur.
     def iterate_double_on_list(l) :
         for x in l :
             yield x*2
-    print (iterate_double_on_list( [4,5,6]))
+    print(iterate_double_on_list([4, 5, 6]))
 
 La fonction itère sur un ensemble mais ne fait rien tant qu'on ne parcourt pas l'ensemble qu'elle génère :
 
 .. runpython::
     :showcode:
 
-    def iterate_double_on_list(l) :
+    def iterate_double_on_list(l):
         for x in l :
             yield x*2
 
-    for x in iterate_double_on_list( [4,5,6]) :
-        print (x)
+    for x in iterate_double_on_list([4, 5, 6]):
+        print(x)
 
 La version 3 du langage python a changé des fonctions pour qu'elle retourne
 un itérateur sur un ensemble et non l'ensemble lui-même.
@@ -986,7 +978,7 @@ Il faut donc copier explicitement l'instance pour obtenir le résultat souhaité
 
     a = ma_classe (1,2,3)
     import copy
-    b = copy.copy (a)
+    b = copy.copy(a)
     b.att1 = -16
     print (a.att1)  # affiche 1
     print (b.att1)  # affiche -16
