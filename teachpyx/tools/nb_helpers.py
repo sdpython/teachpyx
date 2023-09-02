@@ -317,7 +317,7 @@ class RenderJsDot(RenderJS):
         :return: tuple *(libs, css)*
         """
         libs = [
-            "https://sdpython.github.io/doc/teachpyx/js/viz-standalone.js",
+            "https://sdpython.github.io/js/viz-standalone.js",
             # "https://github.com/mdaines/viz-js/releases/download/v3.1.0%2B1/viz-standalone.js"
         ]
         css = None
