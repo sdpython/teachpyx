@@ -1842,7 +1842,7 @@ l'attribut ``inclus.attr`` de l'instance ``nb2``.
         def __copy__ (self):
             copie        = exemple_classe()
             copie.rnd    = self.rnd
-            copie.inclus = copy.copy (self.inclus)
+            copie.inclus = copy.copy(self.inclus)
             return copie
 
     nb  = exemple_classe()
@@ -1983,7 +1983,7 @@ copie et non une seule.
 
     import copy
     memo = {}
-    nom_copy = copy.deepcopy (nom_instance [,memo])
+    nom_copy = copy.deepcopy(nom_instance[, memo])
 
 ``nom_instance`` est une instance à copier, ``nom_copy``
 est le nom désignant la copie. ``memo`` est un paramètre
@@ -1995,7 +1995,7 @@ effectuées lors de cet appel.
 
     class nom_classe :
         def __deepcopy__ (self,memo) :
-            copie = copy.copy (self)
+            copie = copy.copy(self)
             # ...
             return copie
 
@@ -2032,14 +2032,14 @@ clé une instance de classe est possible.
         def __deepcopy__ (self,memo):
             if self in memo :
                 return memo [self]
-            copie        = copy.copy (self)
+            copie        = copy.copy(self)
             memo [self]  = copie    # mémorise la copie de self qui est copie
-            copie.inclus = copy.deepcopy (self.inclus,memo)
+            copie.inclus = copy.deepcopy(self.inclus,memo)
             return copie
 
     nb = exemple_classe ()
 
-    nb2 = copy.deepcopy (nb)   # copie explicite à tous niveaux,
+    nb2 = copy.deepcopy(nb)    # copie explicite à tous niveaux,
                                # utilise l'opérateur __copy__,
                                # cette ligne est équivalente à
                                # nb2 = nb.__deepcopy__()
@@ -2080,17 +2080,17 @@ comme dans l'exemple qui suit.
             self.o1 = o
             o.o2    = self
         def __str__ (self) :
-            return "o2 " + str (self.i) + " : " + str (self.o1.i)
+            return "o2 " + str(self.i) + " : " + str(self.o1.i)
 
         def __deepcopy__ (self,memo):
-            return Objet2 (self.i, self.o1)
+            return Objet2(self.i, self.o1)
 
-    o1 = Objet1 (1)
-    o2 = Objet2 (2, o1)
+    o1 = Objet1(1)
+    o2 = Objet2(2, o1)
     print(o1)  # affiche o1 1 : 2
     print(o2)  # affiche o2 2 : 1
 
-    o3   = copy.deepcopy (o2)
+    o3   = copy.deepcopy(o2)
     o3.i = 4
     print(o1)  # affiche o1 1 : 4    --> on voudrait 2
     print(o2)  # affiche o2 2 : 1
@@ -2117,7 +2117,7 @@ la copie précédemment effectuée et conservée dans ``memo``.
                 return memo[self]
             r           = Objet1 (self.i)
             memo [self] = r
-            r.o2        = copy.deepcopy (self.o2, memo)
+            r.o2        = copy.deepcopy(self.o2, memo)
             return r
 
     class Objet2 :
@@ -2133,7 +2133,7 @@ la copie précédemment effectuée et conservée dans ``memo``.
                 return memo [self]
             r           = Objet2 (self.i, self.o1)
             memo [self] = r
-            r.o1        = copy.deepcopy (self.o1, memo)
+            r.o1        = copy.deepcopy(self.o1, memo)
             return r
 
     o1 = Objet1(1)
@@ -3203,7 +3203,7 @@ Cela peut se faire via la méthode
                 return A1
             if index == 2:
                 return A2
-            assert False  # pragma: no cover
+            assert False
 
         @classmethod
         def __class_getitem__(cls, index):

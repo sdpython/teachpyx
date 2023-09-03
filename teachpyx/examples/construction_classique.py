@@ -620,7 +620,7 @@ def enumerate_permutations_recursive(ensemble):
     if len(ensemble) == 1:
         yield ensemble
     else:
-        for i in range(0, len(ensemble)):  # pylint: disable=C0200
+        for i in range(0, len(ensemble)):
             ensemble[0], ensemble[i] = ensemble[i], ensemble[0]
             per = enumerate_permutations_recursive(ensemble[1:])
             for p in per:

@@ -116,16 +116,16 @@ def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
         }
     """
     if module == "blockdiag":
-        import blockdiag  # pylint: disable=C0415
+        import blockdiag
 
         module = blockdiag
-        import blockdiag.parser  # pylint: disable=C0415
+        import blockdiag.parser
 
         parser = blockdiag.parser
-        import blockdiag.builder  # pylint: disable=C0415
+        import blockdiag.builder
 
         builder = blockdiag.builder
-        import blockdiag.drawer  # pylint: disable=C0415
+        import blockdiag.drawer
 
         drawer = blockdiag.drawer
     else:

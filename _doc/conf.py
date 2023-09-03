@@ -81,12 +81,14 @@ latex_elements = {
 mathjax3_config = {"chtml": {"displayAlign": "left"}}
 
 intersphinx_mapping = {
-    "onnx": ("https://onnx.ai/onnx/", None),
+    "IPython": ("https://ipython.readthedocs.io/en/stable/", None),
     "matplotlib": ("https://matplotlib.org/", None),
     "numpy": ("https://numpy.org/doc/stable", None),
+    "onnx": ("https://onnx.ai/onnx/", None),
     "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
     "python": (f"https://docs.python.org/{sys.version_info.major}", None),
     "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
+    "skl2onnx": ("https://onnx.ai/sklearn-onnx/", None),
     "sklearn": ("https://scikit-learn.org/stable/", None),
     "sklearn-onnx": ("https://onnx.ai/sklearn-onnx/", None),
     "torch": ("https://pytorch.org/docs/stable/", None),
@@ -170,6 +172,8 @@ preamble = """
 """
 
 epkg_dictionary = {
+    "_ipython_display_": "https://ipython.readthedocs.io/en/stable/config/integrating.html?highlight=Integrating%20",
+    "_repr_html_": "https://ipython.readthedocs.io/en/stable/config/integrating.html#custom-methods",
     "Algorithme de Strassen": "https://fr.wikipedia.org/wiki/Algorithme_de_Strassen",
     "algorithme de Strassen": "https://fr.wikipedia.org/wiki/Algorithme_de_Strassen",
     "ACP": "https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales",
@@ -199,6 +203,7 @@ epkg_dictionary = {
     "dill": "https://dill.readthedocs.io/en/latest/",
     "dir": "https://docs.python.org/3/library/functions.html?highlight=dir#dir",
     "dot": "https://fr.wikipedia.org/wiki/DOT_(langage)",
+    "DOT": "https://fr.wikipedia.org/wiki/DOT_(langage)",
     "encoding": "https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res",
     "eval": "https://docs.python.org/3/library/functions.html?highlight=id#eval",
     "Excel": "https://fr.wikipedia.org/wiki/Microsoft_Excel",
@@ -223,6 +228,8 @@ epkg_dictionary = {
     "mlinsights": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/index.html",
     "mlstatpy": "https://sdpython.github.io/doc/mlstatpy/dev/",
     "NP-complet": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet",
+    "neato": "https://www.graphviz.org/pdf/neatoguide.pdf",
+    "notebook": "https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/what_is_jupyter.html#notebook-document",
     "numpy": (
         "https://www.numpy.org/",
         ("https://docs.scipy.org/doc/numpy/reference/generated/numpy.{0}.html", 1),
@@ -276,6 +283,7 @@ epkg_dictionary = {
     "ujson": "https://github.com/ultrajson/ultrajson",
     "Visual Studio Code": "https://code.visualstudio.com/",
     "Visualize a scikit-learn pipeline": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/visualize_pipeline.html",
+    "viz.js": "https://github.com/mdaines/viz-js",
     "X-tree": "https://en.wikipedia.org/wiki/X-tree",
     "XML": "https://fr.wikipedia.org/wiki/Extensible_Markup_Language",
     "wikipedia dumps": "https://dumps.wikimedia.org/frwiki/latest/",

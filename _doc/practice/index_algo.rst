@@ -1,6 +1,8 @@
-===========================
-Algorithmes courants (code)
-===========================
+.. _l-algo:
+
+===========
+Algorithmes
+===========
 
 Les premiers exercices illustrent des algorithmes connus
 et régulièrement utilisés lors d'entretien d'embauche.
@@ -19,6 +21,7 @@ des briques des bases algorithmiques.
     algo-base/exercice_plus_grande_somme
     algo-base/exercice_xn
     algo-base/exercice_topk
+    algo-base/exercice_suffix
     algo-base/BJKST
 
 .. toctree::
@@ -27,6 +30,7 @@ des briques des bases algorithmiques.
 
     algo-base/exercice_editdist
     algo-base/exercice_edit_distance
+    algo-base/exercice_ordonnancement
 
 .. toctree::
     :maxdepth: 1
@@ -49,3 +53,12 @@ des briques des bases algorithmiques.
 
     algo-base/exercice_simulation_covid_simple
     algo-base/exercice_simulation_covid
+
+.. toctree::
+    :maxdepth: 1
+    :caption: A parcourir
+
+    ../auto_examples/plot_einstein_riddle
+    algo-compose/paris_parcours
+    algo-compose/vigenere
+    algo-compose/exercice_morse

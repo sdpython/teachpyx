@@ -1,8 +1,8 @@
 
-*en construction permanente*
-
 .. |gitlogo| image:: ../_static/git_logo.png
              :height: 20
+
+.. _l-book-python:
 
 =================
 Le langage Python
