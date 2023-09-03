@@ -62,3 +62,23 @@ des briques des bases algorithmiques.
     algo-compose/paris_parcours
     algo-compose/vigenere
     algo-compose/exercice_morse
+
+Les exercices suivants fonctionnent par pair énoncé et correction.
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Enoncés
+
+    tds-algo/gentry_integer_encryption
+    tds-algo/knn_high_dimension
+    tds-algo/puzzle_algo_1
+    tds-algo/puzzle_algo_2
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Correction
+
+    tds-algo/gentry_integer_encryption_correction
+    tds-algo/knn_high_dimension_correction
+    tds-algo/puzzle_algo_1_correction
+    tds-algo/puzzle_algo_2_correction
