@@ -26,9 +26,3 @@ profiling
 
 .. automodule:: teachpyx.tools.profiling
     :members:
-
-RenderJsDot
-+++++++++++
-
-.. autoclass:: teachpyx.tools.nb_helpers.RenderJsDot
-    :members:
