@@ -32,6 +32,7 @@ Exercices sur le langage python
     py-base/tri_nlnd
     py-base/histogramme_rapide
     py-base/exercice_pi
+    py-base/de_rotation
 
 .. toctree::
     :maxdepth: 1
