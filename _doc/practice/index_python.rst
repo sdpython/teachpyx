@@ -50,7 +50,7 @@ Exercices sur le langage python
     py-base/exercice_json_xml
     py-base/exercice_serialisation_json
 
-Les exercices suivants fonctionnent par pair énoncé et correction.
+Les exercices suivants fonctionnent par paire, énoncé et correction.
 
 .. toctree::
     :maxdepth: 1

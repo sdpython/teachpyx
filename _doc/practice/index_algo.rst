@@ -63,7 +63,7 @@ des briques des bases algorithmiques.
     algo-compose/vigenere
     algo-compose/exercice_morse
 
-Les exercices suivants fonctionnent par pair énoncé et correction.
+Les exercices suivants fonctionnent par paire, énoncé et correction.
 
 .. toctree::
     :maxdepth: 1
