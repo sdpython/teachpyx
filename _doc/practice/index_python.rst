@@ -20,7 +20,7 @@ Exercices sur le langage python
 
     py-base/classes_metro
     py-base/classes_2048
-    py-base/classes_de
+    py-base/classe_de
 
 .. toctree::
     :maxdepth: 1

@@ -67,3 +67,7 @@ Extrait de
 * Intelligence artificielle et puissance de calcul, NVidia
 * Objets connectés...
 * Quantique...
+
+**Hier**
+
+:ref:`l-feuille-route-2022`
