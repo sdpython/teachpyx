@@ -10,3 +10,6 @@ Sources
 * `voeux.zip <voeux.zip>`_ : collection de voeux présidentiels récupérés
   depuis le site de l'`Elysée <https://www.elysee.fr/>`_
 * `articles.zip <articles.zip>`_ : collection d'articles en anglais et en français
+* `facebook.zip <facebook.zip>`_ : depuis le site
+  `Stanford Large Network Dataset Collection <http://snap.stanford.edu/data/>`_ et
+  plus précisément `facebook.tar.gz <http://snap.stanford.edu/data/facebook.tar.gz>`_

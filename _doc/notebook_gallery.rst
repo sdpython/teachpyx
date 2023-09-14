@@ -28,8 +28,10 @@ Python
     practice/py-base/profiling_conv
     practice/py-base/profiling_example
     practice/py-base/recherche_dichotomique
+    practice/py-base/scrapping
     practice/py-base/structures_donnees_conversion
     practice/py-base/tableau_contingence
+    practice/py-base/tests_unitaires
     practice/py-base/tri_nlnd
 
 Algorithmes
@@ -103,6 +105,8 @@ Enoncé - Correction
     practice/tds-algo/gentry_integer_encryption_correction
     practice/tds-algo/knn_high_dimension
     practice/tds-algo/knn_high_dimension_correction
+    practice/tds-algo/plus_court_chemin
+    practice/tds-algo/plus_court_chemin_correction
 
 Data
 ====
