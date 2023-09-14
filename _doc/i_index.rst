@@ -7,6 +7,7 @@ En diagonal
     :maxdepth: 2
     :caption: Compléments
 
+    notebook_gallery
     auto_examples/index
     api/index
     i_ex

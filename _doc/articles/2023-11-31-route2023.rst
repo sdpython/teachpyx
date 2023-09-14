@@ -4,11 +4,11 @@ _l-feuille-route-2023:
 =========================================
 
 Séance 1
-^^^^^^^^
+++++++++
 
-* :ref:`/dev/practice/py-base/de_rotation`
+:ref:`../practice/py-base/de_rotation`
 
 Séance 2
-^^^^^^^^
+++++++++
 
-* :ref:`/dev/practice/py-base/classe_de`
+:ref:`../practice/py-base/classe_de`
