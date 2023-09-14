@@ -115,13 +115,12 @@ Data
     c_data/nb_numpy
     c_data/nb_pandas
 
-Examens
-=======
+Correction d'examens
+====================
 
 .. nblinkgallery::
     :caption: Examens
 
-    practice/exams/td_note_2013_coloriage_correction
     practice/exams/td_note_2013_coloriage_correction
     practice/exams/interro_rapide_20_minutes_2014_09
     practice/exams/interro_rapide_20_minutes_2014_10

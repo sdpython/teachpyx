@@ -18,7 +18,7 @@ ignore_directives = [
     "mathdef",
     "mathdeflist",
     "nbgallery",
-    "nbgallerylink",
+    "nblinkgallery",
     "plot",
     "runpython",
     "tocdelay",

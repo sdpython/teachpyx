@@ -1,4 +1,4 @@
-_l-feuille-route-2022:
+.. _l-feuille-route-2022:
 
 2022-11-31 : rappel feuille de route 2022
 =========================================
@@ -6,51 +6,52 @@ _l-feuille-route-2022:
 Séance 1 - 7/9 - introduction, dictionnaire
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`../practice/algo-base/exercice_suffix`
+* :ref:`practice/algo-base/exercice_suffix`
 
 Séance 2 - 14/9 - programmation dynamique, voyageur de commerce
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`../practice/algo-base/exercice_edit_distance`
-* :ref:`../practice/py-base/exercice_hash`
+* :ref:`practice/algo-base/exercice_edit_distance`
+* :ref:`practice/py-base/exercice_hash`
 
 Séance 3 - 21/9 - numpy, pandas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`../practice/py-base/classes_metro` : petit aperÃ§u des classes pour mieux appréhender
+* :ref:`practice/py-base/classes_metro` : petit aperÃ§u des classes pour mieux appréhender
   les matrices et les dataframes
-* :ref:`../c_data/nb_numpy`
-* :ref:`../c_data/nb_pandas`
+* :ref:`c_data/nb_numpy`
+* :ref:`c_data/nb_pandas`
 
 Séance 4 - 28/9 - graphes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`../practice/algo-base/exercice_compose_connexe`
-* :ref:`../practice/algo-base/exercice_ordonnancement`
+* :ref:`practice/algo-base/exercice_compose_connexe`
+* :ref:`practice/algo-base/exercice_ordonnancement`
 
 Autres problèmes autour des graphes :
 
-* :ref:`../practice/algo-base/exercice_tsp`
+* :ref:`practice/algo-base/exercice_tsp`
 * :ref:`td1acenoncesession7rst`
+
 .. Programmation dynamique et plus court chemin.
 
 Séance 5 - 5/10 - sérialisation, tests unitaires, profiling
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`../practice/py-base/exercice_serialisation_json`
+* :ref:`practice/py-base/exercice_serialisation_json`
 * :ref:`2022unittestrst`
-* :ref:`../practice/py-base/profiling_conv`
+* :ref:`practice/py-base/profiling_conv`
 
 Séance 6 - 12/10 - expressions régulières, webscrapping
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`../practice/py-base/exercice_regex`
+* :ref:`practice/py-base/exercice_regex`
 * :ref:`TD2AEcoWebScrapingcorrigerst`
 
 Séance 7 - 19/10 - top k, tri
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`../practice/algo-base/exercice_topk`
+* :ref:`practice/algo-base/exercice_topk`
 * révisions en prévision du TD noté
 
 Séance 8 - 26/10 - graphes
@@ -62,4 +63,3 @@ Séance 8 - 26/10 - graphes
 
 Ensemble des énoncés des séances
 ++++++++++++++++++++++++++++++++
-
