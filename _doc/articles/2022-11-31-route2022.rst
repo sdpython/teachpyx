@@ -6,21 +6,21 @@
 Séance 1 - 7-9 - introduction, dictionnaire
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`nbl-practice-algo-base-exercice_suffix`
+* :ref:`Jeux de dictionnaires, plus grand suffixe commun <nbl-practice-algo-base-exercice_suffix>`
 
 Séance 2 - 14-9 - programmation dynamique, voyageur de commerce
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`nbl-practice-algo-base-exercice_edit_distance`
-* :ref:`nbl-practice-py-base-exercice_hash`
+* :ref:`Distance d'édition <nbl-practice-algo-base-exercice_edit_distance>`
+* :ref:`Répartition, table de hashage <nbl-practice-py-base-exercice_hash>`
 
 Séance 3 - 21-9 - numpy, pandas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`nbl-practice-py-base-classes_metro` : petit aperçu des classes pour mieux appréhender
+* :ref:`Un bref aperçu des classes <nbl-practice-py-base-classes_metro>` : petit aperçu des classes pour mieux appréhender
   les matrices et les dataframes
-* :ref:`-c_data-nb_numpy`
-* :ref:`-c_data-nb_pandas`
+* :ref:`Calcul matriciel avec numpy (version courte) <nbl-c_data-nb_numpy>`
+* :ref:`Manipulation de données avec pandas (version courte) <nbl-c_data-nb_pandas>`
 
 Séance 4 - 28-9 - graphes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -30,29 +30,29 @@ Séance 4 - 28-9 - graphes
 
 Autres problèmes autour des graphes :
 
-* :ref:`nbl-practice-algo-base-exercice_tsp`
-* :ref:`nbl-practice-tds-algo-plus_court_chemin`,
-  :ref:`nbl-practice-tds-algo-plus_court_chemin_correction` 
+* :ref:`TSP - Traveling Salesman Problem <nbl-practice-algo-base-exercice_tsp>`
+* :ref:`Programmation dynamique et plus court chemin <nbl-practice-tds-algo-plus_court_chemin>`,
+  :ref:`Programmation dynamique et plus court chemin (correction) <nbl-practice-tds-algo-plus_court_chemin_correction>` 
 
 .. Programmation dynamique et plus court chemin.
 
 Séance 5 - 5-10 - sérialisation, tests unitaires, profiling
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`nbl-practice-py-base-exercice_serialisation_json`
-* :ref:`nbl-practice-py-base-tests_unitaires`
-* :ref:`nbl-practice-py-base-profiling_conv`
+* :ref:`JSON - XML <nbl-practice-py-base-exercice_serialisation_json>`
+* :ref:`Tests unitaires <nbl-practice-py-base-tests_unitaires>`
+* :ref:`Profiling, application à la convolution <nbl-practice-py-base-profiling_conv>`
 
 Séance 6 - 12-10 - expressions régulières, webscrapping
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`nbl-practice-py-base-exercice_regex`
-* :ref:`nbl-practice-py-base-scrapping`
+* :ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`
+* :ref:`Web-Scraping - pokemon <nbl-practice-py-base-scrapping>`
 
 Séance 7 - 19-10 - top k, tri
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`nbl-practice-algo-base-exercice_topk`
+* :ref:`Les k premiers éléments (top k) <nbl-practice-algo-base-exercice_topk>`
 * révisions en prévision du TD noté
 
 Séance 8 - 26-10 - graphes

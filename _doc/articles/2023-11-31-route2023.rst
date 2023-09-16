@@ -6,12 +6,12 @@ _l-feuille-route-2023:
 Séance 1
 ++++++++
 
-:ref:`nbl-practice-py-base-de_rotation`
+:ref:`Jeu de dé, rotation sur un circuit <nbl-practice-py-base-de_rotation>`
 
 Séance 2
 ++++++++
 
-:ref:`nbl-practice-py-base-classe_de`
+:ref:`Jeu de dé, rotation sur un circuit (classes) <nbl-practice-py-base-classe_de>`
 
 Séance 8
 ++++++++
