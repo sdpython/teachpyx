@@ -73,6 +73,7 @@ Les exercices suivants fonctionnent par pair énoncé et correction.
     tds-algo/knn_high_dimension
     tds-algo/puzzle_algo_1
     tds-algo/puzzle_algo_2
+    tds-algo/plus_court_chemin
 
 .. toctree::
     :maxdepth: 1
@@ -82,3 +83,4 @@ Les exercices suivants fonctionnent par pair énoncé et correction.
     tds-algo/knn_high_dimension_correction
     tds-algo/puzzle_algo_1_correction
     tds-algo/puzzle_algo_2_correction
+    tds-algo/plus_court_chemin_correction

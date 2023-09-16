@@ -1,0 +1,22 @@
+_l-feuille-route-2023:
+
+2023-11-31 : rappel feuille de route 2023
+=========================================
+
+Séance 1
+++++++++
+
+:ref:`Jeu de dé, rotation sur un circuit <nbl-practice-py-base-de_rotation>`
+
+Séance 2
+++++++++
+
+:ref:`Jeu de dé, rotation sur un circuit (classes) <nbl-practice-py-base-classe_de>`
+
+Séance 8
+++++++++
+
+TD noté 1h30 en seconde partie.
+Classes et un algorithme.
+Enoncés des années précédentes :
+:ref:`l-exams`

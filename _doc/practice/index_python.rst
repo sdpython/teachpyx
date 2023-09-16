@@ -20,6 +20,7 @@ Exercices sur le langage python
 
     py-base/classes_metro
     py-base/classes_2048
+    py-base/classe_de
 
 .. toctree::
     :maxdepth: 1
@@ -49,6 +50,8 @@ Exercices sur le langage python
     py-base/exercice_regex
     py-base/exercice_json_xml
     py-base/exercice_serialisation_json
+    py-base/tests_unitaires
+    py-base/scrapping
 
 Les exercices suivants fonctionnent par pair énoncé et correction.
 

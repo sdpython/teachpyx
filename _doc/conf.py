@@ -62,6 +62,18 @@ html_static_path = ["_static"]
 
 issues_github_path = "sdpython/teachpyx"
 
+nbsphinx_prolog = """
+
+.. _nbl-{{ env.doc2path(env.docname, base=None).replace("/", "-").split(".")[0] }}:
+
+"""
+
+nbsphinx_epilog = """
+----
+
+`Notebook on github <https://github.com/sdpython/teachpyx/tree/main/_doc/{{ env.doc2path(env.docname, base=None) }}>`_
+"""
+
 # The following is used by sphinx.ext.linkcode to provide links to github
 linkcode_resolve = make_linkcode_resolve(
     "teachpyx",

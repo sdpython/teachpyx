@@ -25,6 +25,7 @@ pyinstrument
 pytest
 pytest-cov
 ruff
+scikit-image
 scikit-learn>=1.2
 sphinx<7.2  # furo raises an error
 sphinx-gallery
