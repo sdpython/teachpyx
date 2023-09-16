@@ -25,8 +25,8 @@ Séance 3 - 21-9 - numpy, pandas
 Séance 4 - 28-9 - graphes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :ref:`nbl-practice-algo-base-exercice_compose_connexe`
-* :ref:`nbl-practice-algo-base-exercice_ordonnancement`
+* :ref:`Graphe et Composantes connexes <nbl-practice-algo-base-exercice_compose_connexe>`
+* :ref:`Problème d'ordonnancement <nbl-practice-algo-base-exercice_ordonnancement>`
 
 Autres problèmes autour des graphes :
 
