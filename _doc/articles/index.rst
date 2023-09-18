@@ -7,6 +7,7 @@ Ou *blog*.
 
 .. toctree::
     :caption: 2023
+    :maxdepth: 1
 
     2023-11-31-route2023
     2023-09-06-ensae
@@ -15,6 +16,7 @@ Ou *blog*.
 
 .. toctree::
     :caption: 2022
+    :maxdepth: 1
 
     2022-11-31-route2022
     2022-12-07-cartopy
