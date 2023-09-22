@@ -17,10 +17,10 @@ Séance 3
 ++++++++
 
 Suite du notebook :ref:`Jeu de dé, rotation sur un circuit (classes) <nbl-practice-py-base-classe_de>`
-avec la :ref:`Classe Permutation et décomposition en transitions <nbl-pratice-py-base-classe_permutation>`.
+avec la :ref:`Classe Permutation et décomposition en transitions <nbl-practice-py-base-classe_permutation>`.
 
 En seconde partie, l'utilisation des classes pour représenter un graphe 
-:ref:`classes pour représenter un graphe <nbl-pratice-py-base-classe_tree>`.
+:ref:`classes pour représenter un graphe <nbl-practice-py-base-classe_tree>`.
 
 Séance 8
 ++++++++
