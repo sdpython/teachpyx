@@ -72,3 +72,9 @@ Le contenu est sur `github <https://github.com/sdpython/teachpyx/>`_.
 .. image:: https://img.shields.io/github/repo-size/sdpython/teachpyx
     :target: https://github.com/sdpython/teachpyx/
     :alt: size
+
+
+Older versions
+++++++++++++++
+
+* `0.3.1 <../v0.3.1/index.html>`_
