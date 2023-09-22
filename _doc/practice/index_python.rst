@@ -21,6 +21,8 @@ Exercices sur le langage python
     py-base/classes_metro
     py-base/classes_2048
     py-base/classe_de
+    py-base/classe_permutation
+    py-base/classe_tree
 
 .. toctree::
     :maxdepth: 1
