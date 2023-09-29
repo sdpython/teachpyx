@@ -28,7 +28,7 @@ Séance 4
 Suite et fin des classes avec le notebook
 :ref:`classes pour représenter un graphe <nbl-practice-py-base-classe_tree>`,
 puis :ref:`les itérateurs <nbl-practice-py-base-classe_iterateur>` et
-:ref:`numpy broadcast <nbl-practice-py-base-numpy_broadcast>`.
+:ref:`numpy broadcast <nbl-c_data-numpy_broadcast>`.
 
 Séance 8
 ++++++++
