@@ -7,6 +7,7 @@ Calcul matriciel
 
     nb_array
     nb_numpy
+    numpy_broadcast
 
 En raccourci
 
