@@ -5,7 +5,7 @@ from teachpyx.ext_test_case import ExtTestCase, measure_time
 
 class TestMeasureTime(ExtTestCase):
     def test_measure_time(self):
-        res = measure_time(cos)
+        res = measure_time(lambda: cos(5))
         self.assertIsInstance(res, dict)
         self.assertIn("average", res)
 
