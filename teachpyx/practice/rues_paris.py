@@ -400,7 +400,7 @@ def euler_path(
     """
     alledges = {}
     edges_from = {}
-    somme = 0
+    somme = 0.0
     for e in edges:
         k = e[:2]  # indices des noeuds
         v = e[-1]  # distance
