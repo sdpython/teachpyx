@@ -195,9 +195,8 @@ This instruction retains some part of the logs.
     git pull --rebase upstream main
     git push --force origin
 
-As it may seem that github renamed the default branch from
-*master* to *main (see `Renaming the default branch from master
-<https://github.com/github/renaming>`_).
+As it may seem that github renamed the default branch from *main* to *main (see
+`Renaming the default branch from master <https://github.com/github/renaming>`_).
 
 Rebase a branch to upsteam branch and erase history
 +++++++++++++++++++++++++++++++++++++++++++++++++++
