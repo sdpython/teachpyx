@@ -8,6 +8,7 @@ Précis
 
     python_sheet
     conseil_programmes
+    cheat_sheet
 
 *Autres liens*
 
