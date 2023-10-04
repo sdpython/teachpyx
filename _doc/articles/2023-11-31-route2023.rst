@@ -30,6 +30,16 @@ Suite et fin des classes avec le notebook
 puis :ref:`les itérateurs <nbl-practice-py-base-classe_iterateur>` et
 :ref:`numpy broadcast <nbl-c_data-numpy_broadcast>`.
 
+Séance 5
+++++++++
+
+* :ref:`Distance d'édition <nbl-practice-years-2023-editdist>`
+* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`
+
+A propos de la distance d'édition, voir aussi
+:ref:`Distance d’édition <nbl-practice-algo-base-exercice_edit_distance>` ou encore
+:ref:`Distance entre deux mots de même longueur et tests unitaires <nbl-practice-algo-base-exercice_editdist>`.
+
 Séance 8
 ++++++++
 
