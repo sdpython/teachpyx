@@ -35,6 +35,7 @@ pas ou eu programmer. Le contenu est disponible sur
     :maxdepth: 1
     :caption: Compléments
 
+    practice/years/index
     algorithm_culture
     i_index
     license
