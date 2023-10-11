@@ -372,5 +372,14 @@ epkg_dictionary.update(
     }
 )
 
+epkg_dictionary.update(
+    {
+        "An Effective Implementation of the Lin-Kernighan Traveling Salesman Heuristic": "http://www.akira.ruc.dk/~keld/research/LKH/LKH-2.0/DOC/LKH_REPORT.pdf",
+        "backtest": "https://en.wikipedia.org/wiki/Backtesting",
+        "Trend Following": "https://en.wikipedia.org/wiki/Trend_following",
+        "pair trading": "https://en.wikipedia.org/wiki/Pairs_trade",
+    }
+)
+
 imgmath_latex_preamble = preamble
 latex_elements["preamble"] = imgmath_latex_preamble
