@@ -20,14 +20,15 @@ class TestLONGTspKohonen(ExtTestCase):
             flags=flags,
         )
         files = os.listdir(temp)
-        assert len(files) > 9
+        self.assertGreater(len(files), 9)
         png = [
             os.path.join(temp, _) for _ in files if os.path.splitext(_)[-1] == ".png"
         ]
-        assert len(png) > 0
+        self.assertGreater(len(png), 0)
         out = os.path.join(temp, "tsp_kohonen.avi")
         v = make_video(png, out, size=(200, 125), format="XVID", fps=20)
-        assert v is not None
+        self.assertNotEmpty(v)
+        self.assertExists(out)
 
 
 if __name__ == "__main__":
