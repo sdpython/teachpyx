@@ -189,7 +189,8 @@ def arbre_poids_minimal(villes, zone_taille, distance):
     @param      zone_taille     @see fn repartition_zone
     @param      distance        distance function which returns the distance between two
                                 elements
-    @return                     list of lists: each sublist *r[i]* contains the indexes of
+    @return                     list of lists: each sublist *r[i]*
+                                contains the indexes of
                                 neighbors of node *i* so that the whole graph is
                                 only one connected component
     """
@@ -250,7 +251,8 @@ def arbre_poids_minimal(villes, zone_taille, distance):
                 nb_comp -= 1  # une composante connexe en moins
 
                 if nb_comp <= 1:
-                    break  # il n'y a plus qu'une seule composante connexe, inutile de continuer
+                    break  # il n'y a plus qu'une seule composante connexe,
+                    # inutile de continuer
 
         if nb_comp > 1:
             # it usually means that zone_taille is too small and some edges
@@ -258,7 +260,7 @@ def arbre_poids_minimal(villes, zone_taille, distance):
             # so for these, assuming they are not too many
             # we look for the closest point outside the connected component
             first_count = min(
-                (len(l), i) for i, l in enumerate(list_comp) if len(l) > 0
+                (len(li), i) for i, li in enumerate(list_comp) if len(li) > 0
             )
             comp = first_count[1]
             city = list_comp[comp][random.randint(0, len(list_comp[comp]) - 1)]
@@ -521,7 +523,8 @@ def retournement(chemin, taille, fLOG, distance):
 def echange_position_essai(chemin, a, b, x, inversion, negligeable=1e-5, distance=None):
     """
     Echange la place des villes ka et kb pour les placer entre les villes *i* et *i+1*,
-    si inversion est True, on inverse également le chemin inséré, si inversion est False,
+    si inversion est True, on inverse également
+    le chemin inséré, si inversion est False,
     on ne l'inverse pas,
     si cela améliore, déplace les villes et retourne True, sinon, retourne False.
     """
@@ -646,7 +649,8 @@ def dessin_arete_zone(chemin, taille_zone, X, Y):
     Retourne une liste de listes de listes,
     ``res[i][j]`` est une liste des arêtes passant près de la zone ``(x,y) = [i][j]``,
     si *k* in ``res[i][j]``, alors l'arête *k*, *k+1* est dans la zone *(i,j)*,
-    *X* est le nombre de zones horizontalement, *Y* est le nombre de zones verticalement,
+    *X* est le nombre de zones horizontalement,
+    *Y* est le nombre de zones verticalement,
     *taille_zone* est la longueur du côté du carré d'une zone.
     """
     res = [[[] for j in range(0, Y + 1)] for i in range(0, X + 1)]
@@ -753,8 +757,8 @@ def echange_position(
         y1, y2 = (int((a[1] - tmy) // taille_zone), int((b[1] - tmy) // taille_zone))
         ens = draw_line(x1, y1, x2, y2)
         ville = []
-        for k, l in ens:
-            voisin = voisinage_zone_xy(k, l, X, Y)
+        for k, le in ens:
+            voisin = voisinage_zone_xy(k, le, X, Y)
             for u, v in voisin:
                 ville.extend(zone[u][v])
 
@@ -867,8 +871,8 @@ def supprime_croisement(chemin, taille_zone, X, Y, fLOG, distance=None):
         y1, y2 = (int((a[1] - tmy) // taille_zone), int((b[1] - tmy) // taille_zone))
         ens = draw_line(x1, y1, x2, y2)
         ville = []
-        for k, l in ens:
-            voisin = voisinage_zone_xy(k, l, X, Y)
+        for k, le in ens:
+            voisin = voisinage_zone_xy(k, le, X, Y)
             for u, v in voisin:
                 ville.extend(zone[u][v])
 
@@ -1159,7 +1163,8 @@ def pygame_simulation(
     """
     @param      pygame          module pygame
     @param      nb              number of cities
-    @param      first_click     attend la pression d'un clic de souris avant de commencer
+    @param      first_click     attend la pression d'un clic
+        de souris avant de commencer
     @param      folder          répertoire où stocker les images de la simulation
     @param      size            taille de l'écran
     @param      delay           delay between two tries
@@ -1167,7 +1172,8 @@ def pygame_simulation(
     @param      first_click     pause
     @param      fLOG            logging function
     @param      distance        distance function
-    @param      flags           see `pygame.display.set_mode <https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode>`_
+    @param      flags           see `pygame.display.set_mode
+        <https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode>`_
     @return                     @see fn tsp_kruskal_algorithm
 
     La simulation ressemble à ceci :
@@ -1175,7 +1181,9 @@ def pygame_simulation(
     .. raw:: html
 
         <video autoplay="" controls="" loop="" height="250">
-        <source src="http://www.xavierdupre.fr/enseignement/complements/tsp_kruskal.mp4" type="video/mp4" />
+        <source
+        src="http://www.xavierdupre.fr/enseignement/complements/tsp_kruskal.mp4"
+        type="video/mp4" />
         </video>
 
     Pour lancer la simulation::

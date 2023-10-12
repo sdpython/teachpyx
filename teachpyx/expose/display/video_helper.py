@@ -2,13 +2,20 @@ import os
 from typing import List, Optional, Tuple
 
 
-def get_local_folder(file_or_folder, name="temp_video")->str:
+def get_local_folder(file_or_folder, name="temp_video") -> str:
     """
     Creates or cleans a local folder create in the same folder as
     `file_or_folder`.
     """
     if os.path.isfile(file_or_folder):
         file_or_folder = os.path.dirname(file_or_folder)
+    fullname = os.path.join(file_or_folder, name)
+    if os.path.exists(fullname):
+        for n in os.listdir(fullname):
+            os.remove(os.path.join(fullname, n))
+    else:
+        os.mkdir(fullname)
+    return fullname
 
 
 def make_video(
@@ -18,7 +25,7 @@ def make_video(
     size: Optional[Tuple[int, int]] = None,
     is_color: bool = True,
     format: str = "XVID",
-) -> "VideoWriter":
+) -> "VideoWriter":  # noqa: F821
     """
     Creates a video from a list of images with opencv.
 

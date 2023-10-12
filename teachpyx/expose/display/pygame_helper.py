@@ -102,7 +102,8 @@ def build_diff_image(
     :param diff: difference (object
         `SequenceMatcher
         <https://docs.python.org/3/library/difflib.html#sequencematcher-objects>`_)
-    :param fonts: dictionary of fonts with keys ``'font'``, ``'font_small'``, ``'font_half'``
+    :param fonts: dictionary of fonts with keys
+        ``'font'``, ``'font_small'``, ``'font_half'``
     :param bars: each item of sequence 2 can be associated to a width (in [0, 1])
     :param colors: dictionary of colors (see below)
     :param progress: draws the progress between two list
@@ -124,7 +125,9 @@ def build_diff_image(
     .. raw:: html
 
         <video autoplay=" controls="" loop="" height="250">
-        <source src="http://www.xavierdupre.fr/enseignement/complements/diff.mp4" type="video/mp4" />
+        <source
+        src="http://www.xavierdupre.fr/enseignement/complements/diff.mp4"
+        type="video/mp4" />
         </video>
 
     """
