@@ -1,5 +1,5 @@
 import os
-from ..tsp_kohonen import (
+from ...practice.tsp_kohonen import (
     ENSEMBLE,
     iteration,
     modifie_structure,
