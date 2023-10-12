@@ -11,6 +11,7 @@ Code inclus dans cette librairie
     :caption: Fonctions implémentées pour les exercices
 
     practice/rues_paris
+    practice/tsp_bresenham
     practice/tsp_kohonen
     practice/tsp_kruskal
 
