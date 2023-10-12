@@ -1,4 +1,5 @@
 import math
+from typing import List, Optional, Tuple
 
 
 MOUSE = "mouse"
@@ -15,16 +16,15 @@ def wait_event(pygame):
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONUP:
                 return (MOUSE, event.button, event.pos[0], event.pos[1])
-            elif event.type == pygame.KEYUP:
+            if event.type == pygame.KEYUP:
                 if event.key == 27:
                     return None
-                else:
-                    return (KEY, event.key)
-            elif event.type == pygame.QUIT:
+                return (KEY, event.key)
+            if event.type == pygame.QUIT:
                 return None
 
 
-def empty_main_loop(pygame, msg=None):
+def empty_main_loop(pygame, msg: Optional[str] = None):
     """
     Removes all events in the main loop,
     a mouse click make the program halt,
@@ -43,14 +43,15 @@ def empty_main_loop(pygame, msg=None):
     return True
 
 
-def get_pygame_screen_font(h, size, flags=0):
+def get_pygame_screen_font(h: int, size: int, flags: int = 0):
     """
     Creates a surface with :epkg:`pygame`, initialize the module,
     creates font.
 
     :param h: size of the main font
     :param size: screen size
-    :param flags: see `pygame.display.set_mode <https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode>`_
+    :param flags: see `pygame.display.set_mode
+        <https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode>`_
     :return: pygame, screen, dictionary of fonts
 
     The dictionary of fonts contains three fonts of size *h*,
@@ -301,3 +302,13 @@ def build_diff_image(
             text = font.render(text, True, color)
             screen.blit(text, (10, h * pos))
             pos += 1
+
+
+def display_line(ligne: List[Tuple[float, float]], screen, pygame):
+    """
+    Affiche une ligne à l'écran.
+    """
+    color = 0, 0, 0
+    for p in ligne:
+        pygame.draw.line(screen, color, p, p)
+    pygame.display.flip()

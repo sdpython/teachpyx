@@ -12,6 +12,7 @@ Code inclus dans cette librairie
 
     practice/rues_paris
     practice/tsp_kohonen
+    practice/tsp_kruskal
 
 .. toctree::
     :caption: Animations

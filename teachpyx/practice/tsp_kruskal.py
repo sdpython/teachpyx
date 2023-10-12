@@ -1,25 +1,21 @@
 # -*- coding: utf-8 -*-
-"""
-@file
-@brief Implémente un algorithme qui cherche le plus court chemin passant
-par tous les noeuds d'un graphe (TSP). Applique un algorithme de Kruskal
-puis cherche à améliorer le chemin localement.
-Voir :ref:`l-tsp_kruskal`. La fonction principale est
-@see fn tsp_kruskal_algorithm.
-"""
 import functools
 import random
 import math
 import os
-from pyquickhelper.loghelper import noLOG
+from typing import Callable, List, Optional, Tuple
 from .tsp_bresenham import draw_line
-from ..helpers.pygame_helper import wait_event, empty_main_loop
+
+POINT = Tuple[float, float]
+DISTANCE = Callable[[POINT, POINT], float]
+ENSEMBLE = List[POINT]
 
 
-def construit_ville(n, x=1000, y=700):
+def construit_ville(n: int, x: int = 1000, y: int = 700):
     """
     Tire aléatoirement *n* villes dans un carrée ``x * y``, on choisit
-    ces villes de sortent qu'elles ne soient pas trop proches."""
+    ces villes de sortent qu'elles ne soient pas trop proches.
+    """
     # deux villes ne pourront pas être plus proches que mind
     mind = math.sqrt(x * x + y * y) / (n * 0.75)
     # liste vide
@@ -43,30 +39,30 @@ def construit_ville(n, x=1000, y=700):
     return lv
 
 
-def distance_euclidian(p1, p2):
+def distance_euclidian(p1: float, p2: float) -> float:
     """
-    Calcule la distance entre deux villes.
+    Calcule la distance euclienne entre deux villes.
     """
     x = p1[0] - p2[0]
     y = p1[1] - p2[1]
     return math.sqrt(x * x + y * y)
 
 
-def vecteur_points(p1, p2):
+def vecteur_points(p1: float, p2: float) -> POINT:
     """
     Retourne le vecteur entre les points *p1* et *p2*.
     """
     return (p2[0] - p1[0], p2[1] - p1[1])
 
 
-def vecteur_norme(vec):
+def vecteur_norme(vec: POINT) -> float:
     """
     Retourne la norme d'un vecteur.
     """
     return math.sqrt(vec[0] * vec[0] + vec[1] * vec[1])
 
 
-def vecteur_cosinus(vec1, vec2):
+def vecteur_cosinus(vec1: POINT, vec2: POINT) -> float:
     """
     Retourne le cosinus entre deux vecteurs,
     utilise le produit scalaire.
@@ -81,7 +77,7 @@ def vecteur_cosinus(vec1, vec2):
     return scal / (norm1 * norm2)
 
 
-def vecteur_sinus(vec1, vec2):
+def vecteur_sinus(vec1: POINT, vec2: POINT) -> float:
     """
     Retourne le sinus entre deux vecteurs,
     utilise le produit vectoriel.
@@ -96,14 +92,16 @@ def vecteur_sinus(vec1, vec2):
     return scal / (norm1 * norm2)
 
 
-def oppose_vecteur(vec):
+def oppose_vecteur(vec: POINT) -> POINT:
     """
     retourne le vecteur opposé.
     """
     return (-vec[0], -vec[1])
 
 
-def repartition_zone(villes, zone_taille, ask_zone=False):
+def repartition_zone(
+    villes: ENSEMBLE, zone_taille: float, ask_zone: bool = False
+) -> Tuple[Tuple[int, POINT, Tuple[int, int], int], POINT, float, float, float]:
     """
     Répartit les villes en zones, retourne les villes rangées par zones,
     chaque éléments zones [z][k] contient :
@@ -146,7 +144,7 @@ def repartition_zone(villes, zone_taille, ask_zone=False):
     return zones, X, Y, mx, my, Zmax
 
 
-def voisinage_zone(z, Zmax, X, Y):
+def voisinage_zone(z: float, Zmax: float, X: float, Y: float) -> List[int]:
     """
     Retourne la liste des voisins d'une zone *z*
     sachant qu'il y a *X* zones sur l'axe des abscisses
@@ -177,7 +175,7 @@ def voisinage_zone(z, Zmax, X, Y):
     return voisin
 
 
-def arbre_poids_minimal(villes, zone_taille, distance):
+def arbre_poids_minimal(villes: ENSEMBLE, zone_taille: float, distance: DISTANCE):
     """
     Construit l'arbre de poids minimal, retourne une liste de
     listes, chaque sous-liste associée à une ville contient la liste des ses voisins,
@@ -185,23 +183,21 @@ def arbre_poids_minimal(villes, zone_taille, distance):
     les distances ne seront calculées que si
     deux éléments sont dans la même zone ou dans une zone voisine.
 
-    @param      villes          list of tuples (tuple = coordinates)
-    @param      zone_taille     @see fn repartition_zone
-    @param      distance        distance function which returns the distance between two
-                                elements
-    @return                     list of lists: each sublist *r[i]*
-                                contains the indexes of
-                                neighbors of node *i* so that the whole graph is
-                                only one connected component
+    :param villes: list of tuples (tuple = coordinates)
+    :param zone_taille: see :func:`repartition_zone`
+    :param distance: distance function which returns
+        the distance between two elements
+    :return: list of lists: each sublist `r[i]`
+        contains the indexes of neighbors of node `i` so
+        that the whole graph is only one connected component
     """
 
     def tri_distance(u, v):
         if u[2] < v[2]:
             return -1
-        elif u[2] > v[2]:
+        if u[2] > v[2]:
             return 1
-        else:
-            return 0
+        return 0
 
     rz = repartition_zone(villes, zone_taille=zone_taille)
     zones, X, Y, mx, my, Zmax = rz[:6]
@@ -275,109 +271,7 @@ def arbre_poids_minimal(villes, zone_taille, distance):
     return dict(arbre=arbre, X=X, Y=Y, mx=mx, my=my, Zmax=Zmax)
 
 
-def circuit_eulerien(villes, arbre, screen, pygame, fLOG):
-    """
-    Définit un circuit eulérien, villes contient la liste des villes,
-    tandis que arbre est une liste de listes, ``arbre[i]`` est la liste des villes
-    connectées à la ville *i*,
-    on suppose que arbre est un graphe de poids minimal non orienté,
-    l'algorithme ne marche pas s'il existe des villes confondues,
-    un circuit eulérien passe par tous les arêtes une et une seule fois.
-    """
-
-    # on choisit une ville qui est une extrémité et parmi celle-là on la
-    # choisit au hasard
-    has = []
-    for i in range(0, len(villes)):
-        n = len(arbre[i])
-        if n == 1:
-            has.append(i)
-
-    bm = random.randint(0, len(has) - 1)
-    bm = has[bm]
-
-    # vecteur, le circuit eulérien contient
-    # nécessairement 2 * len (villes) noeuds puisque c'est
-    # le graphe eulérien d'un arbre de poids minimal non orienté
-    vec = (1, 1)
-    chemin = [bm]
-    done = set()
-    done.add(bm)
-    iter = []
-    while len(done) < len(villes):
-        iter.append(len(done))
-        if len(iter) % 1000 == 0:
-            fLOG(
-                "  circuit_eulerien: iter={0} len(done)={1} len(villes)={2}".format(
-                    len(iter), len(done), len(villes)
-                )
-            )
-            if len(done) == iter[-1000]:
-                # there is apparently something wrong
-                break
-        v = villes[bm]
-        ma = -math.pi - 1
-        bvec = vec
-        opvec = oppose_vecteur(vec)
-        bl = None
-        for k in range(0, len(arbre[bm])):
-            la = arbre[bm][k]
-            vec2 = vecteur_points(v, villes[la])
-            if vec2 == (0.0, 0.0):
-                # same point, we keep the same direction
-                if la not in done:
-                    bl = la
-                    bvec = vec2
-                    # no need to go further if the points are equal
-                    break
-                # we skip
-                continue
-            if opvec == vec2:
-                angle = -math.pi
-            else:
-                cos = vecteur_cosinus(vec, vec2)
-                sin = vecteur_sinus(vec, vec2)
-                angle = math.atan2(sin, cos)
-            if angle > ma:
-                ma = angle
-                bl = la
-                bvec = vec2
-
-        if bl is not None:
-            if bl not in done:
-                chemin.append(bl)
-                done.add(bl)
-            bm = bl
-            if bvec != (0.0, 0.0):
-                vec = bvec
-        else:
-            # something is wrong (it might an issue with duplicated points)
-            rows = []
-            for i, p in enumerate(villes):
-                rows.append(f"p{i}: {p[0]},{p[1]}")
-            for i, c in enumerate(chemin):
-                rows.append(f"c{i}: i={c} -> {villes[c][0]},{villes[c][1]}")
-            rows.append(f"bm={bm} ma={ma} bvec={vec2} vec={vec} bl={bl}")
-            rows.append(f"arbre[{bm}]={arbre[bm]}")
-            rows.append(f"arbre[{arbre[bm][0]}]={arbre[arbre[bm][0]]}")
-            mes = "\n".join(rows)
-            raise RuntimeError("this case should not happen\n" + mes)
-
-    if len(done) < len(villes):
-        # something is wrong (it might an issue with duplicated points)
-        rows = []
-        for i, p in enumerate(villes):
-            rows.append(f"p{i}: {p[0]},{p[1]}")
-        for i, c in enumerate(chemin):
-            rows.append(f"c{i}: i={c} -> {villes[c][0]},{villes[c][1]}")
-        rows.append(f"bm={bm} ma={ma} bvec={vec2} vec={vec} bl={bl}")
-        mes = "\n".join(rows)
-        raise RuntimeError("circuit_eulerien cannot give a path:\n" + mes)
-
-    return chemin
-
-
-def circuit_hamiltonien(chemin):
+def circuit_hamiltonien(chemin: List[int]) -> List[int]:
     """
     Extrait un circuit hamiltonien depuis un circuit eulérien,
     passe par tous les sommets une et une seule fois.
@@ -393,7 +287,7 @@ def circuit_hamiltonien(chemin):
     return res
 
 
-def equation_droite(p1, p2):
+def equation_droite(p1: POINT, p2: POINT) -> Tuple[float, float, float]:
     """
     retourne l'équation d'une droite passant par p1 et p2,
     ax + by + c = 0, retourne les coefficients a,b,c
@@ -405,7 +299,7 @@ def equation_droite(p1, p2):
     return a, b, c
 
 
-def evaluation_droite(a, b, c, p):
+def evaluation_droite(a: float, b: float, c: float, p: POINT) -> float:
     """
     L'équation d'une droite est : ``ax + by + c``, retourne la valeur
     de cette expression au point *p*.
@@ -413,7 +307,7 @@ def evaluation_droite(a, b, c, p):
     return a * p[0] + b * p[1] + c
 
 
-def intersection_segment(p1, p2, p3, p4):
+def intersection_segment(p1: POINT, p2: POINT, p3: POINT, p4: POINT) -> bool:
     """
     Dit si les segments *[p1 p2]* et *[p3 p4]* ont une intersection,
     ne retourne pas l'intersection.
@@ -428,7 +322,7 @@ def intersection_segment(p1, p2, p3, p4):
     return s1 * s2 <= 0 and s3 * s4 <= 0
 
 
-def longueur_chemin(chemin, distance):
+def longueur_chemin(chemin: ENSEMBLE, distance: DISTANCE) -> float:
     """
     Retourne la longueur d'un chemin.
     """
@@ -439,7 +333,13 @@ def longueur_chemin(chemin, distance):
     return s
 
 
-def retournement_essai(chemin, i, j, negligeable=1e-5, distance=None):
+def retournement_essai(
+    chemin: ENSEMBLE,
+    i: int,
+    j: int,
+    negligeable: float = 1e-5,
+    distance: Optional[DISTANCE] = None,
+) -> bool:
     """
     Dit s'il est judicieux de parcourir le chemin entre les sommets *i* et *j*
     en sens inverse, si c'est judicieux, change le chemin et retourne True,
@@ -488,7 +388,9 @@ def retournement_essai(chemin, i, j, negligeable=1e-5, distance=None):
     return True
 
 
-def retournement(chemin, taille, fLOG, distance):
+def retournement(
+    chemin: ENSEMBLE, taille: float, distance: DISTANCE, verbose: int
+) -> int:
     """
     Amélioration du chemin par un algorithme simple,
     utilise des retournements de taille au plus <taille>,
@@ -511,16 +413,24 @@ def retournement(chemin, taille, fLOG, distance):
                     retour[t] += 1
                     nb_change += 1
         nbtout += nb_change
-    fLOG(
-        "nombre de retournements %d longueur : \t %10.0f --- \t"
-        % (nbtout, longueur_chemin(chemin, distance)),
-        " --- : ",
-        retour,
-    )
+    if verbose > 0:
+        print(
+            f"nombre de retournements {nbtout} longueur :   \t "
+            f"{longueur_chemin(chemin, distance=distance):10.0f} "
+            f"--- \t --- : {retour}"
+        )
     return nbtout
 
 
-def echange_position_essai(chemin, a, b, x, inversion, negligeable=1e-5, distance=None):
+def echange_position_essai(
+    chemin: ENSEMBLE,
+    a: int,
+    b: int,
+    x: float,
+    inversion: bool,
+    negligeable: float = 1e-5,
+    distance: Optional[DISTANCE] = None,
+) -> bool:
     """
     Echange la place des villes ka et kb pour les placer entre les villes *i* et *i+1*,
     si inversion est True, on inverse également
@@ -644,7 +554,9 @@ def echange_position_essai(chemin, a, b, x, inversion, negligeable=1e-5, distanc
         return True
 
 
-def dessin_arete_zone(chemin, taille_zone, X, Y):
+def dessin_arete_zone(
+    chemin: ENSEMBLE, taille_zone: float, X: POINT, Y: POINT
+) -> List[List[List[int]]]:
     """
     Retourne une liste de listes de listes,
     ``res[i][j]`` est une liste des arêtes passant près de la zone ``(x,y) = [i][j]``,
@@ -668,7 +580,7 @@ def dessin_arete_zone(chemin, taille_zone, X, Y):
     return res
 
 
-def voisinage_zone_xy(x, y, X, Y):
+def voisinage_zone_xy(x: float, y: float, X: float, Y: float) -> ENSEMBLE:
     """
     Retourne la liste des voisins d'une zone *(x,y)*
     sachant qu'il y a *X* zones sur l'axe des abscisses
@@ -696,8 +608,15 @@ def voisinage_zone_xy(x, y, X, Y):
 
 
 def echange_position(
-    chemin, taille, taille_zone, X, Y, grande=0.5, fLOG=None, distance=None
-):
+    chemin: ENSEMBLE,
+    taille: float,
+    taille_zone: float,
+    X: float,
+    Y: float,
+    grande: float = 0.5,
+    distance: Optional[DISTANCE] = None,
+    verbose: int = 0,
+) -> int:
     """
     Regarde si on ne peut pas déplacer un segment de longueur taille
     pour supprimer les arêtes les plus longues,
@@ -714,10 +633,9 @@ def echange_position(
         """pour trier la liste l par ordre décroissant"""
         if x[2] < y[2]:
             return 1
-        elif x[2] > y[2]:
+        if x[2] > y[2]:
             return -1
-        else:
-            return 0
+        return 0
 
     tmx = min(v[0] for v in chemin)
     tmy = min(v[1] for v in chemin)
@@ -835,16 +753,23 @@ def echange_position(
 
         nbtout += nb_change
 
-    fLOG(
-        "nombre de déplacements %d longueur :   \t %10.0f --- \t"
-        % (nbtout, longueur_chemin(chemin, distance=distance)),
-        " --- : ",
-        retour,
-    )
+    if verbose > 0:
+        print(
+            f"nombre de déplacements {nbtout} longueur :   \t "
+            f"{longueur_chemin(chemin, distance=distance):10.0f} "
+            f"--- \t --- : {retour}"
+        )
     return nbtout
 
 
-def supprime_croisement(chemin, taille_zone, X, Y, fLOG, distance=None):
+def supprime_croisement(
+    chemin: ENSEMBLE,
+    taille_zone: float,
+    X: float,
+    Y: float,
+    distance: Optional[DISTANCE] = None,
+    verbose: int = 0,
+) -> int:
     """
     Supprime les croisements d'arêtes,
     retourne le nombre de changement effectués,
@@ -902,87 +827,12 @@ def supprime_croisement(chemin, taille_zone, X, Y, fLOG, distance=None):
 
         nbtout += nb_change
 
-    fLOG(
-        "nombre de croisements %d longueur :      \t %10.0f --- \t"
-        % (nbtout, longueur_chemin(chemin, distance=distance))
-    )
+    if verbose > 0:
+        print(
+            f"nombre de croisements {nbtout} longueur :   \t "
+            f"{longueur_chemin(chemin, distance=distance):10.0f}"
+        )
     return nbtout
-
-
-def amelioration_chemin(
-    chemin,
-    taille_zone,
-    X,
-    Y,
-    taille=10,
-    screen=None,
-    fLOG=None,
-    pygame=None,
-    max_iter=None,
-    images=None,
-    distance=None,
-):
-    """
-    Amélioration du chemin par un algorithme simple,
-    utilise des retournements de taille au plus *taille*,
-    traite les arcs qui se croisent,
-    traite les grands arcs, utilise un quadrillage de taille *window*,
-    *X* est le nombre de zones horizontalement,
-    *Y* est le nombre de zones verticalement,
-    *taille_zone* est la longueur d'un côté du carré d'une zone.
-    """
-
-    white = 255, 255, 255
-
-    if pygame is not None and images is not None:
-        images.append(screen.copy())
-
-    # première étape rapide
-    iter = 0
-    nb = 1
-    while nb > 0 and (max_iter is None or iter < max_iter):
-        nb = retournement(chemin, taille, fLOG=fLOG, distance=distance)
-        if screen is not None:
-            screen.fill(white)
-            display_chemin(chemin, 0, screen, pygame=pygame)
-            pygame.display.flip()
-            if images is not None:
-                images.append(screen.copy())
-            empty_main_loop(pygame)
-        iter += 1
-
-    # amélioration
-    nb = 1
-    while nb > 0 and (max_iter is None or iter < max_iter):
-        nb = retournement(chemin, taille, fLOG=fLOG, distance=distance)
-        if screen is not None:
-            screen.fill(white)
-            display_chemin(chemin, 0, screen=screen, pygame=pygame)
-            pygame.display.flip()
-            if images is not None:
-                images.append(screen.copy())
-            empty_main_loop(pygame)
-        nb += echange_position(
-            chemin, taille // 2, taille_zone, X, Y, fLOG=fLOG, distance=distance
-        )
-        if screen is not None:
-            screen.fill(white)
-            display_chemin(chemin, 0, screen=screen, pygame=pygame)
-            pygame.display.flip()
-            if images is not None:
-                images.append(screen.copy())
-            empty_main_loop(pygame)
-        nb += supprime_croisement(
-            chemin, taille_zone, X, Y, fLOG=fLOG, distance=distance
-        )
-        if screen is not None:
-            screen.fill(white)
-            display_chemin(chemin, 0, screen=screen, pygame=pygame)
-            pygame.display.flip()
-            if images is not None:
-                images.append(screen.copy())
-            empty_main_loop(pygame)
-        iter += 1
 
 
 def tsp_kruskal_algorithm(
@@ -990,11 +840,11 @@ def tsp_kruskal_algorithm(
     size=20,
     length=10,
     max_iter=None,
-    fLOG=noLOG,
     pygame=None,
     screen=None,
     images=None,
     distance=None,
+    verbose: int = 0,
 ):
     """
     Finds the shortest path going through all points,
@@ -1153,12 +1003,12 @@ def pygame_simulation(
     length=10,
     max_iter=None,
     nb=700,
-    fLOG=noLOG,
     pygame=None,
     folder=None,
     first_click=False,
     distance=None,
     flags=0,
+    verbose: int = 0,
 ):
     """
     @param      pygame          module pygame
@@ -1229,3 +1079,181 @@ def pygame_simulation(
                 fLOG("saving image:", it, "/", len(images))
             image = os.path.join(folder, "image_%04d.png" % it)
             pygame.image.save(screen, image)
+
+
+def circuit_eulerien(villes: ENSEMBLE, arbre: List[List[int]], screen, pygame, verbose):
+    """
+    Définit un circuit eulérien, villes contient la liste des villes,
+    tandis que arbre est une liste de listes, ``arbre[i]`` est la liste des villes
+    connectées à la ville *i*,
+    on suppose que arbre est un graphe de poids minimal non orienté,
+    l'algorithme ne marche pas s'il existe des villes confondues,
+    un circuit eulérien passe par tous les arêtes une et une seule fois.
+    """
+
+    # on choisit une ville qui est une extrémité et parmi celle-là on la
+    # choisit au hasard
+    has = []
+    for i in range(0, len(villes)):
+        n = len(arbre[i])
+        if n == 1:
+            has.append(i)
+
+    bm = random.randint(0, len(has) - 1)
+    bm = has[bm]
+
+    # vecteur, le circuit eulérien contient
+    # nécessairement 2 * len (villes) noeuds puisque c'est
+    # le graphe eulérien d'un arbre de poids minimal non orienté
+    vec = (1, 1)
+    chemin = [bm]
+    done = set()
+    done.add(bm)
+    iter = []
+    while len(done) < len(villes):
+        iter.append(len(done))
+        if len(iter) % 1000 == 0:
+            fLOG(
+                "  circuit_eulerien: iter={0} len(done)={1} len(villes)={2}".format(
+                    len(iter), len(done), len(villes)
+                )
+            )
+            if len(done) == iter[-1000]:
+                # there is apparently something wrong
+                break
+        v = villes[bm]
+        ma = -math.pi - 1
+        bvec = vec
+        opvec = oppose_vecteur(vec)
+        bl = None
+        for k in range(0, len(arbre[bm])):
+            la = arbre[bm][k]
+            vec2 = vecteur_points(v, villes[la])
+            if vec2 == (0.0, 0.0):
+                # same point, we keep the same direction
+                if la not in done:
+                    bl = la
+                    bvec = vec2
+                    # no need to go further if the points are equal
+                    break
+                # we skip
+                continue
+            if opvec == vec2:
+                angle = -math.pi
+            else:
+                cos = vecteur_cosinus(vec, vec2)
+                sin = vecteur_sinus(vec, vec2)
+                angle = math.atan2(sin, cos)
+            if angle > ma:
+                ma = angle
+                bl = la
+                bvec = vec2
+
+        if bl is not None:
+            if bl not in done:
+                chemin.append(bl)
+                done.add(bl)
+            bm = bl
+            if bvec != (0.0, 0.0):
+                vec = bvec
+        else:
+            # something is wrong (it might an issue with duplicated points)
+            rows = []
+            for i, p in enumerate(villes):
+                rows.append(f"p{i}: {p[0]},{p[1]}")
+            for i, c in enumerate(chemin):
+                rows.append(f"c{i}: i={c} -> {villes[c][0]},{villes[c][1]}")
+            rows.append(f"bm={bm} ma={ma} bvec={vec2} vec={vec} bl={bl}")
+            rows.append(f"arbre[{bm}]={arbre[bm]}")
+            rows.append(f"arbre[{arbre[bm][0]}]={arbre[arbre[bm][0]]}")
+            mes = "\n".join(rows)
+            raise RuntimeError("this case should not happen\n" + mes)
+
+    if len(done) < len(villes):
+        # something is wrong (it might an issue with duplicated points)
+        rows = []
+        for i, p in enumerate(villes):
+            rows.append(f"p{i}: {p[0]},{p[1]}")
+        for i, c in enumerate(chemin):
+            rows.append(f"c{i}: i={c} -> {villes[c][0]},{villes[c][1]}")
+        rows.append(f"bm={bm} ma={ma} bvec={vec2} vec={vec} bl={bl}")
+        mes = "\n".join(rows)
+        raise RuntimeError("circuit_eulerien cannot give a path:\n" + mes)
+
+    return chemin
+
+
+def amelioration_chemin(
+    chemin,
+    taille_zone,
+    X,
+    Y,
+    taille=10,
+    screen=None,
+    pygame=None,
+    max_iter=None,
+    images=None,
+    distance=None,
+    verbose: int = 0,
+):
+    """
+    Amélioration du chemin par un algorithme simple,
+    utilise des retournements de taille au plus *taille*,
+    traite les arcs qui se croisent,
+    traite les grands arcs, utilise un quadrillage de taille *window*,
+    *X* est le nombre de zones horizontalement,
+    *Y* est le nombre de zones verticalement,
+    *taille_zone* est la longueur d'un côté du carré d'une zone.
+    """
+
+    white = 255, 255, 255
+
+    if pygame is not None and images is not None:
+        images.append(screen.copy())
+
+    # première étape rapide
+    iter = 0
+    nb = 1
+    while nb > 0 and (max_iter is None or iter < max_iter):
+        nb = retournement(chemin, taille, fLOG=fLOG, distance=distance)
+        if screen is not None:
+            screen.fill(white)
+            display_chemin(chemin, 0, screen, pygame=pygame)
+            pygame.display.flip()
+            if images is not None:
+                images.append(screen.copy())
+            empty_main_loop(pygame)
+        iter += 1
+
+    # amélioration
+    nb = 1
+    while nb > 0 and (max_iter is None or iter < max_iter):
+        nb = retournement(chemin, taille, fLOG=fLOG, distance=distance)
+        if screen is not None:
+            screen.fill(white)
+            display_chemin(chemin, 0, screen=screen, pygame=pygame)
+            pygame.display.flip()
+            if images is not None:
+                images.append(screen.copy())
+            empty_main_loop(pygame)
+        nb += echange_position(
+            chemin, taille // 2, taille_zone, X, Y, fLOG=fLOG, distance=distance
+        )
+        if screen is not None:
+            screen.fill(white)
+            display_chemin(chemin, 0, screen=screen, pygame=pygame)
+            pygame.display.flip()
+            if images is not None:
+                images.append(screen.copy())
+            empty_main_loop(pygame)
+        nb += supprime_croisement(
+            chemin, taille_zone, X, Y, fLOG=fLOG, distance=distance
+        )
+        if screen is not None:
+            screen.fill(white)
+            display_chemin(chemin, 0, screen=screen, pygame=pygame)
+            pygame.display.flip()
+            if images is not None:
+                images.append(screen.copy())
+            empty_main_loop(pygame)
+        iter += 1

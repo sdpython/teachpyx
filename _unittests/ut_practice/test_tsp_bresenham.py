@@ -1,13 +1,10 @@
-"""
-@brief      test log(time=10s)
-
-"""
 import unittest
 import random
-from ensae_teaching_cs.special.tsp_bresenham import draw_line, draw_ellipse
+from teachpyx.ext_test_case import ExtTestCase
+from teachpyx.practice.tsp_bresenham import draw_line, draw_ellipse
 
 
-class TestTspBresenham(unittest.TestCase):
+class TestTspBresenham(ExtTestCase):
     def test_bresenham(self):
         x, y = 500, 500
         for n in range(0, 10):
@@ -20,7 +17,9 @@ class TestTspBresenham(unittest.TestCase):
             ligne2.reverse()
             self.assertEqual(len(ligne1), len(ligne2))
             draw_line(x2, y1, x1, y2)
-            draw_line(x1, y2, x2, y1)
+            line = draw_line(x1, y2, x2, y1)
+            self.assertIsInstance(line, list)
+            self.assertIsInstance(line[0], tuple)
 
     def test_bresenham_ellipses(self):
         x, y = 500, 500
@@ -29,8 +28,10 @@ class TestTspBresenham(unittest.TestCase):
             y1 = random.randint(0, y - 1)
             xa = random.randint(50, 100)
             xb = random.randint(50, 100)
-            draw_ellipse(x1, y1, xa, xb)
+            ell = draw_ellipse(x1, y1, xa, xb)
+            self.assertIsInstance(ell, list)
+            self.assertIsInstance(ell[0], tuple)
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)
