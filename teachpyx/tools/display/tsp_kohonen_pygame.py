@@ -79,7 +79,7 @@ def pygame_simulation(
 
     Pour lancer la simulation::
 
-        from ensae_teaching_cs.special.tsp_kohonen import pygame_simulation
+        from teachpyx.tools.display.tsp_kohonen_pygame import pygame_simulation
         import pygame
         pygame_simulation(pygame)
 

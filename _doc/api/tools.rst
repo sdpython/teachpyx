@@ -22,7 +22,14 @@ total_size
 .. autofunction:: teachpyx.tools.total_size
 
 profiling
-++++++++++
++++++++++
 
 .. automodule:: teachpyx.tools.profiling
     :members:
+
+video
++++++
+
+.. automodule:: teachpyx.expose
+    :members:
+

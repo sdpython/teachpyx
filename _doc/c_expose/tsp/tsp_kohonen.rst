@@ -184,7 +184,7 @@ proposent un autre algorithme permettant de construire une solution pour
 le problème du voyageur de commerce. Il est beaucoup plus
 rapide mais il explore davantage l'ensemble des solutions.
 
-Code : :mod:`ensae_teaching_cs.special.tsp_kohonen`.
+Code : :mod:`teachpyx.practice.tsp_kohonen`.
 
 En vidéo :
 

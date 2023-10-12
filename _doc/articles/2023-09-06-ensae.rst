@@ -33,8 +33,7 @@ Voir aussi les précédents énoncés : :ref:`l-exams`.
 * exercices sur des algortihmes :ref:`l-algo`
 * examens passés :ref:`l-exams`
 * Site plus tout-à-fait maintenu `www.xavierdupre.fr <http://www.xavierdupre.fr>`_
-* `Plan suivi en 2022
-  <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/questions/route_1A_2022.html#seance-1-7-9-introduction-dictionnaire>`_
+* :ref:`Plan suivi en 2022 <l-feuille-route-2022>`
 * `Des aspects plus mathématiques d'algorithmes <https://sdpython.github.io/doc/mlstatpy/dev/>`_
 
 **Problème**
