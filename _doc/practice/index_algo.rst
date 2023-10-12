@@ -42,7 +42,7 @@ angles d'approches.
 
     ../auto_examples/plot_tsp
     algo-base/exercice_tsp
-    algo-base/tsp_simple
+    algo-base/tsp_simplifie
     algo-base/tsp_aparte
 
 .. toctree::
