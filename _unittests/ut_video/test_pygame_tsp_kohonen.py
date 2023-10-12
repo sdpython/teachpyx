@@ -1,7 +1,7 @@
 import unittest
 import os
 from teachpyx.ext_test_case import ExtTestCase
-from teachpyx.tools.display.tsp_kohonen_pygame import pygame_simulation
+from teachpyx.video.tsp_kohonen_pygame import pygame_simulation
 from teachpyx.tools.display.video_helper import make_video, get_local_folder
 
 

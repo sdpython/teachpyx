@@ -1,5 +1,5 @@
 import os
-from ...practice.tsp_kohonen import (
+from ..practice.tsp_kohonen import (
     ENSEMBLE,
     iteration,
     modifie_structure,
@@ -7,7 +7,7 @@ from ...practice.tsp_kohonen import (
     construit_ville,
     construit_liste_neurones,
 )
-from .pygame_helper import wait_event, empty_main_loop
+from ..tools.display.pygame_helper import wait_event, empty_main_loop
 
 
 def display_neurone(neurones: ENSEMBLE, screen, bn: int, pygame):
@@ -79,7 +79,7 @@ def pygame_simulation(
 
     Pour lancer la simulation::
 
-        from teachpyx.tools.display.tsp_kohonen_pygame import pygame_simulation
+        from teachpyx.video.tsp_kohonen_pygame import pygame_simulation
         import pygame
         pygame_simulation(pygame)
 

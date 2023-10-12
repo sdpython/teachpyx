@@ -30,6 +30,9 @@ profiling
 video
 +++++
 
-.. automodule:: teachpyx.expose
+.. automodule:: teachpyx.tools.display.pygame_helper
+    :members:
+
+.. automodule:: teachpyx.tools.display.video_helper
     :members:
 

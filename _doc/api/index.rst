@@ -11,7 +11,12 @@ Code inclus dans cette librairie
     :caption: Fonctions implémentées pour les exercices
 
     practice/rues_paris
-    expose/tsp_kohonen
+    practice/tsp_kohonen
+
+.. toctree::
+    :caption: Animations
+
+    video/tsp_kohonen
 
 .. toctree::
     :caption: FAQ
