@@ -40,8 +40,6 @@ def make_video(
     The function relies on `opencv <https://docs.opencv.org/4.x/>`_.
     By default, the video will have the size of the first image.
     It will resize every image to this size before adding them to the video.
-    The function does not use :epkg:`moviepy` but it is a
-    a recommended module to do that.
     """
     if len(images) == 0:
         raise ValueError("No image to convert into a video.")

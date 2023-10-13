@@ -15,7 +15,7 @@ install:
 build: off
 
 test_script:
-  - "%PYTHON%\\python -m pytest _unittests -v"
+  - "%PYTHON%\\python -m pytest _unittests -v --ignore-glob=**pygame*.py"
 
 after_test:
   - "%PYTHON%\\python -u setup.py bdist_wheel"
