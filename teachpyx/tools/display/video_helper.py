@@ -35,10 +35,9 @@ def make_video(
     :param size: size of each frame
     :param is_color: color
     :param format: see `fourcc <http://www.fourcc.org/codecs.php>`_
-    :return: `VideoWriter <http://opencv-python-tutroals.readthedocs.org/en/latest/py_tutorials/
-                            py_gui/py_video_display/py_video_display.html>`_
+    :return: `VideoWriter <https://docs.opencv.org/3.4/dd/d9e/classcv_1_1VideoWriter.html>`_
 
-    The function relies on `opencv <http://opencv-python-tutroals.readthedocs.org/en/latest/>`_.
+    The function relies on `opencv <https://docs.opencv.org/4.x/>`_.
     By default, the video will have the size of the first image.
     It will resize every image to this size before adding them to the video.
     The function does not use :epkg:`moviepy` but it is a
