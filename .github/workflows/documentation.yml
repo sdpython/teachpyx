@@ -53,7 +53,7 @@ jobs:
           pip install pytest
           pip install pytest-cov
           export PYTHONPATH=.
-          pytest --cov=./teachpyx/ --cov-report=xml --durations=10 --ignore-glob=**LONG*.py --ignore-glob=**notebook*.py
+          pytest --cov=./teachpyx/ --cov-report=xml --durations=10 --ignore-glob=**LONG*.py --ignore-glob=**notebook*.py --ignore-glob=**pygame*.py
           export PYTHONPATH=
 
       - name: Upload coverage reports to Codecov

@@ -1,6 +1,11 @@
 Change Logs
 ===========
 
+0.3.2
++++++
+
+* :pr:`47`: add helpers to create a video
+
 0.3.1
 +++++
 

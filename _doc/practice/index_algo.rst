@@ -10,7 +10,9 @@ Ils sont présents dans tous les livres d'algorithmie.
 Les problèmes proposés ont une solution optimale et il est
 utile de les connaître pour construire des réponses
 à des problèmes plus élaborés. Ce sont en quelque sorte
-des briques des bases algorithmiques.
+des briques des bases algorithmiques. Le même problème
+est souvent abordé dans plusieurs notebooks avec différents
+angles d'approches.
 
 .. toctree::
     :maxdepth: 1
@@ -22,7 +24,9 @@ des briques des bases algorithmiques.
     algo-base/exercice_xn
     algo-base/exercice_topk
     algo-base/exercice_suffix
+    algo-base/prefix_search
     algo-base/BJKST
+
 
 .. toctree::
     :maxdepth: 1
@@ -38,6 +42,7 @@ des briques des bases algorithmiques.
 
     ../auto_examples/plot_tsp
     algo-base/exercice_tsp
+    algo-base/tsp_simplifie
     algo-base/tsp_aparte
 
 .. toctree::

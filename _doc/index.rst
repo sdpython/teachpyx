@@ -37,6 +37,7 @@ pas ou eu programmer. Le contenu est disponible sur
 
     practice/years/index
     algorithm_culture
+    c_expose/index
     i_index
     license
     CHANGELOGS

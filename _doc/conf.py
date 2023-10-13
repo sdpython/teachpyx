@@ -205,6 +205,7 @@ epkg_dictionary = {
     "bytearray": "https://docs.python.org/3/library/functions.html#bytearray",
     "C++": "https://fr.wikipedia.org/wiki/C%2B%2B",
     "cloudpickle": "https://github.com/cloudpipe/cloudpickle",
+    "Bresenham": "https://fr.wikipedia.org/wiki/Algorithme_de_trac%C3%A9_de_segment_de_Bresenham",
     "copy": "https://docs.python.org/3/library/copy.html?highlight=copy#copy.copy",
     "cProfile.Profile": "https://docs.python.org/3/library/profile.html#profile.Profile",
     "Custom Criterion for DecisionTreeRegressor": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/piecewise_linear_regression_criterion.html",
@@ -265,6 +266,7 @@ epkg_dictionary = {
     "programmation impérative": "https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative",
     "programmation fonctionnelle": "https://fr.wikipedia.org/wiki/Programmation_fonctionnelle",
     "protobuf": "https://protobuf.dev/",
+    "pygame": "https://www.pygame.org/",
     "pyinstrument": "https://github.com/joerick/pyinstrument",
     "pypi": "https://pypi.org/",
     "PyPi": "https://pypi.org/",
@@ -369,6 +371,15 @@ epkg_dictionary.update(
         "tkinter.Widget.place_forget": "https://tkdocs.com/tutorial/index.html",
         "tkinter.Widget.unbind": "https://tkdocs.com/tutorial/index.html",
         "tkinter.Widget.unbind_all": "https://tkdocs.com/tutorial/index.html",
+    }
+)
+
+epkg_dictionary.update(
+    {
+        "An Effective Implementation of the Lin-Kernighan Traveling Salesman Heuristic": "http://www.akira.ruc.dk/~keld/research/LKH/LKH-2.0/DOC/LKH_REPORT.pdf",
+        "backtest": "https://en.wikipedia.org/wiki/Backtesting",
+        "Trend Following": "https://en.wikipedia.org/wiki/Trend_following",
+        "pair trading": "https://en.wikipedia.org/wiki/Pairs_trade",
     }
 )
 

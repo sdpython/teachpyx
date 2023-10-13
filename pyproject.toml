@@ -20,6 +20,7 @@ ignore_directives = [
     "nbgallery",
     "nblinkgallery",
     "plot",
+    "pr",
     "runpython",
     "tocdelay",
 ]
