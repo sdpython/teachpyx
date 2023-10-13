@@ -393,7 +393,7 @@ def pygame_simulation(
         <https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode>`_
     :param verbose: verbosity
     :return: see :func:`tsp_kruskal_algorithm
-        teachpyx.practice.tsp_kruskal.tsp_kruskal_algorithm>`
+        <teachpyx.practice.tsp_kruskal.tsp_kruskal_algorithm>`
 
     La simulation ressemble à ceci :
 
