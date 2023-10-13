@@ -1,5 +1,5 @@
 import os
-from typing import List, Optional, Tuple
+from typing import Any, List, Optional, Tuple
 
 
 def get_local_folder(file_or_folder, name="temp_video") -> str:
@@ -25,7 +25,7 @@ def make_video(
     size: Optional[Tuple[int, int]] = None,
     is_color: bool = True,
     format: str = "XVID",
-) -> "VideoWriter":  # noqa: F821
+) -> Any:  # VideoWriter
     """
     Creates a video from a list of images with opencv.
 

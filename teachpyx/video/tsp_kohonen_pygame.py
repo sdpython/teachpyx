@@ -51,7 +51,7 @@ def pygame_simulation(
     flags=0,
 ):
     """
-    See :func:`teachpyx.expose.tsp_kohonen.simulation`.
+    See :func:`teachpyx.practice.tsp_kohonen.simulation`.
 
     :param pygame: module pygame
     :param first_click: attend la pression d'un clic de souris avant de commencer
@@ -82,8 +82,6 @@ def pygame_simulation(
         from teachpyx.video.tsp_kohonen_pygame import pygame_simulation
         import pygame
         pygame_simulation(pygame)
-
-    Voir :ref:`l-puzzle_girafe`.
     """
     pygame.init()
     size = x, y = size[0], size[1]

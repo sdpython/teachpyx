@@ -852,7 +852,7 @@ def tsp_kruskal_algorithm(
     :param size: the 2D plan is split into square zones
     :param length: sub path
     :param max_iter: max number of iterations
-    :param distance    distance function
+    :param distance: distance function
     :return: path
 
     The distance is a function which takes two tuples and returns a distance::
@@ -1102,7 +1102,8 @@ def simulation(
     :param max_iter: maximum number of iteration
     :param nb: number of cities
     :param distance: distance function
-    :return: see :func:`tsp_kruskal_algorithm`
+    :return: see :func:`tsp_kruskal_algorithm
+        <teachpyx.practice.tsp_kruskal.tsp_kruskal_algorithm>`
     """
     if points is None:
         size = x, y = size[0], size[1]

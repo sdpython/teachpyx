@@ -8,7 +8,7 @@ Code inclus dans cette librairie
     tools
 
 .. toctree::
-    :caption: Fonctions implémentées pour les exercices
+    :caption: Fonctions illustrant des solutions
 
     practice/rues_paris
     practice/tsp_bresenham
@@ -19,6 +19,7 @@ Code inclus dans cette librairie
     :caption: Animations
 
     video/tsp_kohonen
+    video/tsp_kruskal
 
 .. toctree::
     :caption: FAQ

@@ -43,7 +43,7 @@ A propos de la distance d'édition, voir aussi
 Séance 6
 ++++++++
 
-* :ref:`Le voyageur de commerce <nbl-practice-algo-search-tsp_simplifie>`
+* :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>`
 * :ref:`Recheche à base de préfixes <nbl-practice-algo-base-prefix_search>`
 
 Autres variations autour du problème du voyageur de commerce,
