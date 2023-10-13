@@ -421,7 +421,7 @@ def pygame_simulation(
     points = construit_ville(nb, x, y)
 
     if first_click:
-        wait_event(pygame)  # pragma: no cover
+        wait_event(pygame)
 
     images = [] if folder is not None else None
     tsp_kruskal_algorithm(
@@ -440,7 +440,7 @@ def pygame_simulation(
         print(f"images {len(images)}")
 
     if first_click:
-        wait_event(pygame)  # pragma: no cover
+        wait_event(pygame)
 
     if folder is not None:
         if verbose > 0:

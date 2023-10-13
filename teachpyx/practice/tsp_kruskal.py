@@ -2,8 +2,7 @@
 import functools
 import random
 import math
-import os
-from typing import Callable, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 from .tsp_bresenham import draw_line
 
 POINT = Tuple[float, float]
@@ -175,7 +174,9 @@ def voisinage_zone(z: float, Zmax: float, X: float, Y: float) -> List[int]:
     return voisin
 
 
-def arbre_poids_minimal(villes: ENSEMBLE, zone_taille: float, distance: DISTANCE):
+def arbre_poids_minimal(
+    villes: ENSEMBLE, zone_taille: float, distance: DISTANCE
+) -> Dict[str, Any]:
     """
     Construit l'arbre de poids minimal, retourne une liste de
     listes, chaque sous-liste associée à une ville contient la liste des ses voisins,
@@ -836,30 +837,23 @@ def supprime_croisement(
 
 
 def tsp_kruskal_algorithm(
-    points,
-    size=20,
-    length=10,
-    max_iter=None,
-    pygame=None,
-    screen=None,
-    images=None,
-    distance=None,
+    points: ENSEMBLE,
+    size: int = 20,
+    length: int = 10,
+    max_iter: Optional[int] = None,
+    distance: Optional[DISTANCE] = None,
     verbose: int = 0,
-):
+) -> ENSEMBLE:
     """
     Finds the shortest path going through all points,
     points require to be a 2 dimensional space.
 
-    @param      points      list 2-tuple (X,Y)
-    @param      size        the 2D plan is split into square zones
-    @param      length      sub path
-    @param      max_iter    max number of iterations
-    @param      pygame      pygame for simulation
-    @param      screen      with pygame
-    @param      fLOG        logging function
-    @param      images      save intermediate images
-    @param      distance    distance function
-    @return                 path
+    :param points: list 2-tuple (X,Y)
+    :param size: the 2D plan is split into square zones
+    :param length: sub path
+    :param max_iter: max number of iterations
+    :param distance    distance function
+    :return: path
 
     The distance is a function which takes two tuples and returns a distance::
 
@@ -889,56 +883,46 @@ def tsp_kruskal_algorithm(
 
     before = len(points)
     points = [v[0] for v in groups.values()]
-    fLOG(f"[tsp_kruskal_algorithm] with no duplicates {len(points)} <= {before}")
+
+    if verbose > 0:
+        print(f"[tsp_kruskal_algorithm] with no duplicates {len(points)} <= {before}")
 
     # begin of the algortihm
-    fLOG(f"[tsp_kruskal_algorithm] arbre_poids_minimal nb={len(points)}")
+    if verbose > 0:
+        print(f"[tsp_kruskal_algorithm] arbre_poids_minimal nb={len(points)}")
     di = arbre_poids_minimal(points, size, distance=distance)
     arbre = di["arbre"]
     X, Y = di["X"], di["Y"]
-    if screen is not None:
-        display_arbre(points, arbre, screen=screen, pygame=pygame)
-        pygame.display.flip()
-        if images is not None:
-            c = screen.copy()
-            for i in range(0, 5):
-                images.append(c)
-    fLOG(f"[tsp_kruskal_algorithm] circuit_eulerien X={X} Y={Y}")
-    chemin = circuit_eulerien(points, arbre, screen, pygame, fLOG)
+
+    if verbose > 0:
+        print(f"[tsp_kruskal_algorithm] circuit_eulerien X={X} Y={Y}")
+    chemin = circuit_eulerien(points, arbre, verbose=verbose)
 
     if len(chemin) != len(points):
-        raise RuntimeError(  # pragma: no cover
+        raise RuntimeError(
             "The path should include all points: path:{0} points:{1}".format(
                 len(chemin), len(points)
             )
         )
 
-    if screen is not None:
-        display_chemin([points[c] for c in chemin], 0, screen=screen, pygame=pygame)
-        pygame.display.flip()
-        if images is not None:
-            c = screen.copy()
-            for i in range(0, 5):
-                images.append(c)
+    if verbose > 0:
+        print("[tsp_kruskal_algorithm] circuit_hamiltonien")
 
-    fLOG("[tsp_kruskal_algorithm] circuit_hamiltonien")
     neurone = circuit_hamiltonien(chemin)
     neurones = [points[i] for i in neurone]
-    if screen is not None:
-        display_chemin(neurones, 0, screen=screen, pygame=pygame)
-    fLOG("[tsp_kruskal_algorithm] amelioration_chemin")
+
+    if verbose > 0:
+        print("[tsp_kruskal_algorithm] amelioration_chemin")
+
     amelioration_chemin(
         neurones,
         size,
         X,
         Y,
         length,
-        screen,
-        fLOG=fLOG,
-        pygame=pygame,
         max_iter=max_iter,
-        images=images,
         distance=distance,
+        verbose=verbose,
     )
 
     # we add duplicates back
@@ -953,135 +937,9 @@ def tsp_kruskal_algorithm(
     return final
 
 
-def display_ville(villes, screen, bv, pygame):
-    """
-    dessine les villes à l'écran
-    """
-    color = 255, 0, 0
-    color2 = 0, 255, 0
-    for v in villes:
-        pygame.draw.circle(screen, color, (int(v[0]), int(v[1])), 3)
-    v = villes[bv]
-    pygame.draw.circle(screen, color2, (int(v[0]), int(v[1])), 3)
-
-
-def display_chemin(neurones, bn, screen, pygame):
-    """
-    dessine le chemin à l'écran
-    """
-    color = 0, 0, 255
-    color2 = 0, 255, 0
-    for n in neurones:
-        pygame.draw.circle(screen, color, (int(n[0]), int(n[1])), 3)
-    v = neurones[bn]
-    pygame.draw.circle(screen, color2, (int(v[0]), int(v[1])), 3)
-    if len(neurones) > 1:
-        pygame.draw.lines(screen, color, True, neurones, 2)
-
-
-def display_arbre(villes, arbre, mult=1, screen=None, pygame=None):
-    """
-    dessine le graphe de poids minimal dꧩni par arbre
-    """
-    if mult == 2:
-        color = 0, 255, 0
-        li = 4
-    else:
-        li = 1
-        color = 0, 0, 255
-
-    for i in range(0, len(villes)):
-        for j in arbre[i]:
-            v = (villes[i][0] * mult, villes[i][1] * mult)
-            vv = (villes[j][0] * mult, villes[j][1] * mult)
-            pygame.draw.line(screen, color, v, vv, li)
-
-
-def pygame_simulation(
-    size=(800, 500),
-    zone=20,
-    length=10,
-    max_iter=None,
-    nb=700,
-    pygame=None,
-    folder=None,
-    first_click=False,
-    distance=None,
-    flags=0,
-    verbose: int = 0,
-):
-    """
-    @param      pygame          module pygame
-    @param      nb              number of cities
-    @param      first_click     attend la pression d'un clic
-        de souris avant de commencer
-    @param      folder          répertoire où stocker les images de la simulation
-    @param      size            taille de l'écran
-    @param      delay           delay between two tries
-    @param      folder          folder where to save images
-    @param      first_click     pause
-    @param      fLOG            logging function
-    @param      distance        distance function
-    @param      flags           see `pygame.display.set_mode
-        <https://www.pygame.org/docs/ref/display.html#pygame.display.set_mode>`_
-    @return                     @see fn tsp_kruskal_algorithm
-
-    La simulation ressemble à ceci :
-
-    .. raw:: html
-
-        <video autoplay="" controls="" loop="" height="250">
-        <source
-        src="http://www.xavierdupre.fr/enseignement/complements/tsp_kruskal.mp4"
-        type="video/mp4" />
-        </video>
-
-    Pour lancer la simulation::
-
-        from ensae_teaching_cs.special.tsp_kruskal import pygame_simulation
-        import pygame
-        pygame_simulation(pygame)
-
-    Voir :ref:`l-tsp_kruskal`.
-    """
-    pygame.init()
-    size = x, y = size[0], size[1]
-    white = 255, 255, 255
-    screen = pygame.display.set_mode(size, flags)
-    screen.fill(white)
-    points = construit_ville(nb, x, y)
-
-    if first_click:
-        wait_event(pygame)  # pragma: no cover
-
-    images = [] if folder is not None else None
-    tsp_kruskal_algorithm(
-        points,
-        size=zone,
-        length=length,
-        max_iter=max_iter,
-        fLOG=fLOG,
-        pygame=pygame,
-        screen=screen,
-        images=images,
-        distance=distance,
-    )
-    fLOG("folder", folder)
-    fLOG("images", len(images))
-
-    if first_click:
-        wait_event(pygame)  # pragma: no cover
-
-    if folder is not None:
-        fLOG("saving images")
-        for it, screen in enumerate(images):
-            if it % 10 == 0:
-                fLOG("saving image:", it, "/", len(images))
-            image = os.path.join(folder, "image_%04d.png" % it)
-            pygame.image.save(screen, image)
-
-
-def circuit_eulerien(villes: ENSEMBLE, arbre: List[List[int]], screen, pygame, verbose):
+def circuit_eulerien(
+    villes: ENSEMBLE, arbre: List[List[int]], verbose: int = 0
+) -> List[int]:
     """
     Définit un circuit eulérien, villes contient la liste des villes,
     tandis que arbre est une liste de listes, ``arbre[i]`` est la liste des villes
@@ -1112,11 +970,10 @@ def circuit_eulerien(villes: ENSEMBLE, arbre: List[List[int]], screen, pygame, v
     iter = []
     while len(done) < len(villes):
         iter.append(len(done))
-        if len(iter) % 1000 == 0:
-            fLOG(
-                "  circuit_eulerien: iter={0} len(done)={1} len(villes)={2}".format(
-                    len(iter), len(done), len(villes)
-                )
+        if verbose > 1 and len(iter) % 1000 == 0:
+            print(
+                f"  circuit_eulerien: iter={len(iter)} len(done)={len(done)} "
+                f"len(villes)={len(villes)}"
             )
             if len(done) == iter[-1000]:
                 # there is apparently something wrong
@@ -1184,16 +1041,13 @@ def circuit_eulerien(villes: ENSEMBLE, arbre: List[List[int]], screen, pygame, v
 
 
 def amelioration_chemin(
-    chemin,
-    taille_zone,
-    X,
-    Y,
-    taille=10,
-    screen=None,
-    pygame=None,
-    max_iter=None,
-    images=None,
-    distance=None,
+    chemin: ENSEMBLE,
+    taille_zone: int,
+    X: float,
+    Y: float,
+    taille: int = 10,
+    max_iter: Optional[int] = None,
+    distance: Optional[DISTANCE] = None,
     verbose: int = 0,
 ):
     """
@@ -1206,54 +1060,60 @@ def amelioration_chemin(
     *taille_zone* est la longueur d'un côté du carré d'une zone.
     """
 
-    white = 255, 255, 255
-
-    if pygame is not None and images is not None:
-        images.append(screen.copy())
-
     # première étape rapide
     iter = 0
     nb = 1
     while nb > 0 and (max_iter is None or iter < max_iter):
-        nb = retournement(chemin, taille, fLOG=fLOG, distance=distance)
-        if screen is not None:
-            screen.fill(white)
-            display_chemin(chemin, 0, screen, pygame=pygame)
-            pygame.display.flip()
-            if images is not None:
-                images.append(screen.copy())
-            empty_main_loop(pygame)
+        nb = retournement(chemin, taille, distance=distance, verbose=verbose)
         iter += 1
 
     # amélioration
     nb = 1
     while nb > 0 and (max_iter is None or iter < max_iter):
-        nb = retournement(chemin, taille, fLOG=fLOG, distance=distance)
-        if screen is not None:
-            screen.fill(white)
-            display_chemin(chemin, 0, screen=screen, pygame=pygame)
-            pygame.display.flip()
-            if images is not None:
-                images.append(screen.copy())
-            empty_main_loop(pygame)
+        nb = retournement(chemin, taille, distance=distance, verbose=verbose)
         nb += echange_position(
-            chemin, taille // 2, taille_zone, X, Y, fLOG=fLOG, distance=distance
+            chemin, taille // 2, taille_zone, X, Y, distance=distance, verbose=verbose
         )
-        if screen is not None:
-            screen.fill(white)
-            display_chemin(chemin, 0, screen=screen, pygame=pygame)
-            pygame.display.flip()
-            if images is not None:
-                images.append(screen.copy())
-            empty_main_loop(pygame)
         nb += supprime_croisement(
-            chemin, taille_zone, X, Y, fLOG=fLOG, distance=distance
+            chemin, taille_zone, X, Y, distance=distance, verbose=verbose
         )
-        if screen is not None:
-            screen.fill(white)
-            display_chemin(chemin, 0, screen=screen, pygame=pygame)
-            pygame.display.flip()
-            if images is not None:
-                images.append(screen.copy())
-            empty_main_loop(pygame)
         iter += 1
+
+
+def simulation(
+    points: Optional[ENSEMBLE] = None,
+    size: Tuple[int, int] = (800, 500),
+    zone: int = 20,
+    length: int = 10,
+    max_iter: Optional[int] = None,
+    nb: int = 700,
+    distance: Optional[DISTANCE] = None,
+    verbose: int = 0,
+) -> Tuple[ENSEMBLE, ENSEMBLE]:
+    """
+    Implémente la recherche du court chemin passant par tous
+    les noeuds d'un graphe en partant d'une simplification
+    avec l'algorithme de Kruskal.
+
+    :param points: ensemble de points
+    :param size: taille de l'écran
+    :param zone: ...
+    :param length: ...
+    :param max_iter: maximum number of iteration
+    :param nb: number of cities
+    :param distance: distance function
+    :return: see :func:`tsp_kruskal_algorithm`
+    """
+    if points is None:
+        size = x, y = size[0], size[1]
+        points = construit_ville(nb, x, y)
+
+    res = tsp_kruskal_algorithm(
+        points,
+        size=zone,
+        length=length,
+        max_iter=max_iter,
+        distance=distance,
+        verbose=verbose,
+    )
+    return points, res

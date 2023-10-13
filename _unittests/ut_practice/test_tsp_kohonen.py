@@ -6,7 +6,7 @@ from teachpyx.practice.tsp_kohonen import simulation
 
 
 class TestTspKohonen(ExtTestCase):
-    def test_image_video_kohonen(self):
+    def test_kohonen(self):
         st = StringIO()
         with redirect_stdout(st):
             villes, neurones = simulation(nb=5, verbose=1, max_iter=5000)
