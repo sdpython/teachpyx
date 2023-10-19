@@ -4,9 +4,6 @@
 Cheat Sheet on Linux
 ====================
 
-.. contents::
-    :local:
-
 Classic
 +++++++
 
