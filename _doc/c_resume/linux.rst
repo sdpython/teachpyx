@@ -4,9 +4,6 @@
 Cheat Sheet on Linux
 ====================
 
-.. contents::
-    :local:
-
 Classic
 +++++++
 
@@ -17,6 +14,13 @@ Classic
     cd
     find "<pattern>"
     find <path> -name "<pattern>"
+
+List all installed packages
++++++++++++++++++++++++++++
+
+::
+
+    apt list --installed
 
 Remove packages
 +++++++++++++++

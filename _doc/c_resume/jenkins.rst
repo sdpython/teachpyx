@@ -1,9 +1,6 @@
 Cheat Sheet on Jenkins
 ======================
 
-.. contents::
-    :local:
-
 Installation
 ++++++++++++
 

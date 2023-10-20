@@ -9,9 +9,6 @@ ci-dessus. On peut lire également
 `Solution of a Large-Scale Traveling-Salesman Problem
 <http://www.cs.uleth.ca/~benkoczi/OR/read/tsp-dantzig-fulkerson-johnson-54.pdf>`_.
 
-.. contents::
-    :local:
-
 Arbre de poids minimal et circuit hamiltonien
 +++++++++++++++++++++++++++++++++++++++++++++
 

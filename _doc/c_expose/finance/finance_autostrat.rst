@@ -28,9 +28,6 @@ qui sont effectués manuellement par un trader ou servent d'outils
 d'aide à la décision. Plus la fréquence des opérations est élevée,
 plus l'investissement nécessaire à leur mise en place est important.
 
-.. contents::
-    :local:
-
 Quelques références
 +++++++++++++++++++
 

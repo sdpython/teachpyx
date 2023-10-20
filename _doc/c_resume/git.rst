@@ -1,9 +1,6 @@
 Cheat Sheet on Git
 ==================
 
-.. contents::
-    :local:
-
 Add a remote
 ++++++++++++
 
