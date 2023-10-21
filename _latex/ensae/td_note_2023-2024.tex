@@ -1,0 +1,129 @@
+\input{exo_begin.tex}%
+
+\huge ENSAE TD noté, mardi 8 novembre 2023 \normalsize
+
+Toutes les questions valent 2 points. Il est conseillé de lire l'intégralité de l'énoncé avant de commencer.
+
+\exosubject{}
+\begin{xexercice}\label{td_note_label4_2023}
+
+Une langue étrangère s'écrit avec 10 lettres \codesbf{ABCDEFGHUIJ}. Chacune est représentée par 4 bits :
+
+\begin{verbatimx}
+A 0000
+B 0001
+C 0010
+D 0011
+E 0100
+F 0101
+G 0110
+H 0111
+I 1000
+J 1001
+\end{verbatimx}
+
+Avec cette représentation, \codesbf{00000110} signifie \codesbf{AG}.
+
+%1
+\exequest Ecrire une fonction qui code une séquence de lettres entre une séquence de 0 et 1.
+
+\begin{verbatimx}
+def code(text):
+    # ....
+    return ...
+
+assert code("AG") == "00000110"
+\end{verbatimx}
+
+%2
+\exequest Ecrire une fonction qui reçoit une séquence de 0 et de 1 et retourne la séquence de lettres correspondante.
+
+\begin{verbatimx}
+def decode(chaine):
+    # ....
+    return ...
+
+assert decode("00000110") == "AG"
+\end{verbatimx}
+
+%3
+\exequest On veut optimiser cette représente. Les lettres de A à G sont maintenant codées sur 3 bits et les suivantes sur 5.
+
+\begin{verbatimx}
+A 000
+B 001
+C 010
+D 011
+E 100
+F 101
+G 110
+H 11100
+I 11101
+J 11110
+\end{verbatimx}
+ 
+Ecrire la fonction \codesbf{def \, code35(text):} qui retourne le texte codé avec cette nouvelle définition.
+
+%4
+\exequest Faire de même avec le décodage et la fonction \codesbf{def \, decode35(chaine):}
+
+%5
+\exequest Dans ce langage, les lettres sont toutes équiprobables.
+Quel codage est le plus court pour un texte aléatoire très grand et quantifier le gain ?
+Que se passe-t-il si la lettre J a une probabilité de 0.3 ?
+
+%6
+\exequest On utilise les classes pour regrouper les fonctions \codesbf{code} et \codesbf{decode}. Il faut compléter le code suivant.
+
+\begin{verbatimx}
+class Codage:
+    def __init__(self):
+        # ....
+
+    def code(self, text):
+        # ...
+
+    def decode(self, chaine):
+        # ...
+\end{verbatimx}
+
+%7
+\exequest Faire de même avec le code suivant :
+
+\begin{verbatimx}
+class Codage35(Codage):
+    def __init__(self):
+        # ....
+\end{verbatimx}
+
+%8
+\exequest On change le codage des lettres A et B : \codesbf{A \, 00} et \codesbf{B \, 01}. Il faut créer une troisième classe.
+
+\begin{verbatimx}
+class Codage235(Codage):
+    def __init__(self):
+        # ....
+
+c = Codage235(...)
+assert c.decode("011100101") == "BGBB"
+\end{verbatimx}
+
+%9
+\exequest Quel problème ce codage pose-t-il ? On pourra s'intéresser au mot "DEF".
+
+%10
+\exequest Dans ce langage, les lettres ne sont jamais doublées (BB n'est pas possible.)
+Modifier votre classe pour en tenir compte.
+
+\textbf{Ce qui suit ne fait pas partie de l'énoncé.}
+
+Pour aller plus loin, on pourrait écrire un algorithme capable d'énumérer toutes les façons de décoder un message.
+
+\end{xexercice}
+
+
+
+
+
+
+\input{exo_end.tex}%
