@@ -17,6 +17,10 @@ prof
 temp_*
 essai.txt
 .ipynb_checkpoints
+_latex/ensae/*.aux
+_latex/ensae/*.idx
+_latex/ensae/*.out
+_latex/ensae/*.pdf
 _doc/CHANGELOGS.rst
 _doc/LICENSE.txt
 _doc/auto_examples/*
