@@ -68,11 +68,6 @@ Ecrire la fonction \codesbf{def \, code35(text):} qui retourne le texte codé av
 \exequest Faire de même avec le décodage et la fonction \codesbf{def \, decode35(chaine):}
 
 %5
-\exequest Dans ce langage, les lettres sont toutes équiprobables.
-Quel codage est le plus court pour un texte aléatoire très grand et quantifier le gain ?
-Que se passe-t-il si la lettre J a une probabilité de 0.3 ?
-
-%6
 \exequest On utilise les classes pour regrouper les fonctions \codesbf{code} et \codesbf{decode}. Il faut compléter le code suivant.
 
 \begin{verbatimx}
@@ -85,19 +80,45 @@ class Codage:
 
     def decode(self, chaine):
         # ...
-\end{verbatimx}
 
-%7
-\exequest Faire de même avec le code suivant :
+cl = Codage()
+assert cl.code("AG") == "00000110"
+assert cl.decode("00000110") == "AG"
+\end{verbatimx}
+\end{xexercice}
+
+
+\newpage
+
+\exosubject{}
+\begin{xexercice}\label{td_note_label5_2023}
+
+Cet exercice prend la suite de l'exercice précédent.
+
+
+%6
+\exequest Faire de même avec la seconde représentation
 
 \begin{verbatimx}
 class Codage35(Codage):
     def __init__(self):
         # ....
+
+cl = Codage35()
+assert cl.code ...
+assert cl.decode ...s
 \end{verbatimx}
 
+%7
+\exequest Dans ce langage, les lettres sont toutes équiprobables.
+Quel codage est le plus court pour un texte aléatoire très grand et quantifier le gain ?
+Que se passe-t-il si la lettre J a une probabilité de 0.3 et toutes les autres lettres ont la même probabilité
+d'apparition ? Que suggérez-vous pour optimiser le codeage en terme de longueur.
+
 %8
-\exequest On change le codage des lettres A et B : \codesbf{A \, 00} et \codesbf{B \, 01}. Il faut créer une troisième classe.
+\exequest On change le codage des lettres A et B : \codesbf{A \, 00} et \codesbf{B \, 01}. Il faut créer une troisième classes
+héritant de la première. Que valent \codesbf{c.code("BGBB")} et \codesbf{c.code("DEF")} ?
+Qu'en déduisez-vous pour le décodage ?
 
 \begin{verbatimx}
 class Codage235(Codage):
@@ -105,19 +126,80 @@ class Codage235(Codage):
         # ....
 
 c = Codage235(...)
-assert c.decode("011100101") == "BGBB"
+assert c.code("BGBB") == "011100101"
+assert c.code("DEF") == ...
 \end{verbatimx}
 
+
 %9
-\exequest Quel problème ce codage pose-t-il ? On pourra s'intéresser au mot "DEF".
+
+\exequest Dans ce langage, les lettres ne sont jamais doublées (BB n'est pas possible.)
+Implémentez une nouvelle méthode \codesbf{decode} pour tenir compte de cette information.
 
 %10
-\exequest Dans ce langage, les lettres ne sont jamais doublées (BB n'est pas possible.)
-Modifier votre classe pour en tenir compte.
+\exequest On teste une autre approche. Il faut ajouter une méthode qui retourne le nombre de lettres
+d'un message.
 
-\textbf{Ce qui suit ne fait pas partie de l'énoncé.}
+\begin{verbatimx}
+class Codage235(Codage):
+    def distri_lettre(self, text):
+        # ....
+        return { "A": ... }
+\end{verbatimx}
 
-Pour aller plus loin, on pourrait écrire un algorithme capable d'énumérer toutes les façons de décoder un message.
+% 11
+\exequest Ecrire une méthode qui pour une position donnée,
+retourne la liste des lettres qui peuvent correspondre. Exemple :
+
+\begin{verbatimx}
+class Codage235(Codage):
+    def suite(self, code, pos):
+        # ....
+
+c = Codage235()
+assert c.suite("00011100101", 2) == ["B", "D"]
+\end{verbatimx}
+
+%12
+\exequest Ecrire une fonction qui dit si deux dictionnaires sont égaux.
+
+\begin{verbatimx}
+class Codage235(Codage):
+    def dico_equal(self, d1, d2):
+      # 
+\end{verbatimx}
+    
+
+%13
+\exequest On veut écrire une fonction récursive qui décode un message et
+qui choisit la première solution qui vérifie
+une certaine distribution de lettres initiales. 
+
+\begin{verbatimx}
+class Codage235(Codage):
+    def decode_recursif(self,
+            distribution,   # la distribution des lettres souhaitée
+            code,           # le texte initiale
+            pos=0,          # la position actuelle
+            text="",        # ce qui a été décodé jusqu'à la position pos
+            ):
+        if pos == len(code):
+            if dico_equal(...):
+                return text
+            return None
+        # ...
+
+c = Codage235()
+assert c.decode_recursif({....}, "00011100101") == ...
+\end{verbatimx}
+
+%14
+\exequest Dans quel cas peut-on arrêter la récursion avant d'atteindre la fin du message codé ?
+Il n'est pas demandé de coder la méthode.
+
+%15
+\exequest Vous recevez un message codé mais vous ne savez pas quel code parmi les trois proposés
+a été utilisé. Comment choisir ?
 
 \end{xexercice}
 
