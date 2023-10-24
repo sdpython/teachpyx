@@ -25,7 +25,7 @@ J 1001
 Avec cette représentation, \codesbf{00000110} signifie \codesbf{AG}.
 
 %1
-\exequest Ecrire une fonction qui code une séquence de lettres entre une séquence de 0 et 1.
+\exequest Ecrire une fonction qui code une séquence de lettres en une séquence de 0 et 1.
 
 \begin{verbatimx}
 def code(text):
@@ -47,28 +47,7 @@ assert decode("00000110") == "AG"
 \end{verbatimx}
 
 %3
-\exequest On veut optimiser cette représente. Les lettres de A à G sont maintenant codées sur 3 bits et les suivantes sur 5.
-
-\begin{verbatimx}
-A 000
-B 001
-C 010
-D 011
-E 100
-F 101
-G 110
-H 11100
-I 11101
-J 11110
-\end{verbatimx}
- 
-Ecrire la fonction \codesbf{def \, code35(text):} qui retourne le texte codé avec cette nouvelle définition.
-
-%4
-\exequest Faire de même avec le décodage et la fonction \codesbf{def \, decode35(chaine):}
-
-%5
-\exequest On utilise les classes pour regrouper les fonctions \codesbf{code} et \codesbf{decode}. Il faut compléter le code suivant.
+\exequest On forme une classe avec les deux fonctions précédentes. Il faut compléter le code suivant.
 
 \begin{verbatimx}
 class Codage:
@@ -85,19 +64,25 @@ cl = Codage()
 assert cl.code("AG") == "00000110"
 assert cl.decode("00000110") == "AG"
 \end{verbatimx}
-\end{xexercice}
 
+%4
+\exequest On veut réduire la taille du message codé.
+Les lettres de A à G sont maintenant codées sur 3 bits et les suivantes sur 5.
 
-\newpage
+\begin{verbatimx}
+A 000
+B 001
+C 010
+D 011
+E 100
+F 101
+G 110
+H 11100
+I 11101
+J 11110
+\end{verbatimx}
 
-\exosubject{}
-\begin{xexercice}\label{td_note_label5_2023}
-
-Cet exercice prend la suite de l'exercice précédent.
-
-
-%6
-\exequest Faire de même avec la seconde représentation
+On crée une nouvelle classe \codesbf{Codage35} qui hérite de la classe \codesbf{Codage}.
 
 \begin{verbatimx}
 class Codage35(Codage):
@@ -109,16 +94,23 @@ assert cl.code ...
 assert cl.decode ...s
 \end{verbatimx}
 
-%7
+Est-il besoin d'implémenter la méthode \codesbf{code} pour cette nouvelle classe ?
+
+%5
+\exequest Vérifiez que le méthode \codes{decode} fonctionne toujours dans cette nouvelle classe. Dans le cas contraire,
+il vous faudra soit modifier la méthode de la classe initiale, soit la surcharger dans cette nouvelle classe,
+puis dire pourquoi vous avez fait ce choix.
+
+%6
 \exequest Dans ce langage, les lettres sont toutes équiprobables.
 Quel codage est le plus court pour un texte aléatoire très grand et quantifier le gain ?
 Que se passe-t-il si la lettre J a une probabilité de 0.3 et toutes les autres lettres ont la même probabilité
-d'apparition ? Que suggérez-vous pour optimiser le codeage en terme de longueur.
+d'apparition ? Que suggérez-vous pour optimiser le codage en terme de longueur ?
 
-%8
-\exequest On change le codage des lettres A et B : \codesbf{A \, 00} et \codesbf{B \, 01}. Il faut créer une troisième classes
+%7
+\exequest On change le codage des lettres A et B : \codesbf{A \, 00} et \codesbf{B \, 01}. Il faut créer une troisième classe
 héritant de la première. Que valent \codesbf{c.code("BGBB")} et \codesbf{c.code("DEF")} ?
-Qu'en déduisez-vous pour le décodage ?
+Que retourne votre méthode \codesbf{decode} ?
 
 \begin{verbatimx}
 class Codage235(Codage):
@@ -130,80 +122,20 @@ assert c.code("BGBB") == "011100101"
 assert c.code("DEF") == ...
 \end{verbatimx}
 
+%8
+\exequest Dans le cas précédent, la première lettre peut être soit \textbf{B} soit \textbf{D}.
+Ecrire une méthode qui retourne toutes les options pour la première lettre d'un message codé.
 
 %9
+\exequest On pourrait écrire \codesbf{decode("01110") = "D" + decode("10")} mais
+\codesbf{decode("10")} échoue. Qu'est-ce cela signifie ?
 
-\exequest Dans ce langage, les lettres ne sont jamais doublées (BB n'est pas possible.)
-Implémentez une nouvelle méthode \codesbf{decode} pour tenir compte de cette information.
 
 %10
-\exequest On teste une autre approche. Il faut ajouter une méthode qui retourne le nombre de lettres
-d'un message.
+\exequest Ecrire une méthode \codesbf{decode} qui retourne toutes les solutions par récurrence.
 
-\begin{verbatimx}
-class Codage235(Codage):
-    def distri_lettre(self, text):
-        # ....
-        return { "A": ... }
-\end{verbatimx}
-
-% 11
-\exequest Ecrire une méthode qui pour une position donnée,
-retourne la liste des lettres qui peuvent correspondre. Exemple :
-
-\begin{verbatimx}
-class Codage235(Codage):
-    def suite(self, code, pos):
-        # ....
-
-c = Codage235()
-assert c.suite("00011100101", 2) == ["B", "D"]
-\end{verbatimx}
-
-%12
-\exequest Ecrire une fonction qui dit si deux dictionnaires sont égaux.
-
-\begin{verbatimx}
-class Codage235(Codage):
-    def dico_equal(self, d1, d2):
-      # 
-\end{verbatimx}
-    
-
-%13
-\exequest On veut écrire une fonction récursive qui décode un message et
-qui choisit la première solution qui vérifie
-une certaine distribution de lettres initiales. 
-
-\begin{verbatimx}
-class Codage235(Codage):
-    def decode_recursif(self,
-            distribution,   # la distribution des lettres souhaitée
-            code,           # le texte initiale
-            pos=0,          # la position actuelle
-            text="",        # ce qui a été décodé jusqu'à la position pos
-            ):
-        if pos == len(code):
-            if dico_equal(...):
-                return text
-            return None
-        # ...
-
-c = Codage235()
-assert c.decode_recursif({....}, "00011100101") == ...
-\end{verbatimx}
-
-%14
-\exequest Dans quel cas peut-on arrêter la récursion avant d'atteindre la fin du message codé ?
-Il n'est pas demandé de coder la méthode.
-
-%15
-\exequest Vous recevez un message codé mais vous ne savez pas quel code parmi les trois proposés
-a été utilisé. Comment choisir ?
 
 \end{xexercice}
-
-
 
 
 
