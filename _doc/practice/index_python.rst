@@ -24,6 +24,7 @@ Exercices sur le langage python
     py-base/classe_permutation
     py-base/classe_tree
     py-base/classe_iterateur
+    py-base/classe_user_p
 
 .. toctree::
     :maxdepth: 1
