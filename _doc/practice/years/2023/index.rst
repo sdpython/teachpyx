@@ -6,3 +6,4 @@
 
     editdist
     pivot_gauss
+    prefix_search

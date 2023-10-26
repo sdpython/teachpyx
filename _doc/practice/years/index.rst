@@ -1,5 +1,5 @@
-Noteooks écrits durant les séances
-==================================
+Notebooks écrits durant les séances
+===================================
 
 .. toctree::
     :maxdepth: 2
