@@ -44,7 +44,7 @@ Séance 6
 ++++++++
 
 * :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>`
-* :ref:`Recheche à base de préfixes <nbl-practice-algo-base-prefix_search>`
+* :ref:`Recheche à base de préfixes <nbl-practice-years-2023-prefix_search>`
 
 Autres variations autour du problème du voyageur de commerce,
 ou TSP pour Travelling Salesman Problem
@@ -53,7 +53,7 @@ ou encore circuit hamiltonien: :ref:`l-tsp_kohonen`, :ref:`l-tsp_kruskal`.
 Séance 7
 ++++++++
 
-* :ref:`Recheche à base de préfixes <nbl-practice-algo-base-prefix_search>`
+* :ref:`Recheche à base de préfixes <nbl-practice-years-2023-prefix_search>`
 * :ref:`Classe et héritage <nbl-practice-py-base-classe_user_p>`
 
 Séance 8
