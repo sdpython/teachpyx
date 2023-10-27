@@ -24,7 +24,6 @@ angles d'approches.
     algo-base/exercice_xn
     algo-base/exercice_topk
     algo-base/exercice_suffix
-    algo-base/prefix_search
     algo-base/BJKST
 
 
