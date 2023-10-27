@@ -50,9 +50,12 @@ assert decode("00000110") == "AG"
 \exequest On forme une classe avec les deux fonctions précédentes. Il faut compléter le code suivant.
 
 \begin{verbatimx}
-class Codage:
+class Coding:
     def __init__(self):
-        # ....
+        self.mapping = {'A': '0000', 'B': '0001', 'C': '0010', 'D': '0011',
+                        'E': '0100', 'F': '0101', 'G': '0110', 'H': '0111',
+                        'I': '1000', 'J': '1001' }
+        self.inverse = {v: k for k, v in self.mapping.items()}  # si besoin
 
     def code(self, text):
         # ...
@@ -60,7 +63,7 @@ class Codage:
     def decode(self, chaine):
         # ...
 
-cl = Codage()
+cl = Coding()
 assert cl.code("AG") == "00000110"
 assert cl.decode("00000110") == "AG"
 \end{verbatimx}
@@ -82,42 +85,47 @@ I 11101
 J 11110
 \end{verbatimx}
 
-On crée une nouvelle classe \codesbf{Codage35} qui hérite de la classe \codesbf{Codage}.
+On crée une nouvelle classe \codesbf{Coding35} qui hérite de la classe \codesbf{Coding}.
 
 \begin{verbatimx}
-class Codage35(Codage):
+class Coding35(Coding):
     def __init__(self):
         # ....
 
-cl = Codage35()
-assert cl.code ...
-assert cl.decode ...s
+cl = Coding35()
+assert cl.code("AH") == "00011100"
+assert cl.decode("00011100") == "AH"
 \end{verbatimx}
 
-Est-il besoin d'implémenter la méthode \codesbf{code} pour cette nouvelle classe ?
-
 %5
-\exequest Vérifiez que le méthode \codes{decode} fonctionne toujours dans cette nouvelle classe. Dans le cas contraire,
-il vous faudra soit modifier la méthode de la classe initiale, soit la surcharger dans cette nouvelle classe,
-puis dire pourquoi vous avez fait ce choix.
+\exequest Que fait la fonction suivante ? Que suppose-t-elle sur la méthode \codesbf{decode} pour qu'elle fonctionne.
+\textit{Il n'est pas demandé de modifier votre code pour qu'elle fonction.}
+
+\begin{verbatimx}
+def which_coding(text, codings):
+    return [c for c in codings if c.decode(text) is not None]
+
+codings = [Coding(), Coding35()]
+assert which_coding("0000", codings) == codings[:1]
+\end{verbatimx}
 
 %6
 \exequest Dans ce langage, les lettres sont toutes équiprobables.
-Quel codage est le plus court pour un texte aléatoire très grand et quantifier le gain ?
-Que se passe-t-il si la lettre J a une probabilité de 0.3 et toutes les autres lettres ont la même probabilité
-d'apparition ? Que suggérez-vous pour optimiser le codage en terme de longueur ?
+Quel code est le plus court pour un texte aléatoire très grand et quantifier le gain ?
+Que se passe-t-il si la lettre J a une probabilité de 0.5 et toutes les autres lettres ont la même probabilité
+d'apparition ? Que suggérez-vous pour optimiser le Coding en terme de longueur ?
 
 %7
-\exequest On change le codage des lettres A et B : \codesbf{A \, 00} et \codesbf{B \, 01}. Il faut créer une troisième classe
+\exequest On change le Coding des lettres A et B : \codesbf{A \, 00} et \codesbf{B \, 01}. Il faut créer une troisième classe
 héritant de la première. Que valent \codesbf{c.code("BGBB")} et \codesbf{c.code("DEF")} ?
 Que retourne votre méthode \codesbf{decode} ?
 
 \begin{verbatimx}
-class Codage235(Codage):
+class Coding235(Coding):
     def __init__(self):
         # ....
 
-c = Codage235(...)
+c = Coding235(...)
 assert c.code("BGBB") == "011100101"
 assert c.code("DEF") == ...
 \end{verbatimx}
