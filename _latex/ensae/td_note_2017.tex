@@ -1,12 +1,12 @@
 %!TEX encoding =  IsoLatin
-\input{../../common/exo_begin.tex}%
+\input{exo_begin.tex}%
 
 \firstpassagedo{
 \newcommand{\sametextforthisinterro}[0]{ 
-\huge ENSAE TD noté, vendredi 16 décembre 2016
+\huge ENSAE TD notÃ©, vendredi 16 dÃ©cembre 2016
 
 \normalsize
-\textit{Le programme devra être imprimé et rendu au chargé de TD. Toutes les questions valent 2 points. Vous êtes libres d'utiliser numpy ou non à toutes les questions.}
+\textit{Le programme devra Ãªtre imprimÃ© et rendu au chargÃ© de TD. Toutes les questions valent 2 points. Vous Ãªtes libres d'utiliser numpy ou non Ã  toutes les questions.}
 \smallskip
 }
 
@@ -16,10 +16,10 @@
 
 
 \exosubject{}
-\begin{xexercice}\label{td_note_label1_2017}%\indexfrr{énoncé}{pratique}
+\begin{xexercice}\label{td_note_label1_2017}%\indexfrr{ï¿½noncï¿½}{pratique}
 
 On suppose qu'on dispose d'un ensemble d'observations $\pa{X_i, Y_i}$ avec $X_i, Y_i \in \R$.
-La régression linéaire consiste une relation linéaire $Y_i = a X_i + b + \epsilon_i$
+La rÃ©gression linÃ©aire consiste une relation linÃ©aire $Y_i = a X_i + b + \epsilon_i$
 qui minimise la variance du bruit. On pose :
 
 $$
@@ -33,14 +33,14 @@ $$
 a^*, b^* = \arg \min E(a, b) = \arg \min \sum_i \pa{Y_i - (a X_i + b)}^2
 $$
 
-La fonction est dérivable et on trouve :
+La fonction est dÃ©rivable et on trouve :
 
 $$
 \partialfrac{E(a,b)}{a} = - 2 \sum_i X_i ( Y_i - (a X_i + b))
 \text{ et } \partialfrac{E(a,b)}{b} = - 2 \sum_i ( Y_i - (a X_i + b))
 $$
 
-Il suffit alors d'annuler les dérivées. On résoud un système d'équations linéaires. On note :
+Il suffit alors d'annuler les dÃ©rivÃ©es. On rÃ©soud un systÃ¨me d'Ã©quations linÃ©aires. On note :
 
 $$
 \begin{array}{l}
@@ -57,7 +57,7 @@ a^* = \frac{ \esp {XY} - \esp X \esp Y}{\esp{X^2} - (\esp X)^2} \text{ et } b^* 
 \end{array}
 $$
 
-On génère un nuage de points avec le code suivant :
+On gÃ©nÃ¨re un nuage de points avec le code suivant :
 
 \begin{verbatimx}
 import random
@@ -69,7 +69,7 @@ def generate_xy(n=100, a=0.5, b=1):
     return res
 \end{verbatimx}
 
-\exequest Recopier la fonction précédente et générer 10 points (ou 10 couples de points).
+\exequest Recopier la fonction prÃ©cÃ¨dente et gÃ©nÃ¨rer 10 points (ou 10 couples de points).
 
 \exequest Ecrire une fonction qui calcule $\esp X, \esp Y, \esp {XY}, \esp{X^2}$.
 
@@ -87,9 +87,9 @@ def calcule_ab(obs):
 \end{verbatimx}
 
 Tout se passe bien quand $X_i$ est une variable continue.
-Quand c'est une variable catégorielle, cela n'est plus possible.
+Quand c'est une variable catÃ©gorielle, cela n'est plus possible.
 
-\exequest Compléter le programme ci-dessous (....) pour qu'il génère des couples tel que :
+\exequest ComplÃ©ter le programme ci-dessous (....) pour qu'il gÃ©nÃ¨re des couples tel que :
 
 \begin{verbatimx}
 [('rouge', 1.4281790866123962), ('vert', 3.1438708048684716), 
@@ -107,32 +107,33 @@ def generate_caty(n=100, a=0.5, b=1, cats=["rouge", "vert", "bleu"]):
     return res
 \end{verbatimx}
 
-\exequest On voudrait quand même faire une régression de la variable $Y$ sur la variable catégorielle. On construit une fonction qui assigne un numéro quelconque mais distinct à chaque catégorie. La fonction retourne un dictionnaire avec les catégories comme clé et les numéros comme valeurs.
+\exequest On voudrait quand mÃªme faire une rÃ©gression de la variable $Y$ sur la variable catÃ©gorielle. On construit une fonction qui assigne un numÃ©ro quelconque mais distinct Ã  chaque catÃ©gorie. La fonction retourne un dictionnaire avec les catÃ©gories comme clÃ© et les numÃ©ros comme valeurs.
 
 \begin{verbatimx}
 def numero_cat(obs):
     ....
 \end{verbatimx}
 
-\exequest On construit la matrice $M_{ic}$ tel que : $M_{ic}$ vaut 1 si $c$ est le numéro de la catégorie $X_i$, 0 sinon.
+\exequest On construit la matrice $M_{ic}$ tel que : $M_{ic}$ vaut 1 si $c$ est le numÃ©ro de la catÃ©gorie $X_i$, 0 sinon.
 
 \begin{verbatimx}
 def matrice_cat(obs, numero):
     ....
 \end{verbatimx}
 
-\exequest Il est conseillé de convertir la matrice $M$ et les $Y$ au format \textit{numpy}. On ajoute un vecteur constant à la matrice $M$.
+\exequest Il est conseillÃ© de convertir la matrice $M$ et les $Y$ au format \textit{numpy}. On ajoute un vecteur constant Ã  la matrice $M$.
 
 \begin{verbatimx}
 def convert_numpy(obs, M):
     ....
 \end{verbatimx}
 
-\exequest On résoud la régression multidimensionnelle en appliquant la formule $C^* = (M'M)^{-1}M'Y$.
+\exequest On rÃ©soud la rÃ©gression multidimensionnelle en appliquant la formule $C^* = (M'M)^{-1}M'Y$.
 
-\exequest La régression détermine les coefficients $\alpha$ dans la régression $Y_i = \alpha_{rouge} \indicatrice{X_i = rouge} + \alpha_{vert} \indicatrice{X_i = vert} + \alpha_{bleu} \indicatrice{X_i = bleu} + \epsilon_i$. Construire le vecteur $\hat{Y_i} = \alpha_{rouge} \indicatrice{X_i = rouge} + \alpha_{vert} \indicatrice{X_i = vert} + \alpha_{bleu} \indicatrice{X_i = bleu}$.
+\exequest La rÃ©gression dÃ©termine les coefficients $\alpha$ dans la rÃ©gression $Y_i = \alpha_{rouge} \indicatrice{X_i = rouge} + \alpha_{vert} \indicatrice{X_i = vert} + \alpha_{bleu} \indicatrice{X_i = bleu} + \epsilon_i$.
+Construire le vecteur $\hat{Y_i} = \alpha_{rouge} \indicatrice{X_i = rouge} + \alpha_{vert} \indicatrice{X_i = vert} + \alpha_{bleu} \indicatrice{X_i = bleu}$.
 
-\exequest Utiliser le résultat de la question 3 pour calculer les coefficients de la régression $Y_i = a^* \hat{Y_i} + b^*$.
+\exequest Utiliser le rÃ©sultat de la question 3 pour calculer les coefficients de la rÃ©gression $Y_i = a^* \hat{Y_i} + b^*$.
 
 
 \end{xexercice}
@@ -156,10 +157,10 @@ def convert_numpy(obs, M):
 
 
 \exosubject{}
-\begin{xexercice}\label{td_note_label2_2017}%\indexfrr{énoncé}{pratique}
+\begin{xexercice}\label{td_note_label2_2017}%\indexfrr{Ã©noncÃ©}{pratique}
 
 On suppose qu'on dispose d'un ensemble d'observations $\pa{X_i, Y_i}$ avec $X_i, Y_i \in \R$.
-La régression linéaire consiste une relation linéaire $Y_i = a X_i + b + \epsilon_i$
+La rÃ©gression linÃ©aire consiste une relation linÃ©aire $Y_i = a X_i + b + \epsilon_i$
 qui minimise la variance du bruit. On pose :
 
 $$
@@ -173,14 +174,14 @@ $$
 a^*, b^* = \arg \min E(a, b) = \arg \min \sum_i \pa{Y_i - (a X_i + b)}^2
 $$
 
-La fonction est dérivable et on trouve :
+La fonction est dÃ©rivable et on trouve :
 
 $$
 \partialfrac{E(a,b)}{a} = - 2 \sum_i X_i ( Y_i - (a X_i + b))
 \text{ et } \partialfrac{E(a,b)}{b} = - 2 \sum_i ( Y_i - (a X_i + b))
 $$
 
-Il suffit alors d'annuler les dérivées. On résoud un système d'équations linéaires. On note :
+Il suffit alors d'annuler les dÃ©rivÃ©es. On rÃ©soud un systÃ¨me d'Ã©quations linÃ©aires. On note :
 
 $$
 \begin{array}{l}
@@ -197,7 +198,7 @@ a^* = \frac{ \esp {XY} - \esp X \esp Y}{\esp{X^2} - (\esp X)^2} \text{ et } b^* 
 \end{array}
 $$
 
-On génère un nuage de points avec le code suivant :
+On gÃ©nÃ¨re un nuage de points avec le code suivant :
 
 \begin{verbatimx}
 import random
@@ -209,7 +210,7 @@ def generate_xy(n=100, a=0.5, b=1):
     return res
 \end{verbatimx}
 
-\exequest Recopier la fonction précédente et générer 10 points (ou 10 couples de points).
+\exequest Recopier la fonction prÃ©cÃ©dente et gÃ©nÃ¨rer 10 points (ou 10 couples de points).
 
 \exequest Ecrire une fonction qui calcule $\esp X, \esp Y, \esp {XY}, \esp{X^2}$.
 
@@ -227,9 +228,9 @@ def calcule_ab(obs):
 \end{verbatimx}
 
 Tout se passe bien quand $X_i$ est une variable continue.
-Quand c'est une variable catégorielle, cela n'est plus possible.
+Quand c'est une variable catÃ©gorielle, cela n'est plus possible.
 
-\exequest Compléter le programme ci-dessous (....) pour qu'il génère des couples tel que :
+\exequest ComplÃ©ter le programme ci-dessous (....) pour qu'il gÃ©nÃ¨re des couples tel que :
 
 \begin{verbatimx}
 [('rouge', 1.4281790866123962), ('vert', 3.1438708048684716), 
@@ -247,7 +248,7 @@ def generate_caty(n=100, a=0.5, b=1, cats=["rouge", "vert", "bleu"]):
     return res
 \end{verbatimx}
 
-\exequest On voudrait quand même faire une régression de la variable $Y$ sur la variable catégorielle. On commence par les compter. Construire une fonction qui compte le nombre de fois qu'une catégorie est présente dans les données (un histogramme).
+\exequest On voudrait quand mÃªme faire une rÃ©gression de la variable $Y$ sur la variable catÃ©gorielle. On commence par les compter. Construire une fonction qui compte le nombre de fois qu'une catÃ©gorie est prÃ©sente dans les donnÃ©es (un histogramme).
 
 
 \begin{verbatimx}
@@ -255,7 +256,7 @@ def histogram_cat(obs):
     ....
 \end{verbatimx}
 
-\exequest Construire une fonction qui calcule la moyenne des $Y_i$ pour chaque catégorie : $\esp{Y | rouge}$, $\esp{Y | vert}$, $\esp{Y | bleu}$. La fonction retourne un dictionnaire \texttt{ \{ couleur : moyenne \}}.
+\exequest Construire une fonction qui calcule la moyenne des $Y_i$ pour chaque catÃ©gorie : $\esp{Y | rouge}$, $\esp{Y | vert}$, $\esp{Y | bleu}$. La fonction retourne un dictionnaire \texttt{ \{ couleur : moyenne \}}.
 
 \begin{verbatimx}
 def moyenne_cat(hist, Y):
@@ -264,12 +265,13 @@ def moyenne_cat(hist, Y):
 
 \exequest Construire le vecteur $Z_i = \esp{Y | rouge}\indicatrice{X_i = rouge} + \esp{Y | vert} \indicatrice{X_i = vert} + \esp{Y | bleu} \indicatrice{X_i = bleu}$.
 
-\exequest Utiliser le résultat de la question 3 pour calculer les coefficients de la régression $Y_i = a^* Z_i + b^*$.
+\exequest Utiliser le rÃ©sultat de la question 3 pour calculer les coefficients de la rÃ©gression $Y_i = a^* Z_i + b^*$.
 
 
 \exequest Calculer la matrice de variance / covariance pour les variables $(Y_i)$, $(Z_i)$, $(Y_i - Z_i)$, $\indicatrice{X_i = rouge}$, $\indicatrice{X_i = vert}$, $\indicatrice{X_i = bleu}$. 
 
-\exequest On permute rouge et vert. Construire le vecteur $W_i = \esp{Y | rouge}\indicatrice{X_i = vert} + \esp{Y | vert} \indicatrice{X_i = rouge} + \esp{Y | bleu} \indicatrice{X_i = bleu}$. Utiliser le résultat de la question 3 pour calculer les coefficients de la régression $Y_i = a^* W_i + b^*$. Vérifiez que l'erreur est supérieure.
+\exequest On permute rouge et vert. Construire le vecteur $W_i = \esp{Y | rouge}\indicatrice{X_i = vert} + \esp{Y | vert} \indicatrice{X_i = rouge} + \esp{Y | bleu} \indicatrice{X_i = bleu}$. Utiliser le rÃ©sultat de la question 3 pour calculer les coefficients de la rÃ©gression $Y_i = a^* W_i + b^*$.
+VÃ©rifiez que l'erreur est supÃ©rieure.
 
 
 \end{xexercice}
@@ -279,4 +281,4 @@ def moyenne_cat(hist, Y):
 
 
 
-\input{../../common/exo_end.tex}%
+\input{exo_end.tex}%
