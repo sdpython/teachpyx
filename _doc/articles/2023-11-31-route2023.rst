@@ -62,4 +62,4 @@ Séance 8
 TD noté 1h30 en seconde partie.
 Classes et un algorithme.
 Enoncés des années précédentes :
-:ref:`l-exams`
+:ref:`l-exams`.

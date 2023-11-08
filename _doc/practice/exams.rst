@@ -33,6 +33,7 @@ Enoncés
 * :download:`td_note_2022_rattrapage <exams/td_note_2022_rattrapage.pdf>`
 * :download:`td_note_2022_rattrapage2 <exams/td_note_2022_rattrapage2.pdf>`
 * :download:`td_note_2023 <exams/td_note_2023.pdf>`
+* :download:`td_note_2023-2024 <exams/td_note_2023-2024.pdf>`
 
 Corrections
 +++++++++++
@@ -58,6 +59,7 @@ Corrections
     exams/td_note_2022_rattrapage
     exams/td_note_2022_rattrapage2
     exams/td_note_2023
+    exams/td_note_2023-2024
 
 Exercices courts
 ================
