@@ -68,7 +68,7 @@ class Coding:
                         'E': '0100', 'F': '0101', 'G': '0110', 'H': '0111',
                         'I': '1000', 'J': '1001' }
 
-    def first_letter(chaine):
+    def first_letter(self, chaine):
         # ....
 
     def code(self, text):
@@ -126,7 +126,7 @@ assert which_coding("0000", codings) == codings[:1]
 
 %7
 \exequest Dans ce langage, les lettres sont toutes équiprobables.
-Quel code est le plus court pour un texte aléatoire très grand et quantifier le gain ?
+Quel code produit le texte codé le plus court pour un texte aléatoire très grand et quantifier le gain ?
 Que se passe-t-il si la lettre J a une probabilité de 0.5 et toutes les autres lettres ont la même probabilité
 d'apparition ? Que suggérez-vous pour optimiser le Coding en terme de longueur ?
 *Aucun code n'est demandé.*
