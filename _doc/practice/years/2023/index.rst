@@ -7,3 +7,4 @@
     editdist
     pivot_gauss
     prefix_search
+    bareme_note_optimisation
