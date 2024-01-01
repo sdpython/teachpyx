@@ -49,7 +49,7 @@ Extrait de
 * `cheat sheet python <https://perso.limsi.fr/pointal/_media/python:cours:mementopython3-english.pdf>`_
 * `Anaconda <https://www.anaconda.com/>`_,
   `miniconda <https://docs.conda.io/projects/miniconda/en/latest/>`_,
-  `mamba <https://mamba.readthedocs.io/en/latest/mamba-installation.html#mamba-install>`_
+  `mamba <https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html>`_
 * `Visual Studio Code <https://code.visualstudio.com/>`_
 * `git <https://git-scm.com/>`_, `github <https://github.com/>`_
 * `notebook <https://jupyter.org/>`_

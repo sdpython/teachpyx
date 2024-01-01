@@ -50,7 +50,7 @@ la rédaction d'un CV ou des questions types utilisées lors des
 entretiens pour tester la vivacité d'esprit des candidats. Un
 autre livre autour des Hedge Funds intitulé
 `Hedge funds, private equity, marchés financiers les frères ennemis ?
-<https://www.puf.com/content/Hedge_funds_private_equity_march%C3%A9s_financiers_%3A_les_fr%C3%A8res_ennemis>`_
+<https://www.puf.com/hedge-funds-private-equity-marches-financiers-les-freres-ennemis?v=20711>`_
 par Bertrand Jacquillat ([Jacquillat2008]_), c'est un recueil d'articles autour de l'utilité
 des Hedge Funds au sein du système économique et financier mondial, l'un d'eux se penche
 sur des moyens de mieux réguler leur activité pour l'instant peu contrainte.

@@ -270,7 +270,7 @@ epkg_dictionary = {
     "pyinstrument": "https://github.com/joerick/pyinstrument",
     "pypi": "https://pypi.org/",
     "PyPi": "https://pypi.org/",
-    "pylint": "https://www.pylint.org/",
+    "pylint": "https://github.com/pylint-dev/pylint",
     "python": "https://www.python.org/",
     "Python": "https://www.python.org/",
     "QuantileLinearRegression": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/mlinsights/mlmodel/quantile_regression.html#mlinsights.mlmodel.quantile_regression.QuantileLinearRegression",
