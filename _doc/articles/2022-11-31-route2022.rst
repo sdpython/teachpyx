@@ -19,8 +19,8 @@ Séance 3 - 21-9 - numpy, pandas
 
 * :ref:`Un bref aperçu des classes <nbl-practice-py-base-classes_metro>` : petit aperçu des classes pour mieux appréhender
   les matrices et les dataframes
-* :ref:`Calcul matriciel avec numpy (version courte) <nbl-c_data-nb_numpy>`
-* :ref:`Manipulation de données avec pandas (version courte) <nbl-c_data-nb_pandas>`
+* :ref:`Calcul matriciel avec numpy <nbl-c_data-nb_numpy>`
+* :ref:`Manipulation de données avec pandas <nbl-c_data-nb_pandas>`
 
 Séance 4 - 28-9 - graphes
 ^^^^^^^^^^^^^^^^^^^^^^^^^
