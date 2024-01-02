@@ -20,6 +20,7 @@ pas ou eu programmer. Le contenu est disponible sur
     introduction
     py/index
     c_data/index
+    c_ml/index
     c_resume/index
     articles/index
 
