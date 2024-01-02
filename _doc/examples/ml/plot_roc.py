@@ -130,11 +130,9 @@ plt.legend(loc="lower right")
 # les deux classes à la fois, suggère que les seuils optimaux seront
 # différents pour les deux premières questions.
 # La courbe :epkg:`ROC` ne change pas qu'on prenne la fonction
-# `predict_proba <http://scikit-learn.org/stable/modules/
-# generated/sklearn.linear_model.LogisticRegression.html#
+# `predict_proba <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#
 # sklearn.linear_model.LogisticRegression.predict_proba>`_
-# ou `decision_function <http://scikit-learn.org/stable/
-# modules/generated/sklearn.linear_model.LogisticRegression.html#
+# ou `decision_function <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#
 # sklearn.linear_model.LogisticRegression.decision_function>`_
 # car ces deux scores
 # sont liés par une fonction monotone.
@@ -177,8 +175,7 @@ plt.legend(loc="lower right")
 # est l'ensemble de ces documents dont le score est supérieur à un seuil *s*,
 # la précision est l'ensemble des documents bien classé parmi ceux-ci.
 # On utilise la fonction
-# `precision_recall_curve <http://scikit-learn.org/stable/
-# modules/generated/sklearn.metrics.precision_recall_curve.html#
+# `precision_recall_curve <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_curve.html#
 # sklearn.metrics.precision_recall_curve>`_.
 
 y_pred = logreg.predict(X_test)
@@ -218,8 +215,7 @@ plt.legend(loc="lower right")
 # scores même s'il intervient dans
 # chaque point de la courbe. Pour le faire apparaître, on utilise un graphe
 # où il est en abscisse.
-# La métrique `F1 <http://scikit-learn.org/stable/
-# modules/generated/sklearn.metrics.f1_score.html>`_
+# La métrique `F1 <https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html>`_
 # propose une pondération entre les deux :
 # :math:`F1 = 2 \frac{precision * rappel}{precision + rappel}`.
 
