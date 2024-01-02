@@ -285,7 +285,7 @@ Nuage de points
 C'est la traduction visuel de la corrélation. On dessine
 plutôt que de calculer un indicateur de la proximité de deux variables.
 On ne dessine jamais assez. Voici le
-:epkg:`nuage de points`_.
+:epkg:`nuage de points`.
 
 .. image:: images/nuage.png
     :width: 200
@@ -401,7 +401,7 @@ Pour avoir un aperçu de tout ce que vous avez raté :
 `Culture Algorithmique <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/specials/algorithm_culture.html>`_.
 En accéléré, très accéléré, il faut absolument connaître l'algorithme
 du `plus court chemin <https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_plus_court_chemin>`_,
-celui du `voyageur de commerce <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce>`_
+celui du :epkg:`voyageur de commerce`
 et la :epkg:`recherche dichotomique`.
 Le premier a un `coût algorithmique <https://fr.wikipedia.org/wiki/Analyse_de_la_complexit%C3%A9_des_algorithmes>`_
 en :math:`O(n^2)`, le coût suivant est exponentiel, le dernier est en :math:`O(\ln n)`.
@@ -442,7 +442,7 @@ La recherche dichotomique
 
 C'est en général le premier qu'on apprend dans un court d'algorithmie.
 Il consiste à optimiser la recherche d'un élément dans un tableau trié.
-La `recherche dichotomique <https://fr.wikipedia.org/wiki/Recherche_dichotomique>`_
+La :epkg:`recherche dichotomique`
 est une des petites choses qu'on teste lors d'un entretien d'embauche.
 Quelques exercices pour vous exercer :
 `Recherche dichotomique <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/recherche_dichotomique.html?highlight=dichotomie>`_.
@@ -458,7 +458,7 @@ d'un point :math:`X` dans un espace vectoriel de dimension :math:`d`
 Le voyageur du commerce
 +++++++++++++++++++++++
 
-Le problème du `voyageur de commerce <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce>`_
+Le problème du :epkg:`voyageur de commerce`
 consiste à parcourir une série de villes le plus rapidement possibles.
 C'est un des problèmes qu'on cite en premier pour illustrer
 les problèmes `NP-complet <https://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet>`_ :

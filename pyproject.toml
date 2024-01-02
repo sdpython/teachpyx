@@ -145,4 +145,4 @@ max-complexity = 10
 "_latex/ensae/*" = ["F811", "F821"]
 
 [tool.setuptools.package-data]
-teachpyx.datasets.data = ["*.csv", "*.gz", "*.json", "*.txt", "*.zip"]
+"*" = ["*.csv", "*.gz", "*.json", "*.txt", "*.zip"]
