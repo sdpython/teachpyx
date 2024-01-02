@@ -13,6 +13,7 @@ Exercices sur le langage python
     py-base/structures_donnees_conversion
     py-base/recherche_dichotomique
     py-base/exercice_hash
+    ../auto_examples/prog/plot_tarabiscote
 
 .. toctree::
     :maxdepth: 1
@@ -38,6 +39,8 @@ Exercices sur le langage python
     py-base/histogramme_rapide
     py-base/exercice_pi
     py-base/de_rotation
+    ../auto_examples/prog/plot_matador
+    ../auto_examples/prog/plot_partie_dame
 
 .. toctree::
     :maxdepth: 1
@@ -56,6 +59,13 @@ Exercices sur le langage python
     py-base/exercice_serialisation_json
     py-base/tests_unitaires
     py-base/scrapping
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Points particulier du langages
+
+    ../auto_examples/prog/plot_gil_example
+    ../auto_examples/prog/plot_lambda_function
 
 Les exercices suivants fonctionnent par pair énoncé et correction.
 

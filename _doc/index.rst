@@ -31,6 +31,8 @@ pas ou eu programmer. Le contenu est disponible sur
     practice/index_python
     practice/index_algo
     practice/index_exam
+    practice/index_data
+    practice/index_ml
 
 .. toctree::
     :maxdepth: 1

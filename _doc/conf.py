@@ -49,7 +49,7 @@ author = "Xavier Dupré"
 version = __version__
 release = __version__
 language = "fr"
-exclude_patterns = ["auto_examples/*.ipynb"]
+exclude_patterns = ["auto_examples/prog/*.ipynb", "auto_examples/ml/*.ipynb"]
 pygments_style = "sphinx"
 todo_include_todos = True
 nbsphinx_execute = "never"
@@ -248,6 +248,7 @@ epkg_dictionary = {
         ("https://docs.scipy.org/doc/numpy/reference/generated/numpy.{0}.html", 1),
         ("https://docs.scipy.org/doc/numpy/reference/generated/numpy.{0}.{1}.html", 2),
     ),
+    "OneHotEncoder": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html",
     "OpenMP": "https://www.openmp.org/",
     "pandas": (
         "https://pandas.pydata.org/pandas-docs/stable/",
@@ -380,6 +381,15 @@ epkg_dictionary.update(
         "backtest": "https://en.wikipedia.org/wiki/Backtesting",
         "Trend Following": "https://en.wikipedia.org/wiki/Trend_following",
         "pair trading": "https://en.wikipedia.org/wiki/Pairs_trade",
+    }
+)
+
+epkg_dictionary.update(
+    {
+        "machine learning": "https://en.wikipedia.org/wiki/Machine_learning",
+        "fortran": "https://en.wikipedia.org/wiki/Fortran",
+        "R": "https://www.r-project.org/",
+        "seaborn": "https://seaborn.pydata.org/",
     }
 )
 
