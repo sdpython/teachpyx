@@ -81,13 +81,13 @@ class TestDocumentationExamples(ExtTestCase):
                     ):
 
                         @unittest.skip("notebook with questions or issues with windows")
-                        def _test_(self, name=name):
+                        def _test_(self, name=name, fold=fold):
                             res = self.run_test(fold, name, verbose=VERBOSE)
                             self.assertIn(res, (-1, 1))
 
                     else:
 
-                        def _test_(self, name=name):
+                        def _test_(self, name=name, fold=fold):
                             res = self.run_test(fold, name, verbose=VERBOSE)
                             self.assertIn(res, (-1, 1))
 

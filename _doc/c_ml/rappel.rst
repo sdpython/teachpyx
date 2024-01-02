@@ -11,10 +11,6 @@ de nombreux endroits. Ces éléments mathématiques et informatiques
 sont nécessaires afin de comprendre comment fonctionnent les
 modèles de machine learning exposés.
 
-.. contents::
-    :local:
-    :depth: 1
-
 *Les illustrations sont soit faites maisons soit extraites de Wikipedia.*
 
 Rappels mathématiques
@@ -25,8 +21,7 @@ Rappels mathématiques
 Fonction
 ++++++++
 
-Une `fonction <https://fr.wikipedia.org/wiki/Fonction_(math%C3%A9matiques)>`_
-:math:`f` symbolise le lien entre deux grandeurs
+Une :epkg:`fonction` :math:`f` symbolise le lien entre deux grandeurs
 :math:`x` et :math:`f(x)` qu'on note
 :math:`x \rightarrow f(x)` ou :math:`y=f(x)`.
 Par exemple, :math:`x \rightarrow f(x)=x^2` est la fonction
@@ -41,7 +36,7 @@ Le graphe suivant représente ce lien :
 Fonction continue
 +++++++++++++++++
 
-Une `fonction continue <https://fr.wikipedia.org/wiki/Continuit%C3%A9_(math%C3%A9matiques)>`_
+Une :epkg:`fonction continue`
 signifie en gros que si :math:`x` varie un petit peu, :math:`f(x)` varie aussi un petit peu.
 On exprime cette propriété comme suit en terme mathématique.
 
@@ -182,8 +177,6 @@ l'algorithme du `gradient <https://fr.wikipedia.org/wiki/Algorithme_du_gradient>
 .. image:: images/Gradient_descent.png
     :width: 200
 
-.. index:: variable aléatoire
-
 Variable aléatoire
 ++++++++++++++++++
 
@@ -204,7 +197,7 @@ comprise entre 9.5 cm et 14.1 cm. Son ami paresseux lui retourne :
 j'aurai une taille de poissons rouges."
 
 C'est l'idée d'une
-`variable aléatoire <https://fr.wikipedia.org/wiki/Variable_al%C3%A9atoire>`_.
+:epkg:`variable aléatoire`
 Cela résume la façon dont une chose peut varier. Un nombre aléatoire
 choisi dans un intervalle est appelé
 `loi uniforme <https://fr.wikipedia.org/wiki/Loi_uniforme_continue>`_.
@@ -286,15 +279,13 @@ de *Spearman* est définie comme :
 Cette corrélation est moins sensibles aux valeurs extrêmes puisqu'elle
 s'intéresse à l'ordre des valeurs et non aux valeurs elles-mêmes.
 
-.. index:: nuage de points
-
 Nuage de points
 +++++++++++++++
 
 C'est la traduction visuel de la corrélation. On dessine
 plutôt que de calculer un indicateur de la proximité de deux variables.
 On ne dessine jamais assez. Voici le
-`nuage de points <https://fr.wikipedia.org/wiki/Nuage_de_points_(statistique)>`_ :
+:epkg:`nuage de points`_.
 
 .. image:: images/nuage.png
     :width: 200
@@ -328,9 +319,7 @@ en créant un programme qui la vérifie. Si ça ne marche, il est clair
 que le théorème est faux, si l'ordinateur dit que cela marche,
 c'est une bonne indication que le théorème peut être démontré.
 Une fois qu'il l'est, il peut être appliqué à l'infini sur quantité de
-problèmes. Quelques `cheatsheets <http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/cheat_sheets.html>`_.
-
-.. index:: csv
+problèmes.
 
 Le fichier csv
 ++++++++++++++
@@ -339,7 +328,7 @@ C'est un format de fichier qui structure l'information de telle sorte
 qu'il est très facile de la reconstruire. Nous aimons les tableaux,
 simples à visualiser, simples à manipuler. L'ordinateur ne connaît pas
 grand chose et tout se résume peu ou prou à une séquence de caractères.
-Le format `csv <https://fr.wikipedia.org/wiki/Comma-separated_values>`_
+Le format :epkg:`csv`
 est une convention pour retrouver l'information qui était à telle ligne
 et telle colonne. Un caractère indique qu'on passe à la colonne suivante,
 le plus souvent ``,``, un autre indique qu'on passe à la ligne suivante
@@ -413,7 +402,7 @@ Pour avoir un aperçu de tout ce que vous avez raté :
 En accéléré, très accéléré, il faut absolument connaître l'algorithme
 du `plus court chemin <https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_plus_court_chemin>`_,
 celui du `voyageur de commerce <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce>`_
-et la `recherche dichotomique <https://fr.wikipedia.org/wiki/Recherche_dichotomique>`_.
+et la :epkg:`recherche dichotomique`.
 Le premier a un `coût algorithmique <https://fr.wikipedia.org/wiki/Analyse_de_la_complexit%C3%A9_des_algorithmes>`_
 en :math:`O(n^2)`, le coût suivant est exponentiel, le dernier est en :math:`O(\ln n)`.
 :math:`n` est en quelque sorte la taille du problème, le nombre d'informations auxquelles

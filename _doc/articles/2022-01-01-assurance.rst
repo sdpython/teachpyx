@@ -2,9 +2,6 @@
 Assurance auto
 ==============
 
-.. contents::
-    :local:
-
 J'avoue que je ne savais pas trop où allait partir cette
 séance de cours quand je l'ai commencée avec seulement
 l'idée qu'on n'a pas toujours besoin des données pour
@@ -26,8 +23,8 @@ Nous sommes partis pour l'assurance auto même si je n'ai
 pas le permis et que mon rêve est que les chauffeurs
 disparaissent.
 
-Assurance auto
-++++++++++++++
+Assurance
++++++++++
 
 L'assurance est un moyen de mutualiser les risques.
 C'est-à-dire les conséquences financières d'un accident

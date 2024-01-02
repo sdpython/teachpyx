@@ -231,7 +231,7 @@ def same_variable(a, b):
         * `How to Create Immutable Classes in Python
           <http://www.blog.pythonlibrary.org/2014/01/17/how-to-create-immutable-classes-in-python/>`_
         * `Ways to make a class immutable in Python
-          <http://stackoverflow.com/questions/4996815/ways-to-make-a-class-immutable-in-python>`_
+          <https://stackoverflow.com/questions/4996815/ways-to-make-a-class-immutable-in-python>`_
         * surcharger des méthodes `__getattr__
           <https://docs.python.org/3/reference/datamodel.html#object.__getattr__>`_,
           `__getattribute__
