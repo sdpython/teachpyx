@@ -6,23 +6,23 @@
 \fi
 
 \firstpassagedo{
-\huge TD noté, 12 décembre 2007
+\huge TD notï¿½, 12 dï¿½cembre 2007
 
 \normalsize
-\textit{Le programme construit au fur et à mesure des questions devra être imprimé à la fin du TD et rendu au chargé de TD. Il ne faut pas oublier de mentionner son nom en commentaires au début du programme. Des commentaires insérés dans le programme permettront de retrouver les réponses de chaque question.}
+\textit{Le programme construit au fur et ï¿½ mesure des questions devra ï¿½tre imprimï¿½ ï¿½ la fin du TD et rendu au chargï¿½ de TD. Il ne faut pas oublier de mentionner son nom en commentaires au dï¿½but du programme. Des commentaires insï¿½rï¿½s dans le programme permettront de retrouver les rï¿½ponses de chaque question.}
 }
-\indexfrr{énoncé}{pratique}
+\indexfrr{ï¿½noncï¿½}{pratique}
 
 \exosubject{}
 \begin{xexercicenot}\label{td_note_label81}
 
-Lorsqu'on se connecte à un site internet, celui-ci enregistre votre adresse IP, l'heure et la date de connexion ainsi que la page ou le fichier désiré. Ainsi le fichier \textit{logpdf.txt}\footnote{Il faut télécharger ce fichier depuis l'adresse \url{http://www.xavierdupre.fr/enseignement/initiation/logpdf.txt}} recense ces quatre informations séparées par des espaces pour les fichiers d'extension \textit{pdf} téléchargés sur le site \url{http://www.xavierdupre.fr/}.
+Lorsqu'on se connecte ï¿½ un site internet, celui-ci enregistre votre adresse IP, l'heure et la date de connexion ainsi que la page ou le fichier dï¿½sirï¿½. Ainsi le fichier \textit{logpdf.txt}\footnote{Il faut tï¿½lï¿½charger ce fichier depuis l'adresse ??? recense ces quatre informations sï¿½parï¿½es par des espaces pour les fichiers d'extension \textit{pdf} tï¿½lï¿½chargï¿½s sur le site ???.
 
-\exequest La première étape consiste à charger les informations depuis le fichier texte dans une matrice de 4 colonnes (liste de listes, liste de t-uples). On utilisera pour cela les fonctions \codes{open} et les méthodes \codes{split}, \codes{replace} associées aux chaînes de caractères. On pourra s'aider des corrections des TD précédents.\ifnotellipse{ (2~points)}
+\exequest La premiï¿½re ï¿½tape consiste ï¿½ charger les informations depuis le fichier texte dans une matrice de 4 colonnes (liste de listes, liste de t-uples). On utilisera pour cela les fonctions \codes{open} et les mï¿½thodes \codes{split}, \codes{replace} associï¿½es aux chaï¿½nes de caractï¿½res. On pourra s'aider des corrections des TD prï¿½cï¿½dents.\ifnotellipse{ (2~points)}
 
-\exequest On souhaite dans un premier temps faire des statistiques sur les dates~: on veut compter le nombre de fichiers téléchargés pour chaque date présente dans les données. On pourra pour cela utiliser un dictionnaire dont la clé sera bien choisie. Le résultat devra être inséré dans une fonction prenant comme entrée une matrice (ou liste de listes, liste de t-uples) et retournant un dictionnaire comme résultat.\ifnotellipse{ (4~points)}
+\exequest On souhaite dans un premier temps faire des statistiques sur les dates~: on veut compter le nombre de fichiers tï¿½lï¿½chargï¿½s pour chaque date prï¿½sente dans les donnï¿½es. On pourra pour cela utiliser un dictionnaire dont la clï¿½ sera bien choisie. Le rï¿½sultat devra ï¿½tre insï¿½rï¿½ dans une fonction prenant comme entrï¿½e une matrice (ou liste de listes, liste de t-uples) et retournant un dictionnaire comme rï¿½sultat.\ifnotellipse{ (4~points)}
 
-\exequest On s'intéresse au programme suivant~: \vspaceneg
+\exequest On s'intï¿½resse au programme suivant~: \vspaceneg
 %
 \begin{verbatimx}
 l = [ (1, "un"), (3, "deux",), (2, "deux"), (1, "hun"), (-1, "moinsun") ]
@@ -30,21 +30,21 @@ l.sort (reverse = True)
 print l
 \end{verbatimx}
 %
-\vspaceneg Donc le résultat est~: \vspaceneg
+\vspaceneg Donc le rï¿½sultat est~: \vspaceneg
 %
 \begin{verbatimx}
 [(3, 'deux'), (2, 'deux'), (1, 'un'), (1, 'hun'), (-1, 'moinsun')]
 \end{verbatimx}
 %
-\vspaceneg Que s'est-il passé~?\ifnotellipse{ (2~points)}
+\vspaceneg Que s'est-il passï¿½~?\ifnotellipse{ (2~points)}
 
-\exequest On désire maintenant connaître les 10 dates pour lesquelles il y a eu le plus de téléchargements ces jours-là. L'inconvénient est que le dictionnaire élaboré à la question~2 ne retourne pas les réponses dans l'ordre souhaité~: il faut classer les dates par nombre de téléchargements croissants. Il faut ici imaginer une fonction qui retourne ces dix meilleures dates et des dix fréquentations correspondantes en se servant de la remarque de la question~3.\ifnotellipse{ (4~points)} \ifnotellipse{A quels événements correspondent les quatre premières dates~? (Cette petite question ne rapporte pas de point.)}
+\exequest On dï¿½sire maintenant connaï¿½tre les 10 dates pour lesquelles il y a eu le plus de tï¿½lï¿½chargements ces jours-lï¿½. L'inconvï¿½nient est que le dictionnaire ï¿½laborï¿½ ï¿½ la question~2 ne retourne pas les rï¿½ponses dans l'ordre souhaitï¿½~: il faut classer les dates par nombre de tï¿½lï¿½chargements croissants. Il faut ici imaginer une fonction qui retourne ces dix meilleures dates et des dix frï¿½quentations correspondantes en se servant de la remarque de la question~3.\ifnotellipse{ (4~points)} \ifnotellipse{A quels ï¿½vï¿½nements correspondent les quatre premiï¿½res dates~? (Cette petite question ne rapporte pas de point.)}
 
-\exequest Effectuez le même travail pour déterminer les dix documents les plus téléchargés.\ifnotellipse{ (2~points)}
+\exequest Effectuez le mï¿½me travail pour dï¿½terminer les dix documents les plus tï¿½lï¿½chargï¿½s.\ifnotellipse{ (2~points)}
 
-\exequest Ecrire une fonction qui retourne l'heure sous forme d'entier à partir d'une date définie par une chaîne de caractères au format \codes{"hh:mm:ss"}. Par exemple, pour \codes{"14:55:34"}, la fonction doit retourner~14 sous forme d'entier. L'instruction \codes{int ("14")} convertit une chaîne de caractères en un entier.\ifnotellipse{ (2~points)}
+\exequest Ecrire une fonction qui retourne l'heure sous forme d'entier ï¿½ partir d'une date dï¿½finie par une chaï¿½ne de caractï¿½res au format \codes{"hh:mm:ss"}. Par exemple, pour \codes{"14:55:34"}, la fonction doit retourner~14 sous forme d'entier. L'instruction \codes{int ("14")} convertit une chaï¿½ne de caractï¿½res en un entier.\ifnotellipse{ (2~points)}
 
-\exequest Calculer le nombre de documents téléchargés pour chaque heure de la journée. Le site est-il consulté plutôt le matin ou le soir~? Serait-il possible de conclure aussi rapidement pour un site d'audience internationale~?\ifnotellipse{ (4~points)}
+\exequest Calculer le nombre de documents tï¿½lï¿½chargï¿½s pour chaque heure de la journï¿½e. Le site est-il consultï¿½ plutï¿½t le matin ou le soir~? Serait-il possible de conclure aussi rapidement pour un site d'audience internationale~?\ifnotellipse{ (4~points)}
 
 
 \end{xexercicenot}
@@ -57,7 +57,7 @@ print l
 \begin{xdemoexonot}{td_note_label81}
 
 \bigskip
-\inputcodes{../python_examen/td_note_2008.py}{exercice pour s'évaluer}{, correction 2008}
+\inputcodes{../python_examen/td_note_2008.py}{exercice pour s'ï¿½valuer}{, correction 2008}
 \vspaceneg
 
 \end{xdemoexonot}

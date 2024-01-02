@@ -301,16 +301,12 @@ Rappels informatiques
 Il vaut mieux savoir programmer avant de lire la suite
 à moins de n'être intéressé que par les concepts sans
 avoir la volonté de pratiquer. Tous les exemples sont
-proposés en langage :epkg:`Python` et voici quelques points
-qu'il vous faudra savoir maîtriser :
-`Rappel de ce que vous savez déjà mais avez peut-être oublié <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td2_eco_rappels_1a.html>`_.
-Vous devriez également savoir faire sans regarder la solution
-les exercices
-`Exemples classiques <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/i_examples_classiques.html>`_,
-vous devriez comprendre les gammes proposées par
-`D'une structure de données à l'autre <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/structures_donnees_conversion.html>`_
+proposés en langage :epkg:`Python`.
+Vous devriez comprendre les gammes proposées par
+:ref:`Structures de données <nbl-practice-py-base-structures_donnees_conversion>`,
 et savoir choisir quel objet est le plus approprié :
-`Liste, tuple, ensemble, dictionnaire, liste chaînée, coût des opérations <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/code_liste_tuple.html>`_.
+:ref:`Liste, tuple, ensemble, dictionnaire, liste chaînée, coût des opérations
+<nbl-practice-py-base-code_liste_tuple>`.
 La programmation a pris beaucoup d'ampleur aujourd'hui.
 Il faut imaginer que les mathématiciens ont fait tous leur calculs
 sans machine jusqu'à la seconde guerre mondiale alors qu'il est
@@ -346,7 +342,7 @@ type d'information, nombre ou texte le plus souvent.
 Le module :epkg:`pandas` a considérablement
 facilité leur utilisation en :epkg:`Python`.
 Pour vous exercez
-`DataFrame et Graphes <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td2a_cenonce_session_1.html>`_.
+:ref:`DataFrame et Graphes <nbl-c_data-nb_pandas>`.
 
 .. index:: array
 
@@ -356,9 +352,7 @@ Array
 C'est la représentation informatique d'une matrice
 et des opérations qui lui sont associées.
 Pour vous exercez :
-`Calcul Matriciel, Optimisation <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td2a_cenonce_session_2A.html>`_.
-Lire également
-`Pourquoi pandas et numpy, pourquoi pas seulement pandas (2A) ? <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/blog/2017/2017-09-19_pandas_numpy.html>`_.
+:ref:`Calcul Matriciel, Optimisation <nbl-c_data-nb_array>`.
 
 .. index:: fonction de hash, hash
 
@@ -373,7 +367,7 @@ une fois *hashées*. Cette fonction est aussi une façon d'uniformiser une distr
 Cette propriété est utilisée pour optimiser le coût de nombreux algorithmes. Elle
 garantit la construction d'arbres équilibrés et améliore la répartition des calculs.
 Pour en savoir plus à ce sujet :
-`Hash et distribution <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/hash_distribution.html>`_.
+`Hash et distribution <https://sdpython.github.io/doc/teachcompute/dev/practice/expose/hash_distribution.html>`_.
 
 .. index:: arbre, graphe
 

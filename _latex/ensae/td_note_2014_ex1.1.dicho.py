@@ -6,9 +6,6 @@
 
 
 def recherche_dichotomique(element, liste_triee):
-    """
-    premier code: http://www.xavierdupre.fr/blog/2013-12-01_nojs.html
-    """
     a = 0
     b = len(liste_triee) - 1
     m = (a + b) // 2

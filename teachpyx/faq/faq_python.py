@@ -425,10 +425,6 @@ def enumerate_regex_search(exp, text):
             found = exp.search(text)
             for m in exp.finditer(text):
                 # ...
-
-        Voir également `Petites subtilités avec les expressions
-        régulières en Python
-        <http://www.xavierdupre.fr/blog/2014-12-02_nojs.html>`_.
     """
     # found = exp.search(text)
     if isinstance(exp, str):

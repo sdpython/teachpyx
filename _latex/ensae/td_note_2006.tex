@@ -2,39 +2,39 @@
 \input{../../common/exo_begin.tex}%
 
 \firstpassagedo{
-\huge TD noté 2005
+\huge TD notï¿½ 2005
 
 \normalsize
 \textit{
-L'exercice devra être imprimé à la fin du TD et rendu au chargé de TD. Il ne faut pas oublier de mentionner son nom en commentaires au début du programme.}
+L'exercice devra ï¿½tre imprimï¿½ ï¿½ la fin du TD et rendu au chargï¿½ de TD. Il ne faut pas oublier de mentionner son nom en commentaires au dï¿½but du programme.}
 }
 
-\indexfrr{énoncé}{pratique}
+\indexfrr{ï¿½noncï¿½}{pratique}
 \exosubject{}
 \begin{xexercicenot}\label{td_note_label_2006}
 
 
-L'objectif de cet exercice est de programmer une recherche dans une liste triée.
+L'objectif de cet exercice est de programmer une recherche dans une liste triï¿½e.
 
-\exequest Il faut d'abord récupérer un fichier texte disponible sur Intranet\footnote{\url{http://www.xavierdupre.fr/enseignement/initiation/td_note_texte.txt}}. Ce fichier contient un mot par ligne. Il faut lire ce fichier et construire une liste avec tous ces mots.\ifnotellipse{ (4~points)}
+\exequest Il faut d'abord rï¿½cupï¿½rer un fichier texte disponible sur Intranet. Ce fichier contient un mot par ligne. Il faut lire ce fichier et construire une liste avec tous ces mots.\ifnotellipse{ (4~points)}
 
-\exequest Construire une fonction qui vérifie que la liste chargée à la question précédente est triée.\ifnotellipse{ (4~points)}
+\exequest Construire une fonction qui vï¿½rifie que la liste chargï¿½e ï¿½ la question prï¿½cï¿½dente est triï¿½e.\ifnotellipse{ (4~points)}
 
-\exequest Construire une fonction qui recherche un mot~X dans la liste et qui retourne sa position ou -1 si ce mot n'y est pas. Cette fonction prend deux paramètres~: la liste et le mot à chercher. Elle retourne un entier. On précise que pour savoir si deux chaînes de caractères sont égales, il faut utiliser l'opérateur~==.\ifnotellipse{ (4~points)}
+\exequest Construire une fonction qui recherche un mot~X dans la liste et qui retourne sa position ou -1 si ce mot n'y est pas. Cette fonction prend deux paramï¿½tres~: la liste et le mot ï¿½ chercher. Elle retourne un entier. On prï¿½cise que pour savoir si deux chaï¿½nes de caractï¿½res sont ï¿½gales, il faut utiliser l'opï¿½rateur~==.\ifnotellipse{ (4~points)}
 
-\exequest Quels sont les positions des mots "UN" et "DEUX"~? La réponse doit figurer en commentaire dans le programme. Il faudra écrire aussi le nombre de comparaisons effectuées pour trouver ces deux positions.\ifnotellipse{ (2~points)}
+\exequest Quels sont les positions des mots "UN" et "DEUX"~? La rï¿½ponse doit figurer en commentaire dans le programme. Il faudra ï¿½crire aussi le nombre de comparaisons effectuï¿½es pour trouver ces deux positions.\ifnotellipse{ (2~points)}
 
-\exequest Lorsqu'une liste est triée, rechercher un élément est beaucoup plus rapide. Si on cherche le mot~X dans la liste, il suffit de le comparer au mot du milieu pour savoir si ce mot est situé dans la partie basse (X~inférieur au mot du milieu), la partie haute (X~supérieur au mot du milieu). S'il est égal, le mot a été trouvé. Si le mot n'a pas été trouvé, on recommence avec la sous-liste inférieure ou supérieure selon les cas jusqu'à ce qu'on ait trouvé le mot ou qu'on soit sûr que le mot cherché n'y est pas.
+\exequest Lorsqu'une liste est triï¿½e, rechercher un ï¿½lï¿½ment est beaucoup plus rapide. Si on cherche le mot~X dans la liste, il suffit de le comparer au mot du milieu pour savoir si ce mot est situï¿½ dans la partie basse (X~infï¿½rieur au mot du milieu), la partie haute (X~supï¿½rieur au mot du milieu). S'il est ï¿½gal, le mot a ï¿½tï¿½ trouvï¿½. Si le mot n'a pas ï¿½tï¿½ trouvï¿½, on recommence avec la sous-liste infï¿½rieure ou supï¿½rieure selon les cas jusqu'ï¿½ ce qu'on ait trouvï¿½ le mot ou qu'on soit sï¿½r que le mot cherchï¿½ n'y est pas.
 
-Le résultat de la recherche est la position du mot dans la liste ou~-1 si ce mot n'a pas été trouvé. Cette recherche s'appelle une recherche dichotomique. \indexfr{dichotomie}\indexfr{recherche dichotomique}
+Le rï¿½sultat de la recherche est la position du mot dans la liste ou~-1 si ce mot n'a pas ï¿½tï¿½ trouvï¿½. Cette recherche s'appelle une recherche dichotomique. \indexfr{dichotomie}\indexfr{recherche dichotomique}
 
-Ecrire la fonction qui effectue la recherche dichotomique d'un mot dans une liste triée de mots. Vérifiez que les deux fonctions retournent bien les mêmes résultats. Cette fonction peut être récursive ou non. Elle prend au moins les deux mêmes paramètres que ceux de la question~3, si elle en a d'autres, il faudra leur donner une valeur par défaut. On précise que les comparaisons entre chaînes de caractères utilisent aussi les opérateurs <, ==, >.\ifnotellipse{ (4~points)}
+Ecrire la fonction qui effectue la recherche dichotomique d'un mot dans une liste triï¿½e de mots. Vï¿½rifiez que les deux fonctions retournent bien les mï¿½mes rï¿½sultats. Cette fonction peut ï¿½tre rï¿½cursive ou non. Elle prend au moins les deux mï¿½mes paramï¿½tres que ceux de la question~3, si elle en a d'autres, il faudra leur donner une valeur par dï¿½faut. On prï¿½cise que les comparaisons entre chaï¿½nes de caractï¿½res utilisent aussi les opï¿½rateurs <, ==, >.\ifnotellipse{ (4~points)}
 
-\exequest Normalement, les positions des mots "UN" et "DEUX" n'ont pas changé mais il faut de nouveau déterminer le nombre d'itérations effectuées pour trouver ces deux positions avec la recherche dichotomique.\ifnotellipse{ (2~points)}
+\exequest Normalement, les positions des mots "UN" et "DEUX" n'ont pas changï¿½ mais il faut de nouveau dï¿½terminer le nombre d'itï¿½rations effectuï¿½es pour trouver ces deux positions avec la recherche dichotomique.\ifnotellipse{ (2~points)}
 
-\exequest Quel est, au pire\footnote{On cherche la meilleure majoration du coût de la recherche non dichotomique en fonction de la taille~$n$ de la liste.}, le coût d'une recherche non dichotomique~? La réponse doit figurer en commentaire dans le programme.\ifnotellipse{ (1~point)}
+\exequest Quel est, au pire\footnote{On cherche la meilleure majoration du coï¿½t de la recherche non dichotomique en fonction de la taille~$n$ de la liste.}, le coï¿½t d'une recherche non dichotomique~? La rï¿½ponse doit figurer en commentaire dans le programme.\ifnotellipse{ (1~point)}
 
-\exequest Quel est, au pire, le coût d'une recherche dichotomique~? La réponse doit figurer en commentaire dans le programme.\ifnotellipse{ (1~point)}
+\exequest Quel est, au pire, le coï¿½t d'une recherche dichotomique~? La rï¿½ponse doit figurer en commentaire dans le programme.\ifnotellipse{ (1~point)}
 
 
 
@@ -47,7 +47,7 @@ Ecrire la fonction qui effectue la recherche dichotomique d'un mot dans une list
 \begin{xdemoexonot}{td_note_label_2006}
 
 \bigskip
-\inputcodes{../python_examen/td_note_2006.py}{exercice pour s'évaluer}{, correction 2006}
+\inputcodes{../python_examen/td_note_2006.py}{exercice pour s'ï¿½valuer}{, correction 2006}
 \vspaceneg
 
 \end{xdemoexonot}

@@ -11,15 +11,6 @@ print(pieces)  # affiche [50, 20, 10, 5, 2, 1]
 # il existait d'autres solutions
 pieces.sort(reverse=True)
 
-# ou encore l'utilisation d'une fonction compare modifi�e
-# qui s'inspire de l'exemple
-# http://www.xavierdupre.fr/enseignement/initiation/...
-# ...initiation_via_python_ellipse/chap2_type_tex_-_tri-_3.html
-
-# on encore un tri programm�
-# http://www.xavierdupre.fr/enseignement/initiation/...
-# ...initiation_via_python_ellipse/chap3_syntaxe_tex_-_tri-_27.html
-
 ##################################################################
 # question 2 : trouve la plus grande pi�ce inf�rieure � un montant
 ##################################################################
@@ -238,9 +229,5 @@ Le co�t de la fonction decomposer_optimal r�cursive est en O(a^n) avec 1,96 
 
 Pour des explications plus cons�quentes, voir la page
 http://fr.wikipedia.org/wiki/Suite_r%C3%A9currente_lin%C3%A9aire
-sur les suites r�currentes et l'exercice 12.3.3 du livre :
-http://www.xavierdupre.fr/enseignement/initiation/...
- ...initiation_via_python_ellipse.pdf
-(ou 13.3.3 http://www.xavierdupre.fr/enseignement/...
- ...initiation/initiation_via_python_small.pdf).
+sur les suites r�currentes.
 """

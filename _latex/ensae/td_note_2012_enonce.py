@@ -12,11 +12,7 @@ def charge_donnees(nom="donnees_enquete_2003_television.txt"):
         f.close()
     else:
         # si le fichier n'existe pas
-        link = (
-            "http://www.xavierdupre.fr/enseignement/td_python/"
-            + "python_td_minute/data/examen/"
-            + nom
-        )
+        link = "???" + "python_td_minute/data/examen/" + nom
         url = urllib.urlopen(link)
         text = url.read()
         # on enregistre les donn�es pour �viter de les t�l�charger une seconde fois

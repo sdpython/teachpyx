@@ -5,8 +5,7 @@ Receiver Operating Characteristic (ROC)
 
 Un problème de classification binaire consiste à trouver
 un moyen de séparer deux nuages de points
-(voir `classification <http://www.xavierdupre.fr/app/mlstatpy/
-helpsphinx/c_ml/rn/rn_3_clas.html>`_)
+(voir `classification <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/rn/rn_3_clas.html>`_)
 et on évalue le plus souvent sa pertinence à l'aide d'une courbe
 :epkg:`ROC`. Cet exemple montre différente représentation de la même
 information.
@@ -262,8 +261,7 @@ ax[1].legend()
 # *score pour une observation mal classée*
 # et :math:`S_T` la variable aléatoire
 # *score pour une observation bien classée*
-# (voir `ROC <http://www.xavierdupre.fr/app/
-# mlstatpy/helpsphinx/c_metric/roc.html>`_).
+# (voir `ROC <https://sdpython.github.io/doc/mlstatpy/dev/c_metric/roc.html>`_).
 
 y_pred = logreg.predict(X_test)
 y_proba = logreg.predict_proba(X_test)
