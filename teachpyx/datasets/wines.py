@@ -28,13 +28,14 @@ def load_wines_dataset(
     :return: :class:`pandas.DataFrame`
     """
     if download:
-        url = "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/"
-        red = pandas.read_csv(url + "winequality-red.csv", sep=";")
-        white = pandas.read_csv(url + "winequality-white.csv", sep=";")
-        red["color"] = "red"
-        white["color"] = "white"
-        df = pandas.concat([red, white])
-        df.columns = [_.replace(" ", "_") for _ in df.columns]
+        raise NotImplementedError("Not implemented with the new website.")
+        # url = "https://archive.ics.uci.edu/dataset/186/wine+quality.zip"
+        # red = pandas.read_csv(url + "winequality-red.csv", sep=";")
+        # white = pandas.read_csv(url + "winequality-white.csv", sep=";")
+        # red["color"] = "red"
+        # white["color"] = "white"
+        # df = pandas.concat([red, white])
+        # df.columns = [_.replace(" ", "_") for _ in df.columns]
     else:
         fold = get_data_folder()
         data = os.path.join(fold, "wines-quality.csv")

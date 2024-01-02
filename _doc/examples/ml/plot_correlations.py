@@ -17,7 +17,8 @@ print(df.head(n=2).T)
 
 ####################
 # Les corrélations avec :epkg:`seaborn`.
+corr = df.corr(numeric_only=True)
 
-clustermap(df.corr(), center=0, cmap="vlag", linewidths=0.75, figsize=(4, 4))
+clustermap(corr, center=0, cmap="vlag", linewidths=0.75, figsize=(4, 4))
 
 # plt.show()

@@ -28,10 +28,7 @@ def list_notebooks(
         ),
     ]
     nb_ = list(filter(os.path.exists, nbs))
-    if len(nb_) == 0:
-        raise FileNotFoundError(  # pragma: no cover
-            "Unable to find notebooks in\n{0}".format("\n".join(nbs))
-        )
+    assert len(nb_) > 0, "Unable to find notebooks in\n{0}".format("\n".join(nbs))
     nb = nb_[0]
 
     name_ = name
@@ -39,10 +36,7 @@ def list_notebooks(
         names = [_ for _ in os.listdir(nb) if _.startswith(name_)]
     if contains is not None:
         names = [_ for _ in os.listdir(nb) if contains in _]
-    if len(names) == 0:
-        raise FileNotFoundError(  # pragma: no cover
-            f"Unable to find any notebook in '{nb}'."
-        )
+    assert len(names) > 0, f"Unable to find any notebook in '{nb}'."
     return names
 
 
