@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """
 Receiver Operating Characteristic (ROC)
 =======================================
@@ -11,29 +11,22 @@ et on évalue le plus souvent sa pertinence à l'aide d'une courbe
 :epkg:`ROC`. Cet exemple montre différente représentation de la même
 information.
 
-.. contents::
-    :local:
+Classification binaire
+----------------------
+
+On commence par générer un nuage de points artificiel.
 """
 
-###########################
-#
-# Classification binaire
-# ----------------------
-#
-# On commence par générer un nuage de points artificiel.
-
-from sklearn.metrics import f1_score
-from sklearn.metrics import precision_recall_curve
 import numpy
-from sklearn.metrics import roc_curve
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import f1_score, precision_recall_curve, roc_curve, confusion_matrix
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
 from sklearn.datasets import make_classification
+import matplotlib.pyplot as plt
+from teachpyx.ext_test_case import unit_test_going
 
 X, Y = make_classification(
-    n_samples=10000, n_features=2, n_classes=2, n_repeated=0, n_redundant=0
+    n_samples=10000 if unit_test_going() else 100, n_features=2, n_classes=2, n_repeated=0, n_redundant=0
 )
 
 ###########################

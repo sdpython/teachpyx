@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 """
 Corrélations
 ============
@@ -7,11 +7,10 @@ Dessine les corrélations pour un jeu de données.
 """
 
 from seaborn import clustermap
+from teachpyx.datasets import load_wines_dataset
 
 #########################
 # Récupération des données
-
-from papierstat.datasets import load_wines_dataset
 
 df = load_wines_dataset()
 print(df.head(n=2).T)

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 from typing import Callable, Dict, List, Optional, Tuple
 import random
 import math

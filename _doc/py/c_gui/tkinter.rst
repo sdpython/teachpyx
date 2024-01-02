@@ -1656,7 +1656,7 @@ affiche une fenêtre qui permet de sélectionner un fichier.
 
 ::
 
-    # -*- coding: utf-8 -*-
+    # coding: utf-8
     """module contenant une boîte de dialogue permettant
     de sélectionner un fichier ou un répertoire,
     il utilise l'interface Tkinter"""

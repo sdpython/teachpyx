@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 import datetime
 
 
@@ -28,13 +28,13 @@ def commentaire_accentues():
 
         ::
 
-            # -*- coding: latin-1 -*-
+            # coding: latin-1
 
         Ou pour tout caractère y compris chinois :
 
         ::
 
-            # -*- coding: utf-8 -*-
+            # coding: utf-8
 
         Si vous utilisez l'éditeur
         `SciTE <http://www.scintilla.org/SciTE.html>`_ sous Windows,
