@@ -4,7 +4,6 @@ from teachpyx.datasets import load_wine_dataset
 
 
 class TestWine(ExtTestCase):
-
     def test_wines_download(self):
         df = load_wine_dataset(download=True)
         self.assertEqual(df.shape, (178, 14))

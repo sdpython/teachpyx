@@ -18,7 +18,12 @@ On commence par générer un nuage de points artificiel.
 """
 
 import numpy
-from sklearn.metrics import f1_score, precision_recall_curve, roc_curve, confusion_matrix
+from sklearn.metrics import (
+    f1_score,
+    precision_recall_curve,
+    roc_curve,
+    confusion_matrix,
+)
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import make_classification
@@ -26,7 +31,11 @@ import matplotlib.pyplot as plt
 from teachpyx.ext_test_case import unit_test_going
 
 X, Y = make_classification(
-    n_samples=10000 if unit_test_going() else 100, n_features=2, n_classes=2, n_repeated=0, n_redundant=0
+    n_samples=10000 if unit_test_going() else 100,
+    n_features=2,
+    n_classes=2,
+    n_repeated=0,
+    n_redundant=0,
 )
 
 ###########################
