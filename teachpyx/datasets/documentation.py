@@ -35,7 +35,12 @@ def list_notebooks(
         names = [_ for _ in os.listdir(nb) if _.startswith(name_)]
     if contains is not None:
         names = [_ for _ in os.listdir(nb) if contains in _]
-    assert len(names) > 0, f"Unable to find any notebook in {nb!r}."
+    assert len(names) > 0, (
+        f"Unable to find any notebook in {nb!r} "
+        f"(this file is {__file__}, "
+        f"root is {root(subfolder)}, "
+        f"sub is {subfolder!r}, name is {name!r})."
+    )
     return names
 
 
