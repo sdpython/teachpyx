@@ -14,7 +14,7 @@ def load_enedis_dataset() -> pandas.DataFrame:
     .. runpython::
         :rst:
 
-        from papierstat.datasets.documentation import list_notebooks_rst_links
+        from teachpyx.datasets.documentation import list_notebooks_rst_links
         links = list_notebooks_rst_links("c_data", "enedis")
         links = ["    * %s" % s for s in links]
         print("\\n".join(links))

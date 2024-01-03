@@ -5,12 +5,12 @@ Jeux de données
 Cartographie
 ============
 
-.. autosignature:: papierstat.datasets.enedis.load_enedis_dataset
+.. autosignature:: teachpyx.datasets.load_enedis_dataset
 
 Classification
 ==============
 
-.. autofunction:: teachpyx.datasets.wines.load_wines_dataset
+.. autofunction:: teachpyx.datasets.load_wines_dataset
 
 Outils
 ======

@@ -58,7 +58,7 @@ def load_wine_dataset(
     .. runpython::
         :rst:
 
-        from papierstat.datasets.documentation import list_notebooks_rst_links
+        from teachpyx.datasets.documentation import list_notebooks_rst_links
         links = list_notebooks_rst_links("ml", "linreg")
         links = ["    * %s" % s for s in links]
         print("\\n".join(links))
