@@ -74,7 +74,8 @@ def list_notebooks_rst_links(
         return title
 
     names = list_notebooks(subfolder, name, contains)
+    prefix = "" if subfolder == "c_data" else "practice-"
     return [
-        f":ref:`{_title(subfolder, name)} <nbl-practice-{subfolder}-{_name(name)}>`"
+        f":ref:`{_title(subfolder, name)} <nbl-{prefix}{subfolder}-{_name(name)}>`"
         for name in names
     ]

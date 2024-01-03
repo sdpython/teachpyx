@@ -13,7 +13,7 @@ class TestDocumentation(ExtTestCase):
     def test_documentation_enedis(self):
         links = list_notebooks_rst_links("c_data", "enedis")
         self.assertNotEmpty(links)
-        self.assertIn("<nbl-", links[0])
+        self.assertIn("<nbl-c_data", links[0])
         self.assertIn("enedis", links[0])
 
     def _test_documentation_movie(self):
