@@ -1,9 +1,10 @@
 Change Logs
 ===========
 
-0.3.2
+0.4.0
 +++++
 
+* :pr:`54`: add content for machine learning
 * :pr:`47`: add helpers to create a video
 
 0.3.1

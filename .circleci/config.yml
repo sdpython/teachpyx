@@ -11,8 +11,8 @@ jobs:
 
       - restore_cache:
           keys:
-          - v2-dependencies-{{ checksum "requirements-dev.txt" }}
-          - v2-dependencies-
+          - v3-dependencies-{{ checksum "requirements-dev.txt" }}
+          - v3-dependencies-
 
       - run:
           name: Install pandoc
@@ -52,12 +52,13 @@ jobs:
       - run:
           name: install dependencies 2
           command: |
+            pip install -r requirements.txt
             pip install -r requirements-dev.txt
 
       - save_cache:
           paths:
             - ./venv
-          key: v2-dependencies-{{ checksum "requirements-dev.txt" }}
+          key: v3-dependencies-{{ checksum "requirements-dev.txt" }}
         
       - run:
           name: version

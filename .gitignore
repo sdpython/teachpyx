@@ -16,6 +16,7 @@ onnxruntime_profile*
 prof
 temp_*
 essai.txt
+schema.proto
 .ipynb_checkpoints
 _latex/ensae/*.aux
 _latex/ensae/*.idx
