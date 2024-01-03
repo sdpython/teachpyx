@@ -35,7 +35,7 @@ def list_notebooks(
         names = [_ for _ in os.listdir(nb) if _.startswith(name_)]
     if contains is not None:
         names = [_ for _ in os.listdir(nb) if contains in _]
-    assert len(names) > 0, f"Unable to find any notebook in '{nb}'."
+    assert len(names) > 0, f"Unable to find any notebook in {nb!r}."
     return names
 
 
@@ -57,7 +57,10 @@ def list_notebooks_rst_links(
     def _title(sub, s):
         reg = re.compile("# (.+)")
         fn = os.path.join(root(sub), sub, s)
-        assert os.path.exists(fn), f"Unable to find filename {fn!r}."
+        assert os.path.exists(fn), (
+            f"Unable to find filename {fn!r} (this file is {__file__}, "
+            f"root is {root(sub)!r}, sub is {sub!r}, name is {name!r})."
+        )
         with open(fn, "r", encoding="utf-8") as f:
             content = f.read()
         f = reg.findall(content)
