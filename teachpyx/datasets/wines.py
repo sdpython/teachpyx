@@ -1,6 +1,6 @@
 import os
-import pandas
 from numpy.random import permutation
+import pandas
 from .data_helper import get_data_folder
 
 
@@ -65,7 +65,7 @@ def load_wine_dataset(
 
     :param download: télécharge le jeu de données ou considères une copie en local.
     :param shuffle: permute aléatoire les données (elles ne le sont pas)
-    :return: :class:`pandas:DataFrame`
+    :return: :class:`pandas.DataFrame`
     """
     if download:
         url = "https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"

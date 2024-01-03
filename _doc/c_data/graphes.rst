@@ -5,4 +5,4 @@ Graphes
 .. toctree::
     :maxdepth: 2
 
-    enedis_carte
+    enedis_cartes
