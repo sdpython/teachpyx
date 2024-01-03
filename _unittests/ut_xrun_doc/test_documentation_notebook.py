@@ -134,10 +134,11 @@ class TestDocumentationNotebook(ExtTestCase):
         this = os.path.abspath(os.path.dirname(__file__))
         folds = [
             os.path.join(this, "..", "..", "_doc", "c_data"),
-            os.path.join(this, "..", "..", "_doc", "practice", "exams"),
-            os.path.join(this, "..", "..", "_doc", "practice", "py-base"),
             os.path.join(this, "..", "..", "_doc", "practice", "algo-base"),
             os.path.join(this, "..", "..", "_doc", "practice", "algo-compose"),
+            os.path.join(this, "..", "..", "_doc", "practice", "exams"),
+            os.path.join(this, "..", "..", "_doc", "practice", "ml"),
+            os.path.join(this, "..", "..", "_doc", "practice", "py-base"),
             os.path.join(this, "..", "..", "_doc", "practice", "tds-base"),
             os.path.join(this, "..", "..", "_doc", "practice", "years", "2023"),
         ]
