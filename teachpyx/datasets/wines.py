@@ -19,9 +19,9 @@ def load_wines_dataset(
         :rst:
 
         from teachpyx.datasets.documentation import list_notebooks_rst_links
-        links = list_notebooks_rst_links('lectures', 'wines')
-        links = ['    * %s' % s for s in links]
-        print('\\n'.join(links))
+        links = list_notebooks_rst_links("ml", "wines")
+        links = ["    * %s" % s for s in links]
+        print("\\n".join(links))
 
     :param download: télécharge le jeu de données ou considères une copie en local.
     :param shuffle: permute aléatoire les données (elles ne le sont pas)
@@ -59,9 +59,9 @@ def load_wine_dataset(
         :rst:
 
         from papierstat.datasets.documentation import list_notebooks_rst_links
-        links = list_notebooks_rst_links('encours', 'linreg')
-        links = ['    * %s' % s for s in links]
-        print('\\n'.join(links))
+        links = list_notebooks_rst_links("ml", "linreg")
+        links = ["    * %s" % s for s in links]
+        print("\\n".join(links))
 
     :param download: télécharge le jeu de données ou considères une copie en local.
     :param shuffle: permute aléatoire les données (elles ne le sont pas)

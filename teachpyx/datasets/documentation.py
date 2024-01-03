@@ -18,12 +18,7 @@ def list_notebooks(
     nbs = [
         os.path.abspath(
             os.path.normpath(
-                os.path.join(this, "..", "..", "..", "..", "notebooks", subfolder)
-            )
-        ),
-        os.path.abspath(
-            os.path.normpath(
-                os.path.join(this, "..", "..", "..", "_doc", "notebooks", subfolder)
+                os.path.join(this, "..", "..", "_doc", "practice", subfolder)
             )
         ),
     ]
@@ -51,8 +46,9 @@ def list_notebooks_rst_links(
     :param contains: extrait à chercher
     :return: liste des liens
     """
+
+    def _name(s):
+        return os.path.splitext(os.path.split(s)[-1])[0]
+
     names = list_notebooks(subfolder, name, contains)
-    return [
-        f":ref:`{os.path.splitext(os.path.split(name)[1])[0].replace('_', '')}rst`"
-        for name in names
-    ]
+    return [f":ref:`nbl-practice-{subfolder}-{_name(name)}`" for name in names]
