@@ -63,7 +63,7 @@ angles d'approches.
     :caption: A parcourir
 
     ../auto_examples/prog/plot_einstein_riddle
-    ../auto_examples/prog/plot_float_and_double_rounding
+    ../auto_examples/prog/plot_float_and_double_rouding
     ../auto_examples/prog/plot_hypercube
     algo-compose/paris_parcours
     algo-compose/vigenere

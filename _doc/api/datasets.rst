@@ -15,4 +15,4 @@ Outils
 Régression
 ==========
 
-.. autofunction:: teachpyx.datasets.dummies.line2d
+.. autofunction:: teachpyx.datasets.load_wine_dataset
