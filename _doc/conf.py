@@ -389,6 +389,7 @@ epkg_dictionary.update(
         "fonction": "https://fr.wikipedia.org/wiki/Fonction_(math%C3%A9matiques)",
         "fonction continue": "https://fr.wikipedia.org/wiki/Continuit%C3%A9_(math%C3%A9matiques)",
         "machine learning": "https://en.wikipedia.org/wiki/Machine_learning",
+        "matrice de confusion": "https://fr.wikipedia.org/wiki/Matrice_de_confusion",
         "nuage de points": "https://fr.wikipedia.org/wiki/Nuage_de_points_(statistique)",
         "fortran": "https://en.wikipedia.org/wiki/Fortran",
         "R": "https://www.r-project.org/",
