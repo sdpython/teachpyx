@@ -118,6 +118,7 @@ Data
     c_data/nb_dataframe
     c_data/nb_numpy
     c_data/nb_pandas
+    c_data/enedis_cartes
 
 Correction d'examens
 ====================
@@ -155,5 +156,5 @@ Machine Learning
 .. nblinkgallery::
     :caption: machine learning
 
-    practice/ml/wines_color
-    practice/ml/wines_reg
+    practice/ml/winesc_color
+    practice/ml/winesr_reg

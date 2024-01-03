@@ -386,6 +386,7 @@ epkg_dictionary.update(
 epkg_dictionary.update(
     {
         "csv": "https://fr.wikipedia.org/wiki/Comma-separated_values",
+        "Enedis": "https://data.enedis.fr/",
         "fonction": "https://fr.wikipedia.org/wiki/Fonction_(math%C3%A9matiques)",
         "fonction continue": "https://fr.wikipedia.org/wiki/Continuit%C3%A9_(math%C3%A9matiques)",
         "machine learning": "https://en.wikipedia.org/wiki/Machine_learning",

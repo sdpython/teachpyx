@@ -5,6 +5,8 @@ Exercices minutés
 Ces exercices ont été proposés pour examens d'évaluation.
 Il est recommandé de savoir les faire en moins de deux heures.
 
+.. _l-examens-notes:
+
 Séances notées
 ==============
 

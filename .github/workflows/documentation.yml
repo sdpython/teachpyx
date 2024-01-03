@@ -61,8 +61,8 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Install
-        run: python setup.py install
+      # - name: Install
+      #   run: python setup.py install
 
       - name: Copy license
         run: cp LICENSE* ./_doc
@@ -70,7 +70,9 @@ jobs:
         run: cp CHANGELOGS* ./_doc
 
       - name: Documentation
-        run: python -m sphinx ./_doc ./dist/html -n -w doc.txt
+        run: |
+          export PYTHONPATH=.
+          python -m sphinx ./_doc ./dist/html -n -w doc.txt
 
       - name: Summary
         run: cat doc.txt

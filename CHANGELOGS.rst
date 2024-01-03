@@ -4,6 +4,7 @@ Change Logs
 0.4.0
 +++++
 
+* :pr:`55`: add one map
 * :pr:`54`: add content for machine learning
 * :pr:`47`: add helpers to create a video
 

@@ -1,6 +1,6 @@
 import os
-import pandas
 from numpy.random import permutation
+import pandas
 from .data_helper import get_data_folder
 
 
@@ -19,7 +19,7 @@ def load_wines_dataset(
         :rst:
 
         from teachpyx.datasets.documentation import list_notebooks_rst_links
-        links = list_notebooks_rst_links("ml", "wines")
+        links = list_notebooks_rst_links("ml", "winesr")
         links = ["    * %s" % s for s in links]
         print("\\n".join(links))
 
@@ -58,14 +58,14 @@ def load_wine_dataset(
     .. runpython::
         :rst:
 
-        from papierstat.datasets.documentation import list_notebooks_rst_links
-        links = list_notebooks_rst_links("ml", "linreg")
+        from teachpyx.datasets.documentation import list_notebooks_rst_links
+        links = list_notebooks_rst_links("ml", "winesc")
         links = ["    * %s" % s for s in links]
         print("\\n".join(links))
 
     :param download: télécharge le jeu de données ou considères une copie en local.
     :param shuffle: permute aléatoire les données (elles ne le sont pas)
-    :return: :class:`pandas:DataFrame`
+    :return: :class:`pandas.DataFrame`
     """
     if download:
         url = "https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"

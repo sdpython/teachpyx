@@ -527,10 +527,8 @@ en :epkg:`R`.
 Dessiner des cartes
 ===================
 
-.. toctree::
-    :maxdepth: 1
+Voir :ref:`Tracer une carte <nbl-c_data-enedis_cartes>`.
 
-    notebooks/enedis_cartes
 
 Exercices
 =========
@@ -547,6 +545,4 @@ Si tous ces rappels vous sont connus, vous devriez être prêt
 * `Challenges algorithmiques <http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/index.html#challenges>`_
 
 Un dernier lien vers des exercices dont les questions sont plus détaillées et
-corrigées :
-
-* `exercices corrigés <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/questions/exams_1A.html#seances-notees>`_
+corrigées :ref:`l-examens-notes`.
