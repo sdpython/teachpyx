@@ -14,3 +14,9 @@ Machine Learning
     :caption: Régression
 
     ml/wines_reg
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Classification
+
+    ml/wines_color
