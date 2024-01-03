@@ -1,6 +1,7 @@
 black
 black-nb
 blockdiag
+cartopy
 chardet
 cloudpickle
 coverage
@@ -8,6 +9,7 @@ cytoolz
 dbfread
 dict2xml
 furo
+geopandas
 ipython
 jinja2
 jupyter

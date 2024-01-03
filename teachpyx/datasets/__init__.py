@@ -3,7 +3,8 @@
 # from .carreau import load_carreau_from_zip
 # from .dummies import line2d
 # from .duration import duration_selling
-# from .enedis import load_enedis_dataset
+from .enedis import load_enedis_dataset
+
 # from .geojson import get_geojson_countries
 # from .graph import create_tiny_graph
 # from .movies import load_movielens_dataset

@@ -2,6 +2,11 @@
 Jeux de données
 ===============
 
+Cartographie
+============
+
+.. autosignature:: papierstat.datasets.enedis.load_enedis_dataset
+
 Classification
 ==============
 
