@@ -1,6 +1,15 @@
 # coding: utf-8
 import os
+import re
 from typing import List, Optional
+
+
+def root() -> str:
+    "Returns the local folder for all notebooks."
+    this = os.path.dirname(__file__)
+    return os.path.abspath(
+        os.path.normpath(os.path.join(this, "..", "..", "_doc", "practice"))
+    )
 
 
 def list_notebooks(
@@ -14,14 +23,7 @@ def list_notebooks(
     :param contains: extrait à chercher
     :return: liste des notebooks (sans répertoire)
     """
-    this = os.path.dirname(__file__)
-    nbs = [
-        os.path.abspath(
-            os.path.normpath(
-                os.path.join(this, "..", "..", "_doc", "practice", subfolder)
-            )
-        ),
-    ]
+    nbs = [os.path.join(root(), subfolder)]
     nb_ = list(filter(os.path.exists, nbs))
     assert len(nb_) > 0, "Unable to find notebooks in\n{0}".format("\n".join(nbs))
     nb = nb_[0]
@@ -50,5 +52,19 @@ def list_notebooks_rst_links(
     def _name(s):
         return os.path.splitext(os.path.split(s)[-1])[0]
 
+    def _title(sub, s):
+        reg = re.compile("# (.+)")
+        fn = os.path.join(root(), sub, s)
+        assert os.path.exists(fn), f"Unable to find filename {fn!r}."
+        with open(fn, "r", encoding="utf-8") as f:
+            content = f.read()
+        f = reg.findall(content)
+        assert f, f"File {fn!r} does not have any title."
+        title = f[0].strip("\\n\n")
+        return title
+
     names = list_notebooks(subfolder, name, contains)
-    return [f":ref:`nbl-practice-{subfolder}-{_name(name)}`" for name in names]
+    return [
+        f":ref:`{_title(subfolder, name)} <nbl-practice-{subfolder}-{_name(name)}>`"
+        for name in names
+    ]
