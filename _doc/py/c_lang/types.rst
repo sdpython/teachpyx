@@ -2153,7 +2153,7 @@ Il faut inclure la placer le texte suivant en première ligne :
 
 ::
 
-    # -*- coding: utf-8 -*-
+    # coding: utf-8
 
 Ou :
 

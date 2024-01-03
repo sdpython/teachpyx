@@ -8,9 +8,7 @@ import math
 def lit_fichier():
     # le principe est le m�me que pour le chargement d'un fichier
     # le programme lit directement les informations depuis Internet
-    f = urllib2.urlopen(
-        "http://www.xavierdupre.fr/enseignement" "/examen_python/restaurant_paris.txt"
-    )
+    f = urllib2.urlopen("???/examen_python/restaurant_paris.txt")
     s = f.read()
     f.close()
     lines = s.split("\n")  # on d�coupe en lignes

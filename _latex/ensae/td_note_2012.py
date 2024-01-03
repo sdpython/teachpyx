@@ -1,6 +1,5 @@
 # coding: utf-8
 # ce fichier contient le programme fournit au d�but de l'examen
-# http://www.xavierdupre.fr/enseignement/examen_python/python_examen_2011_2012.py
 # from td_note_2012_enonce import *
 import numpy
 import pylab

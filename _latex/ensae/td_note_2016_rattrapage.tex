@@ -3,10 +3,10 @@
 
 \firstpassagedo{
 \newcommand{\sametextforthisinterro}[0]{ 
-\huge ENSAE TD noté, vendredi 29 décembre 2016
+\huge ENSAE TD notï¿½, vendredi 29 dï¿½cembre 2016
 
 \normalsize
-\textit{Le programme devra être imprimé et rendu au chargé de TD. Il ne faut pas oublier de mentionner son nom sur chaque page et le numéro des exercices. }
+\textit{Le programme devra ï¿½tre imprimï¿½ et rendu au chargï¿½ de TD. Il ne faut pas oublier de mentionner son nom sur chaque page et le numï¿½ro des exercices. }
 \smallskip
 }
 
@@ -14,16 +14,16 @@
 }
 
 
-Le premier exercice reprend l'énoncé proposé lors de l'examen donné à l'ENSAE en décembre 2015\footnote{\url{http://www.xavierdupre.fr/app/ensae_teaching\_cs/helpsphinx3/notebooks/td\_note\_2016.html}}. Les premières questions sont presque identiques. Vous avez le droit de vous servir de la correction.
+Le premier exercice reprend l'ï¿½noncï¿½ proposï¿½ lors de l'examen donnï¿½ ï¿½ l'ENSAE en dï¿½cembre 2015. Les premiï¿½res questions sont presque identiques. Vous avez le droit de vous servir de la correction.
 
 \exosubject{}
-\begin{xexercice}\label{td_note_label1_2016}%\indexfrr{énoncé}{pratique}
+\begin{xexercice}\label{td_note_label1_2016}%\indexfrr{ï¿½noncï¿½}{pratique}
 
 
-Louer ou acheter un appartement ? A surface égale, est-il préférable de louer ou d'acheter son appartement~? Cet exercice propose différentes questions afin d'y répondre.
+Louer ou acheter un appartement ? A surface ï¿½gale, est-il prï¿½fï¿½rable de louer ou d'acheter son appartement~? Cet exercice propose diffï¿½rentes questions afin d'y rï¿½pondre.
 
 
-\exequest On suppose qu'on a $X$ euros d'apport, écrire une fonction qui calcule la somme d'argent obtenue après $n$ années d'un placement à $r$ \% ? Par exemple, pour $n=2$, la fonction retourne $x + rx + r(1+r)x = (1+r)^2 x$. (1~point)
+\exequest On suppose qu'on a $X$ euros d'apport, ï¿½crire une fonction qui calcule la somme d'argent obtenue aprï¿½s $n$ annï¿½es d'un placement ï¿½ $r$ \% ? Par exemple, pour $n=2$, la fonction retourne $x + rx + r(1+r)x = (1+r)^2 x$. (1~point)
 
 \begin{verbatimx}
 def rendement(x, n, r):
@@ -31,7 +31,7 @@ def rendement(x, n, r):
     return
 \end{verbatimx}
 
-\exequest Une banque prête de l'argent à un taux annuel $p$, c'est-à-dire au taux mensuel $m=(1+p)^\frac{1}{12}-1$. Ce taux s'applique chaque mois sur la somme du capital restant à rembourser. On emprunte $K$ euros avec une mensualité fixée à $M$ euros, écrire une fonction qui décompose la mensualité $M$ en capital remboursé et intérêt. (1~point)
+\exequest Une banque prï¿½te de l'argent ï¿½ un taux annuel $p$, c'est-ï¿½-dire au taux mensuel $m=(1+p)^\frac{1}{12}-1$. Ce taux s'applique chaque mois sur la somme du capital restant ï¿½ rembourser. On emprunte $K$ euros avec une mensualitï¿½ fixï¿½e ï¿½ $M$ euros, ï¿½crire une fonction qui dï¿½compose la mensualitï¿½ $M$ en capital remboursï¿½ et intï¿½rï¿½t. (1~point)
 
 \begin{verbatimx}
 def decompose_mensualite(K,M,p):
@@ -40,16 +40,16 @@ def decompose_mensualite(K,M,p):
 \end{verbatimx}
 
 
-\exequest Ecrire une fonction qui calcule toutes les mensualités. (1~point)
+\exequest Ecrire une fonction qui calcule toutes les mensualitï¿½s. (1~point)
 
 \begin{verbatimx}
 def mensualites(K,M,p):
     # ....
-    return [ liste de mensualités ]
+    return [ liste de mensualitï¿½s ]
 \end{verbatimx}
 
 
-\exequest A Paris, on loue un appartement pour $L$ euros du m$^2$. Un parisien loue son appartement de $S m^2$ pour $SL$ euros. Ce parisien peut dépenser $A$ euros par mois répartis en $SL$ le loyer et $A-SL$ les économies. Ecrire une fonction qui calcule les économies réalisées au bout de $Y$ années : (1~point)
+\exequest A Paris, on loue un appartement pour $L$ euros du m$^2$. Un parisien loue son appartement de $S m^2$ pour $SL$ euros. Ce parisien peut dï¿½penser $A$ euros par mois rï¿½partis en $SL$ le loyer et $A-SL$ les ï¿½conomies. Ecrire une fonction qui calcule les ï¿½conomies rï¿½alisï¿½es au bout de $Y$ annï¿½es : (1~point)
 
 \begin{verbatimx}
 def economie(A,S,L,r,Y):
@@ -58,29 +58,29 @@ def economie(A,S,L,r,Y):
 \end{verbatimx}
  
 
-\exequest En considérant que ce même parisien ne peut dépenser plus de $A$ euros par mois, qu'il ne possède rien au début de sa carrière professionnelle, on veut connaître la surface qu'il sera en mesure d'acheter chaque année entre 20 et 40 ans. On suppose qu'il peut se constituer un apport en capital issu de ces économies et d'un don de ses parents. On suppose que le prix au mètre carré à Paris est $C$ et qu'il veut emprunter avec un prêt d'une durée fixe. Voici les constantes à utiliser : (2~points)
+\exequest En considï¿½rant que ce mï¿½me parisien ne peut dï¿½penser plus de $A$ euros par mois, qu'il ne possï¿½de rien au dï¿½but de sa carriï¿½re professionnelle, on veut connaï¿½tre la surface qu'il sera en mesure d'acheter chaque annï¿½e entre 20 et 40 ans. On suppose qu'il peut se constituer un apport en capital issu de ces ï¿½conomies et d'un don de ses parents. On suppose que le prix au mï¿½tre carrï¿½ ï¿½ Paris est $C$ et qu'il veut emprunter avec un prï¿½t d'une durï¿½e fixe. Voici les constantes ï¿½ utiliser : (2~points)
 
 \begin{center}\begin{small}\begin{tabular}{l|r|l|l} 
-nom & valeur & unité & sens \\ \hline
+nom & valeur & unitï¿½ & sens \\ \hline
 D & 50000 & euros & don de ses parents \\
-A & 1200 & euros/mois & somme allouée au loyer + économies \\
+A & 1200 & euros/mois & somme allouï¿½e au loyer + ï¿½conomies \\
 S & 35 & $m^2$ &  surface de l'appartement \\
-L & 25 & euros/$m^2$ & prix du loyer au mètre carré \\
+L & 25 & euros/$m^2$ & prix du loyer au mï¿½tre carrï¿½ \\
 r & 0.01 & & rendement annuel de l'argent (livret A) \\
-Y & 20 &  années & durée de l'emprunt \\
-C & 8000 & euros/$m^2$ & prix d'achat au mètre carré \\
+Y & 20 &  annï¿½es & durï¿½e de l'emprunt \\
+C & 8000 & euros/$m^2$ & prix d'achat au mï¿½tre carrï¿½ \\
 p & 0.02 & & taux annuel de l'emprunt bancaire  
 \end{tabular}\end{small}\end{center}
 
 \begin{verbatimx}
 def tableau_surface(D,A,S,L,r,Y,C,p):
     # ....
-    return liste [(année, surface, prix)]
+    return liste [(annï¿½e, surface, prix)]
 \end{verbatimx}
 
-\exequest Même question mais on tient compte de l'inflation du prix du mètre carré à Paris, environ $i=5\%$ par ans. (3~points)
+\exequest Mï¿½me question mais on tient compte de l'inflation du prix du mï¿½tre carrï¿½ ï¿½ Paris, environ $i=5\%$ par ans. (3~points)
 
-\exequest Même question mais on tient compte d'une augmentation de salaire selon un scénario de votre choix. (3~points)
+\exequest Mï¿½me question mais on tient compte d'une augmentation de salaire selon un scï¿½nario de votre choix. (3~points)
 
 
 \end{xexercice}
@@ -88,22 +88,22 @@ def tableau_surface(D,A,S,L,r,Y,C,p):
 
 
 \exosubject{}
-\begin{xexercice}\label{td_note_label6_2016}%\indexfrr{énoncé}{pratique}
+\begin{xexercice}\label{td_note_label6_2016}%\indexfrr{ï¿½noncï¿½}{pratique}
 
 
-\exequest Michel perd souvent ses carnets de numéros et pour éviter d'importuner ses proches de recevoir des coups de fils impromptus, il utilise un code. On découpe un numéro de téléphone par groupe de deux chiffres. Si la première lettre est une voyelle, il permute le groupe 2 avec le groupe 3 sinon il les laisse en l'état. Si la seconde lettre est une voyelle, il permute le groupe 3 et 4, rien en cas de consonnes. On ne fait rien si la lettre associée au dernier groupe est une voyelle. Exemple (on enlève volontairement les accents) :
+\exequest Michel perd souvent ses carnets de numï¿½ros et pour ï¿½viter d'importuner ses proches de recevoir des coups de fils impromptus, il utilise un code. On dï¿½coupe un numï¿½ro de tï¿½lï¿½phone par groupe de deux chiffres. Si la premiï¿½re lettre est une voyelle, il permute le groupe 2 avec le groupe 3 sinon il les laisse en l'ï¿½tat. Si la seconde lettre est une voyelle, il permute le groupe 3 et 4, rien en cas de consonnes. On ne fait rien si la lettre associï¿½e au dernier groupe est une voyelle. Exemple (on enlï¿½ve volontairement les accents) :
 
 \begin{verbatimx}
 adele   06 64 34 22 67 --> 06 34 64 67 22  lettres 06 aa dd ee ll  
 gerard  06 64 34 22 68 --> 06 64 22 34 68  lettres 06 gg ee rr aa
 \end{verbatimx}
 
-Ecrire la fonction qui transforme un numéro. Il est recommandé de ne pas tenir compte des espaces. (2~points)
+Ecrire la fonction qui transforme un numï¿½ro. Il est recommandï¿½ de ne pas tenir compte des espaces. (2~points)
 
 \exequest Ecrire la fonction qui effectue la transformation inverse. (2~points)
 
 
-\exequest Que se passe-t-il pour le prénom \texttt{Maude} ? Peut-on encore retrouver le numéro codé ? (2~points)
+\exequest Que se passe-t-il pour le prï¿½nom \texttt{Maude} ? Peut-on encore retrouver le numï¿½ro codï¿½ ? (2~points)
 
 
 \end{xexercice}

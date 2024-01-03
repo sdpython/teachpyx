@@ -1,3 +1,89 @@
+[project]
+authors = [{name="Xavier Dupré", email="xavier.dupre@gmail.com"}]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: C",
+    "Programming Language :: Python",
+    "Topic :: Software Development",
+    "Topic :: Scientific/Engineering",
+    "Development Status :: 5 - Production/Stable",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = ["numpy", "matplotlib", "pandas", "scikit-learn>=1.2"]
+description = "Teaching material, algorithm, machine learning"
+keywords = ["python", "teaching", "algorithmic", "machine learning"]
+license = {file = "LICENSE.txt"}
+name = "teachpyx"
+readme = "README.rst"
+requires-python = ">=3.9"
+version = "0.4.0"
+
+[project.urls]
+Homepage = "https://sdpython.github.io/doc/teachpyx/dev/"
+Documentation = "https://sdpython.github.io/doc/teachpyx/dev/"
+Repository = "https://github.com/sdpython/teachpyx/"
+Changelog = "https://github.com/sdpython/teachpyx/blob/main/CHANGELOGS.rst"
+Issues = "https://github.com/sdpython/teachpyx/issues"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "black-nb",
+    "blockdiag",
+    "chardet",
+    "cloudpickle",
+    "coverage",
+    "cytoolz",
+    "dbfread",
+    "dict2xml",
+    "furo",
+    "ipython",
+    "jinja2",
+    "jupyter",
+    "lifelines",
+    "lxml",
+    "matplotlib",
+    "mutagen",  # mp3
+    "nbsphinx",
+    "networkx",
+    "openpyxl",
+    "pandas",
+    "pillow",
+    "protobuf<4",
+    "pyinstrument",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "seaborn",
+    "scikit-image",
+    "sphinx",
+    "sphinx-gallery",
+    "sphinx-issues",
+    "sphinxcontrib-blockdiag",
+    # "git+https://github.com/sdpython/blockdiag.git@pil10",
+    # "git+https://github.com/sdpython/sphinx-runpython.git",
+    "sphinx-runpython",
+    "tqdm",
+    "ujson",
+    "wheel",
+]
+
+[build-system]
+requires = [
+    "numpy",
+    "setuptools",
+    "wheel",
+]
+
 [tool.rstcheck]
 report_level = "INFO"
 ignore_directives = [
@@ -53,6 +139,10 @@ max-complexity = 10
 [tool.ruff.per-file-ignores]
 "_doc/conf.py" = ["F821", "E501"]
 "teachpyx/__init__.py" = ["E501"]
+"teachpyx/datasets/__init__.py" = ["F401"]
 "teachpyx/tools/__init__.py" = ["F401"]
 "teachpyx/tools/profiling.py" = ["E731"]
 "_latex/ensae/*" = ["F811", "F821"]
+
+[tool.setuptools.package-data]
+"*" = ["*.csv", "*.gz", "*.json", "*.txt", "*.zip"]

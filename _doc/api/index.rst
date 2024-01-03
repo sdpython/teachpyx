@@ -5,6 +5,7 @@ Code inclus dans cette librairie
     :caption: Constructions classiques
 
     classique
+    datasets
     tools
 
 .. toctree::

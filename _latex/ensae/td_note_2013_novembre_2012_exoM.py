@@ -11,7 +11,7 @@ def import_module_or_file_from_web_site(module):
     if os.path.exists("data\\equipement_sportifs_2011\\" + module):
         return "data\\equipement_sportifs_2011\\" + module
     if not os.path.exists(module):
-        url = "http://www.xavierdupre.fr/enseignement/complements/" + module
+        url = "???" + module
         import urllib2
 
         if module.lower().endswith("zip"):

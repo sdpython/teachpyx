@@ -19,7 +19,7 @@ les paragraphes suivantes.
 Il existe d'autres librairies qui ont été développés pour des usages
 spécifiques telles que
 `joblib <https://joblib.readthedocs.io/en/stable/>`_ qui est utilisé
-par `scikit-learn <http://scikit-learn.org/stable/>`_.
+par :epkg:`scikit-learn`.
 La librairie `gevent <http://www.gevent.org/>`_ est un équivalent
 de la librairie :mod:`asyncio`
 qui a été intégrée à Python 3.4. Plus récemment, le package

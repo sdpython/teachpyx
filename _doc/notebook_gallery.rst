@@ -148,3 +148,12 @@ Correction d'examens
     practice/exams/td_note_2022_rattrapage
     practice/exams/td_note_2022_rattrapage2
     practice/exams/td_note_2023
+
+Machine Learning
+================
+
+.. nblinkgallery::
+    :caption: machine learning
+
+    practice/ml/wines_color
+    practice/ml/wines_reg

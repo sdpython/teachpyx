@@ -64,28 +64,34 @@ class TestDocumentationExamples(ExtTestCase):
     @classmethod
     def add_test_methods(cls):
         this = os.path.abspath(os.path.dirname(__file__))
-        fold = os.path.normpath(os.path.join(this, "..", "..", "_doc", "examples"))
-        found = os.listdir(fold)
-        for name in found:
-            if name.startswith("plot_") and name.endswith(".py"):
-                short_name = os.path.split(os.path.splitext(name)[0])[-1]
+        folds = [
+            os.path.normpath(
+                os.path.join(this, "..", "..", "_doc", "examples", "prog")
+            ),
+            os.path.normpath(os.path.join(this, "..", "..", "_doc", "examples", "ml")),
+        ]
+        for fold in folds:
+            found = os.listdir(fold)
+            for name in found:
+                if name.startswith("plot_") and name.endswith(".py"):
+                    short_name = os.path.split(os.path.splitext(name)[0])[-1]
 
-                if sys.platform == "win32" and (
-                    "protobuf" in name or "td_note_2021" in name
-                ):
+                    if sys.platform == "win32" and (
+                        "protobuf" in name or "td_note_2021" in name
+                    ):
 
-                    @unittest.skip("notebook with questions or issues with windows")
-                    def _test_(self, name=name):
-                        res = self.run_test(fold, name, verbose=VERBOSE)
-                        self.assertIn(res, (-1, 1))
+                        @unittest.skip("notebook with questions or issues with windows")
+                        def _test_(self, name=name, fold=fold):
+                            res = self.run_test(fold, name, verbose=VERBOSE)
+                            self.assertIn(res, (-1, 1))
 
-                else:
+                    else:
 
-                    def _test_(self, name=name):
-                        res = self.run_test(fold, name, verbose=VERBOSE)
-                        self.assertIn(res, (-1, 1))
+                        def _test_(self, name=name, fold=fold):
+                            res = self.run_test(fold, name, verbose=VERBOSE)
+                            self.assertIn(res, (-1, 1))
 
-                setattr(cls, f"test_{short_name}", _test_)
+                    setattr(cls, f"test_{short_name}", _test_)
 
 
 TestDocumentationExamples.add_test_methods()

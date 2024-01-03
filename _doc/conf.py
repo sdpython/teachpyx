@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 import os
 import sys
 
@@ -49,7 +49,7 @@ author = "Xavier Dupré"
 version = __version__
 release = __version__
 language = "fr"
-exclude_patterns = ["auto_examples/*.ipynb"]
+exclude_patterns = ["auto_examples/prog/*.ipynb", "auto_examples/ml/*.ipynb"]
 pygments_style = "sphinx"
 todo_include_todos = True
 nbsphinx_execute = "never"
@@ -195,7 +195,7 @@ epkg_dictionary = {
     "algorithmes numériques": "https://fr.wikipedia.org/wiki/Numerical_Recipes",
     "API REST": "https://fr.wikipedia.org/wiki/Representational_state_transfer",
     "Anaconda": "https://www.anaconda.com/",
-    "ApproximateNMFPredictor": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/mlinsights/mlmodel/anmf_predictor.html",
+    "ApproximateNMFPredictor": "https://sdpython.github.io/doc/mlinsights/dev/api/mlmodel.html#approximatenmfpredictor",
     "AUC": "https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve",
     "Awesome Python": "https://awesome-python.com/",
     "B+ tree": "https://en.wikipedia.org/wiki/B%2B_tree",
@@ -208,10 +208,10 @@ epkg_dictionary = {
     "Bresenham": "https://fr.wikipedia.org/wiki/Algorithme_de_trac%C3%A9_de_segment_de_Bresenham",
     "copy": "https://docs.python.org/3/library/copy.html?highlight=copy#copy.copy",
     "cProfile.Profile": "https://docs.python.org/3/library/profile.html#profile.Profile",
-    "Custom Criterion for DecisionTreeRegressor": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/piecewise_linear_regression_criterion.html",
+    "Custom Criterion for DecisionTreeRegressor": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_piecewise_linear_regression_criterion.html",
     "cython": "https://cython.org/",
     "DecisionTreeClassifier": "https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html",
-    "DecisionTreeRegressor optimized for Linear Regression": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/piecewise_linear_regression_criterion.html",
+    "DecisionTreeRegressor optimized for Linear Regression": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_piecewise_linear_regression_criterion.html",
     "deepcopy": "https://docs.python.org/3/library/copy.html?highlight=copy#copy.deepcopy",
     "dill": "https://dill.readthedocs.io/en/latest/",
     "dir": "https://docs.python.org/3/library/functions.html?highlight=dir#dir",
@@ -238,7 +238,7 @@ epkg_dictionary = {
     "Method Resolution Order": "https://www.python.org/download/releases/2.3/mro/",
     "miniconda": "https://docs.conda.io/en/latest/miniconda.html",
     "Miniconda": "https://docs.conda.io/en/latest/miniconda.html",
-    "mlinsights": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/index.html",
+    "mlinsights": "https://sdpython.github.io/doc/mlinsights/dev/",
     "mlstatpy": "https://sdpython.github.io/doc/mlstatpy/dev/",
     "NP-complet": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_NP-complet",
     "neato": "https://www.graphviz.org/pdf/neatoguide.pdf",
@@ -248,6 +248,7 @@ epkg_dictionary = {
         ("https://docs.scipy.org/doc/numpy/reference/generated/numpy.{0}.html", 1),
         ("https://docs.scipy.org/doc/numpy/reference/generated/numpy.{0}.{1}.html", 2),
     ),
+    "OneHotEncoder": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html",
     "OpenMP": "https://www.openmp.org/",
     "pandas": (
         "https://pandas.pydata.org/pandas-docs/stable/",
@@ -257,11 +258,10 @@ epkg_dictionary = {
             2,
         ),
     ),
-    "PiecewiseTreeRegressor": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/mlinsights/mlmodel/"
-    "piecewise_tree_regression.html#mlinsights.mlmodel.piecewise_tree_regression.PiecewiseTreeRegressor",
+    "PiecewiseTreeRegressor": "https://sdpython.github.io/doc/mlinsights/dev/api/mlmodel_tree.html#piecewisetreeregressor",
     "Pillow": "https://pillow.readthedocs.io/en/stable/",
     "pip": "https://pip.pypa.io/en/stable/",
-    "Predictable t-SNE": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/predictable_tsne.html",
+    "Predictable t-SNE": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_predictable_tsne.html",
     "printf-style String Formatting": "https://docs.python.org/3/library/stdtypes.html#old-string-formatting",
     "programmation impérative": "https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative",
     "programmation fonctionnelle": "https://fr.wikipedia.org/wiki/Programmation_fonctionnelle",
@@ -273,11 +273,11 @@ epkg_dictionary = {
     "pylint": "https://github.com/pylint-dev/pylint",
     "python": "https://www.python.org/",
     "Python": "https://www.python.org/",
-    "QuantileLinearRegression": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/mlinsights/mlmodel/quantile_regression.html#mlinsights.mlmodel.quantile_regression.QuantileLinearRegression",
+    "QuantileLinearRegression": "https://sdpython.github.io/doc/mlinsights/dev/api/mlmodel.html#quantilelinearregression",
     "R-tree": "https://en.wikipedia.org/wiki/R-tree",
     "R* tree": "https://en.wikipedia.org/wiki/R*_tree",
     "range": "https://docs.python.org/3/library/functions.html?highlight=map#func-range",
-    "Regression with confidence interval": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/regression_confidence_interval.html",
+    "Regression with confidence interval": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_regression_confidence_interval.html",
     "relu": "https://en.wikipedia.org/wiki/Rectifier_(neural_networks)",
     "ROC": "https://fr.wikipedia.org/wiki/Courbe_ROC",
     "scikit-learn": "https://scikit-learn.org/stable/index.html",
@@ -296,7 +296,7 @@ epkg_dictionary = {
     "ultrajson": "https://github.com/ultrajson/ultrajson",
     "ujson": "https://github.com/ultrajson/ultrajson",
     "Visual Studio Code": "https://code.visualstudio.com/",
-    "Visualize a scikit-learn pipeline": "http://www.xavierdupre.fr/app/mlinsights/helpsphinx/notebooks/visualize_pipeline.html",
+    "Visualize a scikit-learn pipeline": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_visualize_pipeline.html",
     "viz.js": "https://github.com/mdaines/viz-js",
     "X-tree": "https://en.wikipedia.org/wiki/X-tree",
     "XML": "https://fr.wikipedia.org/wiki/Extensible_Markup_Language",
@@ -380,6 +380,23 @@ epkg_dictionary.update(
         "backtest": "https://en.wikipedia.org/wiki/Backtesting",
         "Trend Following": "https://en.wikipedia.org/wiki/Trend_following",
         "pair trading": "https://en.wikipedia.org/wiki/Pairs_trade",
+    }
+)
+
+epkg_dictionary.update(
+    {
+        "csv": "https://fr.wikipedia.org/wiki/Comma-separated_values",
+        "fonction": "https://fr.wikipedia.org/wiki/Fonction_(math%C3%A9matiques)",
+        "fonction continue": "https://fr.wikipedia.org/wiki/Continuit%C3%A9_(math%C3%A9matiques)",
+        "machine learning": "https://en.wikipedia.org/wiki/Machine_learning",
+        "matrice de confusion": "https://fr.wikipedia.org/wiki/Matrice_de_confusion",
+        "nuage de points": "https://fr.wikipedia.org/wiki/Nuage_de_points_(statistique)",
+        "fortran": "https://en.wikipedia.org/wiki/Fortran",
+        "R": "https://www.r-project.org/",
+        "recherche dichotomique": "https://fr.wikipedia.org/wiki/Recherche_dichotomique",
+        "seaborn": "https://seaborn.pydata.org/",
+        "variable aléatoire": "https://fr.wikipedia.org/wiki/Variable_al%C3%A9atoire",
+        "voyageur de commerce": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce",
     }
 )
 

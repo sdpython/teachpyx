@@ -29,7 +29,7 @@ programme. Ils interviennent à plusieurs endroits différents :
 
 * Le jeu de caractères utilisé par l'éditeur de texte pour afficher le programme.
 * Le jeu de caractères du programme, par défaut `ascii <https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange>`_
-  mais il peut être changé en insérant une première ligne de commentaire (exemple : ``# -*- coding: utf-8 -*-``).
+  mais il peut être changé en insérant une première ligne de commentaire (exemple : ``# coding: utf-8``).
   Les chaînes de caractères du programme sont codées avec ce jeu de caractères.
   Ce jeu devrait être identique à celui utilisé par l'éditeur de texte afin d'éviter
   les erreurs.

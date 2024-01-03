@@ -20,8 +20,7 @@ def total_size(o, handlers=None):
         handlers = {SomeContainerClass: iter,
                     OtherContainerClass: OtherContainerClass.get_elements}
 
-    Source : `activestate <https://code.activestate.com/recipes/577504/>`_
-    referenced by function `getsizeof <https://docs.python.org/3/library/sys.html#sys.getsizeof>`_.
+    Source: `getsizeof <https://docs.python.org/3/library/sys.html#sys.getsizeof>`_.
     """
     if handlers is None:
         handlers = {}

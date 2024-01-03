@@ -39,7 +39,7 @@ angles d'approches.
     :maxdepth: 1
     :caption: Problème NP-complets
 
-    ../auto_examples/plot_tsp
+    ../auto_examples/prog/plot_tsp
     algo-base/exercice_tsp
     algo-base/tsp_simplifie
     algo-base/tsp_aparte
@@ -62,7 +62,9 @@ angles d'approches.
     :maxdepth: 1
     :caption: A parcourir
 
-    ../auto_examples/plot_einstein_riddle
+    ../auto_examples/prog/plot_einstein_riddle
+    ../auto_examples/prog/plot_float_and_double_rouding
+    ../auto_examples/prog/plot_hypercube
     algo-compose/paris_parcours
     algo-compose/vigenere
     algo-compose/exercice_morse

@@ -6,9 +6,6 @@
 
 
 def distance_edition(mot1, mot2):
-    """
-    premi�re fonction retrouv�e � : http://www.xavierdupre.fr/blog/2013-12-02_nojs.html
-    """
     dist = {(-1, -1): 0}
     for i, c in enumerate(mot1):
         dist[i, -1] = dist[i - 1, -1] + 1

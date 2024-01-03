@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 import os
 
 from setuptools import setup
@@ -11,7 +11,10 @@ from setuptools import setup
 here = os.path.dirname(__file__)
 if here == "":
     here = "."
-package_data = {"teachpyx": ["*.txt"]}
+package_data = {
+    "teachpyx": ["*.txt"],
+    "teachpyx.datasets.data": ["*.csv", "*.gz", "*.json", "*.txt", "*.zip"],
+}
 
 try:
     with open(os.path.join(here, "requirements.txt"), "r") as f:

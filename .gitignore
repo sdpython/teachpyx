@@ -16,6 +16,7 @@ onnxruntime_profile*
 prof
 temp_*
 essai.txt
+schema.proto
 .ipynb_checkpoints
 _latex/ensae/*.aux
 _latex/ensae/*.idx
@@ -24,12 +25,12 @@ _latex/ensae/*.pdf
 _doc/CHANGELOGS.rst
 _doc/LICENSE.txt
 _doc/auto_examples/*
-_doc/examples/*.proto
-_doc/examples/schema_pb2.py
-_doc/examples/plot_*.png
-_doc/examples/plot_*.xlsx
-_doc/examples/data/*.optimized.onnx
-_doc/examples/*.html
+_doc/examples/**/plot_*.png
+_doc/examples/**/plot_*.xlsx
+_doc/examples/prog/*.proto
+_doc/examples/prog/schema_pb2.py
+_doc/examples/prog/data/*.optimized.onnx
+_doc/examples/prog/*.html
 _doc/_static/require.js
 _doc/_static/viz.js
 _doc/practice/algo-compose/paris_54000.*

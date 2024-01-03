@@ -20,3 +20,4 @@ Ou *blog*.
 
     2022-11-31-route2022
     2022-12-07-cartopy
+    2022-01-01-assurance
