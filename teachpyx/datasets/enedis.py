@@ -15,9 +15,9 @@ def load_enedis_dataset() -> pandas.DataFrame:
         :rst:
 
         from papierstat.datasets.documentation import list_notebooks_rst_links
-        links = list_notebooks_rst_links('visualisation', 'enedis')
-        links = ['    * %s' % s for s in links]
-        print('\\n'.join(links))
+        links = list_notebooks_rst_links("c_data", "enedis")
+        links = ["    * %s" % s for s in links]
+        print("\\n".join(links))
 
     :return: :epkg:`pandas:DataFrame`
     """

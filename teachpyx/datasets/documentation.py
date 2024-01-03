@@ -4,9 +4,11 @@ import re
 from typing import List, Optional
 
 
-def root() -> str:
+def root(subfolder: str) -> str:
     "Returns the local folder for all notebooks."
     this = os.path.dirname(__file__)
+    if subfolder == "c_data":
+        return os.path.abspath(os.path.normpath(os.path.join(this, "..", "..", "_doc")))
     return os.path.abspath(
         os.path.normpath(os.path.join(this, "..", "..", "_doc", "practice"))
     )
@@ -23,7 +25,7 @@ def list_notebooks(
     :param contains: extrait à chercher
     :return: liste des notebooks (sans répertoire)
     """
-    nbs = [os.path.join(root(), subfolder)]
+    nbs = [os.path.join(root(subfolder), subfolder)]
     nb_ = list(filter(os.path.exists, nbs))
     assert len(nb_) > 0, "Unable to find notebooks in\n{0}".format("\n".join(nbs))
     nb = nb_[0]
@@ -54,7 +56,7 @@ def list_notebooks_rst_links(
 
     def _title(sub, s):
         reg = re.compile("# (.+)")
-        fn = os.path.join(root(), sub, s)
+        fn = os.path.join(root(sub), sub, s)
         assert os.path.exists(fn), f"Unable to find filename {fn!r}."
         with open(fn, "r", encoding="utf-8") as f:
             content = f.read()

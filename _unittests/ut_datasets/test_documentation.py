@@ -10,6 +10,12 @@ class TestDocumentation(ExtTestCase):
         self.assertIn("<nbl-", links[0])
         self.assertIn("wines", links[0])
 
+    def test_documentation_enedis(self):
+        links = list_notebooks_rst_links("c_data", "enedis")
+        self.assertNotEmpty(links)
+        self.assertIn("<nbl-", links[0])
+        self.assertIn("enedis", links[0])
+
     def _test_documentation_movie(self):
         links = list_notebooks_rst_links("ml", "movielens")
         self.assertNotEmpty(links)
