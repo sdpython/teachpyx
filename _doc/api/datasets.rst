@@ -5,7 +5,7 @@ Jeux de données
 Cartographie
 ============
 
-.. autosignature:: teachpyx.datasets.load_enedis_dataset
+.. autofunction:: teachpyx.datasets.load_enedis_dataset
 
 Classification
 ==============
