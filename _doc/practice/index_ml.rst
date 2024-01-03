@@ -13,10 +13,10 @@ Machine Learning
     :maxdepth: 1
     :caption: Régression
 
-    ml/wines_reg
+    ml/winesr_reg
 
 .. toctree::
     :maxdepth: 1
     :caption: Classification
 
-    ml/wines_color
+    ml/winesc_color

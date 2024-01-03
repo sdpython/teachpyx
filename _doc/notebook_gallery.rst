@@ -156,5 +156,5 @@ Machine Learning
 .. nblinkgallery::
     :caption: machine learning
 
-    practice/ml/wines_color
-    practice/ml/wines_reg
+    practice/ml/winesc_color
+    practice/ml/winesr_reg

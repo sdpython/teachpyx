@@ -19,7 +19,7 @@ def load_wines_dataset(
         :rst:
 
         from teachpyx.datasets.documentation import list_notebooks_rst_links
-        links = list_notebooks_rst_links("ml", "wines")
+        links = list_notebooks_rst_links("ml", "winesr")
         links = ["    * %s" % s for s in links]
         print("\\n".join(links))
 
@@ -59,7 +59,7 @@ def load_wine_dataset(
         :rst:
 
         from teachpyx.datasets.documentation import list_notebooks_rst_links
-        links = list_notebooks_rst_links("ml", "linreg")
+        links = list_notebooks_rst_links("ml", "winesc")
         links = ["    * %s" % s for s in links]
         print("\\n".join(links))
 
