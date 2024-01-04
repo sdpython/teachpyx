@@ -385,10 +385,12 @@ epkg_dictionary.update(
 
 epkg_dictionary.update(
     {
+        "cartopy": "https://scitools.org.uk/cartopy/docs/latest/",
         "csv": "https://fr.wikipedia.org/wiki/Comma-separated_values",
         "Enedis": "https://data.enedis.fr/",
         "fonction": "https://fr.wikipedia.org/wiki/Fonction_(math%C3%A9matiques)",
         "fonction continue": "https://fr.wikipedia.org/wiki/Continuit%C3%A9_(math%C3%A9matiques)",
+        "GEOFLA": "https://www.data.gouv.fr/en/datasets/geofla-r/",
         "machine learning": "https://en.wikipedia.org/wiki/Machine_learning",
         "matrice de confusion": "https://fr.wikipedia.org/wiki/Matrice_de_confusion",
         "nuage de points": "https://fr.wikipedia.org/wiki/Nuage_de_points_(statistique)",
