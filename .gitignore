@@ -6,7 +6,17 @@
 *.so
 *.bin
 *.log
+*.dbf
+*.xlsx
 .coverage
+data.*
+paris*.*
+lisezmoi*
+dummy*
+exemple.txt
+examen*.csv
+fleurs.csv
+*dbase*
 .eggs/*
 _cache/*
 build/*
