@@ -16,7 +16,7 @@ def lambert93_to_WGPS(lambertE: float, lambertN: float) -> Tuple[float, float]:
     """
     Converts coordinates given in
     `Lambert 93 <https://fr.wikipedia.org/wiki/Projection_conique_conforme_de_Lambert>`_
-    system, this system is used by `IGN <http://http://professionnels.ign.fr/>`_
+    system, this system is used by `IGN <https://www.ign.fr/>`_
     and their :epkg:`GEOFLA` file format.
 
     :param lambertE: east
