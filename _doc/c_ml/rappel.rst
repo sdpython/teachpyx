@@ -425,7 +425,7 @@ On le retrouve également dans la distance d'édition ou de
 `Levenstein <https://fr.wikipedia.org/wiki/Distance_de_Levenshtein>`_.
 Quelques exerices pour vous exercer :
 :ref:`Programmation dynamique et plus court chemin <nbl-practice-tds-algo-plus_court_chemin>`,
-:ref:`La distance d'édition <nbl-practice-algo-base-exercice_edit_edistance>`.
+:ref:`La distance d'édition <nbl-practice-algo-base-exercice_edit_distance>`.
 La page suivante `Distance d'édition <https://sdpython.github.io/doc/mlstatpy/dev/c_algo/edit_distance.html>`_
 se propose d'aller un peu plus loin.
 
