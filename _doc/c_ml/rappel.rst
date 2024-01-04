@@ -379,7 +379,7 @@ ou graphes sont des structures de données très utilisées en :epkg:`machine le
 Le modèle le plus connu est l'`arbre de décision <https://fr.wikipedia.org/wiki/Arbre_de_d%C3%A9cision>`_.
 Les deux examens suivant illustrent en quoi les arbres de décision
 sont intéressants :
-`ENSAE TD noté, mardi 12 décembre 2017 <http://www.xavierdupre.fr/site2013/enseignements/tdnoteseul/td_note_2018.pdf>`_.
+`ENSAE TD noté, mardi 12 décembre 2017 <https://sdpython.github.io/doc/teachpyx/dev/practice/exams.html#seances-notees>`_.
 Les exercices suivant vous montre un cas concret d'utilisation :
 `Arbre et Trie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_cenonce_session8.html>`_.
 
@@ -392,7 +392,7 @@ veut écrire un programme efficace. C'est un enseignement qui est
 dispensé au lycée dans les pays de l'Est, souvent après 20 ans
 et pas dans toutes les écoles en France.
 Pour avoir un aperçu de tout ce que vous avez raté :
-`Culture Algorithmique <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/specials/algorithm_culture.html>`_.
+:ref:`Culture Algorithmique <l-survol-algorithmique>`.
 En accéléré, très accéléré, il faut absolument connaître l'algorithme
 du `plus court chemin <https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_plus_court_chemin>`_,
 celui du :epkg:`voyageur de commerce`
@@ -424,9 +424,9 @@ l'`algorithme de Viterbi <https://fr.wikipedia.org/wiki/Algorithme_de_Viterbi>`_
 On le retrouve également dans la distance d'édition ou de
 `Levenstein <https://fr.wikipedia.org/wiki/Distance_de_Levenshtein>`_.
 Quelques exerices pour vous exercer :
-`Programmation dynamique et plus court chemin <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_cenonce_session7.html>`_,
-`La distance d'édition <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_cenonce_session7_edition.html>`_.
-La page suivante `Distance d'édition <http://www.xavierdupre.fr/app/mlstatpy/helpsphinx/c_dist/edit_distance.html>`_
+:ref:`Programmation dynamique et plus court chemin <nbl-practice-tds-algo-plus_court_chemin>`,
+:ref:`La distance d'édition <nbl-practice-algo-base-exercice_edit_edistance>`.
+La page suivante `Distance d'édition <https://sdpython.github.io/doc/mlstatpy/dev/c_algo/edit_distance.html>`_
 se propose d'aller un peu plus loin.
 
 .. index:: recherche dichotomique, k-d tree
@@ -439,7 +439,7 @@ Il consiste à optimiser la recherche d'un élément dans un tableau trié.
 La :epkg:`recherche dichotomique`
 est une des petites choses qu'on teste lors d'un entretien d'embauche.
 Quelques exercices pour vous exercer :
-`Recherche dichotomique <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/recherche_dichotomique.html?highlight=dichotomie>`_.
+:ref:`Recherche dichotomique <nbl-practice-py-base-recherche_dichotomique>`.
 La recherche dichotomique en plusieurs dimensions
 est utilisée via des structures telles que
 `k-d tree <https://fr.wikipedia.org/wiki/Arbre_kd>`_.
@@ -536,9 +536,9 @@ Exercices
 Si tous ces rappels vous sont connus, vous devriez être prêt
 à résoudre quelques exercices et énigmes :
 
-* `Tracer une pyramide bigarrée <http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/notebooks/pyramide_bigarree.html>`_
-* `2048 - stratégie gagnante <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/j2048.html>`_
-* `Programmation dynamique et plus court chemin <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_cenonce_session7.html>`_
+* :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
+* :ref:`2048 - stratégie gagnante <nbl-practice-py-base-classes_2048>`
+* :ref:`Programmation dynamique et plus court chemin <nbl-practice-tds-algo-plus_court_chemin>`
 * `Arbre et Trie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_cenonce_session8.html>`_
 * `Spectral Clustering <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/graph_spectral_clustering.html>`_
 * `Décorrélation de variables aléatoires <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/decorrelation.html>`_

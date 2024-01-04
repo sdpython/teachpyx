@@ -1,6 +1,8 @@
 
 .. index:: culture algorithmique, algorithme, culture
 
+.. _l-survol-algorithmique:
+
 Survol algorithmique
 ====================
 

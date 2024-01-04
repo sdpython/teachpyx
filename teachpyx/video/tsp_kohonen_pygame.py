@@ -73,7 +73,7 @@ def pygame_simulation(
 
         <video autoplay="" controls="" loop="" height="125">
         <source
-        src="http://www.xavierdupre.fr/enseignement/complements/tsp_kohonen.mp4"
+        src="https://github.com/sdpython/teachdata/raw/main/video/tsp_kohonen.mp4"
         type="video/mp4" />
         </video>
 

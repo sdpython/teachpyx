@@ -395,5 +395,5 @@ La vidéo :
 .. raw:: html
 
     <video autoplay="" controls="" loop="" height="250">
-    <source src="http://www.xavierdupre.fr/enseignement/complements/tsp_kruskal.mp4" type="video/mp4" />
+    <source src="https://github.com/sdpython/teachdata/raw/main/video/tsp_kruskal.mp4" type="video/mp4" />
     </video>
