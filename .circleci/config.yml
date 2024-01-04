@@ -69,7 +69,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            python -m pytest _unittests --ignore-glob=**pygame*.py
+            python -m pytest _unittests --ignore-glob=**pygame*.py -v
 
       - run:
            name: wheel
