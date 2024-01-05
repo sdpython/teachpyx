@@ -15,3 +15,10 @@ numpy
 .. faqreflist::
     :tag: numpy
     :contents:
+
+geo
+===
+
+.. faqreflist::
+    :tag: geo
+    :contents:
