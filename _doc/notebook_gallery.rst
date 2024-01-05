@@ -91,6 +91,8 @@ Enoncé - Correction
     practice/tds-base/pyramide_bigarree_correction
     practice/tds-base/texte_langue
     practice/tds-base/texte_langue_correction
+    practice/tds-base/trie
+    practice/tds-base/trie_correction
     practice/tds-base/variable_boucle_tests
     practice/tds-base/variable_boucle_tests_correction
 
