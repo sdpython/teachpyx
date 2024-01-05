@@ -381,7 +381,7 @@ Les deux examens suivant illustrent en quoi les arbres de décision
 sont intéressants :
 `ENSAE TD noté, mardi 12 décembre 2017 <https://sdpython.github.io/doc/teachpyx/dev/practice/exams.html#seances-notees>`_.
 Les exercices suivant vous montre un cas concret d'utilisation :
-`Arbre et Trie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_cenonce_session8.html>`_.
+:ref:`Arbre et Trie <nbl-practice-tds-base-trie>`.
 
 Rappels algorithmiques
 ======================
@@ -539,7 +539,7 @@ Si tous ces rappels vous sont connus, vous devriez être prêt
 * :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
 * :ref:`2048 - stratégie gagnante <nbl-practice-py-base-classes_2048>`
 * :ref:`Programmation dynamique et plus court chemin <nbl-practice-tds-algo-plus_court_chemin>`
-* `Arbre et Trie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_cenonce_session8.html>`_
+* :ref:`Arbre et Trie <nbl-practice-tds-base-trie>`
 * `Spectral Clustering <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/graph_spectral_clustering.html>`_
 * `Décorrélation de variables aléatoires <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/decorrelation.html>`_
 * `Challenges algorithmiques <http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/index.html#challenges>`_
