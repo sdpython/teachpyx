@@ -83,6 +83,7 @@ Les exercices suivants fonctionnent par pair énoncé et correction.
     tds-base/pyramide_bigarree
     tds-base/classes_carre_magique
     tds-base/classes_heritage
+    tds-base/trie
 
 .. toctree::
     :maxdepth: 1
@@ -98,3 +99,4 @@ Les exercices suivants fonctionnent par pair énoncé et correction.
     tds-base/pyramide_bigarree_correction
     tds-base/classes_carre_magique_correction
     tds-base/classes_heritage_correction
+    tds-base/trie_correction
