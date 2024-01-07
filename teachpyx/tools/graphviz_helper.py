@@ -59,7 +59,6 @@ def find_graphviz_dot(exc: bool = True) -> str:
 def run_subprocess(
     args: List[str],
     cwd: Optional[str] = None,
-    shell: bool = False,
 ):
     assert not isinstance(
         args, str
@@ -68,7 +67,7 @@ def run_subprocess(
     p = subprocess.Popen(
         args,
         cwd=cwd,
-        shell=shell,
+        shell=False,
         env=os.environ,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
