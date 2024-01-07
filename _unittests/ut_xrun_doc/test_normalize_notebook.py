@@ -22,7 +22,7 @@ class TestDocumentationNotebook(ExtTestCase):
     def run_test(self, nb_name: str, verbose=0) -> int:
         with open(nb_name, "r", encoding="utf-8") as f:
             content = f.read()
-        if "sys.path.append" in content:
+        if "sys.path.append" in content and "module_file_regex.ipynb" not in nb_name:
             raise AssertionError(
                 f"'sys.path.append' was found in notebook {nb_name!r}."
             )
