@@ -81,6 +81,7 @@ Les exercices suivants fonctionnent par pair énoncé et correction.
     tds-algo/puzzle_algo_2
     tds-algo/plus_court_chemin
     tds-algo/decorrelation
+    tds-algo/graph_spectral_clustering
 
 .. toctree::
     :maxdepth: 1
@@ -92,3 +93,4 @@ Les exercices suivants fonctionnent par pair énoncé et correction.
     tds-algo/puzzle_algo_2_correction
     tds-algo/plus_court_chemin_correction
     tds-algo/decorrelation_correction
+    tds-algo/graph_spectral_clustering_correlation
