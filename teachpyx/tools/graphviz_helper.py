@@ -98,7 +98,7 @@ def run_subprocess(
 
 def run_graphviz(filename: str, image: str, engine: str = "dot") -> str:
     """
-    Run :epkg:`GraphViz`.
+    Run :epkg:`Graphviz`.
 
     :param filename: filename which contains the graph definition
     :param image: output image
@@ -124,7 +124,7 @@ def run_graphviz(filename: str, image: str, engine: str = "dot") -> str:
 
 def edges2gv(vertices: List[Tuple[int, str]], edges: List[Tuple[int, int, str]]) -> str:
     """
-    Converts a graph into a :epkg:`GraphViz` file format.
+    Converts a graph into a :epkg:`Graphviz` file format.
 
     :param edges: see below
     :param vertices: see below
@@ -220,5 +220,5 @@ def draw_graph_graphviz(
     ), f"File {filename!r} cannot be created to store the graph."
     out = run_graphviz(filename, image, engine=engine)
     if not os.path.exists(image):
-        raise FileNotFoundError(f"GraphViz failed with no reason, {image!r} not found.")
+        raise FileNotFoundError(f"Graphviz failed with no reason, {image!r} not found.")
     return out
