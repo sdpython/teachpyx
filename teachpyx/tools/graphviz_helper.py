@@ -205,8 +205,8 @@ def draw_graph_graphviz(
     .. runpython::
         :showcode:
 
-        edges = [(1,2, label, color), (3,4), (1,3), ... ]  # edges list
-        vertices = [(1, label, color), (2), ...]  # vertices list
+        edges = [(1,2, label, color), (3,4), (1,3)]  # edges list
+        vertices = [(1, label, color), (2)]  # vertices list
         image = "image_name.png"
 
     """
