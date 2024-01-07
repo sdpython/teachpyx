@@ -541,7 +541,6 @@ Si tous ces rappels vous sont connus, vous devriez être prêt
 * :ref:`Arbre et Trie <nbl-practice-tds-base-trie>`
 * :ref:`Spectral Clustering <nbl-practice-tds-base-graph_spectral_clustering>`
 * :ref:`Décorrélation de variables aléatoires <nbl-practice-tds-algo-decorrelation>`
-* `Challenges algorithmiques <http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/index.html#challenges>`_
 
 Un dernier lien vers des exercices dont les questions sont plus détaillées et
 corrigées :ref:`l-examens-notes`.

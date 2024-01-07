@@ -56,7 +56,7 @@ def find_graphviz_dot(exc: bool = True) -> str:
     return "dot"
 
 
-def _run_subprocess(
+def run_subprocess(
     args: List[str],
     cwd: Optional[str] = None,
     shell: bool = False,
@@ -118,7 +118,7 @@ def run_graphviz(filename: str, image: str, engine: str = "dot") -> str:
         bin = engine
     if os.path.exists(image):
         os.remove(image)
-    output = _run_subprocess([bin, "-Tpng", filename, "-o", image])
+    output = run_subprocess([bin, "-Tpng", filename, "-o", image])
     assert os.path.exists(image), f"Graphviz failed due to {output}"
     return output
 
