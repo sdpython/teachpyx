@@ -539,7 +539,7 @@ Si tous ces rappels vous sont connus, vous devriez être prêt
 * :ref:`2048 - stratégie gagnante <nbl-practice-py-base-classes_2048>`
 * :ref:`Programmation dynamique et plus court chemin <nbl-practice-tds-algo-plus_court_chemin>`
 * :ref:`Arbre et Trie <nbl-practice-tds-base-trie>`
-* :ref:`Spectral Clustering <nbl-practice-tds-base-graph_spectral_clustering>`
+* :ref:`Spectral Clustering <nbl-practice-tds-algo-graph_spectral_clustering>`
 * :ref:`Décorrélation de variables aléatoires <nbl-practice-tds-algo-decorrelation>`
 
 Un dernier lien vers des exercices dont les questions sont plus détaillées et
