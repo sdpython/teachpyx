@@ -223,6 +223,7 @@ epkg_dictionary = {
     "format": "https://pyformat.info/",
     "format style": "https://pyformat.info/",
     "garbage collector": "https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)",
+    "Graphviz": "https://graphviz.org/",
     "Holm-Bonferroni method": "https://en.wikipedia.org/wiki/Holm%E2%80%93Bonferroni_method",
     "HTML": "https://fr.wikipedia.org/wiki/Hypertext_Markup_Language",
     "ICML 2016": "https://icml.cc/2016/index.html",

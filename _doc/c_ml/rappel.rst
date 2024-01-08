@@ -406,8 +406,7 @@ Ces trois algorithmes donnent trois exemples de temps différents,
 temps quadratique pour la recherche du plus court chemin,
 temps exponentiel et quasiment infini pour le voyageur
 du commerce, temps logarithmique pour la recherche  dichotomique.
-Pour vous exercer :
-`Algorithmes <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/td_1a.html#td-algorithmes>`_.
+Pour vous exercer : :ref:`l-algo`.
 
 .. index:: plus court chemin dans un graphe, Dijkstra
 
@@ -540,9 +539,8 @@ Si tous ces rappels vous sont connus, vous devriez être prêt
 * :ref:`2048 - stratégie gagnante <nbl-practice-py-base-classes_2048>`
 * :ref:`Programmation dynamique et plus court chemin <nbl-practice-tds-algo-plus_court_chemin>`
 * :ref:`Arbre et Trie <nbl-practice-tds-base-trie>`
-* `Spectral Clustering <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/graph_spectral_clustering.html>`_
-* `Décorrélation de variables aléatoires <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/decorrelation.html>`_
-* `Challenges algorithmiques <http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/index.html#challenges>`_
+* :ref:`Spectral Clustering <nbl-practice-tds-algo-graph_spectral_clustering>`
+* :ref:`Décorrélation de variables aléatoires <nbl-practice-tds-algo-decorrelation>`
 
 Un dernier lien vers des exercices dont les questions sont plus détaillées et
 corrigées :ref:`l-examens-notes`.

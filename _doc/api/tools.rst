@@ -16,6 +16,11 @@ draw_diagram
 
 .. autofunction:: teachpyx.tools.draw_diagram
 
+draw_graph_graphviz
++++++++++++++++++++
+
+.. autofunction:: teachpyx.tools.graphviz_helper.draw_graph_graphviz
+
 total_size
 ++++++++++
 
@@ -26,6 +31,16 @@ profiling
 
 .. automodule:: teachpyx.tools.profiling
     :members:
+
+run_graphviz
+++++++++++++
+
+.. autofunction:: teachpyx.tools.graphviz_helper.run_graphviz
+
+run_subprocess
+++++++++++++++
+
+.. autofunction:: teachpyx.tools.graphviz_helper.run_subprocess
 
 video
 +++++
