@@ -112,12 +112,12 @@ def run_graphviz(filename: str, image: str, engine: str = "dot") -> str:
         bin_ = os.path.dirname(find_graphviz_dot())
         # if bin not in os.environ["PATH"]:
         #    os.environ["PATH"] = os.environ["PATH"] + ";" + bin
-        bin = os.path.join(bin_, engine)
+        exe = os.path.join(bin_, engine)
     else:
-        bin = engine
+        exe = engine
     if os.path.exists(image):
         os.remove(image)
-    output = run_subprocess([bin, "-Tpng", filename, "-o", image])
+    output = run_subprocess([exe, "-Tpng", filename, "-o", image])
     assert os.path.exists(image), f"Graphviz failed due to {output}"
     return output
 
