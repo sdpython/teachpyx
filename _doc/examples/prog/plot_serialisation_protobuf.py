@@ -90,9 +90,16 @@ with open("schema.proto", "w") as f:
 
 
 cmd = "protoc --python_out=. schema.proto"
-out, err = run_cmd(cmd=cmd, wait=True)
-print(out)
-print(err)
+try:
+    out, err = run_cmd(cmd=cmd, wait=True)
+    use_protoc = True
+except FileNotFoundError as e:
+    print(f"error: {e}")
+    print("unable to use protoc")
+    use_protoc = False
+if use_protoc:
+    print(out)
+    print(err)
 
 
 ########################################
@@ -104,10 +111,12 @@ print(err)
 
 ########################################
 
-
-with open("schema_pb2.py", "r") as f:
-    content = f.read()
-print(content[:1000])
+if os.path.exists("schema_pb2.py"):
+    with open("schema_pb2.py", "r") as f:
+        content = f.read()
+    print(content[:1000])
+else:
+    print("schema_pb2.py missing")
 
 
 ########################################
@@ -117,26 +126,29 @@ print(content[:1000])
 # Pour utliser *protobuf*, il faut importer le module créé.
 
 
-sys.path.append(".")
-import schema_pb2  # noqa: E402
+if use_protoc:
+    sys.path.append(".")
+    import schema_pb2  # noqa: E402
 
 ########################################
 # On créé un enregistrement.
 
 
-person = schema_pb2.Person()
-person.id = 1234
-person.name = "John Doe"
-person.email = "jdoe@example.com"
-phone = person.phones.add()
-phone.number = "555-4321"
-phone.type = schema_pb2.Person.HOME
+if use_protoc:
+    person = schema_pb2.Person()
+    person.id = 1234
+    person.name = "John Doe"
+    person.email = "jdoe@example.com"
+    phone = person.phones.add()
+    phone.number = "555-4321"
+    phone.type = schema_pb2.Person.HOME
 
 
 ########################################
 #
 
-person
+if use_protoc:
+    person
 
 
 ########################################
@@ -144,41 +156,51 @@ person
 # =====================================
 
 
-res = person.SerializeToString()
-type(res), res
+if use_protoc:
+    res = person.SerializeToString()
+    print(type(res), res)
 
 
 ########################################
 #
 
-timeit.timeit("person.SerializeToString()", globals=globals(), number=100)
+if use_protoc:
+    print(timeit.timeit("person.SerializeToString()", globals=globals(), number=100))
 
 
 ########################################
 #
 
-pers = schema_pb2.Person.FromString(res)
-pers
+if use_protoc:
+    pers = schema_pb2.Person.FromString(res)
+    print(pers)
 
 
 ########################################
 #
 
-pers = schema_pb2.Person()
-pers.ParseFromString(res)
-pers
+if use_protoc:
+    pers = schema_pb2.Person()
+    pers.ParseFromString(res)
+    print(pers)
 
 
 ########################################
 #
 
-timeit.timeit("schema_pb2.Person.FromString(res)", globals=globals(), number=100)
+if use_protoc:
+    print(
+        timeit.timeit(
+            "schema_pb2.Person.FromString(res)", globals=globals(), number=100
+        )
+    )
 
 
 ########################################
 #
 
-timeit.timeit("pers.ParseFromString(res)", globals=globals(), number=100)
+if use_protoc:
+    print(timeit.timeit("pers.ParseFromString(res)", globals=globals(), number=100))
 
 
 ########################################
@@ -187,24 +209,24 @@ timeit.timeit("pers.ParseFromString(res)", globals=globals(), number=100)
 
 
 db = []
+if use_protoc:
+    person = schema_pb2.Person()
+    person.id = 1234
+    person.name = "John Doe"
+    person.email = "jdoe@example.com"
+    phone = person.phones.add()
+    phone.number = "555-4321"
+    phone.type = schema_pb2.Person.HOME
+    db.append(person)
 
-person = schema_pb2.Person()
-person.id = 1234
-person.name = "John Doe"
-person.email = "jdoe@example.com"
-phone = person.phones.add()
-phone.number = "555-4321"
-phone.type = schema_pb2.Person.HOME
-db.append(person)
-
-person = schema_pb2.Person()
-person.id = 5678
-person.name = "Johnette Doette"
-person.email = "jtdoet@example2.com"
-phone = person.phones.add()
-phone.number = "777-1234"
-phone.type = schema_pb2.Person.MOBILE
-db.append(person)
+    person = schema_pb2.Person()
+    person.id = 5678
+    person.name = "Johnette Doette"
+    person.email = "jtdoet@example2.com"
+    phone = person.phones.add()
+    phone.number = "777-1234"
+    phone.type = schema_pb2.Person.MOBILE
+    db.append(person)
 
 
 ########################################
@@ -241,35 +263,41 @@ while True:
 ########################################
 #
 
-db2[0], db2[1]
+if db2:
+    print(db2[0], db2[1])
 
 
 ########################################
 # Sérialisation JSON
 # ==================
 
-
-print(MessageToJson(pers))
-
-
-########################################
-#
-
-timeit.timeit("MessageToJson(pers)", globals=globals(), number=100)
+if use_protoc:
+    print(MessageToJson(pers))
 
 
 ########################################
 #
 
-
-js = MessageToJson(pers)
-res = ParseJson(js, message=schema_pb2.Person())
-res
+if use_protoc:
+    print(timeit.timeit("MessageToJson(pers)", globals=globals(), number=100))
 
 
 ########################################
 #
 
-timeit.timeit(
-    "ParseJson(js, message=schema_pb2.Person())", globals=globals(), number=100
-)
+
+if use_protoc:
+    js = MessageToJson(pers)
+    res = ParseJson(js, message=schema_pb2.Person())
+    print(res)
+
+
+########################################
+#
+
+if use_protoc:
+    print(
+        timeit.timeit(
+            "ParseJson(js, message=schema_pb2.Person())", globals=globals(), number=100
+        )
+    )
