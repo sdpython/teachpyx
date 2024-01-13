@@ -32,6 +32,7 @@ _latex/ensae/*.aux
 _latex/ensae/*.idx
 _latex/ensae/*.out
 _latex/ensae/*.pdf
+_doc/sg_execution_times.rst
 _doc/CHANGELOGS.rst
 _doc/LICENSE.txt
 _doc/auto_examples/*
