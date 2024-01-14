@@ -162,4 +162,4 @@ Machine Learning
     practice/ml/winesc_color
     practice/ml/winesr_reg
     practice/ml/ml_features_model
-    practice/ml/ml_features_model
+    practice/ml/timeseries_ssa
