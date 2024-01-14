@@ -36,6 +36,7 @@ sphinx-issues
 sphinxcontrib-blockdiag
 git+https://github.com/sdpython/blockdiag.git@pil10
 git+https://github.com/sdpython/sphinx-runpython.git
+statsmodels
 tqdm
 ujson
 wheel
