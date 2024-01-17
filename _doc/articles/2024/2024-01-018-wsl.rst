@@ -1,0 +1,17 @@
+2024-01-18 : WSL - nttoyage
+===========================
+
+L'image liée au `WSL <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_
+grossit et supprimer des fichiers ne la réduit pas, tout du moins, pas dans l'immédiat.
+Il fait epxliciter lancer une commande pour *optimiser* l'image depuis une command
+Powershell.
+
+::
+
+    Optimize-VHD -Path C:\Users\<user>\AppData\Local\Packages\<image>\LocalState\ext4.vhdx -Mode Full
+
+``<user>`` est le nom d'utilisateur, ``<image>`` ressemble à quelque chose comme
+``CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc``.
+
+Cette astuce vient de l'article :
+`Daniel Nashed's Blog <https://blog.nashcom.de/nashcomblog.nsf/dx/cleaning-up-your-disks-wsl-and-docker.htm>`_.
