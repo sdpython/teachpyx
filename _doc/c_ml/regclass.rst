@@ -26,8 +26,8 @@ composants.
 
 *Quelques lectures :*
 
-* `Problèmes classiques de machine learning illustrés <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/ml_c_machine_learning_problems.html>`_
-* `Machine Learning par Gaël Varoquaux <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/all_notebooks.html#a-sklearn-ensae-course>`_
+* `Machine Learning par Gaël Varoquaux
+  <http://gael-varoquaux.info/scipy-lecture-notes/packages/scikit-learn/index.html#introduction-problem-settings>`_
 
 Ce jeu de données peut également être téléchargé avec la fonction
 :func:`load_wines_dataset <teachpyx.datasets.wines.load_wines_dataset>`.
@@ -44,12 +44,10 @@ de vins dont on connaît les mêmes 12 informations sur leur composition,
 ci-dessous, pour deux vins.
 
 .. runpython::
-    :rst:
 
-    from teachpyx.tools.pandas_helper import df2rst
     from teachpyx.datasets import load_wines_dataset
     df = load_wines_dataset()
-    print(df2rst(df.head(n=2).T.reset_index(drop=False)))
+    print(df.head(n=2).T.reset_index(drop=False))
 
 On part du principe que si deux vins différents ont la même
 composition, leurs qualités gustatives seront identiques.
@@ -78,19 +76,17 @@ Les données
 +++++++++++
 
 Le jeu de données peut être téléchargé depuis le site
-`Wine Quality Data Set <https://archive.ics.uci.edu/ml/datasets/wine+quality>`_.
+`Wine Quality Data Set <https://archive.ics.uci.edu/dataset/186/wine+quality>`_.
 Il peut être également obtenu avec le code suivant :
 
 .. runpython::
     :showcode:
-    :rst:
 
-    from teachpyx.tools.pandas_helper import df2rst
     from treachpyx.datasets import load_wines_dataset
     df = load_wines_dataset()
     df = df[['fixed_acidity', 'volatile_acidity', 'citric_acid', 'quality']].copy()
     df['...'] = '...'
-    print(df2rst(df.head()))
+    print(df.head())
 
 .. plot::
 
@@ -129,9 +125,10 @@ chaque nouveau vin le vin qui lui ressemble le plus parmi tous ceux connus.
 On appelle cette méthode la méthode des
 `plus proches voisins <https://fr.wikipedia.org/wiki/Recherche_des_plus_proches_voisins>`_.
 Le module :epkg:`scikit-learn` implémente cet algorithme
-`Nearest Neighbors <http://scikit-learn.org/stable/modules/neighbors.html>`_ et
+`Nearest Neighbors <https://scikit-learn.org/stable/modules/neighbors.html>`_ et
 on pourra s'inspirer de l'exemple
-`Nearest Neighbors regression <http://scikit-learn.org/stable/auto_examples/neighbors/plot_regression.html#sphx-glr-auto-examples-neighbors-plot-regression-py>`_.
+`Nearest Neighbors regression
+<https://scikit-learn.org/stable/auto_examples/neighbors/plot_regression.html#sphx-glr-auto-examples-neighbors-plot-regression-py>`_.
 De façon un peu plus mathématique, on considère les données d'apprentissage
 :math:`(X_i, y_i)_{i=1}^n`, le modèle construit une prédiction pour un :math:`x`
 donné à partir de :math:`k` plus proches voisins. Ceux-ci vérifie :
@@ -160,7 +157,8 @@ plutôt simples à classer et un dernier - cercle jaune -
 dont les voisins sont en désaccord quant à la décision
 à prendre. Le vrai visage du jeu de données est plus
 difficile à lire. Il est obtenu grâce à une
-`analyse en composante principale (ACP) <https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales>`_
+`analyse en composante principale (ACP)
+<https://fr.wikipedia.org/wiki/Analyse_en_composantes_principales>`_
 qui projette un ensemble de points dans un espace de dimension réduite
 en maximisant la variance de l'ensemble projeté.
 
@@ -186,8 +184,8 @@ d'accélérer la recherche de voisins comme les
 `ball tree <https://en.wikipedia.org/wiki/Ball_tree>`_.
 Ils sont de moins en moins
 efficaces au fur et à mesure que la dimension de l'espace
-des features augmente :
-`Nearest Neighbours and Sparse Features <http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/notebooks/nearest_neighbours_sparse_features.html>`_.
+des features augmente (voir :ref:`Plus proches voisins en grande dimension
+<nbl-practice-tds-algo-knn_high_dimension_correction>`).
 
 Trois étapes récurrentes
 ========================
@@ -268,8 +266,6 @@ choisir la meilleure.
 Deux problèmes à la base de beaucoup d'autres
 =============================================
 
-.. index:: régression
-
 .. _l-regression-f:
 
 Régression
@@ -293,8 +289,7 @@ On suppose parfois que ce bruit suive une loi normale.
     * :math:`\forall \pa{i,j} \in \intervalle{1}{N}^2, \; i \neq j \Longrightarrow \epsilon_i \independant \epsilon_j`
 
 La prédiction de la note des vins est un problème de
-`régression <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/rn/rn_2_reg.html>`_
-et cela consiste à résoudre le problème suivant :
+régression et cela consiste à résoudre le problème suivant :
 
 .. mathdef::
     :title: Régression
@@ -335,7 +330,8 @@ sur :math:`f`. Généralement, cette fonction n'est supposée non linéaire
 que lorsqu'une `régression linéaire <https://fr.wikipedia.org/wiki/R%C3%A9gression_lin%C3%A9aire>`_
 donne de mauvais résultats.
 :epkg:`scikit-learn` implémente de nombreux modèles de
-`régression <http://scikit-learn.org/stable/supervised_learning.html#supervised-learning>`_.
+régression (voir `Supervised learning
+<https://scikit-learn.org/stable/supervised_learning.html#supervised-learning>`_).
 
 .. toctree::
     :maxdepth: 1
@@ -481,7 +477,7 @@ Un modèle plus compliqué améliore souvent les performances.
 Il est possible aussi d'ajouter des variables construites
 de façon non linéaire à partir des premières. Le procédé est plus
 ou moins automatique mais donne parfois de bons résultats :
-`Features ou modèle <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/ml_features_model.html>`_.
+:ref:`Features ou modèle <nbl-practice-ml-ml_features_model>`.
 
 .. _l-multiclass:
 
@@ -554,7 +550,7 @@ nativement la multi-classification.
 Machine learning et programmation
 +++++++++++++++++++++++++++++++++
 
-L'`API de scikit-learn <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/02_basic_of_machine_learning_with_scikit-learn.html#a-recap-on-scikit-learn-s-estimator-interface>`_
+L'**API de scikit-learn**
 se résume à peu de choses et permet déjà de faire des choses assez
 puissantes. On peut par exemple faire de l'optimisation d'hyperparamètres
 sur des assemblages de *transform*, *learner*. On appelle
@@ -605,8 +601,6 @@ d'automatiser.
 Exercices
 +++++++++
 
-* `Arbres de décision / Random Forest <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td2a_cenonce_session_3B.html>`_
-* `Machine Learning et Marketting <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td2a_cenonce_session_4A.html>`_
 * `Tree, overfitting <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/ml_a_tree_overfitting.html>`_
 * `Comparaison de deux régressions <http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/notebooks/enonce_2017.html#enonce2017rst>`_
 
