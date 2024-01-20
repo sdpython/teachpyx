@@ -102,7 +102,7 @@ Catalogue d'algorithmes
     * `Python implementation of Kullback-Leibler divergences and kl-UCB indexes <https://github.com/Naereen/Kullback-Leibler-divergences-and-kl-UCB-indexes>`_ **algo**
 * Calcul matriciel
     * `Winograd Minimum Filtering <https://arxiv.org/abs/2111.00977>`_ **algo** convolution rapide
-    * `im2col <http://www.xavierdupre.fr/app/onnxcustom/helpsphinx/notebooks/convolutation_matmul.html>`_ **algo**
+    * `im2col <https://sdpython.github.io/doc/experimental-experiment/dev/auto_examples/plot_convolutation_matmul.html>`_ **algo**
       ou comment réarranger une matrice pour transformer une convolution entre un produit matriciel
 * Diviser pour reigner
     * `dichotomie <http://fr.wikipedia.org/wiki/Dichotomie>`_ **algo**
