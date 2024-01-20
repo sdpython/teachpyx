@@ -10,6 +10,7 @@ Ou *blog*.
     :maxdepth: 1
 
     2024/2024-01-18-wsl
+    2024/2024-03-01-route2024
 
 .. toctree::
     :caption: 2023

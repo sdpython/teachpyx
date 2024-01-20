@@ -1,0 +1,19 @@
+_l-feuille-route-2024:
+
+==================================
+2024-03-01 : feuille de route 2024
+==================================
+
+Séance 1 (26/1)
+===============
+
+* rappel
+* programmation (python numpy, pandas, matplotlib, jupyter)
+* tests unitaires, package python
+* CPU, CUDA
+* données, SQL
+* machine learning, scikit-learn, pytorch
+* classification, régression
+* évaluation, ROC, :math:`R^2`
+* ranking, clustering
+* chatgpt, LLM (Large Language Model), SLLM (Small LLM)
