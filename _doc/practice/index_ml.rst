@@ -11,6 +11,13 @@ Machine Learning
 
 .. toctree::
     :maxdepth: 1
+    :caption: Machine Learning
+
+    ml/ml_features_model
+    ml/wines_knn_acp
+
+.. toctree::
+    :maxdepth: 1
     :caption: Régression
 
     ml/winesr_reg
@@ -20,7 +27,6 @@ Machine Learning
     :caption: Classification
 
     ml/winesc_color
-    ml/ml_features_model
 
 .. toctree::
     :maxdepth: 1

@@ -339,7 +339,7 @@ Le résultat est illustré par le programme suivant.
             a = mutagen.mp3.MP3(file)
             b = mutagen.easyid3.EasyID3(file)
         except Exception as e:
-            raise Exception("Unable to read file '{0}'".format(file)) from e
+            raise AssertionError("Unable to read file '{0}'".format(file)) from e
         info = {"minutes": a.info.length/60, "nom": file}
         for k in tags :
             try:

@@ -71,7 +71,7 @@ for i in range(0, 100000):
     d32 = numpy.float64(rnd32[i] * rnd32[j])
     d64 = numpy.float64(rnd32[i]) * numpy.float64(rnd32[j])
     if d32 != d64:
-        raise Exception(
+        raise AssertionError(
             "Issue with somme={0} = {1} + {2}".format(
                 rnd32[i] + rnd32[j], rnd32[i], rnd32[j]
             )

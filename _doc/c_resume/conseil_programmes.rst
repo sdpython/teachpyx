@@ -72,7 +72,7 @@ On écrit la fonction qui vérifie cela.
     def test_somme_double() :
         y = somme_double([ 1 ]) / 2
         if y == 0:
-            raise Exception("valeur > 0 attendue")
+            raise AssertionError("valeur > 0 attendue")
 
     if __name__ == "__main__" :
         test_somme_double()
@@ -91,7 +91,7 @@ s'attend à ce qu'elle retourne ce type de résultat.
         test_somme_double()
       File "conseil.py", line 7, in test_somme_double
         if y == 0:
-            raise Exception("valeur > 0 attendue")
+            raise AssertionError("valeur > 0 attendue")
     Exception: valeur > 0 attendue
 
 Trucs et astuces

@@ -110,10 +110,7 @@ plus à l'aise là où il a le plus d'information. Les vins extrêmes,
 peu représentés, seront sans doute moins bien appréhendés par
 le modèle de prédiction.
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_knn_acp
+* :ref:`nbl-practice-ml-wines_knn_acp`
 
 .. index:: plus proches voisins
 
