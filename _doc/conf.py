@@ -399,6 +399,7 @@ epkg_dictionary.update(
         "R": "https://www.r-project.org/",
         "recherche dichotomique": "https://fr.wikipedia.org/wiki/Recherche_dichotomique",
         "seaborn": "https://seaborn.pydata.org/",
+        "UCI": "https://archive.ics.uci.edu/datasets",
         "variable aléatoire": "https://fr.wikipedia.org/wiki/Variable_al%C3%A9atoire",
         "voyageur de commerce": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce",
     }
