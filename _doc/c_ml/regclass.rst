@@ -82,7 +82,7 @@ Il peut être également obtenu avec le code suivant :
 .. runpython::
     :showcode:
 
-    from treachpyx.datasets import load_wines_dataset
+    from teachpyx.datasets import load_wines_dataset
     df = load_wines_dataset()
     df = df[['fixed_acidity', 'volatile_acidity', 'citric_acid', 'quality']].copy()
     df['...'] = '...'
