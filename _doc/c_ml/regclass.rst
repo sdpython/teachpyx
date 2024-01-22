@@ -165,11 +165,8 @@ en maximisant la variance de l'ensemble projeté.
 Peut-être que la prédiction sera facile mais ce n'est
 pas cette représentation qui permet de nous en assurer.
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_knn
-    ../notebooks/wines_knn_eval
+* :ref:`Plus proches voisins <nbl-practice-ml-winesr_knn>`
+* :ref:`Plus proches voisins - Evaluation <nbl-practice-ml-winesr_knn_eval>`
 
 .. index:: ball tree
 
@@ -208,11 +205,8 @@ les bases d'apprentissage et de test. On compare
 les prédictions aux valeurs attendues sur la base
 de test.
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_knn_split
-    ../notebooks/wines_knn_split_strat
+* :ref:`Plus proches voisins <nbl-practice-ml-winesr_knn_split>`
+* :ref:`Découpage stratifié apprentissage / test <nbl-practice-ml-winesr_knn_split_strat>`
 
 .. index:: validation croisée, cross-validation
 
