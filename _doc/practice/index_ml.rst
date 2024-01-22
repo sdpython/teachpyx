@@ -14,7 +14,7 @@ Machine Learning
     :caption: Machine Learning
 
     ml/ml_features_model
-    ml/wines_knn_acp
+    ml/wines_acp
 
 .. toctree::
     :maxdepth: 1

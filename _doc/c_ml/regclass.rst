@@ -30,7 +30,7 @@ composants.
   <http://gael-varoquaux.info/scipy-lecture-notes/packages/scikit-learn/index.html#introduction-problem-settings>`_
 
 Ce jeu de données peut également être téléchargé avec la fonction
-:func:`load_wines_dataset <teachpyx.datasets.wines.load_wines_dataset>`.
+:func:`load_wines_dataset <teachpyx.datasets.load_wines_dataset>`.
 
 Découverte du machine learning
 ==============================
@@ -110,7 +110,7 @@ plus à l'aise là où il a le plus d'information. Les vins extrêmes,
 peu représentés, seront sans doute moins bien appréhendés par
 le modèle de prédiction.
 
-* :ref:`nbl-practice-ml-wines_knn_acp`
+* :ref:`ACP - projection <nbl-practice-ml-wines_acp>`
 
 .. index:: plus proches voisins
 
@@ -583,12 +583,7 @@ Mais il faut vérifier voire implémenter
 aussi les méthodes *get_params* et *set_params* qui permettent
 aux fonctions de :epkg:`scikit-learn` de
 `cloner <https://scikit-learn.org/stable/modules/generated/sklearn.base.clone.html#sklearn.base.clone>`_
-un modèle. La classe :class:`SkBaseLearnerCategory <papierstat.mltricks.sklearn_base_learner_category.SkBaseLearnerCategory>`
-implémente un modèle qui en contient plusieurs. Il n'hérite pas
-de la classe `BaseEstimator <https://scikit-learn.org/stable/modules/generated/sklearn.base.BaseEstimator.html#sklearn.base.BaseEstimator>`_
-de façon à laisser tous les traits de construction apparents.
-Le notebook suivant revient sur ce modèle et ce qu'il permet
-d'automatiser.
+un modèle.
 
 .. toctree::
     :maxdepth: 1

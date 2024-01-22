@@ -10,7 +10,7 @@ Séance 1 (26/1)
 * site web : `sdpython.github.io <https://sdpython.github.io/>`_
 * :ref:`l-ml-rappel`
 * programmation (python :epkg:`numpy`, :epkg:`pandas`, :epkg:`matplotlib`, :epkg:`jupyter`)
-* :ref:`nbl-practice-py-base-tests_unitaires`, package python
+* :ref:`Tests unitaires <nbl-practice-py-base-tests_unitaires>`, package python
 * CPU, CUDA
 * données, SQL
 * machine learning, :epkg:`scikit-learn`, :epkg:`pytorch`
