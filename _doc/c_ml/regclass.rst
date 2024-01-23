@@ -502,7 +502,7 @@ Paradoxalement, cette stratégie est préférable lorsque le
 nombre de classes est grand car les jeux de données ne sont pas
 déséquilibrés lors de l'apprentissage (voir [Furnkranz2002]_).
 
-* :ref:`Classification multi-classe <nbl-practice-ml-winesr_multi>`
+* :ref:`Classification multi-classe <nbl-practice-ml-winesc_multi>`
 * :ref:`Classification multi-classe et jeu mal balancé <nbl-practice-ml-artificiel_multiclass>`
 
 Ces approches ont néanmoins un léger inconvénient qui est d'avoir
@@ -516,7 +516,7 @@ l'ensemble est plutôt hésitant. On peut améliorer les performances
 avec une méthode de :ref:`stacking` et des modèles qui supportent
 nativement la multi-classification.
 
-* :ref:`Classification multi-classe et stacking <nbl-practice-ml-winesr_multi_stacking>`
+* :ref:`Classification multi-classe et stacking <nbl-practice-ml-winesc_multi_stacking>`
 
 .. _l-sklearn-programmation:
 
