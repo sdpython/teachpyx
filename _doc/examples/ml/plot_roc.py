@@ -1,5 +1,7 @@
 # coding: utf-8
 """
+.. _l-ml-plot-roc:
+
 Receiver Operating Characteristic (ROC)
 =======================================
 

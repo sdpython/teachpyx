@@ -7,6 +7,7 @@ Machine Learning
     :maxdepth: 1
 
     rappel
+    regclass
 
 Les livres anglais sur les sciences sont souvent plus appliqués,
 le démarrage est assez lent, le lecteur comprend bien les notions

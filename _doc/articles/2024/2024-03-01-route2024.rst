@@ -1,0 +1,22 @@
+_l-feuille-route-2024:
+
+==================================
+2024-03-01 : feuille de route 2024
+==================================
+
+Séance 1 (26/1)
+===============
+
+* site web : `sdpython.github.io <https://sdpython.github.io/>`_
+* :ref:`l-ml-rappel`
+* programmation (python :epkg:`numpy`, :epkg:`pandas`, :epkg:`matplotlib`, :epkg:`jupyter`)
+* :ref:`Tests unitaires <nbl-practice-py-base-tests_unitaires>`, package python
+* CPU, CUDA
+* données, SQL
+* machine learning, :epkg:`scikit-learn`, :epkg:`pytorch`
+* :ref:`l-regclass`
+* évaluation, :ref:`ROC <l-ml-plot-roc>`, :math:`R^2`
+* ranking, clustering
+* `ChatGPT <https://chat.openai.com/>`_,
+  `LLM <https://en.wikipedia.org/wiki/Large_language_model>`_,
+  (Large Language Model), SLLM (Small LLM)

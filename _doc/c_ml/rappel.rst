@@ -1,5 +1,5 @@
 
-.. _l-rappel:
+.. _l-ml-rappel:
 
 ================
 Quelques rappels
