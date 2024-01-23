@@ -228,10 +228,7 @@ en anglais. La base de données en découpée en :math:`n` segments,
 .. image:: images/cross.png
     :width: 200
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_knn_cross_val
+* :ref:`Validation croisée <nbl-practice-ml-winesr_knn_cross_val>`
 
 .. index:: hyper-paramètre
 
@@ -249,10 +246,7 @@ quels paramètres donnent les meilleurs résultats ?
 La plus simple stratégie est d'essayer plusieurs valeurs et de
 choisir la meilleure.
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_knn_hyper
+* :ref:`Sélection des hyper-paramètres <nbl-practice-ml-winesr_knn_hyper>`
 
 Deux problèmes à la base de beaucoup d'autres
 =============================================
@@ -324,11 +318,8 @@ donne de mauvais résultats.
 régression (voir `Supervised learning
 <https://scikit-learn.org/stable/supervised_learning.html#supervised-learning>`_).
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_reg
-    ../notebooks/wines_reg_poly
+* :ref:`Régression <nbl-practice-ml-winesr_reg>`
+* :ref:`Régression polynômiale <nbl-practice-ml-winesr_reg_poly>`
 
 .. _l-classification-f:
 
@@ -456,12 +447,9 @@ Pour résumer :
     :math:`\pa{\epsilon_{i}}_{1 \infegal i \infegal N}` une variable aléatoire,
     :math:`f` est une fonction de paramètre :math:`\theta`.
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_color
-    ../notebooks/wines_color_line
-    ../notebooks/wines_color_roc
+* :ref:`Régression logistique et courbe ROC <nbl-practice-ml-winesc_color>`
+* :ref:`Régression logistique en 2D <nbl-practice-ml-winesc_color_line>`
+* :ref:`Classifications et courbes ROC <nbl-practice-ml-winesc_color_roc>`
 
 Les modèles linéaires sont simples, robustes, interprétables.
 Un modèle plus compliqué améliore souvent les performances.
@@ -514,11 +502,8 @@ Paradoxalement, cette stratégie est préférable lorsque le
 nombre de classes est grand car les jeux de données ne sont pas
 déséquilibrés lors de l'apprentissage (voir [Furnkranz2002]_).
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_multi
-    ../notebooks/artificiel_multiclass
+* :ref:`Classification multi-classe <nbl-practice-ml-wines_multi>`
+* :ref:`Classification multi-classe et jeu mal balancé <nbl-practice-ml-artificiel_multiclass>`
 
 Ces approches ont néanmoins un léger inconvénient qui est d'avoir
 plusieurs classifieurs dont les scores ne sont pas nécessairement
@@ -531,10 +516,7 @@ l'ensemble est plutôt hésitant. On peut améliorer les performances
 avec une méthode de :ref:`stacking` et des modèles qui supportent
 nativement la multi-classification.
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_multi_stacking
+* :ref:`Classification multi-classe et stacking <nbl-practice-ml-wines_multi_stacking>`
 
 .. _l-sklearn-programmation:
 
@@ -579,10 +561,7 @@ aux fonctions de :epkg:`scikit-learn` de
 `cloner <https://scikit-learn.org/stable/modules/generated/sklearn.base.clone.html#sklearn.base.clone>`_
 un modèle.
 
-.. toctree::
-    :maxdepth: 1
-
-    ../notebooks/wines_color_linear
+* :ref:`Plusieurs modèles, données disjointes <nbl-practice-ml-winesc_linear>`
 
 Exercices
 +++++++++
