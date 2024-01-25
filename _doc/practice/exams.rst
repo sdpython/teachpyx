@@ -82,5 +82,5 @@ Séance notées machaine learning
 .. toctree::
     :maxdepth: 1
 
-        exams/enonce_ml_2017
-        exams/enonce_ml_2017_correction
+    exams/enonce_ml_2017
+    exams/enonce_ml_2017_correction
