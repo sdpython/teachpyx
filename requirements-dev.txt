@@ -40,4 +40,5 @@ git+https://github.com/sdpython/sphinx-runpython.git
 statsmodels
 tqdm
 ujson
+xgboost
 wheel
