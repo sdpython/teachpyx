@@ -79,18 +79,8 @@ Exercices courts
 Séance notées machaine learning
 ===============================
 
-Enoncés
-+++++++
-
 .. toctree::
     :maxdepth: 1
 
         exams/enonce_ml_2017
-
-Corrections
-+++++++++++
-
-.. toctree::
-    :maxdepth: 1
-
         exams/enonce_ml_2017_correction

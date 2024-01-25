@@ -4,6 +4,8 @@ Change Logs
 0.5.0
 +++++
 
+* :pr:`66`: add dependency on patsy in requirements-dev.txt for new content
+
 0.4.0
 +++++
 
