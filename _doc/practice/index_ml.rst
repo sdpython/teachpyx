@@ -19,6 +19,7 @@ Machine Learning
     ml/winesr_knn_split_strat
     ml/winesr_knn_cross_val
     ml/winesr_knn_hyper
+    ml/ml_a_tree_overfitting
 
 .. toctree::
     :maxdepth: 1

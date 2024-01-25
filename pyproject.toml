@@ -25,7 +25,7 @@ license = {file = "LICENSE.txt"}
 name = "teachpyx"
 readme = "README.rst"
 requires-python = ">=3.9"
-version = "0.4.0"
+version = "0.5.0"
 
 [project.urls]
 Homepage = "https://sdpython.github.io/doc/teachpyx/dev/"

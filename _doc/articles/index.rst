@@ -9,8 +9,8 @@ Ou *blog*.
     :caption: 2024
     :maxdepth: 1
 
-    2024/2024-01-18-wsl
     2024/2024-03-01-route2024
+    2024/2024-01-18-wsl
 
 .. toctree::
     :caption: 2023
@@ -25,6 +25,6 @@ Ou *blog*.
     :caption: 2022
     :maxdepth: 1
 
-    2022/2022-11-31-route2022
     2022/2022-12-07-cartopy
+    2022/2022-11-31-route2022
     2022/2022-01-01-assurance

@@ -140,6 +140,7 @@ Correction d'examens
     practice/exams/td_note_2015
     practice/exams/td_note_2016
     practice/exams/td_note_2017
+    practice/exams/enonce_ml_2017_correction
     practice/exams/td_note_2017_2
     practice/exams/td_note_2018_1
     practice/exams/td_note_2018_2
@@ -176,3 +177,4 @@ Machine Learning
     practice/ml/artificiel_multiclass
     practice/ml/ml_features_model
     practice/ml/timeseries_ssa
+    practice/ml/ml_a_tree_overfitting

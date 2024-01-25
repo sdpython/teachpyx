@@ -75,3 +75,12 @@ Exercices courts
     exams/interro_rapide_20_minutes_2014_12
     exams/interro_rapide_20_minutes_2015_09
     exams/interro_rapide_20_minutes_2015_11
+
+Séance notées machaine learning
+===============================
+
+.. toctree::
+    :maxdepth: 1
+
+    exams/enonce_ml_2017
+    exams/enonce_ml_2017_correction

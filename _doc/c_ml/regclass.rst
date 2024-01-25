@@ -566,8 +566,8 @@ un modèle.
 Exercices
 +++++++++
 
-* `Tree, overfitting <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/ml_a_tree_overfitting.html>`_
-* `Comparaison de deux régressions <http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/notebooks/enonce_2017.html#enonce2017rst>`_
+* :ref:`Tree, overfitting <nbl-practice-ml-ml_a_tree_overfitting>`
+* :ref:`Comparaison de deux régressions <nbl-practice-exams-enonce_ml_2017>`
 
 Bibliographie
 +++++++++++++
