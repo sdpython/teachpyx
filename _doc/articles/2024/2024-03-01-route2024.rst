@@ -15,6 +15,7 @@ Séance 1 (26/1)
 * `CPU <https://en.wikipedia.org/wiki/Central_processing_unit>`_,
   `CUDA <https://en.wikipedia.org/wiki/CUDA>`_
 * machine learning, :epkg:`scikit-learn`, :epkg:`pytorch`
+* `comparaison torch/scikit-learn <https://sdpython.github.io/doc/experimental-experiment/dev/auto_examples/plot_torch_linreg.html>`_
 * :ref:`l-regclass`
 * évaluation, :ref:`ROC <l-ml-plot-roc>`, :math:`R^2`
 * ranking, clustering
