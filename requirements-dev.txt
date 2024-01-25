@@ -22,6 +22,7 @@ nbsphinx
 networkx
 openpyxl
 pandas
+patsy
 pillow
 protobuf<4
 pyinstrument
