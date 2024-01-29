@@ -2,6 +2,7 @@ black
 black-nb
 blockdiag
 cartopy
+category-encoders
 chardet
 cloudpickle
 coverage
