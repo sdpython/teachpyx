@@ -22,3 +22,23 @@ Séance 1 (26/1)
 * `ChatGPT <https://chat.openai.com/>`_,
   `LLM <https://en.wikipedia.org/wiki/Large_language_model>`_,
   (Large Language Model), SLLM (Small LLM)
+
+Séance 2 (2/2)
+==============
+
+* arbre de régression, arbre de classification
+* random forest, boosting trees
+  (:epkg:`xgboost`, :epkg:`lightgtbm`, :epkg:`catboost`),
+  :ref:`nbl-practice-ml-ml_a_tree_overfitting`
+* Gradient Boosting, :ref:`nbl-practice-ml-gradient_boosting`
+* Régression Linéaire et contraintes sur les coefficients,
+  `Ridge <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html>`_,
+  `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
+  `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
+  :ref:`nbl-practice-ml-ridge_lasso`
+* Notion de `Pipeline <https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html>`_
+  ou comment intégrer les prétraitements dans le modèle
+* prétraitements : tout convertir en numérique,
+  données numériques, catégorielles, textuelles
+* un jeu de données :
+  `load_diabetes <https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html>`_
