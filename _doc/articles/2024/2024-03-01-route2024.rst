@@ -29,13 +29,13 @@ Séance 2 (2/2)
 * arbre de régression, arbre de classification
 * random forest, boosting trees
   (:epkg:`xgboost`, :epkg:`lightgtbm`, :epkg:`catboost`),
-  :ref:`nbl-practice-ml-ml_a_tree_overfitting`
-* Gradient Boosting, :ref:`nbl-practice-ml-gradient_boosting`
+  :ref:`RandomForest, Overfitting <nbl-practice-ml-ml_a_tree_overfitting>`
+* Gradient Boosting, :ref:`Gradient Boosting et Learning Rate avec les Random Forest <nbl-practice-ml-gradient_boosting>`
 * Régression Linéaire et contraintes sur les coefficients,
   `Ridge <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html>`_,
   `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
   `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
-  :ref:`nbl-practice-ml-ridge_lasso`
+  :ref:`Ridge, Lasso, mathématiques <nbl-practice-ml-ridge_lasso>`
 * Notion de `Pipeline <https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html>`_
   ou comment intégrer les prétraitements dans le modèle
 * prétraitements : tout convertir en numérique,
