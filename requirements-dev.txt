@@ -16,6 +16,7 @@ ipython
 jinja2
 jupyter
 lifelines
+lightgbm
 lxml
 matplotlib
 mutagen  # mp3
