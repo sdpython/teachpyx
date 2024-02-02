@@ -8,6 +8,7 @@
 *.log
 *.dbf
 *.xlsx
+*.pickle
 .coverage
 data.*
 paris*.*
