@@ -2,6 +2,7 @@ black
 black-nb
 blockdiag
 cartopy
+catboost
 category-encoders
 chardet
 cloudpickle
