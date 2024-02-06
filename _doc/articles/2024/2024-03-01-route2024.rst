@@ -92,3 +92,12 @@ Séance 5 (23/2)
   `statsmodels <https://www.statsmodels.org/stable/index.html>`_,
   `ruptures <https://github.com/deepcharles/ruptures>`_,
   `tslearn <https://github.com/tslearn-team/tslearn>`_,
+
+Projets
+=======
+
+* Un oral de 20 minutes le 5 avril,
+  10 minutes de présentation, 10 minutes de questions
+* Rendre son code le 2 avril avant minuit
+* Par groupe de 3
+* Contraintes : un pipeline, un test unitaire, un graphe
