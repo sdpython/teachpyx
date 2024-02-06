@@ -42,3 +42,53 @@ Séance 2 (2/2)
   données numériques, catégorielles, textuelles
 * un jeu de données :
   `load_diabetes <https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html>`_
+
+Séance 3 (8/2)
+==============
+
+* Notion de `Pipeline <https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html>`_
+  ou comment intégrer les prétraitements dans le modèle
+* prétraitements : tout convertir en numérique,
+  données numériques, catégorielles, textuelles
+* créer son propre estimateur
+* cartes avec `geopandas <https://geopandas.org/en/stable/>`_
+
+Séance 4 (16/2)
+===============
+
+* recommandations
+  `NMF <https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html>`_
+* ranking
+* traitement des valeurs manquantes
+* `TSNE <https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html>`_
+* valeurs manquantes
+* pytorch
+* `skorch <https://github.com/skorch-dev/skorch>`_
+* `statsmodels <https://www.statsmodels.org/stable/index.html>`_
+
+Séance 5 (23/2)
+===============
+
+* machine learning éthique,
+  `Latanya Sweeney: How technology impacts humans and dictates our civic future
+  <https://www.youtube.com/watch?v=Buf0wLb86Lo>`_,
+  `Equality of Opportunity in Supervised Learning
+  <https://home.ttic.edu/~nati/Publications/HardtPriceSrebro2016.pdf>`_
+* interprétabilité,
+  `"Why Should I Trust You?"" Explaining the Predictions of Any Classifier
+  <https://arxiv.org/pdf/1602.04938v1.pdf>`_,
+  `LIME <https://ema.drwhy.ai/LIME.html>`_,
+  `SHAP <https://ema.drwhy.ai/shapley.html>`_
+  `Partial Dependence Plot
+  <https://scikit-learn.org/stable/modules/partial_dependence.html>`_
+* séries temporelles,
+  décomposition, `Holt Winters <https://otexts.com/fpp2/holt-winters.html>`_,
+  détection des changements de régime,
+  `Filtre de Kalman <http://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf>`_,
+  `SSA <https://en.wikipedia.org/wiki/Singular_spectrum_analysis>`_
+* analyse de survie
+* anomalies
+* packages  `prophet <https://facebook.github.io/prophet/docs/quick_start.html>`_,
+  `statsmodels <https://www.statsmodels.org/stable/index.html>`_,
+  `ruptures <https://github.com/deepcharles/ruptures>`_,
+  `tslearn <https://github.com/tslearn-team/tslearn>`_,

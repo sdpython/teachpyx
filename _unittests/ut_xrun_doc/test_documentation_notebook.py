@@ -119,6 +119,16 @@ class TestDocumentationNotebook(ExtTestCase):
                         res = self.run_test(fullname, verbose=VERBOSE)
                         self.assertIn(res, (-1, 1))
 
+                elif (
+                    "ml_a_tree_overfitting" in name
+                    and os.environ.get("CIRCLECI", "undefined") != "undefined"
+                ):
+
+                    @unittest.skip("issues with circleci")
+                    def _test_(self, fullname=fullname):
+                        res = self.run_test(fullname, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
+
                 else:
 
                     def _test_(self, fullname=fullname):
