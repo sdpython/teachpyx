@@ -97,7 +97,7 @@ Séance 5 (23/2)
 Projets
 =======
 
-Deux sujets au choix.
+Un sujet parmi deux.
 
 **Sujet 1**
 
@@ -107,22 +107,22 @@ une première solution et des premiers résultats.
 
 Ce notebook ou script doit détecter automatiquement les variables
 numériques, catégorielles et textuelles et appliquer
-le prétraitement appropriée, caler quelques modèles.
+le prétraitement appropriée, puis caler quelques modèles.
 
 L'idée est de construire une première baseline pour savoir si le problème
-est plus ou moins compliqué. On pourra notamment regarder la proportion de
-de chaque classe.
+est plus ou moins compliqué. On pourra notamment comparer le taux
+de bonne prédiciton à la proportion de de chaque classe.
 
 **Sujet 2**
 
 Une fois un modèle de machine learning appris, on veut écrire un notebook
-ou un script qui indique pour chaque observation et chaque variables,
-la variable à appliquer sur cette variable et sans changer les autres
+ou un script qui indique pour chaque observation et chaque variable,
+la variation à appliquer sur cette variable, et sans changer les autres,
 pour faire basculer le modèle de l'autre côté.
 
-Si le modèle dépend de deux variable X1 et X2, X1 est numérique
+Si le modèle dépend de deux variables X1 et X2, X1 est numérique
 et X2 catégorielle. On se pose la question de savoir comment changer
-X2 pour changer le résultat du modèle, si le modèle répond toujours
+X1 pour changer le résultat du modèle, ou si le modèle répond toujours
 la même classe quelle que soit la catégorie X2.
 
 L'idée est de comprendre si le modèle est localement sensible à une 
