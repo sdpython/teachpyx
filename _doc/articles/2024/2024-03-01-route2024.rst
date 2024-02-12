@@ -58,6 +58,8 @@ Séance 4 (16/2)
 * grille de recherche
 * traitement des valeurs manquantes
 * valeurs manquantes, gradient, méthodes ensemblistes
+* réseau de neurones : algorithme de `rétro-propagation
+  <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/rn/rn_5_newton.html#calcul-du-gradient-ou-retropropagation>`_
 * cartes avec `geopandas <https://geopandas.org/en/stable/>`_
 * interprétabilité,
   `"Why Should I Trust You?"" Explaining the Predictions of Any Classifier
