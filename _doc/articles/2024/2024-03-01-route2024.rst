@@ -22,3 +22,127 @@ Séance 1 (26/1)
 * `ChatGPT <https://chat.openai.com/>`_,
   `LLM <https://en.wikipedia.org/wiki/Large_language_model>`_,
   (Large Language Model), SLLM (Small LLM)
+
+Séance 2 (2/2)
+==============
+
+* arbre de régression, arbre de classification
+* random forest, boosting trees
+  (:epkg:`xgboost`, :epkg:`lightgtbm`, :epkg:`catboost`),
+  :ref:`RandomForest, Overfitting <nbl-practice-ml-ml_a_tree_overfitting>`
+* Gradient Boosting, :ref:`Gradient Boosting et Learning Rate avec les Random Forest <nbl-practice-ml-gradient_boosting>`
+* Régression Linéaire et contraintes sur les coefficients,
+  `Ridge <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html>`_,
+  `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
+  `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
+  :ref:`Ridge, Lasso, mathématiques <nbl-practice-ml-ridge_lasso>`
+* Notion de :epkg:`pipeline` ou comment intégrer les prétraitements dans le modèle
+* prétraitements : tout convertir en numérique,
+  données numériques, catégorielles, textuelles
+* un jeu de données :
+  `load_diabetes <https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html>`_
+
+Séance 3 (8/2)
+==============
+
+* Notion de :epkg:`pipeline` ou comment intégrer les prétraitements dans le modèle
+* prétraitements : tout convertir en numérique,
+  données numériques, catégorielles, textuelles
+
+Séance 4 (16/2)
+===============
+
+* créer son propre estimateur
+* grille de recherche
+* traitement des valeurs manquantes
+* valeurs manquantes, gradient, méthodes ensemblistes
+* réseau de neurones : algorithme de `rétro-propagation
+  <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/rn/rn_5_newton.html#calcul-du-gradient-ou-retropropagation>`_
+* cartes avec `geopandas <https://geopandas.org/en/stable/>`_
+* interprétabilité,
+  `"Why Should I Trust You?"" Explaining the Predictions of Any Classifier
+  <https://arxiv.org/pdf/1602.04938v1.pdf>`_,
+  `LIME <https://ema.drwhy.ai/LIME.html>`_,
+  `SHAP <https://ema.drwhy.ai/shapley.html>`_
+  `Partial Dependence Plot
+  <https://scikit-learn.org/stable/modules/partial_dependence.html>`_
+* machine learning éthique,
+  `Latanya Sweeney: How technology impacts humans and dictates our civic future
+  <https://www.youtube.com/watch?v=Buf0wLb86Lo>`_,
+  `Equality of Opportunity in Supervised Learning
+  <https://home.ttic.edu/~nati/Publications/HardtPriceSrebro2016.pdf>`_
+
+Séance 5 (23/2)
+===============
+
+* séries temporelles,
+  décomposition, `Holt Winters <https://otexts.com/fpp2/holt-winters.html>`_,
+  détection des changements de régime,
+  `Filtre de Kalman <http://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf>`_,
+  `SSA <https://en.wikipedia.org/wiki/Singular_spectrum_analysis>`_
+* packages  `prophet <https://facebook.github.io/prophet/docs/quick_start.html>`_,
+  :epkg:`statsmodels`,
+  `ruptures <https://github.com/deepcharles/ruptures>`_,
+  `tslearn <https://github.com/tslearn-team/tslearn>`_,
+* analyse de survie
+* anomalies
+* recommandations
+  `NMF <https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html>`_
+* ranking
+* `TSNE <https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html>`_
+* pytorch
+* `skorch <https://github.com/skorch-dev/skorch>`_
+* :epkg:`statsmodels`
+
+Projets
+=======
+
+Un sujet parmi deux.
+
+**Sujet 1**
+
+Ecrire un notebook ou un script qui construit
+pour n'importe quel problème de classification binaire
+une première solution et des premiers résultats.
+
+Ce notebook ou script doit détecter automatiquement les variables
+numériques, catégorielles et textuelles et appliquer
+le prétraitement appropriée, puis caler quelques modèles.
+
+L'idée est de construire une première baseline pour savoir si le problème
+est plus ou moins compliqué. On pourra notamment comparer le taux
+de bonne prédiciton à la proportion de de chaque classe.
+
+**Sujet 2**
+
+Une fois un modèle de machine learning appris, on veut écrire un notebook
+ou un script qui indique pour chaque observation et chaque variable,
+la variation à appliquer sur cette variable, et sans changer les autres,
+pour faire basculer le modèle de l'autre côté.
+
+Si le modèle dépend de deux variables X1 et X2, X1 est numérique
+et X2 catégorielle. On se pose la question de savoir comment changer
+X1 pour changer le résultat du modèle, ou si le modèle répond toujours
+la même classe quelle que soit la catégorie X2.
+
+L'idée est de comprendre si le modèle est localement sensible à une 
+variable.
+
+**Contraintes**
+
+* Un oral de 20 minutes le 5 avril,
+  10 minutes de présentation, 10 minutes de questions
+* Rendre son code le 2 avril avant minuit
+* Par groupe de 3
+* Le script ou notebook devra inclure un pipeline, un test unitaire, un graphe.
+* Chaque notebook devra être évalué sur deux jeu de données au choix.
+
+Le test unitaire est une fonction que le notebook ou le script
+retourne toujours la même chose sur un jeu de données très simple
+car ce qu'on veut obtenir sur ce jeu de données est connu à l'avance.
+
+Par exemple, si on a deux variables X1, X2 et une classe à apprendre
+qui vaut 1 si X1 > 5, 0 sinon. Le notebook du premier sujet doit
+répondre que le sujet est facile et la performance est de 100%
+de bonne classification. Le notebook du second sujet doit
+dire que la prédiction ne dépend pas de la variable X2.

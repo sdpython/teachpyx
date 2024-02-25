@@ -8,6 +8,7 @@
 *.log
 *.dbf
 *.xlsx
+*.pickle
 .coverage
 data.*
 paris*.*
@@ -48,6 +49,7 @@ _doc/practice/algo-compose/paris_54000.*
 _doc/practice/algo-base/*.csv
 _doc/practice/algo-base/*.txt
 _doc/practice/algo-base/*.zip
+_doc/practice/ml/catboost_info/*
 _doc/practice/py-base/*.csv
 _doc/practice/py-base/*.json
 _doc/practice/py-base/*.jpg
