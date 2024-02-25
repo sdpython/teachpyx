@@ -2,6 +2,7 @@ black
 black-nb
 blockdiag
 cartopy
+catboost
 category-encoders
 chardet
 cloudpickle
@@ -16,6 +17,7 @@ ipython
 jinja2
 jupyter
 lifelines
+lightgbm
 lxml
 matplotlib
 mutagen  # mp3

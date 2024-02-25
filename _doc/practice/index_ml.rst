@@ -20,6 +20,8 @@ Machine Learning
     ml/winesr_knn_cross_val
     ml/winesr_knn_hyper
     ml/ml_a_tree_overfitting
+    ml/gradient_boosting
+    ml/ridge_lasso
 
 .. toctree::
     :maxdepth: 1

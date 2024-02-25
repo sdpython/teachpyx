@@ -262,6 +262,7 @@ epkg_dictionary = {
     "PiecewiseTreeRegressor": "https://sdpython.github.io/doc/mlinsights/dev/api/mlmodel_tree.html#piecewisetreeregressor",
     "Pillow": "https://pillow.readthedocs.io/en/stable/",
     "pip": "https://pip.pypa.io/en/stable/",
+    "pipeline": "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html",
     "Predictable t-SNE": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_predictable_tsne.html",
     "printf-style String Formatting": "https://docs.python.org/3/library/stdtypes.html#old-string-formatting",
     "programmation impérative": "https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative",
@@ -387,12 +388,14 @@ epkg_dictionary.update(
 epkg_dictionary.update(
     {
         "cartopy": "https://scitools.org.uk/cartopy/docs/latest/",
+        "catboost": "https://catboost.ai/",
         "csv": "https://fr.wikipedia.org/wiki/Comma-separated_values",
         "Enedis": "https://data.enedis.fr/",
         "fonction": "https://fr.wikipedia.org/wiki/Fonction_(math%C3%A9matiques)",
         "fonction continue": "https://fr.wikipedia.org/wiki/Continuit%C3%A9_(math%C3%A9matiques)",
         "fortran": "https://en.wikipedia.org/wiki/Fortran",
         "GEOFLA": "https://www.data.gouv.fr/en/datasets/geofla-r/",
+        "lightgtbm": "https://lightgbm.readthedocs.io/en/stable/",
         "machine learning": "https://en.wikipedia.org/wiki/Machine_learning",
         "matrice de confusion": "https://fr.wikipedia.org/wiki/Matrice_de_confusion",
         "nuage de points": "https://fr.wikipedia.org/wiki/Nuage_de_points_(statistique)",
@@ -403,6 +406,7 @@ epkg_dictionary.update(
         "UCI": "https://archive.ics.uci.edu/datasets",
         "variable aléatoire": "https://fr.wikipedia.org/wiki/Variable_al%C3%A9atoire",
         "voyageur de commerce": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce",
+        "xgboost": "https://xgboost.readthedocs.io/en/stable/",
     }
 )
 

@@ -132,11 +132,11 @@ exclude = [
 # Same as Black.
 line-length = 88
 
-[tool.ruff.mccabe]
+[tool.ruff.lint.mccabe]
 # Unlike Flake8, default to a complexity level of 10.
 max-complexity = 10
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "_doc/conf.py" = ["F821", "E501"]
 "teachpyx/__init__.py" = ["E501"]
 "teachpyx/datasets/__init__.py" = ["F401"]
