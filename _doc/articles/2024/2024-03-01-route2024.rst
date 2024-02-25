@@ -36,8 +36,7 @@ Séance 2 (2/2)
   `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
   `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
   :ref:`Ridge, Lasso, mathématiques <nbl-practice-ml-ridge_lasso>`
-* Notion de `Pipeline <https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html>`_
-  ou comment intégrer les prétraitements dans le modèle
+* Notion de :epkg:`pipeline` ou comment intégrer les prétraitements dans le modèle
 * prétraitements : tout convertir en numérique,
   données numériques, catégorielles, textuelles
 * un jeu de données :
@@ -46,8 +45,7 @@ Séance 2 (2/2)
 Séance 3 (8/2)
 ==============
 
-* Notion de `Pipeline <https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html>`_
-  ou comment intégrer les prétraitements dans le modèle
+* Notion de :epkg:`pipeline` ou comment intégrer les prétraitements dans le modèle
 * prétraitements : tout convertir en numérique,
   données numériques, catégorielles, textuelles
 
@@ -83,7 +81,7 @@ Séance 5 (23/2)
   `Filtre de Kalman <http://www.cs.unc.edu/~welch/media/pdf/kalman_intro.pdf>`_,
   `SSA <https://en.wikipedia.org/wiki/Singular_spectrum_analysis>`_
 * packages  `prophet <https://facebook.github.io/prophet/docs/quick_start.html>`_,
-  `statsmodels <https://www.statsmodels.org/stable/index.html>`_,
+  :epkg:`statsmodels`,
   `ruptures <https://github.com/deepcharles/ruptures>`_,
   `tslearn <https://github.com/tslearn-team/tslearn>`_,
 * analyse de survie
@@ -94,7 +92,7 @@ Séance 5 (23/2)
 * `TSNE <https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html>`_
 * pytorch
 * `skorch <https://github.com/skorch-dev/skorch>`_
-* `statsmodels <https://www.statsmodels.org/stable/index.html>`_
+* :epkg:`statsmodels`
 
 Projets
 =======

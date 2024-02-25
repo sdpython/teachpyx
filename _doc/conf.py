@@ -262,6 +262,7 @@ epkg_dictionary = {
     "PiecewiseTreeRegressor": "https://sdpython.github.io/doc/mlinsights/dev/api/mlmodel_tree.html#piecewisetreeregressor",
     "Pillow": "https://pillow.readthedocs.io/en/stable/",
     "pip": "https://pip.pypa.io/en/stable/",
+    "pipeline": "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html",
     "Predictable t-SNE": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_predictable_tsne.html",
     "printf-style String Formatting": "https://docs.python.org/3/library/stdtypes.html#old-string-formatting",
     "programmation impérative": "https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative",
