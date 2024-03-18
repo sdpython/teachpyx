@@ -44,7 +44,7 @@ class TestDocumentationNotebook(ExtTestCase):
                     return 1
             raise AssertionError(
                 f"Normalization should be run on {nb_name!r}. "
-                f"Set NB_NORMALIZE to 1 and rerun this file."
+                f"Set NB_NORMALIZE=1 and rerun this file."
             )
         return 1
 

@@ -153,6 +153,8 @@ Correction d'examens
     practice/exams/td_note_2022_rattrapage
     practice/exams/td_note_2022_rattrapage2
     practice/exams/td_note_2023
+    practice/exams/td_note_2023-2024
+    practice/exams/td_note_2023-2024_rattrapage
 
 Machine Learning
 ================
