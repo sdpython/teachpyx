@@ -46,4 +46,3 @@ def extrait_montant(objet):
     else:
         print("probl�me ", objet)
         return None
-
