@@ -5,9 +5,9 @@
 
 
 # question 1
-def numero(jour, mois, duree=[31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]):
+def numero(jour, mois, duree=(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)):
     s = 0
-    for i in range(0, mois - 1):
+    for i in range(mois - 1):
         s += duree[i]
     s += jour - 1
     return s + 1
@@ -70,7 +70,7 @@ class Date:
     # question 5
     def numero(self):
         s = 0
-        for i in range(0, self.mois - 1):
+        for i in range(self.mois - 1):
             s += self.duree[i]
         s += self.jour - 1
         return s + 1
@@ -142,7 +142,7 @@ class Date:
     # question 5
     def numero(self):
         s = 0
-        for i in range(0, self.mois - 1):
+        for i in range(self.mois - 1):
             s += self.duree[i]
         s += self.jour - 1
         return s + 1

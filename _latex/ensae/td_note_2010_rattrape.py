@@ -66,7 +66,7 @@ def distance(tour, i, j):
 def longueur_tour(tour):
     # n villes = n segments
     d = 0
-    for i in range(0, len(tour) - 1):
+    for i in range(len(tour) - 1):
         d += distance(tour, i, i + 1)
     # il ne faut pas oublier de boucler pour le dernier segment
     d += distance(tour, 0, -1)
@@ -220,7 +220,7 @@ def enchaine(tour):
             break
         else:
             nom += 1
-            for k in range(0, 3):
+            for _k in range(3):
                 i = random.randint(0, len(tour) - 2)
                 j = random.randint(i + 1, len(tour) - 1)
                 e = tour[i]

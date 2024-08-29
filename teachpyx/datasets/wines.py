@@ -74,7 +74,10 @@ def load_wine_dataset(
         fold = get_data_folder()
         data = os.path.join(fold, "wine.data.txt")
         df = pandas.read_csv(data, header=None)
-    s = "index Alcohol Malica_cid Ash Alcalinity_of_ash Magnesium Total_phenols Flavanoids"
+    s = (
+        "index Alcohol Malica_cid Ash Alcalinity_of_ash "
+        "Magnesium Total_phenols Flavanoids"
+    )
     s += " Nonflavanoid_phenols Proanthocyanins Color_intensity Hue"
     s += " OD280_OD315_diluted_wine Proline"
     df.columns = s.split()

@@ -36,7 +36,7 @@ plt.plot(x, y, "o")
 # Un parcours aléatoire de tous les noeuds de graphe
 # donnera quelque chose de très éloigné de la solution optimale :
 
-plt.plot(x + [x[0]], y + [y[0]], "o-")
+plt.plot([*x, x[0]], [*y, y[0]], "o-")
 
 
 #############################################
@@ -78,7 +78,7 @@ def permutation(x, y, ordre):
         it += 1
         print("iteration", it, "d=", d)
         d0 = d
-        for i in range(0, len(ordre) - 1):
+        for i in range(len(ordre) - 1):
             for j in range(i + 2, len(ordre)):
                 r = ordre[i:j].copy()
                 r.reverse()
@@ -92,8 +92,8 @@ def permutation(x, y, ordre):
 
 ordre = permutation(x, y, list(range(len(x))))
 print("longueur min", longueur(x, y, ordre))
-xo = [x[o] for o in ordre + [ordre[0]]]
-yo = [y[o] for o in ordre + [ordre[0]]]
+xo = [x[o] for o in [*ordre, ordre[0]]]
+yo = [y[o] for o in [*ordre, ordre[0]]]
 plt.plot(xo, yo, "o-")
 
 #######################################################
@@ -179,8 +179,8 @@ def permutation(x, y, ordre):
 
 ordre = permutation(x, y, list(range(len(x))))
 print("longueur min", longueur(x, y, ordre))
-xo = [x[o] for o in ordre + [ordre[0]]]
-yo = [y[o] for o in ordre + [ordre[0]]]
+xo = [x[o] for o in [*ordre, ordre[0]]]
+yo = [y[o] for o in [*ordre, ordre[0]]]
 plt.plot(xo, yo, "o-")
 plt.text(xo[0], yo[0], "0", color="r", weight="bold", size="x-large")
 plt.text(xo[-2], yo[-2], "N-1", color="r", weight="bold", size="x-large")
@@ -225,8 +225,8 @@ def permutation(x, y, ordre):
 
 ordre = permutation(x, y, list(range(len(x))))
 print("longueur min", longueur(x, y, ordre))
-xo = [x[o] for o in ordre + [ordre[0]]]
-yo = [y[o] for o in ordre + [ordre[0]]]
+xo = [x[o] for o in [*ordre, ordre[0]]]
+yo = [y[o] for o in [*ordre, ordre[0]]]
 plt.plot(xo, yo, "o-")
 plt.text(xo[0], yo[0], "0", color="r", weight="bold", size="x-large")
 plt.text(xo[-2], yo[-2], "N-1", color="r", weight="bold", size="x-large")
@@ -264,7 +264,7 @@ def permutation_rnd(x, y, ordre):
         print("iteration", it, "d=", d, "ordre[0]", ordre[0])
         d0 = d
         for i in range(1, len(ordre) - 1):
-            for j in range(i + 2, len(ordre) + 1):
+            for _j in range(i + 2, len(ordre) + 1):
                 ik = random.randint(1, len(ordre) - 1)
                 il = random.randint(ik + 1, len(ordre))
                 r = ordre[ik:il].copy()
@@ -279,8 +279,8 @@ def permutation_rnd(x, y, ordre):
 
 ordre = permutation_rnd(x, y, list(range(len(x))))
 print("longueur min", longueur(x, y, ordre))
-xo = [x[o] for o in ordre + [ordre[0]]]
-yo = [y[o] for o in ordre + [ordre[0]]]
+xo = [x[o] for o in [*ordre, ordre[0]]]
+yo = [y[o] for o in [*ordre, ordre[0]]]
 plt.plot(xo, yo, "o-")
 plt.text(xo[0], yo[0], "0", color="r", weight="bold", size="x-large")
 plt.text(xo[-2], yo[-2], "N-1", color="r", weight="bold", size="x-large")
@@ -293,8 +293,8 @@ plt.text(xo[-2], yo[-2], "N-1", color="r", weight="bold", size="x-large")
 
 ordre = permutation_rnd(x, y, list(range(len(x))))
 print("longueur min", longueur(x, y, ordre))
-xo = [x[o] for o in ordre + [ordre[0]]]
-yo = [y[o] for o in ordre + [ordre[0]]]
+xo = [x[o] for o in [*ordre, ordre[0]]]
+yo = [y[o] for o in [*ordre, ordre[0]]]
 plt.plot(xo, yo, "o-")
 plt.text(xo[0], yo[0], "0", color="r", weight="bold", size="x-large")
 plt.text(xo[-2], yo[-2], "N-1", color="r", weight="bold", size="x-large")
@@ -313,7 +313,7 @@ def permutation_rnd(x, y, ordre, miniter):
         it += 1
         d0 = d
         for i in range(1, len(ordre) - 1):
-            for j in range(i + 2, len(ordre) + 1):
+            for _j in range(i + 2, len(ordre) + 1):
                 ik = random.randint(1, len(ordre) - 1)
                 il = random.randint(ik + 1, len(ordre))
                 r = ordre[ik:il].copy()
@@ -330,7 +330,7 @@ def n_permutation(x, y, miniter):
     ordre = list(range(len(x)))
     bordre = ordre.copy()
     d0 = longueur(x, y, ordre)
-    for i in range(0, 20):
+    for i in range(20):
         print("iteration", i, "d=", d0)
         random.shuffle(ordre)
         ordre = permutation_rnd(x, y, ordre, 20)
@@ -351,8 +351,8 @@ print("longueur initiale", longueur(x, y, ordre))
 
 ordre = n_permutation(x, y, 20)
 print("longueur min", longueur(x, y, ordre))
-xo = [x[o] for o in ordre + [ordre[0]]]
-yo = [y[o] for o in ordre + [ordre[0]]]
+xo = [x[o] for o in [*ordre, ordre[0]]]
+yo = [y[o] for o in [*ordre, ordre[0]]]
 plt.plot(xo, yo, "o-")
 plt.text(xo[0], yo[0], "0", color="r", weight="bold", size="x-large")
 plt.text(xo[-2], yo[-2], "N-1", color="r", weight="bold", size="x-large")

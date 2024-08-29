@@ -41,7 +41,7 @@ class TestFaqMissing(ExtTestCase):
             list_of_installed_packages()
         except ImportError as e:
             if "cannot import name 'get_installed_distributions'" in str(e):
-                warnings.warn("This should be fixed in a future release.")
+                warnings.warn("This should be fixed in a future release.", stacklevel=0)
             return
         res = information_about_package("pip")
         self.assertNotEmpty(res)

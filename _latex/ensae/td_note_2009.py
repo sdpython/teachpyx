@@ -113,13 +113,13 @@ def decomposer_optimal(montant, pieces):
     if montant in pieces:
         return [montant]
     else:
-        r = [1 for m in range(0, montant)]
+        r = [1 for m in range(montant)]
         for p in pieces:
             if montant > p:
                 # si ce test n'est pas fait, la r�currence peut �tre infinie
                 # car les montants n�gatifs ne sont pas pris en compte
                 # par le premier test
-                dec = decomposer_optimal(montant - p, pieces) + [p]
+                dec = [*decomposer_optimal(montant - p, pieces), p]
                 if len(dec) < len(r):
                     r = dec
 
@@ -133,7 +133,7 @@ def decomposer_optimal(montant, pieces):
 
 
 def decomposer_optimal(montant, pieces):
-    memo = [[1 for li in range(0, m)] for m in range(0, montant + 1)]
+    memo = [[1 for li in range(m)] for m in range(montant + 1)]
     # memo [i] contient la pire d�composition du montant i (que des pi�ces de un)
 
     # pour les pi�ces de pieces, on sait faire plus court
@@ -192,7 +192,7 @@ print("maximum_piece (pieces4) =", maximum_piece(pieces4))  # affiche (5, 99)
 ensemble = [3, 4, 6, 7, 8, 9]
 
 for ajout in [3, 4, 6, 7, 8, 9]:
-    pieces = [1, 2, 5, 10, 20, 50] + [ajout]
+    pieces = [1, 2, 5, 10, 20, 50] + [ajout]  # noqa: RUF005
     pieces.sort(reverse=True)
     print("maximum_piece (" + str(pieces) + ") = ", maximum_piece(pieces))
 

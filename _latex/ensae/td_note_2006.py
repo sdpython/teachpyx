@@ -1,11 +1,10 @@
 # coding: utf-8
 # question 1
 def lit_fichier(file):
-    f = open(file, "r")
-    mot = []
-    for li in f:
-        mot.append(li.replace("\n", ""))
-    f.close()
+    with open(file, "r") as f:
+        mot = []
+        for li in f:
+            mot.append(li.replace("\n", ""))
     return mot
 
 
@@ -16,7 +15,7 @@ print(mot)
 
 
 def est_trie(mot):
-    for i in range(1, len(mot)):
+    for i in range(1, len(mot)):  # noqa: SIM110
         if mot[i - 1] > mot[i]:
             return False
     return True
@@ -29,7 +28,7 @@ print("liste tri�e ", tri)
 
 
 def cherche(mot, m):
-    for i in range(0, len(mot)):
+    for i in range(len(mot)):
         if mot[i] == m:
             return i
     return -1

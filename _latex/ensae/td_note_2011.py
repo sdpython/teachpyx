@@ -26,7 +26,7 @@ def lit_fichier():
 def compte_restaurant(mat):
     # simple comptage, voir le chapitre 3...
     compte = {}
-    for cp, x, y in mat:
+    for cp, _x, _y in mat:
         if cp not in compte:
             compte[cp] = 0
         compte[cp] += 1

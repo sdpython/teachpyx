@@ -43,7 +43,7 @@ class TestDocumentationExamples(ExtTestCase):
             out, err = res
             st = err.decode("ascii", errors="ignore")
             if "No such file or directory" in st:
-                raise FileNotFoundError(st)
+                raise FileNotFoundError(st)  # noqa: B904
             if len(st) > 0 and "Traceback" in st:
                 if '"dot" not found in path.' in st:
                     # dot not installed, this part
@@ -51,7 +51,7 @@ class TestDocumentationExamples(ExtTestCase):
                     if verbose:
                         print(f"failed: {name!r} due to missing dot.")
                     return -1
-                raise AssertionError(
+                raise AssertionError(  # noqa: B904
                     f"Example {name!r} (cmd: {cmds!r} - "
                     f"exec_prefix={sys.exec_prefix!r}) "
                     f"failed due to\n{st}"

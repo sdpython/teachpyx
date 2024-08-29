@@ -12,9 +12,8 @@
 
 # question 1
 def lit_fichier(file):
-    f = open(file, "r")
-    li = f.readlines()  # d�coupage sous forme de lignes
-    f.close()
+    with open(file, "r") as f:
+        li = f.readlines()  # d�coupage sous forme de lignes
     res = []
     for i in li:
         s = i.replace("\n", "")

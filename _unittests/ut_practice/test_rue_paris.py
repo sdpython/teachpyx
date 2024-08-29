@@ -1050,7 +1050,7 @@ class TestRueParis(ExtTestCase):
 
         vertices = {}
         for e in edges:
-            for i in range(0, 2):
+            for i in range(2):
                 _ = e[i]
                 p = e[i + 3]
                 vertices[_] = p

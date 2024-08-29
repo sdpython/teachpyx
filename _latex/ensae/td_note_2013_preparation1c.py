@@ -24,7 +24,7 @@ def sequence(a, b, c):
 
 def moyenne(nb_tirage, a, b, c):
     somme = 0.0
-    for i in range(nb_tirage):
+    for _i in range(nb_tirage):
         s = sequence(a, b, c)
         somme += len(s)
     return somme / nb_tirage

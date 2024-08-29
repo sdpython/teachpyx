@@ -19,7 +19,7 @@ intitule3 = numpy.column_stack((intitule, code_postaux))
 comptage = {}
 for i in range(intitule3.shape[0]):
     comptage[intitule3[i, 2]] = 0
-departements = [k for k in comptage]
+departements = list(comptage)
 departements.sort()
 
 # question 3, exo M (2 ou 3)

@@ -25,7 +25,7 @@ ops = ["+", "-", "/", "*"]
 total = 28
 
 solution = []
-parentheses = [(i, j) for i in range(0, 3) for j in range(i + 1, 4)]
+parentheses = [(i, j) for i in range(3) for j in range(i + 1, 4)]
 
 # permutations sur les nombres
 for pn in permutations(nombres):

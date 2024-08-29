@@ -46,7 +46,6 @@ def commentaire_accentues():
         C'est pourquoi il est préférable d'utiliser celui-ci pour
         partager son code via une page Web.
     """
-    pass
 
 
 def dix_entiers_carre():

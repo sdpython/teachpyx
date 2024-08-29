@@ -19,7 +19,7 @@ def sequence():
 
 def moyenne(nb_tirage):
     somme = 0.0
-    for i in range(nb_tirage):
+    for _i in range(nb_tirage):
         s = sequence()
         somme += len(s)
     return somme / nb_tirage

@@ -3,15 +3,15 @@
 ================
 Float Conversion
 ================
- 
-I came up with the following question 
-:math:`(float64)x < (float64)y \Longrightarrow (float32) x < (float32)y`?
+
+I came up with the following question
+:math:`(float64)x < (float64)y \\Longrightarrow (float32) x < (float32)y`?
 What is the probability this holds?
 
 Probability (float64)x == (float32)x
 ====================================
 
-Let's evaluate how many time we draw a random double 
+Let's evaluate how many time we draw a random double
 number equal to its float conversion.
 """
 
@@ -66,7 +66,7 @@ plt.hist(delta, bins=1000)
 # We finally check that double operations between float numpers remain floats.
 
 
-for i in range(0, 100000):
+for i in range(100000):
     i, j = random.randint(0, len(rnd32) - 1), random.randint(0, len(rnd32) - 1)
     d32 = numpy.float64(rnd32[i] * rnd32[j])
     d64 = numpy.float64(rnd32[i]) * numpy.float64(rnd32[j])

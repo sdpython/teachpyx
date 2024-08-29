@@ -15,7 +15,8 @@ class constants93:
 def lambert93_to_WGPS(lambertE: float, lambertN: float) -> Tuple[float, float]:
     """
     Converts coordinates given in
-    `Lambert 93 <https://fr.wikipedia.org/wiki/Projection_conique_conforme_de_Lambert>`_
+    `Lambert 93
+    <https://fr.wikipedia.org/wiki/Projection_conique_conforme_de_Lambert>`_
     system, this system is used by `IGN <https://www.ign.fr/>`_
     and their :epkg:`GEOFLA` file format.
 
@@ -24,18 +25,23 @@ def lambert93_to_WGPS(lambertE: float, lambertN: float) -> Tuple[float, float]:
     :return: longitude, latitude
 
     The function is inspired from
-    `lam93toLatLon.py <https://gist.github.com/flire/0a305eeec77bc84a73af8ddc8f9ec043>`_.
+    `lam93toLatLon.py
+    <https://gist.github.com/flire/0a305eeec77bc84a73af8ddc8f9ec043>`_.
 
     .. faqref::
         :tag: geo
         :title: Les fichiers GEOFLA ne contiennent pas de longitude, latitude ?
 
         Les coordonnées contenues dans les fichiers :epkg:`GEOFLA`
-        ne sont pas toujours des longitudes, latitudes mais des coordonnées exprimées dans un système
-        de projection conique `Lambert 93 <https://fr.wikipedia.org/wiki/Projection_conique_conforme_de_Lambert>`_.
-        Il faut convertir les coordonnées avant de pouvoir tracer la carte ou changer la projection
+        ne sont pas toujours des longitudes,
+        latitudes mais des coordonnées exprimées dans un système
+        de projection conique `Lambert 93
+        <https://fr.wikipedia.org/wiki/Projection_conique_conforme_de_Lambert>`_.
+        Il faut convertir les coordonnées avant de
+        pouvoir tracer la carte ou changer la projection
         utilisée par :epkg:`cartopy` :
-        `Lambert Conformal Projection <https://scitools.org.uk/cartopy/docs/v0.15/crs/projections.html#lambertconformal>`_.
+        `Lambert Conformal Projection
+        <https://scitools.org.uk/cartopy/docs/v0.15/crs/projections.html#lambertconformal>`_.
     """
 
     delX = lambertE - constants93.XS

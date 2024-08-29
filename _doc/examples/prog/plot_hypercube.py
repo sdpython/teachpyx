@@ -11,7 +11,7 @@ Exercices autour de tableaux en plusieurs dimensions et autres exercices.
 
 Q1 - triple récursivité
 =======================
- 
+
 Réécrire la fonction ``u`` de façon à ce qu'elle ne soit plus récurrente.
 """
 
@@ -237,7 +237,7 @@ hyper_cube_liste(3)
 
 def hyper_cube_dico(n):
     r = {}
-    ind = [0 for i in range(0, n)]
+    ind = [0 for i in range(n)]
     while ind[0] <= 1:
         cle = tuple(ind)  # conversion d'une liste en tuple
         r[cle] = 0
@@ -276,7 +276,7 @@ h
 
 def occurrence(tu, n):
     d = hyper_cube_dico(n)
-    for i in range(0, len(tu) - n):
+    for i in range(len(tu) - n):
         cle = tu[i : i + n]
         d[cle] += 1
     return d
@@ -291,7 +291,7 @@ occurrence((1, 0, 1, 1, 0, 1, 0), 3)
 
 def occurrence2(tu, n):
     d = {}
-    for i in range(0, len(tu) - n):
+    for i in range(len(tu) - n):
         cle = tu[i : i + n]
         if cle not in d:
             d[cle] = 0
@@ -312,10 +312,10 @@ occurrence2((1, 0, 1, 1, 0, 1, 0), 3)
 
 def occurrence3(li, n):
     d = hyper_cube_liste(n)
-    for i in range(0, len(li) - n):
+    for i in range(len(li) - n):
         cle = li[i : i + n]
         t = d  #
-        for k in range(0, n - 1):  # point clé de la fonction :
+        for k in range(n - 1):  # point clé de la fonction :
             t = t[cle[k]]  #                accès à un élément
         t[cle[n - 1]] += 1
     return d
@@ -328,7 +328,7 @@ occurrence3((1, 0, 1, 1, 0, 1, 0), 3)
 # Une autre écriture...
 
 
-def hyper_cube_liste2(n, m=[0, 0], m2=[0, 0]):
+def hyper_cube_liste2(n, m=[0, 0], m2=[0, 0]):  # noqa: B006
     if n > 1:
         m[0] = list(m2)
         m[1] = list(m2)
@@ -339,11 +339,11 @@ def hyper_cube_liste2(n, m=[0, 0], m2=[0, 0]):
 
 def occurrence4(li, n):
     d = hyper_cube_liste2(n)  # * remarque voir plus bas
-    for i in range(0, len(li) - n):
+    for i in range(len(li) - n):
         cle = li[i : i + n]
         t = d  #
-        for k in range(0, n - 1):  # point clé de la fonction :
-            t = t[cle[k]]  #                accès à un élément
+        for k in range(n - 1):  # point clé de la fonction :
+            t = t[cle[k]]  # accès à un élément
         t[cle[n - 1]] += 1
     return d
 
@@ -355,7 +355,7 @@ occurrence4((1, 0, 1, 1, 0, 1, 0), 3)
 # Et si on remplace ``list(m2)`` par ``m2``.
 
 
-def hyper_cube_liste3(n, m=[0, 0], m2=[0, 0]):
+def hyper_cube_liste3(n, m=[0, 0], m2=[0, 0]):  # noqa: B006
     if n > 1:
         m[0] = m2
         m[1] = m2
@@ -366,11 +366,11 @@ def hyper_cube_liste3(n, m=[0, 0], m2=[0, 0]):
 
 def occurrence5(li, n):
     d = hyper_cube_liste3(n)  # * remarque voir plus bas
-    for i in range(0, len(li) - n):
+    for i in range(len(li) - n):
         cle = li[i : i + n]
         t = d  #
-        for k in range(0, n - 1):  # point clé de la fonction :
-            t = t[cle[k]]  #                accès à un élément
+        for k in range(n - 1):  # point clé de la fonction :
+            t = t[cle[k]]  # accès à un élément
         t[cle[n - 1]] += 1
     return d
 

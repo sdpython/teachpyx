@@ -15,7 +15,7 @@ class TestGraphviz(ExtTestCase):
             )
         except FileNotFoundError as e:
             if "No such file or directory: 'dot'" in str(e):
-                warnings.warn(str(e))
+                warnings.warn(str(e), stacklevel=0)
                 return
             raise e
 

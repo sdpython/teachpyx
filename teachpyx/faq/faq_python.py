@@ -55,7 +55,6 @@ def entier_grande_taille():
         il faut aller dans le menu Options / Change Indentation Settings...
         Tous les éditeurs ont une option similaire.
     """
-    pass
 
 
 def difference_div():
@@ -401,7 +400,6 @@ def property_example():
         On fait cela parce que l'écriture est plus courte et que cela
         évite certaines erreurs.
     """
-    pass
 
 
 def enumerate_regex_search(exp, text):
@@ -470,7 +468,6 @@ def sortable_class(cl):
                         else:
                             return False
     """
-    pass
 
 
 class PQPipError(Exception):
@@ -520,9 +517,9 @@ class Distribution:
                 return getattr(self.__dict__["dist"]._dist, attr)
             except AttributeError as e:
                 if attr == "project_name":
-                    return getattr(self.__dict__["dist"]._dist, "name")
+                    return getattr(self.__dict__["dist"]._dist, "name")  # noqa: B009
                 if attr == "py_version":
-                    return getattr(self.__dict__["dist"]._dist, "version")
+                    return getattr(self.__dict__["dist"]._dist, "version")  # noqa: B009
                 if attr in {"platform", "extras"}:
                     return None
                 raise AttributeError(
@@ -824,7 +821,7 @@ def class_getitem():
                 return A1
             if index == 2:
                 return A2
-            assert False
+            raise AssertionError(f"Unexpected index={index}")
 
         @classmethod
         def __class_getitem__(cls, index):
