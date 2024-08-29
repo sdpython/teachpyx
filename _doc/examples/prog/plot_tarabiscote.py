@@ -13,7 +13,7 @@ Copie de listes
 ===============
 
 La fonction ``somme`` est censée faire la concaténation de toutes les
-listes contenues dans ``ens``. Le résultat retourné est effectivement 
+listes contenues dans ``ens``. Le résultat retourné est effectivement
 celui désiré mais la fonction modifie également la liste ``ens``, pourquoi ?
 """
 import math
@@ -60,7 +60,7 @@ print(ens)
 
 def somme(tab):
     li = []  ###### ligne modifiée
-    for i in range(0, len(tab)):  ###### ligne modifiée
+    for i in range(len(tab)):  ###### ligne modifiée
         li += tab[i]
     return li
 
@@ -79,7 +79,7 @@ print(ens)
 
 li = ["un", "deux", "trois", "quatre", "cinq"]
 
-for i in range(0, len(li)):
+for i in range(len(li)):
     mi = i
     for j in range(i, len(li)):
         if li[mi] < li[j]:
@@ -98,7 +98,7 @@ li
 
 
 li = ["un", "deux", "trois", "quatre", "cinq"]
-for i in range(0, len(li)):
+for i in range(len(li)):
     mi = i
     for j in range(i, len(li)):
         if li[mi] < li[j]:
@@ -321,7 +321,7 @@ losange(3, 1).surface()
 
 
 x = 1.0
-for i in range(0, 19):
+for i in range(19):
     x = x / 10
     print(i, "\t", 1.0 - x, "\t", x, "\t", x ** (0.5))
 
@@ -337,7 +337,7 @@ for i in range(0, 19):
 
 
 x = numpy.float32(1.0)
-for i in range(0, 19):
+for i in range(19):
     x = x / numpy.float32(10)
     print(i, "\t", 1.0 - x, "\t", x, "\t", x ** (0.5))
 

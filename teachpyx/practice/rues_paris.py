@@ -93,7 +93,7 @@ def get_data(
         new_vertices = {}
         already_added = set()
         new_edges = []
-        for _ in range(0, int(keep**0.5) + 1):
+        for _ in range(int(keep**0.5) + 1):
             for edge in edges:
                 if edge[:2] in already_added:
                     continue
@@ -277,7 +277,7 @@ def kruskal(
     additions.update({(k[1], k[0]): v for k, v in additions.items()})
 
     degre: Dict[Tuple[int, int], int] = {}
-    for k, v in original.items():  # original est symétrique
+    for k, _v in original.items():  # original est symétrique
         degre[k[0]] = degre.get(k[0], 0) + 1
 
     tri = [
@@ -303,7 +303,12 @@ def kruskal(
                 # itération
                 degre[a[0]] += 1
                 degre[a[1]] += 1
-                added_edges.append(a + (v,))
+                added_edges.append(
+                    (
+                        *a,
+                        v,
+                    )
+                )
                 impairs -= 2
                 if impairs <= 0:
                     break
@@ -344,7 +349,9 @@ def eulerien_extension(
         init = bellman(
             edges,
             max_iter=max_iter,
-            allow=lambda e: e in possibles or e[0] in allowset or e[1] in allowset,
+            allow=lambda e, allowset=allowset: (
+                e in possibles or e[0] in allowset or e[1] in allowset
+            ),
             init=init,
             verbose=verbose,
         )

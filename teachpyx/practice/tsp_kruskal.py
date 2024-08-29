@@ -124,7 +124,7 @@ def repartition_zone(
     # attribution des zones
     zone = []
     Zmax = 0
-    for i in range(0, len(villes)):
+    for i in range(len(villes)):
         v = villes[i]
         x = int((v[0] - mx) / zone_taille)
         y = int((v[1] - my) / zone_taille)
@@ -134,7 +134,7 @@ def repartition_zone(
 
     # rangement par zone
     Zmax += 1
-    zones = [[] for i in range(0, Zmax)]
+    zones = [[] for i in range(Zmax)]
     for z in zone:
         zones[z[0]].append((z[1], z[2], z[3]))
 
@@ -205,7 +205,7 @@ def arbre_poids_minimal(
 
     # calcul des distances
     li = []
-    for z in range(0, len(zones)):
+    for z in range(len(zones)):
         voisin = voisinage_zone(z, Zmax, X, Y)
         for v in zones[z]:
             for zz in voisin:
@@ -220,18 +220,18 @@ def arbre_poids_minimal(
     nb_comp = len(villes)
 
     # indice de la composante d'une ville
-    num_comp = [i for i in range(0, len(villes))]
+    num_comp = list(range(len(villes)))
 
     # liste des voisins pour chaque ville
-    arbre = [[] for i in range(0, len(villes))]
+    arbre = [[] for i in range(len(villes))]
 
     # liste des villes par composante connexe
-    list_comp = [[i] for i in range(0, len(villes))]
+    list_comp = [[i] for i in range(len(villes))]
 
     while nb_comp > 1:
         iii = 0
         for c in li:
-            iii += 1
+            iii += 1  # noqa: SIM113
             i, j = c[0], c[1]
             if num_comp[i] != num_comp[j]:
                 # on relie les villes i et j car elles appartiennent
@@ -279,7 +279,7 @@ def circuit_hamiltonien(chemin: List[int]) -> List[int]:
     """
     nb = max(chemin) + 1
     res = []
-    coche = [False for i in range(0, nb)]
+    coche = [False for i in range(nb)]
     for c in chemin:
         if coche[c]:
             continue
@@ -329,7 +329,7 @@ def longueur_chemin(chemin: ENSEMBLE, distance: DISTANCE) -> float:
     """
     s = 0
     nb = len(chemin)
-    for i in range(0, nb):
+    for i in range(nb):
         s += distance(chemin[i], chemin[(i + 1) % nb])
     return s
 
@@ -407,7 +407,7 @@ def retournement(
         nb_change = 0
         for t in range(1, taille + 1):
             retour[t] = 0
-            for i in range(0, nb):
+            for i in range(nb):
                 j = (i + t) % nb
                 b = retournement_essai(chemin, i, j, distance=distance)
                 if b:
@@ -494,7 +494,7 @@ def echange_position_essai(
             bp = (a + le - b - 1) % nb
             chemin[bp] = chemin[ll]
 
-        for le in range(0, len(ech)):
+        for le in range(len(ech)):
             chemin[(x + le - diff + 1 + nb) % nb] = ech[le]
 
         return True
@@ -549,7 +549,7 @@ def echange_position_essai(
             bp = (a + le - b - 1) % nb
             chemin[bp] = chemin[ll]
 
-        for le in range(0, len(ech)):
+        for le in range(len(ech)):
             chemin[(x + le - diff + 1 + nb) % nb] = ech[le]
 
         return True
@@ -566,11 +566,11 @@ def dessin_arete_zone(
     *Y* est le nombre de zones verticalement,
     *taille_zone* est la longueur du côté du carré d'une zone.
     """
-    res = [[[] for j in range(0, Y + 1)] for i in range(0, X + 1)]
+    res = [[[] for j in range(Y + 1)] for i in range(X + 1)]
     nb = len(chemin)
     mx = min(_[0] for _ in chemin)
     my = min(_[1] for _ in chemin)
-    for i in range(0, nb):
+    for i in range(nb):
         a = chemin[i]
         b = chemin[(i + 1) % nb]
         x1, x2 = int((a[0] - mx) // taille_zone), int((b[0] - mx) // taille_zone)
@@ -643,7 +643,7 @@ def echange_position(
 
     # list des arêtes triés par ordre décroissant
     la = []
-    for i in range(0, nb):
+    for i in range(nb):
         im = (i + 1) % nb
         la.append((i, im, distance(chemin[i], chemin[im])))
     la = list(sorted(la, key=functools.cmp_to_key(tri_arete)))
@@ -787,7 +787,7 @@ def supprime_croisement(
     zone = dessin_arete_zone(chemin, taille_zone, X, Y)
     nbtout = 0
 
-    for i in range(0, nb):
+    for i in range(nb):
         im = (i + 1) % nb
         a = chemin[i]
         b = chemin[im]
@@ -952,7 +952,7 @@ def circuit_eulerien(
     # on choisit une ville qui est une extrémité et parmi celle-là on la
     # choisit au hasard
     has = []
-    for i in range(0, len(villes)):
+    for i in range(len(villes)):
         n = len(arbre[i])
         if n == 1:
             has.append(i)
@@ -983,7 +983,7 @@ def circuit_eulerien(
         bvec = vec
         opvec = oppose_vecteur(vec)
         bl = None
-        for k in range(0, len(arbre[bm])):
+        for k in range(len(arbre[bm])):
             la = arbre[bm][k]
             vec2 = vecteur_points(v, villes[la])
             if vec2 == (0.0, 0.0):

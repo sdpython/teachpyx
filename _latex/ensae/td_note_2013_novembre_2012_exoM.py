@@ -18,16 +18,14 @@ def import_module_or_file_from_web_site(module):
             f = urllib2.urlopen(url, "rb")
             t = f.read()
             f.close()
-            f = open(module, "wb")
-            f.write(t)
-            f.close()
+            with open(module, "wb") as f:
+                f.write(t)
         else:
             f = urllib2.urlopen(url)
             t = f.read()
             f.close()
-            f = open(module, "w")
-            f.write(t)
-            f.close()
+            with open(module, "w") as f:
+                f.write(t)
     return module
 
 
@@ -47,23 +45,22 @@ def unzip_fichier(fichier_zip):
         res = filename
         if not os.path.exists(filename):
             data = file.read(filename)
-            f = open(filename, "w")
-            if sys.version.startswith("3."):
-                data = str(data, encoding="iso-8859-1")
-                data = data.replace("\r", "").split("\n")
-                data = [_ for _ in data if len(_) > 1]
-                data = "\n".join(data)
-            f.write(data)
-            f.close()
+            with open(filename, "w") as f:
+                if sys.version.startswith("3."):
+                    data = str(data, encoding="iso-8859-1")
+                    data = data.replace("\r", "").split("\n")
+                    data = [_ for _ in data if len(_) > 1]
+                    data = "\n".join(data)
+                f.write(data)
     file.close()
     return res
 
 
-# construit le tableau extrait du fichier pr�c�dent
-# les deux premi�res lignes contiennent la description des colonnes
-# les autres lignes contiennent les donn�es elles-m�me
-# pour aller plus vite � chaque ex�cution, on peut limiter le nombre de lignes
-# il faudra toutes les utiliser pour l'ex�cution final
+# construit le tableau extrait du fichier précédent
+# les deux premières lignes contiennent la description des colonnes
+# les autres lignes contiennent les données elles-même
+# pour aller plus vite à chaque exécution, on peut limiter le nombre de lignes
+# il faudra toutes les utiliser pour l'exécution final
 
 
 def construit_matrice(fichier, stop_apres=-1):
@@ -73,11 +70,11 @@ def construit_matrice(fichier, stop_apres=-1):
         except Exception:
             return -1
 
-    f = open(fichier, "r")
-    lines = [
-        line.replace("\n", "").split("\t")[:107] for line in f.readlines()[:stop_apres]
-    ]
-    f.close()
+    with open(fichier, "r") as f:
+        lines = [
+            line.replace("\n", "").split("\t")[:107]
+            for line in f.readlines()[:stop_apres]
+        ]
     colonne = lines[:2]
     lines = lines[2:]
     lines = [

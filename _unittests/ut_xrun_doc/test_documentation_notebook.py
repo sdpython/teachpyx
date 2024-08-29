@@ -74,7 +74,7 @@ class TestDocumentationNotebook(ExtTestCase):
                 out, err = res
                 st = err.decode("ascii", errors="ignore")
                 if "No such file or directory" in st:
-                    raise FileNotFoundError(st)
+                    raise FileNotFoundError(st)  # noqa: B904
                 if len(st) > 0 and "Traceback" in st:
                     msg = (
                         f"Example {nb_name!r} (cmd: {cmds} - "
@@ -82,9 +82,9 @@ class TestDocumentationNotebook(ExtTestCase):
                         f"failed due to\n{st}"
                     )
                     if "CERTIFICATE_VERIFY_FAILED" in st and sys.platform == "win32":
-                        warnings.warn(msg)
+                        warnings.warn(msg, stacklevel=0)
                     else:
-                        raise AssertionError(msg)
+                        raise AssertionError(msg)  # noqa: B904
 
         dt = time.perf_counter() - perf
         if verbose:

@@ -58,7 +58,7 @@ def construit_liste_neurones(villes: ENSEMBLE, nb: int = 0) -> ENSEMBLE:
     if nb > 1:
         # dispose les neurones en ellipse
         n = []
-        for i in range(0, nb):
+        for i in range(nb):
             x = maxx + maxx * math.cos(math.pi * 2 * float(i) / nb) / 4
             y = maxy + maxy * math.sin(math.pi * 2 * float(i) / nb) / 4
             n.append((x, y))
@@ -160,7 +160,7 @@ def deplace_neurone(
     neurones[i] = n
 
     # déplacement des voisins
-    for k in range(0, len(forces)):
+    for k in range(len(forces)):
         i1 = (i + k + 1) % len(neurones)
         i2 = (i - k - 1 + len(neurones)) % len(neurones)
         n1 = neurones[i1]
@@ -205,7 +205,7 @@ def iteration(
     :return: indices de la ville et du neurone le plus proche
     """
     m = min(compte_v)
-    ind = [i for i in range(0, len(villes)) if compte_v[i] == m]
+    ind = [i for i in range(len(villes)) if compte_v[i] == m]
     n = random.randint(0, len(ind) - 1)
     n = ind[n]
     compte_v[n] += 1
@@ -223,7 +223,7 @@ def modifie_structure(neurones: ENSEMBLE, compte: List[int], nb_sel: int):
 
     if nb_sel > 0:
         # supprime les neurones les moins sollicités
-        sup = [i for i in range(0, len(neurones)) if compte[i] == 0]
+        sup = [i for i in range(len(neurones)) if compte[i] == 0]
         if len(sup) > 0:
             sup.sort()
             sup.reverse()
@@ -233,7 +233,7 @@ def modifie_structure(neurones: ENSEMBLE, compte: List[int], nb_sel: int):
 
         # on ajoute un neurone lorsque max (compte) >= 2 * min (compte)
         add = []
-        for i in range(0, len(compte)):
+        for i in range(len(compte)):
             if compte[i] > nb_sel:
                 d1 = math.sqrt(
                     distance_euclidienne_carree(
@@ -261,7 +261,7 @@ def modifie_structure(neurones: ENSEMBLE, compte: List[int], nb_sel: int):
             compte.insert(a[0], a[2])
 
     # on remet les compteurs à zéros
-    for i in range(0, len(compte)):
+    for i in range(len(compte)):
         compte[i] = 0
 
 
@@ -290,7 +290,7 @@ def distance_chemin(p: ENSEMBLE) -> float:
     Calcule la distance du chemin.
     """
     d = 0
-    for i in range(0, len(p)):
+    for i in range(len(p)):
         d += ((p[i][0] - p[i - 1][0]) ** 2 + (p[i][1] - p[i - 1][1]) ** 2) ** 0.5
     return d
 

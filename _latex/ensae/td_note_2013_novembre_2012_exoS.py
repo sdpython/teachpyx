@@ -6,7 +6,7 @@ import math
 
 
 def construit_matrice(nb):
-    mat = [[0 for x in range(0, nb)] for y in range(0, nb)]
+    mat = [[0 for x in range(nb)] for y in range(nb)]
 
     def pointij(nb, r, th, mat, c, phase):
         i, j = r * th * math.cos(th + phase), r * th * math.sin(th + phase)
@@ -18,7 +18,7 @@ def construit_matrice(nb):
 
     r = 3.5
     t = 0
-    for tinc in range(nb * 100000):
+    for _tinc in range(nb * 100000):
         t += 1.0 * nb / 100000
         th = t * math.pi * 2
         i, j = pointij(nb, r, th, mat, 1, 0)
@@ -39,8 +39,8 @@ def dessin_matrice(matrice):
     import pylab
 
     colors = {1: "blue", 2: "red"}
-    for i in range(0, len(matrice)):
-        for j in range(0, len(matrice[i])):
+    for i in range(len(matrice)):
+        for j in range(len(matrice[i])):
             if matrice[i][j] in colors:
                 pylab.plot(
                     [

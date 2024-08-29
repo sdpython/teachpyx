@@ -297,7 +297,7 @@ def build_diff_image(
 
     else:
         color = colors.get("black", (0, 0, 0))
-        for i in range(0, len(seq2)):
+        for i in range(len(seq2)):
             text = seq2[i]
             text = font.render(text, True, color)
             screen.blit(text, (10, h * pos))

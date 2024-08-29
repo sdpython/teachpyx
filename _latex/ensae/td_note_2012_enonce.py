@@ -6,19 +6,17 @@ import os.path
 
 def charge_donnees(nom="donnees_enquete_2003_television.txt"):
     if os.path.exists(nom):
-        # si le fichier existe (il a d�j� �t� t�l�charg� une fois)
-        f = open(nom, "r")
-        text = f.read()
-        f.close()
+        # si le fichier existe (il a déjà été téléchargé une fois)
+        with open(nom, "r") as f:
+            text = f.read()
     else:
         # si le fichier n'existe pas
         link = "???" + "python_td_minute/data/examen/" + nom
         url = urllib.urlopen(link)
         text = url.read()
-        # on enregistre les donn�es pour �viter de les t�l�charger une seconde fois
-        f = open(nom, "w")
-        f.write(text)
-        f.close()
+        # on enregistre les données pour éviter de les télécharger une seconde fois
+        with open(nom, "w") as f:
+            f.write(text)
 
     lines = text.split("\n")
     lines = [li.split("\t") for li in lines if len(li) > 3]

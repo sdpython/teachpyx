@@ -88,7 +88,7 @@ def tsp_kruskal_algorithm(
         pygame.display.flip()
         if images is not None:
             c = screen.copy()
-            for i in range(0, 5):
+            for _i in range(5):
                 images.append(c)
     if verbose > 0:
         print(f"[tsp_kruskal_algorithm] circuit_eulerien X={X} Y={Y}")
@@ -105,7 +105,7 @@ def tsp_kruskal_algorithm(
         pygame.display.flip()
         if images is not None:
             c = screen.copy()
-            for i in range(0, 5):
+            for _i in range(5):
                 images.append(c)
 
     if verbose > 0:
@@ -180,7 +180,7 @@ def display_arbre(villes, arbre, mult=1, screen=None, pygame=None):
         li = 1
         color = 0, 0, 255
 
-    for i in range(0, len(villes)):
+    for i in range(len(villes)):
         for j in arbre[i]:
             v = (villes[i][0] * mult, villes[i][1] * mult)
             vv = (villes[j][0] * mult, villes[j][1] * mult)
@@ -202,7 +202,7 @@ def circuit_eulerien(
     # on choisit une ville qui est une extrémité et parmi celle-là on la
     # choisit au hasard
     has = []
-    for i in range(0, len(villes)):
+    for i in range(len(villes)):
         n = len(arbre[i])
         if n == 1:
             has.append(i)
@@ -233,7 +233,7 @@ def circuit_eulerien(
         bvec = vec
         opvec = oppose_vecteur(vec)
         bl = None
-        for k in range(0, len(arbre[bm])):
+        for k in range(len(arbre[bm])):
             la = arbre[bm][k]
             vec2 = vecteur_points(v, villes[la])
             if vec2 == (0.0, 0.0):

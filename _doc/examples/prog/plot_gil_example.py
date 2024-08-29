@@ -5,15 +5,15 @@
 
 ======
 Le GIL
-====== 
+======
 
 Le GIL ou `Global Interpreter Lock <https://en.wikipedia.org/wiki/Global_interpreter_lock>`_
-est un verrou unique auquel l'interpréteur Python fait appel constamment 
+est un verrou unique auquel l'interpréteur Python fait appel constamment
 pour protéger tous les objets qu'il manipule contre des accès concurrentiels.
 
 Deux listes en parallel
 =======================
- 
+
 On mesure le temps nécessaire pour créer deux liste et comparer ce
 temps avec celui que cela prendrait en parallèle.
 """
@@ -39,7 +39,7 @@ timeit.timeit("create_list(100000)", globals=globals(), number=100)
 
 def run2(nb):
     with ThreadPoolExecutor(max_workers=2) as executor:
-        for res in executor.map(create_list, [nb, nb + 1]):
+        for _res in executor.map(create_list, [nb, nb + 1]):
             pass
 
 
@@ -74,7 +74,7 @@ timeit.timeit("attendre()", globals=globals(), number=100)
 
 def run3(t):
     with ThreadPoolExecutor(max_workers=2) as executor:
-        for res in executor.map(attendre, [t, t + 0.001]):
+        for _res in executor.map(attendre, [t, t + 0.001]):
             pass
 
 

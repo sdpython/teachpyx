@@ -34,16 +34,16 @@ def fonction_coloriage(matrice, i0, j0):
     # �tage 1
     acolorier = [(i0, j0)]
     while len(acolorier) > 0:
-        # �tape 2
+        # étape 2
         for i, j in acolorier:
             matrice[i][j] = 2
-        # �tape 3
+        # étape 3
         acolorier = tous_voisins_a_valeurs_nulle(matrice, acolorier)
-        # on enl�ve les doublons car sinon cela prend trop de temps
+        # on enlève les doublons car sinon cela prend trop de temps
         d = {}
         for i, j in acolorier:
             d[i, j] = 0
-        acolorier = [(i, j) for i, j in d]
+        acolorier = [(i, j) for i, j in d]  # noqa: C416
 
 
 # question 5, exo S (version 1)
@@ -74,7 +74,7 @@ def fonction_coloriage_1000(matrice, i0, j0):
         d = {}
         for i, j in acolorier:
             d[i, j] = 0
-        acolorier = [(i, j) for i, j in d]
+        acolorier = [(i, j) for i, j in d]  # noqa: C416
 
 
 # question 4, exo S (1 ou 4)

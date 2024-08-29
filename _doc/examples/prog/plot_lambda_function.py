@@ -27,19 +27,19 @@ print(oneargs(1))
 ################
 # Et dans une liste, cela donne ce qui suit.
 
-print([oneargs(a) for a in range(0, 3)])
+print([oneargs(a) for a in range(3)])
 
 #######################
 # Dans le cas présent, cela revient à écrire cela
 # ce qui est quand même plus simple.
 
-fcts = [a + 5 for a in range(0, 3)]
+fcts = [a + 5 for a in range(3)]
 print(fcts)
 
 #######################
 # Ou encore...
 
-fcts = [oneargs(a) for a in range(0, 3)]
+fcts = [oneargs(a) for a in range(3)]
 print(fcts)
 
 #######################
@@ -48,7 +48,7 @@ print(fcts)
 # La première liste définit le calcul dans des
 # lambda fonctions. La seconde les exécute.
 
-fcts_a = [lambda: oneargs(a) for a in range(0, 3)]
+fcts_a = [lambda: oneargs(a) for a in range(3)]  # noqa: B023
 fcts_b = [f() for f in fcts_a]
 print(fcts_b)
 
@@ -62,6 +62,6 @@ print(fcts_b)
 # Une solution consiste à conserver chaque valeur
 # distincte de a dans une valeur par défaut.
 
-fcts_a = [lambda a=a: oneargs(a) for a in range(0, 3)]
+fcts_a = [lambda a=a: oneargs(a) for a in range(3)]
 fcts_b = [f() for f in fcts_a]
 print(fcts_b)

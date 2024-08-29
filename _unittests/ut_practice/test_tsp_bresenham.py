@@ -7,7 +7,7 @@ from teachpyx.practice.tsp_bresenham import draw_line, draw_ellipse
 class TestTspBresenham(ExtTestCase):
     def test_bresenham(self):
         x, y = 500, 500
-        for n in range(0, 10):
+        for _n in range(10):
             x1 = random.randint(0, x - 1)
             y1 = random.randint(0, y - 1)
             x2 = random.randint(0, x - 1)
@@ -23,7 +23,7 @@ class TestTspBresenham(ExtTestCase):
 
     def test_bresenham_ellipses(self):
         x, y = 500, 500
-        for n in range(0, 10):
+        for _n in range(10):
             x1 = random.randint(0, x - 1)
             y1 = random.randint(0, y - 1)
             xa = random.randint(50, 100)

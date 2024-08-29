@@ -3,7 +3,7 @@
 =================
 Pandas et groupby
 =================
- 
+
 Petit tour de passe passe autour d'un :meth:`pandas.DataFrame.groupby`
 et des valeurs manquantes qui ne sont plus prises en compte
 depuis les dernières versions.

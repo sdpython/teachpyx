@@ -105,7 +105,7 @@ def distance(u, t):
 
 def somme_ecart(temperature, t1, t2, T):
     s = 0
-    for i in range(0, len(temperature)):
+    for i in range(len(temperature)):
         if t1 < i < t2:
             s += distance(temperature[i][3], T)  # charleville
         else:
@@ -119,7 +119,7 @@ def somme_ecart(temperature, t1, t2, T):
 def minimisation(temperature, T):
     best = 1e10
     t1t2 = None
-    for t1 in range(0, len(temperature)):
+    for t1 in range(len(temperature)):
         for t2 in range(t1 + 1, len(temperature)):
             d = somme_ecart(temperature, t1, t2, T)
             if best is None or d < best:

@@ -472,7 +472,7 @@ def _process_pstats(
 def profile2df(
     ps: Stats,
     as_df: bool = True,
-    clean_text: bool = None,
+    clean_text: Optional[bool] = None,
     verbose: bool = False,
     logf=None,
 ):
@@ -739,7 +739,7 @@ def profile2graph(
             node.add_called_by(child)
             child.add_calls_to(node, vv)
 
-    for k, v in nodes.items():
+    for _k, v in nodes.items():
         root = v.get_root()
         break
 

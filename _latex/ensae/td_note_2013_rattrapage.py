@@ -4,17 +4,16 @@ import re
 
 def lit_fichier(file):
     """
-    0 S�ance
-    1 R�f�rence
-    2 Entit� d�positaire
-    3 Elu d�positaire
+    0 Séance
+    1 Référence
+    2 Entité dépositaire
+    3 Elu dépositaire
     4 Objet
     5 Type
     6 Rapporteur
     """
-    f = open(file, "r")
-    lines = f.readlines()
-    f.close()
+    with open(file, "r") as f:
+        lines = f.readlines()
     lines = [_ for _ in lines if len(_) > 0]
     lines = [_.split("\t") for _ in lines][1:]
     lines = [(_[0], _[4]) for _ in lines if len(_) > 5]
@@ -56,7 +55,7 @@ def extrait_date(date):
 
 def compte_annee(lines):
     compte = {}
-    for a, b, c, d in lines:
+    for a, b, _c, d in lines:
         a = d[0] if d is not None else None
         compte[a] = compte.get(a, 0) + b
     return compte

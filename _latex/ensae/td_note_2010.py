@@ -34,7 +34,7 @@ def dessin_classes(nuage, classes, image=None):
 
     x = {}
     y = {}
-    for i in range(0, len(nuage)):
+    for i in range(len(nuage)):
         cl = classes[i]
         if cl not in x:
             x[cl] = []
@@ -63,7 +63,7 @@ def sous_nuage(nb, x, y):
                                 - la seconde aux ordonn�es
     """
     res = []
-    for i in range(0, nb):
+    for _i in range(nb):
         xx = random.gauss(0, 1)
         yy = random.gauss(0, 1)
         res.append([x + xx, y + yy])
@@ -78,7 +78,7 @@ def n_sous_nuages(nb_class, nb_point):
                                 - la premi�re correspond aux abscisses,
                                 - la seconde aux ordonn�es"""
     res = []
-    for c in range(0, nb_class):
+    for _c in range(nb_class):
         x = random.gauss(0, 1) * 5
         y = random.gauss(0, 1) * 5
         res += sous_nuage(nb_point, x, y)
@@ -92,7 +92,7 @@ def random_class(nuage, n):
     @return                     une liste d'entiers
     """
     res = []
-    for p in nuage:
+    for _p in nuage:
         c = random.randint(0, n - 1)
         res.append(c)
     return res
@@ -106,7 +106,7 @@ def proche_barycentre(point, barycentres):
     @return                     un entier qui correspond � l'index
                                 du barycentre le plus proche"""
     dmax = 1e6
-    for i in range(0, len(barycentres)):
+    for i in range(len(barycentres)):
         b = barycentres[i]
         dx = point[0] - b[0]
         dy = point[1] - b[1]
@@ -151,7 +151,7 @@ def barycentre_classe(points, classes, numero_class):
     """
     mx, my = 0.0, 0.0
     nb = 0
-    for i in range(0, len(points)):
+    for i in range(len(points)):
         p = points[i]
         c = classes[i]
         if c != numero_class:
@@ -170,7 +170,7 @@ def tous_barycentres(points, classes):
     """
     mx = max(classes) + 1
     barycentre = []
-    for m in range(0, mx):
+    for m in range(mx):
         b = barycentre_classe(points, classes, m)
         barycentre.append(b)
     return barycentre
@@ -184,15 +184,15 @@ def numpy_tous_barycentres(points, classes):
     mat = numpy.matrix(points)
     vec = numpy.array(classes)
     clas = numpy.zeros((len(points), nbcl))
-    for i in range(0, nbcl):
+    for i in range(nbcl):
         clas[vec == i, i] = 1.0
     nb = clas.sum(axis=0)
-    for i in range(0, nbcl):
+    for i in range(nbcl):
         clas[vec == i, i] = 1.0 / nb[i]
     ba = mat.transpose() * clas
     ba = ba.transpose()
     ba = ba.tolist()
-    barycentre = [b for b in ba]
+    barycentre = list(ba)
     return barycentre
 
 
@@ -205,7 +205,7 @@ def numpy_tous_barycentres2(points, classes):
     matt = mat.transpose()
     matcl = numpy.matrix(classes).transpose()
     barycentre = []
-    for c in range(0, nbcl):
+    for c in range(nbcl):
         w = numpy.matrix(matcl)
         w[matcl == c] = 1
         w[matcl != c] = 0
@@ -227,21 +227,21 @@ def nuees_dynamiques(points, nbcl):
     classes = random_class(points, nbcl)
 
     # on a le choix entre la version sans numpy
-    for i in range(0, 10):
+    for i in range(10):
         print("iteration", i, max(classes) + 1)
         barycentres = tous_barycentres(points, classes)  # ou l'un
         classes = association_barycentre(points, barycentres)
     cl1 = classes
 
     # ou la premi�re version avec numpy
-    for i in range(0, 10):
+    for i in range(10):
         print("iteration", i, max(classes) + 1)
         barycentres = numpy_tous_barycentres(points, classes)  # ou l'autre
         classes = association_barycentre(points, barycentres)
     cl2 = classes
 
     # ou la seconde version avec numpy
-    for i in range(0, 10):
+    for i in range(10):
         print("iteration", i, max(classes) + 1)
         barycentres = numpy_tous_barycentres2(points, classes)  # ou l'autre
         classes = association_barycentre(points, barycentres)

@@ -483,9 +483,9 @@ def mat2vect(mat):
 
         Dans un langage comme le *C++*, il arrive fréquemment
         qu'une matrice ne soit pas
-        représentée par une liste de listes mais par une seule 
+        représentée par une liste de listes mais par une seule
         liste car cette représentation
-        est plus efficace. Il faut donc convertir un indice 
+        est plus efficace. Il faut donc convertir un indice
         en deux indices ligne et colonne.
         Il faut bien sûr que le nombre de colonnes sur chaque ligne soit constant.
         Le premier programme convertit une liste de listes en une seule liste.
@@ -546,7 +546,7 @@ def vect2mat(vect, ncol):
             print(mat)
 
     """
-    return [vect[i * ncol : (i + 1) * ncol] for i in range(0, len(vect) // ncol)]
+    return [vect[i * ncol : (i + 1) * ncol] for i in range(len(vect) // ncol)]
 
 
 def integrale(fonction, a, b, n):
@@ -596,7 +596,7 @@ def integrale(fonction, a, b, n):
             print(l2)  # affiche [0, 1, 8, 27]
     """
     h = (b - a) / n
-    return sum(fonction(a + h / 2 + h * i) for i in range(0, n)) * h
+    return sum(fonction(a + h / 2 + h * i) for i in range(n)) * h
 
 
 def construit_matrice_carree(n):
@@ -620,11 +620,11 @@ def enumerate_permutations_recursive(ensemble):
     if len(ensemble) == 1:
         yield ensemble
     else:
-        for i in range(0, len(ensemble)):
+        for i in range(len(ensemble)):
             ensemble[0], ensemble[i] = ensemble[i], ensemble[0]
             per = enumerate_permutations_recursive(ensemble[1:])
             for p in per:
-                yield [ensemble[0]] + p
+                yield [ensemble[0], *p]
             ensemble[0], ensemble[i] = ensemble[i], ensemble[0]
 
 
