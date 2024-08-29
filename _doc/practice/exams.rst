@@ -36,7 +36,7 @@ Enoncés
 * :download:`td_note_2022_rattrapage2 <exams/td_note_2022_rattrapage2.pdf>`
 * :download:`td_note_2023 <exams/td_note_2023.pdf>`
 * :download:`td_note_2023-2024 <exams/td_note_2023-2024.pdf>`
-* :download:`td_note_2023-2024_rattrapage <exams/td_note_2023-2024_rattrapage.pdf>`
+* :download:`td_note_2023-2024_rattrapage <exams/td_note_2023-2024_rattrapage_sans_correction.pdf>`
 
 Corrections
 +++++++++++

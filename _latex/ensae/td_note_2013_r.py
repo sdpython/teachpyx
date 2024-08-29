@@ -26,6 +26,18 @@ def recupere_donnees():
 
 
 def extrait_montant(objet):
+    """
+    Exemple de chaînes de caractères cherchée:
+
+    ::
+
+        Subvention à l'Association des Commerçants de la rue
+        Mesnil (16e) pour les illuminations à l'occasion
+        des fêtes de fin d'année 2007, dans le cadre de
+        l'opération "Paris Illumine Paris". -
+        Montant : 7.000 euros.
+        PJ	Mme Lyne COHEN-SOLAL (2ème Commission) rapporteure.
+    """
     exp = re.compile("[ (]([0-9.,]+) {0,3}euros")
     res = exp.search(objet)
     if res:
@@ -35,9 +47,3 @@ def extrait_montant(objet):
         print("probl�me ", objet)
         return None
 
-    """Subvention à l'Association des Commerçants de la rue
-    Mesnil (16e) pour les illuminations à l'occasion
-    des fêtes de fin d'année 2007, dans le cadre de
-    l'opération "Paris Illumine Paris". -
-    Montant : 7.000 euros.
-    PJ	Mme Lyne COHEN-SOLAL (2ème Commission) rapporteure."""
