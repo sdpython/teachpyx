@@ -1,5 +1,4 @@
 black
-black-nb
 blockdiag
 cartopy
 catboost
@@ -16,6 +15,7 @@ geopandas
 ipython
 jinja2
 jupyter
+jupyter-black
 lifelines
 lightgbm
 lxml
