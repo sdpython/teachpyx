@@ -1,30 +1,60 @@
 2024-11-31 : rappel feuille de route 2024
 =========================================
 
+Le plan des séances est changé après que celles-ci ont eu lieu.
+
 Séance 1
 ++++++++
+
+:ref:`Prises aux dames <nbl-practice-py-base-dame_prise>`
 
 Séance 2
 ++++++++
 
+Tests unitaires et classes
+
 Séance 3
 ++++++++
+
+:ref:`classes pour représenter un graphe <nbl-practice-py-base-classe_tree>`
+
+Fin des classes puis :ref:`les itérateurs <nbl-practice-py-base-classe_iterateur>` et
+:ref:`numpy broadcast <nbl-c_data-numpy_broadcast>`.
 
 Séance 4
 ++++++++
 
+Dame et minimax.
+
 Séance 5
 ++++++++
+
+* :ref:`Distance d'édition <nbl-practice-years-2023-editdist>`
+* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`
+
+A propos de la distance d'édition, voir aussi
+:ref:`Distance d'édition <nbl-practice-algo-base-exercice_edit_distance>` ou encore
+:ref:`Distance entre deux mots de même longueur et tests unitaires <nbl-practice-algo-base-exercice_editdist>`.
 
 Séance 6
 ++++++++
 
+* :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>`
+* :ref:`Recheche à base de préfixes <nbl-practice-years-2023-prefix_search>`
+
+Autres variations autour du problème du voyageur de commerce,
+ou TSP pour Travelling Salesman Problem
+ou encore circuit hamiltonien: :ref:`l-tsp_kohonen`, :ref:`l-tsp_kruskal`. 
+
 Séance 7
 ++++++++
+
+* :ref:`Classe et héritage <nbl-practice-py-base-classe_user_p>`
 
 Séance 8
 ++++++++
 
+* :ref:`Optimisation de la note moyenne <nbl-practice-years-2023-bareme_note_optimisation>`
 
 TD noté 1h30 en seconde partie.
 Classes et un algorithme.
