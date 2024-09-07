@@ -39,6 +39,7 @@ Exercices sur le langage python
     py-base/histogramme_rapide
     py-base/exercice_pi
     py-base/de_rotation
+    py-base/dame_prise
     ../auto_examples/prog/plot_matador
     ../auto_examples/prog/plot_partie_dame
 
