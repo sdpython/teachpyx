@@ -20,7 +20,7 @@ def get_naturalearth_lowres(dest: str = ".", timeout: int = 10, verbose: bool = 
     """
     Retrieves files ``naturalearth_lowres.shp``, ``naturalearth_lowres.shx``,
     ``naturalearth_lowres.dbf`` in
-    `teachdata/geopandas/data/naturalearth_cities/
+    `teachdata/geopandas/data/naturalearth_lowres/
     <https://github.com/sdpython/teachdata/blob/main/geopandas/data/naturalearth_lowres/>`_.
     """
     urls = [
