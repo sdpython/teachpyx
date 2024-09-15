@@ -41,6 +41,32 @@ def decompress_zip(filename, dest: str, verbose: bool = False) -> List[str]:
     return files
 
 
+def download(
+    url: str, dest: str = ".", timeout: int = 10, verbose: bool = False
+) -> str:
+    """
+    Download one file.
+
+    :param url: url
+    :param dest: destination folder
+    :param timeout: timeout
+    :param verbose: display progress
+    :return: filename
+    """
+    filename = url.split("/")[-1]
+    dest_zip = os.path.join(dest, filename)
+    if not os.path.exists(dest_zip):
+        if verbose:
+            print(f"downloads into {dest_zip!r} from {url!r}")
+        with urlopen(url, timeout=timeout) as u:
+            content = u.read()
+        with open(dest_zip, "wb") as f:
+            f.write(content)
+    elif verbose:
+        print(f"already downloaded {dest_zip!r}")
+    return dest_zip
+
+
 def download_and_unzip(
     url: str, dest: str = ".", timeout: int = 10, verbose: bool = False
 ) -> List[str]:

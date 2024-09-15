@@ -9,6 +9,8 @@
 *.dbf
 *.xlsx
 *.pickle
+*.shp
+*.shx
 .coverage
 data.*
 paris*.*

@@ -13,3 +13,5 @@ from .enedis import load_enedis_dataset
 # from .titanic import load_titanic_dataset
 # from .tweets import load_tweet_dataset
 from .wines import load_wines_dataset, load_wine_dataset
+
+from .gpd_helper import get_naturalearth_cities, get_naturalearth_lowres

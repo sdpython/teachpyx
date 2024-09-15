@@ -5,6 +5,10 @@ Jeux de données
 Cartographie
 ============
 
+.. autofunction:: teachpyx.datasets.get_naturalearth_cities
+
+.. autofunction:: teachpyx.datasets.get_naturalearth_lowres
+
 .. autofunction:: teachpyx.datasets.load_enedis_dataset
 
 Classification

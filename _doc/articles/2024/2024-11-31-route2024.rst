@@ -11,10 +11,14 @@ Séance 1
 Séance 2
 ++++++++
 
-Tests unitaires et classes
+Tests unitaires et classes toujours avec les dames
+
+:ref:`Prises aux dames <nbl-practice-py-base-dame_prise>`
 
 Séance 3
 ++++++++
+
+Héritage
 
 :ref:`classes pour représenter un graphe <nbl-practice-py-base-classe_tree>`
 
