@@ -44,7 +44,7 @@ Séance 6
 ++++++++
 
 * :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>`
-* :ref:`Recheche à base de préfixes <nbl-practice-years-2023-prefix_search>`
+* :ref:`Recherche à base de préfixes <nbl-practice-years-2023-prefix_search>`
 
 Autres variations autour du problème du voyageur de commerce,
 ou TSP pour Travelling Salesman Problem
