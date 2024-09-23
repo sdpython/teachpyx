@@ -225,6 +225,11 @@ le générateur de nombre aléatoire de
 `Mersenne <https://github.com/nryoung/algorithms/blob/master/algorithms/random/mersenne_twister.py>`_,
 le tri `heapsort <https://github.com/nryoung/algorithms/blob/master/algorithms/sorting/heap_sort.py>`_.
 
+Problèmes
++++++++++
+
+* `Problème du consensus <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_consensus>`_
+
 Problèmes NP-complets
 +++++++++++++++++++++
 
@@ -256,6 +261,9 @@ est un problème qui n'admet pas d'algorithmes capables de trouver une solution
 en un temps polynomial. Plus précisément, pour deux problèmes *A* et *B* de cette classe,
 il existe une transformation (ou *réduction*) *f* qui transforme
 le problème *A* en *B*.
+
+Voir `21 problèmes NP-complets de Karp
+<https://fr.wikipedia.org/wiki/21_probl%C3%A8mes_NP-complets_de_Karp>`_.
 
 **BPP**
 
@@ -314,6 +322,7 @@ est inférieure ou supérieur à un certain seuil ?
 Liens
 +++++
 
+* `Portail:Informatique théorique <https://fr.wikipedia.org/wiki/Portail:Informatique_th%C3%A9orique>`_
 * `Liste d'algorithme sur Wikipédia <http://en.wikipedia.org/wiki/List_of_algorithms>`_
   (`version française <http://fr.wikipedia.org/wiki/Liste_d%27algorithmes>`_)
 * `List of machine learning concepts <http://en.wikipedia.org/wiki/List_of_machine_learning_concepts>`_
