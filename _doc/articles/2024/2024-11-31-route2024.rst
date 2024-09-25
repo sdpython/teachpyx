@@ -27,10 +27,43 @@ Séance 4
 ++++++++
 
 Nous garderons les dames et l'algortithme minimax pour une autre fois peut être.
+Cette séance à propos de la programmation dynamique.
+Le premier exercice consiste à déterminer le nombre minimal de pièces
+de monnaie pour écrire un montant et de retrouver la séquence minimale
+de pièces. On considère les pièces ``[1, 2, 4, 5]``.
 
-* :ref:`Distance d'édition <nbl-practice-years-2023-editdist>`,
-* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`,
-  cet algorithme est la première étage pour inverser une matrice
+.. runpython::
+  :showcode:
+
+  def ecriture_minimale(n):
+      pieces = [1, 2, 4, 5]
+      min_pieces = [None for i in range(n+1)]
+      predecessor = [None for i in range(n+1)]
+      min_pieces[0] = 1
+      for p in pieces:
+          min_pieces[p] = 1
+          predecessor[p] = p
+      for i in range(n+1):
+          if min_pieces[i] is None:
+              # écriture impossible
+              continue
+          for p in pieces:
+              if i + p > n:
+                  break
+              m = min_pieces[i] + 1
+              if min_pieces[i + p] is None or m < min_pieces[i + p]:
+                  min_pieces[i + p] = m
+                  predecessor[i + p] = p
+      composition = []
+      while n > 0:
+          composition.append(predecessor[n])
+          n -= predecessor[n]
+      return min_pieces[n], composition
+
+  print(ecriture_minimale(99))
+
+On bascule ensuite vers la
+:ref:`Distance d'édition <nbl-practice-years-2023-editdist>`.
 
 A propos de la distance d'édition, voir aussi
 :ref:`Distance d'édition <nbl-practice-algo-base-exercice_edit_distance>` ou encore
@@ -68,6 +101,8 @@ Séance 8
 ++++++++
 
 * :ref:`Optimisation de la note moyenne <nbl-practice-years-2023-bareme_note_optimisation>`
+* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`,
+  cet algorithme est la première étage pour inverser une matrice
 
 TD noté 1h30 en seconde partie.
 Classes et un algorithme.
