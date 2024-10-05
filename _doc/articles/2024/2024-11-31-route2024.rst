@@ -72,13 +72,8 @@ A propos de la distance d'édition, voir aussi
 Séance 5
 ++++++++
 
-* :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>` ou
-  `problème du sac à dos <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_sac_%C3%A0_dos>`_
-* :ref:`Recherche à base de préfixes <nbl-practice-years-2023-prefix_search>`
-
-Autres variations autour du problème du voyageur de commerce,
-ou TSP pour Travelling Salesman Problem
-ou encore circuit hamiltonien: :ref:`l-tsp_kohonen`, :ref:`l-tsp_kruskal`. 
+* :ref:`burrowswheelerrst`
+* :ref:`Code de Vigenère <nbl-practice-algo-compose-vigenere>`
 
 Séance 6
 ++++++++
@@ -86,7 +81,16 @@ Séance 6
 * :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
 * :ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`,
   :ref:`Modules, fichiers, expression régulières <nbl-practice-tds-base-module_file_regex>`
-  
+* :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>` ou
+  `problème du sac à dos <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_sac_%C3%A0_dos>`_
+
+Evocation de la :ref:`Recherche à base de préfixes <nbl-practice-years-2023-prefix_search>`
+en terme algorithmique.
+
+Autres variations autour du problème du voyageur de commerce,
+ou TSP pour Travelling Salesman Problem
+ou encore circuit hamiltonien: :ref:`l-tsp_kohonen`, :ref:`l-tsp_kruskal`. 
+
 Séance 7
 ++++++++
 

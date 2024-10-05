@@ -64,6 +64,7 @@ angles d'approches.
 
     ../auto_examples/prog/plot_einstein_riddle
     ../auto_examples/prog/plot_float_and_double_rouding
+    ../auto_examples/prog/plot_burrows_wheeler
     ../auto_examples/prog/plot_hypercube
     algo-compose/paris_parcours
     algo-compose/vigenere
