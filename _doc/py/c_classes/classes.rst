@@ -1552,7 +1552,7 @@ lors de l'appel de la fonction ``help(nom_class)`` ou
 Pour illustrer l'utilisation des propriétés, on part d'une classe
 ``nombre_complexe`` qui ne contient que les parties réelle et
 imaginaire. Le module désigne ici le module d'un nombre complexe qui est égal à sa norme.
-On le note :math:`\abs{a+ib} = \sqrt{a^2 + b^2}`. On fait appel à une méthode qui calcule
+On le note :math:`\left | a+ib \right | = \sqrt{a^2 + b^2}`. On fait appel à une méthode qui calcule
 ce module. Lorsqu'on cherche à modifier ce module, on fait appel à une autre méthode
 qui multiplie les parties réelle et imaginaire par un nombre réel positif
 de manière à ce que le nombre complexe ait le module demandé.

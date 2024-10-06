@@ -178,7 +178,8 @@ Catalogue d'algorithmes
     * `n-grammes <http://fr.wikipedia.org/wiki/N-gramme>`_ **déf**
     * `Algorithme d'Aho-Corasick <http://fr.wikipedia.org/wiki/Algorithme_d%27Aho-Corasick>`_ **algo**,
       voir aussi `Commentz-Walter <https://en.wikipedia.org/wiki/Commentz-Walter_algorithm>`_
-    * `Transformée de Burrows-Wheeler <http://fr.wikipedia.org/wiki/Transform%C3%A9e_de_Burrows-Wheeler>`_ **algo**
+    * `Transformée de Burrows-Wheeler <http://fr.wikipedia.org/wiki/Transform%C3%A9e_de_Burrows-Wheeler>`_ **algo**,
+      voir :ref:`burrowswheelerrst`
     * `algorithme Apriori <https://en.wikipedia.org/wiki/Apriori_algorithm>`_ : apprentissage de règles d'associations **algo**
     * `Boyer–Moore string-search algorithm <https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm>`_
 * Optimisation

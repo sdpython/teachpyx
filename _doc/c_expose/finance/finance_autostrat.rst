@@ -1202,7 +1202,7 @@ Le slippage est ici modélisé comme une constante mais il serait sans
 doute plus judicieux de l'ajuster en fonction d'une variabilité locale
 (par rapport à la différence High - Low) qui pourrait pénaliser davantage
 la stratégie en temps de crise. Par exemple, lors de la vente d'une action
-au prix :math:`p`, on considèrera le prix :math:`p - \alpha \abs{p} - \beta`.
+au prix :math:`p`, on considèrera le prix :math:`p - \alpha \\left| p \\right| - \beta`.
 :math:`\alpha` est le coût de transaction est proportionnelle au prix,
 :math:`\beta` est le slippage qui s'exprime en un multiple
 entier du tick (donc différent pour chaque action).

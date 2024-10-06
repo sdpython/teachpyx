@@ -126,30 +126,29 @@ sphinx_gallery_conf = {
 # next
 
 preamble = """
-\\usepackage{etex}
-\\usepackage{fixltx2e} % LaTeX patches, \\textsubscript
-\\usepackage{cmap} % fix search and cut-and-paste in Acrobat
-\\usepackage[raccourcis]{fast-diagram}
-\\usepackage{titlesec}
-\\usepackage{amsmath}
-\\usepackage{amssymb}
-\\usepackage{amsfonts}
-\\usepackage{graphics}
-\\usepackage{epic}
-\\usepackage{eepic}
-%\\usepackage{pict2e}
+%%% \\usepackage{etex}
+%%% \\usepackage{fixltx2e} % LaTeX patches, \\textsubscript
+%%% \\usepackage{cmap} % fix search and cut-and-paste in Acrobat
+%%% \\usepackage[raccourcis]{fast-diagram}
+%%% \\usepackage{titlesec}
+%%% \\usepackage{amsmath}
+%%% \\usepackage{amssymb}
+%%% \\usepackage{amsfonts}
+%%% \\usepackage{graphics}
+%%% \\usepackage{epic}
+%%% \\usepackage{eepic}
+%%% \\usepackage{pict2e}
 %%% Redefined titleformat
-\\setlength{\\parindent}{0cm}
-\\setlength{\\parskip}{1ex plus 0.5ex minus 0.2ex}
+%%% \\setlength{\\parindent}{0cm}
+%%% \\setlength{\\parskip}{1ex plus 0.5ex minus 0.2ex}
 \\newcommand{\\hsp}{\\hspace{20pt}}
 \\newcommand{\\acc}[1]{\\left\\{#1\\right\\}}
 \\newcommand{\\cro}[1]{\\left[#1\\right]}
 \\newcommand{\\pa}[1]{\\left(#1\\right)}
 \\newcommand{\\R}{\\mathbb{R}}
 \\newcommand{\\HRule}{\\rule{\\linewidth}{0.5mm}}
-%\\titleformat{\\chapter}[hang]{\\Huge\\bfseries\\sffamily}{\\thechapter\\hsp}{0pt}{\\Huge\\bfseries\\sffamily}
-
-\\usepackage[all]{xy}
+%%% \\titleformat{\\chapter}[hang]{\\Huge\\bfseries\\sffamily}{\\thechapter\\hsp}{0pt}{\\Huge\\bfseries\\sffamily}
+%%% \\usepackage[all]{xy}
 \\newcommand{\\vecteur}[2]{\\pa{#1,\\dots,#2}}
 \\newcommand{\\N}[0]{\\mathbb{N}}
 \\newcommand{\\indicatrice}[1]{ {1\\!\\!1}_{\\acc{#1}} }

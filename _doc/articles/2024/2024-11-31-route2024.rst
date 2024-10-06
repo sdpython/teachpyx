@@ -27,10 +27,43 @@ Séance 4
 ++++++++
 
 Nous garderons les dames et l'algortithme minimax pour une autre fois peut être.
+Cette séance à propos de la programmation dynamique.
+Le premier exercice consiste à déterminer le nombre minimal de pièces
+de monnaie pour écrire un montant et de retrouver la séquence minimale
+de pièces. On considère les pièces ``[1, 2, 4, 5]``.
 
-* :ref:`Distance d'édition <nbl-practice-years-2023-editdist>`,
-* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`,
-  cet algorithme est la première étage pour inverser une matrice
+.. runpython::
+  :showcode:
+
+  def ecriture_minimale(n):
+      pieces = [1, 2, 4, 5]
+      min_pieces = [None for i in range(n+1)]
+      predecessor = [None for i in range(n+1)]
+      min_pieces[0] = 1
+      for p in pieces:
+          min_pieces[p] = 1
+          predecessor[p] = p
+      for i in range(n+1):
+          if min_pieces[i] is None:
+              # écriture impossible
+              continue
+          for p in pieces:
+              if i + p > n:
+                  break
+              m = min_pieces[i] + 1
+              if min_pieces[i + p] is None or m < min_pieces[i + p]:
+                  min_pieces[i + p] = m
+                  predecessor[i + p] = p
+      composition = []
+      while n > 0:
+          composition.append(predecessor[n])
+          n -= predecessor[n]
+      return min_pieces[n], composition
+
+  print(ecriture_minimale(99))
+
+On bascule ensuite vers la
+:ref:`Distance d'édition <nbl-practice-years-2023-editdist>`.
 
 A propos de la distance d'édition, voir aussi
 :ref:`Distance d'édition <nbl-practice-algo-base-exercice_edit_distance>` ou encore
@@ -39,13 +72,8 @@ A propos de la distance d'édition, voir aussi
 Séance 5
 ++++++++
 
-* :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>` ou
-  `problème du sac à dos <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_sac_%C3%A0_dos>`_
-* :ref:`Recherche à base de préfixes <nbl-practice-years-2023-prefix_search>`
-
-Autres variations autour du problème du voyageur de commerce,
-ou TSP pour Travelling Salesman Problem
-ou encore circuit hamiltonien: :ref:`l-tsp_kohonen`, :ref:`l-tsp_kruskal`. 
+* :ref:`burrowswheelerrst`
+* :ref:`Code de Vigenère <nbl-practice-algo-compose-vigenere>`
 
 Séance 6
 ++++++++
@@ -53,7 +81,16 @@ Séance 6
 * :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
 * :ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`,
   :ref:`Modules, fichiers, expression régulières <nbl-practice-tds-base-module_file_regex>`
-  
+* :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>` ou
+  `problème du sac à dos <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_sac_%C3%A0_dos>`_
+
+Evocation de la :ref:`Recherche à base de préfixes <nbl-practice-years-2023-prefix_search>`
+en terme algorithmique.
+
+Autres variations autour du problème du voyageur de commerce,
+ou TSP pour Travelling Salesman Problem
+ou encore circuit hamiltonien: :ref:`l-tsp_kohonen`, :ref:`l-tsp_kruskal`. 
+
 Séance 7
 ++++++++
 
@@ -68,6 +105,8 @@ Séance 8
 ++++++++
 
 * :ref:`Optimisation de la note moyenne <nbl-practice-years-2023-bareme_note_optimisation>`
+* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`,
+  cet algorithme est la première étage pour inverser une matrice
 
 TD noté 1h30 en seconde partie.
 Classes et un algorithme.

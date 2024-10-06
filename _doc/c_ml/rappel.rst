@@ -42,7 +42,8 @@ On exprime cette propriété comme suit en terme mathématique.
 
 .. math::
 
-    \forall \epsilon >0, \exists \eta, \forall x,y \in I, \; \abs{x-y} < \eta \Rightarrow \abs{f(x) -f(y)} < \epsilon
+    \forall \epsilon >0, \exists \eta, \forall x,y \in I, \; 
+    \left| x - y \right| < \eta \Rightarrow \left| f(x) -f(y) \right|  < \epsilon
 
 On résume visuellement cette propriété comme suit.
 La fonction de gauche est continue, celle de droite ne l'est pas.
@@ -110,7 +111,7 @@ l'angle qui les sépare.
 
 .. math::
 
-    <X,Y> = \sum_{i=1}^n x_i y_i = \norm{X}\norm{Y} \cos(X,Y)
+    <X,Y> = \sum_{i=1}^n x_i y_i = \left\Vert X \right\Vert \left\Vert Y \right\Vert \cos(X,Y)
 
 .. index:: norme, distance
 
@@ -122,13 +123,13 @@ vecteurs. La distance euclidienne est nommé *norme L2* :
 
 .. math::
 
-    \norm{X}_2 = \sqrt{<X,X>}
+    \\left\\Vert X \\right\\Vert_2 = \sqrt{<X,X>}
 
 La norme L1 utilise les valeurs absolues :
 
 .. math::
 
-    \norm{X}_1 = \sum_{i=1}^n \abs{x_i}
+    \left\Vert X \right\Vert_1 = \sum_{i=1}^n \left | x_i \right |
 
 Ce sont les deux principales normes utilisées en
 :epkg:`machine learning`.
