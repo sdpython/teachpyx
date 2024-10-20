@@ -628,7 +628,7 @@ comme dans l'exemple suivant :
 
 Il suffit de transposer cet exemple pour ajouter une barre de défilement horizontale.
 Toutefois, il est préférable d'utiliser un objet prédéfini présent dans le module
-:mod:`tkinter.tix` qui est une extension du module :epkg:`tkinter`.
+:mod:`tkinter.filedialog` qui est une extension du module :epkg:`tkinter`.
 Elle est présentée au paragraphe :ref:`chap_interface_exemple_programme`.
 
 Lorsqu'on insère plusieurs objets :epkg:`tkinter.ListBox`
@@ -680,8 +680,8 @@ C'est une liste avec une barre de défilement incluse qui est présente dans l'e
 
     root.mainloop()                         # idem
 
-Les extensions :mod:`tkinter.ttk` et :mod:`tkinter.tix`
-ne sont pas très bien documentés mais il existe de nombreuses
+Les extensions :mod:`tkinter.ttk` et :mod:`tkinter.filedialog`
+ne sont pas très bien documentées mais il existe de nombreuses
 réponses sur les forums de discussions.
 
 .. list-table::
@@ -1532,7 +1532,7 @@ D'autres fenêtres et contrôles
 *tkinter* ne propose pas beaucoup de *widgets*, pas autant
 que la liste étendue qu'on trouve dans la plupart des applications.
 Deux extensions complètent cette liste
-:mod:`tkinter.ttk` et :mod:`tkinter.tix`.
+:mod:`tkinter.ttk` et :mod:`tkinter.filedialog`.
 On trouve notamment :
 
 * :epkg:`tkinter.ttk.Combobox`
@@ -1540,10 +1540,8 @@ On trouve notamment :
 * :epkg:`tkinter.ttk.Progressbar`
 * :epkg:`tkinter.ttk.Treeview`
 
-:mod:`tkinter.tix` propose des widgets un peu plus complexes :
-
-* :epkg:`tkinter.tix.DirTree`
-* :epkg:`tkinter.tix.FileSelectBox`
+:mod:`tkinter.filedialog` propose des widgets un peu plus complexes pour
+sélectionner des fichiers.
 
 Cette liste n'est pas exhaustive.
 
@@ -1641,15 +1639,13 @@ Le programme suivant en est un exemple :
 Fenêtres standard
 -----------------
 
-Le module :mod:`tkinter.tix`
-propose une fenêtre de sélection de fichiers identique à celle de
-la figure suivante.
-:epkg:`tkinter`
+Le module :mod:`tkinter.filedialog`
+propose une fenêtre de filedialog de fichiers identique à celle de
+la figure suivante. :epkg:`tkinter`
 a l'avantage d'être simple et ne nécessite pas un long apprentissage
 pour le maîtriser mais il est limité. Pour ce type de fenêtres qu'on
 retrouve dans la plupart des programmes, il existe presque toujours
-des solutions toutes faites, via le module
-:mod:`tkinter.tix`
+des solutions toutes faites, via le module :mod:`tkinter.filedialog`
 par exemple. On trouve également de nombreux programmes sur
 Internet par le biais de moteurs de recherche. Le programme ci-dessous
 affiche une fenêtre qui permet de sélectionner un fichier.
@@ -1830,26 +1826,26 @@ affiche une fenêtre qui permet de sélectionner un fichier.
         print("fichier sélectionné ", win.chemin)
 
 Il faut comparer ce programme à celui qu'on écrirait avec
-l'extension :mod:`tkinter.tix` :
+l'extension :mod:`tkinter.filedialog` :
 
 ::
 
-    import tkinter.tix as tix
-    root = tix.Tk ()
+    import tkinter as tk
+    import tkinter.filedialog as fd
 
-    o = tix.FileSelectBox (root)
-    o.pack ()
+    root = tk.Tk()
 
-    def print_file () :
+    o = fd.askopenfile(root)
+    o.pack()
+
+    def print_file():
         print(o.cget ("value"))
 
-    b = tix.Button (root, text = "print")
-    b.config (command = print_file)
+    b = tk.Button(root, text="print")
+    b.config (command=print_file)
     b.pack ()
 
     root.mainloop ()
-
-.. image:: images/tixfile.png
 
 Constructions classiques
 ========================

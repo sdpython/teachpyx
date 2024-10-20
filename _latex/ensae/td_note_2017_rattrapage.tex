@@ -3,10 +3,10 @@
 
 \firstpassagedo{
 \newcommand{\sametextforthisinterro}[0]{ 
-\huge ENSAE TD noté rattrapage, mardi 21 février 2017
+\huge ENSAE TD notï¿½ rattrapage, mardi 21 fï¿½vrier 2017
 
 \normalsize
-\textit{Le programme devra être imprimé et rendu au chargé de TD. Toutes les questions valent 2 points. Vous êtes libres d'utiliser numpy ou non à toutes les questions.}
+\textit{Le programme devra ï¿½tre imprimï¿½ et rendu au chargï¿½ de TD. Toutes les questions valent 2 points. Vous ï¿½tes libres d'utiliser numpy ou non ï¿½ toutes les questions.}
 \smallskip
 }
 
@@ -37,9 +37,9 @@ X.T
 
 
 \exosubject{}
-\begin{xexercice}\label{td_note_label10_2017}%\indexfrr{énoncé}{pratique}
+\begin{xexercice}\label{td_note_label10_2017}%\indexfrr{ï¿½noncï¿½}{pratique}
 
-\exequest A l'aide du module \text{random}, générer un ensemble d'entiers aléatoires compris entre 0 et 100 excepté le premier égal à 1000.
+\exequest A l'aide du module \text{random}, gï¿½nï¿½rer un ensemble d'entiers alï¿½atoires compris entre 0 et 100 exceptï¿½ le premier ï¿½gal ï¿½ 1000.
 
 \begin{verbatimx}
 def ensemble_aleatoire(n):
@@ -47,13 +47,13 @@ def ensemble_aleatoire(n):
     return
 \end{verbatimx}
 
-\exequest La médiane d'un ensemble de points $\acc{X_1, ..., X_n}$ est une valeur $X_M$ telle que : 
+\exequest La mï¿½diane d'un ensemble de points $\acc{X_1, ..., X_n}$ est une valeur $X_M$ telle que : 
 
 $$\sum_i \indicatrice{X_i < X_m} = \sum_i \indicatrice{X_i > X_m}$$
 
-Autrement dit, il y a autant de valeurs inférieures que supérieures à $X_M$. On obtient cette valeur en triant les éléments par ordre croissant et en prenant celui du milieu.
+Autrement dit, il y a autant de valeurs infï¿½rieures que supï¿½rieures ï¿½ $X_M$. On obtient cette valeur en triant les ï¿½lï¿½ments par ordre croissant et en prenant celui du milieu.
 
- Ecrire une fonction qui calcule la médiane.
+ Ecrire une fonction qui calcule la mï¿½diane.
 
 \begin{verbatimx}
 def mediane(ensemble):
@@ -61,17 +61,17 @@ def mediane(ensemble):
     return
 \end{verbatimx}
 
-\exequest Lorsque le nombre de points est pair, la médiane peut être n'importe quelle valeur dans un intervalle. Modifier votre fonction de façon à ce que la fonction précédente retourne le milieu de la fonction.
+\exequest Lorsque le nombre de points est pair, la mï¿½diane peut ï¿½tre n'importe quelle valeur dans un intervalle. Modifier votre fonction de faï¿½on ï¿½ ce que la fonction prï¿½cï¿½dente retourne le milieu de la fonction.
 
-\exequest Pour un ensemble de points $E=\acc{X_1, ..., X_n}$, on considère la fonction suivante : 
+\exequest Pour un ensemble de points $E=\acc{X_1, ..., X_n}$, on considï¿½re la fonction suivante : 
 
-$$f(x) = \sum_{i=1}^n \abs{x - X_i}$$.
+$$f(x) = \sum_{i=1}^n \left | x - X_i \right |$$.
 
-On suppose que la médiane $X_M$ de l'ensemble $E$ n'appartient pas à $E$ : $X_M \notin E$. Que vaut $f'(X_M)$ ?
-On acceptera le fait que la médiane est le seul point dans ce cas.
+On suppose que la mï¿½diane $X_M$ de l'ensemble $E$ n'appartient pas ï¿½ $E$ : $X_M \notin E$. Que vaut $f'(X_M)$ ?
+On acceptera le fait que la mï¿½diane est le seul point dans ce cas.
 
 \exequest On suppose qu'on dispose d'un ensemble d'observations $\pa{X_i, Y_i}$ avec $X_i, Y_i \in \R$.
-La régression linéaire consiste en une relation linéaire $Y_i = a X_i + b + \epsilon_i$
+La rï¿½gression linï¿½aire consiste en une relation linï¿½aire $Y_i = a X_i + b + \epsilon_i$
 qui minimise la variance du bruit. On pose :
 
 $$
@@ -85,14 +85,14 @@ $$
 a^*, b^* = \arg \min E(a, b) = \arg \min \sum_i \pa{Y_i - (a X_i + b)}^2
 $$
 
-La fonction est dérivable et on trouve :
+La fonction est dï¿½rivable et on trouve :
 
 $$
 \partialfrac{E(a,b)}{a} = - 2 \sum_i X_i ( Y_i - (a X_i + b))
 \text{ et } \partialfrac{E(a,b)}{b} = - 2 \sum_i ( Y_i - (a X_i + b))
 $$
 
-Il suffit alors d'annuler les dérivées. On résoud un système d'équations linéaires. On note :
+Il suffit alors d'annuler les dï¿½rivï¿½es. On rï¿½soud un systï¿½me d'ï¿½quations linï¿½aires. On note :
 
 $$
 \begin{array}{l}
@@ -109,7 +109,7 @@ a^* = \frac{ \esp {XY} - \esp X \esp Y}{\esp{X^2} - (\esp X)^2} \text{ et } b^* 
 \end{array}
 $$
 
-Lorsqu'on a plusieurs dimensions pour $X$, on écrit le problème d'optimisation, on cherche les coefficients $\beta^*$ qui minimisent :
+Lorsqu'on a plusieurs dimensions pour $X$, on ï¿½crit le problï¿½me d'optimisation, on cherche les coefficients $\beta^*$ qui minimisent :
 
 $$E(\beta)=\sum_{i=1}^n \pa{y_i - X_i \beta}^2 = \norme{Y - X\beta}^2$$
 
@@ -134,15 +134,15 @@ def matrice_diagonale(W):
 \end{verbatimx}
 
 
-\exequest On considère maintenant que chaque observation est pondérée par un poids $w_i$. On veut maintenant trouver le vecteur $\beta$ qui minimise :
+\exequest On considï¿½re maintenant que chaque observation est pondï¿½rï¿½e par un poids $w_i$. On veut maintenant trouver le vecteur $\beta$ qui minimise :
 
 $$E(\beta)=\sum_{i=1}^n w_i \pa{y_i - X_i \beta}^2 = \norme{W^{\frac{1}{2}}(Y - X\beta)}^2$$
 
-Où $W=diag(w_1, ..., w_n)$ est la matrice diagonale. La solution est :
+Oï¿½ $W=diag(w_1, ..., w_n)$ est la matrice diagonale. La solution est :
 
 $$\beta_* = (X'WX)^{-1}X'WY$$.
 
-Ecrire une fonction qui calcule la solution de la régression pondérée.
+Ecrire une fonction qui calcule la solution de la rï¿½gression pondï¿½rï¿½e.
 
 \begin{verbatimx}
 def regression_lineaire_ponderee(X, Y, W):
@@ -150,9 +150,9 @@ def regression_lineaire_ponderee(X, Y, W):
     return
 \end{verbatimx}
 
-\exequest Ecrire une fonction qui calcule les quantités suivantes :
+\exequest Ecrire une fonction qui calcule les quantitï¿½s suivantes :
 
-$$z_i = \frac{1}{\max\pa{ \delta, \abs{y_i - X_i \beta}}}$$
+$$z_i = \frac{1}{\max\pa{ \delta, \left | y_i - X_i \beta \right | }}$$
 
 
 \begin{verbatimx}
@@ -166,9 +166,9 @@ def calcule_z(X, beta, Y, W, delta=0.0001):
 \begin{enumerate}
 \item $w_i^{(1)} = 1$
 \item $\beta_{(t)} = (X'W^{(t)}X)^{-1}X'W^{(t)}Y$
-\item $w_i^{(t+1)} = \frac{1}{\max\pa{ \delta, \abs{y_i - X_i \beta^{(t)}}}}$
+\item $w_i^{(t+1)} = \frac{1}{\max\pa{ \delta, \left | y_i - X_i \beta^{(t)} \right | }}$
 \item $t = t+1$
-\item Retour à l'étape 2.
+\item Retour ï¿½ l'ï¿½tape 2.
 \end{enumerate}
 
 \begin{verbatimx}
@@ -177,7 +177,7 @@ def algorithm(X, Y, delta=0.0001):
     return
 \end{verbatimx}
 
-\exequest On pose $Y$ le vecteur aléatoire de la question 1. $X$ est un vecteur de même dimension constant et égale à 1. Calculer les quatre valeurs suivantes : 
+\exequest On pose $Y$ le vecteur alï¿½atoire de la question 1. $X$ est un vecteur de mï¿½me dimension constant et ï¿½gale ï¿½ 1. Calculer les quatre valeurs suivantes : 
 
 \begin{enumerate}
 \item $algorithm(X,Y)$
