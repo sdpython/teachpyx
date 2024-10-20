@@ -161,7 +161,12 @@ select = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"**" = ["C401", "C408", "C413", "RUF012", "RUF100", "RUF010", "SIM108", "SIM102", "SIM114", "SIM103", "UP015", "UP027", "UP031", "UP034", "UP032"]
+"**" = [
+    "C401", "C408", "C413",
+    "RUF012", "RUF100", "RUF010",
+    "SIM108", "SIM102", "SIM114", "SIM103", "SIM910",
+    "UP015", "UP027", "UP031", "UP034", "UP032"
+]
 "**/plot*.py" = ["B018", "B010"]
 "_doc/conf.py" = ["F821", "E501"]
 "teachpyx/__init__.py" = ["E501"]

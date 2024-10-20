@@ -140,7 +140,8 @@ def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
         raise ValueError(f"fmt={fmt!r} should in ['pillow', 'svg', 'png']")
 
     fontmap = _create_fontmap(
-        fontmap=options.get("fontmap", None), font=options.get("font", None)
+        fontmap=options.get("fontmap", None),
+        font=options.get("font", None),
     )
     tree = parser.parse_string(graph)
     res = _build_diagram(

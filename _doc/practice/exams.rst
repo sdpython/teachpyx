@@ -3,7 +3,8 @@ Exercices minutés
 =================
 
 Ces exercices ont été proposés pour examens d'évaluation.
-Il est recommandé de savoir les faire en moins de deux heures.
+Il est recommandé de savoir les faire en moins de deux heures pour les premiers
+et une heure et demie pour les derniers.
 
 .. _l-examens-notes:
 
@@ -64,6 +65,7 @@ Corrections
     exams/td_note_2023
     exams/td_note_2023-2024
     exams/td_note_2023-2024_rattrapage
+    exams/td_note_2024
 
 Exercices courts
 ================
