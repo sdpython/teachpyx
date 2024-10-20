@@ -193,6 +193,7 @@ Ensuite le voyageur de commerce.
     optim = solution_permutations(villes)
     print("-- optimisation gourmande:", distance(optim))
 
+    print()
     print("-- optimisation plus rapide mais approchée...")
     optim = solution_croisement(villes)
     print("-- optimisation plus rapide mais approchée", distance(optim))
@@ -202,6 +203,7 @@ Ensuite le voyageur de commerce.
     fig.savefig(os.path.join(__WD__, "tsp_simple.png"))
 
     text = ".. image:: tsp_simple.png"
+    print("\n\n")
     print(text)
 
 Séance 7
