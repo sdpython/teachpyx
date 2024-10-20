@@ -39,6 +39,8 @@ _doc/sg_execution_times.rst
 _doc/CHANGELOGS.rst
 _doc/LICENSE.txt
 _doc/auto_examples/*
+_doc/articles/2024/pyramide.png
+_doc/articles/2024/tsp_simple.png
 _doc/examples/**/plot_*.png
 _doc/examples/**/plot_*.xlsx
 _doc/examples/prog/*.proto

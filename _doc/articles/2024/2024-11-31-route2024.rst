@@ -146,7 +146,7 @@ Ensuite le voyageur de commerce.
         x = villes[:, 0].tolist() + [villes[0, 0]]
         y = villes[:, 1].tolist() + [villes[0, 1]]
         ax.plot(x, y, "o-")
-        ax.title(f"longueur {distance(villes)}")
+        ax.set_title(f"longueur {distance(villes)}")
         return fig, ax
         
     def distance(villes):
@@ -171,12 +171,13 @@ Ensuite le voyageur de commerce.
     def solution_croisement(villes):
         bestd = distance(villes)
         bestv = villes
-        for i in range(1, villes.shape[0]):
+        for i in range(0, villes.shape[0]):
             for j in range(i+2, villes.shape[0]):
                 p = list(range(villes.shape[0]))
-                print("**", i,j, p[i:j], j-1, i-1, p[j-1:i-1:-1])
-                p[i:j] = p[j-1:i-1:-1]
-                print(i, j, p)
+                if i > 0:
+                    p[i:j] = p[j-1:i-1:-1]
+                else:
+                    p[i:j] = p[j-1::-1]
                 v2 = bestv[p, :]
                 d2 = distance(v2)
                 if d2 < bestd:
@@ -188,11 +189,13 @@ Ensuite le voyageur de commerce.
     print("distance initiale", distance(villes))
 
     # solution naive
+    print("-- optimisation gourmande...")
     optim = solution_permutations(villes)
-    print("optimisation gourmande", distance(optim))
+    print("-- optimisation gourmande:", distance(optim))
 
+    print("-- optimisation plus rapide mais approchée...")
     optim = solution_croisement(villes)
-    print("optimisation plus rapide mais approchée", distance(optim))
+    print("-- optimisation plus rapide mais approchée", distance(optim))
 
     # graph
     fig, ax = show(optim)
