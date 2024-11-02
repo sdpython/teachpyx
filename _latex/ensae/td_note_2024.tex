@@ -1,0 +1,203 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[lmargin=2.5cm,rmargin=2.5cm,tmargin=2.5cm,bmargin=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage{xcolor} % Optionnel pour la coloration syntaxique
+
+\lstset{
+    language=Python,          % Langage du code
+    basicstyle=\ttfamily\small, % Taille et police du texte
+    keywordstyle=\color{blue},  % Couleur des mots-clés
+    commentstyle=\color{green}, % Couleur des commentaires
+    stringstyle=\color{red},    % Couleur des chaînes de caractères
+    breaklines=true,            % Retour à la ligne automatique
+    numbers=left,               % Numérotation des lignes à gauche
+    numberstyle=\tiny\color{gray}, % Style de la numérotation
+    frame=single,               % Encadrement du code
+    captionpos=b,               % Position de la légende
+    showspaces=false,           % Pas d'affichage des espaces
+    showstringspaces=false      % Pas d'affichage des espaces dans les chaînes
+}
+
+\newenvironment{codepy}{\begin{lstlisting}[language=Python]}{\end{lstlisting}}
+
+
+\newcounter{question}
+\newcommand{\exequest}[1]{\textbf{Q\usecounter{question} \stepcounter{moncompteur}} #1}
+
+% Informations sur l'examen
+\title{ENSAE TD noté, mardi 6 novembre 2024}
+
+\begin{document}
+
+\maketitle
+
+\textit{Toutes les questions valent 2 points.}
+
+\includegraphics[width=0.5\textwidth]{nom_image.jpg}
+
+25 maisons sont positionnées aux 25 intersections du quadrillage ci-dessus.
+Le courant (rouge) arrive à un angle du carré (point A).
+Il faut relier chaque maison au courant pour un coût minimal.
+Pour cela il faut tirer un câble entre chaque intersection au point A.
+Les câbles ne peuvent passer que par les routes (les lignes du quadrillage), pas de diagonales donc.
+
+%%%%%
+\exequest{Implémenter une fonction qui calcule la distance L1.}
+
+La distance L1 est définie par $d(x_1,y_1,x_2,y_2) = |x_1 - x_2| + |y_1 - y_2|$.
+
+\begin{codepy}
+def distance(x1, y1, x2, y2):
+    # ...
+    return ...
+
+assert distance(0, 0, 3, 4) == 7
+\end{codepy}
+
+%%%%%
+\exequest{Calculer la longueur de câble pour relier les 25 maisons.}
+
+\begin{codepy}
+def longueur_cable(n=5):
+    # ...
+
+assert longueur_cable(5) == 100
+\end{codepy}
+
+%%%%%
+\exequest{Adapter la fonction pour un rectangle 8x9.}
+
+\begin{codepy}
+assert longueur_cable(8, 9) == 540
+\end{codepy}
+
+%%%%%
+\exequest{Avec deux câbles...}
+
+On dispose de deux câbles : 
+
+\begin{enumerate}
+\item un câble ne pouvant relier qu'une maison avec un coût $c_1$ par mètre
+\item un câble ne pouvant relier qu'une ou deux maisons avec un coût $c_2$ par mètre
+\end{enumerate}
+
+Par conséquent, on peut relier une maison \textit{M1} avec un câble $c_2$ puis relier 
+\textit{M1} à une autre maison \textit{M2} avec un câble $c_1$.
+On veut savoir quand utiliser tel ou tel câble pour minimiser les coûts.
+
+Ecrire une fonction qui retourne le coût du câblage décrit ci-dessus.
+
+\begin{codepy}
+def cout_cablage(x1,y1, x2,y2, c1, c2):
+    # ...
+
+assert cout_cablage(1,2, 2,4, 1, 1.5) == 7.5
+\end{codepy}
+
+%%%%%
+\exequest{Que fait le code suivant et que montre-t-il ?}
+
+\begin{codepy}
+    def position_m1(n, c1, c2):
+    x = []
+    y = []
+    for i in range(2*n):
+        x.append(i)
+        c = cout_cablage(0,i, 0,n, c1, c2)
+        y.append(c)
+    return x, y
+
+x, y = position_m1(5, 1, 1.5)
+print(x)  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(y)  # [5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 10.0, 12.5, 15.0, 17.5]
+\end{codepy}
+
+%%%%%
+\exequest{Idée d'algorithme}
+
+\begin{enumerate}
+\item On prend une maison non câblée M1 la plus proche de A.
+\item On prend ensuite une maison non câblée M2 la plus proche du coin opposé.
+\item On continue jusque à la fin.
+\end{enumerate}
+
+On crée une matrice *M*, $n \times n$, initilialisé à -1.
+La maison 0,0 est relié avec le câble 0: $M[i,j] =$ le numéro du câble qui la relie.
+
+Ecrire une fonction qui initialise la matrice.
+
+\begin{codepy}
+def init(n=5):
+    # ...
+\end{codepy}
+
+%%%%%
+\exequest{Ecrire une fonction qui retourne la maison la plus proche d'une position $(i,j)$ et non câblée.}
+
+\begin{codepy}
+def maison_proche(M, x, y):
+    # ...
+
+M = init()
+assert maison_proche(M, 0,0) == (0, 1)
+M[0, 1] = 1
+M[1, 0] = 2
+M[1, 1] = 3
+assert maison_proche(M,0,1) == (0, 2)
+\end{codepy}
+
+
+%%%%%
+\exequest{On veut tirer un nouveau câble comme suit :}
+
+Ecrire une fonction qui tire un nouveau câble :
+
+\begin{enumerate}
+\item on prend une maison proche de A
+\item on met à jour la matrice M
+\item on prend une maison proche du coin opposé
+\item on met à jour la matrice M
+\item une retourne le coût
+\end{enumerate}
+
+\begin{codepy}
+def nouveau_cable(M, c1, c2):
+   # ...
+
+M = init()
+g = nouveau_cable(M, 1, 1.5)
+assert g == ((0, 1), (4, 4), 8.5)
+\end{codepy}
+
+
+%%%%%
+\exequest{Terminer l'algorithme.}
+
+Il suffit d'une boucle pour câbler toutes les maisons. La trouverez-vous ?
+
+\begin{codepy}
+def algorithme_cablage(n, c1, c2):
+    M = init(n)
+    n_cables = n * n // 2
+    cables = []
+    # for ...
+    # ...
+    return cables
+
+print(algorithme_cablage(5, 1, 1.5))
+\end{codepy}
+
+
+%%%%%
+\exequest{L'algorithme a un défaut, trouverez-vous lequel ?}
+
+\begin{codepy}
+\end{codepy}
+
+
+\end{document}
