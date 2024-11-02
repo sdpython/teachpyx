@@ -245,7 +245,6 @@ Jeu de la vie:
 
 .. runpython::
     :showcode:
-    :rst:
 
     import os
     import numpy as np
@@ -305,12 +304,13 @@ Jeu de la vie:
         ax.plot(x, y)
         ax.set_title(f"{n_iter} itération du jeu de la vie")
         fig.savefig(os.path.join(__WD__, "anim_evolution.png"))
+        return plat
 
 
     plat = plateau(20, 0.4)
     next_plat = iteration(plat)
 
-    print("``première itération``")
+    print("première itération")
     print(next_plat)
 
     fig, ax = dessin(plat, next_plat)
@@ -318,9 +318,22 @@ Jeu de la vie:
     ax[1].set_title("première itération")
     fig.savefig(os.path.join(__WD__, "vie_1.png"))
 
+    print("et le jeu")
+    plat = jeu(16, 0.2)
+    print(plat)
+
+Et visuellement, la première itération :
+
+.. runpython::
+    :rst:
+
     print("\n\n.. image:: vie_1.png\n\n")
 
-    jeu(16, 0.2)
+Et l'évolution du jeu :
+
+.. runpython::
+    :rst:
+
     print("\n\n.. image:: anim_evolution.png\n\n")
 
 Séance 8
