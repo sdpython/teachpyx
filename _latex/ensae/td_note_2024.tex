@@ -1,147 +1,152 @@
 \documentclass[a4paper,11pt]{article}
-\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{enumitem}
-\usepackage[lmargin=2.5cm,rmargin=2.5cm,tmargin=2.5cm,bmargin=2.5cm]{geometry}
-%\usepackage{listings}
-%\usepackage{xcolor} % Optionnel pour la coloration syntaxique
+\usepackage[lmargin=2.5cm,rmargin=2.5cm,tmargin=2cm,bmargin=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
 
-%\lstdefinestyle{mypython}{
-%    language=Python,
-%    backgroundcolor=\color{white},
-%    basicstyle=\ttfamily\footnotesize,
-%    frame=single,
-%    keywordstyle=\color{blue},
-%    commentstyle=\color{green},
-%    stringstyle=\color{red},
-%%    numbers=left,
-%    numberstyle=\tiny\color{gray},
-%    stepnumber=1,
-%    tabsize=4,
-%    showstringspaces=false
-%}
+\lstdefinestyle{mypython}{
+    language=Python,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize,
+    frame=single,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    tabsize=4,
+    showstringspaces=false
+}
 
-%\newenvironment{codepy}{\begin{lstlisting}[style=mypython]}{\end{lstlisting}}
-\newenvironment{codepy}{\begin{verbatim}}{\end{verbatim}}
+%\newenvironment{verbatim}{\begin{lstlisting}[style=mypython]}{\end{lstlisting}}
+%\newenvironment{verbatim}{\begin{lstlisting}[style=mypython]}{\end{lstlisting}}
 
+\setlength{\parindent}{0pt}
 
 \newcounter{question}
-\newcommand{\exequest}[1]{\textbf{Q\usecounter{question} \stepcounter{question}} #1}
+\newcommand{\exequest}[1]{\bigskip \stepcounter{question} \textbf{Question \arabic{question}} : #1}
 
 % Informations sur l'examen
-\title{ENSAE TD not?, mardi 6 novembre 2024}
+\title{ENSAE TD noté, mardi 6 novembre 2024}
+\date{}
 
 \begin{document}
 
+\vspace{-3cm} 
 \maketitle
+\vspace{-1.5cm} 
 
 \textit{Toutes les questions valent 2 points.}
+\bigskip
 
-%\includegraphics[width=0.5\textwidth]{td_node_2024.png}
+%\includegraphics[width=0.5\textwidth]{./td_node_2024.png}
 
-25 maisons sont positionn?es aux 25 intersections du quadrillage ci-dessus.
-Le courant (rouge) arrive ? un angle du carr? (point A).
-Il faut relier chaque maison au courant pour un co?t minimal.
-Pour cela il faut tirer un c?ble entre chaque intersection au point A.
-Les c?bles ne peuvent passer que par les routes (les lignes du quadrillage), pas de diagonales donc.
+25 maisons sont positionnées aux 25 intersections du quadrillage ci-dessus.
+Le courant (rouge) arrive à un angle du carré (point A).
+Il faut relier chaque maison au courant pour un coût minimal.
+Pour cela il faut tirer un câble entre chaque intersection au point A.
+Les cibles ne peuvent passer que par les routes (les lignes du quadrillage),
+pas de diagonales donc.
 
 %%%%%
-\exequest{Impl?menter une fonction qui calcule la distance L1.}
+\exequest{Implémenter une fonction qui calcule la distance L1.}
 
-La distance L1 est d?finie par $d(x_1,y_1,x_2,y_2) = |x_1 - x_2| + |y_1 - y_2|$.
+La distance L1 est définie par $d(x_1,y_1,x_2,y_2) = |x_1 - x_2| + |y_1 - y_2|$.
 
-\begin{codepy}
+\begin{lstlisting}[style=mypython]
 def distance(x1, y1, x2, y2):
     # ...
     return ...
 
 assert distance(0, 0, 3, 4) == 7
-\end{codepy}
+\end{lstlisting}
 
 %%%%%
-\exequest{Calculer la longueur de c?ble pour relier les 25 maisons.}
+\exequest{Calculer la longueur de câble pour relier les 25 maisons.}
 
-\begin{codepy}
+\begin{lstlisting}[style=mypython]
 def longueur_cable(n=5):
     # ...
 
 assert longueur_cable(5) == 100
-\end{codepy}
+\end{lstlisting}
 
 %%%%%
 \exequest{Adapter la fonction pour un rectangle 8x9.}
 
-\begin{codepy}
+\begin{lstlisting}[style=mypython]
 assert longueur_cable(8, 9) == 540
-\end{codepy}
+\end{lstlisting}
 
 %%%%%
-\exequest{Avec deux c?bles...}
+\exequest{Avec deux câbles...}
 
-On dispose de deux c?bles : 
+On dispose de deux câbles : 
 
 \begin{enumerate}
-\item un c?ble ne pouvant relier qu'une maison avec un co?t $c_1$ par m?tre
-\item un c?ble ne pouvant relier qu'une ou deux maisons avec un co?t $c_2$ par m?tre
+\item un câble ne pouvant relier qu'une maison avec un coût $c_1$ par mètre
+\item un câble ne pouvant relier qu'une ou deux maisons avec un coût $c_2$ par mètre
 \end{enumerate}
 
-Par cons?quent, on peut relier une maison \textit{M1} avec un c?ble $c_2$ puis relier 
-\textit{M1} ? une autre maison \textit{M2} avec un c?ble $c_1$.
-On veut savoir quand utiliser tel ou tel c?ble pour minimiser les co?ts.
+Par conséquent, on peut relier une maison \textit{M1} avec un câble $c_2$ puis relier 
+\textit{M1} à une autre maison \textit{M2} avec un câble $c_1$.
+On veut savoir quand utiliser tel ou tel câble pour minimiser les coûts.
 
-Ecrire une fonction qui retourne le co?t du c?blage d?crit ci-dessus.
+Ecrire une fonction qui retourne le coût du câblage décrit ci-dessus.
 
-\begin{codepy}
+\begin{lstlisting}[style=mypython]
 def cout_cablage(x1,y1, x2,y2, c1, c2):
     # ...
 
 assert cout_cablage(1,2, 2,4, 1, 1.5) == 7.5
-\end{codepy}
+\end{lstlisting}
 
 %%%%%
 \exequest{Que fait le code suivant et que montre-t-il ?}
 
-\begin{codepy}
-    def position_m1(n, c1, c2):
+\begin{lstlisting}[style=mypython]
+def position_m1(n, c1, c2):
     x = []
     y = []
     for i in range(2*n):
         x.append(i)
-        c = cout_cablage(0,i, 0,n, c1, c2)
-        y.append(c)
+        y.append(cout_cablage(0,i, 0,n, c1, c2))
     return x, y
 
 x, y = position_m1(5, 1, 1.5)
 print(x)  # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 print(y)  # [5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 10.0, 12.5, 15.0, 17.5]
-\end{codepy}
+\end{lstlisting}
 
 %%%%%
-\exequest{Id?e d'algorithme}
+\exequest{Idée d'algorithme}
 
 \begin{enumerate}
-\item On prend une maison non c?bl?e M1 la plus proche de A.
-\item On prend ensuite une maison non c?bl?e M2 la plus proche du coin oppos?.
-\item On continue jusque ? la fin.
+\item On prend une maison non câblée M1 la plus proche de A.
+\item On prend ensuite une maison non câblée M2 la plus proche du coin opposé
+\item On continue jusqu'à la fin.
 \end{enumerate}
 
-On cr?e une matrice *M*, $n \times n$, initilialis? ? -1.
-La maison 0,0 est reli? avec le c?ble 0: $M[i,j] =$ le num?ro du c?ble qui la relie.
+On crée une matrice *M*, $n \times n$, initilialisée à -1.
+La maison 0,0 est reliée avec le câble 0: $M[i,j] =$ le numéro du câble qui la relie.
 
 Ecrire une fonction qui initialise la matrice.
 
-\begin{codepy}
+\begin{lstlisting}[style=mypython]
 def init(n=5):
     # ...
-\end{codepy}
+\end{lstlisting}
 
 %%%%%
-\exequest{Ecrire une fonction qui retourne la maison la plus proche d'une position $(i,j)$ et non c?bl?e.}
+\exequest{Ecrire une fonction qui retourne la maison la plus proche d'une position $(i,j)$ et non câblée.}
 
-\begin{codepy}
+\begin{lstlisting}[style=mypython]
 def maison_proche(M, x, y):
     # ...
 
@@ -151,38 +156,38 @@ M[0, 1] = 1
 M[1, 0] = 2
 M[1, 1] = 3
 assert maison_proche(M,0,1) == (0, 2)
-\end{codepy}
+\end{lstlisting}
 
 
 %%%%%
-\exequest{On veut tirer un nouveau c?ble comme suit :}
+\exequest{On veut tirer un nouveau câble comme suit :}
 
-Ecrire une fonction qui tire un nouveau c?ble :
+Ecrire une fonction qui tire un nouveau câble :
 
 \begin{enumerate}
 \item on prend une maison proche de A
-\item on met ? jour la matrice M
-\item on prend une maison proche du coin oppos?
-\item on met ? jour la matrice M
-\item une retourne le co?t
+\item on met à jour la matrice M
+\item on prend une maison proche du coin opposé
+\item on met à jour la matrice M
+\item une retourne le coût
 \end{enumerate}
 
-\begin{codepy}
+\begin{lstlisting}[style=mypython]
 def nouveau_cable(M, c1, c2):
    # ...
 
 M = init()
 g = nouveau_cable(M, 1, 1.5)
 assert g == ((0, 1), (4, 4), 8.5)
-\end{codepy}
+\end{lstlisting}
 
 
 %%%%%
 \exequest{Terminer l'algorithme.}
 
-Il suffit d'une boucle pour c?bler toutes les maisons. La trouverez-vous ?
+Il suffit d'une boucle pour câbler toutes les maisons. La trouverez-vous ?
 
-\begin{codepy}
+\begin{lstlisting}[style=mypython]
 def algorithme_cablage(n, c1, c2):
     M = init(n)
     n_cables = n * n // 2
@@ -192,11 +197,11 @@ def algorithme_cablage(n, c1, c2):
     return cables
 
 print(algorithme_cablage(5, 1, 1.5))
-\end{codepy}
+\end{lstlisting}
 
 
 %%%%%
-\exequest{L'algorithme a un d?faut, trouverez-vous lequel ?}
+\exequest{L'algorithme a un défaut, trouverez-vous lequel ?}
 
 
 
