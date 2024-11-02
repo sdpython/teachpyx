@@ -211,10 +211,130 @@ Séance 7
 
 * :ref:`Classe et héritage <nbl-practice-py-base-classe_user_p>`
 
-Convertir une expression mathématique comme :math:`((34 + 6) - 2) / (7 - 4)`
-en `notation polonaise inverse <https://fr.wikipedia.org/wiki/Notation_polonaise_inverse>`_.
-Voir aussi `Algorithme Shunting-yard
-<https://fr.wikipedia.org/wiki/Algorithme_Shunting-yard>`_.
+Bouts de code, un peu d'optimization.
+
+.. runpython::
+    :showcode:
+
+    import numpy as np
+
+    def calcul(h1,h2,v1,v2,x):
+        t1 = np.sqrt(x ** 2 + h1**2) / v1
+        t2 = np.sqrt((1-x) ** 2 + h2**2) / v2
+        return t1 + t2
+
+    h1, h2, v1, v2 = 1, 0.5, 1, 0.8
+    p = np.arange(6) / 5
+    print(p)
+    print(calcul(1,1,1,1,p))
+    print(calcul(h1,h2,v1,v2,p))
+        
+    def calcul_entrepot(v1,v2,A, B, Es):
+        # A: [[0, 0]], B: [[1, 1]], Es: [[0.3, 0.4], [...]]
+        t1 = np.sqrt(((A - Es) ** 2).sum(axis=1)) / v1
+        t2 = np.sqrt(((B - Es) ** 2).sum(axis=1)) / v2
+        return t1 + t2
+
+    A = np.array([[0,0]])
+    B = np.array([[1,1]])
+    Es = np.array([[0.5, 0.5], [0.1, 0.1], [0, 0.1]])
+    print("---------")
+    print(calcul_entrepot(v1,v2,A, B, Es))
+
+Jeu de la vie:
+
+.. runpython::
+    :showcode:
+
+    import os
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import tqdm
+
+
+    def plateau(n, p=0.5):
+        return (np.random.rand(n, n) < p).astype(int)
+
+
+    def dessin(plat, next_plat):
+        fig, ax = plt.subplots(1, 2)
+        ax[0].imshow(plat.astype(float))
+        ax[0].get_xaxis().set_visible(False)
+        ax[0].get_yaxis().set_visible(False)
+        ax[1].imshow(next_plat.astype(float))
+        ax[1].get_xaxis().set_visible(False)
+        ax[1].get_yaxis().set_visible(False)
+        return fig, ax
+
+
+    def iteration(plat):
+        voisin = np.zeros(plat.shape, dtype=int)
+        i, j = plat.shape
+        # voisin gauche, droite
+        voisin[:-1, :] += plat[1:, :]
+        voisin[1:, :] += plat[:-1, :]
+        # voisin haut,bas
+        voisin[:, :-1] += plat[:, 1:]
+        voisin[:, 1:] += plat[:, :-1]
+        # voisin diagonal
+        voisin[:-1, :-1] += plat[1:, 1:]
+        voisin[1:, 1:] += plat[:-1, :-1]
+        # voisin autre diagonal
+        voisin[:-1, 1:] += plat[1:, :-1]
+        voisin[1:, :-1] += plat[-1:, 1:]
+        # mise à jour
+        nouveau = np.zeros(plat.shape, dtype=int)
+        nouveau += ((plat == 1) & (voisin <= 3) & (voisin >= 2)).astype(int)
+        nouveau += ((plat == 0) & (voisin == 3)).astype(int)
+        return nouveau
+
+
+    def jeu(n, p, n_iter=5, save_intermediate=False):
+        plat = plateau(10, 0.2)
+        x, y = [], []
+        for i in tqdm.tqdm(list(range(n_iter))):
+            x.append(i)
+            y.append(plat.sum())
+            next_plat = iteration(plat)
+            if save_intermediate:
+                fig, ax = dessin(plat, next_plat)
+                fig.savefig(os.path.join(__WD__, "anim_vie{i:03d}.png"))
+            plat = next_plat
+        fig, ax = plt.subplots(1, 1)
+        ax.plot(x, y)
+        ax.set_title(f"{n_iter} itération du jeu de la vie")
+        fig.savefig(os.path.join(__WD__, "anim_evolution.png"))
+        return plat
+
+
+    plat = plateau(20, 0.4)
+    next_plat = iteration(plat)
+
+    print("première itération")
+    print(next_plat)
+
+    fig, ax = dessin(plat, next_plat)
+    ax[0].set_title("avant")
+    ax[1].set_title("première itération")
+    fig.savefig(os.path.join(__WD__, "vie_1.png"))
+
+    print("et le jeu")
+    plat = jeu(16, 0.2)
+    print(plat)
+
+Et visuellement, la première itération :
+
+.. runpython::
+    :rst:
+
+    print("\n\n.. image:: vie_1.png\n\n")
+
+Et l'évolution du jeu :
+
+.. runpython::
+    :rst:
+
+    print("\n\n.. image:: anim_evolution.png\n\n")
 
 Séance 8
 ++++++++
@@ -227,3 +347,11 @@ TD noté 1h30 en seconde partie.
 Classes et un algorithme.
 Enoncés des années précédentes :
 :ref:`l-exams`.
+
+Idées laissées de côté mais autant d'exercices possibles
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Convertir une expression mathématique comme :math:`((34 + 6) - 2) / (7 - 4)`
+en `notation polonaise inverse <https://fr.wikipedia.org/wiki/Notation_polonaise_inverse>`_.
+Voir aussi `Algorithme Shunting-yard
+<https://fr.wikipedia.org/wiki/Algorithme_Shunting-yard>`_.
