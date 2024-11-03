@@ -280,6 +280,7 @@ epkg_dictionary = {
     "Regression with confidence interval": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_regression_confidence_interval.html",
     "relu": "https://en.wikipedia.org/wiki/Rectifier_(neural_networks)",
     "ROC": "https://fr.wikipedia.org/wiki/Courbe_ROC",
+    "rst": "https://fr.wikipedia.org/wiki/ReStructuredText",
     "scikit-learn": "https://scikit-learn.org/stable/index.html",
     "scipy": "https://scipy.org/",
     "sérialisation": "https://fr.wikipedia.org/wiki/S%C3%A9rialisation",
