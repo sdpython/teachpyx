@@ -30,7 +30,7 @@ composants.
   <http://gael-varoquaux.info/scipy-lecture-notes/packages/scikit-learn/index.html#introduction-problem-settings>`_
 
 Ce jeu de données peut également être téléchargé avec la fonction
-:func:`load_wines_dataset <teachpyx.datasets.load_wines_dataset>`.
+:func:`load_wines_dataset <teachpyx.datasets.wines.load_wines_dataset>`.
 
 Découverte du machine learning
 ==============================
