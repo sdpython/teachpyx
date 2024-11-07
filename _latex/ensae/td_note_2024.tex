@@ -7,7 +7,7 @@
 \usepackage{enumitem}
 \usepackage[lmargin=2.5cm,rmargin=2.5cm,tmargin=2cm,bmargin=2.5cm]{geometry}
 \usepackage{listings}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 
 \lstdefinestyle{mypython}{
     language=Python,
@@ -15,7 +15,7 @@
     basicstyle=\ttfamily\footnotesize,
     frame=single,
     keywordstyle=\color{blue},
-    commentstyle=\color{green},
+    commentstyle=\color{ForestGreen},
     stringstyle=\color{red},
     numbers=left,
     numberstyle=\tiny\color{gray},
@@ -33,7 +33,7 @@
 \newcommand{\exequest}[1]{\bigskip \stepcounter{question} \textbf{Question \arabic{question}} : #1}
 
 % Informations sur l'examen
-\title{ENSAE TD noté, mardi 6 novembre 2024}
+\title{ENSAE TD noté, mercredi 6 novembre 2024}
 \date{}
 
 \begin{document}
@@ -42,17 +42,24 @@
 \maketitle
 \vspace{-1.5cm} 
 
-\textit{Toutes les questions valent 2 points.}
+\textit{L'accès à internet est autorisé mais l'utilisation d'intelligences artificielle génératives de type ChatGPT est interdite.}
+
+\medskip
+\emph{Toutes les questions valent 2 points.}
 \bigskip
 
-%\includegraphics[width=0.5\textwidth]{./td_node_2024.png}
+\begin{center}
+\includegraphics[width=0.25\textwidth]{td_note_2024.png}
+\end{center}
 
 25 maisons sont positionnées aux 25 intersections du quadrillage ci-dessus.
 Le courant (rouge) arrive à un angle du carré (point A).
 Il faut relier chaque maison au courant pour un coût minimal.
-Pour cela il faut tirer un câble entre chaque intersection au point A.
+Pour cela il faut tirer un câble entre le point A et chaque intersection.
 Les cibles ne peuvent passer que par les routes (les lignes du quadrillage),
 pas de diagonales donc.
+
+\emph{Les assertions du sujets (exprimées avec le mot clé \texttt{assert}) doivent être satisfaites par vos solutions.}
 
 %%%%%
 \exequest{Implémenter une fonction qui calcule la distance L1.}
@@ -77,6 +84,8 @@ def longueur_cable(n=5):
 assert longueur_cable(5) == 100
 \end{lstlisting}
 
+On suppose dans la suite de l'énoncé que le quadrillage reste carré.
+
 %%%%%
 \exequest{Adapter la fonction pour un rectangle 8x9.}
 
@@ -90,7 +99,7 @@ assert longueur_cable(8, 9) == 540
 On dispose de deux câbles : 
 
 \begin{enumerate}
-\item un câble ne pouvant relier qu'une maison avec un coût $c_1$ par mètre
+\item un câble ne pouvant relier qu'une maison avec un coût $c_1$ par mètre (un quadrillage $n\times m$ est de dimension $n$ mètres par $m$ mètres)
 \item un câble ne pouvant relier qu'une ou deux maisons avec un coût $c_2$ par mètre
 \end{enumerate}
 
@@ -133,10 +142,9 @@ print(y)  # [5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 10.0, 12.5, 15.0, 17.5]
 \item On continue jusqu'à la fin.
 \end{enumerate}
 
-On crée une matrice *M*, $n \times n$, initilialisée à -1.
-La maison 0,0 est reliée avec le câble 0: $M[i,j] =$ le numéro du câble qui la relie.
+On crée une matrice $M$, $n \times n$ telle que $M[i][j]$ représente le numéro du câble ($1$ pour $c_1$ et $2$ pour $c_2$) qui relie la maison à l'intersection $i, j$ (sans information sur l'origine du cable). La maison 0, 0 est initialement reliée avec le câble 0, les autres valeurs sont initialisées à -1.
 
-Ecrire une fonction qui initialise la matrice.
+Écrire une fonction qui initialise la matrice.
 
 \begin{lstlisting}[style=mypython]
 def init(n=5):
@@ -147,14 +155,14 @@ def init(n=5):
 \exequest{Ecrire une fonction qui retourne la maison la plus proche d'une position $(i,j)$ et non câblée.}
 
 \begin{lstlisting}[style=mypython]
-def maison_proche(M, x, y):
+def maison_proche(M, i, j):
     # ...
 
 M = init()
 assert maison_proche(M, 0,0) == (0, 1)
-M[0, 1] = 1
-M[1, 0] = 2
-M[1, 1] = 3
+M[0][1] = 1
+M[1][0] = 2
+M[1][1] = 3
 assert maison_proche(M,0,1) == (0, 2)
 \end{lstlisting}
 
@@ -162,15 +170,15 @@ assert maison_proche(M,0,1) == (0, 2)
 %%%%%
 \exequest{On veut tirer un nouveau câble comme suit :}
 
-Ecrire une fonction qui tire un nouveau câble :
-
 \begin{enumerate}
-\item on prend une maison proche de A
+\item on prend la maison $m_1$ la plus proche de A non cablée, on la cable avec le câble $c_2$
 \item on met à jour la matrice M
-\item on prend une maison proche du coin opposé
+\item on prend une maison proche du coin opposé (non câblée), qu'on cable avec $c_1$ depuis $m_1$
 \item on met à jour la matrice M
-\item une retourne le coût
+\item on renvoie le coût de ces deux câbles ainsi que les deux maisons choisies
 \end{enumerate}
+
+Écrire une fonction qui tire un nouveau câble de cette manière :
 
 \begin{lstlisting}[style=mypython]
 def nouveau_cable(M, c1, c2):
