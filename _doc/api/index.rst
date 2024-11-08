@@ -1,29 +1,29 @@
-Code inclus dans cette librairie
-================================
+
+teachpyx
+========
+
 
 .. toctree::
-    :caption: Constructions classiques
+    :maxdepth: 1
+    :caption: submodules
 
-    classique
-    datasets
-    tools
 
-.. toctree::
-    :caption: Fonctions illustrant des solutions
+    examples/index
+    video/index
+    tools/index
+    faq/index
+    practice/index
+    datasets/index
 
-    practice/rues_paris
-    practice/tsp_bresenham
-    practice/tsp_kohonen
-    practice/tsp_kruskal
 
 .. toctree::
-    :caption: Animations
+    :maxdepth: 1
+    :caption: modules
 
-    video/tsp_kohonen
-    video/tsp_kruskal
 
-.. toctree::
-    :caption: FAQ
+    ext_test_case
 
-    numpysex
-    faqs
+
+.. automodule:: teachpyx
+    :members:
+    :no-undoc-members:

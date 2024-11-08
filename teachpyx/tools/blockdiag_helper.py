@@ -99,7 +99,12 @@ def _detectfont(font):
     return fontpath
 
 
-def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
+def draw_diagram(
+    graph,
+    module: str = "blockdiag",
+    fmt: str = "pillow",
+    **options,
+):
     """
     Draws a graph based on module :epkg:`blockdiag`.
 
@@ -140,8 +145,8 @@ def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
         raise ValueError(f"fmt={fmt!r} should in ['pillow', 'svg', 'png']")
 
     fontmap = _create_fontmap(
-        fontmap=options.get("fontmap", None),
-        font=options.get("font", None),
+        fontmap=options.get("fontmap", None),  # noqa: SIM910
+        font=options.get("font", None),  # noqa: SIM910
     )
     tree = parser.parse_string(graph)
     res = _build_diagram(
@@ -155,7 +160,7 @@ def draw_diagram(graph, module="blockdiag", fmt="pillow", **options):
         antialias=options.get("antialias", True),
         nodoctype=options.get("nodoctype", False),
         transparency=options.get("transparency", False),
-        size=options.get("size", None),
+        size=options.get("size", None),  # noqa: SIM910
     )
     if fmt == "pillow":
         from PIL import Image

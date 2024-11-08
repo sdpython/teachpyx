@@ -38,7 +38,6 @@ Issues = "https://github.com/sdpython/teachpyx/issues"
 dev = [
     "black",
     "black-nb",
-    "blockdiag",
     "chardet",
     "cloudpickle",
     "coverage",
@@ -69,7 +68,7 @@ dev = [
     "sphinx-gallery",
     "sphinx-issues",
     "sphinxcontrib-blockdiag",
-    # "git+https://github.com/sdpython/blockdiag.git@pil10",
+    "pip@https://github.com/yuzutech/blockdiag/archive/refs/tags/v3.3.0.zip",
     # "git+https://github.com/sdpython/sphinx-runpython.git",
     "sphinx-runpython",
     "tqdm",

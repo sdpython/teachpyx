@@ -126,30 +126,29 @@ sphinx_gallery_conf = {
 # next
 
 preamble = """
-\\usepackage{etex}
-\\usepackage{fixltx2e} % LaTeX patches, \\textsubscript
-\\usepackage{cmap} % fix search and cut-and-paste in Acrobat
-\\usepackage[raccourcis]{fast-diagram}
-\\usepackage{titlesec}
-\\usepackage{amsmath}
-\\usepackage{amssymb}
-\\usepackage{amsfonts}
-\\usepackage{graphics}
-\\usepackage{epic}
-\\usepackage{eepic}
-%\\usepackage{pict2e}
+%%% \\usepackage{etex}
+%%% \\usepackage{fixltx2e} % LaTeX patches, \\textsubscript
+%%% \\usepackage{cmap} % fix search and cut-and-paste in Acrobat
+%%% \\usepackage[raccourcis]{fast-diagram}
+%%% \\usepackage{titlesec}
+%%% \\usepackage{amsmath}
+%%% \\usepackage{amssymb}
+%%% \\usepackage{amsfonts}
+%%% \\usepackage{graphics}
+%%% \\usepackage{epic}
+%%% \\usepackage{eepic}
+%%% \\usepackage{pict2e}
 %%% Redefined titleformat
-\\setlength{\\parindent}{0cm}
-\\setlength{\\parskip}{1ex plus 0.5ex minus 0.2ex}
+%%% \\setlength{\\parindent}{0cm}
+%%% \\setlength{\\parskip}{1ex plus 0.5ex minus 0.2ex}
 \\newcommand{\\hsp}{\\hspace{20pt}}
 \\newcommand{\\acc}[1]{\\left\\{#1\\right\\}}
 \\newcommand{\\cro}[1]{\\left[#1\\right]}
 \\newcommand{\\pa}[1]{\\left(#1\\right)}
 \\newcommand{\\R}{\\mathbb{R}}
 \\newcommand{\\HRule}{\\rule{\\linewidth}{0.5mm}}
-%\\titleformat{\\chapter}[hang]{\\Huge\\bfseries\\sffamily}{\\thechapter\\hsp}{0pt}{\\Huge\\bfseries\\sffamily}
-
-\\usepackage[all]{xy}
+%%% \\titleformat{\\chapter}[hang]{\\Huge\\bfseries\\sffamily}{\\thechapter\\hsp}{0pt}{\\Huge\\bfseries\\sffamily}
+%%% \\usepackage[all]{xy}
 \\newcommand{\\vecteur}[2]{\\pa{#1,\\dots,#2}}
 \\newcommand{\\N}[0]{\\mathbb{N}}
 \\newcommand{\\indicatrice}[1]{ {1\\!\\!1}_{\\acc{#1}} }
@@ -281,6 +280,7 @@ epkg_dictionary = {
     "Regression with confidence interval": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_regression_confidence_interval.html",
     "relu": "https://en.wikipedia.org/wiki/Rectifier_(neural_networks)",
     "ROC": "https://fr.wikipedia.org/wiki/Courbe_ROC",
+    "rst": "https://fr.wikipedia.org/wiki/ReStructuredText",
     "scikit-learn": "https://scikit-learn.org/stable/index.html",
     "scipy": "https://scipy.org/",
     "sérialisation": "https://fr.wikipedia.org/wiki/S%C3%A9rialisation",
@@ -322,6 +322,7 @@ epkg_dictionary.update(
         "tkinter.Entry.insert": "https://tkdocs.com/pyref/entry.html",
         "tkinter.Event": "https://tkdocs.com/tutorial/eventloop.html",
         "tkinter.Frame": "https://tkdocs.com/tutorial/widgets.html#frame",
+        "tkinter.filedialog": "https://docs.python.org/3/library/dialog.html#module-tkinter.filedialog",
         "tkinter.IntVar": "https://tkdocs.com/pyref/intvar.html",
         "tkinter.Label": "https://tkdocs.com/tutorial/widgets.html#label",
         "tkinter.Label.after_cancel": "https://tkdocs.com/tutorial/widgets.html#label",
@@ -354,8 +355,6 @@ epkg_dictionary.update(
         "tkinter.Toplevel.resizable": "https://tkdocs.com/pyref/toplevel.html",
         "tkinter.Toplevel.title": "https://tkdocs.com/pyref/toplevel.html",
         "tkinter.Toplevel.withdraw": "https://tkdocs.com/pyref/toplevel.html",
-        "tkinter.tix.DirTree": "https://pythonbasics.org/tkinter-filedialog/",
-        "tkinter.tix.FileSelectBox": "https://pythonbasics.org/tkinter-filedialog/",
         "tkinter.ttk.Combobox": "https://tkdocs.com/pyref/ttk_combobox.html",
         "tkinter.ttk.Notebook": "https://tkdocs.com/pyref/ttk_notebook.html",
         "tkinter.ttk.Progressbar": "https://tkdocs.com/pyref/ttk_progressbar.html",
