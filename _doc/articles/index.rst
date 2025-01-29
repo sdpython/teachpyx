@@ -6,6 +6,12 @@ Collections d'articles périssables
 Ou *blog*.
 
 .. toctree::
+    :caption: 2025
+    :maxdepth: 1
+
+    2025/2025-03-01-route2025
+
+.. toctree::
     :caption: 2024
     :maxdepth: 1
 
