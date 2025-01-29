@@ -9,6 +9,7 @@
 *.dbf
 *.xlsx
 *.pickle
+*.dvi
 *.shp
 *.shx
 *.png
