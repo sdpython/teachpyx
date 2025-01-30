@@ -23,3 +23,4 @@ Séance 1 (31/1)
   `LLM <https://en.wikipedia.org/wiki/Large_language_model>`_,
   (Large Language Model), SLLM (Small LLM)
 * Coder avec un LLM en local.
+* Notebooks, Visual Studio Code
