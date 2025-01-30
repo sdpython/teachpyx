@@ -1,0 +1,114 @@
+.. _l-2025-01-31-local-llm:
+
+======================
+2025-01-31 : local LLM
+======================
+
+Il est parfois impossible d'utiliser un outils tels que ChatGPT
+parce qu'on ne veut pas que certains données ou questions s'évadent.
+J'ai donc suivi le tutoriel décrit sur le site de HuggingFace :
+`microsoft/Phi-3.5-mini-instruct <https://huggingface.co/microsoft/Phi-3.5-mini-instruct>`_.
+Une fois le modèle téléchargé, j'ai exécuté le script avec une question
+différente.
+
+.. code-block:: python
+
+    import torch
+    from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+
+    torch.random.manual_seed(0)
+
+    model = AutoModelForCausalLM.from_pretrained(
+        "microsoft/Phi-3.5-mini-instruct",
+        device_map="cuda",
+        torch_dtype="auto",
+        trust_remote_code=True,
+    )
+    tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3.5-mini-instruct")
+
+    messages = [
+        {"role": "system", "content": "You are a helpful AI assistant."},
+        {
+            "role": "user",
+            "content": "Can you write a function returning the prime number in python?",
+        },
+        # {"role": "assistant", "content": "Sure! <type the answer of the model>"},
+        # {"role": "user", "content": "<continue with yours>"},
+    ]
+
+    pipe = pipeline(
+        "text-generation",
+        model=model,
+        tokenizer=tokenizer,
+    )
+
+    generation_args = {
+        "max_new_tokens": 500,
+        "return_full_text": False,
+        "temperature": 0.0,
+        "do_sample": False,
+    }
+
+    output = pipe(messages, **generation_args)
+    print(output[0]["generated_text"])
+
+Et le modèle répond :
+
+.. code-block:: text
+
+    Certainement! Pour créer un transformateur personnalisé pour scikit-learn,
+    vous devez implémenter les classes `BaseEstimator` et `TransformerMixin`.
+    Voici un exemple simple de transformateur personnalisé qui normalise les données :
+
+    ```python
+    from sklearn.base import BaseEstimator, TransformerMixin
+
+    class NormalizationTransformer(BaseEstimator, TransformerMixin):
+        def __init__(self):
+            # Initialiser avec des valeurs par défaut si nécessaire
+            pass
+
+        def fit(self, X, y=None):
+            # Calculer les statistiques de la distribution des données
+            self.means_ = X.mean(axis=0)
+            self.stds_ = X.std(axis=0)
+            return self
+
+        def transform(self, X):
+            # Appliquer la normalisation aux données
+            return (X - self.means_) / self.stds_
+
+        def fit_transform(self, X, y=None, **fit_params):
+            # Appeler fit puis transform
+            return self.fit(X, y, **fit_params).transform(X)
+
+    # Exemple d'utilisation
+    from sklearn.pipeline import Pipeline
+    from sklearn.linear_model import LinearRegression
+
+    # Créer un pipeline avec le transformateur personnalisé et un modèle
+    pipeline = Pipeline(steps=[
+        ('normalize', NormalizationTransformer()),
+        ('regressor', LinearRegression())
+    ])
+
+    # Supposons que vous avez un ensemble de données X et des étiquettes y
+    # pipeline.fit(X, y)
+    # prédictions = pipeline.predict(X_test)
+    ```
+
+    Dans cet exemple, `NormalizationTransformer` calcule la moyenne et
+    l'écart type de chaque colonne lors du processus de `fit` et applique
+    ensuite la normalisation lors du processus de `transform`.
+    La méthode `fit_transform` combine les deux pour une efficacité.
+
+    Vous pouvez personnaliser ce transformateur pour répondre à vos besoins spécifiques.
+
+Pas si mal pour un petit modèle.
+D'autres modèles sont accessibles comme celui-ci
+`DeepSeek-R1 <https://huggingface.co/deepseek-ai/DeepSeek-R1>`_
+mais qui nécessite une machine un peu plus costaude qu'un simple
+ordinateur portable pour tourner.
+D'autres modèles sont capables de prendre des images en entrée :
+`microsoft/Phi-3.5-vision-instruct <https://huggingface.co/microsoft/Phi-3.5-vision-instruct>`_
+tout en gardant une taille raisonnable.

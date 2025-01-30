@@ -10,6 +10,7 @@ Ou *blog*.
     :maxdepth: 1
 
     2025/2025-03-01-route2025
+    2025/2025-01-31-local_llm
 
 .. toctree::
     :caption: 2024
