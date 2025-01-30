@@ -112,3 +112,9 @@ ordinateur portable pour tourner.
 D'autres modèles sont capables de prendre des images en entrée :
 `microsoft/Phi-3.5-vision-instruct <https://huggingface.co/microsoft/Phi-3.5-vision-instruct>`_
 tout en gardant une taille raisonnable.
+
+Quelques idées de questions qui font gagner du temps :
+
+* Peux-tu expliquer ce que fait cette fonction ?
+* Peux-tu générer la documentation pour cette fonction ?
+* Peux-tu générer des tests unitaires pour cette fonctions ?
