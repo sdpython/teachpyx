@@ -4,10 +4,29 @@
 2025-03-01 : feuille de route 2025
 ==================================
 
+site web : `sdpython.github.io <https://sdpython.github.io/>`_
+
+`Apprendre la programmation avec Python
+<https://sdpython.github.io/doc/teachpyx/dev/>`_
+
 Séance 1 (31/1)
 ===============
 
-* site web : `sdpython.github.io <https://sdpython.github.io/>`_
+Un jeu de données :
+
+* `Demandes de valeurs foncières
+  <https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/>`_
+
+*Quatre thèmes*
+
+* Deux types de problèmes : régression, classifications
+* Problèmes dérivés : ranking, clustering, série temporelles
+* Calculs, puissances de calculs, CUDA, CPU
+* Environnement de travail, coder avec un LLM en local,
+  :ref:`l-2025-01-31-local-llm`, avenir du datascientiste
+
+*Autres notes*
+
 * :ref:`l-ml-rappel`
 * programmation (python :epkg:`numpy`, :epkg:`pandas`, :epkg:`matplotlib`, :epkg:`jupyter`)
 * :ref:`Tests unitaires <nbl-practice-py-base-tests_unitaires>`, package python
@@ -24,3 +43,33 @@ Séance 1 (31/1)
   (Large Language Model), SLLM (Small LLM)
 * Coder avec un LLM en local : :ref:`l-2025-01-31-local-llm`
 * Notebooks, Visual Studio Code
+
+Séance 2 (7/2)
+==============
+
+* arbre de régression, de classification
+
+Séance 3 (14/2)
+===============
+
+*un peu plus de code*
+
+* pipelines
+* créer son propre estimateur
+* tests unitaires
+
+Séance 4 (21/2)
+===============
+
+* prétraitement
+* anomalie
+* cartes
+
+Séance 5 (6/3)
+==============
+
+* série temporelles
+* analyses de survie
+* DeepAR
+* temps réel
+
