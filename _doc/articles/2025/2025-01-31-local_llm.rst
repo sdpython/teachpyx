@@ -30,7 +30,7 @@ différente.
         {"role": "system", "content": "You are a helpful AI assistant."},
         {
             "role": "user",
-            "content": "Can you write a function returning the prime number in python?",
+            "content": "Peux-tu écrire un code python implémentant un transformer personnalisé pour scikit-learn ?",
         },
         # {"role": "assistant", "content": "Sure! <type the answer of the model>"},
         # {"role": "user", "content": "<continue with yours>"},
