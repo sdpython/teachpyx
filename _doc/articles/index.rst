@@ -9,6 +9,7 @@ Ou *blog*.
     :caption: 2025
     :maxdepth: 1
 
+    2025/2025-04-01-route2025
     2025/2025-03-01-route2025
     2025/2025-01-31-local_llm
 

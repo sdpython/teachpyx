@@ -43,6 +43,8 @@ _doc/LICENSE.txt
 _doc/auto_examples/*
 _doc/articles/2024/pyramide.png
 _doc/articles/2024/tsp_simple.png
+_doc/articles/2024/anim_evolution.png
+_doc/articles/2024/vie_1.png
 _doc/examples/**/plot_*.png
 _doc/examples/**/plot_*.xlsx
 _doc/examples/prog/*.proto

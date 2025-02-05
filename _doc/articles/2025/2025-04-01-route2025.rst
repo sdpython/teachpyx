@@ -1,0 +1,39 @@
+.. _l-feuille-route-2025-2:
+
+==================================
+2025-04-01 : feuille de route 2025
+==================================
+
+site web : `sdpython.github.io <https://sdpython.github.io/>`_
+
+`Apprendre la programmation avec Python
+<https://sdpython.github.io/doc/teachpyx/dev/>`_
+
+Journée 1 (11/2)
+================
+
+L'objectif de cette première journée sera de comprendre la syntaxe
+du langage python pour construire un programme
+cachant certaines partie d'un document PDF avec un rectangle noir.
+D'autres sujets abordés :
+
+* Environnement de travail : Windows, Linux, VSCode, notebook, 
+  installation de packages
+* Boucles, tests, fonctions, classes, list, tuple, dict
+* notion d'algorithmes, tri, recherche dichotomique,
+  plus court chemin dans un graphe, problème du voyageur de commerce
+* Son assistant en local : :ref:`l-2025-01-31-local-llm`
+* Ce que savent les modèles LLMs
+
+Journée 2 (12/2)
+================
+
+L'objectif de cette seconde journée sera de manipuler des données
+avec :epkg:`pandas`, :epkg:`numpy` pour construire une feuille
+Excel avec un graphe automatiquement depuis Python.
+
+* :epkg:`numpy`
+* :epkg:`pandas`
+* :epkg:`matplotlib`
+* :epkg:`seaborn`
+* :epkg:`statsmodels`
