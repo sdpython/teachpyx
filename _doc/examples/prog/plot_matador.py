@@ -1,5 +1,6 @@
 # coding: utf-8
 """
+.. _l-exp-mathador:
 
 ===============================
 Mathador, énigme à 4 opérations

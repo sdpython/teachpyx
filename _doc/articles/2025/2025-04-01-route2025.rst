@@ -25,6 +25,7 @@ D'autres sujets abordés :
 * Son assistant en local : :ref:`l-2025-01-31-local-llm`
 * Ce que savent les modèles LLMs
 * :ref:`l-precis-python`
+* package, :epkg:`pypi`
 
 **Exercices de solfège**
 
@@ -37,12 +38,17 @@ D'autres sujets abordés :
 * trier un tableau
 * transformer une liste en un dictionnaire et réciproquement
 * comment multiplier une chaîne de caractère ?
+* écrire une boucle ``for`` et la même avec une boucle ``while``
+* écrire un test
+* écrire une fonction qui vérifie si une chaîne de caractères est symétrique
+* écrire une fonction qui retourne une chaîne de caractères sans ses voyelles
 
-*functions*
+*fonctions*
 
+* fonction, paramètre par défaut
+* arguments positionnels, arguments nommés
 * écrire une fonction récursive
-* écrire une fonction qui calcule la suite de Fibonnacci ?
-* argument positionnels, argument nommés
+* écrire une fonction qui calcule la suite de Fibonacci ?
 * écriture ``*args``, ``**kwargs`` ?
 * comment espionner une autre fonction ?
 
@@ -53,15 +59,35 @@ D'autres sujets abordés :
 * compter le nombre moyen de connexions ?
 * comment obtenir la liste des membres du graphes ?
 
-**Exercices**
+**Exercices plus longs**
 
+* :ref:`Variables, boucles, tests <nbl-practice-tds-base-variable_boucle_tests>`
 * :ref:`Structures de données <nbl-practice-py-base-structures_donnees_conversion>`
-* :ref:`Un bref aperçu des classes <nbl-practice-py-base-classes_metro>`
+* :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
+* :ref:`Recherche dichotomique <nbl-practice-py-base-recherche_dichotomique>`
 * :ref:`Tri plus rapide que prévu <nbl-practice-py-base-tri_nlnd>`
+* :ref:`l-exp-mathador`
+* :ref:`Un bref aperçu des classes <nbl-practice-py-base-classes_metro>`
 * :ref:`Prises aux dames <nbl-practice-py-base-dame_prise>`
 * :ref:`les itérateurs <nbl-practice-py-base-classe_iterateur>`
+* :ref:`Quelques programmes truffés d'erreurs <nbl-practice-exams-interro_rapide_20_minutes_2014_11>`
 
+**Exercices plus costauds**
 
+* `Lettres et encodages <https://sdpython.github.io/doc/teachpyx/dev/_downloads/032ccfaa7b99eb2a4b992aaa3bc48c34/td_note_2023-2024.pdf>`_
+* `Câblages électriques <https://sdpython.github.io/doc/teachpyx/dev/_downloads/8b77610717572d8d8899c825964056bb/td_note_2024.pdf>`_
+* `Dessin d'un arbre <https://sdpython.github.io/doc/teachpyx/dev/_downloads/538fb74f2b1a76ede9cb20e40bb4b8af/td_note_2022_rattrapage2.pdf>`_
+  (`correction <https://sdpython.github.io/doc/teachpyx/dev/practice/exams/td_note_2022_rattrapage2.html>`_)
+
+**PDF**
+
+.. code-block:: python
+
+    from pypdf import PdfReader, PdfWriter
+    from reportlab.pdfgen import canvas
+    from reportlab.lib.pagesizes import letter
+
+    # ...
 
 Journée 2 (12/2)
 ================
