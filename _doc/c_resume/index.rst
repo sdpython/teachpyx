@@ -1,3 +1,4 @@
+.. _l-precis-python:
 
 ######
 Précis

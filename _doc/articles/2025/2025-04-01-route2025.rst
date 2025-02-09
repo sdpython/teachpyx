@@ -24,6 +24,44 @@ D'autres sujets abordés :
   plus court chemin dans un graphe, problème du voyageur de commerce
 * Son assistant en local : :ref:`l-2025-01-31-local-llm`
 * Ce que savent les modèles LLMs
+* :ref:`l-precis-python`
+
+**Exercices de solfège**
+
+* que vaut ``1/2`` ? et ``1//2`` ?
+* retourner une liste (obtenir une liste dans l'autre sens)
+* calculer le nombre d'occurences des éléments d'une liste (histogrammes)
+* modifier un élément d'un tuple
+* retourner un dictionnaire : que fait-on des doublons ?
+* trouver le minimum dans un tableau
+* trier un tableau
+* transformer une liste en un dictionnaire et réciproquement
+* comment multiplier une chaîne de caractère ?
+
+*functions*
+
+* écrire une fonction récursive
+* écrire une fonction qui calcule la suite de Fibonnacci ?
+* argument positionnels, argument nommés
+* écriture ``*args``, ``**kwargs`` ?
+* comment espionner une autre fonction ?
+
+*graphes*
+
+* comment représenter un graphe de type facebook à l'aide dictionnaires ?
+* compter le nombre d'amis en commun ?
+* compter le nombre moyen de connexions ?
+* comment obtenir la liste des membres du graphes ?
+
+**Exercices**
+
+* :ref:`Structures de données <nbl-practice-py-base-structures_donnees_conversion>`
+* :ref:`Un bref aperçu des classes <nbl-practice-py-base-classes_metro>`
+* :ref:`Tri plus rapide que prévu <nbl-practice-py-base-tri_nlnd>`
+* :ref:`Prises aux dames <nbl-practice-py-base-dame_prise>`
+* :ref:`les itérateurs <nbl-practice-py-base-classe_iterateur>`
+
+
 
 Journée 2 (12/2)
 ================
