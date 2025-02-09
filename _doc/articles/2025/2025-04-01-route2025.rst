@@ -26,6 +26,11 @@ D'autres sujets abordés :
 * Ce que savent les modèles LLMs
 * :ref:`l-precis-python`
 * package, :epkg:`pypi`
+* `Le Chat <https://chat.mistral.ai/>`_,
+  `ChatGPT <https://openai.com/index/chatgpt/>`_,
+  `Copilot <https://copilot.microsoft.com/chats/>`_,
+  `Gemini <https://gemini.google.com/app>`_,
+  ...
 
 **Exercices de solfège**
 
