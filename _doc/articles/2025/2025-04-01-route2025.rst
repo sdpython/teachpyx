@@ -106,3 +106,15 @@ Excel avec un graphe automatiquement depuis Python.
 * :epkg:`matplotlib`
 * :epkg:`seaborn`
 * :epkg:`statsmodels`
+
+**Exercices numpy**
+
+* :ref:`Calcul matriciel avec numpy <nbl-c_data-nb_numpy>`
+* :ref:`numpy broadcast <nbl-c_data-numpy_broadcast>`
+* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`
+
+**Exercices pandas**
+
+* :ref:`l-example-serialization`
+* :ref:`l-example-plot-groupby`
+* :ref:`Manipulation de données avec pandas <nbl-c_data-nb_pandas>`

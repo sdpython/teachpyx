@@ -1,5 +1,7 @@
 # coding: utf-8
 """
+.. _l-example-plot-groupby:
+
 =================
 Pandas et groupby
 =================
