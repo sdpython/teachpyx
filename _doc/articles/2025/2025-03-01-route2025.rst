@@ -91,6 +91,8 @@ On appliquera cela au jeu de données :func:`sklearn.datasets.load_diabetes` ou
 on comparera à une simple régression linéaire, les coefficients sont-ils
 équivalents ? Comment comparer les modèles ?
 
+* :ref:`Nouvel estimateur <nbl-practice-ml-custom_estimator>`
+
 Séance 4 (21/2)
 ===============
 

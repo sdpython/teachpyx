@@ -46,6 +46,12 @@ Machine Learning
 
 .. toctree::
     :maxdepth: 1
+    :caption: Estimateurs
+
+    ml/custom_estimator
+
+.. toctree::
+    :maxdepth: 1
     :caption: Séries Temporelles
 
     ml/timeseries_ssa

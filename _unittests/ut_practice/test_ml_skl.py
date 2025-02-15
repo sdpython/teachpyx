@@ -1,7 +1,9 @@
 import unittest
 import numpy as np
+from sklearn.base import is_regressor
 from sklearn.ensemble import StackingRegressor
 from sklearn.linear_model import LinearRegression
+from sklearn.utils._tags import get_tags
 from teachpyx.ext_test_case import ExtTestCase
 from teachpyx.practice.ml_skl import PositiveOrNegativeLinearRegression
 
@@ -16,6 +18,10 @@ class TestPracticeMlSlk(ExtTestCase):
         plr = PositiveOrNegativeLinearRegression(max_iter=50, positive=True)
         plr.fit(X, y)
         self.assertEqualArray(plr.theta_, np.array([0.3, 0.6]), atol=0.01)
+        self.assertTrue(is_regressor(lr))
+        self.assertTrue(is_regressor(plr))
+        tags = get_tags(plr)
+        self.assertEqual(tags.estimator_type, "regressor")
 
     def test_plr_stacking(self):
         stacking_clr = StackingRegressor(
