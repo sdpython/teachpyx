@@ -111,7 +111,7 @@ Séance 4 (21/2)
 * `Seq2Seq <https://en.wikipedia.org/wiki/Seq2seq>`_,
   `Sequence To Sequnce <https://paperswithcode.com/method/seq2seq>`_,
   `Sequence to Sequence (seq2seq) and Attention
-   <https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html>`_
+  <https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html>`_,
   `Transformers <https://research.google/blog/transformer-a-novel-neural-network-architecture-for-language-understanding/>`_,
   `Attention is All You Need
   <https://france.devoteam.com/paroles-dexperts/attention-is-all-you-need-comprendre-le-traitement-naturel-du-langage-avec-les-modeles-transformers/>`_
