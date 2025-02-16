@@ -34,6 +34,7 @@ ruff
 scikit-image
 seaborn
 skrub
+sounddevice
 sphinx
 sphinx-gallery
 sphinx-issues
