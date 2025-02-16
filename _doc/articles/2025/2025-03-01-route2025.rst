@@ -96,9 +96,39 @@ on comparera à une simple régression linéaire, les coefficients sont-ils
 Séance 4 (21/2)
 ===============
 
-* prétraitement
+* prétraitements
 * anomalie
 * cartes
+
+**Cartes**
+
+* :ref:`Tracer une carte <nbl-c_data-enedis_cartes>`
+
+**Réseaux de neurones**
+
+* `Réseau de neurones <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/rn/rn.html>`_,
+  `LeNet <https://en.wikipedia.org/wiki/LeNet>`_
+* `Seq2Seq <https://en.wikipedia.org/wiki/Seq2seq>`_,
+  `Sequence To Sequnce <https://paperswithcode.com/method/seq2seq>`_,
+  `Sequence to Sequence (seq2seq) and Attention
+   <https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html>`_
+  `Transformers <https://research.google/blog/transformer-a-novel-neural-network-architecture-for-language-understanding/>`_,
+  `Attention is All You Need
+  <https://france.devoteam.com/paroles-dexperts/attention-is-all-you-need-comprendre-le-traitement-naturel-du-langage-avec-les-modeles-transformers/>`_
+
+**Anomalies**
+
+* `Novelty and Outlier Detection <https://scikit-learn.org/stable/modules/outlier_detection.html>`_
+
+**Prétraitement**
+
+* Dates, Catégories : `category_encoders <https://contrib.scikit-learn.org/category_encoders/>`,
+  `skrub <https://skrub-data.org/stable/>`_,
+  :ref:`Prétraitement des catégories <nbl-practice-ml-pretraitement_cat>`
+* Son : :epkg:`librosa`, voir :ref:`Prétraitement du son <nbl-practice-ml-pretraitement_son>`
+* Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`
+* Texte : :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_texte>`
+
 
 Séance 5 (6/3)
 ==============

@@ -33,6 +33,7 @@ pytest-cov
 ruff
 scikit-image
 seaborn
+skrub
 sphinx
 sphinx-gallery
 sphinx-issues

@@ -55,3 +55,13 @@ Machine Learning
     :caption: Séries Temporelles
 
     ml/timeseries_ssa
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Prétraitements
+
+    practice/ml/pretraitement_cat
+    practice/ml/pretraitement_image
+    practice/ml/pretraitement_son
+    practice/ml/pretraitement_texte
+    

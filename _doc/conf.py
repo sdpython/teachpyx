@@ -102,6 +102,7 @@ intersphinx_mapping = {
     "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
     "skl2onnx": ("https://onnx.ai/sklearn-onnx/", None),
     "sklearn": ("https://scikit-learn.org/stable/", None),
+    "skrub": ("https://skrub-data.org/stable/", None),
     "torch": ("https://pytorch.org/docs/stable/", None),
 }
 
@@ -233,6 +234,7 @@ epkg_dictionary = {
     "KMeans": "https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html",
     "LAESA": "https://tavianator.com/aesa/",
     "LAPACK": "http://www.netlib.org/lapack/",
+    "librosa": "https://librosa.org/doc/latest/index.html",
     "matplotlib": "https://matplotlib.org/",
     "Method Resolution Order": "https://www.python.org/download/releases/2.3/mro/",
     "miniconda": "https://docs.conda.io/en/latest/miniconda.html",
