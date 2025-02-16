@@ -8,7 +8,7 @@ teachpyx.practice
     :maxdepth: 1
     :caption: modules
 
-    mk_skl
+    ml_skl
     rues_paris
     tsp_bresenham
     tsp_kohonen

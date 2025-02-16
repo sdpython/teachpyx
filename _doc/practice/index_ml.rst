@@ -60,8 +60,8 @@ Machine Learning
     :maxdepth: 1
     :caption: Prétraitements
 
-    practice/ml/pretraitement_cat
-    practice/ml/pretraitement_image
-    practice/ml/pretraitement_son
-    practice/ml/pretraitement_texte
+    ml/pretraitement_cat
+    ml/pretraitement_image
+    ml/pretraitement_son
+    ml/pretraitement_texte
     
