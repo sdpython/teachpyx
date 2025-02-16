@@ -1,13 +1,32 @@
 .. _l-feuille-route-2025:
 
-==================================
-2025-03-01 : feuille de route 2025
-==================================
+=========================================
+2025-03-01 : feuille de route 2025 - mars
+=========================================
+
+site web : `sdpython.github.io <https://sdpython.github.io/>`_
+
+`Apprendre la programmation avec Python
+<https://sdpython.github.io/doc/teachpyx/dev/>`_
 
 Séance 1 (31/1)
 ===============
 
-* site web : `sdpython.github.io <https://sdpython.github.io/>`_
+Un jeu de données :
+
+* `Demandes de valeurs foncières
+  <https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/>`_
+
+*Quatre thèmes*
+
+* Deux types de problèmes : régression, classifications
+* Problèmes dérivés : ranking, clustering, série temporelles
+* Calculs, puissances de calculs, CUDA, CPU
+* Environnement de travail, coder avec un LLM en local,
+  :ref:`l-2025-01-31-local-llm`, avenir du datascientiste
+
+*Autres notes*
+
 * :ref:`l-ml-rappel`
 * programmation (python :epkg:`numpy`, :epkg:`pandas`, :epkg:`matplotlib`, :epkg:`jupyter`)
 * :ref:`Tests unitaires <nbl-practice-py-base-tests_unitaires>`, package python
@@ -22,4 +41,114 @@ Séance 1 (31/1)
 * `ChatGPT <https://chat.openai.com/>`_,
   `LLM <https://en.wikipedia.org/wiki/Large_language_model>`_,
   (Large Language Model), SLLM (Small LLM)
-* Coder avec un LLM en local.
+* Coder avec un LLM en local : :ref:`l-2025-01-31-local-llm`
+* Notebooks, Visual Studio Code
+
+Séance 2 (7/2)
+==============
+
+* arbre de régression, de classification
+  :ref:`RandomForest, Overfitting <nbl-practice-ml-ml_a_tree_overfitting>`
+* Gradient Boosting, :ref:`Gradient Boosting et Learning Rate avec les Random Forest <nbl-practice-ml-gradient_boosting>`
+* Régression linéaire et contraintes sur les coefficients,
+  `Ridge <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html>`_,
+  `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
+  `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
+  :ref:`Ridge, Lasso, mathématiques <nbl-practice-ml-ridge_lasso>`
+* paramètres et hyper paramètres, :ref:`Sélection des hyper-paramètres <nbl-practice-ml-winesr_knn_hyper>`,
+  :class:`sklearn.model_selection.GridSearchCV`
+* `Data challenge - Algorithme machine learning qui permet de prédire la gravité d’un accident de la rout
+  <https://www.data.gouv.fr/fr/reuses/data-challenge-algorithme-machine-learning-qui-permet-de-predire-la-gravite-dun-accident-de-la-route/>`_
+
+Séance 3 (14/2)
+===============
+
+*un peu plus de code*
+
+* pipelines
+* créer son propre estimateur
+* tests unitaires
+
+Pour cette séance, on souhaite construire un estimateur qui estime
+une régression linéaire à coefficients positifs, une autre avec
+des coefficients uniquement négatifs puis pour finir une dernière
+régression linéaire qui considère les deux premières comme features.
+
+Une régression linéaire minimise l'erreur
+:math:`\sum_i \left\Vert X_i\theta - y_i \right\Vert^2`.
+Le gradient est :math:`\sum_i X_i'\left( X_i\theta - y_i \right)`.
+
+Comme le modèle souhaité est équivalent à une optimisation sous contrainte,
+on propose de le résoudre comme ceci :
+
+* On applique une itération de l'algorithme de la descente de gradient :
+  :math:`\theta_{t+1} = \theta_t - \epsilon_t \sum_i X_i'\left( X_i\theta - y_i \right)`.
+* On ne garde que les coefficients positifs : :math:`\theta_{t+1} = \max(0, \theta_t)`.
+* On retourne à l'étape 1 ou on s'arrête si l'algorithme a convergé.
+
+On appliquera cela au jeu de données :func:`sklearn.datasets.load_diabetes` ou
+`Wine Quality <https://archive.ics.uci.edu/datasets?search=wine>`_
+on comparera à une simple régression linéaire, les coefficients sont-ils
+équivalents ? Comment comparer les modèles ?
+
+* :ref:`Nouvel estimateur <nbl-practice-ml-custom_estimator>`
+
+Séance 4 (21/2)
+===============
+
+* prétraitements
+* anomalie
+* cartes
+
+**Cartes**
+
+* :ref:`Tracer une carte <nbl-c_data-enedis_cartes>`
+
+**Réseaux de neurones**
+
+* `Réseau de neurones <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/rn/rn.html>`_,
+  `LeNet <https://en.wikipedia.org/wiki/LeNet>`_
+* `Seq2Seq <https://en.wikipedia.org/wiki/Seq2seq>`_,
+  `Sequence To Sequnce <https://paperswithcode.com/method/seq2seq>`_,
+  `Sequence to Sequence (seq2seq) and Attention
+  <https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html>`_,
+  `Transformers <https://research.google/blog/transformer-a-novel-neural-network-architecture-for-language-understanding/>`_,
+  `Attention is All You Need
+  <https://france.devoteam.com/paroles-dexperts/attention-is-all-you-need-comprendre-le-traitement-naturel-du-langage-avec-les-modeles-transformers/>`_
+
+**Anomalies**
+
+* `Novelty and Outlier Detection <https://scikit-learn.org/stable/modules/outlier_detection.html>`_
+
+**Prétraitement**
+
+* Dates, Catégories : `category_encoders <https://contrib.scikit-learn.org/category_encoders/>`,
+  `skrub <https://skrub-data.org/stable/>`_,
+  :ref:`Prétraitement des catégories <nbl-practice-ml-pretraitement_cat>`
+* Son : :epkg:`librosa`, voir :ref:`Prétraitement du son <nbl-practice-ml-pretraitement_son>`
+* Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`
+* Texte : :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_texte>`
+
+Pour la suite, on souhaite comparer ces approches sur un jeu
+accessible depuis le package `datasets <https://huggingface.co/docs/datasets/en/index>`_.
+`Large Movie Review Dataset <https://ai.stanford.edu/~amaas/data/sentiment/>`_
+
+.. code-block:: python
+
+    from datasets import load_dataset
+
+    dataset = load_dataset("stanfordnlp/imdb", split="train")
+
+    print(dataset)
+    Dataset({
+        features: ['text', 'label'],
+        num_rows: 25000
+    })
+
+Séance 5 (6/3)
+==============
+
+* série temporelles
+* analyses de survie
+* DeepAR
+* temps réel

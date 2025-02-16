@@ -125,7 +125,7 @@ def get_data(
 
 
 def graph_degree(
-    edges: List[Tuple[int, int, int, Tuple[float, float], Tuple[float, float], float]]
+    edges: List[Tuple[int, int, int, Tuple[float, float], Tuple[float, float], float]],
 ) -> Dict[Tuple[int, int], int]:
     """
     Calcul le degré de chaque noeud.
@@ -367,7 +367,7 @@ def eulerien_extension(
 
 
 def connected_components(
-    edges: List[Tuple[int, int, int, Tuple[float, float], Tuple[float, float], float]]
+    edges: List[Tuple[int, int, int, Tuple[float, float], Tuple[float, float], float]],
 ) -> Dict[int, int]:
     """
     Computes the connected components.

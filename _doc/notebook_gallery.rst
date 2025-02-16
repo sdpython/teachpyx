@@ -182,3 +182,9 @@ Machine Learning
     practice/ml/ml_a_tree_overfitting
     practice/ml/gradient_boosting
     practice/ml/ridge_lasso
+    practice/ml/custom_estimator
+    practice/ml/pretraitement_cat
+    practice/ml/pretraitement_image
+    practice/ml/pretraitement_son
+    practice/ml/pretraitement_texte
+

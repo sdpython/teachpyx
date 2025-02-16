@@ -174,6 +174,7 @@ class ExtTestCase(unittest.TestCase):
             raise AssertionError(f"{string!r} does not end with {suffix!r}.")
 
     def assertExists(self, name):
+        "Checks a filename exists."
         if not os.path.exists(name):
             raise AssertionError(f"File or folder {name!r} does not exists.")
 

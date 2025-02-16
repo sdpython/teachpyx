@@ -1,0 +1,120 @@
+.. _l-feuille-route-2025-2:
+
+==========================================
+2025-04-01 : feuille de route 2025 - avril
+==========================================
+
+site web : `sdpython.github.io <https://sdpython.github.io/>`_
+
+`Apprendre la programmation avec Python
+<https://sdpython.github.io/doc/teachpyx/dev/>`_
+
+Journée 1 (11/2)
+================
+
+L'objectif de cette première journée sera de comprendre la syntaxe
+du langage python pour construire un programme
+cachant certaines partie d'un document PDF avec un rectangle noir.
+D'autres sujets abordés :
+
+* Environnement de travail : Windows, Linux, VSCode, notebook, 
+  installation de packages
+* Boucles, tests, fonctions, classes, list, tuple, dict
+* notion d'algorithmes, tri, recherche dichotomique,
+  plus court chemin dans un graphe, problème du voyageur de commerce
+* Son assistant en local : :ref:`l-2025-01-31-local-llm`
+* Ce que savent les modèles LLMs
+* :ref:`l-precis-python`
+* package, :epkg:`pypi`
+* `Le Chat <https://chat.mistral.ai/>`_,
+  `ChatGPT <https://openai.com/index/chatgpt/>`_,
+  `Copilot <https://copilot.microsoft.com/chats/>`_,
+  `Gemini <https://gemini.google.com/app>`_,
+  ...
+
+**Exercices de solfège**
+
+* que vaut ``1/2`` ? et ``1//2`` ?
+* retourner une liste (obtenir une liste dans l'autre sens)
+* calculer le nombre d'occurences des éléments d'une liste (histogrammes)
+* modifier un élément d'un tuple
+* retourner un dictionnaire : que fait-on des doublons ?
+* trouver le minimum dans un tableau
+* trier un tableau
+* transformer une liste en un dictionnaire et réciproquement
+* comment multiplier une chaîne de caractère ?
+* écrire une boucle ``for`` et la même avec une boucle ``while``
+* écrire un test
+* écrire une fonction qui vérifie si une chaîne de caractères est symétrique
+* écrire une fonction qui retourne une chaîne de caractères sans ses voyelles
+
+*fonctions*
+
+* fonction, paramètre par défaut
+* arguments positionnels, arguments nommés
+* écrire une fonction récursive
+* écrire une fonction qui calcule la suite de Fibonacci ?
+* écriture ``*args``, ``**kwargs`` ?
+* comment espionner une autre fonction ?
+
+*graphes*
+
+* comment représenter un graphe de type facebook à l'aide dictionnaires ?
+* compter le nombre d'amis en commun ?
+* compter le nombre moyen de connexions ?
+* comment obtenir la liste des membres du graphes ?
+
+**Exercices plus longs**
+
+* :ref:`Variables, boucles, tests <nbl-practice-tds-base-variable_boucle_tests>`
+* :ref:`Structures de données <nbl-practice-py-base-structures_donnees_conversion>`
+* :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
+* :ref:`Recherche dichotomique <nbl-practice-py-base-recherche_dichotomique>`
+* :ref:`Tri plus rapide que prévu <nbl-practice-py-base-tri_nlnd>`
+* :ref:`l-exp-mathador`
+* :ref:`Un bref aperçu des classes <nbl-practice-py-base-classes_metro>`
+* :ref:`Prises aux dames <nbl-practice-py-base-dame_prise>`
+* :ref:`les itérateurs <nbl-practice-py-base-classe_iterateur>`
+* :ref:`Quelques programmes truffés d'erreurs <nbl-practice-exams-interro_rapide_20_minutes_2014_11>`
+
+**Exercices plus costauds**
+
+* `Lettres et encodages <https://sdpython.github.io/doc/teachpyx/dev/_downloads/032ccfaa7b99eb2a4b992aaa3bc48c34/td_note_2023-2024.pdf>`_
+* `Câblages électriques <https://sdpython.github.io/doc/teachpyx/dev/_downloads/8b77610717572d8d8899c825964056bb/td_note_2024.pdf>`_
+* `Dessin d'un arbre <https://sdpython.github.io/doc/teachpyx/dev/_downloads/538fb74f2b1a76ede9cb20e40bb4b8af/td_note_2022_rattrapage2.pdf>`_
+  (`correction <https://sdpython.github.io/doc/teachpyx/dev/practice/exams/td_note_2022_rattrapage2.html>`_)
+
+**PDF**
+
+.. code-block:: python
+
+    from pypdf import PdfReader, PdfWriter
+    from reportlab.pdfgen import canvas
+    from reportlab.lib.pagesizes import letter
+
+    # ...
+
+Journée 2 (12/2)
+================
+
+L'objectif de cette seconde journée sera de manipuler des données
+avec :epkg:`pandas`, :epkg:`numpy` pour construire une feuille
+Excel avec un graphe automatiquement depuis Python.
+
+* :epkg:`numpy`
+* :epkg:`pandas`
+* :epkg:`matplotlib`
+* :epkg:`seaborn`
+* :epkg:`statsmodels`
+
+**Exercices numpy**
+
+* :ref:`Calcul matriciel avec numpy <nbl-c_data-nb_numpy>`
+* :ref:`numpy broadcast <nbl-c_data-numpy_broadcast>`
+* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`
+
+**Exercices pandas**
+
+* :ref:`l-example-serialization`
+* :ref:`l-example-plot-groupby`
+* :ref:`Manipulation de données avec pandas <nbl-c_data-nb_pandas>`
