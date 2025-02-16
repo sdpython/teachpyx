@@ -205,6 +205,7 @@ epkg_dictionary = {
     "C++": "https://fr.wikipedia.org/wiki/C%2B%2B",
     "cloudpickle": "https://github.com/cloudpipe/cloudpickle",
     "Bresenham": "https://fr.wikipedia.org/wiki/Algorithme_de_trac%C3%A9_de_segment_de_Bresenham",
+    "category_encoders": "https://contrib.scikit-learn.org/category_encoders/",
     "copy": "https://docs.python.org/3/library/copy.html?highlight=copy#copy.copy",
     "cProfile.Profile": "https://docs.python.org/3/library/profile.html#profile.Profile",
     "Custom Criterion for DecisionTreeRegressor": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_piecewise_linear_regression_criterion.html",
