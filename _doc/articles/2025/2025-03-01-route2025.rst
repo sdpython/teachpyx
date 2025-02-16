@@ -129,6 +129,21 @@ Séance 4 (21/2)
 * Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`
 * Texte : :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_texte>`
 
+Pour la suite, on souhaite comparer ces approches sur un jeu
+accessible depuis le package `datasets <https://huggingface.co/docs/datasets/en/index>`_.
+`Large Movie Review Dataset <https://ai.stanford.edu/~amaas/data/sentiment/>`_
+
+.. code-block:: python
+
+    from datasets import load_dataset
+
+    dataset = load_dataset("stanfordnlp/imdb", split="train")
+
+    print(dataset)
+    Dataset({
+        features: ['text', 'label'],
+        num_rows: 25000
+    })
 
 Séance 5 (6/3)
 ==============
@@ -137,4 +152,3 @@ Séance 5 (6/3)
 * analyses de survie
 * DeepAR
 * temps réel
-
