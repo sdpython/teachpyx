@@ -129,6 +129,13 @@ class TestDocumentationNotebook(ExtTestCase):
                         res = self.run_test(fullname, verbose=VERBOSE)
                         self.assertIn(res, (-1, 1))
 
+                elif "pretraitement_son" in name:
+
+                    @unittest.skip("audio not working")
+                    def _test_(self, fullname=fullname):
+                        res = self.run_test(fullname, verbose=VERBOSE)
+                        self.assertIn(res, (-1, 1))
+
                 else:
 
                     def _test_(self, fullname=fullname):
