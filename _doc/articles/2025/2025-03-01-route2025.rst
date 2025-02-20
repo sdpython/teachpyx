@@ -99,6 +99,7 @@ Séance 4 (21/2)
 * prétraitements
 * anomalie
 * cartes
+* clustering
 
 **Cartes**
 
@@ -109,16 +110,24 @@ Séance 4 (21/2)
 * `Réseau de neurones <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/rn/rn.html>`_,
   `LeNet <https://en.wikipedia.org/wiki/LeNet>`_
 * `Seq2Seq <https://en.wikipedia.org/wiki/Seq2seq>`_,
-  `Sequence To Sequnce <https://paperswithcode.com/method/seq2seq>`_,
+  `Sequence To Sequence <https://paperswithcode.com/method/seq2seq>`_,
   `Sequence to Sequence (seq2seq) and Attention
   <https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html>`_,
   `Transformers <https://research.google/blog/transformer-a-novel-neural-network-architecture-for-language-understanding/>`_,
   `Attention is All You Need
-  <https://france.devoteam.com/paroles-dexperts/attention-is-all-you-need-comprendre-le-traitement-naturel-du-langage-avec-les-modeles-transformers/>`_
+  <https://france.devoteam.com/paroles-dexperts/attention-is-all-you-need-comprendre-le-traitement-naturel-du-langage-avec-les-modeles-transformers/>`_,
+  `BLEU <https://fr.wikipedia.org/wiki/BLEU_(algorithme)>`_
 
 **Anomalies**
 
 * `Novelty and Outlier Detection <https://scikit-learn.org/stable/modules/outlier_detection.html>`_
+
+**Clustering**
+
+* `clustering <https://scikit-learn.org/stable/modules/clustering.html>`_
+* Vieux notebooks sur l'utilisation de vélos à Chicago
+  `City Bike Views <https://github.com/sdpython/ensae_projects/blob/master/_doc/notebooks/challenges/city_bike/city_bike_views.ipynb>`_,
+  `City Bike Clustering <https://github.com/sdpython/ensae_projects/blob/master/_doc/notebooks/challenges/city_bike/city_bike_solution_cluster_start.ipynb>`_,
 
 **Prétraitement**
 
@@ -126,7 +135,7 @@ Séance 4 (21/2)
   :ref:`Prétraitement des catégories <nbl-practice-ml-pretraitement_cat>`
 * Son : :epkg:`librosa`, voir :ref:`Prétraitement du son <nbl-practice-ml-pretraitement_son>`
 * Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`
-* Texte : :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_texte>`
+* Texte : :ref:`Prétraitement du texte <nbl-practice-ml-pretraitement_texte>`
 
 Pour la suite, on souhaite comparer ces approches sur un jeu
 accessible depuis le package `datasets <https://huggingface.co/docs/datasets/en/index>`_.
