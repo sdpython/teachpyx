@@ -118,3 +118,47 @@ Excel avec un graphe automatiquement depuis Python.
 * :ref:`l-example-serialization`
 * :ref:`l-example-plot-groupby`
 * :ref:`Manipulation de données avec pandas <nbl-c_data-nb_pandas>`
+
+Journée 3 (3/3)
+===============
+
+**Partie 1**
+
+* retour sur la syntaxe du langage python, boucle, test, fonctions et classes
+* exceptions
+* expressions régulières
+* pickle, fichiers pickle
+* tests unitaires
+* récupération des fichiers préparés pour la formation avec pandas
+* utilisation de skrub pour avoir un premier aperçu
+
+**Partie 2**
+
+* rappel pandas: group by, jointure, inner, outer, left, right, pivot
+* gestion des doublons
+* une fois la base complète obtenue, analyse de nouveau
+* même opérations en SQL
+* identification des valeurs aberrantes
+* valeurs manquantes, remplacement simple (moyenne), corrélations (KNNImputer)
+* premières impressions
+
+Journée 4 (4/3)
+===============
+
+**Partie 1**
+
+* retour sur les graphes matplotlib, seaborn, plotly, skrub
+* cartographie, cartopy, folium encore
+* corrélations, pairplots
+* gestion des dates
+* cubes de données avec pandas, passer un indice à droite, à gauche
+* on reprend chaque colonne
+
+**Partie 2**
+
+* notion d'itérateur en python
+* application à pandas read_csv version itérateur pour manipuler des gros dataframes
+* utilisation de sqlite3 (extension sqlite3 vscode)
+* découpage d'une base en deux, apprentissage, respecter le temps et les identifiants
+* calcul du prix d'un contrat d'assurance pour un an en fonction de
+  variables choisies

@@ -160,3 +160,8 @@ Séance 5 (6/3)
 * analyses de survie
 * DeepAR
 * temps réel
+
+Evaluation
+==========
+
+* https://defis.data.gouv.fr/
