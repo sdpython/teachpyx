@@ -131,7 +131,7 @@ Séance 4 (21/2)
 
 **Prétraitement**
 
-* Dates, Catégories : :epkg:`category_encoders`, `skrub <https://skrub-data.org/stable/>`_,
+* Dates, Catégories : :epkg:`category_encoders`, :epkg:`skrub`,
   :ref:`Prétraitement des catégories <nbl-practice-ml-pretraitement_cat>`
 * Son : :epkg:`librosa`, voir :ref:`Prétraitement du son <nbl-practice-ml-pretraitement_son>`
 * Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`

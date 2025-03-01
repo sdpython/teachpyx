@@ -124,22 +124,25 @@ Journée 3 (3/3)
 
 **Partie 1**
 
-* retour sur la syntaxe du langage python, boucle, test, fonctions et classes
+* retour sur la syntaxe du langage python, boucle, test, fonctions et classes,
+  :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
 * exceptions
-* expressions régulières
-* pickle, fichiers pickle
-* tests unitaires
+* :ref:`l-regex`, :ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`
+* :mod:`pickle`, fichiers pickle (voir :ref:`chap_serialization`)
+* :ref:`Tests unitaires <nbl-practice-py-base-tests_unitaires>`
 * récupération des fichiers préparés pour la formation avec pandas
-* utilisation de skrub pour avoir un premier aperçu
+* utilisation de `:epkg:`skrub` pour avoir un premier aperçu ou
+  :epkg:`pandas-profiling`, :epkg:`orange3`
 
 **Partie 2**
 
 * rappel pandas: group by, jointure, inner, outer, left, right, pivot
-* gestion des doublons
+* gestion des doublons avec :meth:`pandas.DataFrame.duplicated`
 * une fois la base complète obtenue, analyse de nouveau
-* même opérations en SQL
-* identification des valeurs aberrantes
-* valeurs manquantes, remplacement simple (moyenne), corrélations (KNNImputer)
+* mêmes opérations en SQL, :func:`pandas.read_sql`, :meth:`pandas.DataFrame.to_sql`
+* identification des valeurs aberrantes, voir :meth:`pandas.DataFrame.quantile`
+* valeurs manquantes, remplacement simple (moyenne),
+  corrélations (:class:`sklearn.impute.KNNImputer`), prédictions
 * premières impressions
 
 Journée 4 (4/3)
@@ -147,7 +150,7 @@ Journée 4 (4/3)
 
 **Partie 1**
 
-* retour sur les graphes matplotlib, seaborn, plotly, skrub
+* retour sur les graphes matplotlib, seaborn, plotly, :epkg:`skrub`
 * cartographie, cartopy, folium encore
 * corrélations, pairplots
 * gestion des dates
@@ -162,3 +165,11 @@ Journée 4 (4/3)
 * découpage d'une base en deux, apprentissage, respecter le temps et les identifiants
 * calcul du prix d'un contrat d'assurance pour un an en fonction de
   variables choisies
+
+**Prétraitements simples**
+
+* Dates, Catégories : :epkg:`category_encoders`, :epkg:`skrub`,
+  :ref:`Prétraitement des catégories <nbl-practice-ml-pretraitement_cat>`
+* Son : :epkg:`librosa`, voir :ref:`Prétraitement du son <nbl-practice-ml-pretraitement_son>`
+* Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`
+* Texte : :ref:`Prétraitement du texte <nbl-practice-ml-pretraitement_texte>`

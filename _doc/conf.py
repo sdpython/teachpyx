@@ -252,6 +252,7 @@ epkg_dictionary = {
     ),
     "OneHotEncoder": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html",
     "OpenMP": "https://www.openmp.org/",
+    "orange3": "https://orangedatamining.com/",
     "pandas": (
         "https://pandas.pydata.org/pandas-docs/stable/",
         ("https://pandas.pydata.org/pandas-docs/stable/generated/pandas.{0}.html", 1),
@@ -260,6 +261,7 @@ epkg_dictionary = {
             2,
         ),
     ),
+    "pandas-profiling": "https://docs.profiling.ydata.ai/latest/",
     "PiecewiseTreeRegressor": "https://sdpython.github.io/doc/mlinsights/dev/api/mlmodel_tree.html#piecewisetreeregressor",
     "Pillow": "https://pillow.readthedocs.io/en/stable/",
     "pip": "https://pip.pypa.io/en/stable/",
@@ -290,6 +292,7 @@ epkg_dictionary = {
     "sérialisation": "https://fr.wikipedia.org/wiki/S%C3%A9rialisation",
     "sklearn": "https://scikit-learn.org/stable/index.html",
     "sklearn-onnx": "https://onnx.ai/sklearn-onnx/",
+    "skrub": "https://skrub-data.org/stable/",
     "statsmodels": "http://www.statsmodels.org/stable/index.html",
     "SVD": "https://fr.wikipedia.org/wiki/D%C3%A9composition_en_valeurs_singuli%C3%A8res",
     "sys.modules": "https://docs.python.org/3/library/sys.html?highlight=modules#sys.modules",

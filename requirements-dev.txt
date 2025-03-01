@@ -24,6 +24,7 @@ nbsphinx
 networkx
 openpyxl
 pandas
+pandas-profiling
 patsy
 pillow
 protobuf<4
@@ -48,3 +49,4 @@ transformers
 ujson
 xgboost
 wheel
+ydata-profiling
