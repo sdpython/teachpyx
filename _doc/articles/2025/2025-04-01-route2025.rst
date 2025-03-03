@@ -142,7 +142,7 @@ Journée 3 (3/3)
 
 **Questions sur les données une fois la jointure effectuée**
 
-* As-t-on associé tous les sinistres ?
+* A-t-on associé tous les sinistres ?
 * Calculer la durée entre la date d'un sinistre et le premier jour couvert par l'assurance.
   Tracer sa distribution. Que remarque-t-on ?
 * Peut-on garder tous les sinistres associés ? (il faut regarder la période couverte)
@@ -161,7 +161,8 @@ Journée 4 (4/3)
 * retour sur les graphes :epkg:`matplotlib`, :epkg:`seaborn`, :epkg:`plotly`, :epkg:`skrub`
 * cartographie, :epkg:`cartopy`, :epkg:`folium`
 * corrélations, pairplots
-* cubes de données avec pandas, passer un indice à droite (colonnes), à gauche (index)
+* cubes de données avec pandas, passer un indice à droite (colonnes), à gauche (index),
+  :ref:`Cube de données et pandas <nbl-c_data-nb_pandas_cube>`
 * reprise de quelques traitement de la veille en SQL :func:`pandas.read_sql`, :meth:`pandas.DataFrame.to_sql`
 * mêmes opérations avec :epkg:`SQLite`, :mod:`sqlite3`
 * gestion des doublons avec :meth:`pandas.DataFrame.duplicated`
