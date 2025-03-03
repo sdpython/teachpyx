@@ -24,7 +24,6 @@ nbsphinx
 networkx
 openpyxl
 pandas
-pandas-profiling
 patsy
 pillow
 protobuf<4
