@@ -139,6 +139,9 @@ Journée 3 (3/3)
 * gestion des dates
 * rappel pandas: group by, jointure, inner, outer, left, right, pivot
 * une fois la base complète obtenue, analyse de nouveau
+* API `REST <https://en.wikipedia.org/wiki/REST>`_, exemple avec l'API de la
+  `Banque de France <https://webstat.banque-france.fr/fr/pages/guide-migration-api/>`_
+  et le module `requests <https://requests.readthedocs.io/en/latest/>`_
 
 **Questions sur les données une fois la jointure effectuée**
 
