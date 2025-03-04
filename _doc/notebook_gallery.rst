@@ -179,7 +179,6 @@ Machine Learning
     practice/ml/winesc_multi_stacking
     practice/ml/artificiel_multiclass
     practice/ml/ml_features_model
-    practice/ml/timeseries_ssa
     practice/ml/ml_a_tree_overfitting
     practice/ml/gradient_boosting
     practice/ml/ridge_lasso
@@ -189,3 +188,8 @@ Machine Learning
     practice/ml/pretraitement_son
     practice/ml/pretraitement_texte
 
+.. nblinkgallery::
+    :caption: timeseries
+
+    practice/ml/timeseries_ssa
+    practice/ml/timeseries_seasonal

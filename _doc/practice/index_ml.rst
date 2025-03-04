@@ -55,6 +55,7 @@ Machine Learning
     :caption: Séries Temporelles
 
     ml/timeseries_ssa
+    ml/timeseries_seasonal
 
 .. toctree::
     :maxdepth: 1

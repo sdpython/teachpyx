@@ -17,6 +17,7 @@ teachpyx.datasets
 
 
     data_helper
+    data_ts
     documentation
     enedis
     gpd_helper

@@ -156,12 +156,46 @@ accessible depuis le package `datasets <https://huggingface.co/docs/datasets/en/
 Séance 5 (6/3)
 ==============
 
+**Régression, Classification linéaires**
+
+:epkg:`statsmodels` pour obtenir le résultat de tests de nullité des coefficients
+
+* :ref:`Régression logistique en 2D <nbl-practice-ml-winesc_color_line>`
+* :ref:`Plusieurs modèles, données disjointes <nbl-practice-ml-winesc_color_linear>`
+
+**Interprétabilité**
+
+* `Partial Dependence <https://scikit-learn.org/stable/modules/partial_dependence.html>`_
+* `Permutation Importance <https://scikit-learn.org/stable/modules/permutation_importance.html>`_
+* `LIME <https://arxiv.org/abs/1602.04938>`_
+* `Shapley value <https://en.wikipedia.org/wiki/Shapley_value>`_,
+  `SHAP <https://shap.readthedocs.io/en/latest/index.html>`_
+* `Counterfactual Reasoning and Learning Systems <https://arxiv.org/abs/1209.2355>`_
+
 **séries temporelles**
 
-* :epkg:`statsmodels`, :epkg:`sktime`, :epkg:`skforecast`, :epkg:`prophet`, :epkg:`pyflux`
+Le modèle de référence est :epkg:`statsmodels`
+
+* :ref:`Single Spectrum Analysis (SSA) <nbl-practice-ml-timeseries_ssa>`
+* :ref:`Décomposition d'une série temporelle <nbl-practice-ml-timeseries_seasonal>`
+
+:epkg:`sktime` propose une API plus proche de :epkg:`scikit-learn`
+et d'autres modèles comme le clusting ou la segmentation de séries temporelles.
+
+:epkg:`prophet` fait aussi de la prédiction et contient aussi des algorithmes
+de détection de changement de régime, il contient une bonne base de jours
+fériés.
+
+:epkg:`pyflux` permet d'estimer des modules `GARCH
+<https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity>`_.
+
+**Analyse de survie**
+
 * :epkg:`scikit-survival`, :epkg:`lifelines`, analyses de survie,
   `Analyse de survie <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/survival_analysis.html>`_,
   
+**Deep Learning**
+
 * `DeepAR <https://arxiv.org/abs/1704.04110>`_
 * temps réel
 
