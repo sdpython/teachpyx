@@ -1,11 +1,9 @@
-# coding: utf-8
 import os
 import sys
-
 from sphinx_runpython.conf_helper import has_dvipng, has_dvisvgm
 from sphinx_runpython.github_link import make_linkcode_resolve
-
 from teachpyx import __version__
+
 
 extensions = [
     "nbsphinx",
@@ -44,7 +42,7 @@ html_logo = "_static/project_ico.png"
 source_suffix = ".rst"
 master_doc = "index"
 project = "teachpyx"
-copyright = "2016-2024, Xavier Dupré"
+copyright = "2016-2025, Xavier Dupré"
 author = "Xavier Dupré"
 version = __version__
 release = __version__
