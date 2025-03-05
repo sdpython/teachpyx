@@ -12,3 +12,6 @@ En diagonal
     api/index
     i_ex
     i_faq
+    genindex
+    modindex
+    search

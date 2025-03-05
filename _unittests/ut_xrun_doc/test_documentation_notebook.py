@@ -2,6 +2,7 @@ import unittest
 import os
 import sys
 import importlib
+import shutil
 import subprocess
 import time
 import warnings
@@ -26,6 +27,8 @@ def import_source(module_file_path, module_name):
 
 
 class TestDocumentationNotebook(ExtTestCase):
+    _tmp = "temp_notebooks"
+
     def post_process(self, content):
         lines = []
         for line in content.split("\n"):
@@ -48,7 +51,7 @@ class TestDocumentationNotebook(ExtTestCase):
         content = self.post_process(exporter.from_filename(nb_name)[0])
         bcontent = content.encode("utf-8")
 
-        tmp = "temp_notebooks"
+        tmp = self._tmp
         if not os.path.exists(tmp):
             os.mkdir(tmp)
         # with tempfile.NamedTemporaryFile(suffix=".py") as tmp:
@@ -92,7 +95,16 @@ class TestDocumentationNotebook(ExtTestCase):
         return 1
 
     @classmethod
-    def add_test_methods_path(cls, fold):
+    def add_test_methods_path(cls, fold, copy_folder=None):
+        if copy_folder:
+            full_path = os.path.join(fold, copy_folder)
+            assert os.path.exists(full_path), f"Unable to find {full_path!r}"
+            dest = copy_folder
+            if not os.path.exists(dest):
+                os.makedirs(dest)
+                for name in os.listdir(full_path):
+                    shutil.copy(os.path.join(full_path, name), dest)
+
         found = os.listdir(fold)
         last = os.path.split(fold)[-1]
         for name in found:
@@ -160,7 +172,10 @@ class TestDocumentationNotebook(ExtTestCase):
             os.path.join(this, "..", "..", "_doc", "practice", "years", "2023"),
         ]
         for fold in folds:
-            cls.add_test_methods_path(os.path.normpath(fold))
+            cls.add_test_methods_path(
+                os.path.normpath(fold),
+                copy_folder="images" if fold.endswith("ml") else None,
+            )
 
 
 TestDocumentationNotebook.add_test_methods()
