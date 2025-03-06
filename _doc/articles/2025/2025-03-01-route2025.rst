@@ -99,6 +99,7 @@ Séance 4 (21/2)
 * prétraitements
 * anomalie
 * cartes
+* clustering
 
 **Cartes**
 
@@ -109,25 +110,32 @@ Séance 4 (21/2)
 * `Réseau de neurones <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/rn/rn.html>`_,
   `LeNet <https://en.wikipedia.org/wiki/LeNet>`_
 * `Seq2Seq <https://en.wikipedia.org/wiki/Seq2seq>`_,
-  `Sequence To Sequnce <https://paperswithcode.com/method/seq2seq>`_,
+  `Sequence To Sequence <https://paperswithcode.com/method/seq2seq>`_,
   `Sequence to Sequence (seq2seq) and Attention
   <https://lena-voita.github.io/nlp_course/seq2seq_and_attention.html>`_,
   `Transformers <https://research.google/blog/transformer-a-novel-neural-network-architecture-for-language-understanding/>`_,
   `Attention is All You Need
-  <https://france.devoteam.com/paroles-dexperts/attention-is-all-you-need-comprendre-le-traitement-naturel-du-langage-avec-les-modeles-transformers/>`_
+  <https://france.devoteam.com/paroles-dexperts/attention-is-all-you-need-comprendre-le-traitement-naturel-du-langage-avec-les-modeles-transformers/>`_,
+  `BLEU <https://fr.wikipedia.org/wiki/BLEU_(algorithme)>`_
 
 **Anomalies**
 
 * `Novelty and Outlier Detection <https://scikit-learn.org/stable/modules/outlier_detection.html>`_
 
+**Clustering**
+
+* `clustering <https://scikit-learn.org/stable/modules/clustering.html>`_
+* Vieux notebooks sur l'utilisation de vélos à Chicago
+  `City Bike Views <https://github.com/sdpython/ensae_projects/blob/master/_doc/notebooks/challenges/city_bike/city_bike_views.ipynb>`_,
+  `City Bike Clustering <https://github.com/sdpython/ensae_projects/blob/master/_doc/notebooks/challenges/city_bike/city_bike_solution_cluster_start.ipynb>`_,
+
 **Prétraitement**
 
-* Dates, Catégories : `category_encoders <https://contrib.scikit-learn.org/category_encoders/>`,
-  `skrub <https://skrub-data.org/stable/>`_,
+* Dates, Catégories : :epkg:`category_encoders`, :epkg:`skrub`,
   :ref:`Prétraitement des catégories <nbl-practice-ml-pretraitement_cat>`
 * Son : :epkg:`librosa`, voir :ref:`Prétraitement du son <nbl-practice-ml-pretraitement_son>`
 * Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`
-* Texte : :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_texte>`
+* Texte : :ref:`Prétraitement du texte <nbl-practice-ml-pretraitement_texte>`
 
 Pour la suite, on souhaite comparer ces approches sur un jeu
 accessible depuis le package `datasets <https://huggingface.co/docs/datasets/en/index>`_.
@@ -148,7 +156,59 @@ accessible depuis le package `datasets <https://huggingface.co/docs/datasets/en/
 Séance 5 (6/3)
 ==============
 
-* série temporelles
-* analyses de survie
-* DeepAR
+**Régression, Classification linéaires**
+
+:epkg:`statsmodels` pour obtenir le résultat de tests de nullité des coefficients
+
+* :ref:`Régression logistique en 2D <nbl-practice-ml-winesc_color_line>`
+* :ref:`Plusieurs modèles, données disjointes <nbl-practice-ml-winesc_color_linear>`
+
+**Interprétabilité**
+
+* `Partial Dependence <https://scikit-learn.org/stable/modules/partial_dependence.html>`_
+* `Permutation Importance <https://scikit-learn.org/stable/modules/permutation_importance.html>`_
+* `LIME <https://arxiv.org/abs/1602.04938>`_
+* `Shapley value <https://en.wikipedia.org/wiki/Shapley_value>`_,
+  `SHAP <https://shap.readthedocs.io/en/latest/index.html>`_
+* `Counterfactual Reasoning and Learning Systems <https://arxiv.org/abs/1209.2355>`_
+
+**séries temporelles**
+
+`Foundation Models for Time Series Analysis: A Tutorial and Survey <https://arxiv.org/pdf/2403.14735>`_
+
+Le modèle de référence est :epkg:`statsmodels`
+
+* :ref:`Single Spectrum Analysis (SSA) <nbl-practice-ml-timeseries_ssa>`
+* :ref:`Décomposition d'une série temporelle <nbl-practice-ml-timeseries_seasonal>`
+
+:epkg:`sktime` propose une API plus proche de :epkg:`scikit-learn`
+et d'autres modèles comme le clusting ou la segmentation de séries temporelles.
+
+:epkg:`prophet` fait aussi de la prédiction et contient aussi des algorithmes
+de détection de changement de régime, il contient une bonne base de jours
+fériés.
+
+:epkg:`pyflux` permet d'estimer des modules `GARCH
+<https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity>`_.
+
+**Analyse de survie**
+
+* :epkg:`scikit-survival`, :epkg:`lifelines`, analyses de survie,
+  `Analyse de survie <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/survival_analysis.html>`_,
+  
+**Deep Learning**
+
+* `DeepAR <https://arxiv.org/abs/1704.04110>`_
+  (code `Autoregressive modelling with DeepAR and DeepVAR
+  <https://pytorch-forecasting.readthedocs.io/en/stable/tutorials/deepar.html#>`_)
+* `Time Series Forecasting with LLMs: Understanding and Enhancing Model Capabilities <https://arxiv.org/html/2402.10835v1>`_
+* `Time-LLM: Time Series Forecasting by Reprogramming Large Language Models <https://arxiv.org/abs/2310.01728>`_
 * temps réel
+
+Evaluation
+==========
+
+* https://defis.data.gouv.fr/
+* le projet doit inclure au moins un graphe
+  *Partial Dependence* ou *Permutation Importance* (voir liens ci-dessus)
+* soutenance 11 avril 9h-13h

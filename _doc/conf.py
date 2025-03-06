@@ -1,11 +1,9 @@
-# coding: utf-8
 import os
 import sys
-
 from sphinx_runpython.conf_helper import has_dvipng, has_dvisvgm
 from sphinx_runpython.github_link import make_linkcode_resolve
-
 from teachpyx import __version__
+
 
 extensions = [
     "nbsphinx",
@@ -44,7 +42,7 @@ html_logo = "_static/project_ico.png"
 source_suffix = ".rst"
 master_doc = "index"
 project = "teachpyx"
-copyright = "2016-2024, Xavier Dupré"
+copyright = "2016-2025, Xavier Dupré"
 author = "Xavier Dupré"
 version = __version__
 release = __version__
@@ -205,6 +203,7 @@ epkg_dictionary = {
     "C++": "https://fr.wikipedia.org/wiki/C%2B%2B",
     "cloudpickle": "https://github.com/cloudpipe/cloudpickle",
     "Bresenham": "https://fr.wikipedia.org/wiki/Algorithme_de_trac%C3%A9_de_segment_de_Bresenham",
+    "category_encoders": "https://contrib.scikit-learn.org/category_encoders/",
     "copy": "https://docs.python.org/3/library/copy.html?highlight=copy#copy.copy",
     "cProfile.Profile": "https://docs.python.org/3/library/profile.html#profile.Profile",
     "Custom Criterion for DecisionTreeRegressor": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_piecewise_linear_regression_criterion.html",
@@ -219,6 +218,7 @@ epkg_dictionary = {
     "encoding": "https://fr.wikipedia.org/wiki/Codage_des_caract%C3%A8res",
     "eval": "https://docs.python.org/3/library/functions.html?highlight=id#eval",
     "Excel": "https://fr.wikipedia.org/wiki/Microsoft_Excel",
+    "folium": "https://python-visualization.github.io/folium/latest/",
     "format": "https://pyformat.info/",
     "format style": "https://pyformat.info/",
     "garbage collector": "https://fr.wikipedia.org/wiki/Ramasse-miettes_(informatique)",
@@ -235,6 +235,7 @@ epkg_dictionary = {
     "LAESA": "https://tavianator.com/aesa/",
     "LAPACK": "http://www.netlib.org/lapack/",
     "librosa": "https://librosa.org/doc/latest/index.html",
+    "lifelines": "https://lifelines.readthedocs.io/en/latest/",
     "matplotlib": "https://matplotlib.org/",
     "Method Resolution Order": "https://www.python.org/download/releases/2.3/mro/",
     "miniconda": "https://docs.conda.io/en/latest/miniconda.html",
@@ -251,6 +252,7 @@ epkg_dictionary = {
     ),
     "OneHotEncoder": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html",
     "OpenMP": "https://www.openmp.org/",
+    "orange3": "https://orangedatamining.com/",
     "pandas": (
         "https://pandas.pydata.org/pandas-docs/stable/",
         ("https://pandas.pydata.org/pandas-docs/stable/generated/pandas.{0}.html", 1),
@@ -259,20 +261,24 @@ epkg_dictionary = {
             2,
         ),
     ),
+    "pandas-profiling": "https://docs.profiling.ydata.ai/latest/",
     "PiecewiseTreeRegressor": "https://sdpython.github.io/doc/mlinsights/dev/api/mlmodel_tree.html#piecewisetreeregressor",
     "Pillow": "https://pillow.readthedocs.io/en/stable/",
     "pip": "https://pip.pypa.io/en/stable/",
     "pipeline": "https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html",
+    "plotly": "https://plotly.com/python/",
     "Predictable t-SNE": "https://sdpython.github.io/doc/mlinsights/dev/auto_examples/plot_predictable_tsne.html",
     "printf-style String Formatting": "https://docs.python.org/3/library/stdtypes.html#old-string-formatting",
     "programmation impérative": "https://fr.wikipedia.org/wiki/Programmation_imp%C3%A9rative",
     "programmation fonctionnelle": "https://fr.wikipedia.org/wiki/Programmation_fonctionnelle",
+    "prophet": "https://facebook.github.io/prophet/docs/installation.html",
     "protobuf": "https://protobuf.dev/",
     "pygame": "https://www.pygame.org/",
     "pyinstrument": "https://github.com/joerick/pyinstrument",
+    "pyflux": "https://pyflux.readthedocs.io/en/latest/",
+    "pylint": "https://github.com/pylint-dev/pylint",
     "pypi": "https://pypi.org/",
     "PyPi": "https://pypi.org/",
-    "pylint": "https://github.com/pylint-dev/pylint",
     "python": "https://www.python.org/",
     "Python": "https://www.python.org/",
     "QuantileLinearRegression": "https://sdpython.github.io/doc/mlinsights/dev/api/mlmodel.html#quantilelinearregression",
@@ -285,10 +291,15 @@ epkg_dictionary = {
     "rst": "https://fr.wikipedia.org/wiki/ReStructuredText",
     "scikit-image": "https://scikit-image.org/",
     "scikit-learn": "https://scikit-learn.org/stable/index.html",
+    "scikit-survival": "https://scikit-survival.readthedocs.io/en/stable/index.html",
     "scipy": "https://scipy.org/",
     "sérialisation": "https://fr.wikipedia.org/wiki/S%C3%A9rialisation",
+    "skforecast": "https://skforecast.org/",
     "sklearn": "https://scikit-learn.org/stable/index.html",
     "sklearn-onnx": "https://onnx.ai/sklearn-onnx/",
+    "sktime": "https://www.sktime.net/en/stable/index.html",
+    "skrub": "https://skrub-data.org/stable/",
+    "SQLite": "https://www.sqlite.org/",
     "statsmodels": "http://www.statsmodels.org/stable/index.html",
     "SVD": "https://fr.wikipedia.org/wiki/D%C3%A9composition_en_valeurs_singuli%C3%A8res",
     "sys.modules": "https://docs.python.org/3/library/sys.html?highlight=modules#sys.modules",

@@ -118,3 +118,94 @@ Excel avec un graphe automatiquement depuis Python.
 * :ref:`l-example-serialization`
 * :ref:`l-example-plot-groupby`
 * :ref:`Manipulation de données avec pandas <nbl-c_data-nb_pandas>`
+
+Journée 3 (3/3)
+===============
+
+**Partie 1**
+
+* retour sur la syntaxe du langage python, boucle, test, fonctions et classes,
+* exercice : :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
+* :ref:`exceptions`
+* :ref:`l-regex`, :ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`
+* :mod:`pickle`, fichiers pickle (voir :ref:`chap_serialization`)
+* récupération des fichiers préparés pour la formation avec pandas
+* utilisation de :epkg:`skrub` pour avoir un premier aperçu ou
+  :epkg:`pandas-profiling`, (voir aussi :epkg:`orange3`)
+* première jointure
+
+**Partie 2**
+
+* gestion des dates
+* rappel pandas: group by, jointure, inner, outer, left, right, pivot
+* une fois la base complète obtenue, analyse de nouveau
+* API `REST <https://en.wikipedia.org/wiki/REST>`_, exemple avec l'API de la
+  `Banque de France <https://webstat.banque-france.fr/fr/pages/guide-migration-api/>`_
+  et le module `requests <https://requests.readthedocs.io/en/latest/>`_
+
+**Questions sur les données une fois la jointure effectuée**
+
+* A-t-on associé tous les sinistres ?
+* Calculer la durée entre la date d'un sinistre et le premier jour couvert par l'assurance.
+  Tracer sa distribution. Que remarque-t-on ?
+* Peut-on garder tous les sinistres associés ? (il faut regarder la période couverte)
+* On calcule le nombre de sinistres par individu, puis on fait la moyenne
+  par année. Est-ce que la proportion paraît constante ?
+* On fait de même pour différentes catégories de la base ?
+* Comment illustrer rapidement cela avec un graphique ?
+* Comment faire des statistiques sur une année ?
+  Comment faire avec des assurances à cheval sur deux années ?
+
+Journée 4 (4/3)
+===============
+
+**Partie 1**
+
+* retour sur les graphes :epkg:`matplotlib`, :epkg:`seaborn`, :epkg:`plotly`, :epkg:`skrub`
+* cartographie, :epkg:`cartopy`, :epkg:`folium`
+* corrélations, pairplots
+* cubes de données avec pandas, passer un indice à droite (colonnes), à gauche (index),
+  :ref:`Cube de données et pandas <nbl-c_data-nb_pandas_cube>`
+* reprise de quelques traitement de la veille en SQL :func:`pandas.read_sql`, :meth:`pandas.DataFrame.to_sql`
+* mêmes opérations avec :epkg:`SQLite`, :mod:`sqlite3`
+* gestion des doublons avec :meth:`pandas.DataFrame.duplicated`
+* identification des valeurs aberrantes, voir :meth:`pandas.DataFrame.quantile`
+* :ref:`Tests unitaires <nbl-practice-py-base-tests_unitaires>`
+* On reprend le code écrit jusqu'à présent. On veut écrire une fonction qui
+  effectue la jointure et extrait toutes les lignes aberrantes ou manquantes.
+* Ecrire un test unitaire qui valide cette fonction.
+  Peut-on utiliser les données qu'on manipule depuis
+  le début de la séance ?
+
+**Partie 2**
+
+* notion d'itérateur en python
+* application à :func:`pandas.read_csv` version itérateur pour manipuler des gros dataframes
+* utilisation de sqlite3 (extension sqlite3 vscode)
+* découpage d'une base en deux, apprentissage, respecter le temps et les identifiants
+* calcul du prix d'un contrat d'assurance pour un an en fonction de
+  variables choisies en fonction des données connues
+* Obtient-on le même prix sur les deux bases ?
+* Ecrire le test unitaire validant la fonction qui calcule le prix.
+* Notion de package.
+
+Journée 5 (5/3)
+===============
+
+* introduction de :epkg:`scikit-learn`
+* valeurs manquantes, remplacement simple (moyenne),
+  corrélations (:class:`sklearn.impute.KNNImputer`), prédictions
+  (:class:`sklearn.impute.IterativeImputer`),
+  (voir `sklearn.impute <https://scikit-learn.org/stable/api/sklearn.impute.html>`_)
+* premières impressions
+* exemples classique pour traiter, enrichir un jeux de données :
+  `skrub tutorial <https://skrub-data.org/stable/auto_examples/00_getting_started.html>`_,
+  voir aussi
+  `AggJoiner on a credit fraud dataset <https://skrub-data.org/stable/auto_examples/08_join_aggregation.html>`_
+* :class:`sklearn.pipeline.Pipeline`, :class:`sklearn.compose.ColumnTransformer`, 
+  :class:`sklearn.pipeline.FeatureUnion`
+* Dates, Catégories : :epkg:`category_encoders`, :epkg:`skrub`,
+  :ref:`Prétraitement des catégories <nbl-practice-ml-pretraitement_cat>`
+* Son : :epkg:`librosa`, voir :ref:`Prétraitement du son <nbl-practice-ml-pretraitement_son>`
+* Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`
+* Texte : :ref:`Prétraitement du texte <nbl-practice-ml-pretraitement_texte>`

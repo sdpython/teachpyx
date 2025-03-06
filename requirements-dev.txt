@@ -46,5 +46,6 @@ torch
 tqdm
 transformers
 ujson
+xarray
 xgboost
 wheel
