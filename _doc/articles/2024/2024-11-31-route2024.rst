@@ -1,3 +1,5 @@
+.. _l-feuille-route-ensae-2024:
+
 2024-11-31 : rappel feuille de route 2024
 =========================================
 
@@ -26,7 +28,7 @@ Fin des classes puis :ref:`les itérateurs <nbl-practice-py-base-classe_iterateu
 Séance 4
 ++++++++
 
-Nous garderons les dames et l'algortithme minimax pour une autre fois peut être.
+Nous garderons les dames et l'algorithme minimax pour une autre fois peut être.
 Cette séance à propos de la programmation dynamique.
 Le premier exercice consiste à déterminer le nombre minimal de pièces
 de monnaie pour écrire un montant et de retrouver la séquence minimale
