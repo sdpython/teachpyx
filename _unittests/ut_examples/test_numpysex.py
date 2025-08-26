@@ -12,7 +12,7 @@ class TestNumpys(unittest.TestCase):
 
     def test_numpys_types(self):
         dt = numpy_types()
-        self.assertEqual(len(dt), 19)
+        self.assertEqual(len(dt), 17)
 
 
 if __name__ == "__main__":

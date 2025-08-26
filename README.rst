@@ -3,9 +3,6 @@
     :target: https://ci.appveyor.com/project/sdpython/teachpyx
     :alt: Build Status Windows
 
-.. image:: https://dl.circleci.com/status-badge/img/gh/sdpython/teachpyx/tree/main.svg?style=svg
-    :target: https://dl.circleci.com/status-badge/redirect/gh/sdpython/teachpyx/tree/main
-
 .. image:: https://badge.fury.io/py/teachpyx.svg
     :target: https://pypi.org/project/teachpyx/
 
