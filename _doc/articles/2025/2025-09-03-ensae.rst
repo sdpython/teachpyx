@@ -46,7 +46,7 @@ La plupart du temps, on n'invente pas de nouveau, on assemble des algortihmes
 existants ou on les adapte dans des cas où la version classique est trop longue,
 ou ne prend pas en compte une contrainte particulière...
 
-.. image:: dames_chatpt.png
+.. image:: dames_chatgpt.png
 
 A qui appartient le code écrit ?
 
