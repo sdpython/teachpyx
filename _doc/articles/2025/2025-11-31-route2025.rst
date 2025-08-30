@@ -10,61 +10,59 @@ Suggestions de sujets pour les séances.
 Séance 1
 ++++++++
 
-:ref:`Prises aux dames <nbl-practice-py-base-dame_prise>`
+* introduction aux classes
+* package dataclass
+* opérateur
+
+Utilisation de ChatGPT, Gemini, LeChat, ... pour convertir un code
+sans classe en un code avec des classes et réciproquement.
 
 Séance 2
 ++++++++
 
-Tests unitaires et classes toujours avec les dames
+* héritage
+* itérateurs
+* tests unitaires
 
-:ref:`Prises aux dames <nbl-practice-py-base-dame_prise>`
+Ecriture de tests unitaires avec ChatGPT, Gemini, LeChat, ...
 
 Séance 3
 ++++++++
 
-:ref:`classes pour représenter un graphe <nbl-practice-py-base-classe_tree>`
-
-Fin des classes puis :ref:`les itérateurs <nbl-practice-py-base-classe_iterateur>` et
-:ref:`numpy broadcast <nbl-c_data-numpy_broadcast>`.
+* numpy, broadcasting
+* implémentation d'un chi-deux sans boucle
 
 Séance 4
 ++++++++
 
-:ref:`Distance d'édition <nbl-practice-years-2023-editdist>`.
-
-A propos de la distance d'édition, voir aussi
-:ref:`Distance d'édition <nbl-practice-algo-base-exercice_edit_distance>` ou encore
-:ref:`Distance entre deux mots de même longueur et tests unitaires <nbl-practice-algo-base-exercice_editdist>`.
+* plus court chemin dans un graphe
+* voyageur de commerce
+* distance d'édition (si le temps le permet)
 
 Séance 5
 ++++++++
 
-* :ref:`burrowswheelerrst`
-* :ref:`Code de Vigenère <nbl-practice-algo-compose-vigenere>`
+* profiling
+* :ref:`Recherche à base de préfixes <nbl-practice-years-2023-prefix_search>` en terme algorithmique.
 
 Séance 6
 ++++++++
 
-* :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
-* :ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`,
-  :ref:`Modules, fichiers, expression régulières <nbl-practice-tds-base-module_file_regex>`
-* :ref:`Le voyageur de commerce <nbl-practice-algo-base-tsp_simplifie>` ou
-  `problème du sac à dos <https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_sac_%C3%A0_dos>`_
-
-Evocation de la :ref:`Recherche à base de préfixes <nbl-practice-years-2023-prefix_search>`
-en terme algorithmique.
+:ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`,
+:ref:`Modules, fichiers, expression régulières <nbl-practice-tds-base-module_file_regex>`
 
 Séance 7
 ++++++++
 
-* :ref:`Classe et héritage <nbl-practice-py-base-classe_user_p>`
+Exemple d'assemblage d'algorithme avec le problème du postier chinois.
+
+Révision avec un TD noté.
+Utilisation de ChatGPT, LeChat, Gemini après quelques minutes.
 
 Séance 8
 ++++++++
 
-* :ref:`Optimisation de la note moyenne <nbl-practice-years-2023-bareme_note_optimisation>`
-* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`,
-  cet algorithme est la première étage pour inverser une matrice
+Quelques rappels en préparation du TD noté.
 
 TD noté 1h30 en seconde partie.
 Classes et un algorithme.

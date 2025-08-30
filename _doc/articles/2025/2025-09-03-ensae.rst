@@ -39,9 +39,16 @@ dans un cadre précis.
 
 Ils ne fournissent pas la solution mais une bonne base de départ qu'on peut retravailler
 ou ajouter à d'autres bouts de code construits de la même façon.
-Il faut bien sûr comprendre les réponses
+Pour comprendre les réponses, il est important de connaître le langage
+et quelques algorithmes.
+
+La plupart du temps, on n'invente pas de nouveau, on assemble des algortihmes
+existants ou on les adapte dans des cas où la version classique est trop longue,
+ou ne prend pas en compte une contrainte particulière...
 
 .. image:: dames_chatpt.png
+
+A qui appartient le code écrit ?
 
 **Ressources**
 
