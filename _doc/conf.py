@@ -423,3 +423,13 @@ epkg_dictionary.update(
 
 imgmath_latex_preamble = preamble
 latex_elements["preamble"] = imgmath_latex_preamble
+
+
+def skip_member(app, what, name, obj, skip, options):
+    if "RequestMethod" in str(obj):
+        return True  # Skip this member
+    return skip
+
+
+def setup(app):
+    app.connect("autodoc-skip-member", skip_member)
