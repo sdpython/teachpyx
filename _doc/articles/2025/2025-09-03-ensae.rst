@@ -1,6 +1,17 @@
 2025-09-03 : ENSAE
 ==================
 
+**Objectif**
+
+Vous permettre de maîtriser les outils nécessaires à la réalisation de vos
+projets, à l'ENSAE et ce qui suivra.
+
+Le langage python est un des plus simples et un des plus populaires.
+Il est open source et fonctionne sur tous les systèmes d'exploitation.
+Il permet d'accomplir à peu près toutes les tâches, que ce soit
+des calculs numériques, la création d'un site web, l'automisation de
+tâches répétitives et complexes.
+
 **Notions à maîtriser**
 
 * éléments de bases du langages (boucles, listes, tests, fonctions)

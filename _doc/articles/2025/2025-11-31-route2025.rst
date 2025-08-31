@@ -11,8 +11,23 @@ Séance 1
 ++++++++
 
 * introduction aux classes
+* attributs et méthodes
+* constructeur ``__init__``
+* méthodes spéciales ``__str__``, ``__add__``
+* propriété ``@property``
 * package dataclass
-* opérateur
+
+.. code-block:: python
+
+    @dataclass
+    class SerieTelevisee:
+        duree_episode: float
+        n_episodes: int
+        n_saisons: int
+        categorie: str
+
+        def __post_init__(self):
+            self.duree_total = self.duree_episode * self.n_episodes * self.n_saisons
 
 Utilisation de ChatGPT, Gemini, LeChat, ... pour convertir un code
 sans classe en un code avec des classes et réciproquement.
