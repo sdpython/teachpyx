@@ -38,8 +38,6 @@ sounddevice
 sphinx
 sphinx-gallery
 sphinx-issues
-sphinxcontrib-blockdiag
-git+https://github.com/yuzutech/blockdiag.git@v3.3.0
 git+https://github.com/sdpython/sphinx-runpython.git
 statsmodels
 torch
