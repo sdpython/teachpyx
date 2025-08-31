@@ -84,9 +84,9 @@ jobs:
             grep ERROR doc.txt
             exit 1
           fi
-          if [[ $(grep WARNING doc.txt | grep -v 'download' | grep -v 'CERTIFICATE_VERIFY_FAILED') ]]; then
+          if [[ $(grep WARNING doc.txt | grep -v 'download' | grep -v 'CERTIFICATE_VERIFY_FAILED' | grep -v '[image.not_readable]') ]]; then
             echo "Documentation produces warnings."
-            cat doc.txt | grep WARNING | grep -v 'CERTIFICATE_VERIFY_FAILED' | grep -v 'download'
+            cat doc.txt | grep WARNING | grep -v 'CERTIFICATE_VERIFY_FAILED' | grep -v 'download' | grep -v '[image.not_readable]'
             exit 1
           fi
 

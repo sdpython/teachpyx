@@ -439,7 +439,7 @@ def _process_pstats(
             if verbose and logf is not None:
                 logf(
                     "[pstats] %s=%r"
-                    % ((clean_text(k[0].replace("\\", "/")),) + k[1:], v)
+                    % (clean_text(k[0].replace("\\", "/")), (*k[1:], v))
                 )
             if len(v) < 5:
                 continue

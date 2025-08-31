@@ -102,7 +102,8 @@ class TestDocumentationNotebook(ExtTestCase):
             dest = copy_folder
             if not os.path.exists(dest):
                 os.makedirs(dest)
-                for name in os.listdir(full_path):
+            for name in os.listdir(full_path):
+                if not os.path.exists(os.path.join(dest, name)):
                     shutil.copy(os.path.join(full_path, name), dest)
 
         found = os.listdir(fold)
@@ -174,7 +175,7 @@ class TestDocumentationNotebook(ExtTestCase):
         for fold in folds:
             cls.add_test_methods_path(
                 os.path.normpath(fold),
-                copy_folder="images" if fold.endswith("ml") else None,
+                copy_folder=("images" if fold.endswith(("ml", "py-base")) else None),
             )
 
 

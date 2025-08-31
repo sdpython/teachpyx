@@ -1,0 +1,85 @@
+.. _l-feuille-route-ensae-2025:
+
+2025-11-31 : rappel feuille de route 2025
+=========================================
+
+Le plan des séances est parfois changé après que celles-ci ont eu lieu.
+
+Suggestions de sujets pour les séances.
+
+Séance 1
+++++++++
+
+* introduction aux classes
+* attributs et méthodes
+* constructeur ``__init__``
+* méthodes spéciales ``__str__``, ``__add__``
+* propriété ``@property``
+* package dataclass
+
+.. code-block:: python
+
+    @dataclass
+    class SerieTelevisee:
+        duree_episode: float
+        n_episodes: int
+        n_saisons: int
+        categorie: str
+
+        def __post_init__(self):
+            self.duree_total = self.duree_episode * self.n_episodes * self.n_saisons
+
+Utilisation de ChatGPT, Gemini, LeChat, ... pour convertir un code
+sans classe en un code avec des classes et réciproquement.
+
+Séance 2
+++++++++
+
+* héritage
+* itérateurs
+* tests unitaires
+
+Ecriture de tests unitaires avec ChatGPT, Gemini, LeChat, ...
+
+Séance 3
+++++++++
+
+* numpy, broadcasting
+* implémentation d'un chi-deux sans boucle
+
+Séance 4
+++++++++
+
+* plus court chemin dans un graphe
+* voyageur de commerce
+* distance d'édition (si le temps le permet)
+
+Séance 5
+++++++++
+
+* profiling
+* :ref:`Recherche à base de préfixes <nbl-practice-years-2023-prefix_search>` en terme algorithmique.
+
+Séance 6
+++++++++
+
+:ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`,
+:ref:`Modules, fichiers, expression régulières <nbl-practice-tds-base-module_file_regex>`
+
+Séance 7
+++++++++
+
+Exemple d'assemblage d'algorithme avec le problème du postier chinois.
+
+Révision avec un TD noté.
+Utilisation de ChatGPT, LeChat, Gemini après quelques minutes.
+
+Séance 8
+++++++++
+
+Quelques rappels en préparation du TD noté.
+
+TD noté 1h30 en seconde partie.
+Classes et un algorithme.
+Enoncés des années précédentes :
+:ref:`l-exams`.

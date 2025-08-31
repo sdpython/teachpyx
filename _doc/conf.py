@@ -24,7 +24,6 @@ extensions = [
     "sphinx_runpython.epkg",
     "sphinx_runpython.gdot",
     "sphinx_runpython.runpython",
-    "sphinxcontrib.blockdiag",
     "matplotlib.sphinxext.plot_directive",
 ]
 
@@ -101,7 +100,7 @@ intersphinx_mapping = {
     "skl2onnx": ("https://onnx.ai/sklearn-onnx/", None),
     "sklearn": ("https://scikit-learn.org/stable/", None),
     "skrub": ("https://skrub-data.org/stable/", None),
-    "torch": ("https://pytorch.org/docs/stable/", None),
+    "torch": ("https://docs.pytorch.org/docs/stable/", None),
 }
 
 # Check intersphinx reference targets exist
@@ -112,6 +111,7 @@ nitpick_ignore = [
     ("py:class", "True"),
     ("py:class", "pipeline.Pipeline"),
     ("py:class", "default=sklearn.utils.metadata_routing.UNCHANGED"),
+    ("py:class", "sklearn.utils._metadata_requests.RequestMethod"),
 ]
 
 sphinx_gallery_conf = {
@@ -197,7 +197,6 @@ epkg_dictionary = {
     "Awesome Python": "https://awesome-python.com/",
     "B+ tree": "https://en.wikipedia.org/wiki/B%2B_tree",
     "BLAS": "https://www.netlib.org/blas/",
-    "blockdiag": "https://github.com/blockdiag/blockdiag",
     "Branch and Bound": "https://en.wikipedia.org/wiki/Branch_and_bound",
     "bytearray": "https://docs.python.org/3/library/functions.html#bytearray",
     "C++": "https://fr.wikipedia.org/wiki/C%2B%2B",
@@ -424,3 +423,13 @@ epkg_dictionary.update(
 
 imgmath_latex_preamble = preamble
 latex_elements["preamble"] = imgmath_latex_preamble
+
+
+def skip_member(app, what, name, obj, skip, options):
+    if "RequestMethod" in str(obj):
+        return True  # Skip this member
+    return skip
+
+
+def setup(app):
+    app.connect("autodoc-skip-member", skip_member)

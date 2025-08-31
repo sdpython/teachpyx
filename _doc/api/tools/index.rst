@@ -16,7 +16,6 @@ teachpyx.tools
     :caption: modules
 
 
-    blockdiag_helper
     data_helper
     graphviz_helper
     helpers

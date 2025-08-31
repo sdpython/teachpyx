@@ -57,14 +57,9 @@ La sérialisation passe par une étape intermédiaire qui revient à
 convertir tout type de variables en une séquence de listes et
 de dictionnaires puis à la convertir sous la forme d'une séquence d'octets.
 
-.. blockdiag::
+::
 
-    blockdiag {
-       A [label = "variables"];
-       B [label = "dictionnaires, listes"];
-       C [label = "séquence d'octets"];
-       A -> B -> C;
-    }
+    variables -> dictionnaires, listes -> séquence d'octets
 
 Le format :epkg:`XML`
 intervient lors de la seconde étape. Il est assez *verbeux*. La séquence
@@ -309,13 +304,9 @@ qui est convertit ensuite en un programme qui permette de
 sérialiser, désérialiser et accéder à une information précise
 dans le language de votre choix.
 
-.. blockdiag::
+::
 
-    blockdiag {
-       A [label = "schéma"];
-       B [label = "code python"];
-       A -> B [label = "compilation"];
-    }
+    schéma -> compilation -> code python    
 
 La suite est dans l'exemple :ref:`l-example-protobuf`.
 
