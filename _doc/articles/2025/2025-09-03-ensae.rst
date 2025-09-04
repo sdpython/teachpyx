@@ -69,6 +69,7 @@ A qui appartient le code écrit ?
 * exercices sur des algortihmes :ref:`l-algo`
 * examens passés :ref:`l-exams`
 * `Des aspects plus mathématiques d'algorithmes <https://sdpython.github.io/doc/mlstatpy/dev/>`_
+* :ref:`l-notebook-2025`
 
 **Getting Started**
 
