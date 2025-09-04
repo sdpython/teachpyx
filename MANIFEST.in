@@ -2,7 +2,6 @@ prune _doc
 prune _unittests
 prune _todo
 prune bin
-prune .circleci
 exclude *.bat
 exclude *.yml
 exclude *.git*

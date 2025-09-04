@@ -5,7 +5,10 @@
 
 Le plan des séances est parfois changé après que celles-ci ont eu lieu.
 
+Notebooks écrits en séances : :ref:`l-notebook-2025`.
+
 Suggestions de sujets pour les séances.
+
 
 Séance 1
 ++++++++

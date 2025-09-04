@@ -5,3 +5,5 @@ Notebooks écrits durant les séances
     :maxdepth: 2
 
     2023/index
+    2025/index
+
