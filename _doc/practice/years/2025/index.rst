@@ -1,7 +1,7 @@
 .. _l-notebook-2025:
 
-2025
-====
+2025 : notebooks créés en séances
+=================================
 
 .. toctree::
     :maxdepth: 1
