@@ -7,3 +7,4 @@
     :maxdepth: 1
 
     seance1_point2d
+    seance4_algo
