@@ -8,3 +8,4 @@
 
     seance1_point2d
     seance4_algo
+    seance5_algo2
