@@ -49,6 +49,45 @@ Séance 3
 
 * numpy, broadcasting
 * implémentation d'un chi-deux sans boucle
+* comment implémenter la fonction `repeat_interleave
+  <https://docs.pytorch.org/docs/stable/generated/torch.repeat_interleave.html>`_
+  avec :epkg:`numpy` et sans boucle ?
+  En particulier cet exemple ``torch.repeat_interleave(y, torch.tensor([1, 2]), dim=0)``
+
+Un problème... que fait la fonction suivante ?
+
+.. code-block:: python
+
+    def reshape_keep0(arr, new_shape):
+        orig_shape = arr.shape
+        final_shape = []
+        
+        for i, dim in enumerate(new_shape):
+            if dim == 0:
+                final_shape.append(orig_shape[i])  # garder dimension originale
+            else:
+                final_shape.append(dim)    
+        return arr.reshape(tuple(final_shape))    
+
+Comment construire une fonction qui retourne l'argument ``new_shape``
+quand on connaît les dimensions de départ et d'arrivée ?
+La fonction doit valider les exemples suivants,
+chaque dimension sous forme de chaîne de caractères peut prendre n'importe
+quelle valeur.
+
+.. code-block:: python
+
+    self.assertEqual((0, 1024, -1),     align(("d1", 4, 256, "d2"), ("d1", 1024, "d2")))
+    self.assertEqual((0, 0, 1024),      align(("d1", "d2", 4, 256), ("d1", "d2", 1024)))
+    self.assertEqual((6, -1),           align((2, 3, "d1"), ("a", "d1")))
+    self.assertEqual((6, -1),           align((2, 3, "d1"), (6, "d1")))
+    self.assertEqual((-1, 12, 196, 64), align(("d1", 196, 64), ("d2", 12, 196, 64)))
+    self.assertEqual((-1, 196, 64),     align(("d1", 196, 64), ("d2", 196, 64)))
+    self.assertEqual((32, 196, 64),     align((32, 196, 64), (32, 196, 64)))
+    self.assertEqual((4, 8, 196, 64),   align((32, 196, 64), (4, 8, 196, 64)))
+    self.assertEqual((32, 196, 64),     align((4, 8, 196, 64), (32, 196, 64)))
+    self.assertEqual((0, 196, 64),      align(("d1", 196, 64), ("d1", 196, 64)))
+    self.assertEqual((0, 196, 2, 32),   align(("d1", 196, 64), ("d1", 196, 2, 32)))    
 
 Séance 4
 ++++++++
