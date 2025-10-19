@@ -9,3 +9,5 @@
     seance1_point2d
     seance4_algo
     seance5_algo2
+    seance6_regex
+    seance7_postier_chinois
