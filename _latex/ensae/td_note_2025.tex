@@ -1,0 +1,140 @@
+\documentclass[a4paper,11pt]{article}
+%\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[lmargin=2.5cm,rmargin=2.5cm,tmargin=2cm,bmargin=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+
+\lstdefinestyle{mypython}{
+    language=Python,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\footnotesize,
+    frame=single,
+    keywordstyle=\color{blue},
+    commentstyle=\color{ForestGreen},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    tabsize=4,
+    showstringspaces=false
+}
+
+%\newenvironment{verbatim}{\begin{lstlisting}[style=mypython]}{\end{lstlisting}}
+%\newenvironment{verbatim}{\begin{lstlisting}[style=mypython]}{\end{lstlisting}}
+
+\setlength{\parindent}{0pt}
+
+\newcounter{question}
+\newcommand{\exequest}[1]{\bigskip \stepcounter{question} \textbf{Question \arabic{question}} : #1}
+
+% Informations sur l'examen
+\title{ENSAE TD noté, mercredi 5 novembre 2024}
+\date{}
+
+\begin{document}
+
+\vspace{-3cm} 
+\maketitle
+\vspace{-1.5cm} 
+
+\medskip
+\emph{Toutes les questions valent 2 points.}
+\bigskip
+
+Au pays des schtroumphs, le schtroumph statisticien a décidé d'organiser le recensement
+des schtroumphs. La première tout s'est déroulé à la perfection et a abouti
+au résultat suivant :
+
+\\
+
+\begin{tabular}{lrrl}
+\toprule
+ & schtroumph & schtroumph & index \\
+\midrule
+0 & 8 & 7 & schtroumph \\
+1 & 18 & 18 & schtroumph \\
+2 & 6 & 8 & schtroumph \\
+\bottomrule
+\end{tabular}
+
+\\
+
+L'année suivante, le statisticien a délégué le recensement à son apprenti.
+
+\\
+
+\begin{tabular}{lrrl}
+\toprule
+ & schtroumph & schtroumph & index \\
+\midrule
+0 & 18 & 18 & schtroumph \\
+1 & 7 & 9 & schtroumph \\
+2 & 8 & 6 & schtroumph \\
+\bottomrule
+\end{tabular}
+
+\\
+
+Au début, il s'est demandé comment la population avait tant changé.
+Puis il s'est rappelé que la langue schtroumph est une langue parlée.
+Tous les mots s'écrivent de la même façon.
+Le schroumph statisticien va devoir réconcilier les données.
+
+
+%%%%%
+\exequest{Implémenter une fonction qui calcule la distance entre deux matrices}
+
+\begin{lstlisting}[style=mypython]
+def distance(table1, table2):
+    # ...
+    return ...
+
+assert distance(np.array([[0, 1], [0, 1]]), np.array([[0, 1], [0, 1]])) == 0
+\end{lstlisting}
+
+\exequest{Implémenter une fonction qui retourne les permutations des n premiers entiers}
+
+\exequest{Implémenter une fonction qui permute les colonnes d'une matrice.}
+
+\begin{lstlisting}[style=mypython]
+def permute_colonne(table, permutation):
+    # ...
+    return ...
+\end{lstlisting}
+
+\exequest{Faire de même pour les lignes}
+
+\begin{lstlisting}[style=mypython]
+def permute_ligne(table, permutation):
+    # ...
+    return ...
+\end{lstlisting}
+
+Faire de même pour les lignes.
+
+\exequest{Ecrire une fonctionne qui retourne les deux permutations ligne/colonne 
+qui minimise la distance entre les deux matrices, en déduire la case qui a changé.}
+
+\exequest{Quel est le coût de cette fonction ?}
+
+\exequest{C'est beaucoup trop long. On propose que calculer chaque permutation séparément.}
+On cherche donc la meilleure permutation qui minimise la distribution de la somme par ligne
+et par colonne entre les deux matrices.
+Ecrire une fonctionne qui implémente ce raisonnement.
+
+\exequest{Mais c'est encore trop coûteux}
+On cherche la matrice M qui minimise $AM=B$ où A et B sont les sommes sur les colonnes où lignes
+des matrices de statistiques observées sur deux années.
+
+\exequest{Comment utiliser cette fonction pour implémenter une version plus rapide de la fonction à la question 5.}
+
+\exequest{La troisième année, une colonne est coupée en deux : une catégorie est divisée en deux sous-catégories.}
+
+Que proposez-vous pour y remédier ?
+
+\end{document}

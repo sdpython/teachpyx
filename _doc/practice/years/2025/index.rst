@@ -11,3 +11,4 @@
     seance5_algo2
     seance6_regex
     seance7_postier_chinois
+    seance8_ski
