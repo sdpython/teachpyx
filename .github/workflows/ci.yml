@@ -44,4 +44,10 @@ jobs:
       - name: run tests
         run: |
           pip install pytest
-          PYTHONPATH=. UNITTEST_GOING=1 pytest --durations=10 _unittests  --ignore-glob=**pygame*.py
+          PYTHONPATH=. UNITTEST_GOING=1 pytest --durations=10 _unittests  --ignore-glob=**pygame*.py --ignore _unittests/ut_xrun_doc/test_documentation_examples.py --ignore _unittests/ut_xrun_doc/test_documentation_notebook.py
+
+      - name: run tests examples
+        run: PYTHONPATH=. UNITTEST_GOING=1 python --durations=10 _unittests/ut_xrun_doc/test_documentation_examples.py
+
+      - name: run tests notebooks
+        run: PYTHONPATH=. UNITTEST_GOING=1 python --durations=10 _unittests/ut_xrun_doc/test_documentation_notebooks.py
