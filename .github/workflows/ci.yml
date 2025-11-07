@@ -47,7 +47,7 @@ jobs:
           PYTHONPATH=. UNITTEST_GOING=1 pytest --durations=10 _unittests  --ignore-glob=**pygame*.py --ignore _unittests/ut_xrun_doc/test_documentation_examples.py --ignore _unittests/ut_xrun_doc/test_documentation_notebook.py
 
       - name: run tests examples
-        run: PYTHONPATH=. UNITTEST_GOING=1 python _unittests/ut_xrun_doc/test_documentation_examples.py
+        run: PYTHONPATH=. UNITTEST_GOING=1 pytest --durations=10 _unittests/ut_xrun_doc/test_documentation_examples.py -v
 
       - name: run tests notebooks
-        run: PYTHONPATH=. UNITTEST_GOING=1 python _unittests/ut_xrun_doc/test_documentation_notebook.py
+        run: PYTHONPATH=. UNITTEST_GOING=1 pytest --durations=10 _unittests/ut_xrun_doc/test_documentation_notebook.py -v
