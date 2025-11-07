@@ -139,6 +139,8 @@ class TestDocumentationNotebook(ExtTestCase):
                     reason = "tree_overfitting too long"
                 if not reason and "pretraitement_son" in name:
                     reason = "audio too long"
+                if not reason and "ml_ml_features_model" in name:
+                    reason = "http request denied"
 
                 if reason:
 
