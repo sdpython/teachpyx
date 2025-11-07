@@ -50,4 +50,4 @@ jobs:
         run: PYTHONPATH=. UNITTEST_GOING=1 python _unittests/ut_xrun_doc/test_documentation_examples.py
 
       - name: run tests notebooks
-        run: PYTHONPATH=. UNITTEST_GOING=1 python _unittests/ut_xrun_doc/test_documentation_notebooks.py
+        run: PYTHONPATH=. UNITTEST_GOING=1 python _unittests/ut_xrun_doc/test_documentation_notebook.py
