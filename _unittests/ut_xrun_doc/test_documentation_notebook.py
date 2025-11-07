@@ -111,40 +111,38 @@ class TestDocumentationNotebook(ExtTestCase):
         for name in found:
             if name.endswith(".ipynb"):
                 fullname = os.path.join(fold, name)
-                if "interro_rapide_" in name or (
-                    sys.platform == "win32"
-                    and (
-                        "protobuf" in name
-                        or "td_note_2021" in name
-                        or "nb_pandas" in name
+                reason = None
+                if not reason and (
+                    "interro_rapide_" in name
+                    or (
+                        sys.platform == "win32"
+                        and (
+                            "protobuf" in name
+                            or "td_note_2021" in name
+                            or "nb_pandas" in name
+                        )
                     )
                 ):
-
-                    @unittest.skip("notebook with questions or issues with windows")
-                    def _test_(self, fullname=fullname):
-                        res = self.run_test(fullname, verbose=VERBOSE)
-                        self.assertIn(res, (-1, 1))
-
-                elif "module_file_regex" in name and sys.platform != "win32":
-
-                    @unittest.skip("issues with linux")
-                    def _test_(self, fullname=fullname):
-                        res = self.run_test(fullname, verbose=VERBOSE)
-                        self.assertIn(res, (-1, 1))
-
-                elif (
+                    reason = "protobuf on windows not working"
+                if not reason and "seance5_algo2" in name:
+                    reason = "profiling not working on CI"
+                if (
+                    not reason
+                    and "module_file_regex" in name
+                    and sys.platform != "win32"
+                ):
+                    reason = "regex not working on windows"
+                if not reason and (
                     "ml_a_tree_overfitting" in name
                     and os.environ.get("CIRCLECI", "undefined") != "undefined"
                 ):
+                    reason = "tree_overfitting too long"
+                if not reason and "pretraitement_son" in name:
+                    reason = "audio too long"
 
-                    @unittest.skip("issues with circleci")
-                    def _test_(self, fullname=fullname):
-                        res = self.run_test(fullname, verbose=VERBOSE)
-                        self.assertIn(res, (-1, 1))
+                if reason:
 
-                elif "pretraitement_son" in name:
-
-                    @unittest.skip("audio not working")
+                    @unittest.skip(reason)
                     def _test_(self, fullname=fullname):
                         res = self.run_test(fullname, verbose=VERBOSE)
                         self.assertIn(res, (-1, 1))
