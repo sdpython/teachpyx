@@ -20,7 +20,6 @@ import numpy
 import pandas
 import matplotlib.pyplot as plt
 
-
 rnd = numpy.random.random(100000000)
 rnd.shape, rnd.dtype
 

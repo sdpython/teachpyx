@@ -4,7 +4,6 @@ from sphinx_runpython.conf_helper import has_dvipng, has_dvisvgm
 from sphinx_runpython.github_link import make_linkcode_resolve
 from teachpyx import __version__
 
-
 extensions = [
     "nbsphinx",
     "sphinx.ext.autodoc",

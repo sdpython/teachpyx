@@ -9,6 +9,7 @@ Quelques écritures efficaces et non efficaces avec :epkg:`numpy`.
 accéder à un élément en particulier
 ===================================
 """
+
 import timeit
 
 import numpy

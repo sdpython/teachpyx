@@ -1,7 +1,6 @@
 import math
 from typing import List, Optional, Tuple
 
-
 MOUSE = "mouse"
 KEY = "key"
 

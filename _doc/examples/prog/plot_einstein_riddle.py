@@ -87,10 +87,10 @@ toutes les configurations compatibles avec une règle donnée
 On commence par la fonction `permutation`:
 qui énumère les permutations d'un ensemble :
 """
+
 import copy
 from io import StringIO
 import pandas
-
 
 ##########################
 # Fonction permutation

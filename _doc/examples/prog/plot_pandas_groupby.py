@@ -14,9 +14,7 @@ groupby et valeur manquantes
 ============================
 """
 
-
 import pandas
-
 
 data = [{"a": 1, "b": 2}, {"a": 10, "b": 20}, {"b": 3}, {"b": 4}]
 df = pandas.DataFrame(data)

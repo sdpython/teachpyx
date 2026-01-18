@@ -16,6 +16,7 @@ La fonction ``somme`` est censée faire la concaténation de toutes les
 listes contenues dans ``ens``. Le résultat retourné est effectivement
 celui désiré mais la fonction modifie également la liste ``ens``, pourquoi ?
 """
+
 import math
 import copy
 import numpy
