@@ -18,7 +18,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
 ]
-dependencies = ["numpy", "matplotlib", "pandas", "scikit-learn>=1.2"]
+dependencies = ["numpy", "matplotlib", "pandas", "scikit-learn>=1.2", "tqdm"]
 description = "Teaching material, algorithm, machine learning"
 keywords = ["python", "teaching", "algorithmic", "machine learning"]
 license = {file = "LICENSE.txt"}
