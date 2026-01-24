@@ -1,7 +1,3 @@
-"""
-@brief      test tree node (time=5s)
-"""
-
 import os
 import sys
 import time

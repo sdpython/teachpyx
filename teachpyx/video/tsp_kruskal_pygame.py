@@ -144,9 +144,7 @@ def tsp_kruskal_algorithm(
 
 
 def display_ville(villes, screen, bv, pygame):
-    """
-    Dessine les villes à l'écran.
-    """
+    """Dessine les villes à l'écran."""
     color = 255, 0, 0
     color2 = 0, 255, 0
     for v in villes:
@@ -156,9 +154,7 @@ def display_ville(villes, screen, bv, pygame):
 
 
 def display_chemin(neurones, bn, screen, pygame):
-    """
-    Dessine le chemin à l'écran.
-    """
+    """Dessine le chemin à l'écran."""
     color = 0, 0, 255
     color2 = 0, 255, 0
     for n in neurones:
@@ -170,9 +166,7 @@ def display_chemin(neurones, bn, screen, pygame):
 
 
 def display_arbre(villes, arbre, mult=1, screen=None, pygame=None):
-    """
-    Dessine le graphe de poids minimal dꧩni par arbre.
-    """
+    """Dessine le graphe de poids minimal dꧩni par arbre."""
     if mult == 2:
         color = 0, 255, 0
         li = 4

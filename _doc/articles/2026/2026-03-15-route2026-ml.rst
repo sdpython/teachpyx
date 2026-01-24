@@ -23,6 +23,15 @@ Quelques jeux de données :
   <https://visionet.franceagrimer.fr/Pages/SeriesChronologiques.aspx?menuurl=SeriesChronologiques/productions%20vegetales/grandes%20cultures/surfaces,productions,rendements>`_
 * `Effectifs d'étudiants inscrits dans les établissements et les formations de l'enseignement supérieur - détail par établissements 
   <https://www.data.gouv.fr/datasets/effectifs-detudiants-inscrits-dans-les-etablissements-et-les-formations-de-lenseignement-superieur-detail-par-etablissements>`_
+* `Résultats du contrôle sanitaire de l'eau distribuée commune par commune 
+  <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune>`_
+* `Résultats du contrôle sanitaire de l'eau du robinet <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-du-robinet>`_
+* `Données climatologiques de base - horaires <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-horaires>`_
+* `Données climatologiques de base - mensuelles  <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-mensuelles>`_
+
+Fonctions utiles:
+
+* :func:`teachpyx.tools.pandas.read_csv_cached`
 
 Séance 1 (6/2)
 ==============

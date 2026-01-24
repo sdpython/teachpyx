@@ -304,9 +304,7 @@ def build_diff_image(
 
 
 def display_line(ligne: List[Tuple[float, float]], screen, pygame):
-    """
-    Affiche une ligne à l'écran.
-    """
+    """Affiche une ligne à l'écran."""
     color = 0, 0, 0
     for p in ligne:
         pygame.draw.line(screen, color, p, p)

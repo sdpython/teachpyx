@@ -56,10 +56,7 @@ def find_graphviz_dot(exc: bool = True) -> str:
     return "dot"
 
 
-def run_subprocess(
-    args: List[str],
-    cwd: Optional[str] = None,
-):
+def run_subprocess(args: List[str], cwd: Optional[str] = None):
     assert not isinstance(
         args, str
     ), "args should be a sequence of strings, not a string."
@@ -91,14 +88,14 @@ def run_subprocess(
     p.stdout.close()
     if raise_exception:
         raise RuntimeError(
-            "An error was found in the output. The build is stopped.\n{output}"
+            f"An error was found in the output. The build is stopped.\n{output}"
         )
     return output
 
 
 def run_graphviz(filename: str, image: str, engine: str = "dot") -> str:
     """
-    Run :epkg:`Graphviz`.
+    Runs :epkg:`Graphviz`.
 
     :param filename: filename which contains the graph definition
     :param image: output image

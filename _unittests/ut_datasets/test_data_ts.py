@@ -4,7 +4,6 @@ from teachpyx.datasets.data_ts import generate_sells
 
 
 class TestDataTs(ExtTestCase):
-
     def test_generate_sells(self):
         df = generate_sells()
         self.assertEqual(len(df), 731)

@@ -1,12 +1,9 @@
-
 teachpyx.tools
 ==============
-
 
 .. toctree::
     :maxdepth: 1
     :caption: submodules
-
 
     display/index
 
@@ -15,12 +12,11 @@ teachpyx.tools
     :maxdepth: 1
     :caption: modules
 
-
     data_helper
     graphviz_helper
     helpers
     profiling
-
+    pandas
 
 .. automodule:: teachpyx.tools
     :members:

@@ -26,14 +26,14 @@ def decompress_zip(filename, dest: str, verbose: bool = False) -> List[str]:
                 finalfolder = os.path.split(tos)[0]
                 if not os.path.exists(finalfolder):
                     if verbose:
-                        print(f"creating folder {finalfolder!r}")
+                        print(f"[decompress_zip] creating folder {finalfolder!r}")
                     os.makedirs(finalfolder)
                 if not info.filename.endswith("/"):
                     with open(tos, "wb") as u:
                         u.write(data)
                     files.append(tos)
                     if verbose:
-                        print(f"unzipped {info.filename!r} to {tos!r}")
+                        print(f"[decompress_zip] unzipped {info.filename!r} to {tos!r}")
             elif not tos.endswith("/"):
                 files.append(tos)
         elif not info.filename.endswith("/"):
@@ -45,7 +45,7 @@ def download(
     url: str, dest: str = ".", timeout: int = 10, verbose: bool = False
 ) -> str:
     """
-    Download one file.
+    Downloads one file.
 
     :param url: url
     :param dest: destination folder
@@ -57,13 +57,13 @@ def download(
     dest_zip = os.path.join(dest, filename)
     if not os.path.exists(dest_zip):
         if verbose:
-            print(f"downloads into {dest_zip!r} from {url!r}")
+            print(f"[download] downloads into {dest_zip!r} from {url!r}")
         with urlopen(url, timeout=timeout) as u:
             content = u.read()
         with open(dest_zip, "wb") as f:
             f.write(content)
     elif verbose:
-        print(f"already downloaded {dest_zip!r}")
+        print(f"[download] already downloaded {dest_zip!r}")
     return dest_zip
 
 
@@ -83,12 +83,12 @@ def download_and_unzip(
     dest_zip = os.path.join(dest, filename)
     if not os.path.exists(dest_zip):
         if verbose:
-            print(f"downloads into {dest_zip!r} from {url!r}")
+            print(f"[download_and_unzip] downloads into {dest_zip!r} from {url!r}")
         with urlopen(url, timeout=timeout) as u:
             content = u.read()
         with open(dest_zip, "wb") as f:
             f.write(content)
     elif verbose:
-        print(f"already downloaded {dest_zip!r}")
+        print(f"[download_and_unzip] already downloaded {dest_zip!r}")
 
     return decompress_zip(dest_zip, dest, verbose=verbose)

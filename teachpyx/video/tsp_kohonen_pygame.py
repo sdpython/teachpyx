@@ -11,9 +11,7 @@ from ..tools.display.pygame_helper import wait_event, empty_main_loop
 
 
 def display_neurone(neurones: ENSEMBLE, screen, bn: int, pygame):
-    """
-    Dessine les neurones à l'écran.
-    """
+    """Dessine les neurones à l'écran."""
     color = 0, 0, 255
     color2 = 0, 255, 0
     for n in neurones:
@@ -25,9 +23,7 @@ def display_neurone(neurones: ENSEMBLE, screen, bn: int, pygame):
 
 
 def display_ville(villes: ENSEMBLE, screen, bv: int, pygame):
-    """
-    Dessine les villes à l'écran.
-    """
+    """Dessine les villes à l'écran."""
     color = 255, 0, 0
     color2 = 0, 255, 0
     for v in villes:
