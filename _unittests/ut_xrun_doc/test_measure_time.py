@@ -9,6 +9,11 @@ class TestMeasureTime(ExtTestCase):
         self.assertIsInstance(res, dict)
         self.assertIn("average", res)
 
+    def test_measure_time_max_time(self):
+        res = measure_time(lambda: cos(5), max_time=0.2)
+        self.assertIsInstance(res, dict)
+        self.assertIn("average", res)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

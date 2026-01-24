@@ -2,6 +2,7 @@ import os
 import math
 import random
 from typing import List, Optional, Tuple
+from tqdm import tqdm
 from ..practice.tsp_kruskal import (
     ENSEMBLE,
     DISTANCE,
@@ -437,10 +438,6 @@ def pygame_simulation(
         wait_event(pygame)
 
     if folder is not None:
-        if verbose > 0:
-            print("saving images")
-        for it, screen in enumerate(images):
-            if verbose > 0 and it % 10 == 0:
-                print(f"saving image: {it}/{len(images)}")
+        for it, screen in enumerate(tqdm(images, desc=f"saving images in {folder!r}")):
             image = os.path.join(folder, "image_%04d.png" % it)
             pygame.image.save(screen, image)

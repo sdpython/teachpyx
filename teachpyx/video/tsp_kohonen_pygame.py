@@ -1,4 +1,5 @@
 import os
+from tqdm import tqdm
 from ..practice.tsp_kohonen import (
     ENSEMBLE,
     iteration,
@@ -94,12 +95,8 @@ def pygame_simulation(
         wait_event(pygame)
     images = [] if folder is not None else None
 
-    iter = 0
-    while iter < max_iter:
+    for iter in tqdm(list(range(max_iter)), desc="optimizing"):
         iter += 1
-
-        if iter % 1000 == 0:
-            print("iter", iter)
 
         if iter % maj == 0:
             modifie_structure(neurones, compte_n, tour)
@@ -122,9 +119,6 @@ def pygame_simulation(
         wait_event(pygame)
 
     if folder is not None:
-        print("saving images")
-        for it, screen in enumerate(images):
-            if it % 10 == 0:
-                print("saving image:", it, "/", len(images))
+        for it, screen in enumerate(tqdm(images, desc=f"saving images in {folder!r}")):
             image = os.path.join(folder, "image_%04d.png" % it)
             pygame.image.save(screen, image)
