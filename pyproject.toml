@@ -68,7 +68,6 @@ dev = [
     "sphinx-gallery",
     "sphinx-issues",
     "sphinx-runpython",
-    "tqdm",
     "ujson",
     "wheel",
 ]
