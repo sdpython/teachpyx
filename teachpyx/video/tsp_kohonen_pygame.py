@@ -95,10 +95,9 @@ def pygame_simulation(
         wait_event(pygame)
     images = [] if folder is not None else None
 
-    for iter in tqdm(list(range(max_iter)), desc="optimizing"):
-        iter += 1
+    for n_iter in tqdm(list(range(max_iter)), desc="optimizing"):
 
-        if iter % maj == 0:
+        if n_iter % maj == 0:
             modifie_structure(neurones, compte_n, tour)
             dist *= alpha
             f2 = tuple(w * beta for w in fs)
@@ -112,7 +111,7 @@ def pygame_simulation(
         empty_main_loop(pygame)
         pygame.display.flip()
 
-        if images is not None and iter % 10 == 0:
+        if images is not None and n_iter % 10 == 0:
             images.append(screen.copy())
 
     if first_click:

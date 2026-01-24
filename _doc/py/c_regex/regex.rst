@@ -275,7 +275,7 @@ et :func:`re.match` retournent toutes des objets :func:`re.match` :
     date 7 : 08/03/1941     date 8 : 8/1/1980     date 9 : 30/6/1976"""
 
     import re
-    expression = re.compile("([0-3]?[0-9]/[0-1]?[0-9]/([0-2][0-9])?[0-9][0-9])[^\d]")
+    expression = re.compile("([0-3]?[0-9]/[0-1]?[0-9]/([0-2][0-9])?[0-9][0-9])[^\\d]")
     print(expression.search(s).group(1,2)) # affiche ('14/9/2000', '20')
     c = expression.search(s).span(1)       # affiche (9, 18)
     print(s[c[0]:c[1]])                    # affiche 14/9/2000
