@@ -28,7 +28,7 @@ Séance 2 (2/2)
 
 * arbre de régression, arbre de classification
 * random forest, boosting trees
-  (:epkg:`xgboost`, :epkg:`lightgtbm`, :epkg:`catboost`),
+  (:epkg:`xgboost`, :epkg:`lightgbm`, :epkg:`catboost`),
   :ref:`RandomForest, Overfitting <nbl-practice-ml-ml_a_tree_overfitting>`
 * Gradient Boosting, :ref:`Gradient Boosting et Learning Rate avec les Random Forest <nbl-practice-ml-gradient_boosting>`
 * Régression Linéaire et contraintes sur les coefficients,
