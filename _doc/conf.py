@@ -421,7 +421,7 @@ epkg_dictionary.update(
         "fortran": "https://en.wikipedia.org/wiki/Fortran",
         "GEOFLA": "https://www.data.gouv.fr/en/datasets/geofla-r/",
         "HuggingFace Hub": "https://huggingface.co/",
-        "lightgtbm": "https://lightgbm.readthedocs.io/en/stable/",
+        "lightgbm": "https://lightgbm.readthedocs.io/en/stable/",
         "machine learning": "https://en.wikipedia.org/wiki/Machine_learning",
         "matrice de confusion": "https://fr.wikipedia.org/wiki/Matrice_de_confusion",
         "nuage de points": "https://fr.wikipedia.org/wiki/Nuage_de_points_(statistique)",
