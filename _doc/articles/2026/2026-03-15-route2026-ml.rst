@@ -9,7 +9,63 @@ site web : `sdpython.github.io <https://sdpython.github.io/>`_
 `Apprendre la programmation avec Python
 <https://sdpython.github.io/doc/teachpyx/dev/>`_
 
-Quelques jeux de données :
+Autres sites :
+
+* Python pour la data science <https://pythonds.linogaliana.fr/>`_ (Lino Galiana - ENSAE)
+
+Fonctions utiles:
+
+* :func:`teachpyx.tools.pandas.read_csv_cached`
+
+Séance 1 (6/2)
+==============
+
+* rappels sur la régression, classification, clustering, ACP, prétraitements
+* train test, validation croisée
+* rappels sur l'apprentissage d'un arbre de régression
+
+*présentation de modules*
+
+* données : :epkg:`pandas`
+* graphes : :epkg:`matplotlib`, :epkg:`seaborn`, :epkg:`bokeh`, :epkg:`altair`
+* cartes : :epkg:`geopandas`, :epkg:`folium`
+* machine learning : :epkg:`scikit-learn`, :epkg:`skrub`, :epkg:`skore`, :epkg:`imbalanced-learn`, :epkg:`hazardous`, :epkg:`fairlearn`,
+  :epkg:`xgboost`, :epkg:`lightgbm`, :epkg:`catboost`
+* deep learning : :epkg:`pytorch`, :epkg:`transformers`, :epkg:`diffusers` et aussi :epkg:`HuggingFace Hub`
+
+*demain*
+
+* utilisation de ChatGPT, Gemini (et autres...), retour d'expérience
+* et ensuite...
+
+Séance 2 (13/2)
+===============
+
+* tests unitaires
+* pipelines : pourquoi en faire
+
+Séance 3 (27/2)
+===============
+
+Séance 4 (6/3)
+==============
+
+Séance 5 (13/3)
+===============
+
+Séance 6 (20/3)
+===============
+
+Evaluation
+==========
+
+* `https://defis.data.gouv.fr/ <https://defis.data.gouv.fr/>`_
+* le projet doit inclure au moins un graphe
+  *Partial Dependence* ou *Permutation Importance* (voir liens ci-dessus)
+* soutenance ?
+
+Quelques jeux de données
+========================
 
 * `Parcoursup 2025 - vœux de poursuite d'études et de réorientation dans l'enseignement supérieur et réponses des établissements
   <https://www.data.gouv.fr/datasets/parcoursup-2025-voeux-de-poursuite-detudes-et-de-reorientation-dans-lenseignement-superieur-et-reponses-des-etablissements>`_
@@ -29,32 +85,3 @@ Quelques jeux de données :
 * `Données climatologiques de base - horaires <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-horaires>`_
 * `Données climatologiques de base - mensuelles  <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-mensuelles>`_
 
-Fonctions utiles:
-
-* :func:`teachpyx.tools.pandas.read_csv_cached`
-
-Séance 1 (6/2)
-==============
-
-Séance 2 (13/2)
-===============
-
-Séance 3 (27/2)
-===============
-
-Séance 4 (6/3)
-==============
-
-Séance 5 (13/3)
-===============
-
-Séance 6 (20/3)
-===============
-
-Evaluation
-==========
-
-* https://defis.data.gouv.fr/
-* le projet doit inclure au moins un graphe
-  *Partial Dependence* ou *Permutation Importance* (voir liens ci-dessus)
-* soutenance 11 avril 9h-13h
