@@ -25,6 +25,7 @@ Schéma
 On récupère l'exemple du `tutorial
 <https://developers.google.com/protocol-buffers/docs/pythontutorial>`_.
 """
+
 import os
 import sys
 import timeit

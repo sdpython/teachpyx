@@ -17,6 +17,7 @@ notemmant via les :epkg:`API REST`.
 Ecriture (json)
 +++++++++++++++
 """
+
 from io import StringIO, BytesIO
 import timeit
 import json
@@ -24,7 +25,6 @@ import numpy
 import ujson
 import cloudpickle
 import pickle
-
 
 data = {
     "records": [

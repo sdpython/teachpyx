@@ -1,0 +1,87 @@
+.. _l-feuille-route-2026:
+
+=========================================
+2026-03-15 : feuille de route 2025 - mars
+=========================================
+
+site web : `sdpython.github.io <https://sdpython.github.io/>`_
+
+`Apprendre la programmation avec Python
+<https://sdpython.github.io/doc/teachpyx/dev/>`_
+
+Autres sites :
+
+* Python pour la data science <https://pythonds.linogaliana.fr/>`_ (Lino Galiana - ENSAE)
+
+Fonctions utiles:
+
+* :func:`teachpyx.tools.pandas.read_csv_cached`
+
+Séance 1 (6/2)
+==============
+
+* rappels sur la régression, classification, clustering, ACP, prétraitements
+* train test, validation croisée
+* rappels sur l'apprentissage d'un arbre de régression
+
+*présentation de modules*
+
+* données : :epkg:`pandas`
+* graphes : :epkg:`matplotlib`, :epkg:`seaborn`, :epkg:`bokeh`, :epkg:`altair`
+* cartes : :epkg:`geopandas`, :epkg:`folium`
+* machine learning : :epkg:`scikit-learn`, :epkg:`skrub`, :epkg:`skore`, :epkg:`imbalanced-learn`, :epkg:`hazardous`, :epkg:`fairlearn`,
+  :epkg:`xgboost`, :epkg:`lightgbm`, :epkg:`catboost`
+* deep learning : :epkg:`pytorch`, :epkg:`transformers`, :epkg:`diffusers` et aussi :epkg:`HuggingFace Hub`
+
+*demain*
+
+* utilisation de ChatGPT, Gemini (et autres...), retour d'expérience
+* et ensuite...
+
+Séance 2 (13/2)
+===============
+
+* tests unitaires
+* pipelines : pourquoi en faire
+
+Séance 3 (27/2)
+===============
+
+Séance 4 (6/3)
+==============
+
+Séance 5 (13/3)
+===============
+
+Séance 6 (20/3)
+===============
+
+Evaluation
+==========
+
+* `https://defis.data.gouv.fr/ <https://defis.data.gouv.fr/>`_
+* le projet doit inclure au moins un graphe
+  *Partial Dependence* ou *Permutation Importance* (voir liens ci-dessus)
+* soutenance ?
+
+Quelques jeux de données
+========================
+
+* `Parcoursup 2025 - vœux de poursuite d'études et de réorientation dans l'enseignement supérieur et réponses des établissements
+  <https://www.data.gouv.fr/datasets/parcoursup-2025-voeux-de-poursuite-detudes-et-de-reorientation-dans-lenseignement-superieur-et-reponses-des-etablissements>`_
+* `Patrimoine immobilier des opérateurs de l’Enseignement supérieur
+  <https://www.data.gouv.fr/datasets/patrimoine-immobilier-des-operateurs-de-lenseignement-superieur>`_
+* `Prix des carburants en France - Flux quotidien
+  <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-quotidien-1>`_
+* `Prix des carburants en France - Flux instantané - v2
+  <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-instantane-v2-amelioree>`_
+* `Séries sur les surfaces, rendements, production céréales
+  <https://visionet.franceagrimer.fr/Pages/SeriesChronologiques.aspx?menuurl=SeriesChronologiques/productions%20vegetales/grandes%20cultures/surfaces,productions,rendements>`_
+* `Effectifs d'étudiants inscrits dans les établissements et les formations de l'enseignement supérieur - détail par établissements 
+  <https://www.data.gouv.fr/datasets/effectifs-detudiants-inscrits-dans-les-etablissements-et-les-formations-de-lenseignement-superieur-detail-par-etablissements>`_
+* `Résultats du contrôle sanitaire de l'eau distribuée commune par commune 
+  <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune>`_
+* `Résultats du contrôle sanitaire de l'eau du robinet <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-du-robinet>`_
+* `Données climatologiques de base - horaires <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-horaires>`_
+* `Données climatologiques de base - mensuelles  <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-mensuelles>`_
+

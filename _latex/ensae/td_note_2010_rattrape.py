@@ -33,11 +33,7 @@ Brest	-4,552110195	48,36014938
 Metz	6,11729002	49,0734787
 Sedan	4,896070004	49,68407059
 Grenoble	5,684440136	45,13940048
-Annecy	6,082499981	45,8782196""".replace(
-        ",", "."
-    ).split(
-        "\n"
-    )
+Annecy	6,082499981	45,8782196""".replace(",", ".").split("\n")
     # ligne d'avant : on d�coupe l'unique cha�ne de caract�res
 
     # ligne suivant : on d�coupe chaque ligne en colonne

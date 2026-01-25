@@ -42,7 +42,6 @@ sphinx-issues
 git+https://github.com/sdpython/sphinx-runpython.git
 statsmodels
 torch
-tqdm
 transformers
 ujson
 xarray

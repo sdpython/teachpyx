@@ -41,14 +41,8 @@ def make_video(
     By default, the video will have the size of the first image.
     It will resize every image to this size before adding them to the video.
     """
-    if len(images) == 0:
-        raise ValueError("No image to convert into a video.")
-    from cv2 import (
-        VideoWriter,
-        VideoWriter_fourcc,
-        imread,
-        resize,
-    )  # pylint: disable=E0401
+    assert images, "No image to convert into a video."
+    from cv2 import VideoWriter, VideoWriter_fourcc, imread, resize
 
     fourcc = VideoWriter_fourcc(*format)
     vid = None

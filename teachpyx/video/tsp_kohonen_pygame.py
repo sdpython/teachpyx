@@ -1,4 +1,5 @@
 import os
+from tqdm import tqdm
 from ..practice.tsp_kohonen import (
     ENSEMBLE,
     iteration,
@@ -11,9 +12,7 @@ from ..tools.display.pygame_helper import wait_event, empty_main_loop
 
 
 def display_neurone(neurones: ENSEMBLE, screen, bn: int, pygame):
-    """
-    Dessine les neurones à l'écran.
-    """
+    """Dessine les neurones à l'écran."""
     color = 0, 0, 255
     color2 = 0, 255, 0
     for n in neurones:
@@ -25,9 +24,7 @@ def display_neurone(neurones: ENSEMBLE, screen, bn: int, pygame):
 
 
 def display_ville(villes: ENSEMBLE, screen, bv: int, pygame):
-    """
-    Dessine les villes à l'écran.
-    """
+    """Dessine les villes à l'écran."""
     color = 255, 0, 0
     color2 = 0, 255, 0
     for v in villes:
@@ -98,14 +95,9 @@ def pygame_simulation(
         wait_event(pygame)
     images = [] if folder is not None else None
 
-    iter = 0
-    while iter < max_iter:
-        iter += 1
+    for n_iter in tqdm(list(range(max_iter)), desc="optimizing"):
 
-        if iter % 1000 == 0:
-            print("iter", iter)
-
-        if iter % maj == 0:
+        if n_iter % maj == 0:
             modifie_structure(neurones, compte_n, tour)
             dist *= alpha
             f2 = tuple(w * beta for w in fs)
@@ -119,16 +111,13 @@ def pygame_simulation(
         empty_main_loop(pygame)
         pygame.display.flip()
 
-        if images is not None and iter % 10 == 0:
+        if images is not None and n_iter % 10 == 0:
             images.append(screen.copy())
 
     if first_click:
         wait_event(pygame)
 
     if folder is not None:
-        print("saving images")
-        for it, screen in enumerate(images):
-            if it % 10 == 0:
-                print("saving image:", it, "/", len(images))
+        for it, screen in enumerate(tqdm(images, desc=f"saving images in {folder!r}")):
             image = os.path.join(folder, "image_%04d.png" % it)
             pygame.image.save(screen, image)

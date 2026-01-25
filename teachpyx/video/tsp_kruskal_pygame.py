@@ -2,6 +2,7 @@ import os
 import math
 import random
 from typing import List, Optional, Tuple
+from tqdm import tqdm
 from ..practice.tsp_kruskal import (
     ENSEMBLE,
     DISTANCE,
@@ -144,9 +145,7 @@ def tsp_kruskal_algorithm(
 
 
 def display_ville(villes, screen, bv, pygame):
-    """
-    Dessine les villes à l'écran.
-    """
+    """Dessine les villes à l'écran."""
     color = 255, 0, 0
     color2 = 0, 255, 0
     for v in villes:
@@ -156,9 +155,7 @@ def display_ville(villes, screen, bv, pygame):
 
 
 def display_chemin(neurones, bn, screen, pygame):
-    """
-    Dessine le chemin à l'écran.
-    """
+    """Dessine le chemin à l'écran."""
     color = 0, 0, 255
     color2 = 0, 255, 0
     for n in neurones:
@@ -170,9 +167,7 @@ def display_chemin(neurones, bn, screen, pygame):
 
 
 def display_arbre(villes, arbre, mult=1, screen=None, pygame=None):
-    """
-    Dessine le graphe de poids minimal dꧩni par arbre.
-    """
+    """Dessine le graphe de poids minimal dꧩni par arbre."""
     if mult == 2:
         color = 0, 255, 0
         li = 4
@@ -443,10 +438,6 @@ def pygame_simulation(
         wait_event(pygame)
 
     if folder is not None:
-        if verbose > 0:
-            print("saving images")
-        for it, screen in enumerate(images):
-            if verbose > 0 and it % 10 == 0:
-                print(f"saving image: {it}/{len(images)}")
+        for it, screen in enumerate(tqdm(images, desc=f"saving images in {folder!r}")):
             image = os.path.join(folder, "image_%04d.png" % it)
             pygame.image.save(screen, image)

@@ -17,6 +17,7 @@ Deux listes en parallel
 On mesure le temps nécessaire pour créer deux liste et comparer ce
 temps avec celui que cela prendrait en parallèle.
 """
+
 import timeit
 import time
 from concurrent.futures import ThreadPoolExecutor
