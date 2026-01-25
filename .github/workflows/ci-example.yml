@@ -1,4 +1,4 @@
-name: ci
+name: ci-examples
 
 on:
   push:
