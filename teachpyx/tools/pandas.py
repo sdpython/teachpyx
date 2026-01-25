@@ -33,6 +33,8 @@ def read_csv_cached(
     :param ignore_cache: ignore the cache, overwrites it if it exists
     :param kwargs: other argument for :func:`pandas.read_csv`
     :return: dataframe
+
+    .. versionadded:: 0.5.0
     """
     cache_dir = Path.home() / ".cache" / "teachpyx" / "pandas"
     cache_dir.mkdir(parents=True, exist_ok=True)

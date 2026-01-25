@@ -79,4 +79,5 @@ Le contenu est sur `github <https://github.com/sdpython/teachpyx/>`_.
 Older versions
 ++++++++++++++
 
-* `0.3.1 <../v0.3.1/index.html>`_
+* `0.6.0 <../v0.6.0/index.html>`_
+* `0.5.0 <../v0.5.0/index.html>`_
