@@ -11,7 +11,7 @@ site web : `sdpython.github.io <https://sdpython.github.io/>`_
 
 Autres sites :
 
-* Python pour la data science <https://pythonds.linogaliana.fr/>`_ (Lino Galiana - ENSAE)
+* `Python pour la data science <https://pythonds.linogaliana.fr/>`_ (Lino Galiana - ENSAE)
 
 Fonctions utiles:
 
