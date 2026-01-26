@@ -11,7 +11,7 @@ site web : `sdpython.github.io <https://sdpython.github.io/>`_
 
 Autres sites :
 
-* Python pour la data science <https://pythonds.linogaliana.fr/>`_ (Lino Galiana - ENSAE)
+* `Python pour la data science <https://pythonds.linogaliana.fr/>`_ (Lino Galiana - ENSAE)
 
 Fonctions utiles:
 
@@ -37,6 +37,12 @@ Séance 1 (6/2)
 
 * utilisation de ChatGPT, Gemini (et autres...), retour d'expérience
 * et ensuite...
+
+*problème*
+
+Peut-on prédire le nombre de condidatures en 2026 pour chaque établissement ? 
+
+:ref:`Données parcours-sup 2021-2025 <nbl-practice-years-2026-parcoursup_2026>`
 
 Séance 2 (13/2)
 ===============

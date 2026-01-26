@@ -1,9 +1,14 @@
 Change Logs
 ===========
 
+0.6.0
++++++
+
 0.5.0
 +++++
 
+* :pr:`87`: add dependency on tqdm, add read_csv_cached
+* :pr:`81`: remove dependency on blockdiag
 * :pr:`66`: add dependency on patsy in requirements-dev.txt for new content
 
 0.4.0

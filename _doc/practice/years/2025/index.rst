@@ -5,6 +5,7 @@
 
 .. toctree::
     :maxdepth: 1
+    :caption: python
 
     seance1_point2d
     seance4_algo
