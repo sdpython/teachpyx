@@ -73,21 +73,14 @@ Evaluation
 Quelques jeux de données
 ========================
 
-* `Parcoursup 2025 - vœux de poursuite d'études et de réorientation dans l'enseignement supérieur et réponses des établissements
-  <https://www.data.gouv.fr/datasets/parcoursup-2025-voeux-de-poursuite-detudes-et-de-reorientation-dans-lenseignement-superieur-et-reponses-des-etablissements>`_
-* `Patrimoine immobilier des opérateurs de l’Enseignement supérieur
-  <https://www.data.gouv.fr/datasets/patrimoine-immobilier-des-operateurs-de-lenseignement-superieur>`_
-* `Prix des carburants en France - Flux quotidien
-  <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-quotidien-1>`_
-* `Prix des carburants en France - Flux instantané - v2
-  <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-instantane-v2-amelioree>`_
-* `Séries sur les surfaces, rendements, production céréales
-  <https://visionet.franceagrimer.fr/Pages/SeriesChronologiques.aspx?menuurl=SeriesChronologiques/productions%20vegetales/grandes%20cultures/surfaces,productions,rendements>`_
-* `Effectifs d'étudiants inscrits dans les établissements et les formations de l'enseignement supérieur - détail par établissements 
-  <https://www.data.gouv.fr/datasets/effectifs-detudiants-inscrits-dans-les-etablissements-et-les-formations-de-lenseignement-superieur-detail-par-etablissements>`_
-* `Résultats du contrôle sanitaire de l'eau distribuée commune par commune 
-  <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune>`_
+* `Parcoursup 2025 - vœux de poursuite d'études et de réorientation dans l'enseignement supérieur et réponses des établissements <https://www.data.gouv.fr/datasets/parcoursup-2025-voeux-de-poursuite-detudes-et-de-reorientation-dans-lenseignement-superieur-et-reponses-des-etablissements>`_
+* `Patrimoine immobilier des opérateurs de l'Enseignement supérieur <https://www.data.gouv.fr/datasets/patrimoine-immobilier-des-operateurs-de-lenseignement-superieur>`_
+* `Prix des carburants en France - Flux quotidien <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-quotidien-1>`_
+* `Prix des carburants en France - Flux instantané - v2 <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-instantane-v2-amelioree>`_
+* `Séries sur les surfaces, rendements, production céréales <https://visionet.franceagrimer.fr/Pages/SeriesChronologiques.aspx?menuurl=SeriesChronologiques/productions%20vegetales/grandes%20cultures/surfaces,productions,rendements>`_
+* `Effectifs d'étudiants inscrits dans les établissements et les formations de l'enseignement supérieur - détail par établissements <https://www.data.gouv.fr/datasets/effectifs-detudiants-inscrits-dans-les-etablissements-et-les-formations-de-lenseignement-superieur-detail-par-etablissements>`_
+* `Résultats du contrôle sanitaire de l'eau distribuée commune par commune <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune>`_
 * `Résultats du contrôle sanitaire de l'eau du robinet <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-du-robinet>`_
 * `Données climatologiques de base - horaires <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-horaires>`_
-* `Données climatologiques de base - mensuelles  <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-mensuelles>`_
-
+* `Données climatologiques de base - mensuelles <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-mensuelles>`_
+* `Base de donnée de surveillance de pesticides dans l air par les AASQA à partir de 2002 <https://www.data.gouv.fr/datasets/base-de-donnee-de-surveillance-de-pesticides-dans-l-air-par-les-aasqa-a-partir-de-2002>`_
