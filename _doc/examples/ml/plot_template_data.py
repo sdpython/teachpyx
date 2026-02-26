@@ -53,11 +53,9 @@ def select_variables_and_clean(df):
     assert set(keys) & set(columns) == set(
         keys
     ), f"Missing columns {set(keys) - set(keys) & set(columns)} in {sorted(df.columns)}"
-    groups = df[[*keys, cible]].groupby(keys).count()
-    filtered = groups[groups[cible] > 1].reset_index(drop=False)
-
-    mask = filtered.duplicated(subset=keys, keep=False)
-    return filtered[~mask][[*keys, cible]], cible
+    subset = df[[*keys, cible]]
+    mask = subset.duplicated(subset=keys, keep=False)
+    return subset[~mask].reset_index(drop=True), cible
 
 
 def compute_oracle(table, cible):
@@ -72,13 +70,13 @@ def compute_oracle(table, cible):
             columns="Session",
             values=cible,
         )
-        # .dropna(axis=0)  # fails
+        .dropna(axis=0)
         .sort_index()
     )
     return mean_absolute_error(piv[2025], piv[2024])
 
 
-def split_train_test(table, cuble):
+def split_train_test(table, cible):
     X, y = table.drop(cible, axis=1), table[cible]
 
     train_test = X["Session"] < 2025
@@ -87,13 +85,13 @@ def split_train_test(table, cuble):
 
     train_X = X[train_test].drop(drop, axis=1)
     train_y = y[train_test]
-    test_X = X[train_test].drop(drop, axis=1)
-    test_y = y[train_test]
+    test_X = X[~train_test].drop(drop, axis=1)
+    test_y = y[~train_test]
     return train_X, test_X, train_y, test_y
 
 
 def make_pipeline(table, cible):
-    vars = [c for c in table.columns if c != "cible"]
+    vars = [c for c in table.columns if c != cible]
     num_cols = ["Capacité de l’établissement par formation"]
     cat_cols = [c for c in vars if c not in num_cols]
 
