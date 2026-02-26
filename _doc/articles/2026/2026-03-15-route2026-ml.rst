@@ -26,7 +26,7 @@ Séance 1 (6/2)
 
 *présentation de modules*
 
-* données : :epkg:`pandas`
+* données : :epkg:`pandas`, :epkg:`skrub`
 * graphes : :epkg:`matplotlib`, :epkg:`seaborn`, :epkg:`bokeh`, :epkg:`altair`
 * cartes : :epkg:`geopandas`, :epkg:`folium`
 * machine learning : :epkg:`scikit-learn`, :epkg:`skrub`, :epkg:`skore`, :epkg:`imbalanced-learn`, :epkg:`hazardous`, :epkg:`fairlearn`,
@@ -40,7 +40,7 @@ Séance 1 (6/2)
 
 *problème*
 
-Peut-on prédire le nombre de condidatures en 2026 pour chaque établissement ? 
+Peut-on prédire le nombre de candidatures en 2026 pour chaque établissement ? 
 
 :ref:`Données parcours-sup 2021-2025 <nbl-practice-years-2026-parcoursup_2026>`
 
