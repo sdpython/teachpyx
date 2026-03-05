@@ -47,8 +47,29 @@ Peut-on prédire le nombre de candidatures en 2026 pour chaque établissement ?
 Séance 2 (13/2)
 ===============
 
-* tests unitaires
+* tests unitaires, pourquoi en faire
 * pipelines : pourquoi en faire
+* arbre de décision, comment ça marche ?
+* pourquoi les random forest sont résistantes à l'overfitting
+* qu'est-ce que le gradient boosting tree ?
+* réseau de neurones, comment ça marche ?
+* réseau diabolo et la compression
+* notion d'embedding
+
+quelques notebooks
+
+* arbre de régression, de classification
+  :ref:`RandomForest, Overfitting <nbl-practice-ml-ml_a_tree_overfitting>`
+* Gradient Boosting, :ref:`Gradient Boosting et Learning Rate avec les Random Forest <nbl-practice-ml-gradient_boosting>`
+* Régression linéaire et contraintes sur les coefficients,
+  `Ridge <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html>`_,
+  `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
+  `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
+  :ref:`Ridge, Lasso, mathématiques <nbl-practice-ml-ridge_lasso>`
+* paramètres et hyper paramètres, :ref:`Sélection des hyper-paramètres <nbl-practice-ml-winesr_knn_hyper>`,
+  :class:`sklearn.model_selection.GridSearchCV`
+* `Data challenge - Algorithme machine learning qui permet de prédire la gravité d’un accident de la rout
+  <https://www.data.gouv.fr/fr/reuses/data-challenge-algorithme-machine-learning-qui-permet-de-predire-la-gravite-dun-accident-de-la-route/>`_
 
 Séance 3 (27/2)
 ===============
