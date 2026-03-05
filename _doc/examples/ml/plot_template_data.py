@@ -116,8 +116,8 @@ def make_pipeline(table, cible):
 
 data = get_data()
 table, cible = select_variables_and_clean(data)
-oracle = compute_oracle(table, cible)
-print(f"oracle : {oracle}")
+# oracle = compute_oracle(table, cible)
+# print(f"oracle : {oracle}")
 
 # train_X, test_X, train_y, test_y = split_train_test(table, cible)
 # model = make_pipeline(table, cible)
