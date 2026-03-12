@@ -74,6 +74,43 @@ quelques notebooks
 Séance 3 (27/2)
 ===============
 
+* Régression linéaire et contraintes sur les coefficients,
+  `Ridge <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html>`_,
+  `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
+  `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
+  :ref:`Ridge, Lasso, mathématiques <nbl-practice-ml-ridge_lasso>`
+* paramètres et hyper paramètres, :ref:`Sélection des hyper-paramètres <nbl-practice-ml-winesr_knn_hyper>`,
+  :class:`sklearn.model_selection.GridSearchCV`
+* pipelines (encore)
+* créer son propre estimateur
+* tests unitaires
+
+Pour cette séance, on souhaite construire un estimateur qui estime
+une régression linéaire à coefficients positifs, une autre avec
+des coefficients uniquement négatifs puis pour finir une dernière
+régression linéaire qui considère les deux premières comme features.
+
+Une régression linéaire minimise l'erreur
+:math:`\sum_i \left\Vert X_i\theta - y_i \right\Vert^2`.
+Le gradient est :math:`\sum_i X_i'\left( X_i\theta - y_i \right)`.
+
+Comme le modèle souhaité est équivalent à une optimisation sous contrainte,
+on propose de le résoudre comme ceci :
+
+* On applique une itération de l'algorithme de la descente de gradient :
+  :math:`\theta_{t+1} = \theta_t - \epsilon_t \sum_i X_i'\left( X_i\theta - y_i \right)`.
+* On ne garde que les coefficients positifs : :math:`\theta_{t+1} = \max(0, \theta_t)`.
+* On retourne à l'étape 1 ou on s'arrête si l'algorithme a convergé.
+
+On appliquera cela au jeu de données :func:`sklearn.datasets.load_diabetes` ou
+`Wine Quality <https://archive.ics.uci.edu/datasets?search=wine>`_
+on comparera à une simple régression linéaire, les coefficients sont-ils
+équivalents ? Comment comparer les modèles ?
+
+* :ref:`Nouvel estimateur <nbl-practice-ml-custom_estimator>`
+
+Si on a le temps, traitement des données manquantes.
+
 Séance 4 (6/3)
 ==============
 
