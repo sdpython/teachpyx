@@ -17,8 +17,8 @@ Fonctions utiles:
 
 * :func:`teachpyx.tools.pandas.read_csv_cached`
 
-Séance 1 (6/2)
-==============
+Séance 1 (27/2)
+===============
 
 * rappels sur la régression, classification, clustering, ACP, prétraitements
 * train test, validation croisée
@@ -44,8 +44,8 @@ Peut-on prédire le nombre de candidatures en 2026 pour chaque établissement ?
 
 :ref:`Données parcours-sup 2021-2025 <nbl-practice-years-2026-parcoursup_2026>`
 
-Séance 2 (13/2)
-===============
+Séance 2 (5/3)
+==============
 
 * tests unitaires, pourquoi en faire
 * pipelines : pourquoi en faire
@@ -71,7 +71,7 @@ quelques notebooks
 * `Data challenge - Algorithme machine learning qui permet de prédire la gravité d’un accident de la rout
   <https://www.data.gouv.fr/fr/reuses/data-challenge-algorithme-machine-learning-qui-permet-de-predire-la-gravite-dun-accident-de-la-route/>`_
 
-Séance 3 (27/2)
+Séance 3 (12/3)
 ===============
 
 * Régression linéaire et contraintes sur les coefficients,
@@ -111,14 +111,67 @@ on comparera à une simple régression linéaire, les coefficients sont-ils
 
 Si on a le temps, traitement des données manquantes.
 
-Séance 4 (6/3)
+Séance 4 (19/3)
 ==============
 
-Séance 5 (13/3)
+* rappel : créer son propre estimateur
+* retour sur les tests unitaires
+
+Et puis
+
+* prétraitements : catégorie, dirty catégories, :epkg:`category_encoders`
+* anomalie
+* cartes : :ref:`Tracer une carte <nbl-c_data-enedis_cartes>`,
+  :epkg:`cartopy`, :epkg:`folium`, :epkg:`geopandas`
+* clustering (trainable and pas trainable)
+* TSNE
+
+Un exemple :
+
+* `clustering <https://scikit-learn.org/stable/modules/clustering.html>`_
+* Vieux notebooks sur l'utilisation de vélos à Chicago
+  `City Bike Views <https://github.com/sdpython/ensae_projects/blob/master/_doc/notebooks/challenges/city_bike/city_bike_views.ipynb>`_,
+  `City Bike Clustering <https://github.com/sdpython/ensae_projects/blob/master/_doc/notebooks/challenges/city_bike/city_bike_solution_cluster_start.ipynb>`_,
+
+Séance 5 (26/3)
 ===============
 
-Séance 6 (20/3)
-===============
+série temporelles
+
+Le modèle de référence est :epkg:`statsmodels`
+
+Le modèle de référence est :epkg:`statsmodels`
+
+* :ref:`Single Spectrum Analysis (SSA) <nbl-practice-ml-timeseries_ssa>`
+* :ref:`Décomposition d'une série temporelle <nbl-practice-ml-timeseries_seasonal>`
+
+:epkg:`sktime` propose une API plus proche de :epkg:`scikit-learn`
+et d'autres modèles comme le clusting ou la segmentation de séries temporelles.
+
+:epkg:`prophet` fait aussi de la prédiction et contient aussi des algorithmes
+de détection de changement de régime, il contient une bonne base de jours
+fériés.
+
+:epkg:`pyflux` permet d'estimer des modules `GARCH
+<https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity>`_.
+
+**Analyse de survie**
+
+* :epkg:`scikit-survival`, :epkg:`lifelines`, analyses de survie,
+  `Analyse de survie <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/survival_analysis.html>`_,
+
+**Interprétabilité**
+
+* `Partial Dependence <https://scikit-learn.org/stable/modules/partial_dependence.html>`_
+* `Permutation Importance <https://scikit-learn.org/stable/modules/permutation_importance.html>`_
+* `LIME <https://arxiv.org/abs/1602.04938>`_
+* `Shapley value <https://en.wikipedia.org/wiki/Shapley_value>`_,
+  `SHAP <https://shap.readthedocs.io/en/latest/index.html>`_
+* `Counterfactual Reasoning and Learning Systems <https://arxiv.org/abs/1209.2355>`_
+
+
+Séance 6 (3/4)
+==============
 
 Evaluation
 ==========
