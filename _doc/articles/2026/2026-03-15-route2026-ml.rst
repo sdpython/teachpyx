@@ -140,20 +140,22 @@ série temporelles
 
 Le modèle de référence est :epkg:`statsmodels`
 
-Le modèle de référence est :epkg:`statsmodels`
-
 * :ref:`Single Spectrum Analysis (SSA) <nbl-practice-ml-timeseries_ssa>`
 * :ref:`Décomposition d'une série temporelle <nbl-practice-ml-timeseries_seasonal>`
 
 :epkg:`sktime` propose une API plus proche de :epkg:`scikit-learn`
 et d'autres modèles comme le clusting ou la segmentation de séries temporelles.
+Voir `Estimator Overview <https://www.sktime.net/en/v0.40.1/estimator_overview.html>`_.
+
+* moyennes mobiles
+* saisonnalité
+* DTW
+* HMM, Gaussian HMM
+* ruptures (changements de régime)
 
 :epkg:`prophet` fait aussi de la prédiction et contient aussi des algorithmes
 de détection de changement de régime, il contient une bonne base de jours
 fériés.
-
-:epkg:`pyflux` permet d'estimer des modules `GARCH
-<https://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity>`_.
 
 **Analyse de survie**
 
@@ -169,6 +171,11 @@ fériés.
   `SHAP <https://shap.readthedocs.io/en/latest/index.html>`_
 * `Counterfactual Reasoning and Learning Systems <https://arxiv.org/abs/1209.2355>`_
 
+**Municipales 2026**
+
+* `premier tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-resultats-du-premier-tour>`_
+* `liste candidates second tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-listes-candidates-au-second-tour>`_
+* `second tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-resultats-du-second-tour>`_
 
 Séance 6 (3/4)
 ==============
