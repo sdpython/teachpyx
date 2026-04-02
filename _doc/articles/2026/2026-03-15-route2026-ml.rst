@@ -112,7 +112,7 @@ on comparera à une simple régression linéaire, les coefficients sont-ils
 Si on a le temps, traitement des données manquantes.
 
 Séance 4 (19/3)
-==============
+===============
 
 * rappel : créer son propre estimateur
 * retour sur les tests unitaires
@@ -179,6 +179,15 @@ fériés.
 
 Séance 6 (3/4)
 ==============
+
+* anonymisation : `Latanya Sweeney <https://en.wikipedia.org/wiki/Latanya_Sweeney>`_, vidéo : `Latanya Sweeney: When anonymized data is anything but anonymous <https://www.youtube.com/watch?v=tivCK_fBBfo>`_
+  (k-anonimity, l-diversité, hasard, ...)
+* éthique : apprendre avec et sans, grille
+* LLMs et code
+
+* `premier tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-resultats-du-premier-tour>`_
+* `liste candidates second tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-listes-candidates-au-second-tour>`_
+* `second tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-resultats-du-second-tour>`_
 
 Evaluation
 ==========
