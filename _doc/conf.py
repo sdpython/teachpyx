@@ -113,6 +113,7 @@ nitpicky = True
 nitpick_ignore = [
     ("py:class", "False"),
     ("py:class", "True"),
+    ("py:class", "pandas.core.frame.DataFrame"),
     ("py:class", "pipeline.Pipeline"),
     ("py:class", "default=sklearn.utils.metadata_routing.UNCHANGED"),
     ("py:class", "sklearn.utils._metadata_requests.RequestMethod"),
