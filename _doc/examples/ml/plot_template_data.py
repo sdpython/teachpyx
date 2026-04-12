@@ -72,9 +72,14 @@ def compute_oracle(table, cible):
             columns="Session",
             values=cible,
         )
-        # .dropna(axis=0)  # fails
         .sort_index()
     )
+    # Keep only rows where both 2024 and 2025 have non-missing values
+    piv = piv.dropna(axis=0, how="any")
+    if piv.empty:
+        raise ValueError(
+            "Not enough overlapping data between 2024 and 2025 to compute oracle."
+        )
     return mean_absolute_error(piv[2025], piv[2024])
 
 
