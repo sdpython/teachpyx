@@ -78,7 +78,7 @@ def compute_oracle(table, cible):
     return mean_absolute_error(piv[2025], piv[2024])
 
 
-def split_train_test(table, cuble):
+def split_train_test(table, cible):
     X, y = table.drop(cible, axis=1), table[cible]
 
     train_test = X["Session"] < 2025
