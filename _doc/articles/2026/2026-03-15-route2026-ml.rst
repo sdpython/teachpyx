@@ -17,8 +17,8 @@ Fonctions utiles:
 
 * :func:`teachpyx.tools.pandas.read_csv_cached`
 
-Séance 1 (6/2)
-==============
+Séance 1 (27/2)
+===============
 
 * rappels sur la régression, classification, clustering, ACP, prétraitements
 * train test, validation croisée
@@ -26,7 +26,7 @@ Séance 1 (6/2)
 
 *présentation de modules*
 
-* données : :epkg:`pandas`
+* données : :epkg:`pandas`, :epkg:`skrub`
 * graphes : :epkg:`matplotlib`, :epkg:`seaborn`, :epkg:`bokeh`, :epkg:`altair`
 * cartes : :epkg:`geopandas`, :epkg:`folium`
 * machine learning : :epkg:`scikit-learn`, :epkg:`skrub`, :epkg:`skore`, :epkg:`imbalanced-learn`, :epkg:`hazardous`, :epkg:`fairlearn`,
@@ -40,27 +40,154 @@ Séance 1 (6/2)
 
 *problème*
 
-Peut-on prédire le nombre de condidatures en 2026 pour chaque établissement ? 
+Peut-on prédire le nombre de candidatures en 2026 pour chaque établissement ? 
 
 :ref:`Données parcours-sup 2021-2025 <nbl-practice-years-2026-parcoursup_2026>`
 
-Séance 2 (13/2)
-===============
-
-* tests unitaires
-* pipelines : pourquoi en faire
-
-Séance 3 (27/2)
-===============
-
-Séance 4 (6/3)
+Séance 2 (5/3)
 ==============
 
-Séance 5 (13/3)
+* tests unitaires, pourquoi en faire
+* pipelines : pourquoi en faire
+* arbre de décision, comment ça marche ?
+* pourquoi les random forest sont résistantes à l'overfitting
+* qu'est-ce que le gradient boosting tree ?
+* réseau de neurones, comment ça marche ?
+* réseau diabolo et la compression
+* notion d'embedding
+
+quelques notebooks
+
+* arbre de régression, de classification
+  :ref:`RandomForest, Overfitting <nbl-practice-ml-ml_a_tree_overfitting>`
+* Gradient Boosting, :ref:`Gradient Boosting et Learning Rate avec les Random Forest <nbl-practice-ml-gradient_boosting>`
+* Régression linéaire et contraintes sur les coefficients,
+  `Ridge <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html>`_,
+  `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
+  `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
+  :ref:`Ridge, Lasso, mathématiques <nbl-practice-ml-ridge_lasso>`
+* paramètres et hyper paramètres, :ref:`Sélection des hyper-paramètres <nbl-practice-ml-winesr_knn_hyper>`,
+  :class:`sklearn.model_selection.GridSearchCV`
+* `Data challenge - Algorithme machine learning qui permet de prédire la gravité d’un accident de la rout
+  <https://www.data.gouv.fr/fr/reuses/data-challenge-algorithme-machine-learning-qui-permet-de-predire-la-gravite-dun-accident-de-la-route/>`_
+
+Séance 3 (12/3)
 ===============
 
-Séance 6 (20/3)
+* Régression linéaire et contraintes sur les coefficients,
+  `Ridge <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html>`_,
+  `Lasso <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html>`_,
+  `ElasticNet <https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html>`_,
+  :ref:`Ridge, Lasso, mathématiques <nbl-practice-ml-ridge_lasso>`
+* paramètres et hyper paramètres, :ref:`Sélection des hyper-paramètres <nbl-practice-ml-winesr_knn_hyper>`,
+  :class:`sklearn.model_selection.GridSearchCV`
+* pipelines (encore)
+* créer son propre estimateur
+* tests unitaires
+
+Pour cette séance, on souhaite construire un estimateur qui estime
+une régression linéaire à coefficients positifs, une autre avec
+des coefficients uniquement négatifs puis pour finir une dernière
+régression linéaire qui considère les deux premières comme features.
+
+Une régression linéaire minimise l'erreur
+:math:`\sum_i \left\Vert X_i\theta - y_i \right\Vert^2`.
+Le gradient est :math:`\sum_i X_i'\left( X_i\theta - y_i \right)`.
+
+Comme le modèle souhaité est équivalent à une optimisation sous contrainte,
+on propose de le résoudre comme ceci :
+
+* On applique une itération de l'algorithme de la descente de gradient :
+  :math:`\theta_{t+1} = \theta_t - \epsilon_t \sum_i X_i'\left( X_i\theta - y_i \right)`.
+* On ne garde que les coefficients positifs : :math:`\theta_{t+1} = \max(0, \theta_t)`.
+* On retourne à l'étape 1 ou on s'arrête si l'algorithme a convergé.
+
+On appliquera cela au jeu de données :func:`sklearn.datasets.load_diabetes` ou
+`Wine Quality <https://archive.ics.uci.edu/datasets?search=wine>`_
+on comparera à une simple régression linéaire, les coefficients sont-ils
+équivalents ? Comment comparer les modèles ?
+
+* :ref:`Nouvel estimateur <nbl-practice-ml-custom_estimator>`
+
+Si on a le temps, traitement des données manquantes.
+
+Séance 4 (19/3)
 ===============
+
+* rappel : créer son propre estimateur
+* retour sur les tests unitaires
+
+Et puis
+
+* prétraitements : catégorie, dirty catégories, :epkg:`category_encoders`
+* anomalie
+* cartes : :ref:`Tracer une carte <nbl-c_data-enedis_cartes>`,
+  :epkg:`cartopy`, :epkg:`folium`, :epkg:`geopandas`
+* clustering (trainable and pas trainable)
+* TSNE
+
+Un exemple :
+
+* `clustering <https://scikit-learn.org/stable/modules/clustering.html>`_
+* Vieux notebooks sur l'utilisation de vélos à Chicago
+  `City Bike Views <https://github.com/sdpython/ensae_projects/blob/master/_doc/notebooks/challenges/city_bike/city_bike_views.ipynb>`_,
+  `City Bike Clustering <https://github.com/sdpython/ensae_projects/blob/master/_doc/notebooks/challenges/city_bike/city_bike_solution_cluster_start.ipynb>`_,
+
+Séance 5 (26/3)
+===============
+
+série temporelles
+
+Le modèle de référence est :epkg:`statsmodels`
+
+* :ref:`Single Spectrum Analysis (SSA) <nbl-practice-ml-timeseries_ssa>`
+* :ref:`Décomposition d'une série temporelle <nbl-practice-ml-timeseries_seasonal>`
+
+:epkg:`sktime` propose une API plus proche de :epkg:`scikit-learn`
+et d'autres modèles comme le clusting ou la segmentation de séries temporelles.
+Voir `Estimator Overview <https://www.sktime.net/en/v0.40.1/estimator_overview.html>`_.
+
+* moyennes mobiles
+* saisonnalité
+* DTW
+* HMM, Gaussian HMM
+* ruptures (changements de régime)
+
+:epkg:`prophet` fait aussi de la prédiction et contient aussi des algorithmes
+de détection de changement de régime, il contient une bonne base de jours
+fériés.
+
+**Analyse de survie**
+
+* :epkg:`scikit-survival`, :epkg:`lifelines`, analyses de survie,
+  `Analyse de survie <https://sdpython.github.io/doc/mlstatpy/dev/c_ml/survival_analysis.html>`_,
+
+**Interprétabilité**
+
+* `Partial Dependence <https://scikit-learn.org/stable/modules/partial_dependence.html>`_
+* `Permutation Importance <https://scikit-learn.org/stable/modules/permutation_importance.html>`_
+* `LIME <https://arxiv.org/abs/1602.04938>`_
+* `Shapley value <https://en.wikipedia.org/wiki/Shapley_value>`_,
+  `SHAP <https://shap.readthedocs.io/en/latest/index.html>`_
+* `Counterfactual Reasoning and Learning Systems <https://arxiv.org/abs/1209.2355>`_
+
+**Municipales 2026**
+
+* `premier tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-resultats-du-premier-tour>`_
+* `liste candidates second tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-listes-candidates-au-second-tour>`_
+* `second tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-resultats-du-second-tour>`_
+
+Séance 6 (3/4)
+==============
+
+* anonymisation : `Latanya Sweeney <https://en.wikipedia.org/wiki/Latanya_Sweeney>`_, vidéo : `Latanya Sweeney: When anonymized data is anything but anonymous <https://www.youtube.com/watch?v=tivCK_fBBfo>`_
+  (k-anonimity, l-diversité, hasard, ...)
+* éthique : apprendre avec et sans, grille
+* LLMs et code
+
+* `premier tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-resultats-du-premier-tour>`_
+* `liste candidates second tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-listes-candidates-au-second-tour>`_
+* `second tour <https://www.data.gouv.fr/datasets/elections-municipales-2026-resultats-du-second-tour>`_
 
 Evaluation
 ==========
@@ -73,21 +200,14 @@ Evaluation
 Quelques jeux de données
 ========================
 
-* `Parcoursup 2025 - vœux de poursuite d'études et de réorientation dans l'enseignement supérieur et réponses des établissements
-  <https://www.data.gouv.fr/datasets/parcoursup-2025-voeux-de-poursuite-detudes-et-de-reorientation-dans-lenseignement-superieur-et-reponses-des-etablissements>`_
-* `Patrimoine immobilier des opérateurs de l’Enseignement supérieur
-  <https://www.data.gouv.fr/datasets/patrimoine-immobilier-des-operateurs-de-lenseignement-superieur>`_
-* `Prix des carburants en France - Flux quotidien
-  <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-quotidien-1>`_
-* `Prix des carburants en France - Flux instantané - v2
-  <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-instantane-v2-amelioree>`_
-* `Séries sur les surfaces, rendements, production céréales
-  <https://visionet.franceagrimer.fr/Pages/SeriesChronologiques.aspx?menuurl=SeriesChronologiques/productions%20vegetales/grandes%20cultures/surfaces,productions,rendements>`_
-* `Effectifs d'étudiants inscrits dans les établissements et les formations de l'enseignement supérieur - détail par établissements 
-  <https://www.data.gouv.fr/datasets/effectifs-detudiants-inscrits-dans-les-etablissements-et-les-formations-de-lenseignement-superieur-detail-par-etablissements>`_
-* `Résultats du contrôle sanitaire de l'eau distribuée commune par commune 
-  <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune>`_
+* `Parcoursup 2025 - vœux de poursuite d'études et de réorientation dans l'enseignement supérieur et réponses des établissements <https://www.data.gouv.fr/datasets/parcoursup-2025-voeux-de-poursuite-detudes-et-de-reorientation-dans-lenseignement-superieur-et-reponses-des-etablissements>`_
+* `Patrimoine immobilier des opérateurs de l'Enseignement supérieur <https://www.data.gouv.fr/datasets/patrimoine-immobilier-des-operateurs-de-lenseignement-superieur>`_
+* `Prix des carburants en France - Flux quotidien <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-quotidien-1>`_
+* `Prix des carburants en France - Flux instantané - v2 <https://www.data.gouv.fr/datasets/prix-des-carburants-en-france-flux-instantane-v2-amelioree>`_
+* `Séries sur les surfaces, rendements, production céréales <https://visionet.franceagrimer.fr/Pages/SeriesChronologiques.aspx?menuurl=SeriesChronologiques/productions%20vegetales/grandes%20cultures/surfaces,productions,rendements>`_
+* `Effectifs d'étudiants inscrits dans les établissements et les formations de l'enseignement supérieur - détail par établissements <https://www.data.gouv.fr/datasets/effectifs-detudiants-inscrits-dans-les-etablissements-et-les-formations-de-lenseignement-superieur-detail-par-etablissements>`_
+* `Résultats du contrôle sanitaire de l'eau distribuée commune par commune <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune>`_
 * `Résultats du contrôle sanitaire de l'eau du robinet <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-du-robinet>`_
 * `Données climatologiques de base - horaires <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-horaires>`_
-* `Données climatologiques de base - mensuelles  <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-mensuelles>`_
-
+* `Données climatologiques de base - mensuelles <https://www.data.gouv.fr/datasets/donnees-climatologiques-de-base-mensuelles>`_
+* `Base de donnée de surveillance de pesticides dans l air par les AASQA à partir de 2002 <https://www.data.gouv.fr/datasets/base-de-donnee-de-surveillance-de-pesticides-dans-l-air-par-les-aasqa-a-partir-de-2002>`_

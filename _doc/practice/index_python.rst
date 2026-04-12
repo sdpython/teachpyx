@@ -68,7 +68,7 @@ Exercices sur le langage python
     ../auto_examples/prog/plot_gil_example
     ../auto_examples/prog/plot_lambda_function
 
-Les exercices suivants fonctionnent par pair énoncé et correction.
+Les exercices suivants fonctionnent par paire énoncé et correction.
 
 .. toctree::
     :maxdepth: 1
