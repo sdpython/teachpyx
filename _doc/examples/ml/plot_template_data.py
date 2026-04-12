@@ -52,12 +52,10 @@ def select_variables_and_clean(df):
     columns = set(df.columns)
     assert set(keys) & set(columns) == set(
         keys
-    ), f"Missing columns {set(keys) - set(columns)} in {sorted(df.columns)}"
-    groups = df[[*keys, cible]].groupby(keys).count()
-    filtered = groups[groups[cible] > 1].reset_index(drop=False)
-
-    mask = filtered.duplicated(subset=keys, keep=False)
-    return filtered[~mask][[*keys, cible]], cible
+    ), f"Missing columns {set(keys) - set(keys) & set(columns)} in {sorted(df.columns)}"
+    subset = df[[*keys, cible]]
+    mask = subset.duplicated(subset=keys, keep=False)
+    return subset[~mask].reset_index(drop=True), cible
 
 
 def compute_oracle(table, cible):
@@ -72,6 +70,7 @@ def compute_oracle(table, cible):
             columns="Session",
             values=cible,
         )
+        .dropna(axis=0)
         .sort_index()
     )
     # Keep only rows where both 2024 and 2025 have non-missing values
@@ -99,9 +98,7 @@ def split_train_test(table, cible):
 
 def make_pipeline(table, cible):
     vars = [c for c in table.columns if c != cible]
-    # Candidate numeric feature; include it only if it exists in the table to avoid KeyError.
-    numeric_feature = "Capacité de l’établissement par formation"
-    num_cols = [numeric_feature] if numeric_feature in table.columns else []
+    num_cols = ["Capacité de l’établissement par formation"]
     cat_cols = [c for c in vars if c not in num_cols]
 
     transformers = []
