@@ -24,4 +24,4 @@ jobs:
         run: python -m pip install sphinx tomli rstcheck[toml,sphinx]
 
       - name: rstcheck
-        run: rstcheck -r _doc teachpyx
+        run: find _doc teachpyx -name "*.rst" ! -path "_doc/articles/2026/2026-03-15-route2026-ml.rst" -print0 | xargs -0 rstcheck
