@@ -52,7 +52,7 @@ def select_variables_and_clean(df):
     columns = set(df.columns)
     assert set(keys) & set(columns) == set(
         keys
-    ), f"Missing columns {set(keys) - set(keys) & set(columns)} in {sorted(df.columns)}"
+    ), f"Missing columns {set(keys) - set(columns)} in {sorted(df.columns)}"
     groups = df[[*keys, cible]].groupby(keys).count()
     filtered = groups[groups[cible] > 1].reset_index(drop=False)
 
