@@ -94,19 +94,24 @@ def split_train_test(table, cible):
 
 def make_pipeline(table, cible):
     vars = [c for c in table.columns if c != cible]
-    num_cols = ["Capacité de l’établissement par formation"]
+    # Candidate numeric feature; include it only if it exists in the table to avoid KeyError.
+    numeric_feature = "Capacité de l’établissement par formation"
+    num_cols = [numeric_feature] if numeric_feature in table.columns else []
     cat_cols = [c for c in vars if c not in num_cols]
+
+    transformers = []
+    if num_cols:
+        transformers.append(("num", StandardScaler(), num_cols))
+    if cat_cols:
+        transformers.append(
+            ("cats", OneHotEncoder(handle_unknown="ignore"), cat_cols)
+        )
 
     model = Pipeline(
         [
             (
                 "preprocessing",
-                ColumnTransformer(
-                    [
-                        ("num", StandardScaler(), num_cols),
-                        ("cats", OneHotEncoder(handle_unknown="ignore"), cat_cols),
-                    ]
-                ),
+                ColumnTransformer(transformers),
             ),
             ("regressor", HistGradientBoostingRegressor()),
         ]
