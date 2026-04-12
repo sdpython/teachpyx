@@ -12,16 +12,15 @@ site web : `sdpython.github.io <https://sdpython.github.io/>`_
 Journée 1 (13/4) - Data Analyse
 ===============================
 
-**Objectif de la journée : créer une base de données avec le résultat des élections municipales**
+L'Objectif de la journée : créer une base de données avec le résultat des élections municipales.
 
 raccourci : https://github.com/sdpython/teachdata/tree/main/municipales
 
 * quelques mots sur ChatGPT, Gemini, Claude, et la notion de vibe-coding
 * on code moins, on lit plus, mais il faut toujours comprendre le code
+* `Building Claude Code with Harness Engineering <https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0>`_
 
-L'objectif de cette seconde journée sera de manipuler des données
-avec :epkg:`pandas`, :epkg:`numpy` pour construire une feuille
-Excel avec un graphe automatiquement depuis Python.
+Quelques modules :
 
 * :epkg:`numpy`
 * :epkg:`pandas`

@@ -1,7 +1,7 @@
 """
 Source:
 
-* `wines-quality.csv <https://archive.ics.uci.edu/ml/datasets/wine+quality>`_
+* `wines-quality.csv <https://archive-beta.ics.uci.edu/dataset/186/wine+quality>`_
 * `countries.geo.json <https://github.com/johan/world.geo.json/blob/master/countries.geo.json>`_
 * `reunion.zip <https://www.insee.fr/fr/statistiques/2520034>`_
 * `reunion_rect.zip <https://www.insee.fr/fr/statistiques/2520034>`_
