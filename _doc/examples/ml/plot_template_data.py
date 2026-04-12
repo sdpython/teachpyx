@@ -87,8 +87,8 @@ def split_train_test(table, cible):
 
     train_X = X[train_test].drop(drop, axis=1)
     train_y = y[train_test]
-    test_X = X[train_test].drop(drop, axis=1)
-    test_y = y[train_test]
+    test_X = X[~train_test].drop(drop, axis=1)
+    test_y = y[~train_test]
     return train_X, test_X, train_y, test_y
 
 
