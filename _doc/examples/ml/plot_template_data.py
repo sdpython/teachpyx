@@ -93,7 +93,7 @@ def split_train_test(table, cible):
 
 
 def make_pipeline(table, cible):
-    vars = [c for c in table.columns if c != "cible"]
+    vars = [c for c in table.columns if c != cible]
     num_cols = ["Capacité de l’établissement par formation"]
     cat_cols = [c for c in vars if c not in num_cols]
 
