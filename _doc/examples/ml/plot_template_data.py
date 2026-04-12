@@ -73,6 +73,12 @@ def compute_oracle(table, cible):
         .dropna(axis=0)
         .sort_index()
     )
+    # Keep only rows where both 2024 and 2025 have non-missing values
+    piv = piv.dropna(axis=0, how="any")
+    if piv.empty:
+        raise ValueError(
+            "Not enough overlapping data between 2024 and 2025 to compute oracle."
+        )
     return mean_absolute_error(piv[2025], piv[2024])
 
 
@@ -95,16 +101,19 @@ def make_pipeline(table, cible):
     num_cols = ["Capacité de l’établissement par formation"]
     cat_cols = [c for c in vars if c not in num_cols]
 
+    transformers = []
+    if num_cols:
+        transformers.append(("num", StandardScaler(), num_cols))
+    if cat_cols:
+        transformers.append(
+            ("cats", OneHotEncoder(handle_unknown="ignore"), cat_cols)
+        )
+
     model = Pipeline(
         [
             (
                 "preprocessing",
-                ColumnTransformer(
-                    [
-                        ("num", StandardScaler(), num_cols),
-                        ("cats", OneHotEncoder(handle_unknown="ignore"), cat_cols),
-                    ]
-                ),
+                ColumnTransformer(transformers),
             ),
             ("regressor", HistGradientBoostingRegressor()),
         ]
@@ -114,9 +123,9 @@ def make_pipeline(table, cible):
 
 data = get_data()
 table, cible = select_variables_and_clean(data)
-oracle = compute_oracle(table, cible)
-print(f"oracle : {oracle}")
+# oracle = compute_oracle(table, cible)
+# print(f"oracle : {oracle}")
 
-train_X, test_X, train_y, test_y = split_train_test(table, cible)
-model = make_pipeline(table, cible)
-model.fit(train_X, train_y)
+# train_X, test_X, train_y, test_y = split_train_test(table, cible)
+# model = make_pipeline(table, cible)
+# model.fit(train_X, train_y)
