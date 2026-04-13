@@ -882,9 +882,15 @@ def graph_sankey(
     if orientations is None:
         orientations = [0] * len(flows)
     if len(labels) != len(flows):
-        raise ValueError("labels and flows must have the same length.")
+        raise ValueError(
+            "labels and flows must have the same length, "
+            f"got {len(labels)} and {len(flows)}."
+        )
     if len(orientations) != len(flows):
-        raise ValueError("orientations and flows must have the same length.")
+        raise ValueError(
+            "orientations and flows must have the same length, "
+            f"got {len(orientations)} and {len(flows)}."
+        )
 
     import matplotlib.pyplot as plt
     from matplotlib.sankey import Sankey
