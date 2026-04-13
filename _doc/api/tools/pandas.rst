@@ -2,7 +2,7 @@
 teachpyx.tools.pandas
 =====================
 
-Exemple
+Example
 -------
 
 .. plot::
@@ -15,7 +15,7 @@ Exemple
 
     df = pandas.DataFrame({"name": ["A", "B", "C"], "delta": [10, -3, 5]})
     ax, _ = plot_waterfall(df, "delta", "name", total_label="TOTAL")
-    ax.set_title("Exemple de waterfall")
+    ax.set_title("Example waterfall")
     plt.xticks(rotation=30, ha="right")
     plt.tight_layout()
     plt.show()
