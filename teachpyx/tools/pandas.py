@@ -97,7 +97,7 @@ def plot_waterfall(
         }
     )
 
-    total = float(values.sum()) if len(values) > 0 else 0.0
+    total = float(values.sum())
     total_row = pandas.DataFrame(
         {
             "label": [total_label],

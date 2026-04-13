@@ -1,4 +1,5 @@
 import unittest
+from matplotlib.axes import Axes
 import pandas
 from teachpyx.ext_test_case import ExtTestCase
 from teachpyx.tools.pandas import plot_waterfall, read_csv_cached
@@ -23,7 +24,7 @@ class TestPandas(ExtTestCase):
             }
         )
         ax, plot_df = plot_waterfall(df, "delta", "name", total_label="TOTAL")
-        self.assertEqual(ax.__class__.__name__, "Axes")
+        self.assertIsInstance(ax, Axes)
         self.assertEqual(list(plot_df["label"]), ["A", "B", "C", "TOTAL"])
         self.assertEqual(list(plot_df["start"]), [0.0, 10.0, 7.0, 0.0])
         self.assertEqual(list(plot_df["end"]), [10.0, 7.0, 12.0, 12.0])
