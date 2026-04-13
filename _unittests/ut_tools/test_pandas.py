@@ -30,18 +30,18 @@ class TestPandas(ExtTestCase):
 
     def test_plot_waterfall_missing_column(self):
         df = pandas.DataFrame({"name": ["A"], "delta": [1]})
-        self.assertRaise(lambda: plot_waterfall(df, "missing", "name"), ValueError)
+        with self.assertRaises(ValueError):
+            plot_waterfall(df, "missing", "name")
 
     def test_plot_waterfall_missing_label_column(self):
         df = pandas.DataFrame({"name": ["A"], "delta": [1]})
-        self.assertRaise(lambda: plot_waterfall(df, "delta", "missing"), ValueError)
+        with self.assertRaises(ValueError):
+            plot_waterfall(df, "delta", "missing")
 
     def test_plot_waterfall_bad_colors(self):
         df = pandas.DataFrame({"name": ["A"], "delta": [1]})
-        self.assertRaise(
-            lambda: plot_waterfall(df, "delta", "name", colors=("r",)),
-            ValueError,
-        )
+        with self.assertRaises(ValueError):
+            plot_waterfall(df, "delta", "name", colors=("r",))
 
 
 if __name__ == "__main__":
