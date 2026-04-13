@@ -868,6 +868,19 @@ def graph_sankey(
     :param kwargs: additional parameters forwarded to
         ``matplotlib.sankey.Sankey.add``
     :return: axis, sankey diagrams
+
+    Example::
+
+        import matplotlib.pyplot as plt
+        from teachpyx.faq.faq_python import graph_sankey
+
+        ax, _ = graph_sankey(
+            [1, -0.25, -0.75],
+            labels=["input", "loss", "output"],
+            orientations=[0, 1, -1],
+            title="flux",
+        )
+        plt.show()
     """
     if len(flows) < 2:
         raise ValueError(f"flows must contain at least two values, got {len(flows)}.")
