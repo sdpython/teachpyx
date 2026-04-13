@@ -36,6 +36,16 @@ class TestFaqPython(unittest.TestCase):
         self.assertEqual(ax.get_title(), "flux")
         self.assertEqual(len(diagrams), 1)
 
+    def test_graph_sankey_errors(self):
+        with self.assertRaisesRegex(ValueError, "at least two values"):
+            graph_sankey([1])
+        with self.assertRaisesRegex(ValueError, "must be 0"):
+            graph_sankey([1, -0.5])
+        with self.assertRaisesRegex(ValueError, "same length"):
+            graph_sankey([1, -1], labels=["only_one"])
+        with self.assertRaisesRegex(ValueError, "same length"):
+            graph_sankey([1, -1], orientations=[0, 1, -1])
+
 
 if __name__ == "__main__":
     unittest.main()
