@@ -870,9 +870,13 @@ def graph_sankey(
     :return: axis, sankey diagrams
     """
     if len(flows) < 2:
-        raise ValueError("flows must contain at least two values.")
-    if abs(sum(flows)) > _FLOW_BALANCE_TOLERANCE:
-        raise ValueError("The sum of all flows must be 0.")
+        raise ValueError(f"flows must contain at least two values, got {len(flows)}.")
+    total_flow = sum(flows)
+    if abs(total_flow) > _FLOW_BALANCE_TOLERANCE:
+        raise ValueError(
+            "The sum of all flows must be 0 "
+            f"(within tolerance {_FLOW_BALANCE_TOLERANCE}), got {total_flow}."
+        )
     if labels is None:
         labels = [None] * len(flows)
     if orientations is None:
