@@ -44,6 +44,11 @@ class TestPandas(ExtTestCase):
         with self.assertRaises(ValueError):
             plot_waterfall(df, "delta", "name", colors=("r",))
 
+    def test_plot_waterfall_not_numeric(self):
+        df = pandas.DataFrame({"name": ["A"], "delta": ["x"]})
+        with self.assertRaises(ValueError):
+            plot_waterfall(df, "delta", "name")
+
 
 if __name__ == "__main__":
     unittest.main()
