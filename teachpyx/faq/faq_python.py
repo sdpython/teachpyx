@@ -4,6 +4,8 @@ import io
 import os
 import re
 
+FLOW_BALANCE_TOLERANCE = 1e-10
+
 
 def entier_grande_taille():
     """
@@ -869,7 +871,7 @@ def graph_sankey(
     """
     if len(flows) < 2:
         raise ValueError("flows must contain at least two values.")
-    if abs(sum(flows)) > 1e-10:
+    if abs(sum(flows)) > FLOW_BALANCE_TOLERANCE:
         raise ValueError("The sum of all flows must be 0.")
     if labels is None:
         labels = [None] * len(flows)
