@@ -148,10 +148,24 @@ Journée 3 (15/4)
 Journée 4 (16/4)
 ================
 
+* `Créations d'établissements au niveau communal et supra communal par secteur d'activité (A10) et forme légale <https://catalogue-donnees.insee.fr/fr/explorateur/DS_SIDE_CREA_ETAB_COM>`_
+* `Communes et villes de France en CSV, Excel, Json, Parquet et Feather <https://www.data.gouv.fr/datasets/communes-et-villes-de-france-en-csv-excel-json-parquet-et-feather>`_
+* `Résultats du contrôle sanitaire de l'eau distribuée commune par commune <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune>`_
+* `Balances comptables des communes en 2021 <https://www.data.gouv.fr/datasets/balances-comptables-des-communes-en-2021>`_
+
+**Partie 1**
+
 * retour sur les graphes :epkg:`matplotlib`, :epkg:`seaborn`, :epkg:`plotly`, :epkg:`skrub`
 * cartographie, :epkg:`cartopy`, :epkg:`folium`
-* corrélations, pairplots
-* cubes de données avec pandas, passer un indice à droite (colonnes), à gauche (index),
-  :ref:`Cube de données et pandas <nbl-c_data-nb_pandas_cube>`
-* tracer des graphes sur les élections municipales
+* jointure avec les meta données
+* tracer l'évolution temporelle d'une série agrégées
+* tracer des cartes avec le jeux de données proposés, on veut tracer une carte par an
+* carte avec :epkg:`folium`
 
+**Partie 2**
+
+* lecture itérative d'un jeux de données
+* utilisation de `polars <https://docs.pola.rs/>`_
+* manipulation complexes avec pandas, 
+  cubes de données avec pandas, passer un indice à droite (colonnes), à gauche (index),
+  :ref:`Cube de données et pandas <nbl-c_data-nb_pandas_cube>`
