@@ -77,12 +77,7 @@ def plot_waterfall(
     if len(colors) != 3:
         raise ValueError(f"colors must contain 3 values, not {len(colors)}.")
 
-    try:
-        values = pandas.to_numeric(data[value_column], errors="raise").astype(float)
-    except ValueError as exc:
-        raise ValueError(
-            f"Column {value_column!r} cannot be converted to numeric values."
-        ) from exc
+    values = pandas.to_numeric(data[value_column], errors="raise").astype(float)
     labels = data[label_column] if label_column is not None else data.index
     labels = labels.astype(str)
 
