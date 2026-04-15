@@ -115,9 +115,7 @@ def plot_waterfall(
         _, ax = plt.subplots(1, 1)
 
     bar_colors = [
-        colors[2]
-        if kind == "total"
-        else (colors[0] if value >= 0 else colors[1])
+        colors[2] if kind == "total" else (colors[0] if value >= 0 else colors[1])
         for value, kind in zip(plot_df["value"], plot_df["kind"])
     ]
     ax.bar(
