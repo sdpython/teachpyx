@@ -2,6 +2,7 @@ import hashlib
 import os
 import re
 from pathlib import Path
+from typing import Optional, Tuple
 from urllib.parse import urlparse, unquote
 import pandas
 
@@ -46,3 +47,81 @@ def read_csv_cached(
     df = pandas.read_csv(filepath_or_buffer, **kwargs)
     df.to_csv(cache_name, index=False)
     return df
+
+
+def plot_waterfall(
+    data: pandas.DataFrame,
+    value_column: str,
+    label_column: Optional[str] = None,
+    total_label: str = "total",
+    ax=None,
+    colors: Tuple[str, str, str] = ("#2ca02c", "#d62728", "#1f77b4"),
+):
+    """
+    Draws a waterfall chart from a dataframe.
+
+    :param data: dataframe containing increments
+    :param value_column: column with increments
+    :param label_column: column with labels, index is used if None
+    :param total_label: label used for the final total
+    :param ax: existing axis or None to create one
+    :param colors: positive, negative, total colors
+    :return: axis, computed dataframe used to draw the chart
+
+    .. versionadded:: 0.6.1
+    """
+    if value_column not in data.columns:
+        raise ValueError(f"Unable to find column {value_column!r} in dataframe.")
+    if label_column is not None and label_column not in data.columns:
+        raise ValueError(f"Unable to find column {label_column!r} in dataframe.")
+    if len(colors) != 3:
+        raise ValueError(f"colors must contain 3 values, not {len(colors)}.")
+
+    values = pandas.to_numeric(data[value_column], errors="raise").astype(float)
+    labels = data[label_column] if label_column is not None else data.index
+    labels = labels.astype(str)
+
+    starts = values.cumsum().shift(1, fill_value=0.0)
+    plot_df = pandas.DataFrame(
+        {
+            "label": labels,
+            "value": values,
+            "start": starts,
+            "end": starts + values,
+            "kind": "variation",
+        }
+    )
+
+    total = float(values.sum())
+    total_row = pandas.DataFrame(
+        {
+            "label": [total_label],
+            "value": [total],
+            "start": [0.0],
+            "end": [total],
+            "kind": ["total"],
+        }
+    )
+    plot_df = pandas.concat([plot_df, total_row], axis=0, ignore_index=True)
+
+    if ax is None:
+        import matplotlib.pyplot as plt
+
+        _, ax = plt.subplots(1, 1)
+
+    bar_colors = [
+        colors[2] if kind == "total" else (colors[0] if value >= 0 else colors[1])
+        for value, kind in zip(plot_df["value"], plot_df["kind"])
+    ]
+    ax.bar(
+        plot_df["label"],
+        plot_df["value"],
+        bottom=plot_df["start"],
+        color=bar_colors,
+    )
+
+    ax.axhline(0, color="black", linewidth=0.8)
+    ax.set_ylabel(value_column)
+    ax.set_xlabel(label_column or "index")
+
+    return ax, plot_df

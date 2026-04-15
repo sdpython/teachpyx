@@ -105,9 +105,7 @@ def make_pipeline(table, cible):
     if num_cols:
         transformers.append(("num", StandardScaler(), num_cols))
     if cat_cols:
-        transformers.append(
-            ("cats", OneHotEncoder(handle_unknown="ignore"), cat_cols)
-        )
+        transformers.append(("cats", OneHotEncoder(handle_unknown="ignore"), cat_cols))
 
     model = Pipeline(
         [
