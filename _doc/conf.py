@@ -431,7 +431,7 @@ epkg_dictionary.update(
         "recherche dichotomique": "https://fr.wikipedia.org/wiki/Recherche_dichotomique",
         "seaborn": "https://seaborn.pydata.org/",
         "transformers": "https://github.com/huggingface/transformers",
-        "UCI": "https://archive.ics.uci.edu/datasets",
+        "UCI": "https://archive-beta.ics.uci.edu/",
         "variable aléatoire": "https://fr.wikipedia.org/wiki/Variable_al%C3%A9atoire",
         "voyageur de commerce": "https://fr.wikipedia.org/wiki/Probl%C3%A8me_du_voyageur_de_commerce",
         "xgboost": "https://xgboost.readthedocs.io/en/stable/",

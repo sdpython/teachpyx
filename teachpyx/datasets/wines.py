@@ -11,7 +11,7 @@ def load_wines_dataset(
 ) -> pandas.DataFrame:
     """
     Retourne le jeu de données
-    `wines quality <https://archive.ics.uci.edu/ml/datasets/wine+quality>`_.
+    `wines quality <https://archive-beta.ics.uci.edu/dataset/186/wine+quality>`_.
     Notebooks associés à ce jeu de données :
 
     .. runpython::
@@ -27,14 +27,13 @@ def load_wines_dataset(
     :return: :class:`pandas.DataFrame`
     """
     if download:
-        raise NotImplementedError("Not implemented with the new website.")
-        # url = "https://archive.ics.uci.edu/dataset/186/wine+quality.zip"
-        # red = pandas.read_csv(url + "winequality-red.csv", sep=";")
-        # white = pandas.read_csv(url + "winequality-white.csv", sep=";")
-        # red["color"] = "red"
-        # white["color"] = "white"
-        # df = pandas.concat([red, white])
-        # df.columns = [_.replace(" ", "_") for _ in df.columns]
+        url = "https://cdn.uci-ics-mlr-prod.aws.uci.edu/186/wine%2Bquality/"
+        red = pandas.read_csv(url + "winequality-red.csv", sep=";")
+        white = pandas.read_csv(url + "winequality-white.csv", sep=";")
+        red["color"] = "red"
+        white["color"] = "white"
+        df = pandas.concat([red, white])
+        df.columns = [_.replace(" ", "_") for _ in df.columns]
     else:
         fold = get_data_folder()
         data = os.path.join(fold, "wines-quality.csv")
@@ -51,7 +50,7 @@ def load_wine_dataset(
 ) -> pandas.DataFrame:
     """
     Retourne le jeu de données
-    `wine quality <https://archive.ics.uci.edu/ml/datasets/wine>`_.
+    `wine quality <https://archive-beta.ics.uci.edu/dataset/109/wine>`_.
     Notebooks associés à ce jeu de données :
 
     .. runpython::
@@ -67,7 +66,7 @@ def load_wine_dataset(
     :return: :class:`pandas.DataFrame`
     """
     if download:
-        url = "https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"
+        url = "https://cdn.uci-ics-mlr-prod.aws.uci.edu/109/wine/wine.data"
         df = pandas.read_csv(url, header=None)
     else:
         fold = get_data_folder()

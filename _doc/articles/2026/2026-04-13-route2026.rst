@@ -1,0 +1,171 @@
+.. _l-feuille-route-2026-2:
+
+==========================================
+2026-04-13 : feuille de route 2026 - avril
+==========================================
+
+site web : `sdpython.github.io <https://sdpython.github.io/>`_
+
+`Apprendre la programmation avec Python
+<https://sdpython.github.io/doc/teachpyx/dev/>`_
+
+Journée 1 (13/4) - Data Analyse
+===============================
+
+L'Objectif de la journée : créer une base de données avec le résultat des élections municipales.
+
+raccourci : https://github.com/sdpython/teachdata/tree/main/municipales
+
+* quelques mots sur ChatGPT, Gemini, Claude, et la notion de vibe-coding
+* on code moins, on lit plus, mais il faut toujours comprendre le code
+* `Building Claude Code with Harness Engineering <https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0>`_
+
+Quelques modules :
+
+* :epkg:`numpy`
+* :epkg:`pandas`
+* :epkg:`matplotlib`
+* :epkg:`seaborn`
+* :epkg:`statsmodels`
+* :epkg:`skrub`
+* :epkg:`scikit-learn`
+
+**Exercices numpy**
+
+* :ref:`Calcul matriciel avec numpy <nbl-c_data-nb_numpy>`
+* :ref:`numpy broadcast <nbl-c_data-numpy_broadcast>`
+* :ref:`Pivot de Gauss <nbl-practice-years-2023-pivot_gauss>`
+
+**Exercices pandas**
+
+* :ref:`l-example-serialization`
+* :ref:`l-example-plot-groupby`
+* :ref:`Manipulation de données avec pandas <nbl-c_data-nb_pandas>`
+* filter, groupby, jointure, pivot
+
+**Quelques exercices pour plus d'agilité**
+
+* que vaut ``1/2`` ? et ``1//2`` ?
+* retourner une liste (obtenir une liste dans l'autre sens)
+* calculer le nombre d'occurences des éléments d'une liste (histogrammes)
+* modifier un élément d'un tuple
+* retourner un dictionnaire : que fait-on des doublons ?
+* trouver le minimum dans un tableau
+* trier un tableau
+* transformer une liste en un dictionnaire et réciproquement
+* comment multiplier une chaîne de caractère ?
+* écrire une boucle ``for`` et la même avec une boucle ``while``
+* écrire un test
+* écrire une fonction qui vérifie si une chaîne de caractères est symétrique
+* écrire une fonction qui retourne une chaîne de caractères sans ses voyelles
+
+*fonctions*
+
+* fonction, paramètre par défaut
+* arguments positionnels, arguments nommés
+* écrire une fonction récursive
+* écrire une fonction qui calcule la suite de Fibonacci ?
+* écriture ``*args``, ``**kwargs`` ?
+* comment espionner une autre fonction ?
+
+*graphes*
+
+* comment représenter un graphe de type facebook à l'aide dictionnaires ?
+* compter le nombre d'amis en commun ?
+* compter le nombre moyen de connexions ?
+* comment obtenir la liste des membres du graphes ?
+
+**Exercices plus longs**
+
+* :ref:`Variables, boucles, tests <nbl-practice-tds-base-variable_boucle_tests>`
+* :ref:`Structures de données <nbl-practice-py-base-structures_donnees_conversion>`
+* :ref:`Tracer une pyramide bigarrée <nbl-practice-tds-base-pyramide_bigarree>`
+* :ref:`Recherche dichotomique <nbl-practice-py-base-recherche_dichotomique>`
+* :ref:`Tri plus rapide que prévu <nbl-practice-py-base-tri_nlnd>`
+* :ref:`l-exp-mathador`
+* :ref:`Un bref aperçu des classes <nbl-practice-py-base-classes_metro>`
+* :ref:`Prises aux dames <nbl-practice-py-base-dame_prise>`
+* :ref:`les itérateurs <nbl-practice-py-base-classe_iterateur>`
+* :ref:`Quelques programmes truffés d'erreurs <nbl-practice-exams-interro_rapide_20_minutes_2014_11>`
+
+**Exercices plus costauds**
+
+* `Lettres et encodages <https://sdpython.github.io/doc/teachpyx/dev/_downloads/032ccfaa7b99eb2a4b992aaa3bc48c34/td_note_2023-2024.pdf>`_
+* `Câblages électriques <https://sdpython.github.io/doc/teachpyx/dev/_downloads/8b77610717572d8d8899c825964056bb/td_note_2024.pdf>`_
+* `Dessin d'un arbre <https://sdpython.github.io/doc/teachpyx/dev/_downloads/538fb74f2b1a76ede9cb20e40bb4b8af/td_note_2022_rattrapage2.pdf>`_
+  (`correction <https://sdpython.github.io/doc/teachpyx/dev/practice/exams/td_note_2022_rattrapage2.html>`_)
+
+**PDF**
+
+.. code-block:: python
+
+    from pypdf import PdfReader, PdfWriter
+    from reportlab.pdfgen import canvas
+    from reportlab.lib.pagesizes import letter
+
+    # ...
+
+Journée 2 (14/4)
+================
+
+**Partie 1**
+
+* :ref:`exceptions`
+* :ref:`l-regex`, :ref:`Expressions régulières <nbl-practice-py-base-exercice_regex>`
+* :mod:`pickle`, fichiers pickle (voir :ref:`chap_serialization`)
+* récupération des fichiers préparés pour la formation avec pandas
+* utilisation de :epkg:`skrub`
+* première jointure
+
+**Partie 2**
+
+* introduction de :epkg:`scikit-learn`
+* valeurs manquantes, remplacement simple (moyenne),
+  corrélations (:class:`sklearn.impute.KNNImputer`), prédictions
+  (:class:`sklearn.impute.IterativeImputer`),
+  (voir `sklearn.impute <https://scikit-learn.org/stable/api/sklearn.impute.html>`_)
+* premières impressions
+* exemples classique pour traiter, enrichir un jeux de données :
+  `skrub tutorial <https://skrub-data.org/stable/auto_examples/00_getting_started.html>`_,
+  voir aussi
+  `AggJoiner on a credit fraud dataset <https://skrub-data.org/stable/auto_examples/08_join_aggregation.html>`_
+* :class:`sklearn.pipeline.Pipeline`, :class:`sklearn.compose.ColumnTransformer`, 
+  :class:`sklearn.pipeline.FeatureUnion`
+* Dates, Catégories : :epkg:`category_encoders`, :epkg:`skrub`,
+  :ref:`Prétraitement des catégories <nbl-practice-ml-pretraitement_cat>`
+* Son : :epkg:`librosa`, voir :ref:`Prétraitement du son <nbl-practice-ml-pretraitement_son>`
+* Image : :epkg:`scikit-image`, voir :ref:`Prétraitement d'une image <nbl-practice-ml-pretraitement_image>`
+* Texte : :ref:`Prétraitement du texte <nbl-practice-ml-pretraitement_texte>`
+
+Journée 3 (15/4)
+================
+
+**programmation Avancé**
+
+* notion de test unitaires
+* création de ses propres classes (estimateur scikit-learn)
+
+Journée 4 (16/4)
+================
+
+* `Créations d'établissements au niveau communal et supra communal par secteur d'activité (A10) et forme légale <https://catalogue-donnees.insee.fr/fr/explorateur/DS_SIDE_CREA_ETAB_COM>`_
+* `Communes et villes de France en CSV, Excel, Json, Parquet et Feather <https://www.data.gouv.fr/datasets/communes-et-villes-de-france-en-csv-excel-json-parquet-et-feather>`_
+* `Résultats du contrôle sanitaire de l'eau distribuée commune par commune <https://www.data.gouv.fr/datasets/resultats-du-controle-sanitaire-de-leau-distribuee-commune-par-commune>`_
+* `Balances comptables des communes en 2021 <https://www.data.gouv.fr/datasets/balances-comptables-des-communes-en-2021>`_
+
+**Partie 1**
+
+* retour sur les graphes :epkg:`matplotlib`, :epkg:`seaborn`, :epkg:`plotly`, :epkg:`skrub`
+* cartographie, :epkg:`cartopy`, :epkg:`folium`
+* jointure avec les meta données
+* tracer l'évolution temporelle d'une série agrégées
+* tracer des cartes avec le jeux de données proposés, on veut tracer une carte par an
+* carte avec :epkg:`folium`
+
+**Partie 2**
+
+* lecture itérative d'un jeux de données
+* utilisation de `polars <https://docs.pola.rs/>`_
+* manipulation complexes avec pandas, 
+  cubes de données avec pandas, passer un indice à droite (colonnes), à gauche (index),
+  :ref:`Cube de données et pandas <nbl-c_data-nb_pandas_cube>`
