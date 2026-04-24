@@ -393,6 +393,9 @@ def main() -> None:
     weekly = aggregate_weekly(df)
     pivot_all = make_pivot(weekly)
 
+    # Agrégation non filtrée pour le graphe de comparaison entre dépôts
+    weekly_all = aggregate_weekly(merged_prs)
+
     # 4. Graphiques combinés (toutes repos)
     print("\nGénération des graphiques combinés…")
     plot_bar(
@@ -406,10 +409,10 @@ def main() -> None:
         OUTPUT_DIR / "github_stat_pr_heatmap.png",
     )
 
-    # 4b. Graphe en lignes comparant les dépôts (toujours affiché si plusieurs repos)
+    # 4b. Graphe en lignes : une ligne par dépôt, auteurs agrégés (données non filtrées)
     if len(REPOS) > 1:
         plot_lines_by_repo(
-            weekly,
+            weekly_all,
             "PR fusionnées par semaine — comparaison entre dépôts",
             OUTPUT_DIR / "github_stat_pr_lines.png",
         )
