@@ -64,7 +64,7 @@ CACHE_DIR = pathlib.Path(".")
 
 # Liste blanche d'auteurs : seuls ces auteurs seront inclus dans l'analyse.
 # Laissez vide ([]) pour inclure tous les auteurs.
-AUTHOR_WHITELIST: list[str] = []
+AUTHOR_WHITELIST: list[str] = ["xadupre", "sdpython", "Copilot", "dependabot[bot]"]
 
 # Répertoire de sortie pour les images PNG
 OUTPUT_DIR = pathlib.Path(".")
