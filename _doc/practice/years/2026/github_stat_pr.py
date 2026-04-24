@@ -49,9 +49,10 @@ import requests
 # ---------------------------------------------------------------------------
 
 REPOS = [
-    ("sdpython", "teachpyx"),
-    ("sdpython", "teachcompute"),
-    ("sdpython", "onnx-extended"),
+    # ("sdpython", "teachpyx"),
+    # ("sdpython", "teachcompute"),
+    # ("sdpython", "onnx-extended"),
+    ("sdpython", "onnx-diagnostic"),
     ("sdpython", "experimental-experiment"),
     ("xadupre", "yet-another-onnx-builder"),
     ("xadupre", "mbext"),
@@ -414,25 +415,7 @@ def main() -> None:
             OUTPUT_DIR / "github_stat_pr_lines.png",
         )
 
-    # 5. Graphiques par dépôt (si plusieurs dépôts)
-    if len(REPOS) > 1:
-        print("\nGénération des graphiques par dépôt…")
-        for repo_name, grp in weekly.groupby("repo"):
-            pvt = make_pivot(grp)
-            safe = repo_name.replace("/", "_")
-            plot_bar(
-                pvt,
-                f"PR fusionnées par semaine — {repo_name}",
-                OUTPUT_DIR / f"github_stat_pr_bar_{safe}.png",
-            )
-            plot_heatmap(
-                pvt,
-                f"Heatmap des PR fusionnées — {repo_name}",
-                OUTPUT_DIR / f"github_stat_pr_heatmap_{safe}.png",
-            )
-
     print("\nTerminé.")
-
 
 if __name__ == "__main__":
     main()
