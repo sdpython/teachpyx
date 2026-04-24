@@ -8,3 +8,4 @@
     :caption: machine learning
 
     parcoursup_2026
+    github_stat_pr
