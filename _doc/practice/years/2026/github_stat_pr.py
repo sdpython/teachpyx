@@ -49,6 +49,13 @@ import requests
 
 REPOS = [
     ("sdpython", "teachpyx"),
+    ("sdpython", "teachcompute"),
+    ("sdpython", "onnx-extended"),
+    ("sdpython", "experimental-experiment"),
+    ("xadupre", "yet-another-onnx-builder"),
+    ("xadupre", "mbext"),
+    ("onnx", "sklearn-onnx"),
+    ("onnx", "onnxmltools"),
     # ("sdpython", "onnx-extended"),  # ajoutez d'autres dépôts ici
 ]
 
@@ -121,8 +128,12 @@ def fetch_merged_prs(
     if token:
         headers["Authorization"] = f"Bearer {token}"
 
-    cutoff = fetch_since if fetch_since is not None else (
-        datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=365)
+    cutoff = (
+        fetch_since
+        if fetch_since is not None
+        else (
+            datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=365)
+        )
     )
 
     results = []
@@ -214,7 +225,10 @@ def load_prs_with_cache(
 
     if new_prs:
         new_df = pd.DataFrame(new_prs)
-        combined = pd.concat([cached_df, new_df], ignore_index=True)
+        if cached_df.shape[0]:
+            combined = pd.concat([cached_df, new_df], ignore_index=True)
+        else:
+            combined = new_df
     else:
         combined = cached_df.copy()
 
@@ -238,15 +252,11 @@ def aggregate_weekly(df: pd.DataFrame) -> pd.DataFrame:
     """Regroupe les PR par (repo, author, week) et retourne un DataFrame long."""
     df = df.copy()
     df["week"] = df["merged_at"].dt.to_period("W").dt.start_time
-    return (
-        df.groupby(["repo", "author", "week"])
-        .size()
-        .reset_index(name="pr_count")
-    )
+    return df.groupby(["repo", "author", "week"]).size().reset_index(name="pr_count")
 
 
 def make_pivot(weekly: pd.DataFrame) -> pd.DataFrame:
-    """Construit le tableau croisé auteur × semaine trié par total décroissant."""
+    """Construit le tableau croisé auteur x semaine trié par total décroissant."""
     pivot = weekly.pivot_table(
         index="author", columns="week", values="pr_count", aggfunc="sum", fill_value=0
     )
@@ -259,7 +269,7 @@ def make_pivot(weekly: pd.DataFrame) -> pd.DataFrame:
 
 
 def plot_bar(pivot: pd.DataFrame, title: str, output_path: pathlib.Path) -> None:
-    """Diagramme à barres empilées (auteur × semaine) enregistré en PNG."""
+    """Diagramme à barres empilées (auteur x semaine) enregistré en PNG."""
     fig, ax = plt.subplots(figsize=(14, 5))
     stacked_height = None
     week_nums = mdates.date2num(pivot.columns.to_pydatetime())
@@ -287,7 +297,7 @@ def plot_bar(pivot: pd.DataFrame, title: str, output_path: pathlib.Path) -> None
 
 
 def plot_heatmap(pivot: pd.DataFrame, title: str, output_path: pathlib.Path) -> None:
-    """Heatmap auteur × semaine enregistrée en PNG."""
+    """Heatmap auteur x semaine enregistrée en PNG."""
     fig, ax = plt.subplots(figsize=(14, max(3, len(pivot) * 0.5)))
     im = ax.imshow(pivot.values, aspect="auto", cmap="YlOrRd")
     plt.colorbar(im, ax=ax, label="Nombre de PR")
