@@ -24,6 +24,7 @@ Images générées :
 
 * ``github_stat_pr_bar.png`` — diagramme empilé (toutes repos confondues)
 * ``github_stat_pr_heatmap.png`` — heatmap (toutes repos confondues)
+* ``github_stat_pr_lines.png`` — graphe en lignes comparant les dépôts
 * ``github_stat_pr_bar_{owner}_{repo}.png`` — diagramme empilé par dépôt
 * ``github_stat_pr_heatmap_{owner}_{repo}.png`` — heatmap par dépôt
 

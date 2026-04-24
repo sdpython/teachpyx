@@ -30,6 +30,7 @@ Les images sont enregistrées dans le répertoire courant :
 
 * ``github_stat_pr_bar.png`` — diagramme empilé (toutes repos confondues)
 * ``github_stat_pr_heatmap.png`` — heatmap (toutes repos confondues)
+* ``github_stat_pr_lines.png`` — graphe en lignes comparant les dépôts
 * ``github_stat_pr_bar_{owner}_{repo}.png`` — diagramme empilé par dépôt
 * ``github_stat_pr_heatmap_{owner}_{repo}.png`` — heatmap par dépôt
 """
@@ -320,6 +321,46 @@ def plot_heatmap(pivot: pd.DataFrame, title: str, output_path: pathlib.Path) -> 
     print(f"  → {output_path}")
 
 
+def plot_lines_by_repo(
+    weekly: pd.DataFrame, title: str, output_path: pathlib.Path
+) -> None:
+    """Graphe en lignes : total de PR fusionnées par semaine pour chaque dépôt.
+
+    Chaque dépôt est représenté par une ligne, ce qui permet de comparer
+    visuellement l'activité entre dépôts.
+    """
+    repo_weekly = (
+        weekly.groupby(["repo", "week"])["pr_count"].sum().reset_index()
+    )
+    all_weeks = sorted(repo_weekly["week"].unique())
+
+    fig, ax = plt.subplots(figsize=(14, 5))
+    for repo_name, grp in repo_weekly.groupby("repo"):
+        grp_indexed = grp.set_index("week").reindex(all_weeks, fill_value=0)
+        week_nums = mdates.date2num(
+            pd.to_datetime(grp_indexed.index).to_pydatetime()
+        )
+        ax.plot(
+            week_nums,
+            grp_indexed["pr_count"].values,
+            marker="o",
+            markersize=3,
+            label=repo_name,
+        )
+
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
+    ax.xaxis.set_major_locator(mdates.WeekdayLocator(byweekday=mdates.MO, interval=4))
+    plt.xticks(rotation=45, ha="right")
+    ax.set_xlabel("Semaine")
+    ax.set_ylabel("Nombre de PR fusionnées")
+    ax.set_title(title)
+    ax.legend(loc="upper left", bbox_to_anchor=(1, 1), title="Dépôt")
+    plt.tight_layout()
+    plt.savefig(output_path, dpi=150)
+    plt.close(fig)
+    print(f"  → {output_path}")
+
+
 # ---------------------------------------------------------------------------
 # Point d'entrée
 # ---------------------------------------------------------------------------
@@ -364,6 +405,14 @@ def main() -> None:
         "Heatmap des PR fusionnées",
         OUTPUT_DIR / "github_stat_pr_heatmap.png",
     )
+
+    # 4b. Graphe en lignes comparant les dépôts (toujours affiché si plusieurs repos)
+    if len(REPOS) > 1:
+        plot_lines_by_repo(
+            weekly,
+            "PR fusionnées par semaine — comparaison entre dépôts",
+            OUTPUT_DIR / "github_stat_pr_lines.png",
+        )
 
     # 5. Graphiques par dépôt (si plusieurs dépôts)
     if len(REPOS) > 1:
