@@ -41,6 +41,7 @@ import pathlib
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 import pandas as pd
 import requests
 
@@ -157,10 +158,11 @@ def fetch_merged_prs(
                     "Authentification refusée (401). Vérifiez votre GITHUB_TOKEN."
                 ) from exc
             if status == 403:
-                raise RuntimeError(
+                print(
                     "Accès refusé (403). Vous avez peut-être atteint la limite de "
                     "l'API GitHub (60 requêtes/h sans token). Définissez GITHUB_TOKEN."
-                ) from exc
+                )
+                break
             if status == 404:
                 raise RuntimeError(
                     f"Dépôt introuvable (404) : {owner}/{repo}. "
@@ -288,9 +290,13 @@ def plot_bar(pivot: pd.DataFrame, title: str, output_path: pathlib.Path) -> None
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
     ax.xaxis.set_major_locator(mdates.WeekdayLocator(byweekday=mdates.MO, interval=4))
     plt.xticks(rotation=45, ha="right")
-    ax.set_xlabel("Semaine")
-    ax.set_ylabel("Nombre de PR fusionnées")
+    ax.set_xlabel("Week")
+    ax.set_ylabel("PR merged per week")
     ax.set_title(title)
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(50))
+    ax.yaxis.set_minor_locator(ticker.MultipleLocator(10))
+    ax.grid(which="major")
+    ax.grid(which="minor")
     ax.legend(loc="upper left", bbox_to_anchor=(1, 1), title="Auteur")
     plt.tight_layout()
     plt.savefig(output_path, dpi=150)
@@ -316,6 +322,10 @@ def plot_heatmap(pivot: pd.DataFrame, title: str, output_path: pathlib.Path) -> 
     ax.set_title(title)
     ax.set_xlabel("Semaine")
     ax.set_ylabel("Auteur")
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(50))
+    ax.yaxis.set_minor_locator(ticker.MultipleLocator(10))
+    ax.grid(which="major")
+    ax.grid(which="minor")
     plt.tight_layout()
     plt.savefig(output_path, dpi=150)
     plt.close(fig)
@@ -330,17 +340,13 @@ def plot_lines_by_repo(
     Chaque dépôt est représenté par une ligne, ce qui permet de comparer
     visuellement l'activité entre dépôts.
     """
-    repo_weekly = (
-        weekly.groupby(["repo", "week"])["pr_count"].sum().reset_index()
-    )
+    repo_weekly = weekly.groupby(["repo", "week"])["pr_count"].sum().reset_index()
     all_weeks = sorted(repo_weekly["week"].unique())
 
     fig, ax = plt.subplots(figsize=(14, 5))
     for repo_name, grp in repo_weekly.groupby("repo"):
         grp_indexed = grp.set_index("week").reindex(all_weeks, fill_value=0)
-        week_nums = mdates.date2num(
-            pd.to_datetime(grp_indexed.index).to_pydatetime()
-        )
+        week_nums = mdates.date2num(pd.to_datetime(grp_indexed.index).to_pydatetime())
         ax.plot(
             week_nums,
             grp_indexed["pr_count"].values,
@@ -352,10 +358,14 @@ def plot_lines_by_repo(
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
     ax.xaxis.set_major_locator(mdates.WeekdayLocator(byweekday=mdates.MO, interval=4))
     plt.xticks(rotation=45, ha="right")
-    ax.set_xlabel("Semaine")
-    ax.set_ylabel("Nombre de PR fusionnées")
+    ax.set_xlabel("Week")
+    ax.set_ylabel("PR merged per week")
     ax.set_title(title)
     ax.legend(loc="upper left", bbox_to_anchor=(1, 1), title="Dépôt")
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(50))
+    ax.yaxis.set_minor_locator(ticker.MultipleLocator(10))
+    ax.grid(which="major")
+    ax.grid(which="minor")
     plt.tight_layout()
     plt.savefig(output_path, dpi=150)
     plt.close(fig)
@@ -399,26 +409,21 @@ def main() -> None:
 
     # 4. Graphiques combinés (toutes repos)
     print("\nGénération des graphiques combinés…")
-    plot_bar(
-        pivot_all,
-        "PR fusionnées par semaine",
-        OUTPUT_DIR / "github_stat_pr_bar.png",
-    )
+    plot_bar(pivot_all, "PR merged per week", OUTPUT_DIR / "github_stat_pr_bar.png")
     plot_heatmap(
-        pivot_all,
-        "Heatmap des PR fusionnées",
-        OUTPUT_DIR / "github_stat_pr_heatmap.png",
+        pivot_all, "Heatmap of merged PR", OUTPUT_DIR / "github_stat_pr_heatmap.png"
     )
 
     # 4b. Graphe en lignes : une ligne par dépôt, auteurs agrégés (données non filtrées)
     if len(REPOS) > 1:
         plot_lines_by_repo(
             weekly_all,
-            "PR fusionnées par semaine — comparaison entre dépôts",
+            "PR merged per week / repositories",
             OUTPUT_DIR / "github_stat_pr_lines.png",
         )
 
     print("\nTerminé.")
+
 
 if __name__ == "__main__":
     main()
