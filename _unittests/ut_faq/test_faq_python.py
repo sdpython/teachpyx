@@ -1,6 +1,14 @@
 import unittest
 import datetime
-from teachpyx.faq.faq_python import get_month_name, get_day_name, class_getitem
+import matplotlib
+from teachpyx.faq.faq_python import (
+    class_getitem,
+    get_day_name,
+    get_month_name,
+    graph_sankey,
+)
+
+matplotlib.use("Agg")
 
 
 class TestFaqPython(unittest.TestCase):
@@ -16,6 +24,27 @@ class TestFaqPython(unittest.TestCase):
 
     def test_class_getitem(self):
         class_getitem()
+
+    def test_graph_sankey(self):
+        ax, diagrams = graph_sankey(
+            [1, -0.25, -0.75],
+            labels=["input", "loss", "output"],
+            orientations=[0, 1, -1],
+            trunklength=2.0,
+            title="flux",
+        )
+        self.assertEqual(ax.get_title(), "flux")
+        self.assertEqual(len(diagrams), 1)
+
+    def test_graph_sankey_errors(self):
+        with self.assertRaisesRegex(ValueError, "at least two values"):
+            graph_sankey([1])
+        with self.assertRaisesRegex(ValueError, "must be 0"):
+            graph_sankey([1, -0.5])
+        with self.assertRaisesRegex(ValueError, "same length"):
+            graph_sankey([1, -1], labels=["only_one"])
+        with self.assertRaisesRegex(ValueError, "same length"):
+            graph_sankey([1, -1], orientations=[0, 1, -1])
 
 
 if __name__ == "__main__":
