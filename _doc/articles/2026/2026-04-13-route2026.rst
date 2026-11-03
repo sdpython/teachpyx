@@ -169,3 +169,49 @@ Journée 4 (16/4)
 * manipulation complexes avec pandas, 
   cubes de données avec pandas, passer un indice à droite (colonnes), à gauche (index),
   :ref:`Cube de données et pandas <nbl-c_data-nb_pandas_cube>`
+
+Journée 5 (26/5)
+================
+
+**Retour sur les prétraitements.**
+
+Les prétraitements servent à numériser les données, quel qu'en soit le type.
+Cela dépend du modèle qui est appliqué derrière.
+
+* Le modèle s'apprend-il dans un espace vectoriel ?
+* Est-ce que le modèle a un gradient ou est-ce une méthode ensembliste ?
+* Supporte-t-il les grandes dimensions ?
+* A-t-il besoin de données équilibrées ?
+* Le modèle Supporte-t-il les valeurs manquantes ?
+* Le modèle doit-il être interprété ?
+
+La numérisation des données dépend de ce qui les produit.
+
+* Est-ce numérique ?
+* Est-ce du texte ? Des Catégories ? Des catégories mal orthographiées ?
+* Est-ce des images, des vidéos, autre ?
+
+Le problème a résoudre est-il ?
+
+* Classification, Régression, Ranking ?
+* Une série temporelle ?
+* Un problème de recommandation ?
+* Un problème de détection d'anomalies ?
+* Analyse de survie ?
+* Autre ?
+
+Peut-on aider le modèle ?
+
+* Qu'est ce qui est important pour le modèle ? De connaître le modèle de voiture ou le taux d'accident ?
+* Deux catégories sont liées ? L'une ne peut apparaître que si une autre est présente ?
+
+Transfer Learning
+
+* LLM
+
+Et avec :epkg:`scikit-learn` ?
+
+Prédire la note d'un vin ?
+
+:func:`load_wines_dataset <teachpyx.datasets.wines.load_wines_dataset>`
+
